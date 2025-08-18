@@ -2047,20 +2047,20 @@ find_nearest_on_curve_t.exit:                     ; preds = %112
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define internal fastcc float @find_nearest_on_line_t(<2 x float> noundef %0, <2 x float> noundef %1, <2 x float> noundef %2) unnamed_addr #12 {
-  %4 = fsub reassoc nsz arcp contract afn <2 x float> %1, %0
-  %5 = fsub reassoc nsz arcp contract afn <2 x float> %1, %0
-  %.sroa.04.4.vec.insert = shufflevector <2 x float> %4, <2 x float> %5, <2 x i32> <i32 0, i32 3>
-  %6 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.04.4.vec.insert) #30
-  %7 = fsub reassoc nsz arcp contract afn <2 x float> %2, %0
-  %8 = fsub reassoc nsz arcp contract afn <2 x float> %2, %0
-  %9 = fmul reassoc nsz arcp contract afn <2 x float> %7, %4
-  %10 = fmul reassoc nsz arcp contract afn <2 x float> %8, %5
-  %shift = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %11 = fadd reassoc nsz arcp contract afn <2 x float> %9, %shift
-  %12 = extractelement <2 x float> %11, i64 0
-  %13 = fmul reassoc nsz arcp contract afn float %6, %6
-  %14 = fdiv reassoc nsz arcp contract afn float %12, %13
-  ret float %14
+  %foldExtExtBinop = fsub reassoc nsz arcp contract afn <2 x float> %1, %0
+  %foldExtExtBinop24 = fsub reassoc nsz arcp contract afn <2 x float> %1, %0
+  %.sroa.04.4.vec.insert = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop24, <2 x i32> <i32 0, i32 3>
+  %4 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.04.4.vec.insert) #30
+  %foldExtExtBinop26 = fsub reassoc nsz arcp contract afn <2 x float> %2, %0
+  %foldExtExtBinop28 = fsub reassoc nsz arcp contract afn <2 x float> %2, %0
+  %foldExtExtBinop30 = fmul reassoc nsz arcp contract afn <2 x float> %foldExtExtBinop26, %foldExtExtBinop
+  %foldExtExtBinop32 = fmul reassoc nsz arcp contract afn <2 x float> %foldExtExtBinop28, %foldExtExtBinop24
+  %shift = shufflevector <2 x float> %foldExtExtBinop32, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop34 = fadd reassoc nsz arcp contract afn <2 x float> %foldExtExtBinop30, %shift
+  %5 = extractelement <2 x float> %foldExtExtBinop34, i64 0
+  %6 = fmul reassoc nsz arcp contract afn float %4, %4
+  %7 = fdiv reassoc nsz arcp contract afn float %5, %6
+  ret float %7
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -2072,10 +2072,10 @@ define internal fastcc float @find_nearest_on_curve_t(<2 x float> noundef %0, <2
   %.sroa.026.4.vec.extract = extractelement <2 x float> %4, i64 1
   %.sroa.034.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.034.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %6 = fsub reassoc nsz arcp contract afn <2 x float> %4, %0
-  %7 = fsub reassoc nsz arcp contract afn float %.sroa.026.4.vec.extract, %.sroa.034.4.vec.extract
-  %.sroa.020.4.vec.insert = insertelement <2 x float> %6, float %7, i64 1
-  %8 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.020.4.vec.insert) #30
+  %foldExtExtBinop = fsub reassoc nsz arcp contract afn <2 x float> %4, %0
+  %6 = fsub reassoc nsz arcp contract afn float %.sroa.026.4.vec.extract, %.sroa.034.4.vec.extract
+  %.sroa.020.4.vec.insert = insertelement <2 x float> %foldExtExtBinop, float %6, i64 1
+  %7 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.020.4.vec.insert) #30
   %.sroa.033.0.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.033.4.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.032.0.vec.extract = extractelement <2 x float> %2, i64 0
@@ -2084,52 +2084,52 @@ define internal fastcc float @find_nearest_on_curve_t(<2 x float> noundef %0, <2
   %.sroa.031.4.vec.extract = extractelement <2 x float> %3, i64 1
   %factor.op.fmul64 = fneg reassoc nsz arcp contract afn float %.sroa.031.0.vec.extract
   %factor.op.fmul68 = fneg reassoc nsz arcp contract afn float %.sroa.031.4.vec.extract
-  br label %10
+  br label %9
 
-9:                                                ; preds = %10
+8:                                                ; preds = %9
   ret float %.1
 
-10:                                               ; preds = %5, %10
-  %.072 = phi float [ 0.000000e+00, %5 ], [ %.1, %10 ]
-  %.03971 = phi float [ %8, %5 ], [ %.140, %10 ]
-  %.04170 = phi i32 [ 0, %5 ], [ %37, %10 ]
-  %11 = uitofp nneg i32 %.04170 to double
-  %12 = fmul reassoc nsz arcp contract afn double %11, 1.000000e-02
-  %13 = fptrunc reassoc nsz arcp contract afn double %12 to float
-  %14 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %13
-  %15 = fmul reassoc nsz arcp contract afn float %14, %14
-  %16 = fmul reassoc nsz arcp contract afn float %15, %14
-  %17 = fmul reassoc nsz arcp contract afn float %14, 3.000000e+00
-  %18 = fmul reassoc nsz arcp contract afn float %14, %13
-  %19 = fmul reassoc nsz arcp contract afn float %18, %17
-  %20 = fmul reassoc nsz arcp contract afn float %13, %13
-  %21 = fmul reassoc nsz arcp contract afn float %17, %20
-  %22 = fmul reassoc nsz arcp contract afn float %20, %13
-  %.neg.reass = fmul reassoc nsz arcp contract afn float %22, %factor.op.fmul64
-  %23 = fmul reassoc nsz arcp contract afn float %.sroa.032.0.vec.extract, %21
-  %24 = fmul reassoc nsz arcp contract afn float %.sroa.034.0.vec.extract, %16
-  %25 = fadd reassoc nsz arcp contract afn float %23, %24
-  %26 = fmul reassoc nsz arcp contract afn float %.sroa.033.0.vec.extract, %19
-  %27 = fadd reassoc nsz arcp contract afn float %25, %26
-  %reass.add58 = fsub reassoc nsz arcp contract afn float %.neg.reass, %27
-  %28 = fadd reassoc nsz arcp contract afn float %reass.add58, %.sroa.026.0.vec.extract
-  %.neg50.reass = fmul reassoc nsz arcp contract afn float %22, %factor.op.fmul68
-  %29 = fmul reassoc nsz arcp contract afn float %.sroa.032.4.vec.extract, %21
-  %30 = fmul reassoc nsz arcp contract afn float %.sroa.034.4.vec.extract, %16
-  %31 = fadd reassoc nsz arcp contract afn float %29, %30
-  %32 = fmul reassoc nsz arcp contract afn float %.sroa.033.4.vec.extract, %19
-  %33 = fadd reassoc nsz arcp contract afn float %31, %32
-  %reass.add61 = fsub reassoc nsz arcp contract afn float %.neg50.reass, %33
-  %34 = fadd reassoc nsz arcp contract afn float %reass.add61, %.sroa.026.4.vec.extract
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %28, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %34, i64 1
-  %35 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.0.4.vec.insert) #30
-  %36 = fcmp reassoc nsz arcp contract afn olt float %35, %.03971
-  %.140 = select nsz i1 %36, float %35, float %.03971
-  %.1 = select nsz i1 %36, float %13, float %.072
-  %37 = add nuw nsw i32 %.04170, 1
-  %exitcond.not = icmp eq i32 %37, 100
-  br i1 %exitcond.not, label %9, label %10
+9:                                                ; preds = %5, %9
+  %.072 = phi float [ 0.000000e+00, %5 ], [ %.1, %9 ]
+  %.03971 = phi float [ %7, %5 ], [ %.140, %9 ]
+  %.04170 = phi i32 [ 0, %5 ], [ %36, %9 ]
+  %10 = uitofp nneg i32 %.04170 to double
+  %11 = fmul reassoc nsz arcp contract afn double %10, 1.000000e-02
+  %12 = fptrunc reassoc nsz arcp contract afn double %11 to float
+  %13 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %12
+  %14 = fmul reassoc nsz arcp contract afn float %13, %13
+  %15 = fmul reassoc nsz arcp contract afn float %14, %13
+  %16 = fmul reassoc nsz arcp contract afn float %13, 3.000000e+00
+  %17 = fmul reassoc nsz arcp contract afn float %13, %12
+  %18 = fmul reassoc nsz arcp contract afn float %17, %16
+  %19 = fmul reassoc nsz arcp contract afn float %12, %12
+  %20 = fmul reassoc nsz arcp contract afn float %16, %19
+  %21 = fmul reassoc nsz arcp contract afn float %19, %12
+  %.neg.reass = fmul reassoc nsz arcp contract afn float %21, %factor.op.fmul64
+  %22 = fmul reassoc nsz arcp contract afn float %.sroa.032.0.vec.extract, %20
+  %23 = fmul reassoc nsz arcp contract afn float %.sroa.034.0.vec.extract, %15
+  %24 = fadd reassoc nsz arcp contract afn float %22, %23
+  %25 = fmul reassoc nsz arcp contract afn float %.sroa.033.0.vec.extract, %18
+  %26 = fadd reassoc nsz arcp contract afn float %24, %25
+  %reass.add58 = fsub reassoc nsz arcp contract afn float %.neg.reass, %26
+  %27 = fadd reassoc nsz arcp contract afn float %reass.add58, %.sroa.026.0.vec.extract
+  %.neg50.reass = fmul reassoc nsz arcp contract afn float %21, %factor.op.fmul68
+  %28 = fmul reassoc nsz arcp contract afn float %.sroa.032.4.vec.extract, %20
+  %29 = fmul reassoc nsz arcp contract afn float %.sroa.034.4.vec.extract, %15
+  %30 = fadd reassoc nsz arcp contract afn float %28, %29
+  %31 = fmul reassoc nsz arcp contract afn float %.sroa.033.4.vec.extract, %18
+  %32 = fadd reassoc nsz arcp contract afn float %30, %31
+  %reass.add61 = fsub reassoc nsz arcp contract afn float %.neg50.reass, %32
+  %33 = fadd reassoc nsz arcp contract afn float %reass.add61, %.sroa.026.4.vec.extract
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %27, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %33, i64 1
+  %34 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %.sroa.0.4.vec.insert) #30
+  %35 = fcmp reassoc nsz arcp contract afn olt float %34, %.03971
+  %.140 = select nsz i1 %35, float %34, float %.03971
+  %.1 = select nsz i1 %35, float %12, float %.072
+  %36 = add nuw nsw i32 %.04170, 1
+  %exitcond.not = icmp eq i32 %36, 100
+  br i1 %exitcond.not, label %8, label %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

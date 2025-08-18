@@ -42,94 +42,94 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5
   %.sroa.053.8.vec.insert = insertelement <2 x double> %.sroa.053.0.vec.insert, double %34, i64 1
   %38 = fmul <2 x double> %13, %.sroa.053.8.vec.insert
   %shift = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %39 = fadd <2 x double> %38, %shift
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = fmul double %18, %37
-  %42 = fadd double %41, %40
-  %43 = fneg double %5
-  %44 = fcmp ogt double %42, %43
-  %45 = fcmp olt double %42, %5
-  %or.cond = and i1 %44, %45
-  br i1 %or.cond, label %46, label %47
+  %foldExtExtBinop = fadd <2 x double> %38, %shift
+  %39 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %40 = fmul double %18, %37
+  %41 = fadd double %40, %39
+  %42 = fneg double %5
+  %43 = fcmp ogt double %41, %42
+  %44 = fcmp olt double %41, %5
+  %or.cond = and i1 %43, %44
+  br i1 %or.cond, label %45, label %46
+
+45:                                               ; preds = %10
+  store i8 1, ptr %9, align 1, !tbaa !18
+  br label %92
 
 46:                                               ; preds = %10
-  store i8 1, ptr %9, align 1, !tbaa !18
-  br label %96
-
-47:                                               ; preds = %10
   store i8 0, ptr %9, align 1, !tbaa !18
-  %48 = fdiv double 1.000000e+00, %42
-  %49 = load <2 x double>, ptr %0, align 1, !tbaa !4, !noalias !20
-  %50 = load <2 x double>, ptr %2, align 1, !tbaa !4, !noalias !20
-  %51 = fsub <2 x double> %49, %50
-  %52 = getelementptr i8, ptr %0, i64 16
-  %53 = load double, ptr %52, align 8, !tbaa !10, !noalias !20
-  %54 = fsub double %53, %17
-  %55 = fmul <2 x double> %.sroa.053.8.vec.insert, %51
-  %shift110 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = fadd <2 x double> %55, %shift110
-  %57 = extractelement <2 x double> %56, i64 0
-  %58 = fmul double %37, %54
-  %59 = fadd double %58, %57
-  %60 = fmul double %48, %59
-  store double %60, ptr %7, align 8, !tbaa !10
-  %61 = fsub double 0.000000e+00, %5
-  %62 = fcmp olt double %60, %61
-  br i1 %62, label %96, label %63
+  %47 = fdiv double 1.000000e+00, %41
+  %48 = load <2 x double>, ptr %0, align 1, !tbaa !4, !noalias !20
+  %49 = load <2 x double>, ptr %2, align 1, !tbaa !4, !noalias !20
+  %50 = fsub <2 x double> %48, %49
+  %51 = getelementptr i8, ptr %0, i64 16
+  %52 = load double, ptr %51, align 8, !tbaa !10, !noalias !20
+  %53 = fsub double %52, %17
+  %54 = fmul <2 x double> %.sroa.053.8.vec.insert, %50
+  %shift111 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop112 = fadd <2 x double> %54, %shift111
+  %55 = extractelement <2 x double> %foldExtExtBinop112, i64 0
+  %56 = fmul double %37, %53
+  %57 = fadd double %56, %55
+  %58 = fmul double %47, %57
+  store double %58, ptr %7, align 8, !tbaa !10
+  %59 = fsub double 0.000000e+00, %5
+  %60 = fcmp olt double %58, %59
+  br i1 %60, label %92, label %61
 
-63:                                               ; preds = %47
-  %64 = fadd double %5, 1.000000e+00
-  %65 = fcmp ogt double %60, %64
-  br i1 %65, label %96, label %66
+61:                                               ; preds = %46
+  %62 = fadd double %5, 1.000000e+00
+  %63 = fcmp ogt double %58, %62
+  br i1 %63, label %92, label %64
 
-66:                                               ; preds = %63
-  %.sroa.046.8.vec.extract = extractelement <2 x double> %51, i64 1
+64:                                               ; preds = %61
+  %.sroa.046.8.vec.extract = extractelement <2 x double> %50, i64 1
   %.sroa.070.8.vec.extract = extractelement <2 x double> %13, i64 1
-  %67 = fneg double %.sroa.070.8.vec.extract
-  %68 = fmul double %54, %67
-  %69 = tail call double @llvm.fmuladd.f64(double %.sroa.046.8.vec.extract, double %18, double %68)
+  %65 = fneg double %.sroa.070.8.vec.extract
+  %66 = fmul double %53, %65
+  %67 = tail call double @llvm.fmuladd.f64(double %.sroa.046.8.vec.extract, double %18, double %66)
   %.sroa.070.0.vec.extract = extractelement <2 x double> %13, i64 0
-  %.sroa.046.0.vec.extract = extractelement <2 x double> %51, i64 0
-  %70 = fneg double %18
-  %71 = fmul double %.sroa.046.0.vec.extract, %70
-  %72 = tail call double @llvm.fmuladd.f64(double %54, double %.sroa.070.0.vec.extract, double %71)
-  %73 = fneg double %.sroa.070.0.vec.extract
-  %74 = fmul double %.sroa.046.8.vec.extract, %73
-  %75 = tail call double @llvm.fmuladd.f64(double %.sroa.046.0.vec.extract, double %.sroa.070.8.vec.extract, double %74)
-  %.sroa.038.0.vec.insert = insertelement <2 x double> poison, double %69, i64 0
-  %.sroa.038.8.vec.insert = insertelement <2 x double> %.sroa.038.0.vec.insert, double %72, i64 1
-  %76 = load <2 x double>, ptr %1, align 1, !tbaa !4
-  %77 = fmul <2 x double> %.sroa.038.8.vec.insert, %76
-  %shift111 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %78 = fadd <2 x double> %77, %shift111
-  %79 = extractelement <2 x double> %78, i64 0
-  %80 = load double, ptr %26, align 8, !tbaa !10
-  %81 = fmul double %75, %80
-  %82 = fadd double %81, %79
-  %83 = fmul double %48, %82
-  store double %83, ptr %8, align 8, !tbaa !10
-  %84 = fcmp olt double %83, %61
-  br i1 %84, label %96, label %85
+  %.sroa.046.0.vec.extract = extractelement <2 x double> %50, i64 0
+  %68 = fneg double %18
+  %69 = fmul double %.sroa.046.0.vec.extract, %68
+  %70 = tail call double @llvm.fmuladd.f64(double %53, double %.sroa.070.0.vec.extract, double %69)
+  %71 = fneg double %.sroa.070.0.vec.extract
+  %72 = fmul double %.sroa.046.8.vec.extract, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.046.0.vec.extract, double %.sroa.070.8.vec.extract, double %72)
+  %.sroa.038.0.vec.insert = insertelement <2 x double> poison, double %67, i64 0
+  %.sroa.038.8.vec.insert = insertelement <2 x double> %.sroa.038.0.vec.insert, double %70, i64 1
+  %74 = load <2 x double>, ptr %1, align 1, !tbaa !4
+  %75 = fmul <2 x double> %.sroa.038.8.vec.insert, %74
+  %shift114 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop115 = fadd <2 x double> %75, %shift114
+  %76 = extractelement <2 x double> %foldExtExtBinop115, i64 0
+  %77 = load double, ptr %26, align 8, !tbaa !10
+  %78 = fmul double %73, %77
+  %79 = fadd double %78, %76
+  %80 = fmul double %47, %79
+  store double %80, ptr %8, align 8, !tbaa !10
+  %81 = fcmp olt double %80, %59
+  br i1 %81, label %92, label %82
 
-85:                                               ; preds = %66
-  %86 = load double, ptr %7, align 8, !tbaa !10
-  %87 = fadd double %83, %86
-  %88 = fcmp ogt double %87, %64
-  br i1 %88, label %96, label %89
+82:                                               ; preds = %64
+  %83 = load double, ptr %7, align 8, !tbaa !10
+  %84 = fadd double %80, %83
+  %85 = fcmp ogt double %84, %62
+  br i1 %85, label %92, label %86
 
-89:                                               ; preds = %85
-  %90 = fmul <2 x double> %20, %.sroa.038.8.vec.insert
-  %shift112 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %91 = fadd <2 x double> %90, %shift112
-  %92 = extractelement <2 x double> %91, i64 0
-  %93 = fmul double %23, %75
-  %94 = fadd double %93, %92
-  %95 = fmul double %48, %94
-  store double %95, ptr %6, align 8, !tbaa !10
-  br label %96
+86:                                               ; preds = %82
+  %87 = fmul <2 x double> %20, %.sroa.038.8.vec.insert
+  %shift117 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop118 = fadd <2 x double> %87, %shift117
+  %88 = extractelement <2 x double> %foldExtExtBinop118, i64 0
+  %89 = fmul double %23, %73
+  %90 = fadd double %89, %88
+  %91 = fmul double %47, %90
+  store double %91, ptr %6, align 8, !tbaa !10
+  br label %92
 
-96:                                               ; preds = %63, %47, %66, %85, %89, %46
-  %.0 = phi i1 [ false, %46 ], [ false, %63 ], [ false, %47 ], [ true, %89 ], [ false, %85 ], [ false, %66 ]
+92:                                               ; preds = %61, %46, %64, %82, %86, %45
+  %.0 = phi i1 [ false, %45 ], [ false, %61 ], [ false, %46 ], [ true, %86 ], [ false, %82 ], [ false, %64 ]
   ret i1 %.0
 }
 

@@ -24000,24 +24000,24 @@ _ZNK3irr4core8CMatrix4IfE18getRotationDegreesERKNS0_8vector3dIfEE.exit: ; preds 
   %mul.i2 = fmul nsz float %ref.tmp.sroa.5.12.vec.extract, %ref.tmp.sroa.5.12.vec.extract
   %conv.i = fpext float %mul.i2 to double
   %ref.tmp.sroa.0.0.vec.extract = extractelement <2 x float> %138, i64 0
-  %149 = fmul nsz <2 x float> %138, %138
-  %mul4.i = extractelement <2 x float> %149, i64 0
+  %foldExtExtBinop = fmul nsz <2 x float> %138, %138
+  %mul4.i = extractelement <2 x float> %foldExtExtBinop, i64 0
   %conv5.i = fpext float %mul4.i to double
   %ref.tmp.sroa.0.4.vec.extract = extractelement <2 x float> %138, i64 1
   %mul7.i = fmul nsz float %ref.tmp.sroa.0.4.vec.extract, %ref.tmp.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %ref.tmp.sroa.5.8.vec.extract = extractelement <2 x float> %148, i64 0
-  %150 = fmul nsz <2 x float> %148, %148
-  %mul10.i = extractelement <2 x float> %150, i64 0
+  %foldExtExtBinop50 = fmul nsz <2 x float> %148, %148
+  %mul10.i = extractelement <2 x float> %foldExtExtBinop50, i64 0
   %conv11.i = fpext float %mul10.i to double
-  %151 = fneg nsz float %ref.tmp.sroa.0.0.vec.extract
-  %neg.i = fmul nsz float %ref.tmp.sroa.5.8.vec.extract, %151
-  %152 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.4.vec.extract, float %ref.tmp.sroa.5.12.vec.extract, float %neg.i)
-  %conv18.i = fpext float %152 to double
+  %149 = fneg nsz float %ref.tmp.sroa.0.0.vec.extract
+  %neg.i = fmul nsz float %ref.tmp.sroa.5.8.vec.extract, %149
+  %150 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.4.vec.extract, float %ref.tmp.sroa.5.12.vec.extract, float %neg.i)
+  %conv18.i = fpext float %150 to double
   %mul19.i = fmul nsz double %conv18.i, 2.000000e+00
   %sub.i.i = fadd nsz double %mul19.i, -1.000000e+00
-  %153 = call nsz noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i = fcmp nsz ugt double %153, 0x3EB0C6F7A0B5ED8D
+  %151 = call nsz noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i = fcmp nsz ugt double %151, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i.i, label %if.else.i6, label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZNK3irr4core8CMatrix4IfE18getRotationDegreesERKNS0_8vector3dIfEE.exit
@@ -24029,8 +24029,8 @@ if.then.i5:                                       ; preds = %_ZNK3irr4core8CMatr
 
 if.else.i6:                                       ; preds = %_ZNK3irr4core8CMatrix4IfE18getRotationDegreesERKNS0_8vector3dIfEE.exit
   %sub.i87.i = fadd nsz double %mul19.i, 1.000000e+00
-  %154 = call nsz noundef double @llvm.fabs.f64(double %sub.i87.i)
-  %cmp.i88.i = fcmp nsz ugt double %154, 0x3EB0C6F7A0B5ED8D
+  %152 = call nsz noundef double @llvm.fabs.f64(double %sub.i87.i)
+  %cmp.i88.i = fcmp nsz ugt double %152, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i88.i, label %if.else42.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.else.i6
@@ -24042,28 +24042,28 @@ if.then31.i:                                      ; preds = %if.else.i6
 
 if.else42.i:                                      ; preds = %if.else.i6
   %mul48.i = fmul nsz float %ref.tmp.sroa.5.12.vec.extract, %ref.tmp.sroa.5.8.vec.extract
-  %155 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.0.vec.extract, float %ref.tmp.sroa.0.4.vec.extract, float %mul48.i)
-  %conv49.i = fpext float %155 to double
+  %153 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.0.vec.extract, float %ref.tmp.sroa.0.4.vec.extract, float %mul48.i)
+  %conv49.i = fpext float %153 to double
   %mul50.i = fmul nsz double %conv49.i, 2.000000e+00
   %sub.i = fsub nsz double %conv5.i, %conv8.i
   %sub51.i = fsub nsz double %sub.i, %conv11.i
   %add.i = fadd nsz double %sub51.i, %conv.i
   %call52.i = call nsz double @atan2(double noundef %mul50.i, double noundef %add.i) #41
   %mul60.i = fmul nsz float %ref.tmp.sroa.5.12.vec.extract, %ref.tmp.sroa.0.0.vec.extract
-  %156 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.4.vec.extract, float %ref.tmp.sroa.5.8.vec.extract, float %mul60.i)
-  %conv61.i = fpext float %156 to double
+  %154 = call nsz float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.4.vec.extract, float %ref.tmp.sroa.5.8.vec.extract, float %mul60.i)
+  %conv61.i = fpext float %154 to double
   %mul62.i = fmul nsz double %conv61.i, 2.000000e+00
-  %157 = fadd nsz double %conv5.i, %conv8.i
-  %add64.i = fsub nsz double %conv11.i, %157
+  %155 = fadd nsz double %conv5.i, %conv8.i
+  %add64.i = fsub nsz double %conv11.i, %155
   %add65.i = fadd nsz double %add64.i, %conv.i
   %call66.i = call nsz double @atan2(double noundef %mul62.i, double noundef %add65.i) #41
   %conv67.i = fptrunc double %call66.i to float
   %res.sroa.0.0.vec.insert23 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %conv67.i, i64 0
   %cmp.i.i.i = fcmp nsz olt double %mul19.i, -1.000000e+00
-  %158 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
-  %cmp.i2.i.i = fcmp nsz olt double %158, 1.000000e+00
-  %159 = select i1 %cmp.i2.i.i, double %158, double 1.000000e+00
-  %call71.i = call nsz double @asin(double noundef %159) #41
+  %156 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
+  %cmp.i2.i.i = fcmp nsz olt double %156, 1.000000e+00
+  %157 = select i1 %cmp.i2.i.i, double %156, double 1.000000e+00
+  %call71.i = call nsz double @asin(double noundef %157) #41
   %conv72.i = fptrunc double %call71.i to float
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
@@ -24073,9 +24073,9 @@ _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i5
   %.sink.i = phi float [ %conv72.i, %if.else42.i ], [ 0xBFF921FB60000000, %if.then31.i ], [ 0x3FF921FB60000000, %if.then.i5 ]
   %res.sroa.8.0 = fptrunc double %res.sroa.8.0.in to float
   %res.sroa.0.4.vec.insert = insertelement <2 x float> %res.sroa.0.0, float %.sink.i, i64 1
-  %160 = fmul nsz <2 x float> %res.sroa.0.4.vec.insert, splat (float 0x404CA5DC00000000)
+  %158 = fmul nsz <2 x float> %res.sroa.0.4.vec.insert, splat (float 0x404CA5DC00000000)
   %mul3.i69 = fmul nsz float %res.sroa.8.0, 0x404CA5DC00000000
-  %.fca.0.insert.i72 = insertvalue { <2 x float>, float } poison, <2 x float> %160, 0
+  %.fca.0.insert.i72 = insertvalue { <2 x float>, float } poison, <2 x float> %158, 0
   %.fca.1.insert.i73 = insertvalue { <2 x float>, float } %.fca.0.insert.i72, float %mul3.i69, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %rot)
   ret { <2 x float>, float } %.fca.1.insert.i73

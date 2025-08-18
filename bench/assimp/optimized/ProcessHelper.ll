@@ -937,23 +937,23 @@ _ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE.
   %.sroa.11.1 = phi float [ 0xC2374876E0000000, %3 ], [ %62, %32 ]
   %.sroa.0.1 = phi <2 x float> [ splat (float 0xC2374876E0000000), %3 ], [ %.sroa.0.4.vec.insert.i27.i, %32 ]
   %.sroa.014.0.vec.extract = extractelement <2 x float> %.sroa.014.1, i64 0
-  %63 = fsub <2 x float> %.sroa.0.1, %.sroa.014.1
-  %64 = extractelement <2 x float> %63, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.0.1, %.sroa.014.1
+  %63 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.014.4.vec.extract = extractelement <2 x float> %.sroa.014.1, i64 1
-  %65 = fsub <2 x float> %.sroa.0.1, %.sroa.014.1
-  %66 = extractelement <2 x float> %65, i64 1
-  %67 = fsub float %.sroa.11.1, %.sroa.1125.1
-  %68 = fmul float %64, 5.000000e-01
-  %69 = fmul float %66, 5.000000e-01
-  %70 = fmul float %67, 5.000000e-01
-  %71 = fadd float %.sroa.014.0.vec.extract, %68
-  %72 = fadd float %.sroa.014.4.vec.extract, %69
-  %73 = fadd float %.sroa.1125.1, %70
-  %.sroa.0.0.vec.insert.i21.i = insertelement <2 x float> poison, float %71, i64 0
-  %.sroa.0.4.vec.insert.i22.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i21.i, float %72, i64 1
+  %foldExtExtBinop32 = fsub <2 x float> %.sroa.0.1, %.sroa.014.1
+  %64 = extractelement <2 x float> %foldExtExtBinop32, i64 1
+  %65 = fsub float %.sroa.11.1, %.sroa.1125.1
+  %66 = fmul float %63, 5.000000e-01
+  %67 = fmul float %64, 5.000000e-01
+  %68 = fmul float %65, 5.000000e-01
+  %69 = fadd float %.sroa.014.0.vec.extract, %66
+  %70 = fadd float %.sroa.014.4.vec.extract, %67
+  %71 = fadd float %.sroa.1125.1, %68
+  %.sroa.0.0.vec.insert.i21.i = insertelement <2 x float> poison, float %69, i64 0
+  %.sroa.0.4.vec.insert.i22.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i21.i, float %70, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i22.i, ptr %1, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %73, ptr %.sroa.4.0..sroa_idx.i, align 4
+  store float %71, ptr %.sroa.4.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -1014,16 +1014,16 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assi
   %.sroa.02.1 = phi <2 x float> [ splat (float -1.000000e+10), %1 ], [ %.sroa.0.4.vec.insert.i20.i, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit.loopexit ]
   %.sroa.014.1 = phi <2 x float> [ splat (float 1.000000e+10), %1 ], [ %.sroa.0.4.vec.insert.i.i, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit.loopexit ]
   %25 = phi float [ -2.000000e+10, %1 ], [ %24, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit.loopexit ]
-  %26 = fsub <2 x float> %.sroa.02.1, %.sroa.014.1
-  %27 = extractelement <2 x float> %26, i64 0
-  %28 = fsub <2 x float> %.sroa.02.1, %.sroa.014.1
-  %29 = fmul <2 x float> %28, %28
-  %30 = extractelement <2 x float> %29, i64 1
-  %31 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %30)
-  %32 = tail call noundef float @llvm.fmuladd.f32(float %25, float %25, float %31)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %32)
-  %33 = fmul float %sqrt.i, 0x3F1A36E2E0000000
-  ret float %33
+  %foldExtExtBinop = fsub <2 x float> %.sroa.02.1, %.sroa.014.1
+  %26 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop32 = fsub <2 x float> %.sroa.02.1, %.sroa.014.1
+  %foldExtExtBinop34 = fmul <2 x float> %foldExtExtBinop32, %foldExtExtBinop32
+  %27 = extractelement <2 x float> %foldExtExtBinop34, i64 1
+  %28 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %27)
+  %29 = tail call noundef float @llvm.fmuladd.f32(float %25, float %25, float %28)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %29)
+  %30 = fmul float %sqrt.i, 0x3F1A36E2E0000000
+  ret float %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1032,110 +1032,110 @@ define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit
-  %3 = fsub float %48, %42
+  %3 = fsub float %45, %39
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.sroa.051.0.lcssa = phi <2 x float> [ splat (float -1.000000e+10), %2 ], [ %.sroa.0.4.vec.insert.i22, %._crit_edge.loopexit ]
   %.sroa.064.0.lcssa = phi <2 x float> [ splat (float 1.000000e+10), %2 ], [ %.sroa.0.4.vec.insert.i18, %._crit_edge.loopexit ]
   %4 = phi float [ -2.000000e+10, %2 ], [ %3, %._crit_edge.loopexit ]
-  %5 = fsub <2 x float> %.sroa.051.0.lcssa, %.sroa.064.0.lcssa
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = fsub <2 x float> %.sroa.051.0.lcssa, %.sroa.064.0.lcssa
-  %8 = fmul <2 x float> %7, %7
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %10)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %11)
-  %12 = fmul float %sqrt.i, 0x3F1A36E2E0000000
-  ret float %12
+  %foldExtExtBinop = fsub <2 x float> %.sroa.051.0.lcssa, %.sroa.064.0.lcssa
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop96 = fsub <2 x float> %.sroa.051.0.lcssa, %.sroa.064.0.lcssa
+  %foldExtExtBinop98 = fmul <2 x float> %foldExtExtBinop96, %foldExtExtBinop96
+  %6 = extractelement <2 x float> %foldExtExtBinop98, i64 1
+  %7 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %6)
+  %8 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %7)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %8)
+  %9 = fmul float %sqrt.i, 0x3F1A36E2E0000000
+  ret float %9
 
 .lr.ph:                                           ; preds = %2, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit
-  %.082 = phi i64 [ %49, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ 0, %2 ]
-  %.sroa.1175.081 = phi float [ %42, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ 1.000000e+10, %2 ]
+  %.082 = phi i64 [ %46, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ 0, %2 ]
+  %.sroa.1175.081 = phi float [ %39, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ 1.000000e+10, %2 ]
   %.sroa.064.080 = phi <2 x float> [ %.sroa.0.4.vec.insert.i18, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ splat (float 1.000000e+10), %2 ]
-  %.sroa.1162.079 = phi float [ %48, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ -1.000000e+10, %2 ]
+  %.sroa.1162.079 = phi float [ %45, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ -1.000000e+10, %2 ]
   %.sroa.051.078 = phi <2 x float> [ %.sroa.0.4.vec.insert.i22, %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit ], [ splat (float -1.000000e+10), %2 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %.082
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %18 = load i32, ptr %17, align 4
-  %.not.i = icmp eq i32 %18, 0
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %.082
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %15 = load i32, ptr %14, align 4
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
-  %wide.trip.count.i = zext i32 %18 to i64
+  %wide.trip.count.i = zext i32 %15 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.sroa.1149.0 = phi float [ 1.000000e+10, %.lr.ph.preheader.i ], [ %30, %.lr.ph.i ]
+  %.sroa.1149.0 = phi float [ 1.000000e+10, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
   %.sroa.038.1 = phi <2 x float> [ splat (float 1.000000e+10), %.lr.ph.preheader.i ], [ %.sroa.0.4.vec.insert.i.i, %.lr.ph.i ]
-  %.sroa.11.0 = phi float [ -1.000000e+10, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
+  %.sroa.11.0 = phi float [ -1.000000e+10, %.lr.ph.preheader.i ], [ %33, %.lr.ph.i ]
   %.sroa.026.1 = phi <2 x float> [ splat (float -1.000000e+10), %.lr.ph.preheader.i ], [ %.sroa.0.4.vec.insert.i20.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw %class.aiVector3t, ptr %16, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i64 %indvars.iv.i
   %.sroa.038.0.vec.extract = extractelement <2 x float> %.sroa.038.1, i64 0
-  %20 = load float, ptr %19, align 4
-  %21 = fcmp olt float %.sroa.038.0.vec.extract, %20
-  %22 = select i1 %21, float %.sroa.038.0.vec.extract, float %20
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %17 = load float, ptr %16, align 4
+  %18 = fcmp olt float %.sroa.038.0.vec.extract, %17
+  %19 = select i1 %18, float %.sroa.038.0.vec.extract, float %17
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.038.4.vec.extract = extractelement <2 x float> %.sroa.038.1, i64 1
-  %24 = load float, ptr %23, align 4
-  %25 = fcmp olt float %.sroa.038.4.vec.extract, %24
-  %26 = select i1 %25, float %.sroa.038.4.vec.extract, float %24
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %28 = load float, ptr %27, align 4
-  %29 = fcmp olt float %.sroa.1149.0, %28
-  %30 = select i1 %29, float %.sroa.1149.0, float %28
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %22, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %26, i64 1
+  %21 = load float, ptr %20, align 4
+  %22 = fcmp olt float %.sroa.038.4.vec.extract, %21
+  %23 = select i1 %22, float %.sroa.038.4.vec.extract, float %21
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %25 = load float, ptr %24, align 4
+  %26 = fcmp olt float %.sroa.1149.0, %25
+  %27 = select i1 %26, float %.sroa.1149.0, float %25
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %19, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
   %.sroa.026.0.vec.extract = extractelement <2 x float> %.sroa.026.1, i64 0
-  %31 = fcmp olt float %20, %.sroa.026.0.vec.extract
-  %32 = select i1 %31, float %.sroa.026.0.vec.extract, float %20
+  %28 = fcmp olt float %17, %.sroa.026.0.vec.extract
+  %29 = select i1 %28, float %.sroa.026.0.vec.extract, float %17
   %.sroa.026.4.vec.extract = extractelement <2 x float> %.sroa.026.1, i64 1
-  %33 = fcmp olt float %24, %.sroa.026.4.vec.extract
-  %34 = select i1 %33, float %.sroa.026.4.vec.extract, float %24
-  %35 = fcmp olt float %28, %.sroa.11.0
-  %36 = select i1 %35, float %.sroa.11.0, float %28
-  %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %32, i64 0
-  %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %34, i64 1
+  %30 = fcmp olt float %21, %.sroa.026.4.vec.extract
+  %31 = select i1 %30, float %.sroa.026.4.vec.extract, float %21
+  %32 = fcmp olt float %25, %.sroa.11.0
+  %33 = select i1 %32, float %.sroa.11.0, float %25
+  %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %29, i64 0
+  %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %31, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %.sroa.1149.1 = phi float [ 1.000000e+10, %.lr.ph ], [ %30, %.lr.ph.i ]
+  %.sroa.1149.1 = phi float [ 1.000000e+10, %.lr.ph ], [ %27, %.lr.ph.i ]
   %.sroa.038.2 = phi <2 x float> [ splat (float 1.000000e+10), %.lr.ph ], [ %.sroa.0.4.vec.insert.i.i, %.lr.ph.i ]
-  %.sroa.11.1 = phi float [ -1.000000e+10, %.lr.ph ], [ %36, %.lr.ph.i ]
+  %.sroa.11.1 = phi float [ -1.000000e+10, %.lr.ph ], [ %33, %.lr.ph.i ]
   %.sroa.026.2 = phi <2 x float> [ splat (float -1.000000e+10), %.lr.ph ], [ %.sroa.0.4.vec.insert.i20.i, %.lr.ph.i ]
   %.sroa.038.0.vec.extract43 = extractelement <2 x float> %.sroa.038.2, i64 0
   %.sroa.064.0.vec.extract69 = extractelement <2 x float> %.sroa.064.080, i64 0
-  %37 = fcmp olt float %.sroa.038.0.vec.extract43, %.sroa.064.0.vec.extract69
-  %38 = select i1 %37, float %.sroa.038.0.vec.extract43, float %.sroa.064.0.vec.extract69
+  %34 = fcmp olt float %.sroa.038.0.vec.extract43, %.sroa.064.0.vec.extract69
+  %35 = select i1 %34, float %.sroa.038.0.vec.extract43, float %.sroa.064.0.vec.extract69
   %.sroa.038.4.vec.extract48 = extractelement <2 x float> %.sroa.038.2, i64 1
   %.sroa.064.4.vec.extract74 = extractelement <2 x float> %.sroa.064.080, i64 1
-  %39 = fcmp olt float %.sroa.038.4.vec.extract48, %.sroa.064.4.vec.extract74
-  %40 = select i1 %39, float %.sroa.038.4.vec.extract48, float %.sroa.064.4.vec.extract74
-  %41 = fcmp olt float %.sroa.1149.1, %.sroa.1175.081
-  %42 = select i1 %41, float %.sroa.1149.1, float %.sroa.1175.081
-  %.sroa.0.0.vec.insert.i17 = insertelement <2 x float> poison, float %38, i64 0
-  %.sroa.0.4.vec.insert.i18 = insertelement <2 x float> %.sroa.0.0.vec.insert.i17, float %40, i64 1
+  %36 = fcmp olt float %.sroa.038.4.vec.extract48, %.sroa.064.4.vec.extract74
+  %37 = select i1 %36, float %.sroa.038.4.vec.extract48, float %.sroa.064.4.vec.extract74
+  %38 = fcmp olt float %.sroa.1149.1, %.sroa.1175.081
+  %39 = select i1 %38, float %.sroa.1149.1, float %.sroa.1175.081
+  %.sroa.0.0.vec.insert.i17 = insertelement <2 x float> poison, float %35, i64 0
+  %.sroa.0.4.vec.insert.i18 = insertelement <2 x float> %.sroa.0.0.vec.insert.i17, float %37, i64 1
   %.sroa.051.0.vec.extract56 = extractelement <2 x float> %.sroa.051.078, i64 0
   %.sroa.026.0.vec.extract31 = extractelement <2 x float> %.sroa.026.2, i64 0
-  %43 = fcmp olt float %.sroa.051.0.vec.extract56, %.sroa.026.0.vec.extract31
-  %44 = select i1 %43, float %.sroa.026.0.vec.extract31, float %.sroa.051.0.vec.extract56
+  %40 = fcmp olt float %.sroa.051.0.vec.extract56, %.sroa.026.0.vec.extract31
+  %41 = select i1 %40, float %.sroa.026.0.vec.extract31, float %.sroa.051.0.vec.extract56
   %.sroa.051.4.vec.extract61 = extractelement <2 x float> %.sroa.051.078, i64 1
   %.sroa.026.4.vec.extract36 = extractelement <2 x float> %.sroa.026.2, i64 1
-  %45 = fcmp olt float %.sroa.051.4.vec.extract61, %.sroa.026.4.vec.extract36
-  %46 = select i1 %45, float %.sroa.026.4.vec.extract36, float %.sroa.051.4.vec.extract61
-  %47 = fcmp olt float %.sroa.1162.079, %.sroa.11.1
-  %48 = select i1 %47, float %.sroa.11.1, float %.sroa.1162.079
-  %.sroa.0.0.vec.insert.i21 = insertelement <2 x float> poison, float %44, i64 0
-  %.sroa.0.4.vec.insert.i22 = insertelement <2 x float> %.sroa.0.0.vec.insert.i21, float %46, i64 1
-  %49 = add nuw i64 %.082, 1
-  %exitcond.not = icmp eq i64 %49, %1
+  %42 = fcmp olt float %.sroa.051.4.vec.extract61, %.sroa.026.4.vec.extract36
+  %43 = select i1 %42, float %.sroa.026.4.vec.extract36, float %.sroa.051.4.vec.extract61
+  %44 = fcmp olt float %.sroa.1162.079, %.sroa.11.1
+  %45 = select i1 %44, float %.sroa.11.1, float %.sroa.1162.079
+  %.sroa.0.0.vec.insert.i21 = insertelement <2 x float> poison, float %41, i64 0
+  %.sroa.0.4.vec.insert.i22 = insertelement <2 x float> %.sroa.0.0.vec.insert.i21, float %43, i64 1
+  %46 = add nuw i64 %.082, 1
+  %exitcond.not = icmp eq i64 %46, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 }
 

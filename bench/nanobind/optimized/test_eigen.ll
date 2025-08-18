@@ -11746,7 +11746,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.off = add i64 %13, 3
   %.not = icmp ult i64 %.off, 7
   %20 = load ptr, ptr %0, align 8, !tbaa !677
-  br i1 %.not, label %65, label %21
+  br i1 %.not, label %64, label %21
 
 21:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit
   %22 = getelementptr i32, ptr %20, i64 %.0.i.i.i.i
@@ -11803,53 +11803,53 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %50 = shufflevector <4 x i32> %49, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %51 = add <4 x i32> %50, %48
   %shift = shufflevector <4 x i32> %51, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %52 = add nsw <4 x i32> %51, %shift
-  %53 = extractelement <4 x i32> %52, i64 0
-  %54 = icmp sgt i64 %.0.i.i.i.i, 0
-  br i1 %54, label %.lr.ph85, label %.preheader
+  %foldExtExtBinop = add nsw <4 x i32> %51, %shift
+  %52 = extractelement <4 x i32> %foldExtExtBinop, i64 0
+  %53 = icmp sgt i64 %.0.i.i.i.i, 0
+  br i1 %53, label %.lr.ph85, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph85, %47
-  %.075.lcssa = phi i32 [ %53, %47 ], [ %58, %.lr.ph85 ]
-  %55 = icmp slt i64 %19, %5
-  br i1 %55, label %.lr.ph89, label %.loopexit
+  %.075.lcssa = phi i32 [ %52, %47 ], [ %57, %.lr.ph85 ]
+  %54 = icmp slt i64 %19, %5
+  br i1 %54, label %.lr.ph89, label %.loopexit
 
 .lr.ph85:                                         ; preds = %47, %.lr.ph85
-  %.05683 = phi i64 [ %59, %.lr.ph85 ], [ 0, %47 ]
-  %.07582 = phi i32 [ %58, %.lr.ph85 ], [ %53, %47 ]
-  %56 = getelementptr inbounds nuw i32, ptr %20, i64 %.05683
-  %57 = load i32, ptr %56, align 4, !tbaa !124
-  %58 = add nsw i32 %57, %.07582
-  %59 = add nuw nsw i64 %.05683, 1
-  %exitcond.not = icmp eq i64 %59, %.0.i.i.i.i
+  %.05683 = phi i64 [ %58, %.lr.ph85 ], [ 0, %47 ]
+  %.07582 = phi i32 [ %57, %.lr.ph85 ], [ %52, %47 ]
+  %55 = getelementptr inbounds nuw i32, ptr %20, i64 %.05683
+  %56 = load i32, ptr %55, align 4, !tbaa !124
+  %57 = add nsw i32 %56, %.07582
+  %58 = add nuw nsw i64 %.05683, 1
+  %exitcond.not = icmp eq i64 %58, %.0.i.i.i.i
   br i1 %exitcond.not, label %.preheader, label %.lr.ph85, !llvm.loop !687
 
 .lr.ph89:                                         ; preds = %.preheader, %.lr.ph89
-  %.05588 = phi i64 [ %63, %.lr.ph89 ], [ %19, %.preheader ]
-  %.187 = phi i32 [ %62, %.lr.ph89 ], [ %.075.lcssa, %.preheader ]
-  %60 = getelementptr inbounds i32, ptr %20, i64 %.05588
-  %61 = load i32, ptr %60, align 4, !tbaa !124
-  %62 = add nsw i32 %61, %.187
-  %63 = add nsw i64 %.05588, 1
-  %64 = icmp slt i64 %63, %5
-  br i1 %64, label %.lr.ph89, label %.loopexit, !llvm.loop !688
+  %.05588 = phi i64 [ %62, %.lr.ph89 ], [ %19, %.preheader ]
+  %.187 = phi i32 [ %61, %.lr.ph89 ], [ %.075.lcssa, %.preheader ]
+  %59 = getelementptr inbounds i32, ptr %20, i64 %.05588
+  %60 = load i32, ptr %59, align 4, !tbaa !124
+  %61 = add nsw i32 %60, %.187
+  %62 = add nsw i64 %.05588, 1
+  %63 = icmp slt i64 %62, %5
+  br i1 %63, label %.lr.ph89, label %.loopexit, !llvm.loop !688
 
-65:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit
-  %66 = load i32, ptr %20, align 4, !tbaa !124
-  %67 = icmp sgt i64 %5, 1
-  br i1 %67, label %.lr.ph94, label %.loopexit
+64:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit
+  %65 = load i32, ptr %20, align 4, !tbaa !124
+  %66 = icmp sgt i64 %5, 1
+  br i1 %66, label %.lr.ph94, label %.loopexit
 
-.lr.ph94:                                         ; preds = %65, %.lr.ph94
-  %.092 = phi i64 [ %71, %.lr.ph94 ], [ 1, %65 ]
-  %.391 = phi i32 [ %70, %.lr.ph94 ], [ %66, %65 ]
-  %68 = getelementptr inbounds nuw i32, ptr %20, i64 %.092
-  %69 = load i32, ptr %68, align 4, !tbaa !124
-  %70 = add nsw i32 %69, %.391
-  %71 = add nuw nsw i64 %.092, 1
-  %exitcond102.not = icmp eq i64 %71, %5
+.lr.ph94:                                         ; preds = %64, %.lr.ph94
+  %.092 = phi i64 [ %70, %.lr.ph94 ], [ 1, %64 ]
+  %.391 = phi i32 [ %69, %.lr.ph94 ], [ %65, %64 ]
+  %67 = getelementptr inbounds nuw i32, ptr %20, i64 %.092
+  %68 = load i32, ptr %67, align 4, !tbaa !124
+  %69 = add nsw i32 %68, %.391
+  %70 = add nuw nsw i64 %.092, 1
+  %exitcond102.not = icmp eq i64 %70, %5
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph94, !llvm.loop !689
 
-.loopexit:                                        ; preds = %.lr.ph89, %.lr.ph94, %.preheader, %65
-  %.2 = phi i32 [ %66, %65 ], [ %.075.lcssa, %.preheader ], [ %70, %.lr.ph94 ], [ %62, %.lr.ph89 ]
+.loopexit:                                        ; preds = %.lr.ph89, %.lr.ph94, %.preheader, %64
+  %.2 = phi i32 [ %65, %64 ], [ %.075.lcssa, %.preheader ], [ %69, %.lr.ph94 ], [ %61, %.lr.ph89 ]
   ret i32 %.2
 }
 

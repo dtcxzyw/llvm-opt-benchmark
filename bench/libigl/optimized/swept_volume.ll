@@ -330,8 +330,8 @@ define internal void @"_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi1ELi3ELi1ELi1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !51
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i)
   store <2 x double> %.sroa.08.8.vec.insert.i.i.i, ptr %.sroa.0.i.i.i.i.i, align 16, !tbaa !24, !noalias !57
-  %.sroa.0.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i, i64 16
-  store double %14, ptr %.sroa.0.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx9, align 16, !tbaa !8, !noalias !57
+  %.sroa.0.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i, i64 16
+  store double %14, ptr %.sroa.0.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx14, align 16, !tbaa !8, !noalias !57
   %.sroa.0.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i.i, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !8, !noalias !57
   %20 = load <2 x double>, ptr %6, align 16, !tbaa !24, !noalias !57

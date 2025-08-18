@@ -1698,7 +1698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn123 = phi { ptr, i32 } [ %26, %25 ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %303
+  br label %300
 
 35:                                               ; preds = %4
   %.sroa.062.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -1763,7 +1763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   %.pn121 = phi { ptr, i32 } [ %53, %52 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %303
+  br label %300
 
 62:                                               ; preds = %39
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1812,7 +1812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
   %.pn = phi { ptr, i32 } [ %70, %69 ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %303
+  br label %300
 
 79:                                               ; preds = %62
   %80 = lshr i32 %64, 2
@@ -2029,7 +2029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 ._crit_edge:                                      ; preds = %235, %79
   %.192.lcssa = phi i32 [ %spec.select186, %79 ], [ %.495, %235 ]
   store i32 %.192.lcssa, ptr %63, align 4, !tbaa !20
-  br label %296
+  br label %293
 
 237:                                              ; preds = %199, %198, %203
   store i32 %.192192, ptr %63, align 4, !tbaa !20
@@ -2047,92 +2047,92 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
   %249 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %88, i64 %248, i32 2
   %250 = load <2 x float>, ptr %249, align 4
   %.sroa.0169.0.vec.extract = extractelement <2 x float> %243, i64 0
-  %251 = fsub <2 x float> %1, %243
-  %252 = extractelement <2 x float> %251, i64 0
-  %253 = call noundef float @llvm.fabs.f32(float %252)
-  %254 = fpext float %253 to double
+  %foldExtExtBinop = fsub <2 x float> %1, %243
+  %251 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %252 = call noundef float @llvm.fabs.f32(float %251)
+  %253 = fpext float %252 to double
   %.sroa.0169.4.vec.extract176 = extractelement <2 x float> %243, i64 1
-  %255 = fsub float %.sroa.062.4.vec.extract, %.sroa.0169.4.vec.extract176
-  %256 = call noundef float @llvm.fabs.f32(float %255)
-  %257 = fpext float %256 to double
-  %258 = fadd double %254, %257
+  %254 = fsub float %.sroa.062.4.vec.extract, %.sroa.0169.4.vec.extract176
+  %255 = call noundef float @llvm.fabs.f32(float %254)
+  %256 = fpext float %255 to double
+  %257 = fadd double %253, %256
   %.sroa.0.0.vec.extract = extractelement <2 x float> %250, i64 0
-  %259 = fsub <2 x float> %1, %250
-  %260 = extractelement <2 x float> %259, i64 0
-  %261 = call noundef float @llvm.fabs.f32(float %260)
-  %262 = fpext float %261 to double
+  %foldExtExtBinop208 = fsub <2 x float> %1, %250
+  %258 = extractelement <2 x float> %foldExtExtBinop208, i64 0
+  %259 = call noundef float @llvm.fabs.f32(float %258)
+  %260 = fpext float %259 to double
   %.sroa.0.4.vec.extract167 = extractelement <2 x float> %250, i64 1
-  %263 = fsub float %.sroa.062.4.vec.extract, %.sroa.0.4.vec.extract167
-  %264 = call noundef float @llvm.fabs.f32(float %263)
-  %265 = fpext float %264 to double
-  %266 = fadd double %262, %265
-  %267 = fsub <2 x float> %243, %250
-  %268 = extractelement <2 x float> %267, i64 0
+  %261 = fsub float %.sroa.062.4.vec.extract, %.sroa.0.4.vec.extract167
+  %262 = call noundef float @llvm.fabs.f32(float %261)
+  %263 = fpext float %262 to double
+  %264 = fadd double %260, %263
+  %foldExtExtBinop210 = fsub <2 x float> %243, %250
+  %265 = extractelement <2 x float> %foldExtExtBinop210, i64 0
+  %266 = call noundef float @llvm.fabs.f32(float %265)
+  %267 = fpext float %266 to double
+  %268 = fsub float %.sroa.0169.4.vec.extract176, %.sroa.0.4.vec.extract167
   %269 = call noundef float @llvm.fabs.f32(float %268)
   %270 = fpext float %269 to double
-  %271 = fsub float %.sroa.0169.4.vec.extract176, %.sroa.0.4.vec.extract167
-  %272 = call noundef float @llvm.fabs.f32(float %271)
-  %273 = fpext float %272 to double
-  %274 = fadd double %270, %273
-  %275 = fcmp olt double %258, 0x3E80000000000000
-  br i1 %275, label %296, label %276
+  %271 = fadd double %267, %270
+  %272 = fcmp olt double %257, 0x3E80000000000000
+  br i1 %272, label %293, label %273
 
-276:                                              ; preds = %237
-  %277 = fcmp olt double %266, 0x3E80000000000000
-  br i1 %277, label %296, label %278
+273:                                              ; preds = %237
+  %274 = fcmp olt double %264, 0x3E80000000000000
+  br i1 %274, label %293, label %275
 
-278:                                              ; preds = %276
-  %279 = fcmp olt double %258, %274
-  %280 = fcmp olt double %266, %274
-  %or.cond132 = or i1 %279, %280
-  br i1 %or.cond132, label %281, label %296
+275:                                              ; preds = %273
+  %276 = fcmp olt double %257, %271
+  %277 = fcmp olt double %264, %271
+  %or.cond132 = or i1 %276, %277
+  br i1 %or.cond132, label %278, label %293
 
-281:                                              ; preds = %278
-  %282 = fpext float %.sroa.0169.0.vec.extract to double
-  %283 = fsub double %282, %99
-  %284 = fpext float %.sroa.0.4.vec.extract167 to double
-  %285 = fsub double %284, %102
-  %286 = fpext float %.sroa.0169.4.vec.extract176 to double
-  %287 = fsub double %286, %102
-  %288 = fpext float %.sroa.0.0.vec.extract to double
-  %289 = fsub double %288, %99
-  %290 = fneg double %289
-  %291 = fmul double %287, %290
-  %292 = call noundef double @llvm.fmuladd.f64(double %283, double %285, double %291)
-  %293 = call double @llvm.fabs.f64(double %292)
-  %294 = fcmp olt double %293, 0x3E80000000000000
-  br i1 %294, label %295, label %296
+278:                                              ; preds = %275
+  %279 = fpext float %.sroa.0169.0.vec.extract to double
+  %280 = fsub double %279, %99
+  %281 = fpext float %.sroa.0.4.vec.extract167 to double
+  %282 = fsub double %281, %102
+  %283 = fpext float %.sroa.0169.4.vec.extract176 to double
+  %284 = fsub double %283, %102
+  %285 = fpext float %.sroa.0.0.vec.extract to double
+  %286 = fsub double %285, %99
+  %287 = fneg double %286
+  %288 = fmul double %284, %287
+  %289 = call noundef double @llvm.fmuladd.f64(double %280, double %282, double %288)
+  %290 = call double @llvm.fabs.f64(double %289)
+  %291 = fcmp olt double %290, 0x3E80000000000000
+  br i1 %291, label %292, label %293
 
-295:                                              ; preds = %281
-  br label %296
+292:                                              ; preds = %278
+  br label %293
 
-296:                                              ; preds = %281, %295, %278, %237, %276, %._crit_edge
-  %spec.select133 = phi i32 [ 0, %._crit_edge ], [ 0, %295 ], [ 0, %281 ], [ 0, %278 ], [ %240, %237 ], [ %247, %276 ]
-  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192192, %295 ], [ %.192192, %281 ], [ %.192192, %278 ], [ 0, %237 ], [ 0, %276 ]
-  %.3101 = phi i32 [ -2, %._crit_edge ], [ 2, %295 ], [ 0, %281 ], [ 0, %278 ], [ 1, %237 ], [ 1, %276 ]
+293:                                              ; preds = %278, %292, %275, %237, %273, %._crit_edge
+  %spec.select133 = phi i32 [ 0, %._crit_edge ], [ 0, %292 ], [ 0, %278 ], [ 0, %275 ], [ %240, %237 ], [ %247, %273 ]
+  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192192, %292 ], [ %.192192, %278 ], [ %.192192, %275 ], [ 0, %237 ], [ 0, %273 ]
+  %.3101 = phi i32 [ -2, %._crit_edge ], [ 2, %292 ], [ 0, %278 ], [ 0, %275 ], [ 1, %237 ], [ 1, %273 ]
   store i32 %spec.select, ptr %2, align 4, !tbaa !9
   store i32 %spec.select133, ptr %3, align 4, !tbaa !9
-  %297 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %298 = load i32, ptr %297, align 8, !tbaa !49
-  %.not.i = icmp eq i32 %298, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %299
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %295 = load i32, ptr %294, align 8, !tbaa !49
+  %.not.i = icmp eq i32 %295, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %296
 
-299:                                              ; preds = %296
+296:                                              ; preds = %293
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %300
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %297
 
-300:                                              ; preds = %299
-  %301 = landingpad { ptr, i32 }
+297:                                              ; preds = %296
+  %298 = landingpad { ptr, i32 }
           catch ptr null
-  %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #30
+  %299 = extractvalue { ptr, i32 } %298, 0
+  call void @__clang_call_terminate(ptr %299) #30
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %296, %299
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %293, %296
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3101
 
-303:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+300:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn123.pn = phi { ptr, i32 } [ %.pn123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2936,7 +2936,7 @@ define void @_ZN2cv8Subdiv2D11calcVoronoiEv(ptr noundef nonnull align 8 captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !tbaa !29, !range !77, !noundef !78
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %259, label %5
+  br i1 %4, label %251, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3019,20 +3019,20 @@ _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %36, %._crit_edge.i
   %wide.trip.count = and i64 %42, 2147483647
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %256
-  %45 = phi ptr [ %9, %.lr.ph.preheader ], [ %257, %256 ]
-  %46 = phi ptr [ %9, %.lr.ph.preheader ], [ %258, %256 ]
-  %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %256 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %248
+  %45 = phi ptr [ %9, %.lr.ph.preheader ], [ %249, %248 ]
+  %46 = phi ptr [ %9, %.lr.ph.preheader ], [ %250, %248 ]
+  %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %248 ]
   %47 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %46, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !9
   %49 = icmp slt i32 %48, 1
-  br i1 %49, label %256, label %50
+  br i1 %49, label %248, label %50
 
 50:                                               ; preds = %.lr.ph
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %52 = load i32, ptr %51, align 4, !tbaa !9
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %53, label %152
+  br i1 %.not, label %53, label %148
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %46, i64 %indvars.iv, i32 0, i64 3
@@ -3072,230 +3072,230 @@ _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %36, %._crit_edge.i
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %69, i64 %88, i32 2
   %90 = load <2 x float>, ptr %89, align 4
-  %91 = fsub <2 x float> %76, %71
-  %92 = extractelement <2 x float> %91, i64 0
-  %93 = fpext float %92 to double
+  %foldExtExtBinop = fsub <2 x float> %76, %71
+  %91 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %92 = fpext float %91 to double
   %.sroa.029.4.vec.extract.i = extractelement <2 x float> %76, i64 1
   %.sroa.034.4.vec.extract.i = extractelement <2 x float> %71, i64 1
-  %94 = fsub float %.sroa.029.4.vec.extract.i, %.sroa.034.4.vec.extract.i
-  %95 = fpext float %94 to double
-  %96 = fsub <2 x float> %90, %83
-  %97 = extractelement <2 x float> %96, i64 0
-  %98 = fpext float %97 to double
+  %93 = fsub float %.sroa.029.4.vec.extract.i, %.sroa.034.4.vec.extract.i
+  %94 = fpext float %93 to double
+  %foldExtExtBinop89 = fsub <2 x float> %90, %83
+  %95 = extractelement <2 x float> %foldExtExtBinop89, i64 0
+  %96 = fpext float %95 to double
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %90, i64 1
   %.sroa.024.4.vec.extract.i = extractelement <2 x float> %83, i64 1
-  %99 = fsub float %.sroa.0.4.vec.extract.i, %.sroa.024.4.vec.extract.i
-  %100 = fpext float %99 to double
-  %101 = fneg double %95
-  %102 = fmul double %101, %98
-  %103 = tail call double @llvm.fmuladd.f64(double %93, double %100, double %102)
-  %104 = fcmp une double %103, 0.000000e+00
-  br i1 %104, label %105, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
+  %97 = fsub float %.sroa.0.4.vec.extract.i, %.sroa.024.4.vec.extract.i
+  %98 = fpext float %97 to double
+  %99 = fneg double %94
+  %100 = fmul double %99, %96
+  %101 = tail call double @llvm.fmuladd.f64(double %92, double %98, double %100)
+  %102 = fcmp une double %101, 0.000000e+00
+  br i1 %102, label %103, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
 
-105:                                              ; preds = %53
-  %106 = fadd <2 x float> %83, %90
-  %107 = extractelement <2 x float> %106, i64 0
-  %108 = fpext float %107 to double
-  %109 = fadd float %.sroa.024.4.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %110 = fpext float %109 to double
-  %111 = fmul double %100, %110
-  %112 = tail call double @llvm.fmuladd.f64(double %98, double %108, double %111)
-  %113 = fmul double %112, -5.000000e-01
-  %114 = fadd <2 x float> %71, %76
-  %115 = extractelement <2 x float> %114, i64 0
-  %116 = fpext float %115 to double
-  %117 = fadd float %.sroa.034.4.vec.extract.i, %.sroa.029.4.vec.extract.i
-  %118 = fpext float %117 to double
-  %119 = fmul double %95, %118
-  %120 = tail call double @llvm.fmuladd.f64(double %93, double %116, double %119)
-  %121 = fmul double %120, -5.000000e-01
-  %122 = fdiv double 1.000000e+00, %103
-  %123 = fneg double %100
-  %124 = fmul double %121, %123
-  %125 = tail call double @llvm.fmuladd.f64(double %95, double %113, double %124)
-  %126 = fmul double %122, %125
-  %127 = fptrunc double %126 to float
-  %128 = fneg double %93
-  %129 = fmul double %113, %128
-  %130 = tail call double @llvm.fmuladd.f64(double %98, double %121, double %129)
-  %131 = fmul double %122, %130
-  %132 = fptrunc double %131 to float
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %127, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %132, i64 1
+103:                                              ; preds = %53
+  %foldExtExtBinop91 = fadd <2 x float> %83, %90
+  %104 = extractelement <2 x float> %foldExtExtBinop91, i64 0
+  %105 = fpext float %104 to double
+  %106 = fadd float %.sroa.024.4.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %107 = fpext float %106 to double
+  %108 = fmul double %98, %107
+  %109 = tail call double @llvm.fmuladd.f64(double %96, double %105, double %108)
+  %110 = fmul double %109, -5.000000e-01
+  %foldExtExtBinop93 = fadd <2 x float> %71, %76
+  %111 = extractelement <2 x float> %foldExtExtBinop93, i64 0
+  %112 = fpext float %111 to double
+  %113 = fadd float %.sroa.034.4.vec.extract.i, %.sroa.029.4.vec.extract.i
+  %114 = fpext float %113 to double
+  %115 = fmul double %94, %114
+  %116 = tail call double @llvm.fmuladd.f64(double %92, double %112, double %115)
+  %117 = fmul double %116, -5.000000e-01
+  %118 = fdiv double 1.000000e+00, %101
+  %119 = fneg double %98
+  %120 = fmul double %117, %119
+  %121 = tail call double @llvm.fmuladd.f64(double %94, double %110, double %120)
+  %122 = fmul double %118, %121
+  %123 = fptrunc double %122 to float
+  %124 = fneg double %92
+  %125 = fmul double %110, %124
+  %126 = tail call double @llvm.fmuladd.f64(double %96, double %117, double %125)
+  %127 = fmul double %118, %126
+  %128 = fptrunc double %127 to float
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %123, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %128, i64 1
   br label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
 
-_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %53, %105
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %105 ], [ splat (float 0x47EFFFFFE0000000), %53 ]
+_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %53, %103
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %103 ], [ splat (float 0x47EFFFFFE0000000), %53 ]
   %.sroa.018.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 0
-  %133 = tail call noundef float @llvm.fabs.f32(float %.sroa.018.0.vec.extract)
-  %134 = fcmp olt float %133, 0x47DFFFFFE0000000
+  %129 = tail call noundef float @llvm.fabs.f32(float %.sroa.018.0.vec.extract)
+  %130 = fcmp olt float %129, 0x47DFFFFFE0000000
   %.sroa.018.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 1
-  %135 = tail call float @llvm.fabs.f32(float %.sroa.018.4.vec.extract)
-  %136 = fcmp olt float %135, 0x47DFFFFFE0000000
-  %or.cond = select i1 %134, i1 %136, i1 false
-  br i1 %or.cond, label %137, label %152
+  %131 = tail call float @llvm.fabs.f32(float %.sroa.018.4.vec.extract)
+  %132 = fcmp olt float %131, 0x47DFFFFFE0000000
+  %or.cond = select i1 %130, i1 %132, i1 false
+  br i1 %or.cond, label %133, label %148
 
-137:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
-  %138 = tail call noundef i32 @_ZN2cv8Subdiv2D8newPointENS_6Point_IfEEbi(ptr noundef nonnull align 8 dereferenceable(80) %0, <2 x float> %.sroa.0.0.i, i1 noundef zeroext true, i32 noundef 0)
-  %139 = ashr i32 %64, 2
-  %140 = sext i32 %139 to i64
-  %141 = load ptr, ptr %6, align 8, !tbaa !3
-  %142 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %141, i64 %140, i32 1
-  %143 = and i32 %65, 2
-  %144 = xor i32 %143, 3
-  %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw [4 x i32], ptr %142, i64 0, i64 %145
-  store i32 %138, ptr %146, align 4, !tbaa !9
-  %147 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %141, i64 %59, i32 1
-  %148 = and i32 %56, 2
-  %149 = xor i32 %148, 3
-  %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [4 x i32], ptr %147, i64 0, i64 %150
-  store i32 %138, ptr %151, align 4, !tbaa !9
-  store i32 %138, ptr %51, align 4, !tbaa !9
-  br label %152
+133:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
+  %134 = tail call noundef i32 @_ZN2cv8Subdiv2D8newPointENS_6Point_IfEEbi(ptr noundef nonnull align 8 dereferenceable(80) %0, <2 x float> %.sroa.0.0.i, i1 noundef zeroext true, i32 noundef 0)
+  %135 = ashr i32 %64, 2
+  %136 = sext i32 %135 to i64
+  %137 = load ptr, ptr %6, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %137, i64 %136, i32 1
+  %139 = and i32 %65, 2
+  %140 = xor i32 %139, 3
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds nuw [4 x i32], ptr %138, i64 0, i64 %141
+  store i32 %134, ptr %142, align 4, !tbaa !9
+  %143 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %137, i64 %59, i32 1
+  %144 = and i32 %56, 2
+  %145 = xor i32 %144, 3
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw [4 x i32], ptr %143, i64 0, i64 %146
+  store i32 %134, ptr %147, align 4, !tbaa !9
+  store i32 %134, ptr %51, align 4, !tbaa !9
+  br label %148
 
-152:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit, %137, %50
-  %153 = phi ptr [ %45, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit ], [ %141, %137 ], [ %45, %50 ]
-  %154 = phi ptr [ %46, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit ], [ %141, %137 ], [ %46, %50 ]
-  %155 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %156 = load i32, ptr %155, align 4, !tbaa !9
-  %.not43 = icmp eq i32 %156, 0
-  br i1 %.not43, label %157, label %256
+148:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit, %133, %50
+  %149 = phi ptr [ %45, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit ], [ %137, %133 ], [ %45, %50 ]
+  %150 = phi ptr [ %46, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit ], [ %137, %133 ], [ %46, %50 ]
+  %151 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %152 = load i32, ptr %151, align 4, !tbaa !9
+  %.not43 = icmp eq i32 %152, 0
+  br i1 %.not43, label %153, label %248
 
-157:                                              ; preds = %152
-  %158 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %153, i64 %indvars.iv, i32 0, i64 1
-  %159 = load i32, ptr %158, align 4, !tbaa !9
-  %160 = add i32 %159, 3
-  %161 = and i32 %160, 3
-  %162 = ashr i32 %159, 2
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %153, i64 %163
-  %165 = and i32 %159, 3
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw [4 x i32], ptr %164, i64 0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !9
-  %169 = add i32 %168, 3
-  %170 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %153, i64 %indvars.iv, i32 1
-  %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = sext i32 %171 to i64
-  %173 = load ptr, ptr %0, align 8, !tbaa !11
-  %174 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %173, i64 %172, i32 2
-  %175 = load <2 x float>, ptr %174, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %177 = load i32, ptr %176, align 4, !tbaa !9
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %173, i64 %178, i32 2
-  %180 = load <2 x float>, ptr %179, align 4
-  %181 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %153, i64 %163, i32 1
-  %182 = zext nneg i32 %161 to i64
-  %183 = getelementptr inbounds nuw [4 x i32], ptr %181, i64 0, i64 %182
-  %184 = load i32, ptr %183, align 4, !tbaa !9
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %173, i64 %185, i32 2
-  %187 = load <2 x float>, ptr %186, align 4
-  %188 = xor i32 %161, 2
-  %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [4 x i32], ptr %181, i64 0, i64 %189
-  %191 = load i32, ptr %190, align 4, !tbaa !9
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %173, i64 %192, i32 2
-  %194 = load <2 x float>, ptr %193, align 4
-  %195 = fsub <2 x float> %180, %175
-  %196 = extractelement <2 x float> %195, i64 0
-  %197 = fpext float %196 to double
-  %.sroa.029.4.vec.extract.i54 = extractelement <2 x float> %180, i64 1
-  %.sroa.034.4.vec.extract.i55 = extractelement <2 x float> %175, i64 1
-  %198 = fsub float %.sroa.029.4.vec.extract.i54, %.sroa.034.4.vec.extract.i55
-  %199 = fpext float %198 to double
-  %200 = fsub <2 x float> %194, %187
-  %201 = extractelement <2 x float> %200, i64 0
-  %202 = fpext float %201 to double
-  %.sroa.0.4.vec.extract.i58 = extractelement <2 x float> %194, i64 1
-  %.sroa.024.4.vec.extract.i59 = extractelement <2 x float> %187, i64 1
-  %203 = fsub float %.sroa.0.4.vec.extract.i58, %.sroa.024.4.vec.extract.i59
-  %204 = fpext float %203 to double
-  %205 = fneg double %199
-  %206 = fmul double %205, %202
-  %207 = tail call double @llvm.fmuladd.f64(double %197, double %204, double %206)
-  %208 = fcmp une double %207, 0.000000e+00
-  br i1 %208, label %209, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %149, i64 %indvars.iv, i32 0, i64 1
+  %155 = load i32, ptr %154, align 4, !tbaa !9
+  %156 = add i32 %155, 3
+  %157 = and i32 %156, 3
+  %158 = ashr i32 %155, 2
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %149, i64 %159
+  %161 = and i32 %155, 3
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds nuw [4 x i32], ptr %160, i64 0, i64 %162
+  %164 = load i32, ptr %163, align 4, !tbaa !9
+  %165 = add i32 %164, 3
+  %166 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %149, i64 %indvars.iv, i32 1
+  %167 = load i32, ptr %166, align 4, !tbaa !9
+  %168 = sext i32 %167 to i64
+  %169 = load ptr, ptr %0, align 8, !tbaa !11
+  %170 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %169, i64 %168, i32 2
+  %171 = load <2 x float>, ptr %170, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %173 = load i32, ptr %172, align 4, !tbaa !9
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %169, i64 %174, i32 2
+  %176 = load <2 x float>, ptr %175, align 4
+  %177 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %149, i64 %159, i32 1
+  %178 = zext nneg i32 %157 to i64
+  %179 = getelementptr inbounds nuw [4 x i32], ptr %177, i64 0, i64 %178
+  %180 = load i32, ptr %179, align 4, !tbaa !9
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %169, i64 %181, i32 2
+  %183 = load <2 x float>, ptr %182, align 4
+  %184 = xor i32 %157, 2
+  %185 = zext nneg i32 %184 to i64
+  %186 = getelementptr inbounds nuw [4 x i32], ptr %177, i64 0, i64 %185
+  %187 = load i32, ptr %186, align 4, !tbaa !9
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %169, i64 %188, i32 2
+  %190 = load <2 x float>, ptr %189, align 4
+  %foldExtExtBinop95 = fsub <2 x float> %176, %171
+  %191 = extractelement <2 x float> %foldExtExtBinop95, i64 0
+  %192 = fpext float %191 to double
+  %.sroa.029.4.vec.extract.i54 = extractelement <2 x float> %176, i64 1
+  %.sroa.034.4.vec.extract.i55 = extractelement <2 x float> %171, i64 1
+  %193 = fsub float %.sroa.029.4.vec.extract.i54, %.sroa.034.4.vec.extract.i55
+  %194 = fpext float %193 to double
+  %foldExtExtBinop97 = fsub <2 x float> %190, %183
+  %195 = extractelement <2 x float> %foldExtExtBinop97, i64 0
+  %196 = fpext float %195 to double
+  %.sroa.0.4.vec.extract.i58 = extractelement <2 x float> %190, i64 1
+  %.sroa.024.4.vec.extract.i59 = extractelement <2 x float> %183, i64 1
+  %197 = fsub float %.sroa.0.4.vec.extract.i58, %.sroa.024.4.vec.extract.i59
+  %198 = fpext float %197 to double
+  %199 = fneg double %194
+  %200 = fmul double %199, %196
+  %201 = tail call double @llvm.fmuladd.f64(double %192, double %198, double %200)
+  %202 = fcmp une double %201, 0.000000e+00
+  br i1 %202, label %203, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
 
-209:                                              ; preds = %157
-  %210 = fadd <2 x float> %187, %194
-  %211 = extractelement <2 x float> %210, i64 0
+203:                                              ; preds = %153
+  %foldExtExtBinop99 = fadd <2 x float> %183, %190
+  %204 = extractelement <2 x float> %foldExtExtBinop99, i64 0
+  %205 = fpext float %204 to double
+  %206 = fadd float %.sroa.024.4.vec.extract.i59, %.sroa.0.4.vec.extract.i58
+  %207 = fpext float %206 to double
+  %208 = fmul double %198, %207
+  %209 = tail call double @llvm.fmuladd.f64(double %196, double %205, double %208)
+  %210 = fmul double %209, -5.000000e-01
+  %foldExtExtBinop101 = fadd <2 x float> %171, %176
+  %211 = extractelement <2 x float> %foldExtExtBinop101, i64 0
   %212 = fpext float %211 to double
-  %213 = fadd float %.sroa.024.4.vec.extract.i59, %.sroa.0.4.vec.extract.i58
+  %213 = fadd float %.sroa.034.4.vec.extract.i55, %.sroa.029.4.vec.extract.i54
   %214 = fpext float %213 to double
-  %215 = fmul double %204, %214
-  %216 = tail call double @llvm.fmuladd.f64(double %202, double %212, double %215)
+  %215 = fmul double %194, %214
+  %216 = tail call double @llvm.fmuladd.f64(double %192, double %212, double %215)
   %217 = fmul double %216, -5.000000e-01
-  %218 = fadd <2 x float> %175, %180
-  %219 = extractelement <2 x float> %218, i64 0
-  %220 = fpext float %219 to double
-  %221 = fadd float %.sroa.034.4.vec.extract.i55, %.sroa.029.4.vec.extract.i54
-  %222 = fpext float %221 to double
-  %223 = fmul double %199, %222
-  %224 = tail call double @llvm.fmuladd.f64(double %197, double %220, double %223)
-  %225 = fmul double %224, -5.000000e-01
-  %226 = fdiv double 1.000000e+00, %207
-  %227 = fneg double %204
-  %228 = fmul double %225, %227
-  %229 = tail call double @llvm.fmuladd.f64(double %199, double %217, double %228)
-  %230 = fmul double %226, %229
-  %231 = fptrunc double %230 to float
-  %232 = fneg double %197
-  %233 = fmul double %217, %232
-  %234 = tail call double @llvm.fmuladd.f64(double %202, double %225, double %233)
-  %235 = fmul double %226, %234
-  %236 = fptrunc double %235 to float
-  %.sroa.0.0.vec.insert.i61 = insertelement <2 x float> poison, float %231, i64 0
-  %.sroa.0.4.vec.insert.i62 = insertelement <2 x float> %.sroa.0.0.vec.insert.i61, float %236, i64 1
+  %218 = fdiv double 1.000000e+00, %201
+  %219 = fneg double %198
+  %220 = fmul double %217, %219
+  %221 = tail call double @llvm.fmuladd.f64(double %194, double %210, double %220)
+  %222 = fmul double %218, %221
+  %223 = fptrunc double %222 to float
+  %224 = fneg double %192
+  %225 = fmul double %210, %224
+  %226 = tail call double @llvm.fmuladd.f64(double %196, double %217, double %225)
+  %227 = fmul double %218, %226
+  %228 = fptrunc double %227 to float
+  %.sroa.0.0.vec.insert.i61 = insertelement <2 x float> poison, float %223, i64 0
+  %.sroa.0.4.vec.insert.i62 = insertelement <2 x float> %.sroa.0.0.vec.insert.i61, float %228, i64 1
   br label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
 
-_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63: ; preds = %157, %209
-  %.sroa.0.0.i60 = phi <2 x float> [ %.sroa.0.4.vec.insert.i62, %209 ], [ splat (float 0x47EFFFFFE0000000), %157 ]
+_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63: ; preds = %153, %203
+  %.sroa.0.0.i60 = phi <2 x float> [ %.sroa.0.4.vec.insert.i62, %203 ], [ splat (float 0x47EFFFFFE0000000), %153 ]
   %.sroa.05.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i60, i64 0
-  %237 = tail call noundef float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
-  %238 = fcmp olt float %237, 0x47DFFFFFE0000000
+  %229 = tail call noundef float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
+  %230 = fcmp olt float %229, 0x47DFFFFFE0000000
   %.sroa.05.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i60, i64 1
-  %239 = tail call float @llvm.fabs.f32(float %.sroa.05.4.vec.extract)
-  %240 = fcmp olt float %239, 0x47DFFFFFE0000000
-  %or.cond85 = select i1 %238, i1 %240, i1 false
-  br i1 %or.cond85, label %241, label %256
+  %231 = tail call float @llvm.fabs.f32(float %.sroa.05.4.vec.extract)
+  %232 = fcmp olt float %231, 0x47DFFFFFE0000000
+  %or.cond85 = select i1 %230, i1 %232, i1 false
+  br i1 %or.cond85, label %233, label %248
 
-241:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
-  %242 = tail call noundef i32 @_ZN2cv8Subdiv2D8newPointENS_6Point_IfEEbi(ptr noundef nonnull align 8 dereferenceable(80) %0, <2 x float> %.sroa.0.0.i60, i1 noundef zeroext true, i32 noundef 0)
-  %243 = ashr i32 %168, 2
-  %244 = sext i32 %243 to i64
-  %245 = load ptr, ptr %6, align 8, !tbaa !3
-  %246 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %245, i64 %244, i32 1
-  %247 = and i32 %169, 2
-  %248 = or disjoint i32 %247, 1
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [4 x i32], ptr %246, i64 0, i64 %249
-  store i32 %242, ptr %250, align 4, !tbaa !9
-  %251 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %245, i64 %163, i32 1
-  %252 = and i32 %160, 2
-  %253 = or disjoint i32 %252, 1
-  %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [4 x i32], ptr %251, i64 0, i64 %254
-  store i32 %242, ptr %255, align 4, !tbaa !9
-  store i32 %242, ptr %155, align 4, !tbaa !9
-  br label %256
+233:                                              ; preds = %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
+  %234 = tail call noundef i32 @_ZN2cv8Subdiv2D8newPointENS_6Point_IfEEbi(ptr noundef nonnull align 8 dereferenceable(80) %0, <2 x float> %.sroa.0.0.i60, i1 noundef zeroext true, i32 noundef 0)
+  %235 = ashr i32 %164, 2
+  %236 = sext i32 %235 to i64
+  %237 = load ptr, ptr %6, align 8, !tbaa !3
+  %238 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %236, i32 1
+  %239 = and i32 %165, 2
+  %240 = or disjoint i32 %239, 1
+  %241 = zext nneg i32 %240 to i64
+  %242 = getelementptr inbounds nuw [4 x i32], ptr %238, i64 0, i64 %241
+  store i32 %234, ptr %242, align 4, !tbaa !9
+  %243 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %159, i32 1
+  %244 = and i32 %156, 2
+  %245 = or disjoint i32 %244, 1
+  %246 = zext nneg i32 %245 to i64
+  %247 = getelementptr inbounds nuw [4 x i32], ptr %243, i64 0, i64 %246
+  store i32 %234, ptr %247, align 4, !tbaa !9
+  store i32 %234, ptr %151, align 4, !tbaa !9
+  br label %248
 
-256:                                              ; preds = %152, %241, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63, %.lr.ph
-  %257 = phi ptr [ %153, %152 ], [ %245, %241 ], [ %153, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63 ], [ %45, %.lr.ph ]
-  %258 = phi ptr [ %154, %152 ], [ %245, %241 ], [ %153, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63 ], [ %46, %.lr.ph ]
+248:                                              ; preds = %148, %233, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63, %.lr.ph
+  %249 = phi ptr [ %149, %148 ], [ %237, %233 ], [ %149, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63 ], [ %45, %.lr.ph ]
+  %250 = phi ptr [ %150, %148 ], [ %237, %233 ], [ %149, %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63 ], [ %46, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %256, %_ZN2cv8Subdiv2D12clearVoronoiEv.exit
+._crit_edge:                                      ; preds = %248, %_ZN2cv8Subdiv2D12clearVoronoiEv.exit
   store i8 1, ptr %2, align 8, !tbaa !29
-  br label %259
+  br label %251
 
-259:                                              ; preds = %1, %._crit_edge
+251:                                              ; preds = %1, %._crit_edge
   ret void
 }
 

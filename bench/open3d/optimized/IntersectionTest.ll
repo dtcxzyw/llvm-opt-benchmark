@@ -1462,15 +1462,15 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanar
   %37 = fsub <2 x double> %35, %36
   %38 = fmul <2 x double> %37, %.sroa.09.8.vec.insert
   %shift = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %39 = fadd <2 x double> %38, %shift
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load double, ptr %41, align 8, !tbaa !4
-  %43 = fsub double %42, %13
-  %44 = fmul double %34, %43
-  %45 = fadd double %44, %40
-  %46 = fcmp olt double %45, 0x3D719799812DEA11
-  ret i1 %46
+  %foldExtExtBinop = fadd <2 x double> %38, %shift
+  %39 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load double, ptr %40, align 8, !tbaa !4
+  %42 = fsub double %41, %13
+  %43 = fmul double %34, %42
+  %44 = fadd double %43, %39
+  %45 = fcmp olt double %44, 0x3D719799812DEA11
+  ret i1 %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
@@ -1498,7 +1498,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %22 = tail call double @llvm.fabs.f64(double %17)
   %23 = fcmp olt double %22, 0x3D719799812DEA11
   %or.cond81 = select i1 %or.cond, i1 %23, i1 false
-  br i1 %or.cond81, label %91, label %24
+  br i1 %or.cond81, label %85, label %24
 
 24:                                               ; preds = %4
   %25 = load <2 x double>, ptr %3, align 8, !tbaa !13
@@ -1516,78 +1516,78 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %34 = tail call double @llvm.fabs.f64(double %29)
   %35 = fcmp olt double %34, 0x3D719799812DEA11
   %or.cond85 = select i1 %or.cond83, i1 %35, i1 false
-  br i1 %or.cond85, label %91, label %36
+  br i1 %or.cond85, label %85, label %36
 
 36:                                               ; preds = %24
   %37 = fmul <2 x double> %14, %26
   %shift = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %38 = fadd <2 x double> %37, %shift
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = fmul double %17, %29
-  %41 = fadd double %40, %39
-  %42 = fmul <2 x double> %26, %26
-  %shift86 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %43 = fadd <2 x double> %42, %shift86
-  %44 = extractelement <2 x double> %43, i64 0
-  %45 = fmul double %29, %29
-  %46 = fadd double %45, %44
-  %47 = fmul <2 x double> %14, %14
-  %shift87 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %48 = fadd <2 x double> %47, %shift87
-  %49 = extractelement <2 x double> %48, i64 0
-  %50 = fmul double %17, %17
-  %51 = fadd double %50, %49
-  %52 = fneg double %41
-  %53 = fmul double %41, %52
-  %54 = tail call double @llvm.fmuladd.f64(double %51, double %46, double %53)
-  %55 = tail call noundef double @llvm.fabs.f64(double %54)
-  %56 = fcmp olt double %55, 0x3D719799812DEA11
-  br i1 %56, label %91, label %57
+  %foldExtExtBinop = fadd <2 x double> %37, %shift
+  %38 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %39 = fmul double %17, %29
+  %40 = fadd double %39, %38
+  %41 = fmul <2 x double> %26, %26
+  %shift87 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop88 = fadd <2 x double> %41, %shift87
+  %42 = extractelement <2 x double> %foldExtExtBinop88, i64 0
+  %43 = fmul double %29, %29
+  %44 = fadd double %43, %42
+  %45 = fmul <2 x double> %14, %14
+  %shift90 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop91 = fadd <2 x double> %45, %shift90
+  %46 = extractelement <2 x double> %foldExtExtBinop91, i64 0
+  %47 = fmul double %17, %17
+  %48 = fadd double %47, %46
+  %49 = fneg double %40
+  %50 = fmul double %40, %49
+  %51 = tail call double @llvm.fmuladd.f64(double %48, double %44, double %50)
+  %52 = tail call noundef double @llvm.fabs.f64(double %51)
+  %53 = fcmp olt double %52, 0x3D719799812DEA11
+  br i1 %53, label %85, label %54
 
-57:                                               ; preds = %36
-  %58 = fmul <2 x double> %7, %14
-  %shift88 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = fadd <2 x double> %58, %shift88
-  %60 = extractelement <2 x double> %59, i64 0
-  %61 = fmul double %12, %17
+54:                                               ; preds = %36
+  %55 = fmul <2 x double> %7, %14
+  %shift93 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop94 = fadd <2 x double> %55, %shift93
+  %56 = extractelement <2 x double> %foldExtExtBinop94, i64 0
+  %57 = fmul double %12, %17
+  %58 = fadd double %57, %56
+  %59 = fmul <2 x double> %7, %26
+  %shift96 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop97 = fadd <2 x double> %59, %shift96
+  %60 = extractelement <2 x double> %foldExtExtBinop97, i64 0
+  %61 = fmul double %12, %29
   %62 = fadd double %61, %60
-  %63 = fmul <2 x double> %7, %26
-  %shift89 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %64 = fadd <2 x double> %63, %shift89
-  %65 = extractelement <2 x double> %64, i64 0
-  %66 = fmul double %12, %29
-  %67 = fadd double %66, %65
-  %68 = fneg double %46
-  %69 = fmul double %62, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %67, double %41, double %69)
-  %71 = fdiv double %70, %54
-  %72 = tail call double @llvm.fmuladd.f64(double %41, double %71, double %67)
-  %73 = fdiv double %72, %46
-  %.sroa.615.24.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %71, i64 0
-  %74 = shufflevector <2 x double> %.sroa.615.24.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x double> %14, %74
-  %76 = fadd <2 x double> %5, %75
-  %77 = fmul double %17, %71
-  %78 = fadd double %10, %77
-  %.sroa.615.24.vec.insert.i.i.i.i.i.i24 = insertelement <2 x double> poison, double %73, i64 0
-  %79 = shufflevector <2 x double> %.sroa.615.24.vec.insert.i.i.i.i.i.i24, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %26, %79
-  %81 = fadd <2 x double> %6, %80
-  %82 = fmul double %29, %73
-  %83 = fadd double %11, %82
-  %84 = fsub <2 x double> %76, %81
-  %85 = fmul <2 x double> %84, %84
-  %shift90 = shufflevector <2 x double> %85, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %86 = fadd <2 x double> %85, %shift90
-  %87 = extractelement <2 x double> %86, i64 0
-  %88 = fsub double %78, %83
-  %89 = fmul double %88, %88
-  %90 = fadd double %89, %87
-  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %90)
-  br label %91
+  %63 = fneg double %44
+  %64 = fmul double %58, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %62, double %40, double %64)
+  %66 = fdiv double %65, %51
+  %67 = tail call double @llvm.fmuladd.f64(double %40, double %66, double %62)
+  %68 = fdiv double %67, %44
+  %.sroa.615.24.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %66, i64 0
+  %69 = shufflevector <2 x double> %.sroa.615.24.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %70 = fmul <2 x double> %14, %69
+  %71 = fadd <2 x double> %5, %70
+  %72 = fmul double %17, %66
+  %73 = fadd double %10, %72
+  %.sroa.615.24.vec.insert.i.i.i.i.i.i24 = insertelement <2 x double> poison, double %68, i64 0
+  %74 = shufflevector <2 x double> %.sroa.615.24.vec.insert.i.i.i.i.i.i24, <2 x double> poison, <2 x i32> zeroinitializer
+  %75 = fmul <2 x double> %26, %74
+  %76 = fadd <2 x double> %6, %75
+  %77 = fmul double %29, %68
+  %78 = fadd double %11, %77
+  %79 = fsub <2 x double> %71, %76
+  %80 = fmul <2 x double> %79, %79
+  %shift99 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop100 = fadd <2 x double> %80, %shift99
+  %81 = extractelement <2 x double> %foldExtExtBinop100, i64 0
+  %82 = fsub double %73, %78
+  %83 = fmul double %82, %82
+  %84 = fadd double %83, %81
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %84)
+  br label %85
 
-91:                                               ; preds = %24, %4, %36, %57
-  %.0 = phi double [ %.scalar.i, %57 ], [ -3.000000e+00, %36 ], [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ]
+85:                                               ; preds = %24, %4, %36, %54
+  %.0 = phi double [ %.scalar.i, %54 ], [ -3.000000e+00, %36 ], [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ]
   ret double %.0
 }
 
@@ -1613,234 +1613,234 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimu
   %22 = fsub double %11, %19
   %23 = fmul <2 x double> %7, %7
   %shift = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %24 = fadd <2 x double> %23, %shift
-  %25 = extractelement <2 x double> %24, i64 0
-  %26 = fmul double %12, %12
-  %27 = fadd double %25, %26
-  %28 = fmul <2 x double> %7, %15
-  %shift191 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %29 = fadd <2 x double> %28, %shift191
-  %30 = extractelement <2 x double> %29, i64 0
-  %31 = fmul double %12, %20
-  %32 = fadd double %30, %31
-  %33 = fmul <2 x double> %15, %15
-  %shift192 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %34 = fadd <2 x double> %33, %shift192
-  %35 = extractelement <2 x double> %34, i64 0
-  %36 = fmul double %20, %20
-  %37 = fadd double %35, %36
-  %38 = fmul <2 x double> %7, %21
-  %shift193 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %39 = fadd <2 x double> %38, %shift193
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = fmul double %12, %22
+  %foldExtExtBinop = fadd <2 x double> %23, %shift
+  %24 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %25 = fmul double %12, %12
+  %26 = fadd double %24, %25
+  %27 = fmul <2 x double> %7, %15
+  %shift192 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop193 = fadd <2 x double> %27, %shift192
+  %28 = extractelement <2 x double> %foldExtExtBinop193, i64 0
+  %29 = fmul double %12, %20
+  %30 = fadd double %28, %29
+  %31 = fmul <2 x double> %15, %15
+  %shift195 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop196 = fadd <2 x double> %31, %shift195
+  %32 = extractelement <2 x double> %foldExtExtBinop196, i64 0
+  %33 = fmul double %20, %20
+  %34 = fadd double %32, %33
+  %35 = fmul <2 x double> %7, %21
+  %shift198 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop199 = fadd <2 x double> %35, %shift198
+  %36 = extractelement <2 x double> %foldExtExtBinop199, i64 0
+  %37 = fmul double %12, %22
+  %38 = fadd double %36, %37
+  %39 = fmul <2 x double> %15, %21
+  %shift201 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop202 = fadd <2 x double> %39, %shift201
+  %40 = extractelement <2 x double> %foldExtExtBinop202, i64 0
+  %41 = fmul double %20, %22
   %42 = fadd double %40, %41
-  %43 = fmul <2 x double> %15, %21
-  %shift194 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = fadd <2 x double> %43, %shift194
-  %45 = extractelement <2 x double> %44, i64 0
-  %46 = fmul double %20, %22
-  %47 = fadd double %45, %46
-  %48 = fneg double %32
-  %49 = fmul double %32, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %27, double %37, double %49)
-  %51 = fcmp ogt double %50, 0.000000e+00
-  br i1 %51, label %52, label %124
+  %43 = fneg double %30
+  %44 = fmul double %30, %43
+  %45 = tail call double @llvm.fmuladd.f64(double %26, double %34, double %44)
+  %46 = fcmp ogt double %45, 0.000000e+00
+  br i1 %46, label %47, label %119
 
-52:                                               ; preds = %4
-  %53 = fmul double %32, %47
-  %54 = fmul double %37, %42
-  %55 = fcmp ugt double %53, %54
-  br i1 %55, label %76, label %56
+47:                                               ; preds = %4
+  %48 = fmul double %30, %42
+  %49 = fmul double %34, %38
+  %50 = fcmp ugt double %48, %49
+  br i1 %50, label %71, label %51
 
-56:                                               ; preds = %52
-  %57 = fcmp ugt double %47, 0.000000e+00
-  br i1 %57, label %65, label %58
+51:                                               ; preds = %47
+  %52 = fcmp ugt double %42, 0.000000e+00
+  br i1 %52, label %60, label %53
 
-58:                                               ; preds = %56
-  %59 = fneg double %42
-  %60 = fcmp ugt double %27, %59
-  br i1 %60, label %61, label %144
+53:                                               ; preds = %51
+  %54 = fneg double %38
+  %55 = fcmp ugt double %26, %54
+  br i1 %55, label %56, label %139
 
-61:                                               ; preds = %58
-  %62 = fcmp olt double %42, 0.000000e+00
-  %63 = fdiv double %59, %27
-  %64 = select i1 %62, double %63, double 0.000000e+00
-  br label %144
+56:                                               ; preds = %53
+  %57 = fcmp olt double %38, 0.000000e+00
+  %58 = fdiv double %54, %26
+  %59 = select i1 %57, double %58, double 0.000000e+00
+  br label %139
 
-65:                                               ; preds = %56
-  %66 = fcmp olt double %47, %37
-  br i1 %66, label %67, label %69
+60:                                               ; preds = %51
+  %61 = fcmp olt double %42, %34
+  br i1 %61, label %62, label %64
 
-67:                                               ; preds = %65
-  %68 = fdiv double %47, %37
-  br label %144
+62:                                               ; preds = %60
+  %63 = fdiv double %42, %34
+  br label %139
 
-69:                                               ; preds = %65
-  %70 = fsub double %32, %42
-  %71 = fcmp ult double %70, %27
-  br i1 %71, label %72, label %144
+64:                                               ; preds = %60
+  %65 = fsub double %30, %38
+  %66 = fcmp ult double %65, %26
+  br i1 %66, label %67, label %139
 
-72:                                               ; preds = %69
-  %73 = fcmp ogt double %70, 0.000000e+00
-  br i1 %73, label %74, label %144
+67:                                               ; preds = %64
+  %68 = fcmp ogt double %65, 0.000000e+00
+  br i1 %68, label %69, label %139
 
-74:                                               ; preds = %72
-  %75 = fdiv double %70, %27
-  br label %144
+69:                                               ; preds = %67
+  %70 = fdiv double %65, %26
+  br label %139
 
-76:                                               ; preds = %52
-  %77 = fsub double %53, %54
-  %78 = fcmp ult double %77, %50
-  br i1 %78, label %100, label %79
+71:                                               ; preds = %47
+  %72 = fsub double %48, %49
+  %73 = fcmp ult double %72, %45
+  br i1 %73, label %95, label %74
 
-79:                                               ; preds = %76
-  %80 = fadd double %32, %47
-  %81 = fcmp ugt double %80, 0.000000e+00
-  br i1 %81, label %89, label %82
+74:                                               ; preds = %71
+  %75 = fadd double %30, %42
+  %76 = fcmp ugt double %75, 0.000000e+00
+  br i1 %76, label %84, label %77
 
-82:                                               ; preds = %79
-  %83 = fcmp ult double %42, 0.000000e+00
-  br i1 %83, label %84, label %144
+77:                                               ; preds = %74
+  %78 = fcmp ult double %38, 0.000000e+00
+  br i1 %78, label %79, label %139
 
-84:                                               ; preds = %82
-  %85 = fneg double %42
-  %86 = fcmp ogt double %27, %85
-  %87 = fdiv double %85, %27
-  %88 = select i1 %86, double %87, double 1.000000e+00
-  br label %144
+79:                                               ; preds = %77
+  %80 = fneg double %38
+  %81 = fcmp ogt double %26, %80
+  %82 = fdiv double %80, %26
+  %83 = select i1 %81, double %82, double 1.000000e+00
+  br label %139
 
-89:                                               ; preds = %79
-  %90 = fcmp olt double %80, %37
-  br i1 %90, label %91, label %93
+84:                                               ; preds = %74
+  %85 = fcmp olt double %75, %34
+  br i1 %85, label %86, label %88
 
-91:                                               ; preds = %89
-  %92 = fdiv double %80, %37
-  br label %144
+86:                                               ; preds = %84
+  %87 = fdiv double %75, %34
+  br label %139
 
-93:                                               ; preds = %89
-  %94 = fsub double %32, %42
-  %95 = fcmp ugt double %94, 0.000000e+00
-  br i1 %95, label %96, label %144
+88:                                               ; preds = %84
+  %89 = fsub double %30, %38
+  %90 = fcmp ugt double %89, 0.000000e+00
+  br i1 %90, label %91, label %139
 
-96:                                               ; preds = %93
-  %97 = fcmp olt double %94, %27
-  br i1 %97, label %98, label %144
+91:                                               ; preds = %88
+  %92 = fcmp olt double %89, %26
+  br i1 %92, label %93, label %139
 
-98:                                               ; preds = %96
-  %99 = fdiv double %94, %27
-  br label %144
+93:                                               ; preds = %91
+  %94 = fdiv double %89, %26
+  br label %139
 
-100:                                              ; preds = %76
-  %101 = fmul double %27, %47
-  %102 = fmul double %32, %42
-  %103 = fcmp ugt double %101, %102
-  br i1 %103, label %111, label %104
+95:                                               ; preds = %71
+  %96 = fmul double %26, %42
+  %97 = fmul double %30, %38
+  %98 = fcmp ugt double %96, %97
+  br i1 %98, label %106, label %99
 
-104:                                              ; preds = %100
-  %105 = fcmp ult double %42, 0.000000e+00
-  br i1 %105, label %106, label %144
+99:                                               ; preds = %95
+  %100 = fcmp ult double %38, 0.000000e+00
+  br i1 %100, label %101, label %139
 
-106:                                              ; preds = %104
-  %107 = fneg double %42
-  %108 = fcmp ole double %27, %107
-  %109 = fdiv double %107, %27
-  %110 = select i1 %108, double 1.000000e+00, double %109
-  br label %144
+101:                                              ; preds = %99
+  %102 = fneg double %38
+  %103 = fcmp ole double %26, %102
+  %104 = fdiv double %102, %26
+  %105 = select i1 %103, double 1.000000e+00, double %104
+  br label %139
 
-111:                                              ; preds = %100
-  %112 = fsub double %101, %102
-  %113 = fcmp ult double %112, %50
-  br i1 %113, label %121, label %114
+106:                                              ; preds = %95
+  %107 = fsub double %96, %97
+  %108 = fcmp ult double %107, %45
+  br i1 %108, label %116, label %109
 
-114:                                              ; preds = %111
-  %115 = fsub double %32, %42
-  %116 = fcmp ugt double %115, 0.000000e+00
-  br i1 %116, label %117, label %144
+109:                                              ; preds = %106
+  %110 = fsub double %30, %38
+  %111 = fcmp ugt double %110, 0.000000e+00
+  br i1 %111, label %112, label %139
 
-117:                                              ; preds = %114
-  %118 = fcmp ult double %115, %27
-  br i1 %118, label %119, label %144
+112:                                              ; preds = %109
+  %113 = fcmp ult double %110, %26
+  br i1 %113, label %114, label %139
 
-119:                                              ; preds = %117
-  %120 = fdiv double %115, %27
-  br label %144
+114:                                              ; preds = %112
+  %115 = fdiv double %110, %26
+  br label %139
 
-121:                                              ; preds = %111
-  %122 = fdiv double %77, %50
-  %123 = fdiv double %112, %50
-  br label %144
+116:                                              ; preds = %106
+  %117 = fdiv double %72, %45
+  %118 = fdiv double %107, %45
+  br label %139
 
-124:                                              ; preds = %4
-  %125 = fcmp ugt double %47, 0.000000e+00
-  br i1 %125, label %133, label %126
+119:                                              ; preds = %4
+  %120 = fcmp ugt double %42, 0.000000e+00
+  br i1 %120, label %128, label %121
 
-126:                                              ; preds = %124
-  %127 = fcmp ult double %42, 0.000000e+00
-  br i1 %127, label %128, label %144
+121:                                              ; preds = %119
+  %122 = fcmp ult double %38, 0.000000e+00
+  br i1 %122, label %123, label %139
 
-128:                                              ; preds = %126
-  %129 = fneg double %42
-  %130 = fcmp ole double %27, %129
-  %131 = fdiv double %129, %27
-  %132 = select i1 %130, double 1.000000e+00, double %131
-  br label %144
+123:                                              ; preds = %121
+  %124 = fneg double %38
+  %125 = fcmp ole double %26, %124
+  %126 = fdiv double %124, %26
+  %127 = select i1 %125, double 1.000000e+00, double %126
+  br label %139
 
-133:                                              ; preds = %124
-  %134 = fcmp ult double %47, %37
-  br i1 %134, label %142, label %135
+128:                                              ; preds = %119
+  %129 = fcmp ult double %42, %34
+  br i1 %129, label %137, label %130
+
+130:                                              ; preds = %128
+  %131 = fsub double %30, %38
+  %132 = fcmp ugt double %131, 0.000000e+00
+  br i1 %132, label %133, label %139
+
+133:                                              ; preds = %130
+  %134 = fcmp ult double %131, %26
+  br i1 %134, label %135, label %139
 
 135:                                              ; preds = %133
-  %136 = fsub double %32, %42
-  %137 = fcmp ugt double %136, 0.000000e+00
-  br i1 %137, label %138, label %144
+  %136 = fdiv double %131, %26
+  br label %139
 
-138:                                              ; preds = %135
-  %139 = fcmp ult double %136, %27
-  br i1 %139, label %140, label %144
+137:                                              ; preds = %128
+  %138 = fdiv double %42, %34
+  br label %139
 
-140:                                              ; preds = %138
-  %141 = fdiv double %136, %27
-  br label %144
-
-142:                                              ; preds = %133
-  %143 = fdiv double %47, %37
-  br label %144
-
-144:                                              ; preds = %135, %138, %140, %128, %126, %114, %117, %119, %106, %104, %93, %96, %98, %84, %82, %69, %72, %74, %61, %58, %67, %91, %121, %142
-  %.0188 = phi double [ %123, %121 ], [ %92, %91 ], [ %68, %67 ], [ %143, %142 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %61 ], [ 1.000000e+00, %74 ], [ 1.000000e+00, %72 ], [ 1.000000e+00, %69 ], [ 0.000000e+00, %82 ], [ 0.000000e+00, %84 ], [ 1.000000e+00, %98 ], [ 1.000000e+00, %96 ], [ 1.000000e+00, %93 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %106 ], [ 1.000000e+00, %119 ], [ 1.000000e+00, %117 ], [ 1.000000e+00, %114 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %128 ], [ 1.000000e+00, %140 ], [ 1.000000e+00, %138 ], [ 1.000000e+00, %135 ]
-  %.0 = phi double [ %122, %121 ], [ 1.000000e+00, %91 ], [ 0.000000e+00, %67 ], [ 0.000000e+00, %142 ], [ 1.000000e+00, %58 ], [ %64, %61 ], [ %75, %74 ], [ 0.000000e+00, %72 ], [ 1.000000e+00, %69 ], [ 0.000000e+00, %82 ], [ %88, %84 ], [ %99, %98 ], [ 1.000000e+00, %96 ], [ 0.000000e+00, %93 ], [ 0.000000e+00, %104 ], [ %110, %106 ], [ %120, %119 ], [ 1.000000e+00, %117 ], [ 0.000000e+00, %114 ], [ 0.000000e+00, %126 ], [ %132, %128 ], [ %141, %140 ], [ 1.000000e+00, %138 ], [ 0.000000e+00, %135 ]
-  %145 = fsub double 1.000000e+00, %.0
-  %.sroa.3.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %145, i64 0
+139:                                              ; preds = %130, %133, %135, %123, %121, %109, %112, %114, %101, %99, %88, %91, %93, %79, %77, %64, %67, %69, %56, %53, %62, %86, %116, %137
+  %.0188 = phi double [ %118, %116 ], [ %87, %86 ], [ %63, %62 ], [ %138, %137 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %56 ], [ 1.000000e+00, %69 ], [ 1.000000e+00, %67 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %79 ], [ 1.000000e+00, %93 ], [ 1.000000e+00, %91 ], [ 1.000000e+00, %88 ], [ 0.000000e+00, %99 ], [ 0.000000e+00, %101 ], [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ 1.000000e+00, %109 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %123 ], [ 1.000000e+00, %135 ], [ 1.000000e+00, %133 ], [ 1.000000e+00, %130 ]
+  %.0 = phi double [ %117, %116 ], [ 1.000000e+00, %86 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %53 ], [ %59, %56 ], [ %70, %69 ], [ 0.000000e+00, %67 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ %83, %79 ], [ %94, %93 ], [ 1.000000e+00, %91 ], [ 0.000000e+00, %88 ], [ 0.000000e+00, %99 ], [ %105, %101 ], [ %115, %114 ], [ 1.000000e+00, %112 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %121 ], [ %127, %123 ], [ %136, %135 ], [ 1.000000e+00, %133 ], [ 0.000000e+00, %130 ]
+  %140 = fsub double 1.000000e+00, %.0
+  %.sroa.3.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %140, i64 0
   %.sroa.917.48.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0, i64 0
-  %146 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %147 = fmul <2 x double> %6, %146
-  %148 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %149 = fmul <2 x double> %5, %148
-  %150 = fadd <2 x double> %149, %147
-  %151 = fmul double %11, %145
-  %152 = fmul double %10, %.0
-  %153 = fadd double %152, %151
-  %154 = fsub double 1.000000e+00, %.0188
-  %.sroa.3.16.vec.insert.i.i.i.i.i.i125 = insertelement <2 x double> poison, double %154, i64 0
+  %141 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %142 = fmul <2 x double> %6, %141
+  %143 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %144 = fmul <2 x double> %5, %143
+  %145 = fadd <2 x double> %144, %142
+  %146 = fmul double %11, %140
+  %147 = fmul double %10, %.0
+  %148 = fadd double %147, %146
+  %149 = fsub double 1.000000e+00, %.0188
+  %.sroa.3.16.vec.insert.i.i.i.i.i.i125 = insertelement <2 x double> poison, double %149, i64 0
   %.sroa.917.48.vec.insert.i.i.i.i.i.i126 = insertelement <2 x double> poison, double %.0188, i64 0
-  %155 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i125, <2 x double> poison, <2 x i32> zeroinitializer
-  %156 = fmul <2 x double> %14, %155
-  %157 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i126, <2 x double> poison, <2 x i32> zeroinitializer
-  %158 = fmul <2 x double> %13, %157
-  %159 = fadd <2 x double> %158, %156
-  %160 = fmul double %19, %154
-  %161 = fmul double %18, %.0188
-  %162 = fadd double %161, %160
-  %163 = fsub <2 x double> %150, %159
-  %164 = fmul <2 x double> %163, %163
-  %shift195 = shufflevector <2 x double> %164, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %165 = fadd <2 x double> %164, %shift195
-  %166 = extractelement <2 x double> %165, i64 0
-  %167 = fsub double %153, %162
-  %168 = fmul double %167, %167
-  %169 = fadd double %168, %166
-  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %169)
+  %150 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i125, <2 x double> poison, <2 x i32> zeroinitializer
+  %151 = fmul <2 x double> %14, %150
+  %152 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i126, <2 x double> poison, <2 x i32> zeroinitializer
+  %153 = fmul <2 x double> %13, %152
+  %154 = fadd <2 x double> %153, %151
+  %155 = fmul double %19, %149
+  %156 = fmul double %18, %.0188
+  %157 = fadd double %156, %155
+  %158 = fsub <2 x double> %145, %154
+  %159 = fmul <2 x double> %158, %158
+  %shift204 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop205 = fadd <2 x double> %159, %shift204
+  %160 = extractelement <2 x double> %foldExtExtBinop205, i64 0
+  %161 = fsub double %148, %157
+  %162 = fmul double %161, %161
+  %163 = fadd double %162, %160
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %163)
   ret double %.scalar.i
 }
 

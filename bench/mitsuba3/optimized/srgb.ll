@@ -539,10 +539,10 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %38 = fadd contract <4 x float> %36, %37
   %shift = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %39 = fadd contract <4 x float> %38, %shift
-  %40 = extractelement <4 x float> %39, i64 0
-  %41 = fmul contract float %40, 6.250000e-02
-  ret float %41
+  %foldExtExtBinop = fadd contract <4 x float> %38, %shift
+  %39 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %40 = fmul contract float %39, 6.250000e-02
+  ret float %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -584,10 +584,10 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %36 = fadd contract <4 x float> %34, %35
   %shift = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %37 = fadd contract <4 x float> %36, %shift
-  %38 = extractelement <4 x float> %37, i64 0
-  %39 = fmul contract float %38, 6.250000e-02
-  ret float %39
+  %foldExtExtBinop = fadd contract <4 x float> %36, %shift
+  %37 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %38 = fmul contract float %37, 6.250000e-02
+  ret float %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -670,10 +670,10 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %36 = fadd contract <4 x float> %34, %35
   %shift = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %37 = fadd contract <4 x float> %36, %shift
-  %38 = extractelement <4 x float> %37, i64 0
-  %39 = fmul contract float %38, 6.250000e-02
-  ret float %39
+  %foldExtExtBinop = fadd contract <4 x float> %36, %shift
+  %37 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %38 = fmul contract float %37, 6.250000e-02
+  ret float %38
 }
 
 ; Function Attrs: mustprogress uwtable

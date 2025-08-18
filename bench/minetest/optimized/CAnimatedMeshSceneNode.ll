@@ -3895,7 +3895,7 @@ for.body29.lr.ph:                                 ; preds = %if.end
 
 for.body29:                                       ; preds = %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit, %for.body29.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next, %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit ]
-  %20 = phi ptr [ %18, %for.body29.lr.ph ], [ %212, %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit ]
+  %20 = phi ptr [ %18, %for.body29.lr.ph ], [ %210, %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit ]
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32)
@@ -4252,24 +4252,24 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %mul.i6 = fmul float %QRotation.sroa.7.12.vec.extract, %QRotation.sroa.7.12.vec.extract
   %conv.i7 = fpext float %mul.i6 to double
   %QRotation.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i60.sink.i, i64 0
-  %195 = fmul <2 x float> %retval.sroa.0.4.vec.insert.i60.sink.i, %retval.sroa.0.4.vec.insert.i60.sink.i
-  %mul4.i = extractelement <2 x float> %195, i64 0
+  %foldExtExtBinop = fmul <2 x float> %retval.sroa.0.4.vec.insert.i60.sink.i, %retval.sroa.0.4.vec.insert.i60.sink.i
+  %mul4.i = extractelement <2 x float> %foldExtExtBinop, i64 0
   %conv5.i = fpext float %mul4.i to double
   %QRotation.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i60.sink.i, i64 1
   %mul7.i = fmul float %QRotation.sroa.0.4.vec.extract, %QRotation.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %QRotation.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, i64 0
-  %196 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
-  %mul10.i = extractelement <2 x float> %196, i64 0
+  %foldExtExtBinop24 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
+  %mul10.i = extractelement <2 x float> %foldExtExtBinop24, i64 0
   %conv11.i = fpext float %mul10.i to double
-  %197 = fneg float %QRotation.sroa.0.0.vec.extract
-  %neg.i = fmul float %QRotation.sroa.7.8.vec.extract, %197
-  %198 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.4.vec.extract, float %QRotation.sroa.7.12.vec.extract, float %neg.i)
-  %conv18.i = fpext float %198 to double
+  %195 = fneg float %QRotation.sroa.0.0.vec.extract
+  %neg.i = fmul float %QRotation.sroa.7.8.vec.extract, %195
+  %196 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.4.vec.extract, float %QRotation.sroa.7.12.vec.extract, float %neg.i)
+  %conv18.i = fpext float %196 to double
   %mul19.i = fmul double %conv18.i, 2.000000e+00
   %sub.i.i9 = fadd double %mul19.i, -1.000000e+00
-  %199 = call noundef double @llvm.fabs.f64(double %sub.i.i9)
-  %cmp.i.i = fcmp ugt double %199, 0x3EB0C6F7A0B5ED8D
+  %197 = call noundef double @llvm.fabs.f64(double %sub.i.i9)
+  %cmp.i.i = fcmp ugt double %197, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i.i, label %if.else.i11, label %if.then.i10
 
 if.then.i10:                                      ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit
@@ -4283,8 +4283,8 @@ if.then.i10:                                      ; preds = %_ZN3irr4core10quate
 
 if.else.i11:                                      ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit
   %sub.i87.i = fadd double %mul19.i, 1.000000e+00
-  %200 = call noundef double @llvm.fabs.f64(double %sub.i87.i)
-  %cmp.i88.i = fcmp ugt double %200, 0x3EB0C6F7A0B5ED8D
+  %198 = call noundef double @llvm.fabs.f64(double %sub.i87.i)
+  %cmp.i88.i = fcmp ugt double %198, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i88.i, label %if.else42.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.else.i11
@@ -4298,8 +4298,8 @@ if.then31.i:                                      ; preds = %if.else.i11
 
 if.else42.i:                                      ; preds = %if.else.i11
   %mul48.i = fmul float %QRotation.sroa.7.12.vec.extract, %QRotation.sroa.7.8.vec.extract
-  %201 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.0.vec.extract, float %QRotation.sroa.0.4.vec.extract, float %mul48.i)
-  %conv49.i = fpext float %201 to double
+  %199 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.0.vec.extract, float %QRotation.sroa.0.4.vec.extract, float %mul48.i)
+  %conv49.i = fpext float %199 to double
   %mul50.i = fmul double %conv49.i, 2.000000e+00
   %sub.i12 = fsub double %conv5.i, %conv8.i
   %sub51.i = fsub double %sub.i12, %conv11.i
@@ -4308,8 +4308,8 @@ if.else42.i:                                      ; preds = %if.else.i11
   %conv53.i = fptrunc double %call52.i to float
   store float %conv53.i, ptr %Z.i219, align 8, !tbaa !170
   %mul60.i = fmul float %QRotation.sroa.0.0.vec.extract, %QRotation.sroa.7.12.vec.extract
-  %202 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.4.vec.extract, float %QRotation.sroa.7.8.vec.extract, float %mul60.i)
-  %conv61.i = fpext float %202 to double
+  %200 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.4.vec.extract, float %QRotation.sroa.7.8.vec.extract, float %mul60.i)
+  %conv61.i = fpext float %200 to double
   %mul62.i = fmul double %conv61.i, 2.000000e+00
   %fneg.i = fneg double %conv5.i
   %sub63.i = fsub double %fneg.i, %conv8.i
@@ -4319,40 +4319,40 @@ if.else42.i:                                      ; preds = %if.else.i11
   %conv67.i = fptrunc double %call66.i to float
   store float %conv67.i, ptr %tmpVector, align 8, !tbaa !171
   %cmp.i.i.i = fcmp olt double %mul19.i, -1.000000e+00
-  %203 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
-  %cmp.i2.i.i = fcmp olt double %203, 1.000000e+00
-  %204 = select i1 %cmp.i2.i.i, double %203, double 1.000000e+00
-  %call71.i = call double @asin(double noundef %204) #21
+  %201 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
+  %cmp.i2.i.i = fcmp olt double %201, 1.000000e+00
+  %202 = select i1 %cmp.i2.i.i, double %201, double 1.000000e+00
+  %call71.i = call double @asin(double noundef %202) #21
   %conv72.i = fptrunc double %call71.i to float
   %.pre22 = load float, ptr %Z.i219, align 8, !tbaa !170
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
 _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i10, %if.then31.i, %if.else42.i
-  %205 = phi float [ %conv38.i, %if.then31.i ], [ %.pre22, %if.else42.i ], [ %conv26.i, %if.then.i10 ]
+  %203 = phi float [ %conv38.i, %if.then31.i ], [ %.pre22, %if.else42.i ], [ %conv26.i, %if.then.i10 ]
   %.sink.i = phi float [ 0xBFF921FB60000000, %if.then31.i ], [ %conv72.i, %if.else42.i ], [ 0x3FF921FB60000000, %if.then.i10 ]
   store float %.sink.i, ptr %Y41.i, align 4, !tbaa !172
-  %206 = load <2 x float>, ptr %tmpVector, align 8, !tbaa !10
-  %207 = fmul <2 x float> %206, splat (float 0x404CA5DC00000000)
-  store <2 x float> %207, ptr %tmpVector, align 8, !tbaa !10
-  %mul3.i224 = fmul float %205, 0x404CA5DC00000000
+  %204 = load <2 x float>, ptr %tmpVector, align 8, !tbaa !10
+  %205 = fmul <2 x float> %204, splat (float 0x404CA5DC00000000)
+  store <2 x float> %205, ptr %tmpVector, align 8, !tbaa !10
+  %mul3.i224 = fmul float %203, 0x404CA5DC00000000
   store float %mul3.i224, ptr %Z.i219, align 8, !tbaa !170
-  %208 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
-  %add.ptr.i.i226 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv
-  %209 = load ptr, ptr %add.ptr.i.i226, align 8, !tbaa !94
-  %vtable68 = load ptr, ptr %209, align 8, !tbaa !3
+  %206 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
+  %add.ptr.i.i226 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv
+  %207 = load ptr, ptr %add.ptr.i.i226, align 8, !tbaa !94
+  %vtable68 = load ptr, ptr %207, align 8, !tbaa !3
   %vfn69 = getelementptr inbounds nuw i8, ptr %vtable68, i64 208
-  %210 = load ptr, ptr %vfn69, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(222) %209, ptr noundef nonnull align 4 dereferenceable(12) %tmpVector) #21
+  %208 = load ptr, ptr %vfn69, align 8
+  call void %208(ptr noundef nonnull align 8 dereferenceable(222) %207, ptr noundef nonnull align 4 dereferenceable(12) %tmpVector) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %tmpVector)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %211 = load ptr, ptr %_M_finish.i.i111, align 8, !tbaa !95
-  %212 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
-  %sub.ptr.lhs.cast.i.i130 = ptrtoint ptr %211 to i64
-  %sub.ptr.rhs.cast.i.i131 = ptrtoint ptr %212 to i64
+  %209 = load ptr, ptr %_M_finish.i.i111, align 8, !tbaa !95
+  %210 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
+  %sub.ptr.lhs.cast.i.i130 = ptrtoint ptr %209 to i64
+  %sub.ptr.rhs.cast.i.i131 = ptrtoint ptr %210 to i64
   %sub.ptr.sub.i.i132 = sub i64 %sub.ptr.lhs.cast.i.i130, %sub.ptr.rhs.cast.i.i131
   %sub.ptr.div.i.i133 = lshr exact i64 %sub.ptr.sub.i.i132, 3
-  %213 = and i64 %sub.ptr.div.i.i133, 4294967295
-  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %213
+  %211 = and i64 %sub.ptr.div.i.i133, 4294967295
+  %cmp27 = icmp samesign ult i64 %indvars.iv.next, %211
   br i1 %cmp27, label %for.body29, label %if.end73, !llvm.loop !173
 
 if.end73:                                         ; preds = %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit, %if.end, %if.then
@@ -4360,45 +4360,45 @@ if.end73:                                         ; preds = %_ZNK3irr4core10quat
 
 for.cond77.preheader:                             ; preds = %if.end73
   %_M_finish.i.i227 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %214 = load ptr, ptr %_M_finish.i.i227, align 8, !tbaa !95
-  %215 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
-  %sub.ptr.lhs.cast.i.i228261 = ptrtoint ptr %214 to i64
-  %sub.ptr.rhs.cast.i.i229262 = ptrtoint ptr %215 to i64
+  %212 = load ptr, ptr %_M_finish.i.i227, align 8, !tbaa !95
+  %213 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
+  %sub.ptr.lhs.cast.i.i228261 = ptrtoint ptr %212 to i64
+  %sub.ptr.rhs.cast.i.i229262 = ptrtoint ptr %213 to i64
   %sub.ptr.sub.i.i230263 = sub i64 %sub.ptr.lhs.cast.i.i228261, %sub.ptr.rhs.cast.i.i229262
-  %216 = and i64 %sub.ptr.sub.i.i230263, 34359738360
-  %cmp80266.not = icmp eq i64 %216, 0
+  %214 = and i64 %sub.ptr.sub.i.i230263, 34359738360
+  %cmp80266.not = icmp eq i64 %214, 0
   br i1 %cmp80266.not, label %if.end97, label %for.body82
 
 for.body82:                                       ; preds = %for.cond77.preheader, %for.inc93
-  %217 = phi ptr [ %222, %for.inc93 ], [ %215, %for.cond77.preheader ]
-  %218 = phi ptr [ %223, %for.inc93 ], [ %214, %for.cond77.preheader ]
+  %215 = phi ptr [ %220, %for.inc93 ], [ %213, %for.cond77.preheader ]
+  %216 = phi ptr [ %221, %for.inc93 ], [ %212, %for.cond77.preheader ]
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.inc93 ], [ 0, %for.cond77.preheader ]
-  %add.ptr.i.i234 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv269
-  %219 = load ptr, ptr %add.ptr.i.i234, align 8, !tbaa !94
-  %Parent.i = getelementptr inbounds nuw i8, ptr %219, i64 192
-  %220 = load ptr, ptr %Parent.i, align 8, !tbaa !22
-  %cmp86 = icmp eq ptr %220, %this
+  %add.ptr.i.i234 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv269
+  %217 = load ptr, ptr %add.ptr.i.i234, align 8, !tbaa !94
+  %Parent.i = getelementptr inbounds nuw i8, ptr %217, i64 192
+  %218 = load ptr, ptr %Parent.i, align 8, !tbaa !22
+  %cmp86 = icmp eq ptr %218, %this
   br i1 %cmp86, label %if.then87, label %for.inc93
 
 if.then87:                                        ; preds = %for.body82
-  %vtable90 = load ptr, ptr %219, align 8, !tbaa !3
+  %vtable90 = load ptr, ptr %217, align 8, !tbaa !3
   %vfn91 = getelementptr inbounds nuw i8, ptr %vtable90, i64 328
-  %221 = load ptr, ptr %vfn91, align 8
-  call void %221(ptr noundef nonnull align 8 dereferenceable(236) %219) #21
+  %219 = load ptr, ptr %vfn91, align 8
+  call void %219(ptr noundef nonnull align 8 dereferenceable(236) %217) #21
   %.pre = load ptr, ptr %_M_finish.i.i227, align 8, !tbaa !95
   %.pre272 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
   br label %for.inc93
 
 for.inc93:                                        ; preds = %if.then87, %for.body82
-  %222 = phi ptr [ %217, %for.body82 ], [ %.pre272, %if.then87 ]
-  %223 = phi ptr [ %218, %for.body82 ], [ %.pre, %if.then87 ]
+  %220 = phi ptr [ %215, %for.body82 ], [ %.pre272, %if.then87 ]
+  %221 = phi ptr [ %216, %for.body82 ], [ %.pre, %if.then87 ]
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %sub.ptr.lhs.cast.i.i228 = ptrtoint ptr %223 to i64
-  %sub.ptr.rhs.cast.i.i229 = ptrtoint ptr %222 to i64
+  %sub.ptr.lhs.cast.i.i228 = ptrtoint ptr %221 to i64
+  %sub.ptr.rhs.cast.i.i229 = ptrtoint ptr %220 to i64
   %sub.ptr.sub.i.i230 = sub i64 %sub.ptr.lhs.cast.i.i228, %sub.ptr.rhs.cast.i.i229
   %sub.ptr.div.i.i231 = lshr exact i64 %sub.ptr.sub.i.i230, 3
-  %224 = and i64 %sub.ptr.div.i.i231, 4294967295
-  %cmp80 = icmp samesign ult i64 %indvars.iv.next270, %224
+  %222 = and i64 %sub.ptr.div.i.i231, 4294967295
+  %cmp80 = icmp samesign ult i64 %indvars.iv.next270, %222
   br i1 %cmp80, label %for.body82, label %if.end97, !llvm.loop !174
 
 if.end97:                                         ; preds = %for.inc93, %for.cond77.preheader, %if.end73, %land.lhs.true, %entry

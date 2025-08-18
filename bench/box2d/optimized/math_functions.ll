@@ -41,12 +41,12 @@ define zeroext i1 @b2IsValidVec2(<2 x float> %0) local_unnamed_addr #2 {
 define zeroext i1 @b2IsValidRotation(<2 x float> %0) local_unnamed_addr #2 {
   %.sroa.0.4.vec.extract = extractelement <2 x float> %0, i64 1
   %2 = fcmp uno float %.sroa.0.4.vec.extract, 0.000000e+00
-  br i1 %2, label %18, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
   %4 = fcmp uno float %.sroa.0.0.vec.extract, 0.000000e+00
-  br i1 %4, label %18, label %5
+  br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
   %6 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract) #5
@@ -54,20 +54,20 @@ define zeroext i1 @b2IsValidRotation(<2 x float> %0) local_unnamed_addr #2 {
   %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract) #5
   %9 = fcmp oeq float %8, 0x7FF0000000000000
   %or.cond = or i1 %7, %9
-  br i1 %or.cond, label %18, label %10
+  br i1 %or.cond, label %17, label %10
 
 10:                                               ; preds = %5
   %11 = fmul float %.sroa.0.4.vec.extract, %.sroa.0.4.vec.extract
-  %12 = fmul <2 x float> %0, %0
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = fadd float %11, %13
-  %15 = fcmp ogt float %14, 0x3FEFFB15C0000000
-  %16 = fcmp olt float %14, 0x3FF0027520000000
-  %17 = and i1 %15, %16
-  br label %18
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %12 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %13 = fadd float %11, %12
+  %14 = fcmp ogt float %13, 0x3FEFFB15C0000000
+  %15 = fcmp olt float %13, 0x3FF0027520000000
+  %16 = and i1 %14, %15
+  br label %17
 
-18:                                               ; preds = %5, %1, %3, %10
-  %.0 = phi i1 [ %17, %10 ], [ false, %3 ], [ false, %1 ], [ false, %5 ]
+17:                                               ; preds = %5, %1, %3, %10
+  %.0 = phi i1 [ %16, %10 ], [ false, %3 ], [ false, %1 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -202,26 +202,26 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
 define <2 x float> @b2ComputeRotationBetweenUnitVectors(<2 x float> %0, <2 x float> %1) local_unnamed_addr #2 {
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %1, i64 0
-  %3 = fmul <2 x float> %0, %1
-  %4 = extractelement <2 x float> %3, i64 0
+  %foldExtExtBinop = fmul <2 x float> %0, %1
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %1, i64 1
-  %5 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %6 = fadd float %4, %5
-  %7 = fmul float %.sroa.01.0.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %8 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.0.0.vec.extract.i
-  %9 = fsub float %7, %8
-  %10 = fmul float %9, %9
-  %11 = fmul float %6, %6
-  %12 = fadd float %10, %11
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %12)
-  %13 = fcmp ogt float %12, 0.000000e+00
-  %14 = fdiv float 1.000000e+00, %sqrt.i
-  %15 = select i1 %13, float %14, float 0.000000e+00
-  %16 = fmul float %6, %15
-  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %16, i64 0
-  %17 = fmul float %9, %15
-  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %17, i64 1
+  %4 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %5 = fadd float %3, %4
+  %6 = fmul float %.sroa.01.0.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %7 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.0.0.vec.extract.i
+  %8 = fsub float %6, %7
+  %9 = fmul float %8, %8
+  %10 = fmul float %5, %5
+  %11 = fadd float %9, %10
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %11)
+  %12 = fcmp ogt float %11, 0.000000e+00
+  %13 = fdiv float 1.000000e+00, %sqrt.i
+  %14 = select i1 %12, float %13, float 0.000000e+00
+  %15 = fmul float %5, %14
+  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
+  %16 = fmul float %8, %14
+  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %16, i64 1
   ret <2 x float> %.sroa.012.4.vec.insert.i
 }
 

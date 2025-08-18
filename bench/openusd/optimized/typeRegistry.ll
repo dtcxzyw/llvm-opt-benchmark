@@ -22728,7 +22728,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(70) %1)
   %13 = invoke <2 x float> @_ZNO32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec2fEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %14 unwind label %61
+          to label %14 unwind label %59
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22762,7 +22762,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %14, %20
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %31 = invoke <2 x float> @_ZNO32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec2fEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %32 unwind label %63
+          to label %32 unwind label %61
 
 32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -22792,38 +22792,38 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %14, %20
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit10: ; preds = %32, %38
   %46 = fsub double %7, %9
   %47 = fdiv double 1.000000e+00, %46
-  %48 = fsub <2 x float> %31, %13
-  %49 = extractelement <2 x float> %48, i64 0
-  %50 = fsub <2 x float> %31, %13
-  %51 = extractelement <2 x float> %50, i64 1
-  %52 = fpext float %49 to double
-  %53 = fmul double %47, %52
-  %54 = fptrunc double %53 to float
-  %.sroa.0.0.vec.insert.i12 = insertelement <2 x float> poison, float %54, i64 0
-  %55 = fpext float %51 to double
-  %56 = fmul double %47, %55
-  %57 = fptrunc double %56 to float
-  %.sroa.0.4.vec.insert.i14 = insertelement <2 x float> %.sroa.0.0.vec.insert.i12, float %57, i64 1
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %60 = inttoptr i64 %59 to ptr
-  store ptr %60, ptr %58, align 8
+  %foldExtExtBinop = fsub <2 x float> %31, %13
+  %48 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop19 = fsub <2 x float> %31, %13
+  %49 = extractelement <2 x float> %foldExtExtBinop19, i64 1
+  %50 = fpext float %48 to double
+  %51 = fmul double %47, %50
+  %52 = fptrunc double %51 to float
+  %.sroa.0.0.vec.insert.i12 = insertelement <2 x float> poison, float %52, i64 0
+  %53 = fpext float %49 to double
+  %54 = fmul double %47, %53
+  %55 = fptrunc double %54 to float
+  %.sroa.0.4.vec.insert.i14 = insertelement <2 x float> %.sroa.0.0.vec.insert.i12, float %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec2fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %58 = inttoptr i64 %57 to ptr
+  store ptr %58, ptr %56, align 8
   store <2 x float> %.sroa.0.4.vec.insert.i14, ptr %0, align 8
   ret void
 
-61:                                               ; preds = %3
+59:                                               ; preds = %3
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  br label %63
+
+61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %63
 
-63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  br label %65
-
-65:                                               ; preds = %63, %61
-  %.sink = phi ptr [ %5, %63 ], [ %4, %61 ]
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+63:                                               ; preds = %61, %59
+  %.sink = phi ptr [ %5, %61 ], [ %4, %59 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
   resume { ptr, i32 } %.pn
 }
@@ -27931,18 +27931,18 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i: ; preds = %22
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3fE)
-          to label %.noexc unwind label %108
+          to label %.noexc unwind label %106
 
 .noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i
   br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i: ; preds = %.noexc, %22, %3
   %25 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3fE)
-          to label %36 unwind label %108
+          to label %36 unwind label %106
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i: ; preds = %.noexc, %16
   %26 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7GfVec3fEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS4_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc21 unwind label %108
+          to label %.noexc21 unwind label %106
 
 .noexc21:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i
   %.sroa.0.i.i.sroa.0.0.copyload.i.i = load <2 x float>, ptr %26, align 4
@@ -27962,7 +27962,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.t
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %108
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %106
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %25, align 4
@@ -28020,18 +28020,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %31, %.noexc21
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i26: ; preds = %60
   %62 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3fE)
-          to label %.noexc42 unwind label %110
+          to label %.noexc42 unwind label %108
 
 .noexc42:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i26
   br i1 %62, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i35, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i27
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i27: ; preds = %.noexc42, %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %63 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec3fE)
-          to label %74 unwind label %110
+          to label %74 unwind label %108
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i35: ; preds = %.noexc42, %54
   %64 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7GfVec3fEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS4_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %.noexc44 unwind label %110
+          to label %.noexc44 unwind label %108
 
 .noexc44:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i35
   %.sroa.0.i.i.sroa.0.0.copyload.i.i36 = load <2 x float>, ptr %64, align 4
@@ -28051,7 +28051,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.t
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8
   invoke void %73(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49 unwind label %110
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49 unwind label %108
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i27
   %.sroa.03.0.copyload.i28 = load <2 x float>, ptr %63, align 4
@@ -28086,49 +28086,49 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49: ; preds = %69, %.noexc
   %86 = fsub double %7, %9
   %87 = fdiv double 1.000000e+00, %86
   store ptr null, ptr %51, align 8
-  %88 = fsub <2 x float> %.sroa.03.0.copyload.pn.i3177, %.sroa.03.0.copyload.pn.i70
-  %89 = extractelement <2 x float> %88, i64 0
-  %90 = fsub <2 x float> %.sroa.03.0.copyload.pn.i3177, %.sroa.03.0.copyload.pn.i70
-  %91 = extractelement <2 x float> %90, i64 1
-  %92 = fsub float %.sroa.3.0.copyload.pn.i3278, %.sroa.3.0.copyload.pn.i71
-  %93 = fpext float %89 to double
-  %94 = fmul double %87, %93
-  %95 = fptrunc double %94 to float
-  %.sroa.0.0.vec.insert.i54 = insertelement <2 x float> poison, float %95, i64 0
-  %96 = fpext float %91 to double
-  %97 = fmul double %87, %96
-  %98 = fptrunc double %97 to float
-  %.sroa.0.4.vec.insert.i56 = insertelement <2 x float> %.sroa.0.0.vec.insert.i54, float %98, i64 1
-  %99 = fpext float %92 to double
-  %100 = fmul double %87, %99
-  %101 = fptrunc double %100 to float
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec3fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %104 = inttoptr i64 %103 to ptr
-  store ptr %104, ptr %102, align 8
-  %105 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store <2 x float> %.sroa.0.4.vec.insert.i56, ptr %105, align 4
-  %.sroa.2.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store float %101, ptr %.sroa.2.0..sroa_idx59, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  store atomic i32 0, ptr %106 seq_cst, align 4
-  store ptr %105, ptr %0, align 8
-  %107 = atomicrmw add ptr %106, i32 1 monotonic, align 4
+  %foldExtExtBinop = fsub <2 x float> %.sroa.03.0.copyload.pn.i3177, %.sroa.03.0.copyload.pn.i70
+  %88 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop80 = fsub <2 x float> %.sroa.03.0.copyload.pn.i3177, %.sroa.03.0.copyload.pn.i70
+  %89 = extractelement <2 x float> %foldExtExtBinop80, i64 1
+  %90 = fsub float %.sroa.3.0.copyload.pn.i3278, %.sroa.3.0.copyload.pn.i71
+  %91 = fpext float %88 to double
+  %92 = fmul double %87, %91
+  %93 = fptrunc double %92 to float
+  %.sroa.0.0.vec.insert.i54 = insertelement <2 x float> poison, float %93, i64 0
+  %94 = fpext float %89 to double
+  %95 = fmul double %87, %94
+  %96 = fptrunc double %95 to float
+  %.sroa.0.4.vec.insert.i56 = insertelement <2 x float> %.sroa.0.0.vec.insert.i54, float %96, i64 1
+  %97 = fpext float %90 to double
+  %98 = fmul double %87, %97
+  %99 = fptrunc double %98 to float
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec3fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %102 = inttoptr i64 %101 to ptr
+  store ptr %102, ptr %100, align 8
+  %103 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store <2 x float> %.sroa.0.4.vec.insert.i56, ptr %103, align 4
+  %.sroa.2.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store float %99, ptr %.sroa.2.0..sroa_idx59, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store atomic i32 0, ptr %104 seq_cst, align 4
+  store ptr %103, ptr %0, align 8
+  %105 = atomicrmw add ptr %104, i32 1 monotonic, align 4
   ret void
 
-108:                                              ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i
+106:                                              ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  br label %110
+
+108:                                              ; preds = %69, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i35, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i27, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i26
   %109 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %110
 
-110:                                              ; preds = %69, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread5.i35, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.thread.i27, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec3fEEEbv.exit.i26
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  br label %112
-
-112:                                              ; preds = %110, %108
-  %.sink = phi ptr [ %5, %110 ], [ %4, %108 ]
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
+110:                                              ; preds = %108, %106
+  %.sink = phi ptr [ %5, %108 ], [ %4, %106 ]
+  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %107, %106 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
   resume { ptr, i32 } %.pn
 }
@@ -34222,18 +34222,18 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i: ; preds = %22
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4fE)
-          to label %.noexc unwind label %114
+          to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i
   br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i: ; preds = %.noexc, %22, %3
   %25 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4fE)
-          to label %36 unwind label %114
+          to label %36 unwind label %110
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i: ; preds = %.noexc, %16
   %26 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7GfVec4fEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS4_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc9 unwind label %114
+          to label %.noexc9 unwind label %110
 
 .noexc9:                                          ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i
   %.sroa.0.i.i.sroa.0.0.copyload.i.i = load <2 x float>, ptr %26, align 4
@@ -34253,7 +34253,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %114
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %110
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %25, align 4
@@ -34311,18 +34311,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %31, %.noexc9,
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i14: ; preds = %60
   %62 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4fE)
-          to label %.noexc30 unwind label %116
+          to label %.noexc30 unwind label %112
 
 .noexc30:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i14
   br i1 %62, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i23, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i15
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i15: ; preds = %.noexc30, %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
   %63 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS_21Vt_DefaultValueHolderEvERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4fEE6InvokeEv, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__7GfVec4fE)
-          to label %74 unwind label %116
+          to label %74 unwind label %112
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i23: ; preds = %.noexc30, %54
   %64 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7GfVec4fEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS4_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %.noexc32 unwind label %116
+          to label %.noexc32 unwind label %112
 
 .noexc32:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i23
   %.sroa.0.i.i.sroa.0.0.copyload.i.i24 = load <2 x float>, ptr %64, align 4
@@ -34342,7 +34342,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8
   invoke void %73(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit37 unwind label %116
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit37 unwind label %112
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i15
   %.sroa.0.0.copyload.i16 = load <2 x float>, ptr %63, align 4
@@ -34377,57 +34377,57 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit37: ; preds = %69, %.noexc
   %86 = fsub double %7, %9
   %87 = fdiv double 1.000000e+00, %86
   store ptr null, ptr %51, align 8
-  %88 = fsub <2 x float> %.sroa.0.0.copyload.pn.i1968, %.sroa.0.0.copyload.pn.i61
-  %89 = extractelement <2 x float> %88, i64 0
-  %90 = fsub <2 x float> %.sroa.0.0.copyload.pn.i1968, %.sroa.0.0.copyload.pn.i61
-  %91 = extractelement <2 x float> %90, i64 1
-  %92 = fsub <2 x float> %.sroa.3.0.copyload.pn.i2069, %.sroa.3.0.copyload.pn.i62
-  %93 = extractelement <2 x float> %92, i64 0
-  %94 = fsub <2 x float> %.sroa.3.0.copyload.pn.i2069, %.sroa.3.0.copyload.pn.i62
-  %95 = extractelement <2 x float> %94, i64 1
-  %96 = fpext float %89 to double
-  %97 = fmul double %87, %96
-  %98 = fptrunc double %97 to float
-  %.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %98, i64 0
-  %99 = fpext float %91 to double
-  %100 = fmul double %87, %99
-  %101 = fptrunc double %100 to float
-  %.sroa.0.4.vec.insert.i44 = insertelement <2 x float> %.sroa.0.0.vec.insert.i42, float %101, i64 1
-  %102 = fpext float %93 to double
-  %103 = fmul double %87, %102
-  %104 = fptrunc double %103 to float
-  %.sroa.6.8.vec.insert.i46 = insertelement <2 x float> poison, float %104, i64 0
-  %105 = fpext float %95 to double
-  %106 = fmul double %87, %105
-  %107 = fptrunc double %106 to float
-  %.sroa.6.12.vec.insert.i48 = insertelement <2 x float> %.sroa.6.8.vec.insert.i46, float %107, i64 1
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %109 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec4fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %110 = inttoptr i64 %109 to ptr
-  store ptr %110, ptr %108, align 8
-  %111 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #25
-  store <2 x float> %.sroa.0.4.vec.insert.i44, ptr %111, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %foldExtExtBinop = fsub <2 x float> %.sroa.0.0.copyload.pn.i1968, %.sroa.0.0.copyload.pn.i61
+  %88 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop71 = fsub <2 x float> %.sroa.0.0.copyload.pn.i1968, %.sroa.0.0.copyload.pn.i61
+  %89 = extractelement <2 x float> %foldExtExtBinop71, i64 1
+  %foldExtExtBinop73 = fsub <2 x float> %.sroa.3.0.copyload.pn.i2069, %.sroa.3.0.copyload.pn.i62
+  %90 = extractelement <2 x float> %foldExtExtBinop73, i64 0
+  %foldExtExtBinop75 = fsub <2 x float> %.sroa.3.0.copyload.pn.i2069, %.sroa.3.0.copyload.pn.i62
+  %91 = extractelement <2 x float> %foldExtExtBinop75, i64 1
+  %92 = fpext float %88 to double
+  %93 = fmul double %87, %92
+  %94 = fptrunc double %93 to float
+  %.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %94, i64 0
+  %95 = fpext float %89 to double
+  %96 = fmul double %87, %95
+  %97 = fptrunc double %96 to float
+  %.sroa.0.4.vec.insert.i44 = insertelement <2 x float> %.sroa.0.0.vec.insert.i42, float %97, i64 1
+  %98 = fpext float %90 to double
+  %99 = fmul double %87, %98
+  %100 = fptrunc double %99 to float
+  %.sroa.6.8.vec.insert.i46 = insertelement <2 x float> poison, float %100, i64 0
+  %101 = fpext float %91 to double
+  %102 = fmul double %87, %101
+  %103 = fptrunc double %102 to float
+  %.sroa.6.12.vec.insert.i48 = insertelement <2 x float> %.sroa.6.8.vec.insert.i46, float %103, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %105 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfVec4fEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %106 = inttoptr i64 %105 to ptr
+  store ptr %106, ptr %104, align 8
+  %107 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #25
+  store <2 x float> %.sroa.0.4.vec.insert.i44, ptr %107, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   store <2 x float> %.sroa.6.12.vec.insert.i48, ptr %.sroa.2.0..sroa_idx, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store atomic i32 0, ptr %112 seq_cst, align 4
-  store ptr %111, ptr %0, align 8
-  %113 = atomicrmw add ptr %112, i32 1 monotonic, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  store atomic i32 0, ptr %108 seq_cst, align 4
+  store ptr %107, ptr %0, align 8
+  %109 = atomicrmw add ptr %108, i32 1 monotonic, align 4
   ret void
 
-114:                                              ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i
-  %115 = landingpad { ptr, i32 }
+110:                                              ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i
+  %111 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %114
 
-116:                                              ; preds = %69, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i14
-  %117 = landingpad { ptr, i32 }
+112:                                              ; preds = %69, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread2.i23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.i15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.i14
+  %113 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %114
 
-118:                                              ; preds = %116, %114
-  %.sink = phi ptr [ %5, %116 ], [ %4, %114 ]
-  %.pn = phi { ptr, i32 } [ %117, %116 ], [ %115, %114 ]
+114:                                              ; preds = %112, %110
+  %.sink = phi ptr [ %5, %112 ], [ %4, %110 ]
+  %.pn = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
   resume { ptr, i32 } %.pn
 }

@@ -23940,7 +23940,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %14, %_ZN9QtPrivate8
 20:                                               ; preds = %3
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %167
 
 22:                                               ; preds = %_ZN7QStringD2Ev.exit
   call void @glDisable(i32 noundef 2832)
@@ -23950,11 +23950,11 @@ _ZN7QStringD2Ev.exit:                             ; preds = %14, %_ZN9QtPrivate8
   %24 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.47, i32 noundef 30)
   store ptr %24, ptr %7, align 8
   %25 = invoke noundef float @_ZNK17RichParameterList8getFloatERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %26 unwind label %161
+          to label %26 unwind label %160
 
 26:                                               ; preds = %23
   invoke void @glPointSize(float noundef %25)
-          to label %27 unwind label %161
+          to label %27 unwind label %160
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %7, align 8
@@ -23981,13 +23981,13 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16:  ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit21:                           ; preds = %27, %_ZN9QtPrivate8RefCount5derefEv.exit.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
   %32 = load ptr, ptr @__glewPointParameterfv, align 8
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %167, label %33
+  br i1 %.not, label %166, label %33
 
 33:                                               ; preds = %_ZN7QStringD2Ev.exit21
   %34 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.48, i32 noundef 45)
   store ptr %34, ptr %8, align 8
   %35 = invoke noundef zeroext i1 @_ZNK17RichParameterList7getBoolERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %36 unwind label %163
+          to label %36 unwind label %162
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %8, align 8
@@ -24012,7 +24012,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit27
 
 _ZN7QStringD2Ev.exit27:                           ; preds = %36, %_ZN9QtPrivate8RefCount5derefEv.exit.i23, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22
-  br i1 %35, label %.noexc, label %165
+  br i1 %35, label %.noexc, label %164
 
 .noexc:                                           ; preds = %_ZN7QStringD2Ev.exit27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -24200,48 +24200,48 @@ _ZN3vcg9TransposeIfEERNS_8Matrix44IT_EES4_.exit:  ; preds = %61
   %.sroa.7.0.i = phi float [ %148, %145 ], [ %131, %78 ]
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert36.i, %145 ], [ %.sroa.0.4.vec.insert.i, %78 ]
   %.sroa.032.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 0
-  %150 = fmul <2 x float> %.sroa.0.0.i, %.sroa.0.0.i
-  %151 = extractelement <2 x float> %150, i64 1
-  %152 = call float @llvm.fmuladd.f32(float %.sroa.032.0.vec.extract, float %.sroa.032.0.vec.extract, float %151)
-  %153 = call float @llvm.fmuladd.f32(float %.sroa.7.0.i, float %.sroa.7.0.i, float %152)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %153)
+  %foldExtExtBinop = fmul <2 x float> %.sroa.0.0.i, %.sroa.0.0.i
+  %150 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %151 = call float @llvm.fmuladd.f32(float %.sroa.032.0.vec.extract, float %.sroa.032.0.vec.extract, float %150)
+  %152 = call float @llvm.fmuladd.f32(float %.sroa.7.0.i, float %.sroa.7.0.i, float %151)
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %152)
   store float 0.000000e+00, ptr %10, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float 0.000000e+00, ptr %154, align 4
-  %155 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %156 = fmul float %sqrt.i.i, %sqrt.i.i
-  %157 = fdiv float 1.000000e+00, %156
-  store float %157, ptr %155, align 4
-  %158 = load ptr, ptr @__glewPointParameterfv, align 8
-  call void %158(i32 noundef 33065, ptr noundef nonnull %10)
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float 0.000000e+00, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %155 = fmul float %sqrt.i.i, %sqrt.i.i
+  %156 = fdiv float 1.000000e+00, %155
+  store float %156, ptr %154, align 4
+  %157 = load ptr, ptr @__glewPointParameterfv, align 8
+  call void %157(i32 noundef 33065, ptr noundef nonnull %10)
+  %158 = load ptr, ptr @__glewPointParameterf, align 8
+  call void %158(i32 noundef 33063, float noundef 1.600000e+01)
   %159 = load ptr, ptr @__glewPointParameterf, align 8
-  call void %159(i32 noundef 33063, float noundef 1.600000e+01)
-  %160 = load ptr, ptr @__glewPointParameterf, align 8
-  call void %160(i32 noundef 33062, float noundef 1.000000e+00)
+  call void %159(i32 noundef 33062, float noundef 1.000000e+00)
+  br label %166
+
+160:                                              ; preds = %26, %23
+  %161 = landingpad { ptr, i32 }
+          cleanup
   br label %167
 
-161:                                              ; preds = %26, %23
-  %162 = landingpad { ptr, i32 }
+162:                                              ; preds = %33
+  %163 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %167
 
-163:                                              ; preds = %33
-  %164 = landingpad { ptr, i32 }
-          cleanup
-  br label %168
-
-165:                                              ; preds = %_ZN7QStringD2Ev.exit27
+164:                                              ; preds = %_ZN7QStringD2Ev.exit27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN24DecorateRasterProjPlugin18setPointParametersERNS_10MeshDrawerEPK17RichParameterList.quadratic, i64 12, i1 false)
-  %166 = load ptr, ptr @__glewPointParameterfv, align 8
-  call void %166(i32 noundef 33065, ptr noundef nonnull %11)
-  br label %167
+  %165 = load ptr, ptr @__glewPointParameterfv, align 8
+  call void %165(i32 noundef 33065, ptr noundef nonnull %11)
+  br label %166
 
-167:                                              ; preds = %149, %165, %_ZN7QStringD2Ev.exit21
+166:                                              ; preds = %149, %164, %_ZN7QStringD2Ev.exit21
   ret void
 
-168:                                              ; preds = %163, %161, %20
-  %.sink = phi ptr [ %8, %163 ], [ %7, %161 ], [ %6, %20 ]
-  %.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %162, %161 ], [ %21, %20 ]
+167:                                              ; preds = %162, %160, %20
+  %.sink = phi ptr [ %8, %162 ], [ %7, %160 ], [ %6, %20 ]
+  %.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %161, %160 ], [ %21, %20 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #25
   resume { ptr, i32 } %.pn.pn
 }

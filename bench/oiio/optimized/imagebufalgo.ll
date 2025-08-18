@@ -46614,11 +46614,11 @@ define linkonce_odr hidden void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE7kf_wo
   br i1 %.not, label %.loopexit, label %30, !llvm.loop !898
 
 .loopexit:                                        ; preds = %30, %26
-  switch i32 %11, label %140 [
+  switch i32 %11, label %139 [
     i32 2, label %33
-    i32 3, label %64
-    i32 4, label %136
-    i32 5, label %138
+    i32 3, label %63
+    i32 4, label %135
+    i32 5, label %137
   ]
 
 33:                                               ; preds = %.loopexit
@@ -46645,178 +46645,178 @@ define linkonce_odr hidden void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE7kf_wo
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 1
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %42, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %42, i64 1
-  %43 = fmul <2 x float> %.sroa.0.0.copyload.i.i, %42
-  %44 = extractelement <2 x float> %43, i64 0
-  %45 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i.i
-  %46 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.0.vec.extract.i.i
-  %47 = fmul float %.sroa.0.0.vec.extract.i, %.sroa.0.4.vec.extract.i.i
-  %48 = fsub float %44, %45
-  %49 = fadd float %47, %46
-  %50 = fcmp uno float %48, 0.000000e+00
-  br i1 %50, label %51, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !899
+  %foldExtExtBinop = fmul <2 x float> %.sroa.0.0.copyload.i.i, %42
+  %43 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %44 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i.i
+  %45 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.0.vec.extract.i.i
+  %46 = fmul float %.sroa.0.0.vec.extract.i, %.sroa.0.4.vec.extract.i.i
+  %47 = fsub float %43, %44
+  %48 = fadd float %46, %45
+  %49 = fcmp uno float %47, 0.000000e+00
+  br i1 %49, label %50, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !899
 
-51:                                               ; preds = %38
-  %52 = fcmp uno float %49, 0.000000e+00
-  br i1 %52, label %53, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !899
+50:                                               ; preds = %38
+  %51 = fcmp uno float %48, 0.000000e+00
+  br i1 %51, label %52, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !899
 
-53:                                               ; preds = %51
-  %54 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i, float noundef %.sroa.0.4.vec.extract.i.i, float noundef %.sroa.0.0.vec.extract.i, float noundef %.sroa.0.4.vec.extract.i) #29
-  %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %54, i64 0
-  %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %54, i64 1
+52:                                               ; preds = %50
+  %53 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i, float noundef %.sroa.0.4.vec.extract.i.i, float noundef %.sroa.0.0.vec.extract.i, float noundef %.sroa.0.4.vec.extract.i) #29
+  %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %53, i64 0
+  %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %53, i64 1
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i:           ; preds = %53, %51, %38
-  %55 = phi float [ %48, %38 ], [ %48, %51 ], [ %.sroa.0.0.vec.extract.i.i.i, %53 ]
-  %56 = phi float [ %49, %38 ], [ %49, %51 ], [ %.sroa.0.4.vec.extract.i.i.i, %53 ]
-  %57 = getelementptr inbounds nuw %"class.std::complex", ptr %2, i64 %indvars.iv.i
-  %58 = load <2 x float>, ptr %57, align 4
-  %.sroa.0.0.vec.extract.i16.i = extractelement <2 x float> %58, i64 0
-  %.sroa.0.4.vec.extract.i17.i = extractelement <2 x float> %58, i64 1
-  %59 = fsub float %.sroa.0.0.vec.extract.i16.i, %55
-  %60 = fsub float %.sroa.0.4.vec.extract.i17.i, %56
-  %.sroa.0.0.vec.insert.i18.i = insertelement <2 x float> poison, float %59, i64 0
-  %.sroa.0.4.vec.insert.i19.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i18.i, float %60, i64 1
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i:           ; preds = %52, %50, %38
+  %54 = phi float [ %47, %38 ], [ %47, %50 ], [ %.sroa.0.0.vec.extract.i.i.i, %52 ]
+  %55 = phi float [ %48, %38 ], [ %48, %50 ], [ %.sroa.0.4.vec.extract.i.i.i, %52 ]
+  %56 = getelementptr inbounds nuw %"class.std::complex", ptr %2, i64 %indvars.iv.i
+  %57 = load <2 x float>, ptr %56, align 4
+  %.sroa.0.0.vec.extract.i16.i = extractelement <2 x float> %57, i64 0
+  %.sroa.0.4.vec.extract.i17.i = extractelement <2 x float> %57, i64 1
+  %58 = fsub float %.sroa.0.0.vec.extract.i16.i, %54
+  %59 = fsub float %.sroa.0.4.vec.extract.i17.i, %55
+  %.sroa.0.0.vec.insert.i18.i = insertelement <2 x float> poison, float %58, i64 0
+  %.sroa.0.4.vec.insert.i19.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i18.i, float %59, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i19.i, ptr %gep.i, align 4, !tbaa !96
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %62 = fadd float %55, %.sroa.0.0.vec.extract.i16.i
-  %63 = fadd float %56, %.sroa.0.4.vec.extract.i17.i
-  store float %62, ptr %57, align 4
-  store float %63, ptr %61, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %61 = fadd float %54, %.sroa.0.0.vec.extract.i16.i
+  %62 = fadd float %55, %.sroa.0.4.vec.extract.i17.i
+  store float %61, ptr %56, align 4
+  store float %62, ptr %60, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %36
   br i1 %exitcond.not.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit, label %38, !llvm.loop !900
 
-64:                                               ; preds = %.loopexit
-  %65 = sext i32 %15 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = mul i64 %4, %65
-  %68 = load ptr, ptr %66, align 8, !tbaa !857
-  %.sroa_idx.i = getelementptr inbounds %"class.std::complex", ptr %68, i64 %67, i32 0, i32 1
-  %69 = load float, ptr %.sroa_idx.i, align 4
-  %.idx38.i = shl nsw i64 %65, 4
+63:                                               ; preds = %.loopexit
+  %64 = sext i32 %15 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = mul i64 %4, %64
+  %67 = load ptr, ptr %65, align 8, !tbaa !857
+  %.sroa_idx.i = getelementptr inbounds %"class.std::complex", ptr %67, i64 %66, i32 0, i32 1
+  %68 = load float, ptr %.sroa_idx.i, align 4
+  %.idx38.i = shl nsw i64 %64, 4
   %.idx39.i = shl i64 %4, 4
-  br label %70
+  br label %69
 
-70:                                               ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, %64
-  %.036.i = phi i64 [ %65, %64 ], [ %135, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
-  %.035.i = phi ptr [ %2, %64 ], [ %134, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
-  %.034.i = phi ptr [ %68, %64 ], [ %111, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
-  %.0.i = phi ptr [ %68, %64 ], [ %112, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
-  %71 = getelementptr inbounds nuw %"class.std::complex", ptr %.035.i, i64 %65
-  %72 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.idx38.i
-  %73 = load <2 x float>, ptr %71, align 4, !tbaa !96
-  %74 = load float, ptr %.034.i, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
-  %76 = load float, ptr %75, align 4
-  %.sroa.0.0.vec.extract.i.i.i47 = extractelement <2 x float> %73, i64 0
-  %.sroa.0.4.vec.extract.i.i.i48 = extractelement <2 x float> %73, i64 1
-  %77 = fmul float %74, %.sroa.0.0.vec.extract.i.i.i47
-  %78 = fmul float %.sroa.0.4.vec.extract.i.i.i48, %76
-  %79 = fmul float %.sroa.0.0.vec.extract.i.i.i47, %76
-  %80 = fmul float %74, %.sroa.0.4.vec.extract.i.i.i48
-  %81 = fsub float %77, %78
-  %82 = fadd float %80, %79
-  %83 = fcmp uno float %81, 0.000000e+00
-  br i1 %83, label %84, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !899
+69:                                               ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, %63
+  %.036.i = phi i64 [ %64, %63 ], [ %134, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
+  %.035.i = phi ptr [ %2, %63 ], [ %133, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
+  %.034.i = phi ptr [ %67, %63 ], [ %110, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
+  %.0.i = phi ptr [ %67, %63 ], [ %111, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i ]
+  %70 = getelementptr inbounds nuw %"class.std::complex", ptr %.035.i, i64 %64
+  %71 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.idx38.i
+  %72 = load <2 x float>, ptr %70, align 4, !tbaa !96
+  %73 = load float, ptr %.034.i, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
+  %75 = load float, ptr %74, align 4
+  %.sroa.0.0.vec.extract.i.i.i47 = extractelement <2 x float> %72, i64 0
+  %.sroa.0.4.vec.extract.i.i.i48 = extractelement <2 x float> %72, i64 1
+  %76 = fmul float %73, %.sroa.0.0.vec.extract.i.i.i47
+  %77 = fmul float %.sroa.0.4.vec.extract.i.i.i48, %75
+  %78 = fmul float %.sroa.0.0.vec.extract.i.i.i47, %75
+  %79 = fmul float %73, %.sroa.0.4.vec.extract.i.i.i48
+  %80 = fsub float %76, %77
+  %81 = fadd float %79, %78
+  %82 = fcmp uno float %80, 0.000000e+00
+  br i1 %82, label %83, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !899
 
-84:                                               ; preds = %70
-  %85 = fcmp uno float %82, 0.000000e+00
-  br i1 %85, label %86, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !899
+83:                                               ; preds = %69
+  %84 = fcmp uno float %81, 0.000000e+00
+  br i1 %84, label %85, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !899
 
-86:                                               ; preds = %84
-  %87 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i.i47, float noundef %.sroa.0.4.vec.extract.i.i.i48, float noundef %74, float noundef %76) #29
-  %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %87, i64 0
-  %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %87, i64 1
+85:                                               ; preds = %83
+  %86 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i.i47, float noundef %.sroa.0.4.vec.extract.i.i.i48, float noundef %73, float noundef %75) #29
+  %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %86, i64 0
+  %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %86, i64 1
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
 
-_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i: ; preds = %86, %84, %70
-  %88 = phi float [ %81, %70 ], [ %81, %84 ], [ %.sroa.0.0.vec.extract.i.i.i.i, %86 ]
-  %89 = phi float [ %82, %70 ], [ %82, %84 ], [ %.sroa.0.4.vec.extract.i.i.i.i, %86 ]
-  %90 = load <2 x float>, ptr %72, align 4, !tbaa !96
-  %91 = load float, ptr %.0.i, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %93 = load float, ptr %92, align 4
-  %.sroa.0.0.vec.extract.i.i40.i = extractelement <2 x float> %90, i64 0
-  %.sroa.0.4.vec.extract.i.i41.i = extractelement <2 x float> %90, i64 1
-  %94 = fmul float %91, %.sroa.0.0.vec.extract.i.i40.i
-  %95 = fmul float %.sroa.0.4.vec.extract.i.i41.i, %93
-  %96 = fmul float %.sroa.0.0.vec.extract.i.i40.i, %93
-  %97 = fmul float %91, %.sroa.0.4.vec.extract.i.i41.i
-  %98 = fsub float %94, %95
-  %99 = fadd float %97, %96
-  %100 = fcmp uno float %98, 0.000000e+00
-  br i1 %100, label %101, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, !prof !899
+_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i: ; preds = %85, %83, %69
+  %87 = phi float [ %80, %69 ], [ %80, %83 ], [ %.sroa.0.0.vec.extract.i.i.i.i, %85 ]
+  %88 = phi float [ %81, %69 ], [ %81, %83 ], [ %.sroa.0.4.vec.extract.i.i.i.i, %85 ]
+  %89 = load <2 x float>, ptr %71, align 4, !tbaa !96
+  %90 = load float, ptr %.0.i, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %92 = load float, ptr %91, align 4
+  %.sroa.0.0.vec.extract.i.i40.i = extractelement <2 x float> %89, i64 0
+  %.sroa.0.4.vec.extract.i.i41.i = extractelement <2 x float> %89, i64 1
+  %93 = fmul float %90, %.sroa.0.0.vec.extract.i.i40.i
+  %94 = fmul float %.sroa.0.4.vec.extract.i.i41.i, %92
+  %95 = fmul float %.sroa.0.0.vec.extract.i.i40.i, %92
+  %96 = fmul float %90, %.sroa.0.4.vec.extract.i.i41.i
+  %97 = fsub float %93, %94
+  %98 = fadd float %96, %95
+  %99 = fcmp uno float %97, 0.000000e+00
+  br i1 %99, label %100, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, !prof !899
 
-101:                                              ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
-  %102 = fcmp uno float %99, 0.000000e+00
-  br i1 %102, label %103, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, !prof !899
+100:                                              ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
+  %101 = fcmp uno float %98, 0.000000e+00
+  br i1 %101, label %102, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, !prof !899
 
-103:                                              ; preds = %101
-  %104 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i40.i, float noundef %.sroa.0.4.vec.extract.i.i41.i, float noundef %91, float noundef %93) #29
-  %.sroa.0.0.vec.extract.i.i.i44.i = extractelement <2 x float> %104, i64 0
-  %.sroa.0.4.vec.extract.i.i.i45.i = extractelement <2 x float> %104, i64 1
+102:                                              ; preds = %100
+  %103 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i.i40.i, float noundef %.sroa.0.4.vec.extract.i.i41.i, float noundef %90, float noundef %92) #29
+  %.sroa.0.0.vec.extract.i.i.i44.i = extractelement <2 x float> %103, i64 0
+  %.sroa.0.4.vec.extract.i.i.i45.i = extractelement <2 x float> %103, i64 1
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i
 
-_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i: ; preds = %103, %101, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
-  %105 = phi float [ %98, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %98, %101 ], [ %.sroa.0.0.vec.extract.i.i.i44.i, %103 ]
-  %106 = phi float [ %99, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %99, %101 ], [ %.sroa.0.4.vec.extract.i.i.i45.i, %103 ]
+_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i: ; preds = %102, %100, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
+  %104 = phi float [ %97, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %97, %100 ], [ %.sroa.0.0.vec.extract.i.i.i44.i, %102 ]
+  %105 = phi float [ %98, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %98, %100 ], [ %.sroa.0.4.vec.extract.i.i.i45.i, %102 ]
+  %106 = fadd float %87, %104
   %107 = fadd float %88, %105
-  %108 = fadd float %89, %106
+  %108 = fsub float %87, %104
   %109 = fsub float %88, %105
-  %110 = fsub float %89, %106
-  %111 = getelementptr inbounds nuw %"class.std::complex", ptr %.034.i, i64 %4
-  %112 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.idx39.i
-  %113 = load float, ptr %.035.i, align 4, !tbaa !249
-  %114 = fmul float %107, 5.000000e-01
-  %115 = fsub float %113, %114
-  %116 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
-  %117 = load float, ptr %116, align 4, !tbaa !249
-  %118 = fmul float %108, 5.000000e-01
-  %119 = fsub float %117, %118
-  store float %115, ptr %71, align 4, !tbaa !96
-  %.sroa_idx60.i = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store float %119, ptr %.sroa_idx60.i, align 4, !tbaa !96
-  %120 = fmul float %69, %109
-  %121 = fmul float %69, %110
-  %122 = load float, ptr %.035.i, align 4
-  %123 = load float, ptr %116, align 4
+  %110 = getelementptr inbounds nuw %"class.std::complex", ptr %.034.i, i64 %4
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.idx39.i
+  %112 = load float, ptr %.035.i, align 4, !tbaa !249
+  %113 = fmul float %106, 5.000000e-01
+  %114 = fsub float %112, %113
+  %115 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
+  %116 = load float, ptr %115, align 4, !tbaa !249
+  %117 = fmul float %107, 5.000000e-01
+  %118 = fsub float %116, %117
+  store float %114, ptr %70, align 4, !tbaa !96
+  %.sroa_idx60.i = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store float %118, ptr %.sroa_idx60.i, align 4, !tbaa !96
+  %119 = fmul float %68, %108
+  %120 = fmul float %68, %109
+  %121 = load float, ptr %.035.i, align 4
+  %122 = load float, ptr %115, align 4
+  %123 = fadd float %106, %121
   %124 = fadd float %107, %122
-  %125 = fadd float %108, %123
-  store float %124, ptr %.035.i, align 4
-  store float %125, ptr %116, align 4
-  %126 = load float, ptr %71, align 4, !tbaa !249
-  %127 = fadd float %121, %126
-  %128 = load float, ptr %.sroa_idx60.i, align 4, !tbaa !249
-  %129 = fsub float %128, %120
-  store float %127, ptr %72, align 4, !tbaa !96
-  %.sroa_idx55.i = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store float %129, ptr %.sroa_idx55.i, align 4, !tbaa !96
-  %130 = load float, ptr %71, align 4
-  %131 = load float, ptr %.sroa_idx60.i, align 4
-  %132 = fsub float %130, %121
-  %133 = fadd float %120, %131
-  store float %132, ptr %71, align 4
-  store float %133, ptr %.sroa_idx60.i, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
-  %135 = add i64 %.036.i, -1
-  %.not.i = icmp eq i64 %135, 0
-  br i1 %.not.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit, label %70, !llvm.loop !901
+  store float %123, ptr %.035.i, align 4
+  store float %124, ptr %115, align 4
+  %125 = load float, ptr %70, align 4, !tbaa !249
+  %126 = fadd float %120, %125
+  %127 = load float, ptr %.sroa_idx60.i, align 4, !tbaa !249
+  %128 = fsub float %127, %119
+  store float %126, ptr %71, align 4, !tbaa !96
+  %.sroa_idx55.i = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store float %128, ptr %.sroa_idx55.i, align 4, !tbaa !96
+  %129 = load float, ptr %70, align 4
+  %130 = load float, ptr %.sroa_idx60.i, align 4
+  %131 = fsub float %129, %120
+  %132 = fadd float %119, %130
+  store float %131, ptr %70, align 4
+  store float %132, ptr %.sroa_idx60.i, align 4
+  %133 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
+  %134 = add i64 %.036.i, -1
+  %.not.i = icmp eq i64 %134, 0
+  br i1 %.not.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit, label %69, !llvm.loop !901
 
-136:                                              ; preds = %.loopexit
-  %137 = sext i32 %15 to i64
-  tail call void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly4EPSt7complexIfEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %2, i64 noundef %4, i64 noundef %137)
+135:                                              ; preds = %.loopexit
+  %136 = sext i32 %15 to i64
+  tail call void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly4EPSt7complexIfEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %2, i64 noundef %4, i64 noundef %136)
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit
 
-138:                                              ; preds = %.loopexit
-  %139 = sext i32 %15 to i64
-  tail call void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly5EPSt7complexIfEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %2, i64 noundef %4, i64 noundef %139)
+137:                                              ; preds = %.loopexit
+  %138 = sext i32 %15 to i64
+  tail call void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly5EPSt7complexIfEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %2, i64 noundef %4, i64 noundef %138)
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit
 
-140:                                              ; preds = %.loopexit
+139:                                              ; preds = %.loopexit
   tail call void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE15kf_bfly_genericEPSt7complexIfEmii(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %2, i64 noundef %4, i32 noundef %15, i32 noundef %11)
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit
 
-_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit: ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, %33, %140, %138, %136
+_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bfly2EPSt7complexIfEmi.exit: ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit46.i, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, %33, %139, %137, %135
   ret void
 }
 
@@ -46841,7 +46841,7 @@ define linkonce_odr hidden void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bf
   ret void
 
 12:                                               ; preds = %.lr.ph, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64
-  %.095 = phi i64 [ 0, %.lr.ph ], [ %100, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64 ]
+  %.095 = phi i64 [ 0, %.lr.ph ], [ %97, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64 ]
   %13 = getelementptr %"class.std::complex", ptr %1, i64 %.095
   %14 = getelementptr %"class.std::complex", ptr %13, i64 %3
   %15 = mul i64 %.095, %2
@@ -46856,144 +46856,144 @@ define linkonce_odr hidden void @_ZN7kissfftIfN13kissfft_utils6traitsIfEEE8kf_bf
   %.sroa.092.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %20, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %20, i64 1
-  %21 = fmul <2 x float> %.sroa.0.0.copyload.i, %20
-  %22 = extractelement <2 x float> %21, i64 0
-  %23 = fmul float %.sroa.092.4.vec.extract, %.sroa.0.4.vec.extract.i
-  %24 = fmul float %.sroa.092.4.vec.extract, %.sroa.0.0.vec.extract.i
-  %25 = fmul float %.sroa.092.0.vec.extract, %.sroa.0.4.vec.extract.i
-  %26 = fsub float %22, %23
-  %27 = fadd float %25, %24
-  %28 = fcmp uno float %26, 0.000000e+00
-  br i1 %28, label %29, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !899
+  %foldExtExtBinop = fmul <2 x float> %.sroa.0.0.copyload.i, %20
+  %21 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %22 = fmul float %.sroa.092.4.vec.extract, %.sroa.0.4.vec.extract.i
+  %23 = fmul float %.sroa.092.4.vec.extract, %.sroa.0.0.vec.extract.i
+  %24 = fmul float %.sroa.092.0.vec.extract, %.sroa.0.4.vec.extract.i
+  %25 = fsub float %21, %22
+  %26 = fadd float %24, %23
+  %27 = fcmp uno float %25, 0.000000e+00
+  br i1 %27, label %28, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !899
 
-29:                                               ; preds = %12
-  %30 = fcmp uno float %27, 0.000000e+00
-  br i1 %30, label %31, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !899
+28:                                               ; preds = %12
+  %29 = fcmp uno float %26, 0.000000e+00
+  br i1 %29, label %30, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !899
 
-31:                                               ; preds = %29
-  %32 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i, float noundef %.sroa.0.4.vec.extract.i, float noundef %.sroa.092.0.vec.extract, float noundef %.sroa.092.4.vec.extract) #29
-  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %32, i64 0
-  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %32, i64 1
+30:                                               ; preds = %28
+  %31 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i, float noundef %.sroa.0.4.vec.extract.i, float noundef %.sroa.092.0.vec.extract, float noundef %.sroa.092.4.vec.extract) #29
+  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %31, i64 0
+  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %31, i64 1
   %.pre = load ptr, ptr %10, align 8, !tbaa !857
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit:             ; preds = %12, %29, %31
-  %33 = phi ptr [ %17, %12 ], [ %17, %29 ], [ %.pre, %31 ]
-  %34 = phi float [ %26, %12 ], [ %26, %29 ], [ %.sroa.0.0.vec.extract.i.i, %31 ]
-  %35 = phi float [ %27, %12 ], [ %27, %29 ], [ %.sroa.0.4.vec.extract.i.i, %31 ]
-  %36 = getelementptr i8, ptr %13, i64 %.idx47
-  %37 = shl i32 %16, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::complex", ptr %33, i64 %38
-  %.sroa.0.0.copyload.i49 = load <2 x float>, ptr %39, align 4, !tbaa !96
-  %40 = load <2 x float>, ptr %36, align 4, !tbaa !96
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit:             ; preds = %12, %28, %30
+  %32 = phi ptr [ %17, %12 ], [ %17, %28 ], [ %.pre, %30 ]
+  %33 = phi float [ %25, %12 ], [ %25, %28 ], [ %.sroa.0.0.vec.extract.i.i, %30 ]
+  %34 = phi float [ %26, %12 ], [ %26, %28 ], [ %.sroa.0.4.vec.extract.i.i, %30 ]
+  %35 = getelementptr i8, ptr %13, i64 %.idx47
+  %36 = shl i32 %16, 1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.std::complex", ptr %32, i64 %37
+  %.sroa.0.0.copyload.i49 = load <2 x float>, ptr %38, align 4, !tbaa !96
+  %39 = load <2 x float>, ptr %35, align 4, !tbaa !96
   %.sroa.091.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i49, i64 0
   %.sroa.091.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i49, i64 1
-  %.sroa.0.0.vec.extract.i50 = extractelement <2 x float> %40, i64 0
-  %.sroa.0.4.vec.extract.i51 = extractelement <2 x float> %40, i64 1
-  %41 = fmul <2 x float> %.sroa.0.0.copyload.i49, %40
-  %42 = extractelement <2 x float> %41, i64 0
-  %43 = fmul float %.sroa.091.4.vec.extract, %.sroa.0.4.vec.extract.i51
-  %44 = fmul float %.sroa.091.4.vec.extract, %.sroa.0.0.vec.extract.i50
-  %45 = fmul float %.sroa.091.0.vec.extract, %.sroa.0.4.vec.extract.i51
-  %46 = fsub float %42, %43
-  %47 = fadd float %45, %44
-  %48 = fcmp uno float %46, 0.000000e+00
+  %.sroa.0.0.vec.extract.i50 = extractelement <2 x float> %39, i64 0
+  %.sroa.0.4.vec.extract.i51 = extractelement <2 x float> %39, i64 1
+  %foldExtExtBinop112 = fmul <2 x float> %.sroa.0.0.copyload.i49, %39
+  %40 = extractelement <2 x float> %foldExtExtBinop112, i64 0
+  %41 = fmul float %.sroa.091.4.vec.extract, %.sroa.0.4.vec.extract.i51
+  %42 = fmul float %.sroa.091.4.vec.extract, %.sroa.0.0.vec.extract.i50
+  %43 = fmul float %.sroa.091.0.vec.extract, %.sroa.0.4.vec.extract.i51
+  %44 = fsub float %40, %41
+  %45 = fadd float %43, %42
+  %46 = fcmp uno float %44, 0.000000e+00
+  br i1 %46, label %47, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56, !prof !899
+
+47:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit
+  %48 = fcmp uno float %45, 0.000000e+00
   br i1 %48, label %49, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56, !prof !899
 
-49:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit
-  %50 = fcmp uno float %47, 0.000000e+00
-  br i1 %50, label %51, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56, !prof !899
-
-51:                                               ; preds = %49
-  %52 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i50, float noundef %.sroa.0.4.vec.extract.i51, float noundef %.sroa.091.0.vec.extract, float noundef %.sroa.091.4.vec.extract) #29
-  %.sroa.0.0.vec.extract.i.i54 = extractelement <2 x float> %52, i64 0
-  %.sroa.0.4.vec.extract.i.i55 = extractelement <2 x float> %52, i64 1
+49:                                               ; preds = %47
+  %50 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i50, float noundef %.sroa.0.4.vec.extract.i51, float noundef %.sroa.091.0.vec.extract, float noundef %.sroa.091.4.vec.extract) #29
+  %.sroa.0.0.vec.extract.i.i54 = extractelement <2 x float> %50, i64 0
+  %.sroa.0.4.vec.extract.i.i55 = extractelement <2 x float> %50, i64 1
   %.pre107 = load ptr, ptr %10, align 8, !tbaa !857
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit56:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, %49, %51
-  %53 = phi ptr [ %33, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %33, %49 ], [ %.pre107, %51 ]
-  %54 = phi float [ %46, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %46, %49 ], [ %.sroa.0.0.vec.extract.i.i54, %51 ]
-  %55 = phi float [ %47, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %47, %49 ], [ %.sroa.0.4.vec.extract.i.i55, %51 ]
-  %56 = getelementptr i8, ptr %13, i64 %.idx48
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit56:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, %47, %49
+  %51 = phi ptr [ %32, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %32, %47 ], [ %.pre107, %49 ]
+  %52 = phi float [ %44, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %44, %47 ], [ %.sroa.0.0.vec.extract.i.i54, %49 ]
+  %53 = phi float [ %45, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %45, %47 ], [ %.sroa.0.4.vec.extract.i.i55, %49 ]
+  %54 = getelementptr i8, ptr %13, i64 %.idx48
   %sext93 = mul i64 %15, 12884901888
-  %57 = ashr exact i64 %sext93, 29
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
-  %.sroa.0.0.copyload.i57 = load <2 x float>, ptr %58, align 4, !tbaa !96
-  %59 = load <2 x float>, ptr %56, align 4, !tbaa !96
+  %55 = ashr exact i64 %sext93, 29
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 %55
+  %.sroa.0.0.copyload.i57 = load <2 x float>, ptr %56, align 4, !tbaa !96
+  %57 = load <2 x float>, ptr %54, align 4, !tbaa !96
   %.sroa.090.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i57, i64 0
   %.sroa.090.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i57, i64 1
-  %.sroa.0.0.vec.extract.i58 = extractelement <2 x float> %59, i64 0
-  %.sroa.0.4.vec.extract.i59 = extractelement <2 x float> %59, i64 1
-  %60 = fmul <2 x float> %.sroa.0.0.copyload.i57, %59
-  %61 = extractelement <2 x float> %60, i64 0
-  %62 = fmul float %.sroa.090.4.vec.extract, %.sroa.0.4.vec.extract.i59
-  %63 = fmul float %.sroa.090.4.vec.extract, %.sroa.0.0.vec.extract.i58
-  %64 = fmul float %.sroa.090.0.vec.extract, %.sroa.0.4.vec.extract.i59
-  %65 = fsub float %61, %62
-  %66 = fadd float %64, %63
-  %67 = fcmp uno float %65, 0.000000e+00
-  br i1 %67, label %68, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64, !prof !899
+  %.sroa.0.0.vec.extract.i58 = extractelement <2 x float> %57, i64 0
+  %.sroa.0.4.vec.extract.i59 = extractelement <2 x float> %57, i64 1
+  %foldExtExtBinop114 = fmul <2 x float> %.sroa.0.0.copyload.i57, %57
+  %58 = extractelement <2 x float> %foldExtExtBinop114, i64 0
+  %59 = fmul float %.sroa.090.4.vec.extract, %.sroa.0.4.vec.extract.i59
+  %60 = fmul float %.sroa.090.4.vec.extract, %.sroa.0.0.vec.extract.i58
+  %61 = fmul float %.sroa.090.0.vec.extract, %.sroa.0.4.vec.extract.i59
+  %62 = fsub float %58, %59
+  %63 = fadd float %61, %60
+  %64 = fcmp uno float %62, 0.000000e+00
+  br i1 %64, label %65, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64, !prof !899
 
-68:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56
-  %69 = fcmp uno float %66, 0.000000e+00
-  br i1 %69, label %70, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64, !prof !899
+65:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56
+  %66 = fcmp uno float %63, 0.000000e+00
+  br i1 %66, label %67, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64, !prof !899
 
-70:                                               ; preds = %68
-  %71 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i58, float noundef %.sroa.0.4.vec.extract.i59, float noundef %.sroa.090.0.vec.extract, float noundef %.sroa.090.4.vec.extract) #29
-  %.sroa.0.0.vec.extract.i.i62 = extractelement <2 x float> %71, i64 0
-  %.sroa.0.4.vec.extract.i.i63 = extractelement <2 x float> %71, i64 1
+67:                                               ; preds = %65
+  %68 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.0.0.vec.extract.i58, float noundef %.sroa.0.4.vec.extract.i59, float noundef %.sroa.090.0.vec.extract, float noundef %.sroa.090.4.vec.extract) #29
+  %.sroa.0.0.vec.extract.i.i62 = extractelement <2 x float> %68, i64 0
+  %.sroa.0.4.vec.extract.i.i63 = extractelement <2 x float> %68, i64 1
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit64
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit64:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56, %68, %70
-  %72 = phi float [ %65, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56 ], [ %65, %68 ], [ %.sroa.0.0.vec.extract.i.i62, %70 ]
-  %73 = phi float [ %66, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56 ], [ %66, %68 ], [ %.sroa.0.4.vec.extract.i.i63, %70 ]
-  %74 = load <2 x float>, ptr %13, align 4
-  %.sroa.0.0.vec.extract.i65 = extractelement <2 x float> %74, i64 0
-  %.sroa.0.4.vec.extract.i66 = extractelement <2 x float> %74, i64 1
-  %75 = fsub float %.sroa.0.0.vec.extract.i65, %54
-  %76 = fsub float %.sroa.0.4.vec.extract.i66, %55
-  %77 = extractelement <2 x float> %74, i64 0
-  %78 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %79 = extractelement <2 x float> %74, i64 1
-  %80 = fadd float %54, %77
-  %81 = fadd float %55, %79
-  store float %80, ptr %13, align 4
-  store float %81, ptr %78, align 4
-  %82 = fadd float %34, %72
-  %83 = fadd float %35, %73
-  %84 = fsub float %34, %72
-  %85 = fsub float %35, %73
-  %86 = fmul float %85, %11
-  %87 = fneg float %84
-  %88 = fmul float %11, %87
-  %89 = load <2 x float>, ptr %13, align 4, !tbaa !96
-  %.sroa.0.0.vec.extract.i77 = extractelement <2 x float> %89, i64 0
-  %.sroa.0.4.vec.extract.i78 = extractelement <2 x float> %89, i64 1
-  %90 = fsub float %.sroa.0.0.vec.extract.i77, %82
-  %91 = fsub float %.sroa.0.4.vec.extract.i78, %83
-  %.sroa.0.0.vec.insert.i79 = insertelement <2 x float> poison, float %90, i64 0
-  %.sroa.0.4.vec.insert.i80 = insertelement <2 x float> %.sroa.0.0.vec.insert.i79, float %91, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i80, ptr %36, align 4, !tbaa !96
-  %92 = load float, ptr %13, align 4
-  %93 = load float, ptr %78, align 4
-  %94 = fadd float %82, %92
-  %95 = fadd float %83, %93
-  store float %94, ptr %13, align 4
-  store float %95, ptr %78, align 4
-  %96 = fadd float %75, %86
-  %97 = fadd float %76, %88
-  %.sroa.0.0.vec.insert.i83 = insertelement <2 x float> poison, float %96, i64 0
-  %.sroa.0.4.vec.insert.i84 = insertelement <2 x float> %.sroa.0.0.vec.insert.i83, float %97, i64 1
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit64:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56, %65, %67
+  %69 = phi float [ %62, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56 ], [ %62, %65 ], [ %.sroa.0.0.vec.extract.i.i62, %67 ]
+  %70 = phi float [ %63, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit56 ], [ %63, %65 ], [ %.sroa.0.4.vec.extract.i.i63, %67 ]
+  %71 = load <2 x float>, ptr %13, align 4
+  %.sroa.0.0.vec.extract.i65 = extractelement <2 x float> %71, i64 0
+  %.sroa.0.4.vec.extract.i66 = extractelement <2 x float> %71, i64 1
+  %72 = fsub float %.sroa.0.0.vec.extract.i65, %52
+  %73 = fsub float %.sroa.0.4.vec.extract.i66, %53
+  %74 = extractelement <2 x float> %71, i64 0
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %76 = extractelement <2 x float> %71, i64 1
+  %77 = fadd float %52, %74
+  %78 = fadd float %53, %76
+  store float %77, ptr %13, align 4
+  store float %78, ptr %75, align 4
+  %79 = fadd float %33, %69
+  %80 = fadd float %34, %70
+  %81 = fsub float %33, %69
+  %82 = fsub float %34, %70
+  %83 = fmul float %82, %11
+  %84 = fneg float %81
+  %85 = fmul float %11, %84
+  %86 = load <2 x float>, ptr %13, align 4, !tbaa !96
+  %.sroa.0.0.vec.extract.i77 = extractelement <2 x float> %86, i64 0
+  %.sroa.0.4.vec.extract.i78 = extractelement <2 x float> %86, i64 1
+  %87 = fsub float %.sroa.0.0.vec.extract.i77, %79
+  %88 = fsub float %.sroa.0.4.vec.extract.i78, %80
+  %.sroa.0.0.vec.insert.i79 = insertelement <2 x float> poison, float %87, i64 0
+  %.sroa.0.4.vec.insert.i80 = insertelement <2 x float> %.sroa.0.0.vec.insert.i79, float %88, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i80, ptr %35, align 4, !tbaa !96
+  %89 = load float, ptr %13, align 4
+  %90 = load float, ptr %75, align 4
+  %91 = fadd float %79, %89
+  %92 = fadd float %80, %90
+  store float %91, ptr %13, align 4
+  store float %92, ptr %75, align 4
+  %93 = fadd float %72, %83
+  %94 = fadd float %73, %85
+  %.sroa.0.0.vec.insert.i83 = insertelement <2 x float> poison, float %93, i64 0
+  %.sroa.0.4.vec.insert.i84 = insertelement <2 x float> %.sroa.0.0.vec.insert.i83, float %94, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i84, ptr %14, align 4, !tbaa !96
-  %98 = fsub float %75, %86
-  %99 = fsub float %76, %88
-  %.sroa.0.0.vec.insert.i87 = insertelement <2 x float> poison, float %98, i64 0
-  %.sroa.0.4.vec.insert.i88 = insertelement <2 x float> %.sroa.0.0.vec.insert.i87, float %99, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i88, ptr %56, align 4, !tbaa !96
-  %100 = add nuw i64 %.095, 1
-  %exitcond.not = icmp eq i64 %100, %3
+  %95 = fsub float %72, %83
+  %96 = fsub float %73, %85
+  %.sroa.0.0.vec.insert.i87 = insertelement <2 x float> poison, float %95, i64 0
+  %.sroa.0.4.vec.insert.i88 = insertelement <2 x float> %.sroa.0.0.vec.insert.i87, float %96, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i88, ptr %54, align 4, !tbaa !96
+  %97 = add nuw i64 %.095, 1
+  %exitcond.not = icmp eq i64 %97, %3
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !902
 }
 

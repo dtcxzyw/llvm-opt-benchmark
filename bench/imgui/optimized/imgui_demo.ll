@@ -16374,7 +16374,7 @@ define internal fastcc void @_ZL20ShowDemoWindowLayoutv() unnamed_addr #0 {
 
 89:                                               ; preds = %0, %87
   %90 = tail call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKci(ptr noundef nonnull @.str.1169, i32 noundef 0)
-  br i1 %90, label %91, label %908
+  br i1 %90, label %91, label %907
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
@@ -16644,14 +16644,14 @@ _ZL10HelpMarkerPKc.exit229:                       ; preds = %.loopexit279, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %197 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE17override_bg_color, align 1, !tbaa !29, !range !11, !noundef !12
   %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %199, label %.preheader328
+  br i1 %198, label %199, label %.preheader329
 
-.preheader328:                                    ; preds = %199, %193
+.preheader329:                                    ; preds = %199, %193
   br label %209
 
 199:                                              ; preds = %193
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 1)
-  br label %.preheader328
+  br label %.preheader329
 
 200:                                              ; preds = %209
   call void @_ZN5ImGui8EndChildEv()
@@ -16672,8 +16672,8 @@ _ZL10HelpMarkerPKc.exit229:                       ; preds = %.loopexit279, %179
   call void @_ZN5ImGui7TreePopEv()
   br label %211
 
-209:                                              ; preds = %.preheader328, %209
-  %.0164287 = phi i32 [ %210, %209 ], [ 0, %.preheader328 ]
+209:                                              ; preds = %.preheader329, %209
+  %.0164287 = phi i32 [ %210, %209 ], [ 0, %.preheader329 ]
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1197, i32 noundef %.0164287)
   %210 = add nuw nsw i32 %.0164287, 1
   %exitcond306.not = icmp eq i32 %210, 50
@@ -16866,7 +16866,7 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
 
 277:                                              ; preds = %273, %275
   %278 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1224)
-  br i1 %278, label %279, label %351
+  br i1 %278, label %279, label %350
 
 279:                                              ; preds = %277
   call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.1225)
@@ -17038,287 +17038,287 @@ _ZL10HelpMarkerPKc.exit234:                       ; preds = %262, %264
   %333 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
   %334 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   %335 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
-  %336 = fadd <2 x float> %334, %335
-  %337 = extractelement <2 x float> %336, i64 0
-  %338 = getelementptr inbounds nuw i8, ptr %333, i64 80
-  br label %339
+  %foldExtExtBinop = fadd <2 x float> %334, %335
+  %336 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %337 = getelementptr inbounds nuw i8, ptr %333, i64 80
+  br label %338
 
-.loopexit327:                                     ; preds = %350, %.thread
+.loopexit327:                                     ; preds = %349, %.thread
   call void @_ZN5ImGui7TreePopEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %351
+  br label %350
 
-339:                                              ; preds = %332, %350
-  %.0167289 = phi i32 [ 0, %332 ], [ %342, %350 ]
+338:                                              ; preds = %332, %349
+  %.0167289 = phi i32 [ 0, %332 ], [ %341, %349 ]
   call void @_ZN5ImGui6PushIDEi(i32 noundef %.0167289)
-  %340 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1252, ptr noundef nonnull align 4 dereferenceable(8) %26)
-  %341 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
-  %342 = add nuw nsw i32 %.0167289, 1
+  %339 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1252, ptr noundef nonnull align 4 dereferenceable(8) %26)
+  %340 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
+  %341 = add nuw nsw i32 %.0167289, 1
   %.not221 = icmp eq i32 %.0167289, 19
-  br i1 %.not221, label %.thread, label %343
+  br i1 %.not221, label %.thread, label %342
 
-.thread:                                          ; preds = %339
+.thread:                                          ; preds = %338
   call void @_ZN5ImGui5PopIDEv()
   br label %.loopexit327
 
-343:                                              ; preds = %339
-  %.sroa.0111.0.vec.extract = extractelement <2 x float> %341, i64 0
-  %344 = load float, ptr %338, align 4, !tbaa !213
-  %345 = fadd float %.sroa.0111.0.vec.extract, %344
-  %346 = load float, ptr %26, align 4, !tbaa !42
-  %347 = fadd float %345, %346
-  %348 = fcmp olt float %347, %337
-  br i1 %348, label %349, label %350
+342:                                              ; preds = %338
+  %.sroa.0111.0.vec.extract = extractelement <2 x float> %340, i64 0
+  %343 = load float, ptr %337, align 4, !tbaa !213
+  %344 = fadd float %.sroa.0111.0.vec.extract, %343
+  %345 = load float, ptr %26, align 4, !tbaa !42
+  %346 = fadd float %344, %345
+  %347 = fcmp olt float %346, %336
+  br i1 %347, label %348, label %349
 
-349:                                              ; preds = %343
+348:                                              ; preds = %342
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  br label %350
+  br label %349
 
-350:                                              ; preds = %349, %343
+349:                                              ; preds = %348, %342
   call void @_ZN5ImGui5PopIDEv()
-  %exitcond309.not = icmp eq i32 %342, 20
-  br i1 %exitcond309.not, label %.loopexit327, label %339, !llvm.loop !282
+  %exitcond309.not = icmp eq i32 %341, 20
+  br i1 %exitcond309.not, label %.loopexit327, label %338, !llvm.loop !282
 
-351:                                              ; preds = %277, %.loopexit327
-  %352 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not204 = icmp eq ptr %352, null
-  br i1 %.not204, label %355, label %353
+350:                                              ; preds = %277, %.loopexit327
+  %351 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not204 = icmp eq ptr %351, null
+  br i1 %.not204, label %354, label %352
 
-353:                                              ; preds = %351
-  %354 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %352(ptr noundef nonnull @.str.4, i32 noundef 4274, ptr noundef nonnull @.str.1253, ptr noundef %354)
-  br label %355
+352:                                              ; preds = %350
+  %353 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %351(ptr noundef nonnull @.str.4, i32 noundef 4274, ptr noundef nonnull @.str.1253, ptr noundef %353)
+  br label %354
 
-355:                                              ; preds = %351, %353
-  %356 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1254)
-  br i1 %356, label %357, label %400
+354:                                              ; preds = %350, %352
+  %355 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1254)
+  br i1 %355, label %356, label %399
 
-357:                                              ; preds = %355
+356:                                              ; preds = %354
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %358 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %358, label %359, label %_ZL10HelpMarkerPKc.exit235
+  %357 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %357, label %358, label %_ZL10HelpMarkerPKc.exit235
 
-359:                                              ; preds = %357
-  %360 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %361 = fmul float %360, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %361)
+358:                                              ; preds = %356
+  %359 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %360 = fmul float %359, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %360)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1255, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit235
 
-_ZL10HelpMarkerPKc.exit235:                       ; preds = %357, %359
+_ZL10HelpMarkerPKc.exit235:                       ; preds = %356, %358
   call void @_ZN5ImGui10BeginGroupEv()
   call void @_ZN5ImGui10BeginGroupEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float 0.000000e+00, ptr %27, align 4, !tbaa !42
-  %362 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store float 0.000000e+00, ptr %362, align 4, !tbaa !44
-  %363 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1256, ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %361 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store float 0.000000e+00, ptr %361, align 4, !tbaa !44
+  %362 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1256, ptr noundef nonnull align 4 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store float 0.000000e+00, ptr %28, align 4, !tbaa !42
-  %364 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store float 0.000000e+00, ptr %364, align 4, !tbaa !44
-  %365 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1257, ptr noundef nonnull align 4 dereferenceable(8) %28)
+  %363 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store float 0.000000e+00, ptr %363, align 4, !tbaa !44
+  %364 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1257, ptr noundef nonnull align 4 dereferenceable(8) %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui10BeginGroupEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float 0.000000e+00, ptr %29, align 4, !tbaa !42
-  %366 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store float 0.000000e+00, ptr %366, align 4, !tbaa !44
-  %367 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1258, ptr noundef nonnull align 4 dereferenceable(8) %29)
+  %365 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store float 0.000000e+00, ptr %365, align 4, !tbaa !44
+  %366 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1258, ptr noundef nonnull align 4 dereferenceable(8) %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !42
-  %368 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store float 0.000000e+00, ptr %368, align 4, !tbaa !44
-  %369 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1259, ptr noundef nonnull align 4 dereferenceable(8) %30)
+  %367 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store float 0.000000e+00, ptr %367, align 4, !tbaa !44
+  %368 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1259, ptr noundef nonnull align 4 dereferenceable(8) %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5ImGui8EndGroupEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store float 0.000000e+00, ptr %31, align 4, !tbaa !42
-  %370 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store float 0.000000e+00, ptr %370, align 4, !tbaa !44
-  %371 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1260, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %369 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store float 0.000000e+00, ptr %369, align 4, !tbaa !44
+  %370 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1260, ptr noundef nonnull align 4 dereferenceable(8) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5ImGui8EndGroupEv()
   call void (ptr, ...) @_ZN5ImGui14SetItemTooltipEPKcz(ptr noundef nonnull @.str.1261)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %372 = call <2 x float> @_ZN5ImGui15GetItemRectSizeEv()
-  store <2 x float> %372, ptr %32, align 8
+  %371 = call <2 x float> @_ZN5ImGui15GetItemRectSizeEv()
+  store <2 x float> %371, ptr %32, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %33, ptr noundef nonnull align 16 dereferenceable(20) @__const._ZL20ShowDemoWindowLayoutv.values, i64 20, i1 false)
-  call void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef nonnull @.str.1262, ptr noundef nonnull %33, i32 noundef 5, i32 noundef 0, ptr noundef null, float noundef 0.000000e+00, float noundef 1.000000e+00, <2 x float> %372, i32 noundef 4)
+  call void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef nonnull @.str.1262, ptr noundef nonnull %33, i32 noundef 5, i32 noundef 0, ptr noundef null, float noundef 0.000000e+00, float noundef 1.000000e+00, <2 x float> %371, i32 noundef 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %373 = load float, ptr %32, align 8, !tbaa !42
-  %374 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 80
-  %376 = load float, ptr %375, align 4, !tbaa !213
-  %377 = fsub float %373, %376
-  %378 = fmul float %377, 5.000000e-01
-  %379 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %380 = load float, ptr %379, align 4, !tbaa !44
-  store float %378, ptr %34, align 4, !tbaa !42
-  %381 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store float %380, ptr %381, align 4, !tbaa !44
-  %382 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1263, ptr noundef nonnull align 4 dereferenceable(8) %34)
+  %372 = load float, ptr %32, align 8, !tbaa !42
+  %373 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 80
+  %375 = load float, ptr %374, align 4, !tbaa !213
+  %376 = fsub float %372, %375
+  %377 = fmul float %376, 5.000000e-01
+  %378 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %379 = load float, ptr %378, align 4, !tbaa !44
+  store float %377, ptr %34, align 4, !tbaa !42
+  %380 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store float %379, ptr %380, align 4, !tbaa !44
+  %381 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1263, ptr noundef nonnull align 4 dereferenceable(8) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %383 = load float, ptr %32, align 8, !tbaa !42
-  %384 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 80
-  %386 = load float, ptr %385, align 4, !tbaa !213
-  %387 = fsub float %383, %386
-  %388 = fmul float %387, 5.000000e-01
-  %389 = load float, ptr %379, align 4, !tbaa !44
-  store float %388, ptr %35, align 4, !tbaa !42
-  %390 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store float %389, ptr %390, align 4, !tbaa !44
-  %391 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1264, ptr noundef nonnull align 4 dereferenceable(8) %35)
+  %382 = load float, ptr %32, align 8, !tbaa !42
+  %383 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 80
+  %385 = load float, ptr %384, align 4, !tbaa !213
+  %386 = fsub float %382, %385
+  %387 = fmul float %386, 5.000000e-01
+  %388 = load float, ptr %378, align 4, !tbaa !44
+  store float %387, ptr %35, align 4, !tbaa !42
+  %389 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store float %388, ptr %389, align 4, !tbaa !44
+  %390 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1264, ptr noundef nonnull align 4 dereferenceable(8) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZN5ImGui8EndGroupEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %392 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1265, ptr noundef nonnull align 4 dereferenceable(8) %32)
+  %391 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1265, ptr noundef nonnull align 4 dereferenceable(8) %32)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %393 = call noundef zeroext i1 @_ZN5ImGui12BeginListBoxEPKcRK6ImVec2(ptr noundef nonnull @.str.1266, ptr noundef nonnull align 4 dereferenceable(8) %32)
-  br i1 %393, label %394, label %399
+  %392 = call noundef zeroext i1 @_ZN5ImGui12BeginListBoxEPKcRK6ImVec2(ptr noundef nonnull @.str.1266, ptr noundef nonnull align 4 dereferenceable(8) %32)
+  br i1 %392, label %393, label %398
 
-394:                                              ; preds = %_ZL10HelpMarkerPKc.exit235
+393:                                              ; preds = %_ZL10HelpMarkerPKc.exit235
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float 0.000000e+00, ptr %36, align 4, !tbaa !42
-  %395 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store float 0.000000e+00, ptr %395, align 4, !tbaa !44
-  %396 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1267, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %36)
+  %394 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store float 0.000000e+00, ptr %394, align 4, !tbaa !44
+  %395 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1267, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store float 0.000000e+00, ptr %37, align 4, !tbaa !42
-  %397 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store float 0.000000e+00, ptr %397, align 4, !tbaa !44
-  %398 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1268, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %37)
+  %396 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store float 0.000000e+00, ptr %396, align 4, !tbaa !44
+  %397 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1268, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZN5ImGui10EndListBoxEv()
-  br label %399
+  br label %398
 
-399:                                              ; preds = %394, %_ZL10HelpMarkerPKc.exit235
+398:                                              ; preds = %393, %_ZL10HelpMarkerPKc.exit235
   call void @_ZN5ImGui7TreePopEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %400
+  br label %399
 
-400:                                              ; preds = %355, %399
-  %401 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not205 = icmp eq ptr %401, null
-  br i1 %.not205, label %404, label %402
+399:                                              ; preds = %354, %398
+  %400 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not205 = icmp eq ptr %400, null
+  br i1 %.not205, label %403, label %401
 
-402:                                              ; preds = %400
-  %403 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %401(ptr noundef nonnull @.str.4, i32 noundef 4321, ptr noundef nonnull @.str.1269, ptr noundef %403)
-  br label %404
+401:                                              ; preds = %399
+  %402 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %400(ptr noundef nonnull @.str.4, i32 noundef 4321, ptr noundef nonnull @.str.1269, ptr noundef %402)
+  br label %403
 
-404:                                              ; preds = %400, %402
-  %405 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1270)
-  br i1 %405, label %406, label %461
+403:                                              ; preds = %399, %401
+  %404 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1270)
+  br i1 %404, label %405, label %460
 
-406:                                              ; preds = %404
+405:                                              ; preds = %403
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1271)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %407 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %407, label %408, label %_ZL10HelpMarkerPKc.exit236
+  %406 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %406, label %407, label %_ZL10HelpMarkerPKc.exit236
 
-408:                                              ; preds = %406
-  %409 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %410 = fmul float %409, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %410)
+407:                                              ; preds = %405
+  %408 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %409 = fmul float %408, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %409)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1272, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit236
 
-_ZL10HelpMarkerPKc.exit236:                       ; preds = %406, %408
+_ZL10HelpMarkerPKc.exit236:                       ; preds = %405, %407
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1273)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store float 0.000000e+00, ptr %38, align 4, !tbaa !42
-  %411 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store float 0.000000e+00, ptr %411, align 4, !tbaa !44
-  %412 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1274, ptr noundef nonnull align 4 dereferenceable(8) %38)
+  %410 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store float 0.000000e+00, ptr %410, align 4, !tbaa !44
+  %411 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1274, ptr noundef nonnull align 4 dereferenceable(8) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %413 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %413, label %414, label %_ZL10HelpMarkerPKc.exit237
+  %412 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %412, label %413, label %_ZL10HelpMarkerPKc.exit237
 
-414:                                              ; preds = %_ZL10HelpMarkerPKc.exit236
-  %415 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %416 = fmul float %415, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %416)
+413:                                              ; preds = %_ZL10HelpMarkerPKc.exit236
+  %414 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %415 = fmul float %414, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %415)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1275, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit237
 
-_ZL10HelpMarkerPKc.exit237:                       ; preds = %_ZL10HelpMarkerPKc.exit236, %414
+_ZL10HelpMarkerPKc.exit237:                       ; preds = %_ZL10HelpMarkerPKc.exit236, %413
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1276)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store float 0.000000e+00, ptr %39, align 4, !tbaa !42
-  %417 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store float 0.000000e+00, ptr %417, align 4, !tbaa !44
-  %418 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1277, ptr noundef nonnull align 4 dereferenceable(8) %39)
+  %416 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store float 0.000000e+00, ptr %416, align 4, !tbaa !44
+  %417 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1277, ptr noundef nonnull align 4 dereferenceable(8) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %419 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %419, label %420, label %_ZL10HelpMarkerPKc.exit238
+  %418 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %418, label %419, label %_ZL10HelpMarkerPKc.exit238
 
-420:                                              ; preds = %_ZL10HelpMarkerPKc.exit237
-  %421 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %422 = fmul float %421, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %422)
+419:                                              ; preds = %_ZL10HelpMarkerPKc.exit237
+  %420 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %421 = fmul float %420, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %421)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1278, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit238
 
-_ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.exit237, %420
+_ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.exit237, %419
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
-  %423 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store float 0.000000e+00, ptr %423, align 4, !tbaa !44
-  %424 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1279, ptr noundef nonnull align 4 dereferenceable(8) %40)
+  %422 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store float 0.000000e+00, ptr %422, align 4, !tbaa !44
+  %423 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1279, ptr noundef nonnull align 4 dereferenceable(8) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1280)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %425 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1281)
+  %424 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1281)
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1282)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store float 0.000000e+00, ptr %41, align 4, !tbaa !42
-  %426 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store float 0.000000e+00, ptr %426, align 4, !tbaa !44
-  %427 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1283, ptr noundef nonnull align 4 dereferenceable(8) %41)
+  %425 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store float 0.000000e+00, ptr %425, align 4, !tbaa !44
+  %426 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1283, ptr noundef nonnull align 4 dereferenceable(8) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1284)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %428 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1285)
+  %427 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1285)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store float 0.000000e+00, ptr %42, align 4, !tbaa !42
-  %429 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store float 0.000000e+00, ptr %429, align 4, !tbaa !44
-  %430 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1286, ptr noundef nonnull align 4 dereferenceable(8) %42)
+  %428 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store float 0.000000e+00, ptr %428, align 4, !tbaa !44
+  %429 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1286, ptr noundef nonnull align 4 dereferenceable(8) %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN5ImGui8UnindentEf(float noundef 0.000000e+00)
   call void @_ZN5ImGui7SpacingEv()
@@ -17336,9 +17336,9 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1288)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store float 0.000000e+00, ptr %43, align 4, !tbaa !42
-  %431 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store float 0.000000e+00, ptr %431, align 4, !tbaa !44
-  %432 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1290, ptr noundef nonnull align 4 dereferenceable(8) %43)
+  %430 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  store float 0.000000e+00, ptr %430, align 4, !tbaa !44
+  %431 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1290, ptr noundef nonnull align 4 dereferenceable(8) %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.453)
@@ -17348,9 +17348,9 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.453)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store float 0.000000e+00, ptr %44, align 4, !tbaa !42
-  %433 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store float 0.000000e+00, ptr %433, align 4, !tbaa !44
-  %434 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1291, ptr noundef nonnull align 4 dereferenceable(8) %44)
+  %432 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store float 0.000000e+00, ptr %432, align 4, !tbaa !44
+  %433 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1291, ptr noundef nonnull align 4 dereferenceable(8) %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1289)
@@ -17362,1187 +17362,1187 @@ _ZL10HelpMarkerPKc.exit238:                       ; preds = %_ZL10HelpMarkerPKc.
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store float 8.000000e+01, ptr %45, align 4, !tbaa !42
-  %435 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store float 8.000000e+01, ptr %435, align 4, !tbaa !44
-  %436 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1293, ptr noundef nonnull align 4 dereferenceable(8) %45)
+  %434 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store float 8.000000e+01, ptr %434, align 4, !tbaa !44
+  %435 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1293, ptr noundef nonnull align 4 dereferenceable(8) %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store float 5.000000e+01, ptr %46, align 4, !tbaa !42
-  %437 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store float 5.000000e+01, ptr %437, align 4, !tbaa !44
-  %438 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1294, ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %436 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store float 5.000000e+01, ptr %436, align 4, !tbaa !44
+  %437 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1294, ptr noundef nonnull align 4 dereferenceable(8) %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store float 0.000000e+00, ptr %47, align 4, !tbaa !42
-  %439 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store float 0.000000e+00, ptr %439, align 4, !tbaa !44
-  %440 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1295, ptr noundef nonnull align 4 dereferenceable(8) %47)
+  %438 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store float 0.000000e+00, ptr %438, align 4, !tbaa !44
+  %439 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1295, ptr noundef nonnull align 4 dereferenceable(8) %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %441 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1296)
-  %442 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 88
-  %444 = load float, ptr %443, align 4, !tbaa !49
+  %440 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1296)
+  %441 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 88
+  %443 = load float, ptr %442, align 4, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store float 0.000000e+00, ptr %48, align 4, !tbaa !42
-  %445 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store float 0.000000e+00, ptr %445, align 4, !tbaa !44
-  %446 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1297, ptr noundef nonnull align 4 dereferenceable(8) %48)
+  %444 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store float 0.000000e+00, ptr %444, align 4, !tbaa !44
+  %445 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1297, ptr noundef nonnull align 4 dereferenceable(8) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
-  %447 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1298)
-  br i1 %447, label %.preheader277, label %450
+  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %443)
+  %446 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1298)
+  br i1 %446, label %.preheader277, label %449
 
-448:                                              ; preds = %.preheader277
+447:                                              ; preds = %.preheader277
   call void @_ZN5ImGui7TreePopEv()
-  br label %450
+  br label %449
 
 .preheader277:                                    ; preds = %_ZL10HelpMarkerPKc.exit238, %.preheader277
-  %.0169290 = phi i32 [ %449, %.preheader277 ], [ 0, %_ZL10HelpMarkerPKc.exit238 ]
+  %.0169290 = phi i32 [ %448, %.preheader277 ], [ 0, %_ZL10HelpMarkerPKc.exit238 ]
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1299, i32 noundef %.0169290)
-  %449 = add nuw nsw i32 %.0169290, 1
-  %exitcond310.not = icmp eq i32 %449, 6
-  br i1 %exitcond310.not, label %448, label %.preheader277, !llvm.loop !283
+  %448 = add nuw nsw i32 %.0169290, 1
+  %exitcond310.not = icmp eq i32 %448, 6
+  br i1 %exitcond310.not, label %447, label %.preheader277, !llvm.loop !283
 
-450:                                              ; preds = %448, %_ZL10HelpMarkerPKc.exit238
+449:                                              ; preds = %447, %_ZL10HelpMarkerPKc.exit238
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
-  %451 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1300)
-  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
+  %450 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1300)
+  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %443)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store float 0.000000e+00, ptr %49, align 4, !tbaa !42
-  %452 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store float 0.000000e+00, ptr %452, align 4, !tbaa !44
-  %453 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1301, ptr noundef nonnull align 4 dereferenceable(8) %49)
+  %451 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store float 0.000000e+00, ptr %451, align 4, !tbaa !44
+  %452 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1301, ptr noundef nonnull align 4 dereferenceable(8) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  br i1 %451, label %.preheader276, label %456
+  br i1 %450, label %.preheader276, label %455
 
-454:                                              ; preds = %.preheader276
+453:                                              ; preds = %.preheader276
   call void @_ZN5ImGui7TreePopEv()
-  br label %456
+  br label %455
 
-.preheader276:                                    ; preds = %450, %.preheader276
-  %.0170291 = phi i32 [ %455, %.preheader276 ], [ 0, %450 ]
+.preheader276:                                    ; preds = %449, %.preheader276
+  %.0170291 = phi i32 [ %454, %.preheader276 ], [ 0, %449 ]
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1299, i32 noundef %.0170291)
-  %455 = add nuw nsw i32 %.0170291, 1
-  %exitcond311.not = icmp eq i32 %455, 6
-  br i1 %exitcond311.not, label %454, label %.preheader276, !llvm.loop !284
+  %454 = add nuw nsw i32 %.0170291, 1
+  %exitcond311.not = icmp eq i32 %454, 6
+  br i1 %exitcond311.not, label %453, label %.preheader276, !llvm.loop !284
 
-456:                                              ; preds = %454, %450
+455:                                              ; preds = %453, %449
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store float 0.000000e+00, ptr %50, align 4, !tbaa !42
-  %457 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store float 0.000000e+00, ptr %457, align 4, !tbaa !44
-  %458 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1302, ptr noundef nonnull align 4 dereferenceable(8) %50)
+  %456 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store float 0.000000e+00, ptr %456, align 4, !tbaa !44
+  %457 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1302, ptr noundef nonnull align 4 dereferenceable(8) %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
+  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %443)
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1303)
   call void @_ZN5ImGui23AlignTextToFramePaddingEv()
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.1304)
-  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %444)
+  call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %443)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store float 0.000000e+00, ptr %51, align 4, !tbaa !42
-  %459 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store float 0.000000e+00, ptr %459, align 4, !tbaa !44
-  %460 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1305, ptr noundef nonnull align 4 dereferenceable(8) %51)
+  %458 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store float 0.000000e+00, ptr %458, align 4, !tbaa !44
+  %459 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1305, ptr noundef nonnull align 4 dereferenceable(8) %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @_ZN5ImGui8UnindentEf(float noundef 0.000000e+00)
   call void @_ZN5ImGui7TreePopEv()
-  br label %461
+  br label %460
 
-461:                                              ; preds = %404, %456
-  %462 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not206 = icmp eq ptr %462, null
-  br i1 %.not206, label %465, label %463
+460:                                              ; preds = %403, %455
+  %461 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not206 = icmp eq ptr %461, null
+  br i1 %.not206, label %464, label %462
 
-463:                                              ; preds = %461
-  %464 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %462(ptr noundef nonnull @.str.4, i32 noundef 4440, ptr noundef nonnull @.str.1306, ptr noundef %464)
-  br label %465
+462:                                              ; preds = %460
+  %463 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %461(ptr noundef nonnull @.str.4, i32 noundef 4440, ptr noundef nonnull @.str.1306, ptr noundef %463)
+  br label %464
 
-465:                                              ; preds = %461, %463
-  %466 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1307)
-  br i1 %466, label %467, label %816
+464:                                              ; preds = %460, %462
+  %465 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1307)
+  br i1 %465, label %466, label %815
 
-467:                                              ; preds = %465
-  %468 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not207 = icmp eq ptr %468, null
-  br i1 %.not207, label %471, label %469
+466:                                              ; preds = %464
+  %467 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not207 = icmp eq ptr %467, null
+  br i1 %.not207, label %470, label %468
 
-469:                                              ; preds = %467
-  %470 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %468(ptr noundef nonnull @.str.4, i32 noundef 4444, ptr noundef nonnull @.str.1308, ptr noundef %470)
-  br label %471
+468:                                              ; preds = %466
+  %469 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %467(ptr noundef nonnull @.str.4, i32 noundef 4444, ptr noundef nonnull @.str.1308, ptr noundef %469)
+  br label %470
 
-471:                                              ; preds = %467, %469
+470:                                              ; preds = %466, %468
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %472 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %472, label %473, label %_ZL10HelpMarkerPKc.exit239
+  %471 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %471, label %472, label %_ZL10HelpMarkerPKc.exit239
 
-473:                                              ; preds = %471
-  %474 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %475 = fmul float %474, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %475)
+472:                                              ; preds = %470
+  %473 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %474 = fmul float %473, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %474)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1309, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit239
 
-_ZL10HelpMarkerPKc.exit239:                       ; preds = %471, %473
-  %476 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1310, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations)
-  %477 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1311, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12enable_track)
+_ZL10HelpMarkerPKc.exit239:                       ; preds = %470, %472
+  %475 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1310, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations)
+  %476 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1311, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12enable_track)
   call void @_ZN5ImGui13PushItemWidthEf(float noundef 1.000000e+02)
   call void @_ZN5ImGui8SameLineEff(float noundef 1.400000e+02, float noundef -1.000000e+00)
-  %478 = call noundef zeroext i1 @_ZN5ImGui7DragIntEPKcPifiiS1_i(ptr noundef nonnull @.str.1312, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE10track_item, float noundef 2.500000e-01, i32 noundef 0, i32 noundef 99, ptr noundef nonnull @.str.1313, i32 noundef 0)
-  %479 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
-  %480 = zext i1 %478 to i8
-  %481 = or i8 %479, %480
-  store i8 %481, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29
+  %477 = call noundef zeroext i1 @_ZN5ImGui7DragIntEPKcPifiiS1_i(ptr noundef nonnull @.str.1312, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE10track_item, float noundef 2.500000e-01, i32 noundef 0, i32 noundef 99, ptr noundef nonnull @.str.1313, i32 noundef 0)
+  %478 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
+  %479 = zext i1 %477 to i8
+  %480 = or i8 %478, %479
+  store i8 %480, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store float 0.000000e+00, ptr %52, align 4, !tbaa !42
-  %482 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store float 0.000000e+00, ptr %482, align 4, !tbaa !44
-  %483 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1314, ptr noundef nonnull align 4 dereferenceable(8) %52)
+  %481 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store float 0.000000e+00, ptr %481, align 4, !tbaa !44
+  %482 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1314, ptr noundef nonnull align 4 dereferenceable(8) %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @_ZN5ImGui8SameLineEff(float noundef 1.400000e+02, float noundef -1.000000e+00)
-  %484 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1315, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1316, i32 noundef 0)
-  %485 = or i1 %483, %484
+  %483 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1315, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1316, i32 noundef 0)
+  %484 = or i1 %482, %483
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store float 0.000000e+00, ptr %53, align 4, !tbaa !42
-  %486 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store float 0.000000e+00, ptr %486, align 4, !tbaa !44
-  %487 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1317, ptr noundef nonnull align 4 dereferenceable(8) %53)
+  %485 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store float 0.000000e+00, ptr %485, align 4, !tbaa !44
+  %486 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1317, ptr noundef nonnull align 4 dereferenceable(8) %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @_ZN5ImGui8SameLineEff(float noundef 1.400000e+02, float noundef -1.000000e+00)
-  %488 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1318, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, float noundef 1.000000e+00, float noundef -1.000000e+01, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1319, i32 noundef 0)
-  %489 = or i1 %487, %488
+  %487 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1318, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, float noundef 1.000000e+00, float noundef -1.000000e+01, float noundef 0x47EFFFFFE0000000, ptr noundef nonnull @.str.1319, i32 noundef 0)
+  %488 = or i1 %486, %487
   call void @_ZN5ImGui12PopItemWidthEv()
-  %or.cond = or i1 %485, %489
-  br i1 %or.cond, label %490, label %491
+  %or.cond = or i1 %484, %488
+  br i1 %or.cond, label %489, label %490
 
-490:                                              ; preds = %_ZL10HelpMarkerPKc.exit239
+489:                                              ; preds = %_ZL10HelpMarkerPKc.exit239
   store i8 0, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29
-  br label %491
+  br label %490
 
-491:                                              ; preds = %_ZL10HelpMarkerPKc.exit239, %490
-  %492 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
-  %493 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
-  %.sroa.084.0.vec.extract = extractelement <2 x float> %493, i64 0
-  %494 = getelementptr inbounds nuw i8, ptr %492, i64 80
-  %495 = load float, ptr %494, align 4, !tbaa !213
-  %496 = call float @llvm.fmuladd.f32(float %495, float -4.000000e+00, float %.sroa.084.0.vec.extract)
-  %497 = fdiv float %496, 5.000000e+00
-  %498 = fcmp olt float %497, 1.000000e+00
-  %.0172 = select i1 %498, float 1.000000e+00, float %497
+490:                                              ; preds = %_ZL10HelpMarkerPKc.exit239, %489
+  %491 = call noundef nonnull align 4 dereferenceable(1164) ptr @_ZN5ImGui8GetStyleEv()
+  %492 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
+  %.sroa.084.0.vec.extract = extractelement <2 x float> %492, i64 0
+  %493 = getelementptr inbounds nuw i8, ptr %491, i64 80
+  %494 = load float, ptr %493, align 4, !tbaa !213
+  %495 = call float @llvm.fmuladd.f32(float %494, float -4.000000e+00, float %.sroa.084.0.vec.extract)
+  %496 = fdiv float %495, 5.000000e+00
+  %497 = fcmp olt float %496, 1.000000e+00
+  %.0172 = select i1 %497, float 1.000000e+00, float %496
   call void @_ZN5ImGui6PushIDEPKc(ptr noundef nonnull @.str.1320)
-  %499 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %500 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %501 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %502 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  br label %505
+  %498 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %499 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %500 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  br label %504
 
-503:                                              ; preds = %.loopexit275
+502:                                              ; preds = %.loopexit275
   call void @_ZN5ImGui5PopIDEv()
-  %504 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not208 = icmp eq ptr %504, null
-  br i1 %.not208, label %548, label %546
+  %503 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not208 = icmp eq ptr %503, null
+  br i1 %.not208, label %547, label %545
 
-505:                                              ; preds = %491, %.loopexit275
-  %indvars.iv313 = phi i64 [ 0, %491 ], [ %indvars.iv.next314, %.loopexit275 ]
+504:                                              ; preds = %490, %.loopexit275
+  %indvars.iv313 = phi i64 [ 0, %490 ], [ %indvars.iv.next314, %.loopexit275 ]
   %.not220 = icmp eq i64 %indvars.iv313, 0
-  br i1 %.not220, label %507, label %506
+  br i1 %.not220, label %506, label %505
 
-506:                                              ; preds = %505
+505:                                              ; preds = %504
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  br label %507
+  br label %506
 
-507:                                              ; preds = %506, %505
+506:                                              ; preds = %505, %504
   call void @_ZN5ImGui10BeginGroupEv()
-  %508 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowLayoutv.names, i64 0, i64 %indvars.iv313
-  %509 = load ptr, ptr %508, align 8, !tbaa !96
-  call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef %509, ptr noundef null)
-  %510 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations, align 1, !tbaa !29, !range !11, !noundef !12
-  %511 = zext nneg i8 %510 to i32
-  %512 = shl nuw nsw i32 %511, 10
-  %513 = inttoptr i64 %indvars.iv313 to ptr
-  %514 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %513)
+  %507 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowLayoutv.names, i64 0, i64 %indvars.iv313
+  %508 = load ptr, ptr %507, align 8, !tbaa !96
+  call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef %508, ptr noundef null)
+  %509 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations, align 1, !tbaa !29, !range !11, !noundef !12
+  %510 = zext nneg i8 %509 to i32
+  %511 = shl nuw nsw i32 %510, 10
+  %512 = inttoptr i64 %indvars.iv313 to ptr
+  %513 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %512)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store float %.0172, ptr %54, align 4, !tbaa !42
-  store float 2.000000e+02, ptr %499, align 4, !tbaa !44
-  %515 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %514, ptr noundef nonnull align 4 dereferenceable(8) %54, i32 noundef 1, i32 noundef %512)
+  store float 2.000000e+02, ptr %498, align 4, !tbaa !44
+  %514 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %513, ptr noundef nonnull align 4 dereferenceable(8) %54, i32 noundef 1, i32 noundef %511)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  %516 = call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
-  br i1 %516, label %517, label %518
+  %515 = call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
+  br i1 %515, label %516, label %517
 
-517:                                              ; preds = %507
+516:                                              ; preds = %506
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1326, ptr noundef null)
   call void @_ZN5ImGui10EndMenuBarEv()
-  br label %518
+  br label %517
 
-518:                                              ; preds = %517, %507
-  br i1 %485, label %519, label %521
+517:                                              ; preds = %516, %506
+  br i1 %484, label %518, label %520
 
-519:                                              ; preds = %518
-  %520 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, align 4, !tbaa !53
-  call void @_ZN5ImGui10SetScrollYEf(float noundef %520)
-  br label %521
+518:                                              ; preds = %517
+  %519 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, align 4, !tbaa !53
+  call void @_ZN5ImGui10SetScrollYEf(float noundef %519)
+  br label %520
 
-521:                                              ; preds = %519, %518
-  br i1 %489, label %522, label %529
+520:                                              ; preds = %518, %517
+  br i1 %488, label %521, label %528
 
-522:                                              ; preds = %521
-  %523 = call <2 x float> @_ZN5ImGui17GetCursorStartPosEv()
-  %.sroa.073.4.vec.extract = extractelement <2 x float> %523, i64 1
-  %524 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4, !tbaa !53
-  %525 = fadd float %.sroa.073.4.vec.extract, %524
-  %526 = trunc nuw nsw i64 %indvars.iv313 to i32
-  %527 = uitofp nneg i32 %526 to float
-  %528 = fmul float %527, 2.500000e-01
-  call void @_ZN5ImGui17SetScrollFromPosYEff(float noundef %525, float noundef %528)
-  br label %529
+521:                                              ; preds = %520
+  %522 = call <2 x float> @_ZN5ImGui17GetCursorStartPosEv()
+  %.sroa.073.4.vec.extract = extractelement <2 x float> %522, i64 1
+  %523 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4, !tbaa !53
+  %524 = fadd float %.sroa.073.4.vec.extract, %523
+  %525 = trunc nuw nsw i64 %indvars.iv313 to i32
+  %526 = uitofp nneg i32 %525 to float
+  %527 = fmul float %526, 2.500000e-01
+  call void @_ZN5ImGui17SetScrollFromPosYEff(float noundef %524, float noundef %527)
+  br label %528
 
-529:                                              ; preds = %522, %521
-  br i1 %515, label %.preheader274, label %.loopexit275
+528:                                              ; preds = %521, %520
+  br i1 %514, label %.preheader274, label %.loopexit275
 
-.preheader274:                                    ; preds = %529
-  %530 = trunc nuw nsw i64 %indvars.iv313 to i32
-  %531 = uitofp nneg i32 %530 to float
-  %532 = fmul float %531, 2.500000e-01
-  br label %533
+.preheader274:                                    ; preds = %528
+  %529 = trunc nuw nsw i64 %indvars.iv313 to i32
+  %530 = uitofp nneg i32 %529 to float
+  %531 = fmul float %530, 2.500000e-01
+  br label %532
 
-533:                                              ; preds = %.preheader274, %540
-  %.0175292 = phi i32 [ 0, %.preheader274 ], [ %541, %540 ]
-  %534 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
-  %535 = trunc nuw i8 %534 to i1
-  %536 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE10track_item, align 4
-  %537 = icmp eq i32 %.0175292, %536
-  %or.cond225 = select i1 %535, i1 %537, i1 false
-  br i1 %or.cond225, label %538, label %539
+532:                                              ; preds = %.preheader274, %539
+  %.0175292 = phi i32 [ 0, %.preheader274 ], [ %540, %539 ]
+  %533 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
+  %534 = trunc nuw i8 %533 to i1
+  %535 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE10track_item, align 4
+  %536 = icmp eq i32 %.0175292, %535
+  %or.cond225 = select i1 %534, i1 %536, i1 false
+  br i1 %or.cond225, label %537, label %538
 
-538:                                              ; preds = %533
+537:                                              ; preds = %532
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store float 1.000000e+00, ptr %55, align 4, !tbaa !117
-  store float 1.000000e+00, ptr %500, align 4, !tbaa !118
-  store float 0.000000e+00, ptr %501, align 4, !tbaa !119
-  store float 1.000000e+00, ptr %502, align 4, !tbaa !120
+  store float 1.000000e+00, ptr %499, align 4, !tbaa !118
+  store float 0.000000e+00, ptr %500, align 4, !tbaa !119
+  store float 1.000000e+00, ptr %501, align 4, !tbaa !120
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull @.str.615, i32 noundef %.0175292)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  call void @_ZN5ImGui14SetScrollHereYEf(float noundef %532)
-  br label %540
+  call void @_ZN5ImGui14SetScrollHereYEf(float noundef %531)
+  br label %539
 
-539:                                              ; preds = %533
+538:                                              ; preds = %532
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.615, i32 noundef %.0175292)
-  br label %540
+  br label %539
 
-540:                                              ; preds = %538, %539
-  %541 = add nuw nsw i32 %.0175292, 1
-  %exitcond312.not = icmp eq i32 %541, 100
-  br i1 %exitcond312.not, label %.loopexit275, label %533, !llvm.loop !285
+539:                                              ; preds = %537, %538
+  %540 = add nuw nsw i32 %.0175292, 1
+  %exitcond312.not = icmp eq i32 %540, 100
+  br i1 %exitcond312.not, label %.loopexit275, label %532, !llvm.loop !285
 
-.loopexit275:                                     ; preds = %540, %529
-  %542 = call noundef float @_ZN5ImGui10GetScrollYEv()
-  %543 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
+.loopexit275:                                     ; preds = %539, %528
+  %541 = call noundef float @_ZN5ImGui10GetScrollYEv()
+  %542 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
   call void @_ZN5ImGui8EndChildEv()
+  %543 = fpext float %541 to double
   %544 = fpext float %542 to double
-  %545 = fpext float %543 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1327, double noundef %544, double noundef %545)
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1327, double noundef %543, double noundef %544)
   call void @_ZN5ImGui8EndGroupEv()
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next314, 5
-  br i1 %exitcond316.not, label %503, label %505, !llvm.loop !286
+  br i1 %exitcond316.not, label %502, label %504, !llvm.loop !286
 
-546:                                              ; preds = %503
-  %547 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %504(ptr noundef nonnull @.str.4, i32 noundef 4517, ptr noundef nonnull @.str.1328, ptr noundef %547)
-  br label %548
+545:                                              ; preds = %502
+  %546 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %503(ptr noundef nonnull @.str.4, i32 noundef 4517, ptr noundef nonnull @.str.1328, ptr noundef %546)
+  br label %547
 
-548:                                              ; preds = %546, %503
+547:                                              ; preds = %545, %502
   call void @_ZN5ImGui7SpacingEv()
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %549 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %549, label %550, label %_ZL10HelpMarkerPKc.exit240
+  %548 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %548, label %549, label %_ZL10HelpMarkerPKc.exit240
 
-550:                                              ; preds = %548
-  %551 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %552 = fmul float %551, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %552)
+549:                                              ; preds = %547
+  %550 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %551 = fmul float %550, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %551)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1329, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit240
 
-_ZL10HelpMarkerPKc.exit240:                       ; preds = %548, %550
+_ZL10HelpMarkerPKc.exit240:                       ; preds = %547, %549
   call void @_ZN5ImGui6PushIDEPKc(ptr noundef nonnull @.str.1330)
-  %553 = getelementptr inbounds nuw i8, ptr %492, i64 120
-  %554 = getelementptr inbounds nuw i8, ptr %492, i64 12
-  %555 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %556 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %557 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %558 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  br label %561
+  %552 = getelementptr inbounds nuw i8, ptr %491, i64 120
+  %553 = getelementptr inbounds nuw i8, ptr %491, i64 12
+  %554 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %555 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %556 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  br label %560
 
-559:                                              ; preds = %.loopexit
+558:                                              ; preds = %.loopexit
   call void @_ZN5ImGui5PopIDEv()
-  %560 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not209 = icmp eq ptr %560, null
-  br i1 %.not209, label %607, label %605
+  %559 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not209 = icmp eq ptr %559, null
+  br i1 %.not209, label %606, label %604
 
-561:                                              ; preds = %_ZL10HelpMarkerPKc.exit240, %.loopexit
+560:                                              ; preds = %_ZL10HelpMarkerPKc.exit240, %.loopexit
   %indvars.iv318 = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit240 ], [ %indvars.iv.next319, %.loopexit ]
-  %562 = call noundef float @_ZN5ImGui17GetTextLineHeightEv()
-  %563 = load float, ptr %553, align 4, !tbaa !287
-  %564 = fadd float %562, %563
-  %565 = load float, ptr %554, align 4, !tbaa !207
-  %566 = call float @llvm.fmuladd.f32(float %565, float 2.000000e+00, float %564)
-  %567 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations, align 1, !tbaa !29, !range !11, !noundef !12
-  %568 = zext nneg i8 %567 to i32
-  %569 = shl nuw nsw i32 %568, 14
-  %570 = or disjoint i32 %569, 2048
-  %571 = inttoptr i64 %indvars.iv318 to ptr
-  %572 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %571)
+  %561 = call noundef float @_ZN5ImGui17GetTextLineHeightEv()
+  %562 = load float, ptr %552, align 4, !tbaa !287
+  %563 = fadd float %561, %562
+  %564 = load float, ptr %553, align 4, !tbaa !207
+  %565 = call float @llvm.fmuladd.f32(float %564, float 2.000000e+00, float %563)
+  %566 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE24enable_extra_decorations, align 1, !tbaa !29, !range !11, !noundef !12
+  %567 = zext nneg i8 %566 to i32
+  %568 = shl nuw nsw i32 %567, 14
+  %569 = or disjoint i32 %568, 2048
+  %570 = inttoptr i64 %indvars.iv318 to ptr
+  %571 = call noundef i32 @_ZN5ImGui5GetIDEPKv(ptr noundef %570)
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store float -1.000000e+02, ptr %56, align 4, !tbaa !42
-  store float %566, ptr %555, align 4, !tbaa !44
-  %573 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %572, ptr noundef nonnull align 4 dereferenceable(8) %56, i32 noundef 1, i32 noundef %570)
+  store float %565, ptr %554, align 4, !tbaa !44
+  %572 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEjRK6ImVec2ii(i32 noundef %571, ptr noundef nonnull align 4 dereferenceable(8) %56, i32 noundef 1, i32 noundef %569)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br i1 %485, label %574, label %576
+  br i1 %484, label %573, label %575
 
-574:                                              ; preds = %561
-  %575 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, align 4, !tbaa !53
-  call void @_ZN5ImGui10SetScrollXEf(float noundef %575)
-  br label %576
+573:                                              ; preds = %560
+  %574 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_off_px, align 4, !tbaa !53
+  call void @_ZN5ImGui10SetScrollXEf(float noundef %574)
+  br label %575
 
-576:                                              ; preds = %574, %561
-  br i1 %489, label %577, label %584
+575:                                              ; preds = %573, %560
+  br i1 %488, label %576, label %583
 
-577:                                              ; preds = %576
-  %578 = call <2 x float> @_ZN5ImGui17GetCursorStartPosEv()
-  %.sroa.055.0.vec.extract = extractelement <2 x float> %578, i64 0
-  %579 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4, !tbaa !53
-  %580 = fadd float %.sroa.055.0.vec.extract, %579
-  %581 = trunc nuw nsw i64 %indvars.iv318 to i32
-  %582 = uitofp nneg i32 %581 to float
-  %583 = fmul float %582, 2.500000e-01
-  call void @_ZN5ImGui17SetScrollFromPosXEff(float noundef %580, float noundef %583)
-  br label %584
+576:                                              ; preds = %575
+  %577 = call <2 x float> @_ZN5ImGui17GetCursorStartPosEv()
+  %.sroa.055.0.vec.extract = extractelement <2 x float> %577, i64 0
+  %578 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4, !tbaa !53
+  %579 = fadd float %.sroa.055.0.vec.extract, %578
+  %580 = trunc nuw nsw i64 %indvars.iv318 to i32
+  %581 = uitofp nneg i32 %580 to float
+  %582 = fmul float %581, 2.500000e-01
+  call void @_ZN5ImGui17SetScrollFromPosXEff(float noundef %579, float noundef %582)
+  br label %583
 
-584:                                              ; preds = %577, %576
-  br i1 %573, label %.preheader273, label %.loopexit
+583:                                              ; preds = %576, %575
+  br i1 %572, label %.preheader273, label %.loopexit
 
-.preheader273:                                    ; preds = %584
-  %585 = trunc nuw nsw i64 %indvars.iv318 to i32
-  %586 = uitofp nneg i32 %585 to float
-  %587 = fmul float %586, 2.500000e-01
-  br label %588
+.preheader273:                                    ; preds = %583
+  %584 = trunc nuw nsw i64 %indvars.iv318 to i32
+  %585 = uitofp nneg i32 %584 to float
+  %586 = fmul float %585, 2.500000e-01
+  br label %587
 
-588:                                              ; preds = %.preheader273, %597
-  %.0171294 = phi i32 [ 0, %.preheader273 ], [ %598, %597 ]
+587:                                              ; preds = %.preheader273, %596
+  %.0171294 = phi i32 [ 0, %.preheader273 ], [ %597, %596 ]
   %.not219 = icmp eq i32 %.0171294, 0
-  br i1 %.not219, label %590, label %589
+  br i1 %.not219, label %589, label %588
 
-589:                                              ; preds = %588
+588:                                              ; preds = %587
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  br label %590
+  br label %589
 
-590:                                              ; preds = %589, %588
-  %591 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
-  %592 = trunc nuw i8 %591 to i1
-  %593 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE10track_item, align 4
-  %594 = icmp eq i32 %.0171294, %593
-  %or.cond227 = select i1 %592, i1 %594, i1 false
-  br i1 %or.cond227, label %595, label %596
+589:                                              ; preds = %588, %587
+  %590 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12enable_track, align 1, !tbaa !29, !range !11, !noundef !12
+  %591 = trunc nuw i8 %590 to i1
+  %592 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE10track_item, align 4
+  %593 = icmp eq i32 %.0171294, %592
+  %or.cond227 = select i1 %591, i1 %593, i1 false
+  br i1 %or.cond227, label %594, label %595
 
-595:                                              ; preds = %590
+594:                                              ; preds = %589
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store float 1.000000e+00, ptr %57, align 4, !tbaa !117
-  store float 1.000000e+00, ptr %556, align 4, !tbaa !118
-  store float 0.000000e+00, ptr %557, align 4, !tbaa !119
-  store float 1.000000e+00, ptr %558, align 4, !tbaa !120
+  store float 1.000000e+00, ptr %555, align 4, !tbaa !118
+  store float 0.000000e+00, ptr %556, align 4, !tbaa !119
+  store float 1.000000e+00, ptr %557, align 4, !tbaa !120
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull @.str.615, i32 noundef %.0171294)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  call void @_ZN5ImGui14SetScrollHereXEf(float noundef %587)
-  br label %597
+  call void @_ZN5ImGui14SetScrollHereXEf(float noundef %586)
+  br label %596
 
-596:                                              ; preds = %590
+595:                                              ; preds = %589
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.615, i32 noundef %.0171294)
-  br label %597
+  br label %596
 
-597:                                              ; preds = %595, %596
-  %598 = add nuw nsw i32 %.0171294, 1
-  %exitcond317.not = icmp eq i32 %598, 100
-  br i1 %exitcond317.not, label %.loopexit, label %588, !llvm.loop !288
+596:                                              ; preds = %594, %595
+  %597 = add nuw nsw i32 %.0171294, 1
+  %exitcond317.not = icmp eq i32 %597, 100
+  br i1 %exitcond317.not, label %.loopexit, label %587, !llvm.loop !288
 
-.loopexit:                                        ; preds = %597, %584
-  %599 = call noundef float @_ZN5ImGui10GetScrollXEv()
-  %600 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
+.loopexit:                                        ; preds = %596, %583
+  %598 = call noundef float @_ZN5ImGui10GetScrollXEv()
+  %599 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
   call void @_ZN5ImGui8EndChildEv()
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %601 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowLayoutv.names.1333, i64 0, i64 %indvars.iv318
-  %602 = load ptr, ptr %601, align 8, !tbaa !96
+  %600 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowLayoutv.names.1333, i64 0, i64 %indvars.iv318
+  %601 = load ptr, ptr %600, align 8, !tbaa !96
+  %602 = fpext float %598 to double
   %603 = fpext float %599 to double
-  %604 = fpext float %600 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1334, ptr noundef %602, double noundef %603, double noundef %604)
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1334, ptr noundef %601, double noundef %602, double noundef %603)
   call void @_ZN5ImGui7SpacingEv()
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond321.not = icmp eq i64 %indvars.iv.next319, 5
-  br i1 %exitcond321.not, label %559, label %561, !llvm.loop !289
+  br i1 %exitcond321.not, label %558, label %560, !llvm.loop !289
 
-605:                                              ; preds = %559
-  %606 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %560(ptr noundef nonnull @.str.4, i32 noundef 4563, ptr noundef nonnull @.str.1335, ptr noundef %606)
-  br label %607
+604:                                              ; preds = %558
+  %605 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %559(ptr noundef nonnull @.str.4, i32 noundef 4563, ptr noundef nonnull @.str.1335, ptr noundef %605)
+  br label %606
 
-607:                                              ; preds = %605, %559
+606:                                              ; preds = %604, %558
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %608 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %608, label %609, label %_ZL10HelpMarkerPKc.exit241
+  %607 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %607, label %608, label %_ZL10HelpMarkerPKc.exit241
 
-609:                                              ; preds = %607
-  %610 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %611 = fmul float %610, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %611)
+608:                                              ; preds = %606
+  %609 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %610 = fmul float %609, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %610)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1336, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit241
 
-_ZL10HelpMarkerPKc.exit241:                       ; preds = %607, %609
-  %612 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.711, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE5lines, i32 noundef 1, i32 noundef 15, ptr noundef nonnull @.str.385, i32 noundef 0)
+_ZL10HelpMarkerPKc.exit241:                       ; preds = %606, %608
+  %611 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.711, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE5lines, i32 noundef 1, i32 noundef 15, ptr noundef nonnull @.str.385, i32 noundef 0)
   call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 12, float noundef 3.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store float 2.000000e+00, ptr %58, align 4, !tbaa !42
-  %613 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store float 1.000000e+00, ptr %613, align 4, !tbaa !44
+  %612 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store float 1.000000e+00, ptr %612, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %614 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
-  %615 = call float @llvm.fmuladd.f32(float %614, float 7.000000e+00, float 3.000000e+01)
+  %613 = call noundef float @_ZN5ImGui25GetFrameHeightWithSpacingEv()
+  %614 = call float @llvm.fmuladd.f32(float %613, float 7.000000e+00, float 3.000000e+01)
   store float 0.000000e+00, ptr %59, align 4, !tbaa !42
-  %616 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store float %615, ptr %616, align 4, !tbaa !44
-  %617 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1337, ptr noundef nonnull align 4 dereferenceable(8) %59, i32 noundef 1, i32 noundef 2048)
-  %618 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE5lines, align 4, !tbaa !54
-  %619 = icmp sgt i32 %618, 0
-  br i1 %619, label %.lr.ph298, label %._crit_edge
+  %615 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store float %614, ptr %615, align 4, !tbaa !44
+  %616 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1337, ptr noundef nonnull align 4 dereferenceable(8) %59, i32 noundef 1, i32 noundef 2048)
+  %617 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE5lines, align 4, !tbaa !54
+  %618 = icmp sgt i32 %617, 0
+  br i1 %618, label %.lr.ph298, label %._crit_edge
 
 .lr.ph298:                                        ; preds = %_ZL10HelpMarkerPKc.exit241
-  %620 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %621 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %622 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %623 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  br label %628
+  %619 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %620 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %622 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  br label %627
 
-._crit_edge:                                      ; preds = %633, %_ZL10HelpMarkerPKc.exit241
-  %624 = call noundef float @_ZN5ImGui10GetScrollXEv()
-  %625 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
+._crit_edge:                                      ; preds = %632, %_ZL10HelpMarkerPKc.exit241
+  %623 = call noundef float @_ZN5ImGui10GetScrollXEv()
+  %624 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
   call void @_ZN5ImGui8EndChildEv()
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
-  %626 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1158)
-  %627 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
-  br i1 %627, label %667, label %672
+  %625 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1158)
+  %626 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
+  br i1 %626, label %666, label %671
 
-628:                                              ; preds = %.lr.ph298, %633
-  %.0168297 = phi i32 [ 0, %.lr.ph298 ], [ %634, %633 ]
-  %629 = and i32 %.0168297, 1
-  %.not214 = icmp eq i32 %629, 0
+627:                                              ; preds = %.lr.ph298, %632
+  %.0168297 = phi i32 [ 0, %.lr.ph298 ], [ %633, %632 ]
+  %628 = and i32 %.0168297, 1
+  %.not214 = icmp eq i32 %628, 0
   %.v = select i1 %.not214, i32 3, i32 9
-  %630 = mul nuw nsw i32 %.0168297, 1000
-  %631 = mul i32 %.v, %.0168297
-  %632 = add i32 %631, 10
-  %umax = call i32 @llvm.umax.i32(i32 %632, i32 1)
-  br label %637
+  %629 = mul nuw nsw i32 %.0168297, 1000
+  %630 = mul i32 %.v, %.0168297
+  %631 = add i32 %630, 10
+  %umax = call i32 @llvm.umax.i32(i32 %631, i32 1)
+  br label %636
 
-633:                                              ; preds = %648
-  %634 = add nuw nsw i32 %.0168297, 1
-  %635 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE5lines, align 4, !tbaa !54
-  %636 = icmp slt i32 %634, %635
-  br i1 %636, label %628, label %._crit_edge, !llvm.loop !290
+632:                                              ; preds = %647
+  %633 = add nuw nsw i32 %.0168297, 1
+  %634 = load i32, ptr @_ZZL20ShowDemoWindowLayoutvE5lines, align 4, !tbaa !54
+  %635 = icmp slt i32 %633, %634
+  br i1 %635, label %627, label %._crit_edge, !llvm.loop !290
 
-637:                                              ; preds = %628, %648
-  %.0166296 = phi i32 [ 0, %628 ], [ %666, %648 ]
+636:                                              ; preds = %627, %647
+  %.0166296 = phi i32 [ 0, %627 ], [ %665, %647 ]
   %.not215 = icmp eq i32 %.0166296, 0
-  br i1 %.not215, label %639, label %638
+  br i1 %.not215, label %638, label %637
 
-638:                                              ; preds = %637
+637:                                              ; preds = %636
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  br label %639
+  br label %638
 
-639:                                              ; preds = %638, %637
-  %640 = add nuw nsw i32 %.0166296, %630
-  call void @_ZN5ImGui6PushIDEi(i32 noundef %640)
+638:                                              ; preds = %637, %636
+  %639 = add nuw nsw i32 %.0166296, %629
+  call void @_ZN5ImGui6PushIDEi(i32 noundef %639)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %641 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) @.str.385, i32 noundef %.0166296) #33
-  %642 = urem i32 %.0166296, 15
-  %.not216 = icmp eq i32 %642, 0
-  br i1 %.not216, label %648, label %643
+  %640 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) @.str.385, i32 noundef %.0166296) #33
+  %641 = urem i32 %.0166296, 15
+  %.not216 = icmp eq i32 %641, 0
+  br i1 %.not216, label %647, label %642
 
-643:                                              ; preds = %639
-  %644 = urem i32 %.0166296, 3
-  %.not217 = icmp eq i32 %644, 0
-  br i1 %.not217, label %648, label %645
+642:                                              ; preds = %638
+  %643 = urem i32 %.0166296, 3
+  %.not217 = icmp eq i32 %643, 0
+  br i1 %.not217, label %647, label %644
 
-645:                                              ; preds = %643
-  %646 = urem i32 %.0166296, 5
-  %.not218 = icmp eq i32 %646, 0
-  %647 = select i1 %.not218, ptr @.str.1340, ptr %60
-  br label %648
+644:                                              ; preds = %642
+  %645 = urem i32 %.0166296, 5
+  %.not218 = icmp eq i32 %645, 0
+  %646 = select i1 %.not218, ptr @.str.1340, ptr %60
+  br label %647
 
-648:                                              ; preds = %645, %643, %639
-  %649 = phi ptr [ @.str.1338, %639 ], [ %647, %645 ], [ @.str.1339, %643 ]
-  %650 = uitofp nneg i32 %.0166296 to float
-  %651 = fmul float %650, 0x3FA99999A0000000
+647:                                              ; preds = %644, %642, %638
+  %648 = phi ptr [ @.str.1338, %638 ], [ %646, %644 ], [ @.str.1339, %642 ]
+  %649 = uitofp nneg i32 %.0166296 to float
+  %650 = fmul float %649, 0x3FA99999A0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %651, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %652 = load float, ptr %7, align 4, !tbaa !53
-  %653 = load float, ptr %8, align 4, !tbaa !53
-  %654 = load float, ptr %9, align 4, !tbaa !53
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %652, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %653, i64 1
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %654, i64 0
+  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %650, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %651 = load float, ptr %7, align 4, !tbaa !53
+  %652 = load float, ptr %8, align 4, !tbaa !53
+  %653 = load float, ptr %9, align 4, !tbaa !53
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %651, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %652, i64 1
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %653, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %61, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %620, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %619, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %651, float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %655 = load float, ptr %4, align 4, !tbaa !53
-  %656 = load float, ptr %5, align 4, !tbaa !53
-  %657 = load float, ptr %6, align 4, !tbaa !53
-  %.sroa.0.0.vec.insert.i244 = insertelement <2 x float> poison, float %655, i64 0
-  %.sroa.0.4.vec.insert.i245 = insertelement <2 x float> %.sroa.0.0.vec.insert.i244, float %656, i64 1
-  %.sroa.3.12.vec.insert.i247 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %657, i64 0
+  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %650, float noundef 0x3FE6666660000000, float noundef 0x3FE6666660000000, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %654 = load float, ptr %4, align 4, !tbaa !53
+  %655 = load float, ptr %5, align 4, !tbaa !53
+  %656 = load float, ptr %6, align 4, !tbaa !53
+  %.sroa.0.0.vec.insert.i244 = insertelement <2 x float> poison, float %654, i64 0
+  %.sroa.0.4.vec.insert.i245 = insertelement <2 x float> %.sroa.0.0.vec.insert.i244, float %655, i64 1
+  %.sroa.3.12.vec.insert.i247 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %656, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store <2 x float> %.sroa.0.4.vec.insert.i245, ptr %62, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i247, ptr %621, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i247, ptr %620, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 22, ptr noundef nonnull align 4 dereferenceable(16) %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %651, float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %658 = load float, ptr %1, align 4, !tbaa !53
-  %659 = load float, ptr %2, align 4, !tbaa !53
-  %660 = load float, ptr %3, align 4, !tbaa !53
-  %.sroa.0.0.vec.insert.i255 = insertelement <2 x float> poison, float %658, i64 0
-  %.sroa.0.4.vec.insert.i256 = insertelement <2 x float> %.sroa.0.0.vec.insert.i255, float %659, i64 1
-  %.sroa.3.12.vec.insert.i258 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %660, i64 0
+  call void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %650, float noundef 0x3FE99999A0000000, float noundef 0x3FE99999A0000000, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %657 = load float, ptr %1, align 4, !tbaa !53
+  %658 = load float, ptr %2, align 4, !tbaa !53
+  %659 = load float, ptr %3, align 4, !tbaa !53
+  %.sroa.0.0.vec.insert.i255 = insertelement <2 x float> poison, float %657, i64 0
+  %.sroa.0.4.vec.insert.i256 = insertelement <2 x float> %.sroa.0.0.vec.insert.i255, float %658, i64 1
+  %.sroa.3.12.vec.insert.i258 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %659, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store <2 x float> %.sroa.0.4.vec.insert.i256, ptr %63, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i258, ptr %622, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i258, ptr %621, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 23, ptr noundef nonnull align 4 dereferenceable(16) %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %661 = add nuw nsw i32 %.0166296, %.0168297
-  %662 = uitofp nneg i32 %661 to float
-  %663 = call float @sinf(float noundef %662) #33, !tbaa !54
-  %664 = call float @llvm.fmuladd.f32(float %663, float 2.000000e+01, float 4.000000e+01)
-  store float %664, ptr %64, align 4, !tbaa !42
-  store float 0.000000e+00, ptr %623, align 4, !tbaa !44
-  %665 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef %649, ptr noundef nonnull align 4 dereferenceable(8) %64)
+  %660 = add nuw nsw i32 %.0166296, %.0168297
+  %661 = uitofp nneg i32 %660 to float
+  %662 = call float @sinf(float noundef %661) #33, !tbaa !54
+  %663 = call float @llvm.fmuladd.f32(float %662, float 2.000000e+01, float 4.000000e+01)
+  store float %663, ptr %64, align 4, !tbaa !42
+  store float 0.000000e+00, ptr %622, align 4, !tbaa !44
+  %664 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef %648, ptr noundef nonnull align 4 dereferenceable(8) %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 3)
   call void @_ZN5ImGui5PopIDEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %666 = add nuw i32 %.0166296, 1
-  %exitcond322.not = icmp eq i32 %666, %umax
-  br i1 %exitcond322.not, label %633, label %637, !llvm.loop !291
+  %665 = add nuw i32 %.0166296, 1
+  %exitcond322.not = icmp eq i32 %665, %umax
+  br i1 %exitcond322.not, label %632, label %636, !llvm.loop !291
 
-667:                                              ; preds = %._crit_edge
-  %668 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
-  %669 = getelementptr inbounds nuw i8, ptr %668, i64 16
-  %670 = load float, ptr %669, align 8, !tbaa !262
-  %671 = fmul float %670, -1.000000e+03
-  br label %672
+666:                                              ; preds = %._crit_edge
+  %667 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 16
+  %669 = load float, ptr %668, align 8, !tbaa !262
+  %670 = fmul float %669, -1.000000e+03
+  br label %671
 
-672:                                              ; preds = %667, %._crit_edge
-  %.0160 = phi float [ %671, %667 ], [ 0.000000e+00, %._crit_edge ]
+671:                                              ; preds = %666, %._crit_edge
+  %.0160 = phi float [ %670, %666 ], [ 0.000000e+00, %._crit_edge ]
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1341)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %673 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1155)
-  %674 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
-  br i1 %674, label %675, label %680
+  %672 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1155)
+  %673 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
+  br i1 %673, label %674, label %679
 
-675:                                              ; preds = %672
-  %676 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 16
-  %678 = load float, ptr %677, align 8, !tbaa !262
-  %679 = fmul float %678, 1.000000e+03
-  br label %680
+674:                                              ; preds = %671
+  %675 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 16
+  %677 = load float, ptr %676, align 8, !tbaa !262
+  %678 = fmul float %677, 1.000000e+03
+  br label %679
 
-680:                                              ; preds = %675, %672
-  %.1161 = phi float [ %679, %675 ], [ %.0160, %672 ]
+679:                                              ; preds = %674, %671
+  %.1161 = phi float [ %678, %674 ], [ %.0160, %671 ]
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
+  %680 = fpext float %623 to double
   %681 = fpext float %624 to double
-  %682 = fpext float %625 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1327, double noundef %681, double noundef %682)
-  %683 = fcmp une float %.1161, 0.000000e+00
-  br i1 %683, label %684, label %689
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1327, double noundef %680, double noundef %681)
+  %682 = fcmp une float %.1161, 0.000000e+00
+  br i1 %682, label %683, label %688
 
-684:                                              ; preds = %680
+683:                                              ; preds = %679
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store float 0.000000e+00, ptr %65, align 4, !tbaa !42
-  %685 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store float 0.000000e+00, ptr %685, align 4, !tbaa !44
-  %686 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1337, ptr noundef nonnull align 4 dereferenceable(8) %65, i32 noundef 0, i32 noundef 0)
+  %684 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store float 0.000000e+00, ptr %684, align 4, !tbaa !44
+  %685 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1337, ptr noundef nonnull align 4 dereferenceable(8) %65, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  %687 = call noundef float @_ZN5ImGui10GetScrollXEv()
-  %688 = fadd float %.1161, %687
-  call void @_ZN5ImGui10SetScrollXEf(float noundef %688)
+  %686 = call noundef float @_ZN5ImGui10GetScrollXEv()
+  %687 = fadd float %.1161, %686
+  call void @_ZN5ImGui10SetScrollXEf(float noundef %687)
   call void @_ZN5ImGui8EndChildEv()
-  br label %689
+  br label %688
 
-689:                                              ; preds = %684, %680
+688:                                              ; preds = %683, %679
   call void @_ZN5ImGui7SpacingEv()
-  %690 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1342, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window)
-  %691 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window, align 1, !tbaa !29, !range !11, !noundef !12
-  %692 = trunc nuw i8 %691 to i1
-  br i1 %692, label %693, label %815
+  %689 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1342, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window)
+  %690 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window, align 1, !tbaa !29, !range !11, !noundef !12
+  %691 = trunc nuw i8 %690 to i1
+  br i1 %691, label %692, label %814
 
-693:                                              ; preds = %689
-  %694 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size, align 1, !tbaa !29, !range !11, !noundef !12
-  %695 = trunc nuw i8 %694 to i1
-  br i1 %695, label %696, label %699
+692:                                              ; preds = %688
+  %693 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size, align 1, !tbaa !29, !range !11, !noundef !12
+  %694 = trunc nuw i8 %693 to i1
+  br i1 %694, label %695, label %698
 
-696:                                              ; preds = %693
+695:                                              ; preds = %692
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  %697 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
-  store float %697, ptr %66, align 4, !tbaa !42
-  %698 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store float 0.000000e+00, ptr %698, align 4, !tbaa !44
+  %696 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
+  store float %696, ptr %66, align 4, !tbaa !42
+  %697 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store float 0.000000e+00, ptr %697, align 4, !tbaa !44
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  br label %699
+  br label %698
 
-699:                                              ; preds = %696, %693
-  %700 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE16show_h_scrollbar, align 1, !tbaa !29, !range !11, !noundef !12
-  %701 = zext nneg i8 %700 to i32
-  %702 = shl nuw nsw i32 %701, 11
-  %703 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1343, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window, i32 noundef %702)
-  %704 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not210 = icmp eq ptr %704, null
-  br i1 %.not210, label %707, label %705
+698:                                              ; preds = %695, %692
+  %699 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE16show_h_scrollbar, align 1, !tbaa !29, !range !11, !noundef !12
+  %700 = zext nneg i8 %699 to i32
+  %701 = shl nuw nsw i32 %700, 11
+  %702 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1343, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE41show_horizontal_contents_size_demo_window, i32 noundef %701)
+  %703 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not210 = icmp eq ptr %703, null
+  br i1 %.not210, label %706, label %704
 
-705:                                              ; preds = %699
-  %706 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %704(ptr noundef nonnull @.str.4, i32 noundef 4638, ptr noundef nonnull @.str.1344, ptr noundef %706)
-  br label %707
+704:                                              ; preds = %698
+  %705 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %703(ptr noundef nonnull @.str.4, i32 noundef 4638, ptr noundef nonnull @.str.1344, ptr noundef %705)
+  br label %706
 
-707:                                              ; preds = %705, %699
+706:                                              ; preds = %704, %698
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store float 2.000000e+00, ptr %67, align 4, !tbaa !42
-  %708 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store float 0.000000e+00, ptr %708, align 4, !tbaa !44
+  %707 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store float 0.000000e+00, ptr %707, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store float 2.000000e+00, ptr %68, align 4, !tbaa !42
-  %709 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store float 0.000000e+00, ptr %709, align 4, !tbaa !44
+  %708 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store float 0.000000e+00, ptr %708, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %710 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %710, label %711, label %_ZL10HelpMarkerPKc.exit266
+  %709 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %709, label %710, label %_ZL10HelpMarkerPKc.exit266
 
-711:                                              ; preds = %707
-  %712 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %713 = fmul float %712, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %713)
+710:                                              ; preds = %706
+  %711 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %712 = fmul float %711, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %712)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1345, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit266
 
-_ZL10HelpMarkerPKc.exit266:                       ; preds = %707, %711
-  %714 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1346, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16show_h_scrollbar)
-  %715 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.371, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE11show_button)
-  %716 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1105, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE15show_tree_nodes)
-  %717 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1347, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE17show_text_wrapped)
-  %718 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1348, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12show_columns)
-  %719 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1349, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12show_tab_bar)
-  %720 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1350, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE10show_child)
-  %721 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1351, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size)
-  %722 = call noundef float @_ZN5ImGui10GetScrollXEv()
-  %723 = fpext float %722 to double
-  %724 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
-  %725 = fpext float %724 to double
-  %726 = call noundef float @_ZN5ImGui10GetScrollYEv()
-  %727 = fpext float %726 to double
-  %728 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
-  %729 = fpext float %728 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1352, double noundef %723, double noundef %725, double noundef %727, double noundef %729)
-  %730 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size, align 1, !tbaa !29, !range !11, !noundef !12
-  %731 = trunc nuw i8 %730 to i1
-  br i1 %731, label %732, label %752
+_ZL10HelpMarkerPKc.exit266:                       ; preds = %706, %710
+  %713 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1346, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE16show_h_scrollbar)
+  %714 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.371, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE11show_button)
+  %715 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1105, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE15show_tree_nodes)
+  %716 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1347, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE17show_text_wrapped)
+  %717 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1348, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12show_columns)
+  %718 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1349, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE12show_tab_bar)
+  %719 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1350, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE10show_child)
+  %720 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1351, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size)
+  %721 = call noundef float @_ZN5ImGui10GetScrollXEv()
+  %722 = fpext float %721 to double
+  %723 = call noundef float @_ZN5ImGui13GetScrollMaxXEv()
+  %724 = fpext float %723 to double
+  %725 = call noundef float @_ZN5ImGui10GetScrollYEv()
+  %726 = fpext float %725 to double
+  %727 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
+  %728 = fpext float %727 to double
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1352, double noundef %722, double noundef %724, double noundef %726, double noundef %728)
+  %729 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE21explicit_content_size, align 1, !tbaa !29, !range !11, !noundef !12
+  %730 = trunc nuw i8 %729 to i1
+  br i1 %730, label %731, label %751
 
-732:                                              ; preds = %_ZL10HelpMarkerPKc.exit266
+731:                                              ; preds = %_ZL10HelpMarkerPKc.exit266
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef 1.000000e+02)
-  %733 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1353, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.357, i32 noundef 0)
+  %732 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.1353, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.357, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  %734 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  store <2 x float> %734, ptr %69, align 8
-  %735 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
+  %733 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
+  store <2 x float> %733, ptr %69, align 8
+  %734 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %736 = load float, ptr %69, align 8, !tbaa !42
-  %737 = fadd float %736, 1.000000e+01
-  %738 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %739 = load float, ptr %738, align 4, !tbaa !44
-  %740 = fadd float %739, 1.000000e+01
-  store float %737, ptr %70, align 4, !tbaa !42
-  %741 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store float %740, ptr %741, align 4, !tbaa !44
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %735, ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef nonnull align 4 dereferenceable(8) %70, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
+  %735 = load float, ptr %69, align 8, !tbaa !42
+  %736 = fadd float %735, 1.000000e+01
+  %737 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %738 = load float, ptr %737, align 4, !tbaa !44
+  %739 = fadd float %738, 1.000000e+01
+  store float %736, ptr %70, align 4, !tbaa !42
+  %740 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store float %739, ptr %740, align 4, !tbaa !44
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %734, ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef nonnull align 4 dereferenceable(8) %70, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  %742 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
+  %741 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  %743 = load float, ptr %69, align 8, !tbaa !42
-  %744 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
-  %745 = fadd float %743, %744
-  %746 = fadd float %745, -1.000000e+01
-  %747 = load float, ptr %738, align 4, !tbaa !44
-  store float %746, ptr %71, align 4, !tbaa !42
-  %748 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store float %747, ptr %748, align 4, !tbaa !44
+  %742 = load float, ptr %69, align 8, !tbaa !42
+  %743 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE15contents_size_x, align 4, !tbaa !53
+  %744 = fadd float %742, %743
+  %745 = fadd float %744, -1.000000e+01
+  %746 = load float, ptr %737, align 4, !tbaa !44
+  store float %745, ptr %71, align 4, !tbaa !42
+  %747 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store float %746, ptr %747, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  %749 = fadd float %747, 1.000000e+01
-  store float %745, ptr %72, align 4, !tbaa !42
-  %750 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store float %749, ptr %750, align 4, !tbaa !44
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %742, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(8) %72, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
+  %748 = fadd float %746, 1.000000e+01
+  store float %744, ptr %72, align 4, !tbaa !42
+  %749 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  store float %748, ptr %749, align 4, !tbaa !44
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %741, ptr noundef nonnull align 4 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(8) %72, i32 noundef -1, float noundef 0.000000e+00, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store float 0.000000e+00, ptr %73, align 4, !tbaa !42
-  %751 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store float 1.000000e+01, ptr %751, align 4, !tbaa !44
+  %750 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store float 1.000000e+01, ptr %750, align 4, !tbaa !44
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br label %752
+  br label %751
 
-752:                                              ; preds = %732, %_ZL10HelpMarkerPKc.exit266
+751:                                              ; preds = %731, %_ZL10HelpMarkerPKc.exit266
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
   call void @_ZN5ImGui9SeparatorEv()
-  %753 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE11show_button, align 1, !tbaa !29, !range !11, !noundef !12
-  %754 = trunc nuw i8 %753 to i1
-  br i1 %754, label %755, label %758
+  %752 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE11show_button, align 1, !tbaa !29, !range !11, !noundef !12
+  %753 = trunc nuw i8 %752 to i1
+  br i1 %753, label %754, label %757
 
-755:                                              ; preds = %752
+754:                                              ; preds = %751
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store float 3.000000e+02, ptr %74, align 4, !tbaa !42
-  %756 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store float 0.000000e+00, ptr %756, align 4, !tbaa !44
-  %757 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1354, ptr noundef nonnull align 4 dereferenceable(8) %74)
+  %755 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store float 0.000000e+00, ptr %755, align 4, !tbaa !44
+  %756 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1354, ptr noundef nonnull align 4 dereferenceable(8) %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  br label %758
+  br label %757
 
-758:                                              ; preds = %755, %752
-  %759 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE15show_tree_nodes, align 1, !tbaa !29, !range !11, !noundef !12
-  %760 = trunc nuw i8 %759 to i1
-  br i1 %760, label %761, label %769
+757:                                              ; preds = %754, %751
+  %758 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE15show_tree_nodes, align 1, !tbaa !29, !range !11, !noundef !12
+  %759 = trunc nuw i8 %758 to i1
+  br i1 %759, label %760, label %768
 
-761:                                              ; preds = %758
+760:                                              ; preds = %757
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i8 1, ptr %75, align 1, !tbaa !29
-  %762 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1355)
-  br i1 %762, label %763, label %767
+  %761 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1355)
+  br i1 %761, label %762, label %766
 
-763:                                              ; preds = %761
-  %764 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1356)
-  br i1 %764, label %765, label %766
+762:                                              ; preds = %760
+  %763 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1356)
+  br i1 %763, label %764, label %765
 
-765:                                              ; preds = %763
+764:                                              ; preds = %762
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1357)
+  call void @_ZN5ImGui7TreePopEv()
+  br label %765
+
+765:                                              ; preds = %764, %762
   call void @_ZN5ImGui7TreePopEv()
   br label %766
 
-766:                                              ; preds = %765, %763
-  call void @_ZN5ImGui7TreePopEv()
-  br label %767
-
-767:                                              ; preds = %766, %761
-  %768 = call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKcPbi(ptr noundef nonnull @.str.1358, ptr noundef nonnull %75, i32 noundef 0)
+766:                                              ; preds = %765, %760
+  %767 = call noundef zeroext i1 @_ZN5ImGui16CollapsingHeaderEPKcPbi(ptr noundef nonnull @.str.1358, ptr noundef nonnull %75, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  br label %769
+  br label %768
 
-769:                                              ; preds = %767, %758
-  %770 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE17show_text_wrapped, align 1, !tbaa !29, !range !11, !noundef !12
-  %771 = trunc nuw i8 %770 to i1
-  br i1 %771, label %772, label %773
+768:                                              ; preds = %766, %757
+  %769 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE17show_text_wrapped, align 1, !tbaa !29, !range !11, !noundef !12
+  %770 = trunc nuw i8 %769 to i1
+  br i1 %770, label %771, label %772
 
-772:                                              ; preds = %769
+771:                                              ; preds = %768
   call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.1359)
-  br label %773
+  br label %772
 
-773:                                              ; preds = %772, %769
-  %774 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12show_columns, align 1, !tbaa !29, !range !11, !noundef !12
-  %775 = trunc nuw i8 %774 to i1
-  br i1 %775, label %776, label %790
+772:                                              ; preds = %771, %768
+  %773 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12show_columns, align 1, !tbaa !29, !range !11, !noundef !12
+  %774 = trunc nuw i8 %773 to i1
+  br i1 %774, label %775, label %789
 
-776:                                              ; preds = %773
+775:                                              ; preds = %772
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1360)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store float 0.000000e+00, ptr %76, align 4, !tbaa !42
-  %777 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store float 0.000000e+00, ptr %777, align 4, !tbaa !44
-  %778 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1361, i32 noundef 4, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %76, float noundef 0.000000e+00)
+  %776 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  store float 0.000000e+00, ptr %776, align 4, !tbaa !44
+  %777 = call noundef zeroext i1 @_ZN5ImGui10BeginTableEPKciiRK6ImVec2f(ptr noundef nonnull @.str.1361, i32 noundef 4, i32 noundef 1920, ptr noundef nonnull align 4 dereferenceable(8) %76, float noundef 0.000000e+00)
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  br i1 %778, label %.preheader, label %784
+  br i1 %777, label %.preheader, label %783
 
-779:                                              ; preds = %.preheader
+778:                                              ; preds = %.preheader
   call void @_ZN5ImGui8EndTableEv()
-  br label %784
+  br label %783
 
-.preheader:                                       ; preds = %776, %.preheader
-  %.0159299 = phi i32 [ %783, %.preheader ], [ 0, %776 ]
-  %780 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-  %781 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
-  %.sroa.018.0.vec.extract = extractelement <2 x float> %781, i64 0
-  %782 = fpext float %.sroa.018.0.vec.extract to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1362, double noundef %782)
-  %783 = add nuw nsw i32 %.0159299, 1
-  %exitcond323.not = icmp eq i32 %783, 4
-  br i1 %exitcond323.not, label %779, label %.preheader, !llvm.loop !292
+.preheader:                                       ; preds = %775, %.preheader
+  %.0159299 = phi i32 [ %782, %.preheader ], [ 0, %775 ]
+  %779 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
+  %780 = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
+  %.sroa.018.0.vec.extract = extractelement <2 x float> %780, i64 0
+  %781 = fpext float %.sroa.018.0.vec.extract to double
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1362, double noundef %781)
+  %782 = add nuw nsw i32 %.0159299, 1
+  %exitcond323.not = icmp eq i32 %782, 4
+  br i1 %exitcond323.not, label %778, label %.preheader, !llvm.loop !292
 
-784:                                              ; preds = %779, %776
+783:                                              ; preds = %778, %775
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1363)
   call void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef 4, ptr noundef null, i1 noundef zeroext true)
-  br label %786
+  br label %785
 
-785:                                              ; preds = %786
+784:                                              ; preds = %785
   call void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef 1, ptr noundef null, i1 noundef zeroext true)
-  br label %790
+  br label %789
 
-786:                                              ; preds = %784, %786
-  %.0157300 = phi i32 [ 0, %784 ], [ %789, %786 ]
-  %787 = call noundef float @_ZN5ImGui14GetColumnWidthEi(i32 noundef -1)
-  %788 = fpext float %787 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1362, double noundef %788)
+785:                                              ; preds = %783, %785
+  %.0157300 = phi i32 [ 0, %783 ], [ %788, %785 ]
+  %786 = call noundef float @_ZN5ImGui14GetColumnWidthEi(i32 noundef -1)
+  %787 = fpext float %786 to double
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1362, double noundef %787)
   call void @_ZN5ImGui10NextColumnEv()
-  %789 = add nuw nsw i32 %.0157300, 1
-  %exitcond324.not = icmp eq i32 %789, 4
-  br i1 %exitcond324.not, label %785, label %786, !llvm.loop !293
+  %788 = add nuw nsw i32 %.0157300, 1
+  %exitcond324.not = icmp eq i32 %788, 4
+  br i1 %exitcond324.not, label %784, label %785, !llvm.loop !293
 
-790:                                              ; preds = %785, %773
-  %791 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12show_tab_bar, align 1, !tbaa !29, !range !11, !noundef !12
-  %792 = trunc nuw i8 %791 to i1
-  br i1 %792, label %793, label %808
+789:                                              ; preds = %784, %772
+  %790 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE12show_tab_bar, align 1, !tbaa !29, !range !11, !noundef !12
+  %791 = trunc nuw i8 %790 to i1
+  br i1 %791, label %792, label %807
 
-793:                                              ; preds = %790
-  %794 = call noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef nonnull @.str.346, i32 noundef 0)
-  br i1 %794, label %795, label %808
+792:                                              ; preds = %789
+  %793 = call noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef nonnull @.str.346, i32 noundef 0)
+  br i1 %793, label %794, label %807
 
-795:                                              ; preds = %793
-  %796 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1364, ptr noundef null, i32 noundef 0)
-  br i1 %796, label %797, label %798
+794:                                              ; preds = %792
+  %795 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1364, ptr noundef null, i32 noundef 0)
+  br i1 %795, label %796, label %797
 
-797:                                              ; preds = %795
+796:                                              ; preds = %794
   call void @_ZN5ImGui10EndTabItemEv()
-  br label %798
+  br label %797
 
-798:                                              ; preds = %797, %795
-  %799 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1365, ptr noundef null, i32 noundef 0)
-  br i1 %799, label %800, label %801
+797:                                              ; preds = %796, %794
+  %798 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1365, ptr noundef null, i32 noundef 0)
+  br i1 %798, label %799, label %800
 
-800:                                              ; preds = %798
+799:                                              ; preds = %797
   call void @_ZN5ImGui10EndTabItemEv()
-  br label %801
+  br label %800
 
-801:                                              ; preds = %800, %798
-  %802 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1366, ptr noundef null, i32 noundef 0)
-  br i1 %802, label %803, label %804
+800:                                              ; preds = %799, %797
+  %801 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1366, ptr noundef null, i32 noundef 0)
+  br i1 %801, label %802, label %803
 
-803:                                              ; preds = %801
+802:                                              ; preds = %800
   call void @_ZN5ImGui10EndTabItemEv()
-  br label %804
+  br label %803
 
-804:                                              ; preds = %803, %801
-  %805 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1367, ptr noundef null, i32 noundef 0)
-  br i1 %805, label %806, label %807
+803:                                              ; preds = %802, %800
+  %804 = call noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef nonnull @.str.1367, ptr noundef null, i32 noundef 0)
+  br i1 %804, label %805, label %806
 
-806:                                              ; preds = %804
+805:                                              ; preds = %803
   call void @_ZN5ImGui10EndTabItemEv()
+  br label %806
+
+806:                                              ; preds = %805, %803
+  call void @_ZN5ImGui9EndTabBarEv()
   br label %807
 
-807:                                              ; preds = %806, %804
-  call void @_ZN5ImGui9EndTabBarEv()
-  br label %808
+807:                                              ; preds = %806, %792, %789
+  %808 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE10show_child, align 1, !tbaa !29, !range !11, !noundef !12
+  %809 = trunc nuw i8 %808 to i1
+  br i1 %809, label %810, label %813
 
-808:                                              ; preds = %807, %793, %790
-  %809 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE10show_child, align 1, !tbaa !29, !range !11, !noundef !12
-  %810 = trunc nuw i8 %809 to i1
-  br i1 %810, label %811, label %814
-
-811:                                              ; preds = %808
+810:                                              ; preds = %807
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store float 0.000000e+00, ptr %77, align 4, !tbaa !42
-  %812 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store float 0.000000e+00, ptr %812, align 4, !tbaa !44
-  %813 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.354, ptr noundef nonnull align 4 dereferenceable(8) %77, i32 noundef 1, i32 noundef 0)
+  %811 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  store float 0.000000e+00, ptr %811, align 4, !tbaa !44
+  %812 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.354, ptr noundef nonnull align 4 dereferenceable(8) %77, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @_ZN5ImGui8EndChildEv()
+  br label %813
+
+813:                                              ; preds = %810, %807
+  call void @_ZN5ImGui3EndEv()
   br label %814
 
-814:                                              ; preds = %811, %808
-  call void @_ZN5ImGui3EndEv()
-  br label %815
-
-815:                                              ; preds = %814, %689
+814:                                              ; preds = %813, %688
   call void @_ZN5ImGui7TreePopEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  br label %816
+  br label %815
 
-816:                                              ; preds = %465, %815
-  %817 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not211 = icmp eq ptr %817, null
-  br i1 %.not211, label %820, label %818
+815:                                              ; preds = %464, %814
+  %816 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not211 = icmp eq ptr %816, null
+  br i1 %.not211, label %819, label %817
 
-818:                                              ; preds = %816
-  %819 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %817(ptr noundef nonnull @.str.4, i32 noundef 4727, ptr noundef nonnull @.str.1368, ptr noundef %819)
-  br label %820
+817:                                              ; preds = %815
+  %818 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %816(ptr noundef nonnull @.str.4, i32 noundef 4727, ptr noundef nonnull @.str.1368, ptr noundef %818)
+  br label %819
 
-820:                                              ; preds = %816, %818
-  %821 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1369)
-  br i1 %821, label %822, label %877
+819:                                              ; preds = %815, %817
+  %820 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1369)
+  br i1 %820, label %821, label %876
 
-822:                                              ; preds = %820
-  %823 = call noundef zeroext i1 @_ZN5ImGui10DragFloat2EPKcPffffS1_i(ptr noundef nonnull @.str.1370, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE4size, float noundef 5.000000e-01, float noundef 1.000000e+00, float noundef 2.000000e+02, ptr noundef nonnull @.str.176, i32 noundef 0)
+821:                                              ; preds = %819
+  %822 = call noundef zeroext i1 @_ZN5ImGui10DragFloat2EPKcPffffS1_i(ptr noundef nonnull @.str.1370, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE4size, float noundef 5.000000e-01, float noundef 1.000000e+00, float noundef 2.000000e+02, ptr noundef nonnull @.str.176, i32 noundef 0)
   call void (ptr, ...) @_ZN5ImGui11TextWrappedEPKcz(ptr noundef nonnull @.str.1371)
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %824 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %824, label %825, label %_ZL10HelpMarkerPKc.exit267
+  %823 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %823, label %824, label %_ZL10HelpMarkerPKc.exit267
 
-825:                                              ; preds = %822
-  %826 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %827 = fmul float %826, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %827)
+824:                                              ; preds = %821
+  %825 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %826 = fmul float %825, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %826)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1372, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit267
 
-_ZL10HelpMarkerPKc.exit267:                       ; preds = %822, %825
-  %828 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %829 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %830 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %831 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %832 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %833 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  br label %835
+_ZL10HelpMarkerPKc.exit267:                       ; preds = %821, %824
+  %827 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %828 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  %829 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %830 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %831 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %832 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  br label %834
 
-834:                                              ; preds = %875
+833:                                              ; preds = %874
   call void @_ZN5ImGui7TreePopEv()
-  br label %877
+  br label %876
 
-835:                                              ; preds = %_ZL10HelpMarkerPKc.exit267, %875
-  %.0156301 = phi i32 [ 0, %_ZL10HelpMarkerPKc.exit267 ], [ %876, %875 ]
+834:                                              ; preds = %_ZL10HelpMarkerPKc.exit267, %874
+  %.0156301 = phi i32 [ 0, %_ZL10HelpMarkerPKc.exit267 ], [ %875, %874 ]
   %.not213 = icmp eq i32 %.0156301, 0
-  br i1 %.not213, label %837, label %836
+  br i1 %.not213, label %836, label %835
 
-836:                                              ; preds = %835
+835:                                              ; preds = %834
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  br label %837
+  br label %836
 
-837:                                              ; preds = %836, %835
+836:                                              ; preds = %835, %834
   call void @_ZN5ImGui6PushIDEi(i32 noundef %.0156301)
-  %838 = call noundef zeroext i1 @_ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i(ptr noundef nonnull @.str.1373, ptr noundef nonnull align 4 dereferenceable(8) @_ZZL20ShowDemoWindowLayoutvE4size, i32 noundef 0)
-  %839 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
-  br i1 %839, label %840, label %853
+  %837 = call noundef zeroext i1 @_ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i(ptr noundef nonnull @.str.1373, ptr noundef nonnull align 4 dereferenceable(8) @_ZZL20ShowDemoWindowLayoutvE4size, i32 noundef 0)
+  %838 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
+  br i1 %838, label %839, label %852
 
-840:                                              ; preds = %837
-  %841 = call noundef zeroext i1 @_ZN5ImGui15IsMouseDraggingEif(i32 noundef 0, float noundef -1.000000e+00)
-  br i1 %841, label %842, label %853
+839:                                              ; preds = %836
+  %840 = call noundef zeroext i1 @_ZN5ImGui15IsMouseDraggingEif(i32 noundef 0, float noundef -1.000000e+00)
+  br i1 %840, label %841, label %852
 
-842:                                              ; preds = %840
-  %843 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
-  %844 = getelementptr inbounds nuw i8, ptr %843, i64 204
-  %845 = load float, ptr %844, align 4, !tbaa !90
-  %846 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
-  %847 = fadd float %845, %846
-  store float %847, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
-  %848 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
-  %849 = getelementptr inbounds nuw i8, ptr %848, i64 208
-  %850 = load float, ptr %849, align 8, !tbaa !91
-  %851 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
-  %852 = fadd float %850, %851
-  store float %852, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
-  br label %853
+841:                                              ; preds = %839
+  %842 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
+  %843 = getelementptr inbounds nuw i8, ptr %842, i64 204
+  %844 = load float, ptr %843, align 4, !tbaa !90
+  %845 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
+  %846 = fadd float %844, %845
+  store float %846, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
+  %847 = call noundef nonnull align 8 dereferenceable(3016) ptr @_ZN5ImGui5GetIOEv()
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 208
+  %849 = load float, ptr %848, align 8, !tbaa !91
+  %850 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
+  %851 = fadd float %849, %850
+  store float %851, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
+  br label %852
 
-853:                                              ; preds = %842, %840, %837
+852:                                              ; preds = %841, %839, %836
   call void @_ZN5ImGui5PopIDEv()
-  %854 = call noundef zeroext i1 @_ZN5ImGui13IsItemVisibleEv()
-  br i1 %854, label %855, label %875
+  %853 = call noundef zeroext i1 @_ZN5ImGui13IsItemVisibleEv()
+  br i1 %853, label %854, label %874
 
-855:                                              ; preds = %853
+854:                                              ; preds = %852
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  %856 = call <2 x float> @_ZN5ImGui14GetItemRectMinEv()
-  store <2 x float> %856, ptr %78, align 8
+  %855 = call <2 x float> @_ZN5ImGui14GetItemRectMinEv()
+  store <2 x float> %855, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  %857 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
-  store <2 x float> %857, ptr %79, align 8
+  %856 = call <2 x float> @_ZN5ImGui14GetItemRectMaxEv()
+  store <2 x float> %856, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  %858 = load float, ptr %78, align 8, !tbaa !42
-  %859 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
-  %860 = fadd float %858, %859
-  %861 = load float, ptr %828, align 4, !tbaa !44
-  %862 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
-  %863 = fadd float %861, %862
-  store float %860, ptr %80, align 4, !tbaa !42
-  store float %863, ptr %829, align 4, !tbaa !44
-  %864 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
+  %857 = load float, ptr %78, align 8, !tbaa !42
+  %858 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.0, align 4, !tbaa !42
+  %859 = fadd float %857, %858
+  %860 = load float, ptr %827, align 4, !tbaa !44
+  %861 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE6offset.1, align 4, !tbaa !44
+  %862 = fadd float %860, %861
+  store float %859, ptr %80, align 4, !tbaa !42
+  store float %862, ptr %828, align 4, !tbaa !44
+  %863 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   switch i32 %.0156301, label %default.unreachable [
-    i32 0, label %865
-    i32 1, label %866
-    i32 2, label %867
+    i32 0, label %864
+    i32 1, label %865
+    i32 2, label %866
   ]
 
-865:                                              ; preds = %855
+864:                                              ; preds = %854
   call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i1 noundef zeroext true)
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
-  call void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null)
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
+  call void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null)
   call void @_ZN5ImGui11PopClipRectEv()
-  br label %874
+  br label %873
 
-866:                                              ; preds = %855
-  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i1 noundef zeroext true)
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
-  call void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null)
-  call void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 dereferenceable(216) %864)
-  br label %874
+865:                                              ; preds = %854
+  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i1 noundef zeroext true)
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
+  call void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null)
+  call void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 dereferenceable(216) %863)
+  br label %873
 
-867:                                              ; preds = %855
+866:                                              ; preds = %854
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  %868 = load float, ptr %78, align 8, !tbaa !42
-  %869 = load float, ptr %828, align 4, !tbaa !44
-  %870 = load float, ptr %79, align 8, !tbaa !42
-  %871 = load float, ptr %830, align 4, !tbaa !44
-  store float %868, ptr %81, align 4, !tbaa !117
-  store float %869, ptr %831, align 4, !tbaa !118
-  store float %870, ptr %832, align 4, !tbaa !119
-  store float %871, ptr %833, align 4, !tbaa !120
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
-  %872 = call noundef ptr @_ZN5ImGui7GetFontEv()
-  %873 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  call void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(216) %864, ptr noundef %872, float noundef %873, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null, float noundef 0.000000e+00, ptr noundef nonnull %81)
+  %867 = load float, ptr %78, align 8, !tbaa !42
+  %868 = load float, ptr %827, align 4, !tbaa !44
+  %869 = load float, ptr %79, align 8, !tbaa !42
+  %870 = load float, ptr %829, align 4, !tbaa !44
+  store float %867, ptr %81, align 4, !tbaa !117
+  store float %868, ptr %830, align 4, !tbaa !118
+  store float %869, ptr %831, align 4, !tbaa !119
+  store float %870, ptr %832, align 4, !tbaa !120
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %79, i32 noundef -8889766, float noundef 0.000000e+00, i32 noundef 0)
+  %871 = call noundef ptr @_ZN5ImGui7GetFontEv()
+  %872 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  call void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(216) %863, ptr noundef %871, float noundef %872, ptr noundef nonnull align 4 dereferenceable(8) %80, i32 noundef -1, ptr noundef nonnull @.str.1374, ptr noundef null, float noundef 0.000000e+00, ptr noundef nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  br label %874
+  br label %873
 
-default.unreachable:                              ; preds = %855
+default.unreachable:                              ; preds = %854
   unreachable
 
-874:                                              ; preds = %867, %866, %865
+873:                                              ; preds = %866, %865, %864
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
-  br label %875
+  br label %874
 
-875:                                              ; preds = %853, %874
-  %876 = add nuw nsw i32 %.0156301, 1
-  %exitcond325.not = icmp eq i32 %876, 3
-  br i1 %exitcond325.not, label %834, label %835, !llvm.loop !294
+874:                                              ; preds = %852, %873
+  %875 = add nuw nsw i32 %.0156301, 1
+  %exitcond325.not = icmp eq i32 %875, 3
+  br i1 %exitcond325.not, label %833, label %834, !llvm.loop !294
 
-877:                                              ; preds = %820, %834
-  %878 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
-  %.not212 = icmp eq ptr %878, null
-  br i1 %.not212, label %881, label %879
+876:                                              ; preds = %819, %833
+  %877 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8, !tbaa !46
+  %.not212 = icmp eq ptr %877, null
+  br i1 %.not212, label %880, label %878
 
-879:                                              ; preds = %877
-  %880 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
-  call void %878(ptr noundef nonnull @.str.4, i32 noundef 4792, ptr noundef nonnull @.str.1375, ptr noundef %880)
-  br label %881
+878:                                              ; preds = %876
+  %879 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8, !tbaa !46
+  call void %877(ptr noundef nonnull @.str.4, i32 noundef 4792, ptr noundef nonnull @.str.1375, ptr noundef %879)
+  br label %880
 
-881:                                              ; preds = %877, %879
-  %882 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1376)
-  br i1 %882, label %883, label %908
+880:                                              ; preds = %876, %878
+  %881 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1376)
+  br i1 %881, label %882, label %907
 
-883:                                              ; preds = %881
+882:                                              ; preds = %880
   call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.304)
-  %884 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
-  br i1 %884, label %885, label %_ZL10HelpMarkerPKc.exit268
+  %883 = call noundef zeroext i1 @_ZN5ImGui16BeginItemTooltipEv()
+  br i1 %883, label %884, label %_ZL10HelpMarkerPKc.exit268
 
-885:                                              ; preds = %883
-  %886 = call noundef float @_ZN5ImGui11GetFontSizeEv()
-  %887 = fmul float %886, 3.500000e+01
-  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %887)
+884:                                              ; preds = %882
+  %885 = call noundef float @_ZN5ImGui11GetFontSizeEv()
+  %886 = fmul float %885, 3.500000e+01
+  call void @_ZN5ImGui15PushTextWrapPosEf(float noundef %886)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1377, ptr noundef null)
   call void @_ZN5ImGui14PopTextWrapPosEv()
   call void @_ZN5ImGui10EndTooltipEv()
   br label %_ZL10HelpMarkerPKc.exit268
 
-_ZL10HelpMarkerPKc.exit268:                       ; preds = %883, %885
-  %888 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1378, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap)
-  %889 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
+_ZL10HelpMarkerPKc.exit268:                       ; preds = %882, %884
+  %887 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1378, ptr noundef nonnull @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap)
+  %888 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %889, i64 0
-  %890 = fadd float %.sroa.0.0.vec.extract, 5.000000e+01
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %889, i64 1
-  %891 = fadd float %.sroa.0.4.vec.extract, 5.000000e+01
-  store float %890, ptr %82, align 4, !tbaa !42
-  %892 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store float %891, ptr %892, align 4, !tbaa !44
-  %893 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap, align 1, !tbaa !29, !range !11, !noundef !12
-  %894 = trunc nuw i8 %893 to i1
-  br i1 %894, label %895, label %896
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %888, i64 0
+  %889 = fadd float %.sroa.0.0.vec.extract, 5.000000e+01
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %888, i64 1
+  %890 = fadd float %.sroa.0.4.vec.extract, 5.000000e+01
+  store float %889, ptr %82, align 4, !tbaa !42
+  %891 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  store float %890, ptr %891, align 4, !tbaa !44
+  %892 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap, align 1, !tbaa !29, !range !11, !noundef !12
+  %893 = trunc nuw i8 %892 to i1
+  br i1 %893, label %894, label %895
 
-895:                                              ; preds = %_ZL10HelpMarkerPKc.exit268
+894:                                              ; preds = %_ZL10HelpMarkerPKc.exit268
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
-  br label %896
+  br label %895
 
-896:                                              ; preds = %895, %_ZL10HelpMarkerPKc.exit268
+895:                                              ; preds = %894, %_ZL10HelpMarkerPKc.exit268
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store float 8.000000e+01, ptr %83, align 4, !tbaa !42
-  %897 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store float 8.000000e+01, ptr %897, align 4, !tbaa !44
-  %898 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1379, ptr noundef nonnull align 4 dereferenceable(8) %83)
+  %896 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store float 8.000000e+01, ptr %896, align 4, !tbaa !44
+  %897 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1379, ptr noundef nonnull align 4 dereferenceable(8) %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %82)
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store float 8.000000e+01, ptr %84, align 4, !tbaa !42
-  %899 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store float 8.000000e+01, ptr %899, align 4, !tbaa !44
-  %900 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1380, ptr noundef nonnull align 4 dereferenceable(8) %84)
+  %898 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store float 8.000000e+01, ptr %898, align 4, !tbaa !44
+  %899 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1380, ptr noundef nonnull align 4 dereferenceable(8) %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  %901 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap, align 1, !tbaa !29, !range !11, !noundef !12
-  %902 = trunc nuw i8 %901 to i1
-  br i1 %902, label %903, label %904
+  %900 = load i8, ptr @_ZZL20ShowDemoWindowLayoutvE20enable_allow_overlap, align 1, !tbaa !29, !range !11, !noundef !12
+  %901 = trunc nuw i8 %900 to i1
+  br i1 %901, label %902, label %903
 
-903:                                              ; preds = %896
+902:                                              ; preds = %895
   call void @_ZN5ImGui23SetNextItemAllowOverlapEv()
-  br label %904
+  br label %903
 
-904:                                              ; preds = %903, %896
+903:                                              ; preds = %902, %895
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store float 0.000000e+00, ptr %85, align 4, !tbaa !42
-  %905 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store float 0.000000e+00, ptr %905, align 4, !tbaa !44
-  %906 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1381, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %85)
+  %904 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  store float 0.000000e+00, ptr %904, align 4, !tbaa !44
+  %905 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.1381, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %907 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1382)
+  %906 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.1382)
   call void @_ZN5ImGui7TreePopEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  br label %908
+  br label %907
 
-908:                                              ; preds = %89, %904, %881
+907:                                              ; preds = %89, %903, %880
   ret void
 }
 

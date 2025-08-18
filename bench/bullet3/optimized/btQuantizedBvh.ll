@@ -1086,9 +1086,9 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit.us:       ; preds = %.lr.ph, %_ZNK14btQu
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQuantizedBvh10getAabbMinEi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ %25, %.lr.ph ]
-  %.sroa.14119.0141 = phi float [ %79, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.sroa.8116.0140 = phi float [ %78, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.sroa.0113.0139 = phi float [ %77, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.14119.0141 = phi float [ %77, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.8116.0140 = phi float [ %76, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.0113.0139 = phi float [ %75, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
   %65 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %10, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %66, align 4
@@ -1097,165 +1097,165 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQu
   %.sroa.0.0.copyload.i17 = load <2 x float>, ptr %65, align 4
   %.sroa.3.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.3.0.copyload.i19 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i18, align 4, !tbaa !42
-  %67 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
-  %68 = extractelement <2 x float> %67, i64 0
-  %69 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
-  %70 = extractelement <2 x float> %69, i64 1
-  %71 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
-  %72 = extractelement <2 x float> %.sroa.3.0.copyload.i19, i64 0
-  %73 = fadd float %71, %72
-  %74 = fmul float %68, 5.000000e-01
-  %75 = fmul float %70, 5.000000e-01
-  %76 = fmul float %73, 5.000000e-01
-  %77 = fadd float %.sroa.0113.0139, %74
-  %78 = fadd float %.sroa.8116.0140, %75
-  %79 = fadd float %.sroa.14119.0141, %76
+  %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
+  %67 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop219 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
+  %68 = extractelement <2 x float> %foldExtExtBinop219, i64 1
+  %69 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
+  %70 = extractelement <2 x float> %.sroa.3.0.copyload.i19, i64 0
+  %71 = fadd float %69, %70
+  %72 = fmul float %67, 5.000000e-01
+  %73 = fmul float %68, 5.000000e-01
+  %74 = fmul float %71, 5.000000e-01
+  %75 = fadd float %.sroa.0113.0139, %72
+  %76 = fadd float %.sroa.8116.0140, %73
+  %77 = fadd float %.sroa.14119.0141, %74
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count177
   br i1 %exitcond.not, label %.lr.ph152, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %3
-  %80 = sitofp i32 %4 to float
+  %78 = sitofp i32 %4 to float
   br label %._crit_edge153
 
 .lr.ph152:                                        ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us
-  %.sroa.0113.0.lcssa.ph = phi float [ %62, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %77, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %.sroa.8116.0.lcssa.ph = phi float [ %63, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %78, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %.sroa.14119.0.lcssa.ph = phi float [ %64, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %79, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %81 = sitofp i32 %4 to float
-  %82 = fdiv float 1.000000e+00, %81
-  %83 = fmul float %82, %.sroa.0113.0.lcssa.ph
-  %84 = fmul float %82, %.sroa.8116.0.lcssa.ph
-  %85 = fmul float %82, %.sroa.14119.0.lcssa.ph
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %87 = load i8, ptr %86, align 8, !tbaa !24, !range !46, !noundef !49
-  %88 = trunc nuw i8 %87 to i1
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.sroa.0113.0.lcssa.ph = phi float [ %62, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %75, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %.sroa.8116.0.lcssa.ph = phi float [ %63, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %76, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %.sroa.14119.0.lcssa.ph = phi float [ %64, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %77, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %79 = sitofp i32 %4 to float
+  %80 = fdiv float 1.000000e+00, %79
+  %81 = fmul float %80, %.sroa.0113.0.lcssa.ph
+  %82 = fmul float %80, %.sroa.8116.0.lcssa.ph
+  %83 = fmul float %80, %.sroa.14119.0.lcssa.ph
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %85 = load i8, ptr %84, align 8, !tbaa !24, !range !46, !noundef !49
+  %86 = trunc nuw i8 %85 to i1
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %94 = load float, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %92 = load float, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %94 = load float, ptr %93, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %96 = load float, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load float, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load float, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = load float, ptr %103, align 8
-  %105 = sext i32 %1 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %100 = load float, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = load float, ptr %101, align 8
+  %103 = sext i32 %1 to i64
   %wide.trip.count187 = sext i32 %2 to i64
-  br i1 %88, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45
+  br i1 %86, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit45.us:     ; preds = %.lr.ph152, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us
-  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %105, %.lr.ph152 ]
-  %.sroa.14.0149.us = phi float [ %150, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
-  %.sroa.8.0148.us = phi float [ %149, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
-  %.sroa.0103.0147.us = phi float [ %148, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
-  %106 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %92, i64 %indvars.iv184, i32 1
-  %107 = load i16, ptr %106, align 2, !tbaa !52
-  %108 = uitofp i16 %107 to float
-  %109 = fdiv float %108, %94
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 2
-  %111 = load i16, ptr %110, align 2, !tbaa !52
-  %112 = uitofp i16 %111 to float
-  %113 = fdiv float %112, %96
-  %114 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %115 = load i16, ptr %114, align 2, !tbaa !52
-  %116 = uitofp i16 %115 to float
-  %117 = fdiv float %116, %98
-  %118 = fadd float %109, %100
-  %119 = fadd float %113, %102
-  %120 = fadd float %117, %104
-  %121 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %92, i64 %indvars.iv184
-  %122 = load i16, ptr %121, align 2, !tbaa !52
-  %123 = uitofp i16 %122 to float
-  %124 = fdiv float %123, %94
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 2
-  %126 = load i16, ptr %125, align 2, !tbaa !52
-  %127 = uitofp i16 %126 to float
-  %128 = fdiv float %127, %96
-  %129 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %130 = load i16, ptr %129, align 2, !tbaa !52
-  %131 = uitofp i16 %130 to float
-  %132 = fdiv float %131, %98
-  %133 = fadd float %124, %100
-  %134 = fadd float %128, %102
-  %135 = fadd float %132, %104
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %103, %.lr.ph152 ]
+  %.sroa.14.0149.us = phi float [ %148, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
+  %.sroa.8.0148.us = phi float [ %147, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
+  %.sroa.0103.0147.us = phi float [ %146, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ 0.000000e+00, %.lr.ph152 ]
+  %104 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %90, i64 %indvars.iv184, i32 1
+  %105 = load i16, ptr %104, align 2, !tbaa !52
+  %106 = uitofp i16 %105 to float
+  %107 = fdiv float %106, %92
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 2
+  %109 = load i16, ptr %108, align 2, !tbaa !52
+  %110 = uitofp i16 %109 to float
+  %111 = fdiv float %110, %94
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %113 = load i16, ptr %112, align 2, !tbaa !52
+  %114 = uitofp i16 %113 to float
+  %115 = fdiv float %114, %96
+  %116 = fadd float %107, %98
+  %117 = fadd float %111, %100
+  %118 = fadd float %115, %102
+  %119 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %90, i64 %indvars.iv184
+  %120 = load i16, ptr %119, align 2, !tbaa !52
+  %121 = uitofp i16 %120 to float
+  %122 = fdiv float %121, %92
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 2
+  %124 = load i16, ptr %123, align 2, !tbaa !52
+  %125 = uitofp i16 %124 to float
+  %126 = fdiv float %125, %94
+  %127 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %128 = load i16, ptr %127, align 2, !tbaa !52
+  %129 = uitofp i16 %128 to float
+  %130 = fdiv float %129, %96
+  %131 = fadd float %122, %98
+  %132 = fadd float %126, %100
+  %133 = fadd float %130, %102
+  %134 = fadd float %116, %131
+  %135 = fadd float %117, %132
   %136 = fadd float %118, %133
-  %137 = fadd float %119, %134
-  %138 = fadd float %120, %135
+  %137 = fmul float %134, 5.000000e-01
+  %138 = fmul float %135, 5.000000e-01
   %139 = fmul float %136, 5.000000e-01
-  %140 = fmul float %137, 5.000000e-01
-  %141 = fmul float %138, 5.000000e-01
+  %140 = fsub float %137, %81
+  %141 = fsub float %138, %82
   %142 = fsub float %139, %83
-  %143 = fsub float %140, %84
-  %144 = fsub float %141, %85
+  %143 = fmul float %140, %140
+  %144 = fmul float %141, %141
   %145 = fmul float %142, %142
-  %146 = fmul float %143, %143
-  %147 = fmul float %144, %144
-  %148 = fadd float %.sroa.0103.0147.us, %145
-  %149 = fadd float %.sroa.8.0148.us, %146
-  %150 = fadd float %.sroa.14.0149.us, %147
+  %146 = fadd float %.sroa.0103.0147.us, %143
+  %147 = fadd float %.sroa.8.0148.us, %144
+  %148 = fadd float %.sroa.14.0149.us, %145
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
   br i1 %exitcond188.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, !llvm.loop !67
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph152, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45
-  %indvars.iv179 = phi i64 [ %indvars.iv.next180, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ %105, %.lr.ph152 ]
-  %.sroa.14.0149 = phi float [ %171, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
-  %.sroa.8.0148 = phi float [ %170, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
-  %.sroa.0103.0147 = phi float [ %169, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
-  %151 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %90, i64 %indvars.iv179
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %.sroa.0.0.copyload.i26 = load <2 x float>, ptr %152, align 4
-  %.sroa.3.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %indvars.iv179 = phi i64 [ %indvars.iv.next180, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ %103, %.lr.ph152 ]
+  %.sroa.14.0149 = phi float [ %167, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
+  %.sroa.8.0148 = phi float [ %166, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
+  %.sroa.0103.0147 = phi float [ %165, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ], [ 0.000000e+00, %.lr.ph152 ]
+  %149 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %88, i64 %indvars.iv179
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %.sroa.0.0.copyload.i26 = load <2 x float>, ptr %150, align 4
+  %.sroa.3.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %.sroa.3.0.copyload.i28 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i27, align 4, !tbaa !42
-  %.sroa.0.0.copyload.i36 = load <2 x float>, ptr %151, align 4
-  %.sroa.3.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %.sroa.0.0.copyload.i36 = load <2 x float>, ptr %149, align 4
+  %.sroa.3.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.3.0.copyload.i38 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i37, align 4, !tbaa !42
-  %153 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
-  %154 = extractelement <2 x float> %153, i64 0
-  %155 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
-  %156 = extractelement <2 x float> %155, i64 1
-  %157 = extractelement <2 x float> %.sroa.3.0.copyload.i28, i64 0
-  %158 = extractelement <2 x float> %.sroa.3.0.copyload.i38, i64 0
-  %159 = fadd float %157, %158
-  %160 = fmul float %154, 5.000000e-01
-  %161 = fmul float %156, 5.000000e-01
-  %162 = fmul float %159, 5.000000e-01
-  %163 = fsub float %160, %83
-  %164 = fsub float %161, %84
-  %165 = fsub float %162, %85
-  %166 = fmul float %163, %163
-  %167 = fmul float %164, %164
-  %168 = fmul float %165, %165
-  %169 = fadd float %.sroa.0103.0147, %166
-  %170 = fadd float %.sroa.8.0148, %167
-  %171 = fadd float %.sroa.14.0149, %168
+  %foldExtExtBinop223 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
+  %151 = extractelement <2 x float> %foldExtExtBinop223, i64 0
+  %foldExtExtBinop225 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
+  %152 = extractelement <2 x float> %foldExtExtBinop225, i64 1
+  %153 = extractelement <2 x float> %.sroa.3.0.copyload.i28, i64 0
+  %154 = extractelement <2 x float> %.sroa.3.0.copyload.i38, i64 0
+  %155 = fadd float %153, %154
+  %156 = fmul float %151, 5.000000e-01
+  %157 = fmul float %152, 5.000000e-01
+  %158 = fmul float %155, 5.000000e-01
+  %159 = fsub float %156, %81
+  %160 = fsub float %157, %82
+  %161 = fsub float %158, %83
+  %162 = fmul float %159, %159
+  %163 = fmul float %160, %160
+  %164 = fmul float %161, %161
+  %165 = fadd float %.sroa.0103.0147, %162
+  %166 = fadd float %.sroa.8.0148, %163
+  %167 = fadd float %.sroa.14.0149, %164
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count187
   br i1 %exitcond183.not, label %._crit_edge153, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit45, !llvm.loop !68
 
 ._crit_edge153:                                   ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit45, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us, %._crit_edge
-  %172 = phi float [ %80, %._crit_edge ], [ %81, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %81, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
-  %.sroa.0103.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %148, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %169, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %149, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %170, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
-  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %150, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %171, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
-  %173 = fadd float %172, -1.000000e+00
-  %174 = fdiv float 1.000000e+00, %173
-  %175 = fmul float %174, %.sroa.0103.0.lcssa
-  %176 = fmul float %174, %.sroa.8.0.lcssa
-  %177 = fmul float %174, %.sroa.14.0.lcssa
-  %178 = fcmp olt float %175, %176
-  %..i = select i1 %178, float %176, float %175
-  %.4.i = zext i1 %178 to i32
-  %179 = fcmp olt float %..i, %177
-  %180 = select i1 %179, i32 2, i32 %.4.i
-  ret i32 %180
+  %168 = phi float [ %78, %._crit_edge ], [ %79, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %79, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
+  %.sroa.0103.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %146, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %165, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %147, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %166, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
+  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %148, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45.us ], [ %167, %_ZNK14btQuantizedBvh10getAabbMinEi.exit45 ]
+  %169 = fadd float %168, -1.000000e+00
+  %170 = fdiv float 1.000000e+00, %169
+  %171 = fmul float %170, %.sroa.0103.0.lcssa
+  %172 = fmul float %170, %.sroa.8.0.lcssa
+  %173 = fmul float %170, %.sroa.14.0.lcssa
+  %174 = fcmp olt float %171, %172
+  %..i = select i1 %174, float %172, float %171
+  %.4.i = zext i1 %174 to i32
+  %175 = fcmp olt float %..i, %173
+  %176 = select i1 %175, i32 2, i32 %.4.i
+  ret i32 %176
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1347,9 +1347,9 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit.us:       ; preds = %.lr.ph, %_ZNK14btQu
 
 _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQuantizedBvh10getAabbMinEi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ %33, %.lr.ph ]
-  %.0.9798123 = phi float [ %85, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.0.9699122 = phi float [ %86, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.0.95100121 = phi float [ %87, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.0.9798123 = phi float [ %83, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.0.9699122 = phi float [ %84, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.0.95100121 = phi float [ %85, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ], [ 0.000000e+00, %.lr.ph ]
   %73 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %18, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %74, align 4
@@ -1358,198 +1358,198 @@ _ZNK14btQuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14btQu
   %.sroa.0.0.copyload.i40 = load <2 x float>, ptr %73, align 4
   %.sroa.3.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %.sroa.3.0.copyload.i42 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i41, align 4, !tbaa !42
-  %75 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
-  %76 = extractelement <2 x float> %75, i64 0
-  %77 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
-  %78 = extractelement <2 x float> %77, i64 1
-  %79 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
-  %80 = extractelement <2 x float> %.sroa.3.0.copyload.i42, i64 0
-  %81 = fadd float %79, %80
-  %82 = fmul float %76, 5.000000e-01
-  %83 = fmul float %78, 5.000000e-01
-  %84 = fmul float %81, 5.000000e-01
-  %85 = fadd float %.0.9798123, %82
-  %86 = fadd float %.0.9699122, %83
-  %87 = fadd float %.0.95100121, %84
+  %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
+  %75 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop174 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
+  %76 = extractelement <2 x float> %foldExtExtBinop174, i64 1
+  %77 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
+  %78 = extractelement <2 x float> %.sroa.3.0.copyload.i42, i64 0
+  %79 = fadd float %77, %78
+  %80 = fmul float %75, 5.000000e-01
+  %81 = fmul float %76, 5.000000e-01
+  %82 = fmul float %79, 5.000000e-01
+  %83 = fadd float %.0.9798123, %80
+  %84 = fadd float %.0.9699122, %81
+  %85 = fadd float %.0.95100121, %82
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count152
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK14btQuantizedBvh10getAabbMinEi.exit, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us, %4
-  %.lcssa = phi float [ 0.000000e+00, %4 ], [ %70, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %85, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %.0.95100.lcssa = phi float [ 0.000000e+00, %4 ], [ %72, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %87, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %.0.9699.lcssa = phi float [ 0.000000e+00, %4 ], [ %71, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %86, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
-  %88 = sitofp i32 %9 to float
-  %89 = fdiv float 1.000000e+00, %88
-  %90 = fmul float %89, %.lcssa
-  store float %90, ptr %7, align 4, !tbaa !39
-  %91 = fmul float %89, %.0.9699.lcssa
-  store float %91, ptr %10, align 4, !tbaa !39
-  %92 = fmul float %89, %.0.95100.lcssa
-  store float %92, ptr %11, align 4, !tbaa !39
-  %93 = sext i32 %3 to i64
-  %94 = getelementptr inbounds float, ptr %7, i64 %93
-  %95 = load float, ptr %94, align 4, !tbaa !39
+  %.lcssa = phi float [ 0.000000e+00, %4 ], [ %70, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %83, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %.0.95100.lcssa = phi float [ 0.000000e+00, %4 ], [ %72, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %85, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %.0.9699.lcssa = phi float [ 0.000000e+00, %4 ], [ %71, %_ZNK14btQuantizedBvh10getAabbMinEi.exit.us ], [ %84, %_ZNK14btQuantizedBvh10getAabbMinEi.exit ]
+  %86 = sitofp i32 %9 to float
+  %87 = fdiv float 1.000000e+00, %86
+  %88 = fmul float %87, %.lcssa
+  store float %88, ptr %7, align 4, !tbaa !39
+  %89 = fmul float %87, %.0.9699.lcssa
+  store float %89, ptr %10, align 4, !tbaa !39
+  %90 = fmul float %87, %.0.95100.lcssa
+  store float %90, ptr %11, align 4, !tbaa !39
+  %91 = sext i32 %3 to i64
+  %92 = getelementptr inbounds float, ptr %7, i64 %91
+  %93 = load float, ptr %92, align 4, !tbaa !39
   br i1 %12, label %.lr.ph138, label %._crit_edge139
 
 .lr.ph138:                                        ; preds = %._crit_edge
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %106 = getelementptr inbounds float, ptr %8, i64 %93
-  %107 = sext i32 %1 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %104 = getelementptr inbounds float, ptr %8, i64 %91
+  %105 = sext i32 %1 to i64
   %wide.trip.count157 = sext i32 %2 to i64
-  br label %108
+  br label %106
 
-108:                                              ; preds = %.lr.ph138, %181
-  %indvars.iv154 = phi i64 [ %107, %.lr.ph138 ], [ %indvars.iv.next155, %181 ]
-  %.037135 = phi i32 [ %1, %.lr.ph138 ], [ %.138, %181 ]
+106:                                              ; preds = %.lr.ph138, %176
+  %indvars.iv154 = phi i64 [ %105, %.lr.ph138 ], [ %indvars.iv.next155, %176 ]
+  %.037135 = phi i32 [ %1, %.lr.ph138 ], [ %.138, %176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %109 = load i8, ptr %96, align 8, !tbaa !24, !range !46, !noundef !49
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %151
+  %107 = load i8, ptr %94, align 8, !tbaa !24, !range !46, !noundef !49
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %109, label %149
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %98, align 8, !tbaa !30
-  %113 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %112, i64 %indvars.iv154, i32 1
-  %114 = load i16, ptr %113, align 2, !tbaa !52
-  %115 = uitofp i16 %114 to float
-  %116 = load float, ptr %99, align 8, !tbaa !39
-  %117 = fdiv float %115, %116
-  %118 = getelementptr inbounds nuw i8, ptr %113, i64 2
-  %119 = load i16, ptr %118, align 2, !tbaa !52
-  %120 = uitofp i16 %119 to float
-  %121 = load float, ptr %100, align 4, !tbaa !39
-  %122 = fdiv float %120, %121
-  %123 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %124 = load i16, ptr %123, align 2, !tbaa !52
-  %125 = uitofp i16 %124 to float
-  %126 = load float, ptr %101, align 8, !tbaa !39
-  %127 = fdiv float %125, %126
-  %128 = load float, ptr %102, align 8, !tbaa !39
-  %129 = fadd float %117, %128
-  %130 = insertelement <2 x float> poison, float %129, i64 0
-  %131 = load float, ptr %103, align 4, !tbaa !39
-  %132 = fadd float %122, %131
-  %.sroa.0.4.vec.insert12.i.i56 = insertelement <2 x float> %130, float %132, i64 1
-  %133 = load float, ptr %104, align 8, !tbaa !39
-  %134 = fadd float %127, %133
-  %.sroa.7.8.vec.insert16.i.i57 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %134, i64 0
-  %135 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %112, i64 %indvars.iv154
-  %136 = load i16, ptr %135, align 2, !tbaa !52
-  %137 = uitofp i16 %136 to float
-  %138 = fdiv float %137, %116
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  %140 = load i16, ptr %139, align 2, !tbaa !52
-  %141 = uitofp i16 %140 to float
-  %142 = fdiv float %141, %121
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  %144 = load i16, ptr %143, align 2, !tbaa !52
-  %145 = uitofp i16 %144 to float
-  %146 = fdiv float %145, %126
-  %147 = fadd float %138, %128
-  %148 = insertelement <2 x float> poison, float %147, i64 0
-  %149 = fadd float %142, %131
-  %.sroa.0.4.vec.insert12.i.i66 = insertelement <2 x float> %148, float %149, i64 1
-  %150 = fadd float %146, %133
-  %.sroa.7.8.vec.insert16.i.i67 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %150, i64 0
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %96, align 8, !tbaa !30
+  %111 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %110, i64 %indvars.iv154, i32 1
+  %112 = load i16, ptr %111, align 2, !tbaa !52
+  %113 = uitofp i16 %112 to float
+  %114 = load float, ptr %97, align 8, !tbaa !39
+  %115 = fdiv float %113, %114
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  %117 = load i16, ptr %116, align 2, !tbaa !52
+  %118 = uitofp i16 %117 to float
+  %119 = load float, ptr %98, align 4, !tbaa !39
+  %120 = fdiv float %118, %119
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %122 = load i16, ptr %121, align 2, !tbaa !52
+  %123 = uitofp i16 %122 to float
+  %124 = load float, ptr %99, align 8, !tbaa !39
+  %125 = fdiv float %123, %124
+  %126 = load float, ptr %100, align 8, !tbaa !39
+  %127 = fadd float %115, %126
+  %128 = insertelement <2 x float> poison, float %127, i64 0
+  %129 = load float, ptr %101, align 4, !tbaa !39
+  %130 = fadd float %120, %129
+  %.sroa.0.4.vec.insert12.i.i56 = insertelement <2 x float> %128, float %130, i64 1
+  %131 = load float, ptr %102, align 8, !tbaa !39
+  %132 = fadd float %125, %131
+  %.sroa.7.8.vec.insert16.i.i57 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %132, i64 0
+  %133 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %110, i64 %indvars.iv154
+  %134 = load i16, ptr %133, align 2, !tbaa !52
+  %135 = uitofp i16 %134 to float
+  %136 = fdiv float %135, %114
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 2
+  %138 = load i16, ptr %137, align 2, !tbaa !52
+  %139 = uitofp i16 %138 to float
+  %140 = fdiv float %139, %119
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %142 = load i16, ptr %141, align 2, !tbaa !52
+  %143 = uitofp i16 %142 to float
+  %144 = fdiv float %143, %124
+  %145 = fadd float %136, %126
+  %146 = insertelement <2 x float> poison, float %145, i64 0
+  %147 = fadd float %140, %129
+  %.sroa.0.4.vec.insert12.i.i66 = insertelement <2 x float> %146, float %147, i64 1
+  %148 = fadd float %144, %131
+  %.sroa.7.8.vec.insert16.i.i67 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %148, i64 0
   br label %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
 
-151:                                              ; preds = %108
-  %152 = load ptr, ptr %97, align 8, !tbaa !26
-  %153 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %152, i64 %indvars.iv154
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %.sroa.0.0.copyload.i49 = load <2 x float>, ptr %154, align 4
-  %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %153, i64 24
+149:                                              ; preds = %106
+  %150 = load ptr, ptr %95, align 8, !tbaa !26
+  %151 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %150, i64 %indvars.iv154
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %.sroa.0.0.copyload.i49 = load <2 x float>, ptr %152, align 4
+  %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %.sroa.3.0.copyload.i51 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i50, align 4, !tbaa !42
-  %.sroa.0.0.copyload.i59 = load <2 x float>, ptr %153, align 4
-  %.sroa.3.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %.sroa.0.0.copyload.i59 = load <2 x float>, ptr %151, align 4
+  %.sroa.3.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %.sroa.3.0.copyload.i61 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i60, align 4, !tbaa !42
   br label %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
 
-_ZNK14btQuantizedBvh10getAabbMinEi.exit68:        ; preds = %111, %151
-  %.sroa.7.8.vec.insert16.i.pn.i53115 = phi <2 x float> [ %.sroa.7.8.vec.insert16.i.i57, %111 ], [ %.sroa.3.0.copyload.i51, %151 ]
-  %.sroa.0.4.vec.insert12.i.pn.i52113 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i56, %111 ], [ %.sroa.0.0.copyload.i49, %151 ]
-  %.sroa.0.4.vec.insert12.i.pn.i62 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i66, %111 ], [ %.sroa.0.0.copyload.i59, %151 ]
-  %.sroa.7.8.vec.insert16.i.pn.i63 = phi <2 x float> [ %.sroa.7.8.vec.insert16.i.i67, %111 ], [ %.sroa.3.0.copyload.i61, %151 ]
-  %155 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52113, %.sroa.0.4.vec.insert12.i.pn.i62
-  %156 = extractelement <2 x float> %155, i64 0
-  %157 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52113, %.sroa.0.4.vec.insert12.i.pn.i62
-  %158 = extractelement <2 x float> %157, i64 1
-  %159 = fadd <2 x float> %.sroa.7.8.vec.insert16.i.pn.i53115, %.sroa.7.8.vec.insert16.i.pn.i63
-  %160 = extractelement <2 x float> %159, i64 0
-  %161 = fmul float %156, 5.000000e-01
-  %162 = fmul float %158, 5.000000e-01
-  %163 = fmul float %160, 5.000000e-01
-  %.sroa.0.0.vec.insert.i.i74 = insertelement <2 x float> poison, float %161, i64 0
-  %.sroa.0.4.vec.insert.i.i75 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i74, float %162, i64 1
-  %.sroa.3.12.vec.insert.i.i76 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %163, i64 0
+_ZNK14btQuantizedBvh10getAabbMinEi.exit68:        ; preds = %109, %149
+  %.sroa.7.8.vec.insert16.i.pn.i53115 = phi <2 x float> [ %.sroa.7.8.vec.insert16.i.i57, %109 ], [ %.sroa.3.0.copyload.i51, %149 ]
+  %.sroa.0.4.vec.insert12.i.pn.i52113 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i56, %109 ], [ %.sroa.0.0.copyload.i49, %149 ]
+  %.sroa.0.4.vec.insert12.i.pn.i62 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i66, %109 ], [ %.sroa.0.0.copyload.i59, %149 ]
+  %.sroa.7.8.vec.insert16.i.pn.i63 = phi <2 x float> [ %.sroa.7.8.vec.insert16.i.i67, %109 ], [ %.sroa.3.0.copyload.i61, %149 ]
+  %foldExtExtBinop178 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52113, %.sroa.0.4.vec.insert12.i.pn.i62
+  %153 = extractelement <2 x float> %foldExtExtBinop178, i64 0
+  %foldExtExtBinop180 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52113, %.sroa.0.4.vec.insert12.i.pn.i62
+  %154 = extractelement <2 x float> %foldExtExtBinop180, i64 1
+  %foldExtExtBinop182 = fadd <2 x float> %.sroa.7.8.vec.insert16.i.pn.i53115, %.sroa.7.8.vec.insert16.i.pn.i63
+  %155 = extractelement <2 x float> %foldExtExtBinop182, i64 0
+  %156 = fmul float %153, 5.000000e-01
+  %157 = fmul float %154, 5.000000e-01
+  %158 = fmul float %155, 5.000000e-01
+  %.sroa.0.0.vec.insert.i.i74 = insertelement <2 x float> poison, float %156, i64 0
+  %.sroa.0.4.vec.insert.i.i75 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i74, float %157, i64 1
+  %.sroa.3.12.vec.insert.i.i76 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %158, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i75, ptr %8, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i76, ptr %105, align 8
-  %164 = load float, ptr %106, align 4, !tbaa !39
-  %165 = fcmp ogt float %164, %95
-  br i1 %165, label %166, label %181
+  store <2 x float> %.sroa.3.12.vec.insert.i.i76, ptr %103, align 8
+  %159 = load float, ptr %104, align 4, !tbaa !39
+  %160 = fcmp ogt float %159, %93
+  br i1 %160, label %161, label %176
 
-166:                                              ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
-  %167 = sext i32 %.037135 to i64
-  br i1 %110, label %168, label %174
+161:                                              ; preds = %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
+  %162 = sext i32 %.037135 to i64
+  br i1 %108, label %163, label %169
 
-168:                                              ; preds = %166
+163:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %169 = load ptr, ptr %98, align 8, !tbaa !30
-  %170 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %169, i64 %indvars.iv154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !41
-  %171 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %169, i64 %167
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %170, ptr noundef nonnull align 4 dereferenceable(16) %171, i64 16, i1 false), !tbaa.struct !41
-  %172 = load ptr, ptr %98, align 8, !tbaa !30
-  %173 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %172, i64 %167
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !41
+  %164 = load ptr, ptr %96, align 8, !tbaa !30
+  %165 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %164, i64 %indvars.iv154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !41
+  %166 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %164, i64 %162
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %165, ptr noundef nonnull align 4 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !41
+  %167 = load ptr, ptr %96, align 8, !tbaa !30
+  %168 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %167, i64 %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %168, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14btQuantizedBvh13swapLeafNodesEii.exit
 
-174:                                              ; preds = %166
+169:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %175 = load ptr, ptr %97, align 8, !tbaa !26
-  %176 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %175, i64 %indvars.iv154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %176, i64 64, i1 false), !tbaa.struct !59
-  %177 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %175, i64 %167
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %176, ptr noundef nonnull align 4 dereferenceable(64) %177, i64 64, i1 false), !tbaa.struct !59
-  %178 = load ptr, ptr %97, align 8, !tbaa !26
-  %179 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %178, i64 %167
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %179, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !59
+  %170 = load ptr, ptr %95, align 8, !tbaa !26
+  %171 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %170, i64 %indvars.iv154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %171, i64 64, i1 false), !tbaa.struct !59
+  %172 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %170, i64 %162
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %171, ptr noundef nonnull align 4 dereferenceable(64) %172, i64 64, i1 false), !tbaa.struct !59
+  %173 = load ptr, ptr %95, align 8, !tbaa !26
+  %174 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %173, i64 %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %174, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14btQuantizedBvh13swapLeafNodesEii.exit
 
-_ZN14btQuantizedBvh13swapLeafNodesEii.exit:       ; preds = %168, %174
-  %180 = add nsw i32 %.037135, 1
-  br label %181
+_ZN14btQuantizedBvh13swapLeafNodesEii.exit:       ; preds = %163, %169
+  %175 = add nsw i32 %.037135, 1
+  br label %176
 
-181:                                              ; preds = %_ZN14btQuantizedBvh13swapLeafNodesEii.exit, %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
-  %.138 = phi i32 [ %180, %_ZN14btQuantizedBvh13swapLeafNodesEii.exit ], [ %.037135, %_ZNK14btQuantizedBvh10getAabbMinEi.exit68 ]
+176:                                              ; preds = %_ZN14btQuantizedBvh13swapLeafNodesEii.exit, %_ZNK14btQuantizedBvh10getAabbMinEi.exit68
+  %.138 = phi i32 [ %175, %_ZN14btQuantizedBvh13swapLeafNodesEii.exit ], [ %.037135, %_ZNK14btQuantizedBvh10getAabbMinEi.exit68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge139, label %108, !llvm.loop !71
+  br i1 %exitcond158.not, label %._crit_edge139, label %106, !llvm.loop !71
 
-._crit_edge139:                                   ; preds = %181, %._crit_edge
-  %.037.lcssa = phi i32 [ %1, %._crit_edge ], [ %.138, %181 ]
-  %182 = sdiv i32 %9, 3
-  %183 = add nsw i32 %182, %1
-  %.not = icmp sle i32 %.037.lcssa, %183
-  %184 = xor i32 %182, -1
-  %185 = add i32 %2, %184
-  %186 = icmp sge i32 %.037.lcssa, %185
-  %187 = or i1 %.not, %186
-  %188 = ashr i32 %9, 1
-  %189 = add nsw i32 %188, %1
-  %.2 = select i1 %187, i32 %189, i32 %.037.lcssa
+._crit_edge139:                                   ; preds = %176, %._crit_edge
+  %.037.lcssa = phi i32 [ %1, %._crit_edge ], [ %.138, %176 ]
+  %177 = sdiv i32 %9, 3
+  %178 = add nsw i32 %177, %1
+  %.not = icmp sle i32 %.037.lcssa, %178
+  %179 = xor i32 %177, -1
+  %180 = add i32 %2, %179
+  %181 = icmp sge i32 %.037.lcssa, %180
+  %182 = or i1 %.not, %181
+  %183 = ashr i32 %9, 1
+  %184 = add nsw i32 %183, %1
+  %.2 = select i1 %182, i32 %184, i32 %.037.lcssa
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2
 }

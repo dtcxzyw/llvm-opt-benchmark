@@ -18,7 +18,7 @@ define hidden void @VP8SSIMDspInitSSE2() local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %4 = icmp sgt i32 %2, 15
-  br i1 %4, label %5, label %60
+  br i1 %4, label %5, label %55
 
 5:                                                ; preds = %3
   %.04354 = load <2 x i64>, ptr %1, align 1, !tbaa !7
@@ -95,44 +95,44 @@ define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, 
   %51 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %50, <8 x i16> %50)
   %52 = add <4 x i32> %49, %.lcssa
   %53 = add <4 x i32> %52, %51
-  %54 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %55 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %56 = add nsw <4 x i32> %54, %55
-  %57 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift87 = add nsw <4 x i32> %56, %57
-  %58 = add nsw <4 x i32> %shift87, %53
-  %59 = extractelement <4 x i32> %58, i64 0
-  br label %60
+  %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop = add nsw <4 x i32> %shift, %53
+  %shift87 = shufflevector <4 x i32> %foldExtExtBinop, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %foldExtExtBinop88 = add nsw <4 x i32> %shift87, %53
+  %shift90 = shufflevector <4 x i32> %foldExtExtBinop88, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop91 = add nsw <4 x i32> %shift90, %53
+  %54 = extractelement <4 x i32> %foldExtExtBinop91, i64 0
+  br label %55
 
-60:                                               ; preds = %._crit_edge, %3
-  %.040 = phi i32 [ %59, %._crit_edge ], [ 0, %3 ]
+55:                                               ; preds = %._crit_edge, %3
+  %.040 = phi i32 [ %54, %._crit_edge ], [ 0, %3 ]
   %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %3 ]
-  %61 = icmp slt i32 %.0, %2
-  br i1 %61, label %.lr.ph66.preheader, label %._crit_edge67
+  %56 = icmp slt i32 %.0, %2
+  br i1 %56, label %.lr.ph66.preheader, label %._crit_edge67
 
-.lr.ph66.preheader:                               ; preds = %60
-  %62 = zext nneg i32 %.0 to i64
+.lr.ph66.preheader:                               ; preds = %55
+  %57 = zext nneg i32 %.0 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %indvars.iv75 = phi i64 [ %62, %.lr.ph66.preheader ], [ %indvars.iv.next76, %.lr.ph66 ]
-  %.14163 = phi i32 [ %.040, %.lr.ph66.preheader ], [ %71, %.lr.ph66 ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv75
-  %64 = load i8, ptr %63, align 1, !tbaa !7
-  %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv75
-  %67 = load i8, ptr %66, align 1, !tbaa !7
-  %68 = zext i8 %67 to i32
-  %69 = sub nsw i32 %65, %68
-  %70 = mul nsw i32 %69, %69
-  %71 = add i32 %70, %.14163
+  %indvars.iv75 = phi i64 [ %57, %.lr.ph66.preheader ], [ %indvars.iv.next76, %.lr.ph66 ]
+  %.14163 = phi i32 [ %.040, %.lr.ph66.preheader ], [ %66, %.lr.ph66 ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv75
+  %59 = load i8, ptr %58, align 1, !tbaa !7
+  %60 = zext i8 %59 to i32
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv75
+  %62 = load i8, ptr %61, align 1, !tbaa !7
+  %63 = zext i8 %62 to i32
+  %64 = sub nsw i32 %60, %63
+  %65 = mul nsw i32 %64, %64
+  %66 = add i32 %65, %.14163
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !10
 
-._crit_edge67:                                    ; preds = %.lr.ph66, %60
-  %.141.lcssa = phi i32 [ %.040, %60 ], [ %71, %.lr.ph66 ]
+._crit_edge67:                                    ; preds = %.lr.ph66, %55
+  %.141.lcssa = phi i32 [ %.040, %55 ], [ %66, %.lr.ph66 ]
   ret i32 %.141.lcssa
 }
 

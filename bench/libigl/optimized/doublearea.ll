@@ -7710,42 +7710,42 @@ define weak_odr dso_local void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1E
   %8 = fsub <2 x double> %6, %7
   %9 = fmul <2 x double> %8, %8
   %shift = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = fadd <2 x double> %9, %shift
-  %11 = extractelement <2 x double> %10, i64 0
-  %12 = getelementptr i8, ptr %1, i64 16
-  %13 = getelementptr i8, ptr %2, i64 16
+  %foldExtExtBinop = fadd <2 x double> %9, %shift
+  %10 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %11 = getelementptr i8, ptr %1, i64 16
+  %12 = getelementptr i8, ptr %2, i64 16
+  %13 = load double, ptr %11, align 8, !tbaa !16
   %14 = load double, ptr %12, align 8, !tbaa !16
-  %15 = load double, ptr %13, align 8, !tbaa !16
-  %16 = fsub double %14, %15
-  %17 = fmul double %16, %16
-  %18 = fadd double %11, %17
-  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %18)
+  %15 = fsub double %13, %14
+  %16 = fmul double %15, %15
+  %17 = fadd double %10, %16
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %5, align 8, !tbaa !16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = load <2 x double>, ptr %0, align 1, !tbaa !31
-  %21 = fsub <2 x double> %7, %20
-  %22 = fmul <2 x double> %21, %21
-  %shift125 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %23 = fadd <2 x double> %22, %shift125
-  %24 = extractelement <2 x double> %23, i64 0
-  %25 = getelementptr i8, ptr %0, i64 16
-  %26 = load double, ptr %25, align 8, !tbaa !16
-  %27 = fsub double %15, %26
-  %28 = fmul double %27, %27
-  %29 = fadd double %28, %24
-  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i21 = tail call noundef double @llvm.sqrt.f64(double %29)
-  store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i21, ptr %19, align 8, !tbaa !16
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %31 = fsub <2 x double> %20, %6
-  %32 = fmul <2 x double> %31, %31
-  %shift126 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %33 = fadd <2 x double> %32, %shift126
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = fsub double %26, %14
-  %36 = fmul double %35, %35
-  %37 = fadd double %36, %34
-  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i25 = tail call noundef double @llvm.sqrt.f64(double %37)
-  store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, ptr %30, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = load <2 x double>, ptr %0, align 1, !tbaa !31
+  %20 = fsub <2 x double> %7, %19
+  %21 = fmul <2 x double> %20, %20
+  %shift126 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop127 = fadd <2 x double> %21, %shift126
+  %22 = extractelement <2 x double> %foldExtExtBinop127, i64 0
+  %23 = getelementptr i8, ptr %0, i64 16
+  %24 = load double, ptr %23, align 8, !tbaa !16
+  %25 = fsub double %14, %24
+  %26 = fmul double %25, %25
+  %27 = fadd double %26, %22
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i21 = tail call noundef double @llvm.sqrt.f64(double %27)
+  store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i21, ptr %18, align 8, !tbaa !16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %29 = fsub <2 x double> %19, %6
+  %30 = fmul <2 x double> %29, %29
+  %shift129 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop130 = fadd <2 x double> %30, %shift129
+  %31 = extractelement <2 x double> %foldExtExtBinop130, i64 0
+  %32 = fsub double %24, %13
+  %33 = fmul double %32, %32
+  %34 = fadd double %33, %31
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i25 = tail call noundef double @llvm.sqrt.f64(double %34)
+  store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, ptr %28, align 8, !tbaa !16
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EENS6_6ScalarERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef 0x7FF8000000000000, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

@@ -537,12 +537,12 @@ define linkonce_odr noundef double @_ZNK3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi
   %33 = fadd double %23, %32
   %34 = fmul <2 x double> %5, %19
   %shift = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %35 = fadd <2 x double> %34, %shift
-  %36 = extractelement <2 x double> %35, i64 0
-  %37 = extractelement <2 x double> %11, i64 1
-  %38 = fmul double %37, %33
-  %39 = fadd double %36, %38
-  ret double %39
+  %foldExtExtBinop = fadd <2 x double> %34, %shift
+  %35 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %36 = extractelement <2 x double> %11, i64 1
+  %37 = fmul double %36, %33
+  %38 = fadd double %35, %37
+  ret double %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1215,7 +1215,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %9 = load i8, ptr %8, align 4, !tbaa !89, !range !105, !noundef !106
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %180, label %11
+  br i1 %10, label %168, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -1225,210 +1225,210 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi
   %15 = load <2 x double>, ptr %2, align 8, !tbaa !62
   %16 = fmul <2 x double> %14, %15
   %shift = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %17 = fadd <2 x double> %16, %shift
-  %18 = extractelement <2 x double> %17, i64 0
-  %19 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 16
-  %20 = load double, ptr %19, align 8, !tbaa !43
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %22 = load double, ptr %21, align 8, !tbaa !43
-  %23 = fmul double %20, %22
-  %24 = fadd double %18, %23
-  %25 = load double, ptr %13, align 8, !tbaa !43
-  %26 = fadd double %25, %24
-  store double %26, ptr %13, align 8, !tbaa !43
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 24
-  %29 = load <2 x double>, ptr %28, align 8, !tbaa !62
-  %30 = load <2 x double>, ptr %2, align 8, !tbaa !62
-  %31 = fmul <2 x double> %29, %30
-  %shift32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %32 = fadd <2 x double> %31, %shift32
-  %33 = extractelement <2 x double> %32, i64 0
-  %34 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 40
-  %35 = load double, ptr %34, align 8, !tbaa !43
-  %36 = load double, ptr %21, align 8, !tbaa !43
-  %37 = fmul double %35, %36
-  %38 = fadd double %33, %37
-  %39 = load double, ptr %27, align 8, !tbaa !43
-  %40 = fadd double %39, %38
-  store double %40, ptr %27, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 48
-  %43 = load <2 x double>, ptr %42, align 8, !tbaa !62
-  %44 = load <2 x double>, ptr %2, align 8, !tbaa !62
-  %45 = fmul <2 x double> %43, %44
-  %shift33 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %46 = fadd <2 x double> %45, %shift33
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 64
-  %49 = load double, ptr %48, align 8, !tbaa !43
-  %50 = load double, ptr %21, align 8, !tbaa !43
-  %51 = fmul double %49, %50
-  %52 = fadd double %47, %51
-  %53 = load double, ptr %41, align 8, !tbaa !43
-  %54 = fadd double %53, %52
-  store double %54, ptr %41, align 8, !tbaa !43
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %foldExtExtBinop = fadd <2 x double> %16, %shift
+  %17 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %18 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 16
+  %19 = load double, ptr %18, align 8, !tbaa !43
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = load double, ptr %20, align 8, !tbaa !43
+  %22 = fmul double %19, %21
+  %23 = fadd double %17, %22
+  %24 = load double, ptr %13, align 8, !tbaa !43
+  %25 = fadd double %24, %23
+  store double %25, ptr %13, align 8, !tbaa !43
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 24
+  %28 = load <2 x double>, ptr %27, align 8, !tbaa !62
+  %29 = load <2 x double>, ptr %2, align 8, !tbaa !62
+  %30 = fmul <2 x double> %28, %29
+  %shift33 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop34 = fadd <2 x double> %30, %shift33
+  %31 = extractelement <2 x double> %foldExtExtBinop34, i64 0
+  %32 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 40
+  %33 = load double, ptr %32, align 8, !tbaa !43
+  %34 = load double, ptr %20, align 8, !tbaa !43
+  %35 = fmul double %33, %34
+  %36 = fadd double %31, %35
+  %37 = load double, ptr %26, align 8, !tbaa !43
+  %38 = fadd double %37, %36
+  store double %38, ptr %26, align 8, !tbaa !43
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 48
+  %41 = load <2 x double>, ptr %40, align 8, !tbaa !62
+  %42 = load <2 x double>, ptr %2, align 8, !tbaa !62
+  %43 = fmul <2 x double> %41, %42
+  %shift36 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop37 = fadd <2 x double> %43, %shift36
+  %44 = extractelement <2 x double> %foldExtExtBinop37, i64 0
+  %45 = getelementptr i8, ptr %.sroa.028.sroa.0.0.copyload, i64 64
+  %46 = load double, ptr %45, align 8, !tbaa !43
+  %47 = load double, ptr %20, align 8, !tbaa !43
+  %48 = fmul double %46, %47
+  %49 = fadd double %44, %48
+  %50 = load double, ptr %39, align 8, !tbaa !43
+  %51 = fadd double %50, %49
+  store double %51, ptr %39, align 8, !tbaa !43
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %55, ptr noundef nonnull align 8 dereferenceable(10) %12, i64 10, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %57 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 8, !tbaa !62
-  %58 = load <2 x double>, ptr %1, align 8, !tbaa !62
-  %59 = fmul <2 x double> %57, %58
-  %shift34 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd <2 x double> %59, %shift34
-  %61 = extractelement <2 x double> %60, i64 0
-  %62 = load double, ptr %19, align 8, !tbaa !43
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %64 = load double, ptr %63, align 8, !tbaa !43
-  %65 = fmul double %62, %64
-  %66 = fadd double %61, %65
-  store double %66, ptr %4, align 8, !tbaa !43
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %68 = load <2 x double>, ptr %28, align 8, !tbaa !62
-  %69 = fmul <2 x double> %58, %68
-  %shift35 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %70 = fadd <2 x double> %69, %shift35
-  %71 = extractelement <2 x double> %70, i64 0
-  %72 = load double, ptr %34, align 8, !tbaa !43
-  %73 = fmul double %64, %72
-  %74 = fadd double %73, %71
-  store double %74, ptr %67, align 8, !tbaa !43
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %76 = load <2 x double>, ptr %42, align 8, !tbaa !62
-  %77 = fmul <2 x double> %58, %76
-  %shift36 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %78 = fadd <2 x double> %77, %shift36
-  %79 = extractelement <2 x double> %78, i64 0
-  %80 = load double, ptr %48, align 8, !tbaa !43
-  %81 = fmul double %64, %80
-  %82 = fadd double %81, %79
-  store double %82, ptr %75, align 8, !tbaa !43
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %85 = load <2 x double>, ptr %84, align 8, !tbaa !62
-  %86 = fmul <2 x double> %57, %85
-  %shift37 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %87 = fadd <2 x double> %86, %shift37
-  %88 = extractelement <2 x double> %87, i64 0
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %90 = load double, ptr %89, align 8, !tbaa !43
-  %91 = fmul double %62, %90
-  %92 = fadd double %91, %88
-  store double %92, ptr %83, align 8, !tbaa !43
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %94 = fmul <2 x double> %68, %85
-  %shift38 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %95 = fadd <2 x double> %94, %shift38
-  %96 = extractelement <2 x double> %95, i64 0
-  %97 = fmul double %72, %90
-  %98 = fadd double %97, %96
-  store double %98, ptr %93, align 8, !tbaa !43
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %100 = fmul <2 x double> %76, %85
-  %shift39 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %101 = fadd <2 x double> %100, %shift39
-  %102 = extractelement <2 x double> %101, i64 0
-  %103 = fmul double %80, %90
-  %104 = fadd double %103, %102
-  store double %104, ptr %99, align 8, !tbaa !43
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %107 = load <2 x double>, ptr %106, align 8, !tbaa !62
-  %108 = fmul <2 x double> %57, %107
-  %shift40 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %109 = fadd <2 x double> %108, %shift40
-  %110 = extractelement <2 x double> %109, i64 0
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %112 = load double, ptr %111, align 8, !tbaa !43
-  %113 = fmul double %62, %112
-  %114 = fadd double %113, %110
-  store double %114, ptr %105, align 8, !tbaa !43
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %116 = fmul <2 x double> %68, %107
-  %shift41 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %117 = fadd <2 x double> %116, %shift41
-  %118 = extractelement <2 x double> %117, i64 0
-  %119 = fmul double %72, %112
-  %120 = fadd double %119, %118
-  store double %120, ptr %115, align 8, !tbaa !43
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %122 = fmul <2 x double> %76, %107
-  %shift42 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %123 = fadd <2 x double> %122, %shift42
-  %124 = extractelement <2 x double> %123, i64 0
-  %125 = fmul double %80, %112
-  %126 = fadd double %125, %124
-  store double %126, ptr %121, align 8, !tbaa !43
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %4, ptr %127, align 8, !tbaa !133
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %129 = load ptr, ptr %55, align 8, !tbaa !88
-  store ptr %129, ptr %128, align 8, !tbaa !135
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i64 3, ptr %130, align 8, !tbaa !138
-  %131 = load ptr, ptr %56, align 8, !tbaa !143
-  br label %132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %52, ptr noundef nonnull align 8 dereferenceable(10) %12, i64 10, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %54 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 8, !tbaa !62
+  %55 = load <2 x double>, ptr %1, align 8, !tbaa !62
+  %56 = fmul <2 x double> %54, %55
+  %shift39 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop40 = fadd <2 x double> %56, %shift39
+  %57 = extractelement <2 x double> %foldExtExtBinop40, i64 0
+  %58 = load double, ptr %18, align 8, !tbaa !43
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %60 = load double, ptr %59, align 8, !tbaa !43
+  %61 = fmul double %58, %60
+  %62 = fadd double %57, %61
+  store double %62, ptr %4, align 8, !tbaa !43
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %64 = load <2 x double>, ptr %27, align 8, !tbaa !62
+  %65 = fmul <2 x double> %55, %64
+  %shift42 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop43 = fadd <2 x double> %65, %shift42
+  %66 = extractelement <2 x double> %foldExtExtBinop43, i64 0
+  %67 = load double, ptr %32, align 8, !tbaa !43
+  %68 = fmul double %60, %67
+  %69 = fadd double %68, %66
+  store double %69, ptr %63, align 8, !tbaa !43
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %71 = load <2 x double>, ptr %40, align 8, !tbaa !62
+  %72 = fmul <2 x double> %55, %71
+  %shift45 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop46 = fadd <2 x double> %72, %shift45
+  %73 = extractelement <2 x double> %foldExtExtBinop46, i64 0
+  %74 = load double, ptr %45, align 8, !tbaa !43
+  %75 = fmul double %60, %74
+  %76 = fadd double %75, %73
+  store double %76, ptr %70, align 8, !tbaa !43
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %79 = load <2 x double>, ptr %78, align 8, !tbaa !62
+  %80 = fmul <2 x double> %54, %79
+  %shift48 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop49 = fadd <2 x double> %80, %shift48
+  %81 = extractelement <2 x double> %foldExtExtBinop49, i64 0
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %83 = load double, ptr %82, align 8, !tbaa !43
+  %84 = fmul double %58, %83
+  %85 = fadd double %84, %81
+  store double %85, ptr %77, align 8, !tbaa !43
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %87 = fmul <2 x double> %64, %79
+  %shift51 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop52 = fadd <2 x double> %87, %shift51
+  %88 = extractelement <2 x double> %foldExtExtBinop52, i64 0
+  %89 = fmul double %67, %83
+  %90 = fadd double %89, %88
+  store double %90, ptr %86, align 8, !tbaa !43
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %92 = fmul <2 x double> %71, %79
+  %shift54 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop55 = fadd <2 x double> %92, %shift54
+  %93 = extractelement <2 x double> %foldExtExtBinop55, i64 0
+  %94 = fmul double %74, %83
+  %95 = fadd double %94, %93
+  store double %95, ptr %91, align 8, !tbaa !43
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %98 = load <2 x double>, ptr %97, align 8, !tbaa !62
+  %99 = fmul <2 x double> %54, %98
+  %shift57 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop58 = fadd <2 x double> %99, %shift57
+  %100 = extractelement <2 x double> %foldExtExtBinop58, i64 0
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %102 = load double, ptr %101, align 8, !tbaa !43
+  %103 = fmul double %58, %102
+  %104 = fadd double %103, %100
+  store double %104, ptr %96, align 8, !tbaa !43
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %106 = fmul <2 x double> %64, %98
+  %shift60 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop61 = fadd <2 x double> %106, %shift60
+  %107 = extractelement <2 x double> %foldExtExtBinop61, i64 0
+  %108 = fmul double %67, %102
+  %109 = fadd double %108, %107
+  store double %109, ptr %105, align 8, !tbaa !43
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %111 = fmul <2 x double> %71, %98
+  %shift63 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop64 = fadd <2 x double> %111, %shift63
+  %112 = extractelement <2 x double> %foldExtExtBinop64, i64 0
+  %113 = fmul double %74, %102
+  %114 = fadd double %113, %112
+  store double %114, ptr %110, align 8, !tbaa !43
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store ptr %4, ptr %115, align 8, !tbaa !133
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %117 = load ptr, ptr %52, align 8, !tbaa !88
+  store ptr %117, ptr %116, align 8, !tbaa !135
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store i64 3, ptr %118, align 8, !tbaa !138
+  %119 = load ptr, ptr %53, align 8, !tbaa !143
+  br label %120
 
-132:                                              ; preds = %132, %11
-  %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %11 ], [ %178, %132 ]
+120:                                              ; preds = %120, %11
+  %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %11 ], [ %166, %120 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
-  %133 = getelementptr i8, ptr %131, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %134 = load ptr, ptr %127, align 8, !tbaa !145
-  %135 = load <2 x double>, ptr %134, align 1, !tbaa !62
-  %136 = load ptr, ptr %128, align 8, !tbaa !135
-  %137 = getelementptr i8, ptr %136, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %138 = load double, ptr %137, align 8, !tbaa !43
-  %139 = insertelement <2 x double> poison, double %138, i64 0
-  %140 = shufflevector <2 x double> %139, <2 x double> poison, <2 x i32> zeroinitializer
-  %141 = fmul <2 x double> %135, %140
-  %142 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %143 = load <2 x double>, ptr %142, align 1, !tbaa !62
-  %144 = getelementptr i8, ptr %137, i64 8
-  %145 = load double, ptr %144, align 8, !tbaa !43
-  %146 = insertelement <2 x double> poison, double %145, i64 0
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> zeroinitializer
-  %148 = fmul <2 x double> %143, %147
-  %149 = fadd <2 x double> %141, %148
-  %150 = getelementptr inbounds nuw i8, ptr %134, i64 48
-  %151 = load <2 x double>, ptr %150, align 1, !tbaa !62
-  %152 = getelementptr i8, ptr %137, i64 16
-  %153 = load double, ptr %152, align 8, !tbaa !43
-  %154 = insertelement <2 x double> poison, double %153, i64 0
-  %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> zeroinitializer
-  %156 = fmul <2 x double> %151, %155
-  %157 = fadd <2 x double> %149, %156
-  %158 = load <2 x double>, ptr %133, align 1, !tbaa !62
-  %159 = fadd <2 x double> %158, %157
-  store <2 x double> %159, ptr %133, align 1, !tbaa !62
-  %160 = getelementptr i8, ptr %133, i64 16
-  %161 = load ptr, ptr %55, align 8, !tbaa !88, !noalias !146
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %163 = load double, ptr %75, align 8, !tbaa !43
-  %164 = load double, ptr %162, align 8, !tbaa !43
-  %165 = fmul double %163, %164
-  %166 = load double, ptr %99, align 8, !tbaa !43
-  %167 = getelementptr i8, ptr %162, i64 8
-  %168 = load double, ptr %167, align 8, !tbaa !43
-  %169 = fmul double %166, %168
-  %170 = load double, ptr %121, align 8, !tbaa !43
-  %171 = getelementptr i8, ptr %162, i64 16
-  %172 = load double, ptr %171, align 8, !tbaa !43
-  %173 = fmul double %170, %172
-  %174 = fadd double %169, %173
-  %175 = fadd double %165, %174
-  %176 = load double, ptr %160, align 8, !tbaa !43
-  %177 = fadd double %176, %175
-  store double %177, ptr %160, align 8, !tbaa !43
-  %178 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %178, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %179, label %132, !llvm.loop !149
+  %121 = getelementptr i8, ptr %119, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %122 = load ptr, ptr %115, align 8, !tbaa !145
+  %123 = load <2 x double>, ptr %122, align 1, !tbaa !62
+  %124 = load ptr, ptr %116, align 8, !tbaa !135
+  %125 = getelementptr i8, ptr %124, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %126 = load double, ptr %125, align 8, !tbaa !43
+  %127 = insertelement <2 x double> poison, double %126, i64 0
+  %128 = shufflevector <2 x double> %127, <2 x double> poison, <2 x i32> zeroinitializer
+  %129 = fmul <2 x double> %123, %128
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %131 = load <2 x double>, ptr %130, align 1, !tbaa !62
+  %132 = getelementptr i8, ptr %125, i64 8
+  %133 = load double, ptr %132, align 8, !tbaa !43
+  %134 = insertelement <2 x double> poison, double %133, i64 0
+  %135 = shufflevector <2 x double> %134, <2 x double> poison, <2 x i32> zeroinitializer
+  %136 = fmul <2 x double> %131, %135
+  %137 = fadd <2 x double> %129, %136
+  %138 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  %139 = load <2 x double>, ptr %138, align 1, !tbaa !62
+  %140 = getelementptr i8, ptr %125, i64 16
+  %141 = load double, ptr %140, align 8, !tbaa !43
+  %142 = insertelement <2 x double> poison, double %141, i64 0
+  %143 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> zeroinitializer
+  %144 = fmul <2 x double> %139, %143
+  %145 = fadd <2 x double> %137, %144
+  %146 = load <2 x double>, ptr %121, align 1, !tbaa !62
+  %147 = fadd <2 x double> %146, %145
+  store <2 x double> %147, ptr %121, align 1, !tbaa !62
+  %148 = getelementptr i8, ptr %121, i64 16
+  %149 = load ptr, ptr %52, align 8, !tbaa !88, !noalias !146
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  %151 = load double, ptr %70, align 8, !tbaa !43
+  %152 = load double, ptr %150, align 8, !tbaa !43
+  %153 = fmul double %151, %152
+  %154 = load double, ptr %91, align 8, !tbaa !43
+  %155 = getelementptr i8, ptr %150, i64 8
+  %156 = load double, ptr %155, align 8, !tbaa !43
+  %157 = fmul double %154, %156
+  %158 = load double, ptr %110, align 8, !tbaa !43
+  %159 = getelementptr i8, ptr %150, i64 16
+  %160 = load double, ptr %159, align 8, !tbaa !43
+  %161 = fmul double %158, %160
+  %162 = fadd double %157, %161
+  %163 = fadd double %153, %162
+  %164 = load double, ptr %148, align 8, !tbaa !43
+  %165 = fadd double %164, %163
+  store double %165, ptr %148, align 8, !tbaa !43
+  %166 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %166, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %167, label %120, !llvm.loop !149
 
-179:                                              ; preds = %132
+167:                                              ; preds = %120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %180
+  br label %168
 
-180:                                              ; preds = %179, %3
+168:                                              ; preds = %167, %3
   ret void
 }
 

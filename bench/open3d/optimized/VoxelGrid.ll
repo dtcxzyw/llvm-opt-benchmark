@@ -34351,7 +34351,7 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d8geometry5Vox
 
 _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %116
+  br label %114
 
 49:                                               ; preds = %.lr.ph, %49
   %50 = phi double [ %.promoted, %.lr.ph ], [ %56, %49 ]
@@ -34367,7 +34367,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %41, %44
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %.lr.ph66, label %49
 
-._crit_edge:                                      ; preds = %103
+._crit_edge:                                      ; preds = %101
   %.pre = load ptr, ptr %8, align 8, !tbaa !745
   %.not5.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -34409,8 +34409,8 @@ _ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_I
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-70:                                               ; preds = %.lr.ph66, %103
-  %.sroa.049.065 = phi ptr [ %37, %.lr.ph66 ], [ %113, %103 ]
+70:                                               ; preds = %.lr.ph66, %101
+  %.sroa.049.065 = phi ptr [ %37, %.lr.ph66 ], [ %111, %101 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !746
@@ -34427,58 +34427,58 @@ _ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_I
   %83 = load <2 x double>, ptr %24, align 8, !tbaa !28
   %84 = load double, ptr %26, align 8, !tbaa !33
   %85 = load double, ptr %38, align 8, !tbaa !33, !noalias !754
-  %86 = fsub <2 x double> %81, %83
-  %87 = extractelement <2 x double> %86, i64 0
-  %88 = fdiv double %87, %85
-  %89 = call noundef double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = fsub <2 x double> %81, %83
-  %92 = extractelement <2 x double> %91, i64 1
-  %93 = fdiv double %92, %85
-  %94 = call noundef double @llvm.floor.f64(double %93)
-  %95 = fptosi double %94 to i32
-  %96 = fsub double %82, %84
-  %97 = fdiv double %96, %85
-  %98 = call noundef double @llvm.floor.f64(double %97)
-  %99 = fptosi double %98 to i32
+  %foldExtExtBinop = fsub <2 x double> %81, %83
+  %86 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %87 = fdiv double %86, %85
+  %88 = call noundef double @llvm.floor.f64(double %87)
+  %89 = fptosi double %88 to i32
+  %foldExtExtBinop69 = fsub <2 x double> %81, %83
+  %90 = extractelement <2 x double> %foldExtExtBinop69, i64 1
+  %91 = fdiv double %90, %85
+  %92 = call noundef double @llvm.floor.f64(double %91)
+  %93 = fptosi double %92 to i32
+  %94 = fsub double %82, %84
+  %95 = fdiv double %94, %85
+  %96 = call noundef double @llvm.floor.f64(double %95)
+  %97 = fptosi double %96 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %100 = load ptr, ptr %71, align 8, !tbaa !757
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i32 %90, ptr %5, align 8
-  store i32 %95, ptr %.sroa.542.0..sroa_idx, align 4
-  store i32 %99, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false), !tbaa.struct !30
-  %102 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEESaIS9_ENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %103 unwind label %114
+  %98 = load ptr, ptr %71, align 8, !tbaa !757
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i32 %89, ptr %5, align 8
+  store i32 %93, ptr %.sroa.542.0..sroa_idx, align 4
+  store i32 %97, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false), !tbaa.struct !30
+  %100 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEESaIS9_ENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %101 unwind label %112
 
-103:                                              ; preds = %70
-  %104 = load i32, ptr %5, align 8, !tbaa !31
-  store i32 %104, ptr %102, align 8, !tbaa !31
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  %106 = load i32, ptr %.sroa.542.0..sroa_idx, align 4, !tbaa !31
-  store i32 %106, ptr %105, align 4, !tbaa !31
-  %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %108 = load i32, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !31
-  store i32 %108, ptr %107, align 8, !tbaa !31
-  %109 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %110 = load <2 x double>, ptr %39, align 8, !tbaa !28
-  store <2 x double> %110, ptr %109, align 8, !tbaa !28
-  %111 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %112 = load double, ptr %40, align 8, !tbaa !33
-  store double %112, ptr %111, align 8, !tbaa !33
+101:                                              ; preds = %70
+  %102 = load i32, ptr %5, align 8, !tbaa !31
+  store i32 %102, ptr %100, align 8, !tbaa !31
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  %104 = load i32, ptr %.sroa.542.0..sroa_idx, align 4, !tbaa !31
+  store i32 %104, ptr %103, align 4, !tbaa !31
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %106 = load i32, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !31
+  store i32 %106, ptr %105, align 8, !tbaa !31
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %108 = load <2 x double>, ptr %39, align 8, !tbaa !28
+  store <2 x double> %108, ptr %107, align 8, !tbaa !28
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %110 = load double, ptr %40, align 8, !tbaa !33
+  store double %110, ptr %109, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %113 = load ptr, ptr %.sroa.049.065, align 8, !tbaa !18
-  %.not60 = icmp eq ptr %113, null
+  %111 = load ptr, ptr %.sroa.049.065, align 8, !tbaa !18
+  %.not60 = icmp eq ptr %111, null
   br i1 %.not60, label %._crit_edge, label %70
 
-114:                                              ; preds = %70
-  %115 = landingpad { ptr, i32 }
+112:                                              ; preds = %70
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %116
+  br label %114
 
-116:                                              ; preds = %114, %_ZNSt14_Function_baseD2Ev.exit26
-  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %42, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %115, %114 ]
+114:                                              ; preds = %112, %_ZNSt14_Function_baseD2Ev.exit26
+  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %42, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %113, %112 ]
   call void @_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn20.pn.pn.pn
@@ -35488,9 +35488,9 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx133 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
-  %.sroa.2.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx134 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i51, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx140 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx139 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx141 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i51, i64 16
   %.sroa.2.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i51, i64 24
   %.sroa.2.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i51, i64 8
   %.sroa.2.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i51, i64 16
@@ -35550,11 +35550,11 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   store <2 x double> %77, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !28
   %78 = load double, ptr %34, align 8, !tbaa !33
   %79 = fadd double %75, %78
-  store double %79, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx133, align 16, !tbaa !33
+  store double %79, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx140, align 16, !tbaa !33
   %80 = load <2 x double>, ptr %8, align 16, !tbaa !28
   %81 = extractelement <2 x double> %77, i64 0
   %82 = load <2 x double>, ptr %35, align 8, !tbaa !28
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx132, align 8
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx139, align 8
   %83 = load <2 x double>, ptr %36, align 16, !tbaa !28
   %84 = load double, ptr %37, align 16, !tbaa !33
   %85 = fmul double %81, %84
@@ -35591,7 +35591,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   %111 = fadd <2 x double> %76, %102
   store <2 x double> %111, ptr %.sroa.2.i.i.i.i.i.i.i51, align 16, !tbaa !28
   %112 = fadd double %78, %110
-  store double %112, ptr %.sroa.2.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx134, align 16, !tbaa !33
+  store double %112, ptr %.sroa.2.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.i51.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx141, align 16, !tbaa !33
   store ptr %8, ptr %.sroa.2.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.i51.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !821
   %113 = fmul <2 x double> %80, %111
   %.sroa.2.i.i.i.i.i.i.i51.8..sroa.2.i.i.i.i.i.i.i51.8..sroa.2.i.i.i.i.i.i.i51.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i60 = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.i51.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
@@ -35839,9 +35839,9 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx131 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx130 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
-  %.sroa.2.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i48, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx138 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx137 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx139 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i48, i64 16
   %.sroa.2.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i48, i64 24
   %.sroa.2.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i48, i64 8
   %.sroa.2.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i48, i64 16
@@ -35897,11 +35897,11 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   store <2 x double> %75, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !28
   %76 = load double, ptr %34, align 8, !tbaa !33
   %77 = fadd double %73, %76
-  store double %77, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx131, align 16, !tbaa !33
+  store double %77, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx138, align 16, !tbaa !33
   %78 = load <2 x double>, ptr %8, align 16, !tbaa !28
   %79 = extractelement <2 x double> %75, i64 0
   %80 = load <2 x double>, ptr %35, align 8, !tbaa !28
-  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx130, align 8
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx137, align 8
   %81 = load <2 x double>, ptr %36, align 16, !tbaa !28
   %82 = load double, ptr %37, align 16, !tbaa !33
   %83 = fmul double %79, %82
@@ -35938,7 +35938,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6open3d8geometry9Vox
   %109 = fadd <2 x double> %74, %100
   store <2 x double> %109, ptr %.sroa.2.i.i.i.i.i.i.i48, align 16, !tbaa !28
   %110 = fadd double %76, %108
-  store double %110, ptr %.sroa.2.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx132, align 16, !tbaa !33
+  store double %110, ptr %.sroa.2.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.i48.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx139, align 16, !tbaa !33
   store ptr %8, ptr %.sroa.2.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.i48.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !821
   %111 = fmul <2 x double> %78, %109
   %.sroa.2.i.i.i.i.i.i.i48.8..sroa.2.i.i.i.i.i.i.i48.8..sroa.2.i.i.i.i.i.i.i48.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i57 = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.i48.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8

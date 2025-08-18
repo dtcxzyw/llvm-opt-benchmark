@@ -189,9 +189,9 @@
   "instcombine.NegatorNumValuesVisited": 22312687,
   "instcombine.NegatorTotalNegationsAttempted": 21359466,
   "instcombine.NumAggregateReconstructionsSimplified": 18972,
-  "instcombine.NumCombined": 124881869,
+  "instcombine.NumCombined": 124881864,
   "instcombine.NumConstProp": 159150,
-  "instcombine.NumDeadInst": 42242207,
+  "instcombine.NumDeadInst": 42242213,
   "instcombine.NumDeadStore": 26848,
   "instcombine.NumExpand": 2865,
   "instcombine.NumFactor": 45180,
@@ -329,8 +329,8 @@
   "vector-combine.NumScalarCmp": 37,
   "vector-combine.NumScalarIntrinsic": 451,
   "vector-combine.NumScalarOps": 237,
-  "vector-combine.NumShufOfBitcast": 12113,
+  "vector-combine.NumShufOfBitcast": 11983,
   "vector-combine.NumVecBO": 12719,
   "vector-combine.NumVecCmp": 156,
-  "vector-combine.NumVecLoad": 4405
+  "vector-combine.NumVecLoad": 4404
 }

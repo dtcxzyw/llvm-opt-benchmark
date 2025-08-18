@@ -7775,111 +7775,111 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   %.sroa.0.1.i.i.lcssa.sink40 = phi <2 x float> [ %.sroa.0.5.i.i, %.lr.ph27.i.i.i ], [ %.sroa.0.1.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ]
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.1.i.i.lcssa.sink40, i64 0
   %shift = shufflevector <2 x float> %.sroa.0.1.i.i.lcssa.sink40, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = fsub <2 x float> %shift, %.sroa.0.1.i.i.lcssa.sink40
-  %57 = extractelement <2 x float> %56, i64 0
-  br label %58
+  %foldExtExtBinop = fsub <2 x float> %shift, %.sroa.0.1.i.i.lcssa.sink40
+  %56 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  br label %57
 
-58:                                               ; preds = %78, %.lr.ph.i
-  %59 = phi ptr [ %31, %.lr.ph.i ], [ %79, %78 ]
-  %.sroa.013.021.i = phi ptr [ %32, %.lr.ph.i ], [ %80, %78 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 20
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  %.not18.i = icmp eq i32 %62, 0
-  br i1 %.not18.i, label %63, label %78
+57:                                               ; preds = %77, %.lr.ph.i
+  %58 = phi ptr [ %31, %.lr.ph.i ], [ %78, %77 ]
+  %.sroa.013.021.i = phi ptr [ %32, %.lr.ph.i ], [ %79, %77 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 20
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, 1
+  %.not18.i = icmp eq i32 %61, 0
+  br i1 %.not18.i, label %62, label %77
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 40
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 36
-  %66 = load float, ptr %65, align 4
-  %67 = fsub float %66, %.sroa.0.0.vec.extract.i
-  %68 = fdiv float %67, %57
-  %69 = fcmp olt float %68, 0.000000e+00
-  br i1 %69, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, label %70
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 36
+  %65 = load float, ptr %64, align 4
+  %66 = fsub float %65, %.sroa.0.0.vec.extract.i
+  %67 = fdiv float %66, %56
+  %68 = fcmp olt float %67, 0.000000e+00
+  br i1 %68, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, label %69
 
-70:                                               ; preds = %63
-  %71 = fcmp ogt float %68, 1.000000e+00
-  br i1 %71, label %72, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
+69:                                               ; preds = %62
+  %70 = fcmp ogt float %67, 1.000000e+00
+  br i1 %70, label %71, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   br label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
 
-_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i:         ; preds = %72, %70, %63
-  %.0.i.i = phi float [ 1.000000e+00, %72 ], [ %68, %70 ], [ 0.000000e+00, %63 ]
-  %73 = fmul float %.0.i.i, 2.550000e+02
-  %74 = fptoui float %73 to i8
-  store i8 %74, ptr %64, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 41
-  store i8 %74, ptr %75, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 42
-  store i8 %74, ptr %76, align 1
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 43
-  store i8 -1, ptr %77, align 1
+_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i:         ; preds = %71, %69, %62
+  %.0.i.i = phi float [ 1.000000e+00, %71 ], [ %67, %69 ], [ 0.000000e+00, %62 ]
+  %72 = fmul float %.0.i.i, 2.550000e+02
+  %73 = fptoui float %72 to i8
+  store i8 %73, ptr %63, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 41
+  store i8 %73, ptr %74, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 42
+  store i8 %73, ptr %75, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 43
+  store i8 -1, ptr %76, align 1
   %.pre = load ptr, ptr %30, align 8
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, %58
-  %79 = phi ptr [ %.pre, %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i ], [ %59, %58 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 48
-  %.not.i = icmp eq ptr %80, %79
-  br i1 %.not.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit, label %58, !llvm.loop !68
+77:                                               ; preds = %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, %57
+  %78 = phi ptr [ %.pre, %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i ], [ %58, %57 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 48
+  %.not.i = icmp eq ptr %79, %78
+  br i1 %.not.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit, label %57, !llvm.loop !68
 
-_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit: ; preds = %78, %.preheader21.i.i.i, %.preheader.i.i.i
+_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit: ; preds = %77, %.preheader21.i.i.i, %.preheader.i.i.i
   tail call void @glReadBuffer(i32 noundef 36065)
-  %81 = load i32, ptr %4, align 4
-  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %81, i32 noundef %81, i32 noundef 6408, i32 noundef 5126, ptr noundef nonnull %10)
-  %82 = load i32, ptr %16, align 8
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph31, label %._crit_edge32
+  %80 = load i32, ptr %4, align 4
+  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %80, i32 noundef %80, i32 noundef 6408, i32 noundef 5126, ptr noundef nonnull %10)
+  %81 = load i32, ptr %16, align 8
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %.lr.ph31, label %._crit_edge32
 
 .lr.ph31:                                         ; preds = %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  br label %85
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  br label %84
 
-85:                                               ; preds = %.lr.ph31, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
+84:                                               ; preds = %.lr.ph31, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
   %indvars.iv35 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next36, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit ]
   %.idx38 = shl nsw i64 %indvars.iv35, 4
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx38
-  %87 = load float, ptr %86, align 4
-  %88 = getelementptr i8, ptr %86, i64 4
-  %89 = load float, ptr %88, align 4
-  %90 = getelementptr i8, ptr %86, i64 8
-  %91 = load float, ptr %90, align 4
-  %92 = fmul float %89, %89
-  %93 = tail call float @llvm.fmuladd.f32(float %87, float %87, float %92)
-  %94 = tail call float @llvm.fmuladd.f32(float %91, float %91, float %93)
-  %95 = fcmp ogt float %94, 0.000000e+00
-  br i1 %95, label %96, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx38
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr i8, ptr %85, i64 4
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr i8, ptr %85, i64 8
+  %90 = load float, ptr %89, align 4
+  %91 = fmul float %88, %88
+  %92 = tail call float @llvm.fmuladd.f32(float %86, float %86, float %91)
+  %93 = tail call float @llvm.fmuladd.f32(float %90, float %90, float %92)
+  %94 = fcmp ogt float %93, 0.000000e+00
+  br i1 %94, label %95, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
-96:                                               ; preds = %85
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %94)
-  %97 = fdiv float %87, %sqrt.i.i
-  %98 = fdiv float %89, %sqrt.i.i
-  %99 = fdiv float %91, %sqrt.i.i
+95:                                               ; preds = %84
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %93)
+  %96 = fdiv float %86, %sqrt.i.i
+  %97 = fdiv float %88, %sqrt.i.i
+  %98 = fdiv float %90, %sqrt.i.i
   br label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
-_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %85, %96
-  %.sroa.7.0 = phi float [ %99, %96 ], [ %91, %85 ]
-  %.sroa.4.0 = phi float [ %98, %96 ], [ %89, %85 ]
-  %.sroa.0.0 = phi float [ %97, %96 ], [ %87, %85 ]
-  %100 = load ptr, ptr %84, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %102, i64 %indvars.iv35
-  store float %.sroa.0.0, ptr %103, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 4
+_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %84, %95
+  %.sroa.7.0 = phi float [ %98, %95 ], [ %90, %84 ]
+  %.sroa.4.0 = phi float [ %97, %95 ], [ %88, %84 ]
+  %.sroa.0.0 = phi float [ %96, %95 ], [ %86, %84 ]
+  %99 = load ptr, ptr %83, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %101, i64 %indvars.iv35
+  store float %.sroa.0.0, ptr %102, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 4
   store float %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %104 = load i32, ptr %16, align 8
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next36, %105
-  br i1 %106, label %85, label %._crit_edge32, !llvm.loop !69
+  %103 = load i32, ptr %16, align 8
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next36, %104
+  br i1 %105, label %84, label %._crit_edge32, !llvm.loop !69
 
 ._crit_edge32:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit
-  %107 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %107(i32 noundef 36160, i32 noundef 0)
+  %106 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %106(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %10) #27
   ret void
 }
@@ -8026,121 +8026,121 @@ _ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clE
   %.sroa.0.1.i.i.lcssa.sink37 = phi <2 x float> [ %.sroa.0.5.i.i, %.lr.ph35.i.i.i ], [ %.sroa.0.1.i.i, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i.i ]
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.1.i.i.lcssa.sink37, i64 0
   %shift = shufflevector <2 x float> %.sroa.0.1.i.i.lcssa.sink37, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %82 = fsub <2 x float> %shift, %.sroa.0.1.i.i.lcssa.sink37
-  %83 = extractelement <2 x float> %82, i64 0
-  br label %84
+  %foldExtExtBinop = fsub <2 x float> %shift, %.sroa.0.1.i.i.lcssa.sink37
+  %82 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  br label %83
 
-84:                                               ; preds = %114, %.lr.ph.i
-  %85 = phi ptr [ %41, %.lr.ph.i ], [ %115, %114 ]
-  %.sroa.013.021.i = phi ptr [ %42, %.lr.ph.i ], [ %116, %114 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 32
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 1
-  %.not18.i = icmp eq i32 %88, 0
-  br i1 %.not18.i, label %89, label %114
+83:                                               ; preds = %113, %.lr.ph.i
+  %84 = phi ptr [ %41, %.lr.ph.i ], [ %114, %113 ]
+  %.sroa.013.021.i = phi ptr [ %42, %.lr.ph.i ], [ %115, %113 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 32
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 1
+  %.not18.i = icmp eq i32 %87, 0
+  br i1 %.not18.i, label %88, label %113
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %.sroa.013.021.i, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %92 = load ptr, ptr %90, align 8
-  %93 = ptrtoint ptr %.sroa.013.021.i to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = load ptr, ptr %91, align 8
-  %97 = sdiv exact i64 %95, 12
-  %98 = getelementptr inbounds i8, ptr %96, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %90, i64 120
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 %97
-  %102 = load float, ptr %101, align 4
-  %103 = fsub float %102, %.sroa.0.0.vec.extract.i
-  %104 = fdiv float %103, %83
-  %105 = fcmp olt float %104, 0.000000e+00
-  br i1 %105, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, label %106
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %.sroa.013.021.i, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %91 = load ptr, ptr %89, align 8
+  %92 = ptrtoint ptr %.sroa.013.021.i to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = load ptr, ptr %90, align 8
+  %96 = sdiv exact i64 %94, 12
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 120
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 %96
+  %101 = load float, ptr %100, align 4
+  %102 = fsub float %101, %.sroa.0.0.vec.extract.i
+  %103 = fdiv float %102, %82
+  %104 = fcmp olt float %103, 0.000000e+00
+  br i1 %104, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, label %105
 
-106:                                              ; preds = %89
-  %107 = fcmp ogt float %104, 1.000000e+00
-  br i1 %107, label %108, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
+105:                                              ; preds = %88
+  %106 = fcmp ogt float %103, 1.000000e+00
+  br i1 %106, label %107, label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
 
-108:                                              ; preds = %106
+107:                                              ; preds = %105
   br label %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i
 
-_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i:         ; preds = %108, %106, %89
-  %.0.i.i = phi float [ 1.000000e+00, %108 ], [ %104, %106 ], [ 0.000000e+00, %89 ]
-  %109 = fmul float %.0.i.i, 2.550000e+02
-  %110 = fptoui float %109 to i8
-  store i8 %110, ptr %98, align 1
-  %111 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  store i8 %110, ptr %111, align 1
-  %112 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  store i8 %110, ptr %112, align 1
-  %113 = getelementptr inbounds nuw i8, ptr %98, i64 3
-  store i8 -1, ptr %113, align 1
+_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i:         ; preds = %107, %105, %88
+  %.0.i.i = phi float [ 1.000000e+00, %107 ], [ %103, %105 ], [ 0.000000e+00, %88 ]
+  %108 = fmul float %.0.i.i, 2.550000e+02
+  %109 = fptoui float %108 to i8
+  store i8 %109, ptr %97, align 1
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  store i8 %109, ptr %110, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %97, i64 2
+  store i8 %109, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %97, i64 3
+  store i8 -1, ptr %112, align 1
   %.pre = load ptr, ptr %40, align 8
-  br label %114
+  br label %113
 
-114:                                              ; preds = %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, %84
-  %115 = phi ptr [ %.pre, %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i ], [ %85, %84 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 48
-  %.not.i = icmp eq ptr %116, %115
-  br i1 %.not.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit, label %84, !llvm.loop !73
+113:                                              ; preds = %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i, %83
+  %114 = phi ptr [ %.pre, %_ZN3vcg6Color4IhE12SetGrayShadeEf.exit.i ], [ %84, %83 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 48
+  %.not.i = icmp eq ptr %115, %114
+  br i1 %.not.i, label %_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit, label %83, !llvm.loop !73
 
-_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit: ; preds = %114, %.preheader28.i.i.i, %.preheader.i.i.i
+_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit: ; preds = %113, %.preheader28.i.i.i, %.preheader.i.i.i
   tail call void @glReadBuffer(i32 noundef 36065)
-  %117 = load i32, ptr %4, align 4
-  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %117, i32 noundef %117, i32 noundef 6408, i32 noundef 5126, ptr noundef nonnull %10)
-  %118 = load i32, ptr %16, align 8
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph30, label %._crit_edge31
+  %116 = load i32, ptr %4, align 4
+  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %116, i32 noundef %116, i32 noundef 6408, i32 noundef 5126, ptr noundef nonnull %10)
+  %117 = load i32, ptr %16, align 8
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph30, label %._crit_edge31
 
 .lr.ph30:                                         ; preds = %_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  br label %121
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  br label %120
 
-121:                                              ; preds = %.lr.ph30, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
+120:                                              ; preds = %.lr.ph30, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
   %indvars.iv33 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next34, %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit ]
   %.idx36 = shl nsw i64 %indvars.iv33, 4
-  %122 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx36
-  %123 = load float, ptr %122, align 4
-  %124 = getelementptr i8, ptr %122, i64 4
-  %125 = load float, ptr %124, align 4
-  %126 = getelementptr i8, ptr %122, i64 8
-  %127 = load float, ptr %126, align 4
-  %128 = fmul float %125, %125
-  %129 = tail call float @llvm.fmuladd.f32(float %123, float %123, float %128)
-  %130 = tail call float @llvm.fmuladd.f32(float %127, float %127, float %129)
-  %131 = fcmp ogt float %130, 0.000000e+00
-  br i1 %131, label %132, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx36
+  %122 = load float, ptr %121, align 4
+  %123 = getelementptr i8, ptr %121, i64 4
+  %124 = load float, ptr %123, align 4
+  %125 = getelementptr i8, ptr %121, i64 8
+  %126 = load float, ptr %125, align 4
+  %127 = fmul float %124, %124
+  %128 = tail call float @llvm.fmuladd.f32(float %122, float %122, float %127)
+  %129 = tail call float @llvm.fmuladd.f32(float %126, float %126, float %128)
+  %130 = fcmp ogt float %129, 0.000000e+00
+  br i1 %130, label %131, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
-132:                                              ; preds = %121
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %130)
-  %133 = fdiv float %123, %sqrt.i.i
-  %134 = fdiv float %125, %sqrt.i.i
-  %135 = fdiv float %127, %sqrt.i.i
+131:                                              ; preds = %120
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %129)
+  %132 = fdiv float %122, %sqrt.i.i
+  %133 = fdiv float %124, %sqrt.i.i
+  %134 = fdiv float %126, %sqrt.i.i
   br label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
-_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %121, %132
-  %.sroa.7.0 = phi float [ %135, %132 ], [ %127, %121 ]
-  %.sroa.4.0 = phi float [ %134, %132 ], [ %125, %121 ]
-  %.sroa.0.0 = phi float [ %133, %132 ], [ %123, %121 ]
-  %136 = load ptr, ptr %120, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %138, i64 %indvars.iv33
-  store float %.sroa.0.0, ptr %139, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 4
+_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %120, %131
+  %.sroa.7.0 = phi float [ %134, %131 ], [ %126, %120 ]
+  %.sroa.4.0 = phi float [ %133, %131 ], [ %124, %120 ]
+  %.sroa.0.0 = phi float [ %132, %131 ], [ %122, %120 ]
+  %135 = load ptr, ptr %119, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %137, i64 %indvars.iv33
+  store float %.sroa.0.0, ptr %138, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 4
   store float %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %140 = load i32, ptr %16, align 8
-  %141 = sext i32 %140 to i64
-  %142 = icmp slt i64 %indvars.iv.next34, %141
-  br i1 %142, label %121, label %._crit_edge31, !llvm.loop !74
+  %139 = load i32, ptr %16, align 8
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %indvars.iv.next34, %140
+  br i1 %141, label %120, label %._crit_edge31, !llvm.loop !74
 
 ._crit_edge31:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit
-  %143 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %143(i32 noundef 36160, i32 noundef 0)
+  %142 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %142(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %10) #27
   ret void
 }

@@ -38060,16 +38060,16 @@ define internal void @"_ZNSt17_Function_handlerIFviRN5Eigen6MatrixIdLi6ELi1ELi0E
   %53 = load i32, ptr %52, align 4, !tbaa !104
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds nuw %"class.Eigen::Matrix.193", ptr %.val.i.i.i, i64 %54
-  %.sroa.021.0.copyload.i.i.i.i11 = load <1 x double>, ptr %55, align 8
+  %.sroa.021.0.copyload.i.i.i.i24 = load <1 x double>, ptr %55, align 8
   %.sroa.422.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.sroa.422.0.copyload.i.i.i.i12 = load <1 x double>, ptr %.sroa.422.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.422.0.copyload.i.i.i.i25 = load <1 x double>, ptr %.sroa.422.0..sroa_idx.i.i.i.i, align 8
   %.sroa.523.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.523.0.copyload.i.i.i.i = load double, ptr %.sroa.523.0..sroa_idx.i.i.i.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.034.i.i.i.i)
   %.sroa.0.i.i.i.i.sroa.6.24.vec.insert = insertelement <2 x double> poison, double %.sroa.523.0.copyload.i.i.i.i, i64 0
-  %56 = shufflevector <1 x double> %.sroa.021.0.copyload.i.i.i.i11, <1 x double> poison, <2 x i32> zeroinitializer
+  %56 = shufflevector <1 x double> %.sroa.021.0.copyload.i.i.i.i24, <1 x double> poison, <2 x i32> zeroinitializer
   %57 = fmul <2 x double> %27, %56
-  %58 = shufflevector <1 x double> %.sroa.422.0.copyload.i.i.i.i12, <1 x double> poison, <2 x i32> zeroinitializer
+  %58 = shufflevector <1 x double> %.sroa.422.0.copyload.i.i.i.i25, <1 x double> poison, <2 x i32> zeroinitializer
   %59 = fmul <2 x double> %31, %58
   %60 = fadd <2 x double> %57, %59
   %61 = shufflevector <2 x double> %.sroa.0.i.i.i.i.sroa.6.24.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer

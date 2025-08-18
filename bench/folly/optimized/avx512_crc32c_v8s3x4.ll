@@ -52,7 +52,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %.1228 = phi i64 [ %27, %21 ], [ %.0227.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %26, %21 ], [ %.0.lcssa, %._crit_edge ]
   %29 = icmp ugt i64 %.1228, 223
-  br i1 %29, label %30, label %287
+  br i1 %29, label %30, label %286
 
 30:                                               ; preds = %28
   %31 = udiv i64 %.1228, 224
@@ -437,52 +437,52 @@ _ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.pr
   %281 = extractelement <2 x i64> %185, i64 0
   %282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %281)
   %shift = shufflevector <2 x i64> %185, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %283 = xor <2 x i64> %280, %shift
-  %284 = extractelement <2 x i64> %283, i64 0
-  %285 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %282, i64 %284)
-  %286 = trunc nuw i64 %285 to i32
-  br label %287
+  %foldExtExtBinop = xor <2 x i64> %280, %shift
+  %283 = extractelement <2 x i64> %foldExtExtBinop, i64 0
+  %284 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %282, i64 %283)
+  %285 = trunc nuw i64 %284 to i32
+  br label %286
 
-287:                                              ; preds = %_ZN5folly6detailL6xnmodpEm.exit287, %28
-  %.2237 = phi i32 [ %286, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1236, %28 ]
+286:                                              ; preds = %_ZN5folly6detailL6xnmodpEm.exit287, %28
+  %.2237 = phi i32 [ %285, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1236, %28 ]
   %.2229 = phi i64 [ %.3230.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1228, %28 ]
   %.2 = phi ptr [ %.0243.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1, %28 ]
-  %288 = icmp samesign ugt i64 %.2229, 7
-  br i1 %288, label %.lr.ph347, label %.preheader
+  %287 = icmp samesign ugt i64 %.2229, 7
+  br i1 %287, label %.lr.ph347, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph347, %287
-  %.4239.lcssa = phi i32 [ %.2237, %287 ], [ %292, %.lr.ph347 ]
-  %.4231.lcssa = phi i64 [ %.2229, %287 ], [ %294, %.lr.ph347 ]
-  %.4.lcssa = phi ptr [ %.2, %287 ], [ %293, %.lr.ph347 ]
+.preheader:                                       ; preds = %.lr.ph347, %286
+  %.4239.lcssa = phi i32 [ %.2237, %286 ], [ %291, %.lr.ph347 ]
+  %.4231.lcssa = phi i64 [ %.2229, %286 ], [ %293, %.lr.ph347 ]
+  %.4.lcssa = phi ptr [ %.2, %286 ], [ %292, %.lr.ph347 ]
   %.not351 = icmp eq i64 %.4231.lcssa, 0
   br i1 %.not351, label %._crit_edge356, label %.lr.ph355
 
-.lr.ph347:                                        ; preds = %287, %.lr.ph347
-  %.4345 = phi ptr [ %293, %.lr.ph347 ], [ %.2, %287 ]
-  %.4231344 = phi i64 [ %294, %.lr.ph347 ], [ %.2229, %287 ]
-  %.4239343 = phi i32 [ %292, %.lr.ph347 ], [ %.2237, %287 ]
-  %289 = zext i32 %.4239343 to i64
-  %290 = load i64, ptr %.4345, align 8, !tbaa !12
-  %291 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %289, i64 %290)
-  %292 = trunc nuw i64 %291 to i32
-  %293 = getelementptr inbounds nuw i8, ptr %.4345, i64 8
-  %294 = add nsw i64 %.4231344, -8
-  %295 = icmp ugt i64 %294, 7
-  br i1 %295, label %.lr.ph347, label %.preheader, !llvm.loop !18
+.lr.ph347:                                        ; preds = %286, %.lr.ph347
+  %.4345 = phi ptr [ %292, %.lr.ph347 ], [ %.2, %286 ]
+  %.4231344 = phi i64 [ %293, %.lr.ph347 ], [ %.2229, %286 ]
+  %.4239343 = phi i32 [ %291, %.lr.ph347 ], [ %.2237, %286 ]
+  %288 = zext i32 %.4239343 to i64
+  %289 = load i64, ptr %.4345, align 8, !tbaa !12
+  %290 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %288, i64 %289)
+  %291 = trunc nuw i64 %290 to i32
+  %292 = getelementptr inbounds nuw i8, ptr %.4345, i64 8
+  %293 = add nsw i64 %.4231344, -8
+  %294 = icmp ugt i64 %293, 7
+  br i1 %294, label %.lr.ph347, label %.preheader, !llvm.loop !18
 
 .lr.ph355:                                        ; preds = %.preheader, %.lr.ph355
-  %.5354 = phi ptr [ %296, %.lr.ph355 ], [ %.4.lcssa, %.preheader ]
-  %.5232353 = phi i64 [ %299, %.lr.ph355 ], [ %.4231.lcssa, %.preheader ]
-  %.5240352 = phi i32 [ %298, %.lr.ph355 ], [ %.4239.lcssa, %.preheader ]
-  %296 = getelementptr inbounds nuw i8, ptr %.5354, i64 1
-  %297 = load i8, ptr %.5354, align 1, !tbaa !7
-  %298 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.5240352, i8 %297)
-  %299 = add nsw i64 %.5232353, -1
-  %.not = icmp eq i64 %299, 0
+  %.5354 = phi ptr [ %295, %.lr.ph355 ], [ %.4.lcssa, %.preheader ]
+  %.5232353 = phi i64 [ %298, %.lr.ph355 ], [ %.4231.lcssa, %.preheader ]
+  %.5240352 = phi i32 [ %297, %.lr.ph355 ], [ %.4239.lcssa, %.preheader ]
+  %295 = getelementptr inbounds nuw i8, ptr %.5354, i64 1
+  %296 = load i8, ptr %.5354, align 1, !tbaa !7
+  %297 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.5240352, i8 %296)
+  %298 = add nsw i64 %.5232353, -1
+  %.not = icmp eq i64 %298, 0
   br i1 %.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !19
 
 ._crit_edge356:                                   ; preds = %.lr.ph355, %.preheader
-  %.5240.lcssa = phi i32 [ %.4239.lcssa, %.preheader ], [ %298, %.lr.ph355 ]
+  %.5240.lcssa = phi i32 [ %.4239.lcssa, %.preheader ], [ %297, %.lr.ph355 ]
   ret i32 %.5240.lcssa
 }
 

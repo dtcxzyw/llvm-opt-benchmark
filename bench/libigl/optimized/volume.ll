@@ -793,14 +793,14 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELin1ELi0ELin
   %67 = fsub <2 x double> %.sroa.0.8.vec.insert, %.sroa.063.8.vec.insert
   %68 = fmul <2 x double> %67, %.sroa.031.8.vec.insert
   %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fadd <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fsub double %24, %51
-  %72 = fmul double %71, %66
-  %73 = fadd double %72, %70
-  %74 = fdiv double %73, -6.000000e+00
-  %75 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %74, ptr %75, align 8, !tbaa !42
+  %foldExtExtBinop = fadd <2 x double> %68, %shift
+  %69 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %70 = fsub double %24, %51
+  %71 = fmul double %70, %66
+  %72 = fadd double %71, %69
+  %73 = fdiv double %72, -6.000000e+00
+  %74 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %73, ptr %74, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !75
@@ -845,15 +845,15 @@ define weak_odr dso_local noundef double @_ZN3igl13volume_singleIN5Eigen6MatrixI
   %37 = fsub <2 x double> %35, %36
   %38 = fmul <2 x double> %37, %.sroa.09.8.vec.insert
   %shift = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %39 = fadd <2 x double> %38, %shift
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load double, ptr %41, align 8, !tbaa !42
-  %43 = fsub double %42, %13
-  %44 = fmul double %34, %43
-  %45 = fadd double %44, %40
-  %46 = fdiv double %45, -6.000000e+00
-  ret double %46
+  %foldExtExtBinop = fadd <2 x double> %38, %shift
+  %39 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load double, ptr %40, align 8, !tbaa !42
+  %42 = fsub double %41, %13
+  %43 = fmul double %34, %42
+  %44 = fadd double %43, %39
+  %45 = fdiv double %44, -6.000000e+00
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -945,14 +945,14 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1
   %67 = fsub <2 x double> %.sroa.0.8.vec.insert, %.sroa.060.8.vec.insert
   %68 = fmul <2 x double> %67, %.sroa.031.8.vec.insert
   %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fadd <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fsub double %24, %51
-  %72 = fmul double %71, %66
-  %73 = fadd double %72, %70
-  %74 = fdiv double %73, -6.000000e+00
-  %75 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %74, ptr %75, align 8, !tbaa !42
+  %foldExtExtBinop = fadd <2 x double> %68, %shift
+  %69 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %70 = fsub double %24, %51
+  %71 = fmul double %70, %66
+  %72 = fadd double %71, %69
+  %73 = fdiv double %72, -6.000000e+00
+  %74 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %73, ptr %74, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !85
@@ -1047,14 +1047,14 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1
   %67 = fsub <2 x double> %.sroa.0.8.vec.insert, %.sroa.060.8.vec.insert
   %68 = fmul <2 x double> %67, %.sroa.031.8.vec.insert
   %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fadd <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fsub double %24, %51
-  %72 = fmul double %71, %66
-  %73 = fadd double %72, %70
-  %74 = fdiv double %73, -6.000000e+00
-  %75 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %74, ptr %75, align 8, !tbaa !42
+  %foldExtExtBinop = fadd <2 x double> %68, %shift
+  %69 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %70 = fsub double %24, %51
+  %71 = fmul double %70, %66
+  %72 = fadd double %71, %69
+  %73 = fdiv double %72, -6.000000e+00
+  %74 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %73, ptr %74, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !89
@@ -1120,38 +1120,38 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELin1ELi1ELin
   %45 = load <2 x double>, ptr %44, align 1, !tbaa !65
   %46 = getelementptr i8, ptr %44, i64 16
   %47 = load double, ptr %46, align 8, !tbaa !42
-  %48 = fsub <2 x double> %29, %45
-  %49 = extractelement <2 x double> %48, i64 1
-  %50 = fsub double %39, %47
-  %51 = fsub double %31, %47
-  %52 = fsub <2 x double> %37, %45
-  %53 = extractelement <2 x double> %52, i64 1
-  %54 = fneg double %53
-  %55 = fmul double %51, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %49, double %50, double %55)
-  %57 = fsub <2 x double> %37, %45
-  %58 = extractelement <2 x double> %57, i64 0
-  %59 = fsub <2 x double> %29, %45
-  %60 = extractelement <2 x double> %59, i64 0
-  %61 = fneg double %50
-  %62 = fmul double %60, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %51, double %58, double %62)
-  %64 = fneg double %58
-  %65 = fmul double %49, %64
-  %66 = tail call double @llvm.fmuladd.f64(double %60, double %53, double %65)
-  %.sroa.028.0.vec.insert = insertelement <2 x double> poison, double %56, i64 0
-  %.sroa.028.8.vec.insert = insertelement <2 x double> %.sroa.028.0.vec.insert, double %63, i64 1
-  %67 = fsub <2 x double> %21, %45
-  %68 = fmul <2 x double> %67, %.sroa.028.8.vec.insert
-  %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fadd <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fsub double %23, %47
-  %72 = fmul double %71, %66
-  %73 = fadd double %72, %70
-  %74 = fdiv double %73, -6.000000e+00
-  %75 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %74, ptr %75, align 8, !tbaa !42
+  %foldExtExtBinop = fsub <2 x double> %29, %45
+  %48 = extractelement <2 x double> %foldExtExtBinop, i64 1
+  %49 = fsub double %39, %47
+  %50 = fsub double %31, %47
+  %foldExtExtBinop74 = fsub <2 x double> %37, %45
+  %51 = extractelement <2 x double> %foldExtExtBinop74, i64 1
+  %52 = fneg double %51
+  %53 = fmul double %50, %52
+  %54 = tail call double @llvm.fmuladd.f64(double %48, double %49, double %53)
+  %foldExtExtBinop76 = fsub <2 x double> %37, %45
+  %55 = extractelement <2 x double> %foldExtExtBinop76, i64 0
+  %foldExtExtBinop78 = fsub <2 x double> %29, %45
+  %56 = extractelement <2 x double> %foldExtExtBinop78, i64 0
+  %57 = fneg double %49
+  %58 = fmul double %56, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %58)
+  %60 = fneg double %55
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %56, double %51, double %61)
+  %.sroa.028.0.vec.insert = insertelement <2 x double> poison, double %54, i64 0
+  %.sroa.028.8.vec.insert = insertelement <2 x double> %.sroa.028.0.vec.insert, double %59, i64 1
+  %63 = fsub <2 x double> %21, %45
+  %64 = fmul <2 x double> %63, %.sroa.028.8.vec.insert
+  %shift = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop80 = fadd <2 x double> %64, %shift
+  %65 = extractelement <2 x double> %foldExtExtBinop80, i64 0
+  %66 = fsub double %23, %47
+  %67 = fmul double %66, %62
+  %68 = fadd double %67, %65
+  %69 = fdiv double %68, -6.000000e+00
+  %70 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %69, ptr %70, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !96
@@ -1246,14 +1246,14 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1
   %67 = fsub <2 x double> %.sroa.0.8.vec.insert, %.sroa.060.8.vec.insert
   %68 = fmul <2 x double> %67, %.sroa.031.8.vec.insert
   %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fadd <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fsub double %24, %51
-  %72 = fmul double %71, %66
-  %73 = fadd double %72, %70
-  %74 = fdiv double %73, -6.000000e+00
-  %75 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %74, ptr %75, align 8, !tbaa !42
+  %foldExtExtBinop = fadd <2 x double> %68, %shift
+  %69 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %70 = fsub double %24, %51
+  %71 = fmul double %70, %66
+  %72 = fadd double %71, %69
+  %73 = fdiv double %72, -6.000000e+00
+  %74 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %73, ptr %74, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !103
@@ -1315,38 +1315,38 @@ define weak_odr dso_local void @_ZN3igl6volumeIN5Eigen6MatrixIdLin1ELi3ELi1ELin1
   %38 = load <2 x double>, ptr %37, align 1, !tbaa !65
   %39 = getelementptr i8, ptr %37, i64 16
   %40 = load double, ptr %39, align 8, !tbaa !42
-  %41 = fsub <2 x double> %24, %38
-  %42 = extractelement <2 x double> %41, i64 1
-  %43 = fsub double %33, %40
-  %44 = fsub double %26, %40
-  %45 = fsub <2 x double> %31, %38
-  %46 = extractelement <2 x double> %45, i64 1
-  %47 = fneg double %46
-  %48 = fmul double %44, %47
-  %49 = tail call double @llvm.fmuladd.f64(double %42, double %43, double %48)
-  %50 = fsub <2 x double> %31, %38
-  %51 = extractelement <2 x double> %50, i64 0
-  %52 = fsub <2 x double> %24, %38
-  %53 = extractelement <2 x double> %52, i64 0
-  %54 = fneg double %43
-  %55 = fmul double %53, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %44, double %51, double %55)
-  %57 = fneg double %51
-  %58 = fmul double %42, %57
-  %59 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %58)
-  %.sroa.034.0.vec.insert = insertelement <2 x double> poison, double %49, i64 0
-  %.sroa.034.8.vec.insert = insertelement <2 x double> %.sroa.034.0.vec.insert, double %56, i64 1
-  %60 = fsub <2 x double> %17, %38
-  %61 = fmul <2 x double> %60, %.sroa.034.8.vec.insert
-  %shift = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %62 = fadd <2 x double> %61, %shift
-  %63 = extractelement <2 x double> %62, i64 0
-  %64 = fsub double %19, %40
-  %65 = fmul double %64, %59
-  %66 = fadd double %65, %63
-  %67 = fdiv double %66, -6.000000e+00
-  %68 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double %67, ptr %68, align 8, !tbaa !42
+  %foldExtExtBinop = fsub <2 x double> %24, %38
+  %41 = extractelement <2 x double> %foldExtExtBinop, i64 1
+  %42 = fsub double %33, %40
+  %43 = fsub double %26, %40
+  %foldExtExtBinop76 = fsub <2 x double> %31, %38
+  %44 = extractelement <2 x double> %foldExtExtBinop76, i64 1
+  %45 = fneg double %44
+  %46 = fmul double %43, %45
+  %47 = tail call double @llvm.fmuladd.f64(double %41, double %42, double %46)
+  %foldExtExtBinop78 = fsub <2 x double> %31, %38
+  %48 = extractelement <2 x double> %foldExtExtBinop78, i64 0
+  %foldExtExtBinop80 = fsub <2 x double> %24, %38
+  %49 = extractelement <2 x double> %foldExtExtBinop80, i64 0
+  %50 = fneg double %42
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %43, double %48, double %51)
+  %53 = fneg double %48
+  %54 = fmul double %41, %53
+  %55 = tail call double @llvm.fmuladd.f64(double %49, double %44, double %54)
+  %.sroa.034.0.vec.insert = insertelement <2 x double> poison, double %47, i64 0
+  %.sroa.034.8.vec.insert = insertelement <2 x double> %.sroa.034.0.vec.insert, double %52, i64 1
+  %56 = fsub <2 x double> %17, %38
+  %57 = fmul <2 x double> %56, %.sroa.034.8.vec.insert
+  %shift = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop82 = fadd <2 x double> %57, %shift
+  %58 = extractelement <2 x double> %foldExtExtBinop82, i64 0
+  %59 = fsub double %19, %40
+  %60 = fmul double %59, %55
+  %61 = fadd double %60, %58
+  %62 = fdiv double %61, -6.000000e+00
+  %63 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  store double %62, ptr %63, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !112

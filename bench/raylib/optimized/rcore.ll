@@ -24345,30 +24345,30 @@ define <2 x float> @Vector2SubtractValue(<2 x float> %0, float noundef %1) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector2Length(<2 x float> %0) local_unnamed_addr #16 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %2 = fmul <2 x float> %0, %0
-  %3 = extractelement <2 x float> %2, i64 1
-  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
-  %sqrt = tail call float @llvm.sqrt.f32(float %4)
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %2 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %3 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %2)
+  %sqrt = tail call float @llvm.sqrt.f32(float %3)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector2LengthSqr(<2 x float> %0) local_unnamed_addr #16 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %2 = fmul <2 x float> %0, %0
-  %3 = extractelement <2 x float> %2, i64 1
-  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
-  ret float %4
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %2 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %3 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %2)
+  ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector2DotProduct(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
   %.sroa.01.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %3 = fmul <2 x float> %0, %1
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.0.0.vec.extract, float %4)
-  ret float %5
+  %foldExtExtBinop = fmul <2 x float> %0, %1
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
+  ret float %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -24385,25 +24385,25 @@ define float @Vector2CrossProduct(<2 x float> %0, <2 x float> %1) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector2Distance(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
-  %3 = fsub <2 x float> %0, %1
-  %4 = extractelement <2 x float> %3, i64 0
-  %5 = fsub <2 x float> %0, %1
-  %6 = fmul <2 x float> %5, %5
-  %7 = extractelement <2 x float> %6, i64 1
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %7)
-  %sqrt = tail call float @llvm.sqrt.f32(float %8)
+  %foldExtExtBinop = fsub <2 x float> %0, %1
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop11 = fsub <2 x float> %0, %1
+  %foldExtExtBinop13 = fmul <2 x float> %foldExtExtBinop11, %foldExtExtBinop11
+  %4 = extractelement <2 x float> %foldExtExtBinop13, i64 1
+  %5 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %4)
+  %sqrt = tail call float @llvm.sqrt.f32(float %5)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector2DistanceSqr(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
-  %3 = fsub <2 x float> %0, %1
-  %4 = extractelement <2 x float> %3, i64 0
-  %5 = fsub <2 x float> %0, %1
-  %6 = fmul <2 x float> %5, %5
-  %7 = extractelement <2 x float> %6, i64 1
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %7)
-  ret float %8
+  %foldExtExtBinop = fsub <2 x float> %0, %1
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop11 = fsub <2 x float> %0, %1
+  %foldExtExtBinop13 = fmul <2 x float> %foldExtExtBinop11, %foldExtExtBinop11
+  %4 = extractelement <2 x float> %foldExtExtBinop13, i64 1
+  %5 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %4)
+  ret float %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
@@ -24426,13 +24426,13 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define float @Vector2LineAngle(<2 x float> %0, <2 x float> %1) local_unnamed_addr #17 {
-  %3 = fsub <2 x float> %1, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = fsub <2 x float> %1, %0
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = tail call float @atan2f(float noundef %4, float noundef %6) #60
-  %8 = fneg float %7
-  ret float %8
+  %foldExtExtBinop = fsub <2 x float> %1, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %foldExtExtBinop3 = fsub <2 x float> %1, %0
+  %4 = extractelement <2 x float> %foldExtExtBinop3, i64 0
+  %5 = tail call float @atan2f(float noundef %3, float noundef %4) #60
+  %6 = fneg float %5
+  ret float %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -24532,15 +24532,15 @@ define <2 x float> @Vector2Transform(<2 x float> %0, ptr noundef readonly byval(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @Vector2Lerp(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #16 {
   %.sroa.02.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %4 = fsub <2 x float> %1, %0
-  %5 = extractelement <2 x float> %4, i64 0
-  %6 = tail call float @llvm.fmuladd.f32(float %2, float %5, float %.sroa.02.0.vec.extract)
-  %.sroa.07.0.vec.insert = insertelement <2 x float> poison, float %6, i64 0
+  %foldExtExtBinop = fsub <2 x float> %1, %0
+  %4 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %5 = tail call float @llvm.fmuladd.f32(float %2, float %4, float %.sroa.02.0.vec.extract)
+  %.sroa.07.0.vec.insert = insertelement <2 x float> poison, float %5, i64 0
   %.sroa.02.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %7 = fsub <2 x float> %1, %0
-  %8 = extractelement <2 x float> %7, i64 1
-  %9 = tail call float @llvm.fmuladd.f32(float %2, float %8, float %.sroa.02.4.vec.extract)
-  %.sroa.07.4.vec.insert = insertelement <2 x float> %.sroa.07.0.vec.insert, float %9, i64 1
+  %foldExtExtBinop10 = fsub <2 x float> %1, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop10, i64 1
+  %7 = tail call float @llvm.fmuladd.f32(float %2, float %6, float %.sroa.02.4.vec.extract)
+  %.sroa.07.4.vec.insert = insertelement <2 x float> %.sroa.07.0.vec.insert, float %7, i64 1
   ret <2 x float> %.sroa.07.4.vec.insert
 }
 
@@ -24609,35 +24609,35 @@ define <2 x float> @Vector2Rotate(<2 x float> %0, float noundef %1) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @Vector2MoveTowards(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #16 {
   %.sroa.017.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %4 = fsub <2 x float> %1, %0
-  %5 = extractelement <2 x float> %4, i64 0
+  %foldExtExtBinop = fsub <2 x float> %1, %0
+  %4 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.017.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %6 = fsub <2 x float> %1, %0
-  %7 = extractelement <2 x float> %6, i64 1
-  %8 = fmul float %7, %7
-  %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
-  %10 = fcmp oeq float %9, 0.000000e+00
-  br i1 %10, label %20, label %11
+  %foldExtExtBinop27 = fsub <2 x float> %1, %0
+  %5 = extractelement <2 x float> %foldExtExtBinop27, i64 1
+  %6 = fmul float %5, %5
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %6)
+  %8 = fcmp oeq float %7, 0.000000e+00
+  br i1 %8, label %18, label %9
 
-11:                                               ; preds = %3
-  %12 = fcmp ult float %2, 0.000000e+00
-  %13 = fmul float %2, %2
-  %14 = fcmp ugt float %9, %13
-  %or.cond = or i1 %12, %14
-  br i1 %or.cond, label %15, label %20
+9:                                                ; preds = %3
+  %10 = fcmp ult float %2, 0.000000e+00
+  %11 = fmul float %2, %2
+  %12 = fcmp ugt float %7, %11
+  %or.cond = or i1 %10, %12
+  br i1 %or.cond, label %13, label %18
 
-15:                                               ; preds = %11
-  %sqrt = tail call float @llvm.sqrt.f32(float %9)
+13:                                               ; preds = %9
+  %sqrt = tail call float @llvm.sqrt.f32(float %7)
+  %14 = fdiv float %4, %sqrt
+  %15 = tail call float @llvm.fmuladd.f32(float %14, float %2, float %.sroa.017.0.vec.extract)
   %16 = fdiv float %5, %sqrt
-  %17 = tail call float @llvm.fmuladd.f32(float %16, float %2, float %.sroa.017.0.vec.extract)
-  %18 = fdiv float %7, %sqrt
-  %19 = tail call float @llvm.fmuladd.f32(float %18, float %2, float %.sroa.017.4.vec.extract)
-  %.sroa.022.0.vec.insert = insertelement <2 x float> poison, float %17, i64 0
-  %.sroa.022.4.vec.insert = insertelement <2 x float> %.sroa.022.0.vec.insert, float %19, i64 1
-  br label %20
+  %17 = tail call float @llvm.fmuladd.f32(float %16, float %2, float %.sroa.017.4.vec.extract)
+  %.sroa.022.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
+  %.sroa.022.4.vec.insert = insertelement <2 x float> %.sroa.022.0.vec.insert, float %17, i64 1
+  br label %18
 
-20:                                               ; preds = %3, %11, %15
-  %.sroa.022.0 = phi <2 x float> [ %.sroa.022.4.vec.insert, %15 ], [ %1, %11 ], [ %1, %3 ]
+18:                                               ; preds = %3, %9, %13
+  %.sroa.022.0 = phi <2 x float> [ %.sroa.022.4.vec.insert, %13 ], [ %1, %9 ], [ %1, %3 ]
   ret <2 x float> %.sroa.022.0
 }
 
@@ -24712,34 +24712,34 @@ define <2 x float> @Vector2ClampValue(<2 x float> %0, float noundef %1, float no
 define range(i32 0, 2) i32 @Vector2Equals(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
   %.sroa.05.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %3 = fsub <2 x float> %0, %1
-  %4 = extractelement <2 x float> %3, i64 0
-  %5 = tail call float @llvm.fabs.f32(float %4)
-  %6 = tail call float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
-  %7 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %8 = tail call float @llvm.maxnum.f32(float %6, float %7)
-  %9 = tail call float @llvm.maxnum.f32(float %8, float 1.000000e+00)
-  %10 = fmul float %9, 0x3EB0C6F7A0000000
-  %11 = fcmp ugt float %5, %10
-  br i1 %11, label %22, label %12
+  %foldExtExtBinop = fsub <2 x float> %0, %1
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %4 = tail call float @llvm.fabs.f32(float %3)
+  %5 = tail call float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
+  %6 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
+  %7 = tail call float @llvm.maxnum.f32(float %5, float %6)
+  %8 = tail call float @llvm.maxnum.f32(float %7, float 1.000000e+00)
+  %9 = fmul float %8, 0x3EB0C6F7A0000000
+  %10 = fcmp ugt float %4, %9
+  br i1 %10, label %21, label %11
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   %.sroa.05.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %13 = fsub float %.sroa.05.4.vec.extract, %.sroa.0.4.vec.extract
-  %14 = tail call float @llvm.fabs.f32(float %13)
-  %15 = tail call float @llvm.fabs.f32(float %.sroa.05.4.vec.extract)
-  %16 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %17 = tail call float @llvm.maxnum.f32(float %15, float %16)
-  %18 = tail call float @llvm.maxnum.f32(float %17, float 1.000000e+00)
-  %19 = fmul float %18, 0x3EB0C6F7A0000000
-  %20 = fcmp ole float %14, %19
-  %21 = zext i1 %20 to i32
-  br label %22
+  %12 = fsub float %.sroa.05.4.vec.extract, %.sroa.0.4.vec.extract
+  %13 = tail call float @llvm.fabs.f32(float %12)
+  %14 = tail call float @llvm.fabs.f32(float %.sroa.05.4.vec.extract)
+  %15 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
+  %16 = tail call float @llvm.maxnum.f32(float %14, float %15)
+  %17 = tail call float @llvm.maxnum.f32(float %16, float 1.000000e+00)
+  %18 = fmul float %17, 0x3EB0C6F7A0000000
+  %19 = fcmp ole float %13, %18
+  %20 = zext i1 %19 to i32
+  br label %21
 
-22:                                               ; preds = %12, %2
-  %23 = phi i32 [ 0, %2 ], [ %21, %12 ]
-  ret i32 %23
+21:                                               ; preds = %11, %2
+  %22 = phi i32 [ 0, %2 ], [ %20, %11 ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
@@ -24911,60 +24911,60 @@ define { <2 x float>, float } @Vector3Perpendicular(<2 x float> %0, float %1) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector3Length(<2 x float> %0, float %1) local_unnamed_addr #16 {
   %.sroa.01.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = fmul <2 x float> %0, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.01.0.vec.extract, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %5)
-  %sqrt = tail call float @llvm.sqrt.f32(float %6)
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.01.0.vec.extract, float %3)
+  %5 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %4)
+  %sqrt = tail call float @llvm.sqrt.f32(float %5)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector3LengthSqr(<2 x float> %0, float %1) local_unnamed_addr #16 {
   %.sroa.01.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = fmul <2 x float> %0, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.01.0.vec.extract, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %5)
-  ret float %6
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.01.0.vec.extract, float %3)
+  %5 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %4)
+  ret float %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector3DotProduct(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
   %.sroa.04.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.01.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %5 = fmul <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.04.0.vec.extract, float %.sroa.01.0.vec.extract, float %6)
-  %8 = tail call float @llvm.fmuladd.f32(float %1, float %3, float %7)
-  ret float %8
+  %foldExtExtBinop = fmul <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.04.0.vec.extract, float %.sroa.01.0.vec.extract, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %1, float %3, float %6)
+  ret float %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector3Distance(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %2, %0
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = fsub <2 x float> %2, %0
-  %8 = fsub float %3, %1
-  %9 = fmul <2 x float> %7, %7
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %10)
-  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
-  %sqrt = tail call float @llvm.sqrt.f32(float %12)
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop13 = fsub <2 x float> %2, %0
+  %6 = fsub float %3, %1
+  %foldExtExtBinop15 = fmul <2 x float> %foldExtExtBinop13, %foldExtExtBinop13
+  %7 = extractelement <2 x float> %foldExtExtBinop15, i64 1
+  %8 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %7)
+  %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
+  %sqrt = tail call float @llvm.sqrt.f32(float %9)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector3DistanceSqr(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %2, %0
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = fsub <2 x float> %2, %0
-  %8 = fsub float %3, %1
-  %9 = fmul <2 x float> %7, %7
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %10)
-  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
-  ret float %12
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop13 = fsub <2 x float> %2, %0
+  %6 = fsub float %3, %1
+  %foldExtExtBinop15 = fmul <2 x float> %foldExtExtBinop13, %foldExtExtBinop13
+  %7 = extractelement <2 x float> %foldExtExtBinop15, i64 1
+  %8 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %7)
+  %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
+  ret float %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
@@ -25054,21 +25054,21 @@ define { <2 x float>, float } @Vector3Project(<2 x float> %0, float %1, <2 x flo
   %.sroa.025.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.07.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.07.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %5 = fmul <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.025.0.vec.extract, float %.sroa.07.0.vec.extract, float %6)
-  %8 = tail call float @llvm.fmuladd.f32(float %1, float %3, float %7)
-  %9 = fmul float %.sroa.07.4.vec.extract, %.sroa.07.4.vec.extract
-  %10 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract, float %.sroa.07.0.vec.extract, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %10)
-  %12 = fdiv float %8, %11
-  %13 = fmul float %.sroa.07.0.vec.extract, %12
-  %.sroa.026.0.vec.insert = insertelement <2 x float> poison, float %13, i64 0
-  %14 = fmul float %.sroa.07.4.vec.extract, %12
-  %.sroa.026.4.vec.insert = insertelement <2 x float> %.sroa.026.0.vec.insert, float %14, i64 1
-  %15 = fmul float %3, %12
+  %foldExtExtBinop = fmul <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.025.0.vec.extract, float %.sroa.07.0.vec.extract, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %1, float %3, float %6)
+  %8 = fmul float %.sroa.07.4.vec.extract, %.sroa.07.4.vec.extract
+  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract, float %.sroa.07.0.vec.extract, float %8)
+  %10 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %9)
+  %11 = fdiv float %7, %10
+  %12 = fmul float %.sroa.07.0.vec.extract, %11
+  %.sroa.026.0.vec.insert = insertelement <2 x float> poison, float %12, i64 0
+  %13 = fmul float %.sroa.07.4.vec.extract, %11
+  %.sroa.026.4.vec.insert = insertelement <2 x float> %.sroa.026.0.vec.insert, float %13, i64 1
+  %14 = fmul float %3, %11
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.026.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %15, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %14, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -25318,40 +25318,40 @@ define { <2 x float>, float } @Vector3RotateByAxisAngle(<2 x float> %0, float %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3MoveTowards(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.027.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.027.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %8 = fsub <2 x float> %2, %0
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = fsub float %3, %1
-  %11 = fmul float %9, %9
-  %12 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %11)
-  %13 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %12)
-  %14 = fcmp oeq float %13, 0.000000e+00
-  br i1 %14, label %26, label %15
+  %foldExtExtBinop40 = fsub <2 x float> %2, %0
+  %7 = extractelement <2 x float> %foldExtExtBinop40, i64 1
+  %8 = fsub float %3, %1
+  %9 = fmul float %7, %7
+  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
+  %11 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %10)
+  %12 = fcmp oeq float %11, 0.000000e+00
+  br i1 %12, label %24, label %13
 
-15:                                               ; preds = %5
-  %16 = fcmp ult float %4, 0.000000e+00
-  %17 = fmul float %4, %4
-  %18 = fcmp ugt float %13, %17
-  %or.cond = or i1 %16, %18
-  br i1 %or.cond, label %19, label %26
+13:                                               ; preds = %5
+  %14 = fcmp ult float %4, 0.000000e+00
+  %15 = fmul float %4, %4
+  %16 = fcmp ugt float %11, %15
+  %or.cond = or i1 %14, %16
+  br i1 %or.cond, label %17, label %24
 
-19:                                               ; preds = %15
-  %sqrt = tail call float @llvm.sqrt.f32(float %13)
+17:                                               ; preds = %13
+  %sqrt = tail call float @llvm.sqrt.f32(float %11)
+  %18 = fdiv float %6, %sqrt
+  %19 = tail call float @llvm.fmuladd.f32(float %18, float %4, float %.sroa.027.0.vec.extract)
   %20 = fdiv float %7, %sqrt
-  %21 = tail call float @llvm.fmuladd.f32(float %20, float %4, float %.sroa.027.0.vec.extract)
-  %22 = fdiv float %9, %sqrt
-  %23 = tail call float @llvm.fmuladd.f32(float %22, float %4, float %.sroa.027.4.vec.extract)
-  %24 = fdiv float %10, %sqrt
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %4, float %1)
-  %.sroa.034.0.vec.insert = insertelement <2 x float> poison, float %21, i64 0
-  %.sroa.034.4.vec.insert = insertelement <2 x float> %.sroa.034.0.vec.insert, float %23, i64 1
-  br label %26
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float %4, float %.sroa.027.4.vec.extract)
+  %22 = fdiv float %8, %sqrt
+  %23 = tail call float @llvm.fmuladd.f32(float %22, float %4, float %1)
+  %.sroa.034.0.vec.insert = insertelement <2 x float> poison, float %19, i64 0
+  %.sroa.034.4.vec.insert = insertelement <2 x float> %.sroa.034.0.vec.insert, float %21, i64 1
+  br label %24
 
-26:                                               ; preds = %5, %15, %19
-  %.sroa.034.0 = phi <2 x float> [ %.sroa.034.4.vec.insert, %19 ], [ %2, %15 ], [ %2, %5 ]
-  %.sroa.436.0 = phi float [ %25, %19 ], [ %3, %15 ], [ %3, %5 ]
+24:                                               ; preds = %5, %13, %17
+  %.sroa.034.0 = phi <2 x float> [ %.sroa.034.4.vec.insert, %17 ], [ %2, %13 ], [ %2, %5 ]
+  %.sroa.436.0 = phi float [ %23, %17 ], [ %3, %13 ], [ %3, %5 ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.436.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -25360,19 +25360,19 @@ define { <2 x float>, float } @Vector3MoveTowards(<2 x float> %0, float %1, <2 x
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3Lerp(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.08.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %.sroa.08.0.vec.extract)
-  %.sroa.014.0.vec.insert = insertelement <2 x float> poison, float %8, i64 0
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %.sroa.08.0.vec.extract)
+  %.sroa.014.0.vec.insert = insertelement <2 x float> poison, float %7, i64 0
   %.sroa.08.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %9 = fsub <2 x float> %2, %0
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.08.4.vec.extract)
-  %.sroa.014.4.vec.insert = insertelement <2 x float> %.sroa.014.0.vec.insert, float %11, i64 1
-  %12 = fsub float %3, %1
-  %13 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %1)
+  %foldExtExtBinop17 = fsub <2 x float> %2, %0
+  %8 = extractelement <2 x float> %foldExtExtBinop17, i64 1
+  %9 = tail call float @llvm.fmuladd.f32(float %4, float %8, float %.sroa.08.4.vec.extract)
+  %.sroa.014.4.vec.insert = insertelement <2 x float> %.sroa.014.0.vec.insert, float %9, i64 1
+  %10 = fsub float %3, %1
+  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %1)
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.014.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %13, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %11, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -25471,53 +25471,53 @@ define { <2 x float>, float } @Vector3Max(<2 x float> %0, float %1, <2 x float> 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3Barycenter(<2 x float> %0, float %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %6, float %7) local_unnamed_addr #16 {
-  %9 = fsub <2 x float> %4, %2
-  %10 = extractelement <2 x float> %9, i64 0
-  %11 = fsub <2 x float> %4, %2
-  %12 = extractelement <2 x float> %11, i64 1
-  %13 = fsub float %5, %3
-  %14 = fsub <2 x float> %6, %2
-  %15 = extractelement <2 x float> %14, i64 0
-  %16 = fsub <2 x float> %6, %2
-  %17 = extractelement <2 x float> %16, i64 1
-  %18 = fsub float %7, %3
-  %19 = fsub <2 x float> %0, %2
-  %20 = extractelement <2 x float> %19, i64 0
-  %21 = fsub <2 x float> %0, %2
-  %22 = extractelement <2 x float> %21, i64 1
-  %23 = fsub float %1, %3
-  %24 = fmul float %12, %12
-  %25 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %24)
-  %26 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %25)
-  %27 = fmul float %12, %17
-  %28 = tail call float @llvm.fmuladd.f32(float %10, float %15, float %27)
-  %29 = tail call float @llvm.fmuladd.f32(float %13, float %18, float %28)
-  %30 = fmul float %17, %17
-  %31 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %30)
-  %32 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %31)
-  %33 = fmul float %22, %12
-  %34 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %33)
-  %35 = tail call float @llvm.fmuladd.f32(float %23, float %13, float %34)
-  %36 = fmul float %22, %17
-  %37 = tail call float @llvm.fmuladd.f32(float %20, float %15, float %36)
-  %38 = tail call float @llvm.fmuladd.f32(float %23, float %18, float %37)
-  %39 = fneg float %29
-  %40 = fmul float %29, %39
-  %41 = tail call float @llvm.fmuladd.f32(float %26, float %32, float %40)
-  %42 = fneg float %38
-  %43 = fmul float %29, %42
-  %44 = tail call float @llvm.fmuladd.f32(float %32, float %35, float %43)
-  %45 = fdiv float %44, %41
-  %46 = fneg float %35
-  %47 = fmul float %29, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %26, float %38, float %47)
-  %49 = fdiv float %48, %41
-  %50 = fadd float %49, %45
-  %51 = fsub float 1.000000e+00, %50
-  %52 = insertelement <2 x float> poison, float %51, i64 0
-  %.sroa.065.0.vec.insert = insertelement <2 x float> %52, float %45, i64 1
+  %foldExtExtBinop = fsub <2 x float> %4, %2
+  %9 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop70 = fsub <2 x float> %4, %2
+  %10 = extractelement <2 x float> %foldExtExtBinop70, i64 1
+  %11 = fsub float %5, %3
+  %foldExtExtBinop72 = fsub <2 x float> %6, %2
+  %12 = extractelement <2 x float> %foldExtExtBinop72, i64 0
+  %foldExtExtBinop74 = fsub <2 x float> %6, %2
+  %13 = extractelement <2 x float> %foldExtExtBinop74, i64 1
+  %14 = fsub float %7, %3
+  %foldExtExtBinop76 = fsub <2 x float> %0, %2
+  %15 = extractelement <2 x float> %foldExtExtBinop76, i64 0
+  %foldExtExtBinop78 = fsub <2 x float> %0, %2
+  %16 = extractelement <2 x float> %foldExtExtBinop78, i64 1
+  %17 = fsub float %1, %3
+  %18 = fmul float %10, %10
+  %19 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %18)
+  %20 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %19)
+  %21 = fmul float %10, %13
+  %22 = tail call float @llvm.fmuladd.f32(float %9, float %12, float %21)
+  %23 = tail call float @llvm.fmuladd.f32(float %11, float %14, float %22)
+  %24 = fmul float %13, %13
+  %25 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %24)
+  %26 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %25)
+  %27 = fmul float %16, %10
+  %28 = tail call float @llvm.fmuladd.f32(float %15, float %9, float %27)
+  %29 = tail call float @llvm.fmuladd.f32(float %17, float %11, float %28)
+  %30 = fmul float %16, %13
+  %31 = tail call float @llvm.fmuladd.f32(float %15, float %12, float %30)
+  %32 = tail call float @llvm.fmuladd.f32(float %17, float %14, float %31)
+  %33 = fneg float %23
+  %34 = fmul float %23, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %20, float %26, float %34)
+  %36 = fneg float %32
+  %37 = fmul float %23, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %26, float %29, float %37)
+  %39 = fdiv float %38, %35
+  %40 = fneg float %29
+  %41 = fmul float %23, %40
+  %42 = tail call float @llvm.fmuladd.f32(float %20, float %32, float %41)
+  %43 = fdiv float %42, %35
+  %44 = fadd float %43, %39
+  %45 = fsub float 1.000000e+00, %44
+  %46 = insertelement <2 x float> poison, float %45, i64 0
+  %.sroa.065.0.vec.insert = insertelement <2 x float> %46, float %39, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.065.0.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %49, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %43, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -25882,45 +25882,45 @@ define { <2 x float>, float } @Vector3ClampValue(<2 x float> %0, float %1, float
 define range(i32 0, 2) i32 @Vector3Equals(<2 x float> %0, float %1, <2 x float> %2, float %3) local_unnamed_addr #16 {
   %.sroa.09.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.01.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %5 = fsub <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = tail call float @llvm.fabs.f32(float %6)
-  %8 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
-  %9 = tail call float @llvm.fabs.f32(float %.sroa.01.0.vec.extract)
-  %10 = tail call float @llvm.maxnum.f32(float %8, float %9)
-  %11 = tail call float @llvm.maxnum.f32(float %10, float 1.000000e+00)
-  %12 = fmul float %11, 0x3EB0C6F7A0000000
-  %13 = fcmp ugt float %7, %12
-  br i1 %13, label %33, label %14
+  %foldExtExtBinop = fsub <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %6 = tail call float @llvm.fabs.f32(float %5)
+  %7 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
+  %8 = tail call float @llvm.fabs.f32(float %.sroa.01.0.vec.extract)
+  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %12 = fcmp ugt float %6, %11
+  br i1 %12, label %32, label %13
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   %.sroa.09.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.01.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %15 = fsub float %.sroa.09.4.vec.extract, %.sroa.01.4.vec.extract
-  %16 = tail call float @llvm.fabs.f32(float %15)
-  %17 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
-  %18 = tail call float @llvm.fabs.f32(float %.sroa.01.4.vec.extract)
-  %19 = tail call float @llvm.maxnum.f32(float %17, float %18)
-  %20 = tail call float @llvm.maxnum.f32(float %19, float 1.000000e+00)
-  %21 = fmul float %20, 0x3EB0C6F7A0000000
-  %22 = fcmp ugt float %16, %21
-  br i1 %22, label %33, label %23
+  %14 = fsub float %.sroa.09.4.vec.extract, %.sroa.01.4.vec.extract
+  %15 = tail call float @llvm.fabs.f32(float %14)
+  %16 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
+  %17 = tail call float @llvm.fabs.f32(float %.sroa.01.4.vec.extract)
+  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %21 = fcmp ugt float %15, %20
+  br i1 %21, label %32, label %22
 
-23:                                               ; preds = %14
-  %24 = fsub float %1, %3
-  %25 = tail call float @llvm.fabs.f32(float %24)
-  %26 = tail call float @llvm.fabs.f32(float %1)
-  %27 = tail call float @llvm.fabs.f32(float %3)
-  %28 = tail call float @llvm.maxnum.f32(float %26, float %27)
-  %29 = tail call float @llvm.maxnum.f32(float %28, float 1.000000e+00)
-  %30 = fmul float %29, 0x3EB0C6F7A0000000
-  %31 = fcmp ole float %25, %30
-  %32 = zext i1 %31 to i32
-  br label %33
+22:                                               ; preds = %13
+  %23 = fsub float %1, %3
+  %24 = tail call float @llvm.fabs.f32(float %23)
+  %25 = tail call float @llvm.fabs.f32(float %1)
+  %26 = tail call float @llvm.fabs.f32(float %3)
+  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %30 = fcmp ole float %24, %29
+  %31 = zext i1 %30 to i32
+  br label %32
 
-33:                                               ; preds = %23, %14, %4
-  %34 = phi i32 [ 0, %14 ], [ 0, %4 ], [ %32, %23 ]
-  ret i32 %34
+32:                                               ; preds = %22, %13, %4
+  %33 = phi i32 [ 0, %13 ], [ 0, %4 ], [ %31, %22 ]
+  ret i32 %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
@@ -26033,79 +26033,79 @@ define { <2 x float>, <2 x float> } @Vector4SubtractValue(<2 x float> %0, <2 x f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector4Length(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = fmul <2 x float> %0, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %4)
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %5)
+  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %4)
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %6)
-  %sqrt = tail call float @llvm.sqrt.f32(float %7)
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %5)
+  %sqrt = tail call float @llvm.sqrt.f32(float %6)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector4LengthSqr(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = fmul <2 x float> %0, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %4)
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %5)
+  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %4)
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %6)
-  ret float %7
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %5)
+  ret float %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector4DotProduct(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
   %.sroa.01.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %5 = fmul <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.0.0.vec.extract, float %6)
+  %foldExtExtBinop = fmul <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.vec.extract, float %.sroa.0.0.vec.extract, float %5)
   %.sroa.32.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.3.8.vec.extract = extractelement <2 x float> %3, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.32.8.vec.extract, float %.sroa.3.8.vec.extract, float %7)
+  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.32.8.vec.extract, float %.sroa.3.8.vec.extract, float %6)
   %.sroa.32.12.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.3.12.vec.extract = extractelement <2 x float> %3, i64 1
-  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.32.12.vec.extract, float %.sroa.3.12.vec.extract, float %8)
-  ret float %9
+  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.32.12.vec.extract, float %.sroa.3.12.vec.extract, float %7)
+  ret float %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector4Distance(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = fsub <2 x float> %0, %2
-  %8 = fmul <2 x float> %7, %7
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = fsub <2 x float> %1, %3
-  %12 = extractelement <2 x float> %11, i64 0
-  %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %10)
-  %14 = fsub <2 x float> %1, %3
-  %15 = extractelement <2 x float> %14, i64 1
-  %16 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %13)
-  %sqrt = tail call float @llvm.sqrt.f32(float %16)
+  %foldExtExtBinop = fsub <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop20 = fsub <2 x float> %0, %2
+  %foldExtExtBinop22 = fmul <2 x float> %foldExtExtBinop20, %foldExtExtBinop20
+  %6 = extractelement <2 x float> %foldExtExtBinop22, i64 1
+  %7 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %6)
+  %foldExtExtBinop24 = fsub <2 x float> %1, %3
+  %8 = extractelement <2 x float> %foldExtExtBinop24, i64 0
+  %9 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %7)
+  %foldExtExtBinop26 = fsub <2 x float> %1, %3
+  %10 = extractelement <2 x float> %foldExtExtBinop26, i64 1
+  %11 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %9)
+  %sqrt = tail call float @llvm.sqrt.f32(float %11)
   ret float %sqrt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @Vector4DistanceSqr(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
-  %5 = fsub <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = fsub <2 x float> %0, %2
-  %8 = fmul <2 x float> %7, %7
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = fsub <2 x float> %1, %3
-  %12 = extractelement <2 x float> %11, i64 0
-  %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %10)
-  %14 = fsub <2 x float> %1, %3
-  %15 = extractelement <2 x float> %14, i64 1
-  %16 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %13)
-  ret float %16
+  %foldExtExtBinop = fsub <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop20 = fsub <2 x float> %0, %2
+  %foldExtExtBinop22 = fmul <2 x float> %foldExtExtBinop20, %foldExtExtBinop20
+  %6 = extractelement <2 x float> %foldExtExtBinop22, i64 1
+  %7 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %6)
+  %foldExtExtBinop24 = fsub <2 x float> %1, %3
+  %8 = extractelement <2 x float> %foldExtExtBinop24, i64 0
+  %9 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %7)
+  %foldExtExtBinop26 = fsub <2 x float> %1, %3
+  %10 = extractelement <2 x float> %foldExtExtBinop26, i64 1
+  %11 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %9)
+  ret float %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -26257,25 +26257,25 @@ define { <2 x float>, <2 x float> } @Vector4Max(<2 x float> %0, <2 x float> %1, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4Lerp(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.04.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %.sroa.04.0.vec.extract)
-  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %8, i64 0
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %.sroa.04.0.vec.extract)
+  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %7, i64 0
   %.sroa.04.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %9 = fsub <2 x float> %2, %0
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.04.4.vec.extract)
-  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %11, i64 1
+  %foldExtExtBinop17 = fsub <2 x float> %2, %0
+  %8 = extractelement <2 x float> %foldExtExtBinop17, i64 1
+  %9 = tail call float @llvm.fmuladd.f32(float %4, float %8, float %.sroa.04.4.vec.extract)
+  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %9, i64 1
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %12 = fsub <2 x float> %3, %1
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = tail call float @llvm.fmuladd.f32(float %4, float %13, float %.sroa.5.8.vec.extract)
-  %.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %14, i64 0
+  %foldExtExtBinop19 = fsub <2 x float> %3, %1
+  %10 = extractelement <2 x float> %foldExtExtBinop19, i64 0
+  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.5.8.vec.extract)
+  %.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %11, i64 0
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %15 = fsub <2 x float> %3, %1
-  %16 = extractelement <2 x float> %15, i64 1
-  %17 = tail call float @llvm.fmuladd.f32(float %4, float %16, float %.sroa.5.12.vec.extract)
-  %.sroa.4.12.vec.insert = insertelement <2 x float> %.sroa.4.8.vec.insert, float %17, i64 1
+  %foldExtExtBinop21 = fsub <2 x float> %3, %1
+  %12 = extractelement <2 x float> %foldExtExtBinop21, i64 1
+  %13 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %.sroa.5.12.vec.extract)
+  %.sroa.4.12.vec.insert = insertelement <2 x float> %.sroa.4.8.vec.insert, float %13, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.013.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.4.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -26284,50 +26284,50 @@ define { <2 x float>, <2 x float> } @Vector4Lerp(<2 x float> %0, <2 x float> %1,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4MoveTowards(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.027.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.027.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %8 = fsub <2 x float> %2, %0
-  %9 = extractelement <2 x float> %8, i64 1
+  %foldExtExtBinop44 = fsub <2 x float> %2, %0
+  %7 = extractelement <2 x float> %foldExtExtBinop44, i64 1
   %.sroa.532.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %10 = fsub <2 x float> %3, %1
-  %11 = extractelement <2 x float> %10, i64 0
+  %foldExtExtBinop46 = fsub <2 x float> %3, %1
+  %8 = extractelement <2 x float> %foldExtExtBinop46, i64 0
   %.sroa.532.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %12 = fsub <2 x float> %3, %1
-  %13 = extractelement <2 x float> %12, i64 1
-  %14 = fmul float %9, %9
-  %15 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %14)
-  %16 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %15)
-  %17 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %16)
-  %18 = fcmp oeq float %17, 0.000000e+00
-  br i1 %18, label %32, label %19
+  %foldExtExtBinop48 = fsub <2 x float> %3, %1
+  %9 = extractelement <2 x float> %foldExtExtBinop48, i64 1
+  %10 = fmul float %7, %7
+  %11 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %10)
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %13 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %12)
+  %14 = fcmp oeq float %13, 0.000000e+00
+  br i1 %14, label %28, label %15
 
-19:                                               ; preds = %5
-  %20 = fcmp ult float %4, 0.000000e+00
-  %21 = fmul float %4, %4
-  %22 = fcmp ugt float %17, %21
-  %or.cond = or i1 %20, %22
-  br i1 %or.cond, label %23, label %32
+15:                                               ; preds = %5
+  %16 = fcmp ult float %4, 0.000000e+00
+  %17 = fmul float %4, %4
+  %18 = fcmp ugt float %13, %17
+  %or.cond = or i1 %16, %18
+  br i1 %or.cond, label %19, label %28
 
-23:                                               ; preds = %19
-  %sqrt = tail call float @llvm.sqrt.f32(float %17)
-  %24 = fdiv float %7, %sqrt
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %4, float %.sroa.027.0.vec.extract)
+19:                                               ; preds = %15
+  %sqrt = tail call float @llvm.sqrt.f32(float %13)
+  %20 = fdiv float %6, %sqrt
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float %4, float %.sroa.027.0.vec.extract)
+  %22 = fdiv float %7, %sqrt
+  %23 = tail call float @llvm.fmuladd.f32(float %22, float %4, float %.sroa.027.4.vec.extract)
+  %24 = fdiv float %8, %sqrt
+  %25 = tail call float @llvm.fmuladd.f32(float %24, float %4, float %.sroa.532.8.vec.extract)
   %26 = fdiv float %9, %sqrt
-  %27 = tail call float @llvm.fmuladd.f32(float %26, float %4, float %.sroa.027.4.vec.extract)
-  %28 = fdiv float %11, %sqrt
-  %29 = tail call float @llvm.fmuladd.f32(float %28, float %4, float %.sroa.532.8.vec.extract)
-  %30 = fdiv float %13, %sqrt
-  %31 = tail call float @llvm.fmuladd.f32(float %30, float %4, float %.sroa.532.12.vec.extract)
-  %.sroa.037.0.vec.insert = insertelement <2 x float> poison, float %25, i64 0
-  %.sroa.037.4.vec.insert = insertelement <2 x float> %.sroa.037.0.vec.insert, float %27, i64 1
-  %.sroa.439.8.vec.insert = insertelement <2 x float> poison, float %29, i64 0
-  %.sroa.439.12.vec.insert = insertelement <2 x float> %.sroa.439.8.vec.insert, float %31, i64 1
-  br label %32
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float %4, float %.sroa.532.12.vec.extract)
+  %.sroa.037.0.vec.insert = insertelement <2 x float> poison, float %21, i64 0
+  %.sroa.037.4.vec.insert = insertelement <2 x float> %.sroa.037.0.vec.insert, float %23, i64 1
+  %.sroa.439.8.vec.insert = insertelement <2 x float> poison, float %25, i64 0
+  %.sroa.439.12.vec.insert = insertelement <2 x float> %.sroa.439.8.vec.insert, float %27, i64 1
+  br label %28
 
-32:                                               ; preds = %5, %19, %23
-  %.sroa.037.0 = phi <2 x float> [ %.sroa.037.4.vec.insert, %23 ], [ %2, %19 ], [ %2, %5 ]
-  %.sroa.439.0 = phi <2 x float> [ %.sroa.439.12.vec.insert, %23 ], [ %3, %19 ], [ %3, %5 ]
+28:                                               ; preds = %5, %15, %19
+  %.sroa.037.0 = phi <2 x float> [ %.sroa.037.4.vec.insert, %19 ], [ %2, %15 ], [ %2, %5 ]
+  %.sroa.439.0 = phi <2 x float> [ %.sroa.439.12.vec.insert, %19 ], [ %3, %15 ], [ %3, %5 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.037.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.439.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -26356,61 +26356,61 @@ define { <2 x float>, <2 x float> } @Vector4Invert(<2 x float> %0, <2 x float> %
 define range(i32 0, 2) i32 @Vector4Equals(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
   %.sroa.09.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %5 = fsub <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = tail call float @llvm.fabs.f32(float %6)
-  %8 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
-  %9 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %10 = tail call float @llvm.maxnum.f32(float %8, float %9)
-  %11 = tail call float @llvm.maxnum.f32(float %10, float 1.000000e+00)
-  %12 = fmul float %11, 0x3EB0C6F7A0000000
-  %13 = fcmp ugt float %7, %12
-  br i1 %13, label %43, label %14
+  %foldExtExtBinop = fsub <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %6 = tail call float @llvm.fabs.f32(float %5)
+  %7 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
+  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
+  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %12 = fcmp ugt float %6, %11
+  br i1 %12, label %41, label %13
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   %.sroa.09.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %15 = fsub float %.sroa.09.4.vec.extract, %.sroa.0.4.vec.extract
-  %16 = tail call float @llvm.fabs.f32(float %15)
-  %17 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
-  %18 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %19 = tail call float @llvm.maxnum.f32(float %17, float %18)
-  %20 = tail call float @llvm.maxnum.f32(float %19, float 1.000000e+00)
-  %21 = fmul float %20, 0x3EB0C6F7A0000000
-  %22 = fcmp ugt float %16, %21
-  br i1 %22, label %43, label %23
+  %14 = fsub float %.sroa.09.4.vec.extract, %.sroa.0.4.vec.extract
+  %15 = tail call float @llvm.fabs.f32(float %14)
+  %16 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
+  %17 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
+  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %21 = fcmp ugt float %15, %20
+  br i1 %21, label %41, label %22
 
-23:                                               ; preds = %14
+22:                                               ; preds = %13
   %.sroa.514.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.5.8.vec.extract = extractelement <2 x float> %3, i64 0
-  %24 = fsub <2 x float> %1, %3
-  %25 = extractelement <2 x float> %24, i64 0
-  %26 = tail call float @llvm.fabs.f32(float %25)
-  %27 = tail call float @llvm.fabs.f32(float %.sroa.514.8.vec.extract)
-  %28 = tail call float @llvm.fabs.f32(float %.sroa.5.8.vec.extract)
-  %29 = tail call float @llvm.maxnum.f32(float %27, float %28)
-  %30 = tail call float @llvm.maxnum.f32(float %29, float 1.000000e+00)
-  %31 = fmul float %30, 0x3EB0C6F7A0000000
-  %32 = fcmp ugt float %26, %31
-  br i1 %32, label %43, label %33
+  %foldExtExtBinop20 = fsub <2 x float> %1, %3
+  %23 = extractelement <2 x float> %foldExtExtBinop20, i64 0
+  %24 = tail call float @llvm.fabs.f32(float %23)
+  %25 = tail call float @llvm.fabs.f32(float %.sroa.514.8.vec.extract)
+  %26 = tail call float @llvm.fabs.f32(float %.sroa.5.8.vec.extract)
+  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %30 = fcmp ugt float %24, %29
+  br i1 %30, label %41, label %31
 
-33:                                               ; preds = %23
+31:                                               ; preds = %22
   %.sroa.514.12.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.5.12.vec.extract = extractelement <2 x float> %3, i64 1
-  %34 = fsub float %.sroa.514.12.vec.extract, %.sroa.5.12.vec.extract
-  %35 = tail call float @llvm.fabs.f32(float %34)
-  %36 = tail call float @llvm.fabs.f32(float %.sroa.514.12.vec.extract)
-  %37 = tail call float @llvm.fabs.f32(float %.sroa.5.12.vec.extract)
-  %38 = tail call float @llvm.maxnum.f32(float %36, float %37)
-  %39 = tail call float @llvm.maxnum.f32(float %38, float 1.000000e+00)
-  %40 = fmul float %39, 0x3EB0C6F7A0000000
-  %41 = fcmp ole float %35, %40
-  %42 = zext i1 %41 to i32
-  br label %43
+  %32 = fsub float %.sroa.514.12.vec.extract, %.sroa.5.12.vec.extract
+  %33 = tail call float @llvm.fabs.f32(float %32)
+  %34 = tail call float @llvm.fabs.f32(float %.sroa.514.12.vec.extract)
+  %35 = tail call float @llvm.fabs.f32(float %.sroa.5.12.vec.extract)
+  %36 = tail call float @llvm.maxnum.f32(float %34, float %35)
+  %37 = tail call float @llvm.maxnum.f32(float %36, float 1.000000e+00)
+  %38 = fmul float %37, 0x3EB0C6F7A0000000
+  %39 = fcmp ole float %33, %38
+  %40 = zext i1 %39 to i32
+  br label %41
 
-43:                                               ; preds = %33, %23, %14, %4
-  %44 = phi i32 [ 0, %23 ], [ 0, %14 ], [ 0, %4 ], [ %42, %33 ]
-  ret i32 %44
+41:                                               ; preds = %31, %22, %13, %4
+  %42 = phi i32 [ 0, %22 ], [ 0, %13 ], [ 0, %4 ], [ %40, %31 ]
+  ret i32 %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -27662,95 +27662,95 @@ define void @MatrixOrtho(ptr dead_on_unwind noalias writable writeonly sret(%str
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @MatrixLookAt(ptr dead_on_unwind noalias writable writeonly sret(%struct.Matrix) align 4 captures(none) initializes((0, 64)) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6) local_unnamed_addr #24 {
   %.sroa.069.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %8 = fsub <2 x float> %1, %3
-  %9 = extractelement <2 x float> %8, i64 0
+  %foldExtExtBinop = fsub <2 x float> %1, %3
+  %8 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %10 = fsub <2 x float> %1, %3
-  %11 = extractelement <2 x float> %10, i64 1
-  %12 = fsub float %2, %4
-  %13 = fmul float %11, %11
-  %14 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %13)
-  %15 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %14)
-  %sqrt87 = tail call float @llvm.sqrt.f32(float %15)
-  %16 = fcmp oeq float %15, 0.000000e+00
-  %17 = fdiv float 1.000000e+00, %sqrt87
-  %18 = select i1 %16, float 1.000000e+00, float %17
-  %19 = fmul float %9, %18
-  %20 = fmul float %11, %18
-  %21 = fmul float %12, %18
+  %foldExtExtBinop89 = fsub <2 x float> %1, %3
+  %9 = extractelement <2 x float> %foldExtExtBinop89, i64 1
+  %10 = fsub float %2, %4
+  %11 = fmul float %9, %9
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %13 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %12)
+  %sqrt87 = tail call float @llvm.sqrt.f32(float %13)
+  %14 = fcmp oeq float %13, 0.000000e+00
+  %15 = fdiv float 1.000000e+00, %sqrt87
+  %16 = select i1 %14, float 1.000000e+00, float %15
+  %17 = fmul float %8, %16
+  %18 = fmul float %9, %16
+  %19 = fmul float %10, %16
   %.sroa.057.4.vec.extract = extractelement <2 x float> %5, i64 1
-  %22 = fneg float %20
-  %23 = fmul float %6, %22
-  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract, float %21, float %23)
+  %20 = fneg float %18
+  %21 = fmul float %6, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract, float %19, float %21)
   %.sroa.057.0.vec.extract = extractelement <2 x float> %5, i64 0
-  %25 = fneg float %21
-  %26 = fmul float %.sroa.057.0.vec.extract, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %6, float %19, float %26)
-  %28 = fneg float %19
-  %29 = fmul float %.sroa.057.4.vec.extract, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract, float %20, float %29)
-  %31 = fmul float %27, %27
-  %32 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %31)
-  %33 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %32)
-  %sqrt = tail call float @llvm.sqrt.f32(float %33)
-  %34 = fcmp oeq float %33, 0.000000e+00
-  %35 = fdiv float 1.000000e+00, %sqrt
-  %36 = select i1 %34, float 1.000000e+00, float %35
-  %37 = fmul float %24, %36
-  %38 = fmul float %27, %36
-  %39 = fmul float %30, %36
-  %40 = fneg float %38
-  %41 = fmul float %21, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %20, float %39, float %41)
-  %43 = fneg float %39
-  %44 = fmul float %19, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %21, float %37, float %44)
-  %46 = fneg float %37
-  %47 = fmul float %20, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %19, float %38, float %47)
-  store float %37, ptr %0, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %42, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %19, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %38, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %45, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %20, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %39, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %48, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %21, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %59, align 4
-  %60 = fmul float %.sroa.069.4.vec.extract, %38
-  %61 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.069.0.vec.extract, float %60)
-  %62 = tail call float @llvm.fmuladd.f32(float %39, float %2, float %61)
-  %63 = fneg float %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %63, ptr %64, align 4
-  %65 = fmul float %.sroa.069.4.vec.extract, %45
-  %66 = tail call float @llvm.fmuladd.f32(float %42, float %.sroa.069.0.vec.extract, float %65)
-  %67 = tail call float @llvm.fmuladd.f32(float %48, float %2, float %66)
-  %68 = fneg float %67
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %68, ptr %69, align 4
-  %70 = fmul float %.sroa.069.4.vec.extract, %20
-  %71 = tail call float @llvm.fmuladd.f32(float %19, float %.sroa.069.0.vec.extract, float %70)
-  %72 = tail call float @llvm.fmuladd.f32(float %21, float %2, float %71)
-  %73 = fneg float %72
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %73, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %75, align 4
+  %23 = fneg float %19
+  %24 = fmul float %.sroa.057.0.vec.extract, %23
+  %25 = tail call float @llvm.fmuladd.f32(float %6, float %17, float %24)
+  %26 = fneg float %17
+  %27 = fmul float %.sroa.057.4.vec.extract, %26
+  %28 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract, float %18, float %27)
+  %29 = fmul float %25, %25
+  %30 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %29)
+  %31 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %30)
+  %sqrt = tail call float @llvm.sqrt.f32(float %31)
+  %32 = fcmp oeq float %31, 0.000000e+00
+  %33 = fdiv float 1.000000e+00, %sqrt
+  %34 = select i1 %32, float 1.000000e+00, float %33
+  %35 = fmul float %22, %34
+  %36 = fmul float %25, %34
+  %37 = fmul float %28, %34
+  %38 = fneg float %36
+  %39 = fmul float %19, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %18, float %37, float %39)
+  %41 = fneg float %37
+  %42 = fmul float %17, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %19, float %35, float %42)
+  %44 = fneg float %35
+  %45 = fmul float %18, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %17, float %36, float %45)
+  store float %35, ptr %0, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %40, ptr %47, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %17, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float 0.000000e+00, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %36, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %43, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %18, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float 0.000000e+00, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %37, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %46, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %19, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float 0.000000e+00, ptr %57, align 4
+  %58 = fmul float %.sroa.069.4.vec.extract, %36
+  %59 = tail call float @llvm.fmuladd.f32(float %35, float %.sroa.069.0.vec.extract, float %58)
+  %60 = tail call float @llvm.fmuladd.f32(float %37, float %2, float %59)
+  %61 = fneg float %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %61, ptr %62, align 4
+  %63 = fmul float %.sroa.069.4.vec.extract, %43
+  %64 = tail call float @llvm.fmuladd.f32(float %40, float %.sroa.069.0.vec.extract, float %63)
+  %65 = tail call float @llvm.fmuladd.f32(float %46, float %2, float %64)
+  %66 = fneg float %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %66, ptr %67, align 4
+  %68 = fmul float %.sroa.069.4.vec.extract, %18
+  %69 = tail call float @llvm.fmuladd.f32(float %17, float %.sroa.069.0.vec.extract, float %68)
+  %70 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %69)
+  %71 = fneg float %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %71, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float 1.000000e+00, ptr %73, align 4
   ret void
 }
 
@@ -27885,14 +27885,14 @@ define { <2 x float>, <2 x float> } @QuaternionIdentity() local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @QuaternionLength(<2 x float> %0, <2 x float> %1) local_unnamed_addr #16 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = fmul <2 x float> %0, %0
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %4)
+  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %3)
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %5)
+  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.5.8.vec.extract, float %.sroa.5.8.vec.extract, float %4)
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %6)
-  %sqrt = tail call float @llvm.sqrt.f32(float %7)
+  %6 = tail call float @llvm.fmuladd.f32(float %.sroa.5.12.vec.extract, float %.sroa.5.12.vec.extract, float %5)
+  %sqrt = tail call float @llvm.sqrt.f32(float %6)
   ret float %sqrt
 }
 
@@ -28041,25 +28041,25 @@ define { <2 x float>, <2 x float> } @QuaternionDivide(<2 x float> %0, <2 x float
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @QuaternionLerp(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.04.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %.sroa.04.0.vec.extract)
-  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %8, i64 0
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %.sroa.04.0.vec.extract)
+  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %7, i64 0
   %.sroa.04.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %9 = fsub <2 x float> %2, %0
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.04.4.vec.extract)
-  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %11, i64 1
+  %foldExtExtBinop17 = fsub <2 x float> %2, %0
+  %8 = extractelement <2 x float> %foldExtExtBinop17, i64 1
+  %9 = tail call float @llvm.fmuladd.f32(float %4, float %8, float %.sroa.04.4.vec.extract)
+  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %9, i64 1
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %12 = fsub <2 x float> %3, %1
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = tail call float @llvm.fmuladd.f32(float %4, float %13, float %.sroa.5.8.vec.extract)
-  %.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %14, i64 0
+  %foldExtExtBinop19 = fsub <2 x float> %3, %1
+  %10 = extractelement <2 x float> %foldExtExtBinop19, i64 0
+  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.5.8.vec.extract)
+  %.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %11, i64 0
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %15 = fsub <2 x float> %3, %1
-  %16 = extractelement <2 x float> %15, i64 1
-  %17 = tail call float @llvm.fmuladd.f32(float %4, float %16, float %.sroa.5.12.vec.extract)
-  %.sroa.4.12.vec.insert = insertelement <2 x float> %.sroa.4.8.vec.insert, float %17, i64 1
+  %foldExtExtBinop21 = fsub <2 x float> %3, %1
+  %12 = extractelement <2 x float> %foldExtExtBinop21, i64 1
+  %13 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %.sroa.5.12.vec.extract)
+  %.sroa.4.12.vec.insert = insertelement <2 x float> %.sroa.4.8.vec.insert, float %13, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.013.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.4.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -28068,37 +28068,37 @@ define { <2 x float>, <2 x float> } @QuaternionLerp(<2 x float> %0, <2 x float> 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @QuaternionNlerp(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #16 {
   %.sroa.019.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %6 = fsub <2 x float> %2, %0
-  %7 = extractelement <2 x float> %6, i64 0
-  %8 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %.sroa.019.0.vec.extract)
+  %foldExtExtBinop = fsub <2 x float> %2, %0
+  %6 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %.sroa.019.0.vec.extract)
   %.sroa.019.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %9 = fsub <2 x float> %2, %0
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.019.4.vec.extract)
+  %foldExtExtBinop45 = fsub <2 x float> %2, %0
+  %8 = extractelement <2 x float> %foldExtExtBinop45, i64 1
+  %9 = tail call float @llvm.fmuladd.f32(float %4, float %8, float %.sroa.019.4.vec.extract)
   %.sroa.5.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %12 = fsub <2 x float> %3, %1
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = tail call float @llvm.fmuladd.f32(float %4, float %13, float %.sroa.5.8.vec.extract)
+  %foldExtExtBinop47 = fsub <2 x float> %3, %1
+  %10 = extractelement <2 x float> %foldExtExtBinop47, i64 0
+  %11 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %.sroa.5.8.vec.extract)
   %.sroa.5.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %15 = fsub <2 x float> %3, %1
-  %16 = extractelement <2 x float> %15, i64 1
-  %17 = tail call float @llvm.fmuladd.f32(float %4, float %16, float %.sroa.5.12.vec.extract)
-  %18 = fmul float %11, %11
-  %19 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %18)
-  %20 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %19)
-  %21 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %20)
-  %sqrt = tail call float @llvm.sqrt.f32(float %21)
-  %22 = fcmp oeq float %21, 0.000000e+00
-  %23 = fdiv float 1.000000e+00, %sqrt
-  %24 = select i1 %22, float 1.000000e+00, float %23
-  %25 = fmul float %8, %24
-  %26 = insertelement <2 x float> poison, float %25, i64 0
-  %27 = fmul float %11, %24
-  %.sroa.028.4.vec.insert34 = insertelement <2 x float> %26, float %27, i64 1
-  %28 = fmul float %14, %24
-  %29 = insertelement <2 x float> poison, float %28, i64 0
-  %30 = fmul float %17, %24
-  %.sroa.8.12.vec.insert41 = insertelement <2 x float> %29, float %30, i64 1
+  %foldExtExtBinop49 = fsub <2 x float> %3, %1
+  %12 = extractelement <2 x float> %foldExtExtBinop49, i64 1
+  %13 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %.sroa.5.12.vec.extract)
+  %14 = fmul float %9, %9
+  %15 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %14)
+  %16 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %15)
+  %17 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %16)
+  %sqrt = tail call float @llvm.sqrt.f32(float %17)
+  %18 = fcmp oeq float %17, 0.000000e+00
+  %19 = fdiv float 1.000000e+00, %sqrt
+  %20 = select i1 %18, float 1.000000e+00, float %19
+  %21 = fmul float %7, %20
+  %22 = insertelement <2 x float> poison, float %21, i64 0
+  %23 = fmul float %9, %20
+  %.sroa.028.4.vec.insert34 = insertelement <2 x float> %22, float %23, i64 1
+  %24 = fmul float %11, %20
+  %25 = insertelement <2 x float> poison, float %24, i64 0
+  %26 = fmul float %13, %20
+  %.sroa.8.12.vec.insert41 = insertelement <2 x float> %25, float %26, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.028.4.vec.insert34, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.8.12.vec.insert41, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -28109,128 +28109,128 @@ define { <2 x float>, <2 x float> } @QuaternionSlerp(<2 x float> %0, <2 x float>
   %.sroa.054.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.023.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.054.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %6 = fmul <2 x float> %0, %2
-  %7 = extractelement <2 x float> %6, i64 1
-  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %.sroa.023.0.vec.extract, float %7)
+  %foldExtExtBinop95 = fmul <2 x float> %0, %2
+  %6 = extractelement <2 x float> %foldExtExtBinop95, i64 1
+  %7 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %.sroa.023.0.vec.extract, float %6)
   %.sroa.9.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.12.8.vec.extract = extractelement <2 x float> %3, i64 0
-  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %.sroa.12.8.vec.extract, float %8)
+  %8 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %.sroa.12.8.vec.extract, float %7)
   %.sroa.9.12.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.12.12.vec.extract = extractelement <2 x float> %3, i64 1
-  %10 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %.sroa.12.12.vec.extract, float %9)
-  %11 = fcmp olt float %10, 0.000000e+00
-  br i1 %11, label %12, label %18
+  %9 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %.sroa.12.12.vec.extract, float %8)
+  %10 = fcmp olt float %9, 0.000000e+00
+  br i1 %10, label %11, label %17
 
-12:                                               ; preds = %5
-  %13 = fneg float %.sroa.023.0.vec.extract
-  %14 = fneg <2 x float> %2
-  %.sroa.023.4.vec.insert = insertelement <2 x float> %14, float %13, i64 0
-  %15 = fneg float %.sroa.12.8.vec.extract
-  %16 = fneg <2 x float> %3
-  %.sroa.12.12.vec.insert = insertelement <2 x float> %16, float %15, i64 0
-  %17 = fneg float %10
-  br label %18
+11:                                               ; preds = %5
+  %12 = fneg float %.sroa.023.0.vec.extract
+  %13 = fneg <2 x float> %2
+  %.sroa.023.4.vec.insert = insertelement <2 x float> %13, float %12, i64 0
+  %14 = fneg float %.sroa.12.8.vec.extract
+  %15 = fneg <2 x float> %3
+  %.sroa.12.12.vec.insert = insertelement <2 x float> %15, float %14, i64 0
+  %16 = fneg float %9
+  br label %17
 
-18:                                               ; preds = %12, %5
-  %.0 = phi float [ %17, %12 ], [ %10, %5 ]
-  %.sroa.023.0 = phi <2 x float> [ %.sroa.023.4.vec.insert, %12 ], [ %2, %5 ]
-  %.sroa.12.0 = phi <2 x float> [ %.sroa.12.12.vec.insert, %12 ], [ %3, %5 ]
-  %19 = tail call float @llvm.fabs.f32(float %.0)
-  %20 = fcmp ult float %19, 1.000000e+00
-  br i1 %20, label %21, label %81
+17:                                               ; preds = %11, %5
+  %.0 = phi float [ %16, %11 ], [ %9, %5 ]
+  %.sroa.023.0 = phi <2 x float> [ %.sroa.023.4.vec.insert, %11 ], [ %2, %5 ]
+  %.sroa.12.0 = phi <2 x float> [ %.sroa.12.12.vec.insert, %11 ], [ %3, %5 ]
+  %18 = tail call float @llvm.fabs.f32(float %.0)
+  %19 = fcmp ult float %18, 1.000000e+00
+  br i1 %19, label %20, label %76
 
-21:                                               ; preds = %18
-  %22 = fcmp ogt float %.0, 0x3FEE666660000000
-  br i1 %22, label %23, label %49
+20:                                               ; preds = %17
+  %21 = fcmp ogt float %.0, 0x3FEE666660000000
+  br i1 %21, label %22, label %44
 
-23:                                               ; preds = %21
-  %24 = fsub <2 x float> %.sroa.023.0, %0
-  %25 = extractelement <2 x float> %24, i64 0
-  %26 = tail call float @llvm.fmuladd.f32(float %4, float %25, float %.sroa.054.0.vec.extract)
-  %27 = fsub <2 x float> %.sroa.023.0, %0
-  %28 = extractelement <2 x float> %27, i64 1
-  %29 = tail call float @llvm.fmuladd.f32(float %4, float %28, float %.sroa.054.4.vec.extract)
-  %30 = fsub <2 x float> %.sroa.12.0, %1
-  %31 = extractelement <2 x float> %30, i64 0
-  %32 = tail call float @llvm.fmuladd.f32(float %4, float %31, float %.sroa.9.8.vec.extract)
-  %33 = fsub <2 x float> %.sroa.12.0, %1
-  %34 = extractelement <2 x float> %33, i64 1
-  %35 = tail call float @llvm.fmuladd.f32(float %4, float %34, float %.sroa.9.12.vec.extract)
-  %36 = fmul float %29, %29
-  %37 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %36)
-  %38 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %37)
-  %39 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %38)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %39)
-  %40 = fcmp oeq float %39, 0.000000e+00
-  %41 = fdiv float 1.000000e+00, %sqrt.i
-  %42 = select i1 %40, float 1.000000e+00, float %41
-  %43 = fmul float %26, %42
-  %44 = insertelement <2 x float> poison, float %43, i64 0
-  %45 = fmul float %29, %42
-  %.sroa.028.4.vec.insert34.i = insertelement <2 x float> %44, float %45, i64 1
-  %46 = fmul float %32, %42
-  %47 = insertelement <2 x float> poison, float %46, i64 0
-  %48 = fmul float %35, %42
-  %.sroa.8.12.vec.insert41.i = insertelement <2 x float> %47, float %48, i64 1
-  br label %81
+22:                                               ; preds = %20
+  %foldExtExtBinop = fsub <2 x float> %.sroa.023.0, %0
+  %23 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %24 = tail call float @llvm.fmuladd.f32(float %4, float %23, float %.sroa.054.0.vec.extract)
+  %foldExtExtBinop89 = fsub <2 x float> %.sroa.023.0, %0
+  %25 = extractelement <2 x float> %foldExtExtBinop89, i64 1
+  %26 = tail call float @llvm.fmuladd.f32(float %4, float %25, float %.sroa.054.4.vec.extract)
+  %foldExtExtBinop91 = fsub <2 x float> %.sroa.12.0, %1
+  %27 = extractelement <2 x float> %foldExtExtBinop91, i64 0
+  %28 = tail call float @llvm.fmuladd.f32(float %4, float %27, float %.sroa.9.8.vec.extract)
+  %foldExtExtBinop93 = fsub <2 x float> %.sroa.12.0, %1
+  %29 = extractelement <2 x float> %foldExtExtBinop93, i64 1
+  %30 = tail call float @llvm.fmuladd.f32(float %4, float %29, float %.sroa.9.12.vec.extract)
+  %31 = fmul float %26, %26
+  %32 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %31)
+  %33 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %32)
+  %34 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %33)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %34)
+  %35 = fcmp oeq float %34, 0.000000e+00
+  %36 = fdiv float 1.000000e+00, %sqrt.i
+  %37 = select i1 %35, float 1.000000e+00, float %36
+  %38 = fmul float %24, %37
+  %39 = insertelement <2 x float> poison, float %38, i64 0
+  %40 = fmul float %26, %37
+  %.sroa.028.4.vec.insert34.i = insertelement <2 x float> %39, float %40, i64 1
+  %41 = fmul float %28, %37
+  %42 = insertelement <2 x float> poison, float %41, i64 0
+  %43 = fmul float %30, %37
+  %.sroa.8.12.vec.insert41.i = insertelement <2 x float> %42, float %43, i64 1
+  br label %76
 
-49:                                               ; preds = %21
-  %50 = tail call float @acosf(float noundef %.0) #60
-  %51 = fneg float %.0
-  %52 = tail call float @llvm.fmuladd.f32(float %51, float %.0, float 1.000000e+00)
-  %53 = tail call float @sqrtf(float noundef %52) #60
-  %54 = tail call float @llvm.fabs.f32(float %53)
-  %55 = fcmp olt float %54, 0x3EB0C6F7A0000000
-  br i1 %55, label %56, label %65
+44:                                               ; preds = %20
+  %45 = tail call float @acosf(float noundef %.0) #60
+  %46 = fneg float %.0
+  %47 = tail call float @llvm.fmuladd.f32(float %46, float %.0, float 1.000000e+00)
+  %48 = tail call float @sqrtf(float noundef %47) #60
+  %49 = tail call float @llvm.fabs.f32(float %48)
+  %50 = fcmp olt float %49, 0x3EB0C6F7A0000000
+  br i1 %50, label %51, label %60
 
-56:                                               ; preds = %49
+51:                                               ; preds = %44
   %.sroa.023.0.vec.extract29 = extractelement <2 x float> %.sroa.023.0, i64 0
-  %57 = fmul float %.sroa.023.0.vec.extract29, 5.000000e-01
-  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float 5.000000e-01, float %57)
-  %.sroa.073.0.vec.insert = insertelement <2 x float> poison, float %58, i64 0
+  %52 = fmul float %.sroa.023.0.vec.extract29, 5.000000e-01
+  %53 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float 5.000000e-01, float %52)
+  %.sroa.073.0.vec.insert = insertelement <2 x float> poison, float %53, i64 0
   %.sroa.023.4.vec.extract36 = extractelement <2 x float> %.sroa.023.0, i64 1
-  %59 = fmul float %.sroa.023.4.vec.extract36, 5.000000e-01
-  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float 5.000000e-01, float %59)
-  %.sroa.073.4.vec.insert = insertelement <2 x float> %.sroa.073.0.vec.insert, float %60, i64 1
+  %54 = fmul float %.sroa.023.4.vec.extract36, 5.000000e-01
+  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float 5.000000e-01, float %54)
+  %.sroa.073.4.vec.insert = insertelement <2 x float> %.sroa.073.0.vec.insert, float %55, i64 1
   %.sroa.12.8.vec.extract44 = extractelement <2 x float> %.sroa.12.0, i64 0
-  %61 = fmul float %.sroa.12.8.vec.extract44, 5.000000e-01
-  %62 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float 5.000000e-01, float %61)
-  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %62, i64 0
+  %56 = fmul float %.sroa.12.8.vec.extract44, 5.000000e-01
+  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float 5.000000e-01, float %56)
+  %.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %57, i64 0
   %.sroa.12.12.vec.extract51 = extractelement <2 x float> %.sroa.12.0, i64 1
-  %63 = fmul float %.sroa.12.12.vec.extract51, 5.000000e-01
-  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float 5.000000e-01, float %63)
-  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %64, i64 1
-  br label %81
+  %58 = fmul float %.sroa.12.12.vec.extract51, 5.000000e-01
+  %59 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float 5.000000e-01, float %58)
+  %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.8.8.vec.insert, float %59, i64 1
+  br label %76
 
-65:                                               ; preds = %49
-  %66 = fsub float 1.000000e+00, %4
-  %67 = fmul float %66, %50
-  %68 = tail call float @sinf(float noundef %67) #60
-  %69 = fdiv float %68, %53
-  %70 = fmul float %4, %50
-  %71 = tail call float @sinf(float noundef %70) #60
-  %72 = fdiv float %71, %53
+60:                                               ; preds = %44
+  %61 = fsub float 1.000000e+00, %4
+  %62 = fmul float %61, %45
+  %63 = tail call float @sinf(float noundef %62) #60
+  %64 = fdiv float %63, %48
+  %65 = fmul float %4, %45
+  %66 = tail call float @sinf(float noundef %65) #60
+  %67 = fdiv float %66, %48
   %.sroa.023.0.vec.extract31 = extractelement <2 x float> %.sroa.023.0, i64 0
-  %73 = fmul float %.sroa.023.0.vec.extract31, %72
-  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %69, float %73)
-  %.sroa.073.0.vec.insert76 = insertelement <2 x float> poison, float %74, i64 0
+  %68 = fmul float %.sroa.023.0.vec.extract31, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0.vec.extract, float %64, float %68)
+  %.sroa.073.0.vec.insert76 = insertelement <2 x float> poison, float %69, i64 0
   %.sroa.023.4.vec.extract38 = extractelement <2 x float> %.sroa.023.0, i64 1
-  %75 = fmul float %.sroa.023.4.vec.extract38, %72
-  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float %69, float %75)
-  %.sroa.073.4.vec.insert78 = insertelement <2 x float> %.sroa.073.0.vec.insert76, float %76, i64 1
+  %70 = fmul float %.sroa.023.4.vec.extract38, %67
+  %71 = tail call float @llvm.fmuladd.f32(float %.sroa.054.4.vec.extract, float %64, float %70)
+  %.sroa.073.4.vec.insert78 = insertelement <2 x float> %.sroa.073.0.vec.insert76, float %71, i64 1
   %.sroa.12.8.vec.extract46 = extractelement <2 x float> %.sroa.12.0, i64 0
-  %77 = fmul float %.sroa.12.8.vec.extract46, %72
-  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %69, float %77)
-  %.sroa.8.8.vec.insert81 = insertelement <2 x float> poison, float %78, i64 0
+  %72 = fmul float %.sroa.12.8.vec.extract46, %67
+  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.9.8.vec.extract, float %64, float %72)
+  %.sroa.8.8.vec.insert81 = insertelement <2 x float> poison, float %73, i64 0
   %.sroa.12.12.vec.extract53 = extractelement <2 x float> %.sroa.12.0, i64 1
-  %79 = fmul float %.sroa.12.12.vec.extract53, %72
-  %80 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %69, float %79)
-  %.sroa.8.12.vec.insert83 = insertelement <2 x float> %.sroa.8.8.vec.insert81, float %80, i64 1
-  br label %81
+  %74 = fmul float %.sroa.12.12.vec.extract53, %67
+  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.9.12.vec.extract, float %64, float %74)
+  %.sroa.8.12.vec.insert83 = insertelement <2 x float> %.sroa.8.8.vec.insert81, float %75, i64 1
+  br label %76
 
-81:                                               ; preds = %56, %65, %18, %23
-  %.pn87 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %23 ], [ %0, %18 ], [ %.sroa.073.4.vec.insert, %56 ], [ %.sroa.073.4.vec.insert78, %65 ]
-  %.pn85 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %23 ], [ %1, %18 ], [ %.sroa.8.12.vec.insert, %56 ], [ %.sroa.8.12.vec.insert83, %65 ]
+76:                                               ; preds = %51, %60, %17, %22
+  %.pn87 = phi <2 x float> [ %.sroa.028.4.vec.insert34.i, %22 ], [ %0, %17 ], [ %.sroa.073.4.vec.insert, %51 ], [ %.sroa.073.4.vec.insert78, %60 ]
+  %.pn85 = phi <2 x float> [ %.sroa.8.12.vec.insert41.i, %22 ], [ %1, %17 ], [ %.sroa.8.12.vec.insert, %51 ], [ %.sroa.8.12.vec.insert83, %60 ]
   %.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.pn87, 0
   %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.pn, <2 x float> %.pn85, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
@@ -28511,55 +28511,55 @@ define void @QuaternionToMatrix(ptr dead_on_unwind noalias writable writeonly sr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %7, align 4
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %8 = fmul <2 x float> %1, %1
-  %9 = extractelement <2 x float> %8, i64 0
+  %foldExtExtBinop = fmul <2 x float> %1, %1
+  %8 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.0.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %10 = fmul float %.sroa.0.4.vec.extract, %.sroa.0.4.vec.extract
+  %9 = fmul float %.sroa.0.4.vec.extract, %.sroa.0.4.vec.extract
   %.sroa.11.8.vec.extract = extractelement <2 x float> %2, i64 0
-  %11 = fmul <2 x float> %2, %2
-  %12 = extractelement <2 x float> %11, i64 0
-  %13 = fmul <2 x float> %1, %2
-  %14 = extractelement <2 x float> %13, i64 0
-  %15 = fmul float %.sroa.0.0.vec.extract, %.sroa.0.4.vec.extract
-  %16 = fmul float %.sroa.0.4.vec.extract, %.sroa.11.8.vec.extract
+  %foldExtExtBinop47 = fmul <2 x float> %2, %2
+  %10 = extractelement <2 x float> %foldExtExtBinop47, i64 0
+  %foldExtExtBinop49 = fmul <2 x float> %1, %2
+  %11 = extractelement <2 x float> %foldExtExtBinop49, i64 0
+  %12 = fmul float %.sroa.0.0.vec.extract, %.sroa.0.4.vec.extract
+  %13 = fmul float %.sroa.0.4.vec.extract, %.sroa.11.8.vec.extract
   %.sroa.11.12.vec.extract = extractelement <2 x float> %2, i64 1
-  %17 = fmul float %.sroa.0.0.vec.extract, %.sroa.11.12.vec.extract
-  %18 = fmul float %.sroa.0.4.vec.extract, %.sroa.11.12.vec.extract
-  %19 = fmul float %.sroa.11.12.vec.extract, %.sroa.11.8.vec.extract
-  %20 = fadd float %10, %12
-  %21 = tail call float @llvm.fmuladd.f32(float %20, float -2.000000e+00, float 1.000000e+00)
-  store float %21, ptr %0, align 4
-  %22 = fadd float %15, %19
+  %14 = fmul float %.sroa.0.0.vec.extract, %.sroa.11.12.vec.extract
+  %15 = fmul float %.sroa.0.4.vec.extract, %.sroa.11.12.vec.extract
+  %16 = fmul float %.sroa.11.12.vec.extract, %.sroa.11.8.vec.extract
+  %17 = fadd float %9, %10
+  %18 = tail call float @llvm.fmuladd.f32(float %17, float -2.000000e+00, float 1.000000e+00)
+  store float %18, ptr %0, align 4
+  %19 = fadd float %12, %16
+  %20 = fmul float %19, 2.000000e+00
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %20, ptr %21, align 4
+  %22 = fsub float %11, %15
   %23 = fmul float %22, 2.000000e+00
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %23, ptr %24, align 4
-  %25 = fsub float %14, %18
+  %25 = fsub float %12, %16
   %26 = fmul float %25, 2.000000e+00
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %26, ptr %27, align 4
-  %28 = fsub float %15, %19
-  %29 = fmul float %28, 2.000000e+00
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %29, ptr %30, align 4
-  %31 = fadd <2 x float> %8, %11
-  %32 = extractelement <2 x float> %31, i64 0
-  %33 = tail call float @llvm.fmuladd.f32(float %32, float -2.000000e+00, float 1.000000e+00)
-  store float %33, ptr %5, align 4
-  %34 = fadd float %16, %17
-  %35 = fmul float %34, 2.000000e+00
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %35, ptr %36, align 4
-  %37 = fadd float %14, %18
-  %38 = fmul float %37, 2.000000e+00
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %38, ptr %39, align 4
-  %40 = fsub float %16, %17
-  %41 = fmul float %40, 2.000000e+00
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %41, ptr %42, align 4
-  %43 = fadd float %9, %10
-  %44 = tail call float @llvm.fmuladd.f32(float %43, float -2.000000e+00, float 1.000000e+00)
-  store float %44, ptr %6, align 4
+  %foldExtExtBinop51 = fadd <2 x float> %foldExtExtBinop, %foldExtExtBinop47
+  %28 = extractelement <2 x float> %foldExtExtBinop51, i64 0
+  %29 = tail call float @llvm.fmuladd.f32(float %28, float -2.000000e+00, float 1.000000e+00)
+  store float %29, ptr %5, align 4
+  %30 = fadd float %13, %14
+  %31 = fmul float %30, 2.000000e+00
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %31, ptr %32, align 4
+  %33 = fadd float %11, %15
+  %34 = fmul float %33, 2.000000e+00
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %34, ptr %35, align 4
+  %36 = fsub float %13, %14
+  %37 = fmul float %36, 2.000000e+00
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %37, ptr %38, align 4
+  %39 = fadd float %8, %9
+  %40 = tail call float @llvm.fmuladd.f32(float %39, float -2.000000e+00, float 1.000000e+00)
+  store float %40, ptr %6, align 4
   ret void
 }
 
@@ -28729,13 +28729,13 @@ define { <2 x float>, float } @QuaternionToEuler(<2 x float> %0, <2 x float> %1)
   %19 = fmul float %.sroa.09.0.vec.extract, %.sroa.09.4.vec.extract
   %20 = tail call float @llvm.fmuladd.f32(float %.sroa.13.12.vec.extract, float %.sroa.13.8.vec.extract, float %19)
   %21 = fmul float %20, 2.000000e+00
-  %22 = fmul <2 x float> %1, %1
-  %23 = extractelement <2 x float> %22, i64 0
-  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.09.4.vec.extract, float %.sroa.09.4.vec.extract, float %23)
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float -2.000000e+00, float 1.000000e+00)
-  %26 = tail call float @atan2f(float noundef %21, float noundef %25) #60
+  %foldExtExtBinop = fmul <2 x float> %1, %1
+  %22 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %23 = tail call float @llvm.fmuladd.f32(float %.sroa.09.4.vec.extract, float %.sroa.09.4.vec.extract, float %22)
+  %24 = tail call float @llvm.fmuladd.f32(float %23, float -2.000000e+00, float 1.000000e+00)
+  %25 = tail call float @atan2f(float noundef %21, float noundef %24) #60
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.042.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %26, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %25, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -28808,108 +28808,108 @@ define { <2 x float>, <2 x float> } @QuaternionTransform(<2 x float> %0, <2 x fl
 define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #16 {
   %.sroa.025.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %5 = fsub <2 x float> %0, %2
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = tail call float @llvm.fabs.f32(float %6)
-  %8 = tail call float @llvm.fabs.f32(float %.sroa.025.0.vec.extract)
-  %9 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %10 = tail call float @llvm.maxnum.f32(float %8, float %9)
-  %11 = tail call float @llvm.maxnum.f32(float %10, float 1.000000e+00)
-  %12 = fmul float %11, 0x3EB0C6F7A0000000
-  %13 = fcmp ugt float %7, %12
-  br i1 %13, label %42, label %14
+  %foldExtExtBinop = fsub <2 x float> %0, %2
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %6 = tail call float @llvm.fabs.f32(float %5)
+  %7 = tail call float @llvm.fabs.f32(float %.sroa.025.0.vec.extract)
+  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
+  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %12 = fcmp ugt float %6, %11
+  br i1 %12, label %40, label %13
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   %.sroa.025.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %15 = fsub float %.sroa.025.4.vec.extract, %.sroa.0.4.vec.extract
-  %16 = tail call float @llvm.fabs.f32(float %15)
-  %17 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract)
-  %18 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %19 = tail call float @llvm.maxnum.f32(float %17, float %18)
-  %20 = tail call float @llvm.maxnum.f32(float %19, float 1.000000e+00)
-  %21 = fmul float %20, 0x3EB0C6F7A0000000
-  %22 = fcmp ugt float %16, %21
-  br i1 %22, label %42, label %23
+  %14 = fsub float %.sroa.025.4.vec.extract, %.sroa.0.4.vec.extract
+  %15 = tail call float @llvm.fabs.f32(float %14)
+  %16 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract)
+  %17 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
+  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %21 = fcmp ugt float %15, %20
+  br i1 %21, label %40, label %22
 
-23:                                               ; preds = %14
+22:                                               ; preds = %13
   %.sroa.938.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.9.8.vec.extract = extractelement <2 x float> %3, i64 0
-  %24 = fsub <2 x float> %1, %3
-  %25 = extractelement <2 x float> %24, i64 0
-  %26 = tail call float @llvm.fabs.f32(float %25)
-  %27 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract)
-  %28 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract)
-  %29 = tail call float @llvm.maxnum.f32(float %27, float %28)
-  %30 = tail call float @llvm.maxnum.f32(float %29, float 1.000000e+00)
-  %31 = fmul float %30, 0x3EB0C6F7A0000000
-  %32 = fcmp ugt float %26, %31
-  br i1 %32, label %42, label %33
+  %foldExtExtBinop52 = fsub <2 x float> %1, %3
+  %23 = extractelement <2 x float> %foldExtExtBinop52, i64 0
+  %24 = tail call float @llvm.fabs.f32(float %23)
+  %25 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract)
+  %26 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract)
+  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %30 = fcmp ugt float %24, %29
+  br i1 %30, label %40, label %31
 
-33:                                               ; preds = %23
+31:                                               ; preds = %22
   %.sroa.938.12.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.9.12.vec.extract = extractelement <2 x float> %3, i64 1
-  %34 = fsub float %.sroa.938.12.vec.extract, %.sroa.9.12.vec.extract
-  %35 = tail call float @llvm.fabs.f32(float %34)
-  %36 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract)
-  %37 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract)
-  %38 = tail call float @llvm.maxnum.f32(float %36, float %37)
-  %39 = tail call float @llvm.maxnum.f32(float %38, float 1.000000e+00)
-  %40 = fmul float %39, 0x3EB0C6F7A0000000
-  %41 = fcmp ugt float %35, %40
-  br i1 %41, label %42, label %76
+  %32 = fsub float %.sroa.938.12.vec.extract, %.sroa.9.12.vec.extract
+  %33 = tail call float @llvm.fabs.f32(float %32)
+  %34 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract)
+  %35 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract)
+  %36 = tail call float @llvm.maxnum.f32(float %34, float %35)
+  %37 = tail call float @llvm.maxnum.f32(float %36, float 1.000000e+00)
+  %38 = fmul float %37, 0x3EB0C6F7A0000000
+  %39 = fcmp ugt float %33, %38
+  br i1 %39, label %40, label %72
 
-42:                                               ; preds = %33, %23, %14, %4
-  %43 = fadd <2 x float> %0, %2
-  %44 = extractelement <2 x float> %43, i64 0
-  %45 = tail call float @llvm.fabs.f32(float %44)
-  %46 = fcmp ugt float %45, %12
-  br i1 %46, label %76, label %47
+40:                                               ; preds = %31, %22, %13, %4
+  %foldExtExtBinop54 = fadd <2 x float> %0, %2
+  %41 = extractelement <2 x float> %foldExtExtBinop54, i64 0
+  %42 = tail call float @llvm.fabs.f32(float %41)
+  %43 = fcmp ugt float %42, %11
+  br i1 %43, label %72, label %44
 
-47:                                               ; preds = %42
+44:                                               ; preds = %40
   %.sroa.025.4.vec.extract35 = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract10 = extractelement <2 x float> %2, i64 1
-  %48 = fadd float %.sroa.025.4.vec.extract35, %.sroa.0.4.vec.extract10
-  %49 = tail call float @llvm.fabs.f32(float %48)
-  %50 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract35)
-  %51 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract10)
-  %52 = tail call float @llvm.maxnum.f32(float %50, float %51)
-  %53 = tail call float @llvm.maxnum.f32(float %52, float 1.000000e+00)
-  %54 = fmul float %53, 0x3EB0C6F7A0000000
-  %55 = fcmp ugt float %49, %54
-  br i1 %55, label %76, label %56
+  %45 = fadd float %.sroa.025.4.vec.extract35, %.sroa.0.4.vec.extract10
+  %46 = tail call float @llvm.fabs.f32(float %45)
+  %47 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract35)
+  %48 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract10)
+  %49 = tail call float @llvm.maxnum.f32(float %47, float %48)
+  %50 = tail call float @llvm.maxnum.f32(float %49, float 1.000000e+00)
+  %51 = fmul float %50, 0x3EB0C6F7A0000000
+  %52 = fcmp ugt float %46, %51
+  br i1 %52, label %72, label %53
 
-56:                                               ; preds = %47
+53:                                               ; preds = %44
   %.sroa.938.8.vec.extract42 = extractelement <2 x float> %1, i64 0
   %.sroa.9.8.vec.extract16 = extractelement <2 x float> %3, i64 0
-  %57 = fadd <2 x float> %1, %3
-  %58 = extractelement <2 x float> %57, i64 0
-  %59 = tail call float @llvm.fabs.f32(float %58)
-  %60 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract42)
-  %61 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract16)
-  %62 = tail call float @llvm.maxnum.f32(float %60, float %61)
-  %63 = tail call float @llvm.maxnum.f32(float %62, float 1.000000e+00)
-  %64 = fmul float %63, 0x3EB0C6F7A0000000
-  %65 = fcmp ugt float %59, %64
-  br i1 %65, label %76, label %66
+  %foldExtExtBinop56 = fadd <2 x float> %1, %3
+  %54 = extractelement <2 x float> %foldExtExtBinop56, i64 0
+  %55 = tail call float @llvm.fabs.f32(float %54)
+  %56 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract42)
+  %57 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract16)
+  %58 = tail call float @llvm.maxnum.f32(float %56, float %57)
+  %59 = tail call float @llvm.maxnum.f32(float %58, float 1.000000e+00)
+  %60 = fmul float %59, 0x3EB0C6F7A0000000
+  %61 = fcmp ugt float %55, %60
+  br i1 %61, label %72, label %62
 
-66:                                               ; preds = %56
+62:                                               ; preds = %53
   %.sroa.938.12.vec.extract48 = extractelement <2 x float> %1, i64 1
   %.sroa.9.12.vec.extract22 = extractelement <2 x float> %3, i64 1
-  %67 = fadd float %.sroa.938.12.vec.extract48, %.sroa.9.12.vec.extract22
-  %68 = tail call float @llvm.fabs.f32(float %67)
-  %69 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract48)
-  %70 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract22)
-  %71 = tail call float @llvm.maxnum.f32(float %69, float %70)
-  %72 = tail call float @llvm.maxnum.f32(float %71, float 1.000000e+00)
-  %73 = fmul float %72, 0x3EB0C6F7A0000000
-  %74 = fcmp ole float %68, %73
-  %75 = zext i1 %74 to i32
-  br label %76
+  %63 = fadd float %.sroa.938.12.vec.extract48, %.sroa.9.12.vec.extract22
+  %64 = tail call float @llvm.fabs.f32(float %63)
+  %65 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract48)
+  %66 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract22)
+  %67 = tail call float @llvm.maxnum.f32(float %65, float %66)
+  %68 = tail call float @llvm.maxnum.f32(float %67, float 1.000000e+00)
+  %69 = fmul float %68, 0x3EB0C6F7A0000000
+  %70 = fcmp ole float %64, %69
+  %71 = zext i1 %70 to i32
+  br label %72
 
-76:                                               ; preds = %42, %47, %56, %66, %33
-  %77 = phi i32 [ 1, %33 ], [ 0, %56 ], [ 0, %47 ], [ 0, %42 ], [ %75, %66 ]
-  ret i32 %77
+72:                                               ; preds = %40, %44, %53, %62, %31
+  %73 = phi i32 [ 1, %31 ], [ 0, %53 ], [ 0, %44 ], [ 0, %40 ], [ %71, %62 ]
+  ret i32 %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
@@ -29115,17 +29115,17 @@ define hidden void @ProcessGestureEvent(ptr noundef readonly byval(%struct.Gestu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
-  switch i32 %3, label %190 [
+  switch i32 %3, label %175 [
     i32 1, label %4
-    i32 2, label %106
+    i32 2, label %98
   ]
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 8
-  switch i32 %5, label %190 [
+  switch i32 %5, label %175 [
     i32 1, label %6
-    i32 0, label %35
-    i32 2, label %83
+    i32 0, label %32
+    i32 2, label %75
   ]
 
 6:                                                ; preds = %4
@@ -29136,350 +29136,350 @@ define hidden void @ProcessGestureEvent(ptr noundef readonly byval(%struct.Gestu
   %10 = icmp eq i32 %9, 0
   %11 = icmp sgt i32 %7, 0
   %or.cond = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %30
+  br i1 %or.cond, label %12, label %27
 
 12:                                               ; preds = %6
   %13 = tail call double @glfwGetTime() #60
   %14 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   %15 = fsub double %13, %14
   %16 = fcmp olt double %15, 0x3FD3333340000000
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %27
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
   %20 = load <2 x float>, ptr %18, align 8
-  %21 = fsub <2 x float> %20, %19
-  %22 = extractelement <2 x float> %21, i64 0
-  %23 = fsub <2 x float> %20, %19
-  %24 = fmul <2 x float> %23, %23
-  %25 = extractelement <2 x float> %24, i64 1
-  %26 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %25)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %26)
-  %27 = fcmp olt float %sqrt.i, 0x3F9EB851E0000000
-  br i1 %27, label %28, label %30
+  %foldExtExtBinop = fsub <2 x float> %20, %19
+  %21 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop75 = fsub <2 x float> %20, %19
+  %foldExtExtBinop77 = fmul <2 x float> %foldExtExtBinop75, %foldExtExtBinop75
+  %22 = extractelement <2 x float> %foldExtExtBinop77, i64 1
+  %23 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %22)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %23)
+  %24 = fcmp olt float %sqrt.i, 0x3F9EB851E0000000
+  br i1 %24, label %25, label %27
 
-28:                                               ; preds = %17
-  %29 = bitcast <2 x float> %20 to i64
+25:                                               ; preds = %17
+  %26 = bitcast <2 x float> %20 to i64
   store i32 2, ptr @GESTURES, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
-  br label %31
+  br label %28
 
-30:                                               ; preds = %17, %12, %6
+27:                                               ; preds = %17, %12, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 88), align 8
   store i32 1, ptr @GESTURES, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre61 = load i64, ptr %.phi.trans.insert, align 8
-  br label %31
+  br label %28
 
-31:                                               ; preds = %30, %28
-  %32 = phi i64 [ %.pre61, %30 ], [ %29, %28 ]
-  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
-  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
-  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
-  %33 = tail call double @glfwGetTime() #60
-  store double %33, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
-  %34 = tail call double @glfwGetTime() #60
-  store double %34, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
+28:                                               ; preds = %27, %25
+  %29 = phi i64 [ %.pre61, %27 ], [ %26, %25 ]
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
+  %30 = tail call double @glfwGetTime() #60
+  store double %30, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
+  %31 = tail call double @glfwGetTime() #60
+  store double %31, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 116), align 4
-  br label %190
+  br label %175
 
-35:                                               ; preds = %4
-  %36 = load i32, ptr @GESTURES, align 8
-  switch i32 %36, label %._crit_edge [
-    i32 8, label %37
-    i32 4, label %37
+32:                                               ; preds = %4
+  %33 = load i32, ptr @GESTURES, align 8
+  switch i32 %33, label %._crit_edge [
+    i32 8, label %34
+    i32 4, label %34
   ]
 
-._crit_edge:                                      ; preds = %35
+._crit_edge:                                      ; preds = %32
   %.pre60 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
-  br label %41
+  br label %38
 
-37:                                               ; preds = %35, %35
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i64, ptr %38, align 8
-  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
-  %40 = bitcast i64 %39 to <2 x float>
-  br label %41
+34:                                               ; preds = %32, %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load i64, ptr %35, align 8
+  store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
+  %37 = bitcast i64 %36 to <2 x float>
+  br label %38
 
-41:                                               ; preds = %._crit_edge, %37
-  %42 = phi <2 x float> [ %.pre60, %._crit_edge ], [ %40, %37 ]
-  %43 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
-  %44 = fsub <2 x float> %42, %43
-  %45 = extractelement <2 x float> %44, i64 0
-  %46 = fsub <2 x float> %42, %43
-  %47 = fmul <2 x float> %46, %46
-  %48 = extractelement <2 x float> %47, i64 1
-  %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
-  %sqrt.i25 = tail call float @llvm.sqrt.f32(float %49)
+38:                                               ; preds = %._crit_edge, %34
+  %39 = phi <2 x float> [ %.pre60, %._crit_edge ], [ %37, %34 ]
+  %40 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  %foldExtExtBinop79 = fsub <2 x float> %39, %40
+  %41 = extractelement <2 x float> %foldExtExtBinop79, i64 0
+  %foldExtExtBinop81 = fsub <2 x float> %39, %40
+  %foldExtExtBinop83 = fmul <2 x float> %foldExtExtBinop81, %foldExtExtBinop81
+  %42 = extractelement <2 x float> %foldExtExtBinop83, i64 1
+  %43 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %42)
+  %sqrt.i25 = tail call float @llvm.sqrt.f32(float %43)
   store float %sqrt.i25, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 124), align 4
-  %50 = tail call double @glfwGetTime() #60
-  %51 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
-  %52 = fsub double %50, %51
-  %53 = fptrunc double %52 to float
-  %54 = fdiv float %sqrt.i25, %53
-  store float %54, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 128), align 8
-  %55 = fcmp ogt float %54, 0x3FC99999A0000000
-  %56 = load i32, ptr @GESTURES, align 8
-  %57 = icmp ne i32 %56, 8
-  %or.cond5 = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond5, label %58, label %81
+  %44 = tail call double @glfwGetTime() #60
+  %45 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 136), align 8
+  %46 = fsub double %44, %45
+  %47 = fptrunc double %46 to float
+  %48 = fdiv float %sqrt.i25, %47
+  store float %48, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 128), align 8
+  %49 = fcmp ogt float %48, 0x3FC99999A0000000
+  %50 = load i32, ptr @GESTURES, align 8
+  %51 = icmp ne i32 %50, 8
+  %or.cond5 = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond5, label %52, label %73
 
-58:                                               ; preds = %41
-  %59 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
-  %60 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
-  %61 = fsub <2 x float> %60, %59
-  %62 = extractelement <2 x float> %61, i64 1
-  %63 = fsub <2 x float> %60, %59
-  %64 = extractelement <2 x float> %63, i64 0
-  %65 = tail call float @atan2f(float noundef %62, float noundef %64) #60
-  %66 = fmul float %65, 0x404CA5DC00000000
-  %67 = fcmp olt float %66, 0.000000e+00
-  %68 = fadd float %66, 3.600000e+02
-  %.0.i = select i1 %67, float %68, float %66
-  %69 = fsub float 3.600000e+02, %.0.i
-  store float %69, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
-  %70 = fcmp olt float %69, 3.000000e+01
-  %71 = fcmp ogt float %69, 3.300000e+02
-  %or.cond7 = or i1 %70, %71
-  br i1 %or.cond7, label %82, label %72
+52:                                               ; preds = %38
+  %53 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  %54 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 24), align 8
+  %foldExtExtBinop85 = fsub <2 x float> %54, %53
+  %55 = extractelement <2 x float> %foldExtExtBinop85, i64 1
+  %foldExtExtBinop87 = fsub <2 x float> %54, %53
+  %56 = extractelement <2 x float> %foldExtExtBinop87, i64 0
+  %57 = tail call float @atan2f(float noundef %55, float noundef %56) #60
+  %58 = fmul float %57, 0x404CA5DC00000000
+  %59 = fcmp olt float %58, 0.000000e+00
+  %60 = fadd float %58, 3.600000e+02
+  %.0.i = select i1 %59, float %60, float %58
+  %61 = fsub float 3.600000e+02, %.0.i
+  store float %61, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
+  %62 = fcmp olt float %61, 3.000000e+01
+  %63 = fcmp ogt float %61, 3.300000e+02
+  %or.cond7 = or i1 %62, %63
+  br i1 %or.cond7, label %74, label %64
 
-72:                                               ; preds = %58
-  %73 = fcmp oge float %69, 3.000000e+01
-  %74 = fcmp ole float %69, 1.500000e+02
-  %or.cond9 = and i1 %73, %74
-  br i1 %or.cond9, label %82, label %75
+64:                                               ; preds = %52
+  %65 = fcmp oge float %61, 3.000000e+01
+  %66 = fcmp ole float %61, 1.500000e+02
+  %or.cond9 = and i1 %65, %66
+  br i1 %or.cond9, label %74, label %67
 
-75:                                               ; preds = %72
-  %76 = fcmp ogt float %69, 1.500000e+02
-  %77 = fcmp olt float %69, 2.100000e+02
-  %or.cond11 = and i1 %76, %77
-  br i1 %or.cond11, label %82, label %78
+67:                                               ; preds = %64
+  %68 = fcmp ogt float %61, 1.500000e+02
+  %69 = fcmp olt float %61, 2.100000e+02
+  %or.cond11 = and i1 %68, %69
+  br i1 %or.cond11, label %74, label %70
 
-78:                                               ; preds = %75
-  %79 = fcmp oge float %69, 2.100000e+02
-  %80 = fcmp ole float %69, 3.300000e+02
-  %or.cond13 = and i1 %79, %80
+70:                                               ; preds = %67
+  %71 = fcmp oge float %61, 2.100000e+02
+  %72 = fcmp ole float %61, 3.300000e+02
+  %or.cond13 = and i1 %71, %72
   %. = select i1 %or.cond13, i32 128, i32 0
-  br label %82
+  br label %74
 
-81:                                               ; preds = %41
+73:                                               ; preds = %38
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 124), align 4
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 128), align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 120), align 8
-  br label %82
+  br label %74
 
-82:                                               ; preds = %78, %75, %72, %58, %81
-  %.sink = phi i32 [ 0, %81 ], [ 16, %58 ], [ 64, %72 ], [ 32, %75 ], [ %., %78 ]
+74:                                               ; preds = %70, %67, %64, %52, %73
+  %.sink = phi i32 [ 0, %73 ], [ 16, %52 ], [ 64, %64 ], [ 32, %67 ], [ %., %70 ]
   store i32 %.sink, ptr @GESTURES, align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 52), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
-  br label %190
+  br label %175
 
-83:                                               ; preds = %4
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
-  %86 = load i32, ptr @GESTURES, align 8
-  %87 = icmp eq i32 %86, 4
-  br i1 %87, label %88, label %99
+75:                                               ; preds = %4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load i64, ptr %76, align 8
+  store i64 %77, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %78 = load i32, ptr @GESTURES, align 8
+  %79 = icmp eq i32 %78, 4
+  br i1 %79, label %80, label %91
 
-88:                                               ; preds = %83
-  %89 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 96), align 8, !range !3, !noundef !4
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %92
+80:                                               ; preds = %75
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 96), align 8, !range !3, !noundef !4
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %84
 
-91:                                               ; preds = %88
-  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
-  br label %92
+83:                                               ; preds = %80
+  store i64 %77, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  br label %84
 
-92:                                               ; preds = %91, %88
+84:                                               ; preds = %83, %80
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 96), align 8
-  %93 = tail call double @glfwGetTime() #60
-  %94 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
-  %95 = fsub double %93, %94
-  %96 = fcmp ogt double %95, 0x3FD3333340000000
-  br i1 %96, label %97, label %99
+  %85 = tail call double @glfwGetTime() #60
+  %86 = load double, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
+  %87 = fsub double %85, %86
+  %88 = fcmp ogt double %87, 0x3FD3333340000000
+  br i1 %88, label %89, label %91
 
-97:                                               ; preds = %92
-  %98 = tail call double @glfwGetTime() #60
-  store double %98, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
+89:                                               ; preds = %84
+  %90 = tail call double @glfwGetTime() #60
+  store double %90, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 16), align 8
   store i32 8, ptr @GESTURES, align 8
-  br label %99
+  br label %91
 
-99:                                               ; preds = %92, %97, %83
-  %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
-  %101 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
-  %102 = fsub float %100, %101
-  store float %102, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
-  %103 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 60), align 4
-  %104 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 52), align 4
-  %105 = fsub float %103, %104
-  store float %105, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 116), align 4
-  br label %190
+91:                                               ; preds = %84, %89, %75
+  %92 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %93 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 48), align 8
+  %94 = fsub float %92, %93
+  store float %94, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 112), align 8
+  %95 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 60), align 4
+  %96 = load float, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 52), align 4
+  %97 = fsub float %95, %96
+  store float %97, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 116), align 4
+  br label %175
 
-106:                                              ; preds = %1
-  %107 = load i32, ptr %0, align 8
-  switch i32 %107, label %190 [
-    i32 1, label %108
-    i32 2, label %126
-    i32 0, label %189
+98:                                               ; preds = %1
+  %99 = load i32, ptr %0, align 8
+  switch i32 %99, label %175 [
+    i32 1, label %100
+    i32 2, label %118
+    i32 0, label %174
   ]
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %110 = load i64, ptr %109, align 8
-  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %112 = load i64, ptr %111, align 8
-  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 40), align 8
-  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
-  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 80), align 8
-  %113 = trunc i64 %112 to i32
-  %114 = bitcast i32 %113 to float
-  %115 = trunc i64 %110 to i32
-  %116 = bitcast i32 %115 to float
-  %117 = fsub float %114, %116
-  store float %117, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
-  %118 = lshr i64 %112, 32
-  %119 = trunc nuw i64 %118 to i32
-  %120 = bitcast i32 %119 to float
-  %121 = lshr i64 %110, 32
-  %122 = trunc nuw i64 %121 to i32
-  %123 = bitcast i32 %122 to float
-  %124 = fsub float %120, %123
-  store float %124, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %102 = load i64, ptr %101, align 8
+  store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 32), align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %104 = load i64, ptr %103, align 8
+  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 40), align 8
+  store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
+  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 80), align 8
+  %105 = trunc i64 %104 to i32
+  %106 = bitcast i32 %105 to float
+  %107 = trunc i64 %102 to i32
+  %108 = bitcast i32 %107 to float
+  %109 = fsub float %106, %108
+  store float %109, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
+  %110 = lshr i64 %104, 32
+  %111 = trunc nuw i64 %110 to i32
+  %112 = bitcast i32 %111 to float
+  %113 = lshr i64 %102, 32
+  %114 = trunc nuw i64 %113 to i32
+  %115 = bitcast i32 %114 to float
+  %116 = fsub float %112, %115
+  store float %116, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
   store i32 4, ptr @GESTURES, align 8
-  %125 = tail call double @glfwGetTime() #60
-  store double %125, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
-  br label %190
+  %117 = tail call double @glfwGetTime() #60
+  store double %117, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
+  br label %175
 
-126:                                              ; preds = %106
-  %127 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
-  %128 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
-  %129 = fsub <2 x float> %128, %127
-  %130 = extractelement <2 x float> %129, i64 0
-  %131 = fsub <2 x float> %128, %127
-  %132 = fmul <2 x float> %131, %131
-  %133 = extractelement <2 x float> %132, i64 1
-  %134 = tail call float @llvm.fmuladd.f32(float %130, float %130, float %133)
-  %sqrt.i32 = tail call float @llvm.sqrt.f32(float %134)
+118:                                              ; preds = %98
+  %119 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %120 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
+  %foldExtExtBinop89 = fsub <2 x float> %120, %119
+  %121 = extractelement <2 x float> %foldExtExtBinop89, i64 0
+  %foldExtExtBinop91 = fsub <2 x float> %120, %119
+  %foldExtExtBinop93 = fmul <2 x float> %foldExtExtBinop91, %foldExtExtBinop91
+  %122 = extractelement <2 x float> %foldExtExtBinop93, i64 1
+  %123 = tail call float @llvm.fmuladd.f32(float %121, float %121, float %122)
+  %sqrt.i32 = tail call float @llvm.sqrt.f32(float %123)
   store float %sqrt.i32, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 156), align 4
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %136 = load i64, ptr %135, align 8
-  store i64 %136, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %138 = load i64, ptr %137, align 8
-  store i64 %138, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
-  %139 = trunc i64 %138 to i32
-  %140 = bitcast i32 %139 to float
-  %141 = trunc i64 %136 to i32
-  %142 = bitcast i32 %141 to float
-  %143 = fsub float %140, %142
-  store float %143, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
-  %144 = lshr i64 %138, 32
-  %145 = trunc nuw i64 %144 to i32
-  %146 = bitcast i32 %145 to float
-  %147 = lshr i64 %136, 32
-  %148 = trunc nuw i64 %147 to i32
-  %149 = bitcast i32 %148 to float
-  %150 = fsub float %146, %149
-  store float %150, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
-  %151 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
-  %152 = bitcast i64 %136 to <2 x float>
-  %.sroa.0.0.vec.extract.i33 = extractelement <2 x float> %152, i64 0
-  %.sroa.05.0.vec.extract.i34 = extractelement <2 x float> %151, i64 0
-  %153 = fsub <2 x float> %152, %151
-  %154 = extractelement <2 x float> %153, i64 0
-  %.sroa.0.4.vec.extract.i35 = extractelement <2 x float> %152, i64 1
-  %.sroa.05.4.vec.extract.i36 = extractelement <2 x float> %151, i64 1
-  %155 = fsub float %.sroa.0.4.vec.extract.i35, %.sroa.05.4.vec.extract.i36
-  %156 = fmul float %155, %155
-  %157 = tail call float @llvm.fmuladd.f32(float %154, float %154, float %156)
-  %sqrt.i37 = tail call float @llvm.sqrt.f32(float %157)
-  %158 = fcmp ult float %sqrt.i37, 0x3F747AE140000000
-  %159 = bitcast i64 %138 to <2 x float>
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %125 = load i64, ptr %124, align 8
+  store i64 %125, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %127 = load i64, ptr %126, align 8
+  store i64 %127, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
+  %128 = trunc i64 %127 to i32
+  %129 = bitcast i32 %128 to float
+  %130 = trunc i64 %125 to i32
+  %131 = bitcast i32 %130 to float
+  %132 = fsub float %129, %131
+  store float %132, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), align 8
+  %133 = lshr i64 %127, 32
+  %134 = trunc nuw i64 %133 to i32
+  %135 = bitcast i32 %134 to float
+  %136 = lshr i64 %125, 32
+  %137 = trunc nuw i64 %136 to i32
+  %138 = bitcast i32 %137 to float
+  %139 = fsub float %135, %138
+  store float %139, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 148), align 4
+  %140 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 72), align 8
+  %141 = bitcast i64 %125 to <2 x float>
+  %.sroa.0.0.vec.extract.i33 = extractelement <2 x float> %141, i64 0
+  %.sroa.05.0.vec.extract.i34 = extractelement <2 x float> %140, i64 0
+  %foldExtExtBinop95 = fsub <2 x float> %141, %140
+  %142 = extractelement <2 x float> %foldExtExtBinop95, i64 0
+  %.sroa.0.4.vec.extract.i35 = extractelement <2 x float> %141, i64 1
+  %.sroa.05.4.vec.extract.i36 = extractelement <2 x float> %140, i64 1
+  %143 = fsub float %.sroa.0.4.vec.extract.i35, %.sroa.05.4.vec.extract.i36
+  %144 = fmul float %143, %143
+  %145 = tail call float @llvm.fmuladd.f32(float %142, float %142, float %144)
+  %sqrt.i37 = tail call float @llvm.sqrt.f32(float %145)
+  %146 = fcmp ult float %sqrt.i37, 0x3F747AE140000000
+  %147 = bitcast i64 %127 to <2 x float>
   %.pre = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 80), align 8
-  %.sroa.0.4.vec.extract.i40 = extractelement <2 x float> %159, i64 1
-  br i1 %158, label %160, label %._crit_edge69
+  %.sroa.0.4.vec.extract.i40 = extractelement <2 x float> %147, i64 1
+  br i1 %146, label %148, label %._crit_edge69
 
-._crit_edge69:                                    ; preds = %126
+._crit_edge69:                                    ; preds = %118
   %.pre70 = extractelement <2 x float> %.pre, i64 0
   %.pre71 = extractelement <2 x float> %.pre, i64 1
-  %.pre72 = extractelement <2 x float> %159, i64 0
-  br label %167
+  %.pre72 = extractelement <2 x float> %147, i64 0
+  br label %154
 
-160:                                              ; preds = %126
-  %.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %159, i64 0
+148:                                              ; preds = %118
+  %.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %147, i64 0
   %.sroa.05.0.vec.extract.i39 = extractelement <2 x float> %.pre, i64 0
-  %161 = fsub <2 x float> %159, %.pre
-  %162 = extractelement <2 x float> %161, i64 0
+  %foldExtExtBinop97 = fsub <2 x float> %147, %.pre
+  %149 = extractelement <2 x float> %foldExtExtBinop97, i64 0
   %.sroa.05.4.vec.extract.i41 = extractelement <2 x float> %.pre, i64 1
-  %163 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.05.4.vec.extract.i41
-  %164 = fmul float %163, %163
-  %165 = tail call float @llvm.fmuladd.f32(float %162, float %162, float %164)
-  %sqrt.i42 = tail call float @llvm.sqrt.f32(float %165)
-  %166 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
-  br i1 %166, label %179, label %167
+  %150 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.05.4.vec.extract.i41
+  %151 = fmul float %150, %150
+  %152 = tail call float @llvm.fmuladd.f32(float %149, float %149, float %151)
+  %sqrt.i42 = tail call float @llvm.sqrt.f32(float %152)
+  %153 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
+  br i1 %153, label %166, label %154
 
-167:                                              ; preds = %._crit_edge69, %160
-  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre72, %._crit_edge69 ], [ %.sroa.0.0.vec.extract.i38, %160 ]
-  %.sroa.0.4.vec.extract.i45.pre-phi = phi float [ %.pre71, %._crit_edge69 ], [ %.sroa.05.4.vec.extract.i41, %160 ]
-  %.sroa.0.0.vec.extract.i43.pre-phi = phi float [ %.pre70, %._crit_edge69 ], [ %.sroa.05.0.vec.extract.i39, %160 ]
-  %168 = fsub float %.sroa.0.0.vec.extract.i43.pre-phi, %.sroa.05.0.vec.extract.i34
-  %169 = fsub float %.sroa.0.4.vec.extract.i45.pre-phi, %.sroa.05.4.vec.extract.i36
-  %170 = fmul float %169, %169
-  %171 = tail call float @llvm.fmuladd.f32(float %168, float %168, float %170)
-  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %171)
-  %172 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.0.0.vec.extract.i33
-  %173 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.0.4.vec.extract.i35
-  %174 = fmul float %173, %173
-  %175 = tail call float @llvm.fmuladd.f32(float %172, float %172, float %174)
-  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %175)
-  %176 = fcmp ogt float %sqrt.i47, %sqrt.i52
-  br i1 %176, label %177, label %178
+154:                                              ; preds = %._crit_edge69, %148
+  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre72, %._crit_edge69 ], [ %.sroa.0.0.vec.extract.i38, %148 ]
+  %.sroa.0.4.vec.extract.i45.pre-phi = phi float [ %.pre71, %._crit_edge69 ], [ %.sroa.05.4.vec.extract.i41, %148 ]
+  %.sroa.0.0.vec.extract.i43.pre-phi = phi float [ %.pre70, %._crit_edge69 ], [ %.sroa.05.0.vec.extract.i39, %148 ]
+  %155 = fsub float %.sroa.0.0.vec.extract.i43.pre-phi, %.sroa.05.0.vec.extract.i34
+  %156 = fsub float %.sroa.0.4.vec.extract.i45.pre-phi, %.sroa.05.4.vec.extract.i36
+  %157 = fmul float %156, %156
+  %158 = tail call float @llvm.fmuladd.f32(float %155, float %155, float %157)
+  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %158)
+  %159 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.0.0.vec.extract.i33
+  %160 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.0.4.vec.extract.i35
+  %161 = fmul float %160, %160
+  %162 = tail call float @llvm.fmuladd.f32(float %159, float %159, float %161)
+  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %162)
+  %163 = fcmp ogt float %sqrt.i47, %sqrt.i52
+  br i1 %163, label %164, label %165
 
-177:                                              ; preds = %167
+164:                                              ; preds = %154
   store i32 256, ptr @GESTURES, align 8
-  br label %183
+  br label %168
 
-178:                                              ; preds = %167
+165:                                              ; preds = %154
   store i32 512, ptr @GESTURES, align 8
-  br label %183
+  br label %168
 
-179:                                              ; preds = %160
+166:                                              ; preds = %148
   store i32 4, ptr @GESTURES, align 8
-  %180 = tail call double @glfwGetTime() #60
-  store double %180, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
+  %167 = tail call double @glfwGetTime() #60
+  store double %167, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 104), align 8
   %.pre58 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 56), align 8
   %.pre59 = load <2 x float>, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 64), align 8
-  %181 = fsub <2 x float> %.pre59, %.pre58
-  %.pre64 = extractelement <2 x float> %181, i64 1
-  %182 = fsub <2 x float> %.pre59, %.pre58
-  %.pre67 = extractelement <2 x float> %182, i64 0
-  br label %183
+  %foldExtExtBinop99 = fsub <2 x float> %.pre59, %.pre58
+  %.pre64 = extractelement <2 x float> %foldExtExtBinop99, i64 1
+  %foldExtExtBinop101 = fsub <2 x float> %.pre59, %.pre58
+  %.pre67 = extractelement <2 x float> %foldExtExtBinop101, i64 0
+  br label %168
 
-183:                                              ; preds = %177, %178, %179
-  %.pre-phi68 = phi float [ %172, %177 ], [ %172, %178 ], [ %.pre67, %179 ]
-  %.pre-phi = phi float [ %173, %177 ], [ %173, %178 ], [ %.pre64, %179 ]
-  %184 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi68) #60
-  %185 = fmul float %184, 0x404CA5DC00000000
-  %186 = fcmp olt float %185, 0.000000e+00
-  %187 = fadd float %185, 3.600000e+02
-  %.0.i57 = select i1 %186, float %187, float %185
-  %188 = fsub float 3.600000e+02, %.0.i57
-  store float %188, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 152), align 8
-  br label %190
+168:                                              ; preds = %164, %165, %166
+  %.pre-phi68 = phi float [ %159, %164 ], [ %159, %165 ], [ %.pre67, %166 ]
+  %.pre-phi = phi float [ %160, %164 ], [ %160, %165 ], [ %.pre64, %166 ]
+  %169 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi68) #60
+  %170 = fmul float %169, 0x404CA5DC00000000
+  %171 = fcmp olt float %170, 0.000000e+00
+  %172 = fadd float %170, 3.600000e+02
+  %.0.i57 = select i1 %171, float %172, float %170
+  %173 = fsub float 3.600000e+02, %.0.i57
+  store float %173, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 152), align 8
+  br label %175
 
-189:                                              ; preds = %106
+174:                                              ; preds = %98
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @GESTURES, i64 12), align 4
   store i32 0, ptr @GESTURES, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @GESTURES, i64 144), i8 0, i64 16, i1 false)
-  br label %190
+  br label %175
 
-190:                                              ; preds = %1, %106, %4, %183, %189, %108, %31, %99, %82
+175:                                              ; preds = %1, %98, %4, %168, %174, %100, %28, %91, %74
   ret void
 }
 
@@ -29578,31 +29578,31 @@ define { <2 x float>, float } @GetCameraForward(ptr noundef readonly captures(no
   %.sroa.09.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload = load float, ptr %.sroa.210.0..sroa_idx, align 4
-  %3 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.09.0.copyload
-  %4 = extractelement <2 x float> %3, i64 0
-  %5 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.09.0.copyload
-  %6 = extractelement <2 x float> %5, i64 1
-  %.sroa.08.4.vec.insert.i = shufflevector <2 x float> %3, <2 x float> %5, <2 x i32> <i32 0, i32 3>
-  %7 = fsub float %.sroa.212.0.copyload, %.sroa.210.0.copyload
-  %8 = fmul float %6, %6
-  %9 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %8)
-  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
-  %11 = fcmp une float %10, 0.000000e+00
-  br i1 %11, label %12, label %Vector3Normalize.exit
+  %foldExtExtBinop = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.09.0.copyload
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop21 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.09.0.copyload
+  %4 = extractelement <2 x float> %foldExtExtBinop21, i64 1
+  %.sroa.08.4.vec.insert.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop21, <2 x i32> <i32 0, i32 3>
+  %5 = fsub float %.sroa.212.0.copyload, %.sroa.210.0.copyload
+  %6 = fmul float %4, %4
+  %7 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %6)
+  %8 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %7)
+  %9 = fcmp une float %8, 0.000000e+00
+  br i1 %9, label %10, label %Vector3Normalize.exit
 
-12:                                               ; preds = %1
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %10)
-  %13 = fdiv float 1.000000e+00, %sqrt.i
-  %14 = fmul float %4, %13
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %14, i64 0
-  %15 = fmul float %6, %13
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %15, i64 1
-  %16 = fmul float %7, %13
+10:                                               ; preds = %1
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %8)
+  %11 = fdiv float 1.000000e+00, %sqrt.i
+  %12 = fmul float %3, %11
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %12, i64 0
+  %13 = fmul float %4, %11
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %13, i64 1
+  %14 = fmul float %5, %11
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %1, %12
-  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %12 ], [ %.sroa.08.4.vec.insert.i, %1 ]
-  %.sroa.617.0.i = phi float [ %16, %12 ], [ %7, %1 ]
+Vector3Normalize.exit:                            ; preds = %1, %10
+  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %10 ], [ %.sroa.08.4.vec.insert.i, %1 ]
+  %.sroa.617.0.i = phi float [ %14, %10 ], [ %5, %1 ]
   %.fca.0.insert.i18 = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.013.0.i, 0
   %.fca.1.insert.i19 = insertvalue { <2 x float>, float } %.fca.0.insert.i18, float %.sroa.617.0.i, 1
   ret { <2 x float>, float } %.fca.1.insert.i19
@@ -29649,87 +29649,87 @@ define { <2 x float>, float } @GetCameraRight(ptr noundef readonly captures(none
   %.sroa.09.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i = load float, ptr %.sroa.210.0..sroa_idx.i, align 4
-  %3 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
-  %4 = extractelement <2 x float> %3, i64 0
-  %5 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
-  %6 = extractelement <2 x float> %5, i64 1
-  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %3, <2 x float> %5, <2 x i32> <i32 0, i32 3>
-  %7 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
-  %8 = fmul float %6, %6
-  %9 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %8)
-  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
-  %11 = fcmp une float %10, 0.000000e+00
-  br i1 %11, label %12, label %GetCameraForward.exit
+  %foldExtExtBinop = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop38 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
+  %4 = extractelement <2 x float> %foldExtExtBinop38, i64 1
+  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop38, <2 x i32> <i32 0, i32 3>
+  %5 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
+  %6 = fmul float %4, %4
+  %7 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %6)
+  %8 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %7)
+  %9 = fcmp une float %8, 0.000000e+00
+  br i1 %9, label %10, label %GetCameraForward.exit
 
-12:                                               ; preds = %1
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %10)
-  %13 = fdiv float 1.000000e+00, %sqrt.i.i
-  %14 = fmul float %4, %13
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %14, i64 0
-  %15 = fmul float %6, %13
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %15, i64 1
-  %16 = fmul float %7, %13
+10:                                               ; preds = %1
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %8)
+  %11 = fdiv float 1.000000e+00, %sqrt.i.i
+  %12 = fmul float %3, %11
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %12, i64 0
+  %13 = fmul float %4, %11
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %13, i64 1
+  %14 = fmul float %5, %11
   br label %GetCameraForward.exit
 
-GetCameraForward.exit:                            ; preds = %1, %12
-  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %12 ], [ %.sroa.08.4.vec.insert.i.i, %1 ]
-  %.sroa.617.0.i.i = phi float [ %16, %12 ], [ %7, %1 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i = load <2 x float>, ptr %17, align 4
+GetCameraForward.exit:                            ; preds = %1, %10
+  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %10 ], [ %.sroa.08.4.vec.insert.i.i, %1 ]
+  %.sroa.617.0.i.i = phi float [ %14, %10 ], [ %5, %1 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i = load <2 x float>, ptr %15, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
   %.sroa.07.0.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 0
   %.sroa.07.4.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 1
-  %18 = fmul float %.sroa.07.4.vec.extract.i.i, %.sroa.07.4.vec.extract.i.i
-  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i, float %.sroa.07.0.vec.extract.i.i, float %18)
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i, float %.sroa.24.0.copyload.i, float %19)
-  %21 = fcmp une float %20, 0.000000e+00
-  br i1 %21, label %22, label %GetCameraUp.exit
+  %16 = fmul float %.sroa.07.4.vec.extract.i.i, %.sroa.07.4.vec.extract.i.i
+  %17 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i, float %.sroa.07.0.vec.extract.i.i, float %16)
+  %18 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i, float %.sroa.24.0.copyload.i, float %17)
+  %19 = fcmp une float %18, 0.000000e+00
+  br i1 %19, label %20, label %GetCameraUp.exit
 
-22:                                               ; preds = %GetCameraForward.exit
-  %sqrt.i.i31 = tail call float @llvm.sqrt.f32(float %20)
-  %23 = fdiv float 1.000000e+00, %sqrt.i.i31
-  %24 = fmul float %.sroa.07.0.vec.extract.i.i, %23
-  %25 = fmul float %.sroa.07.4.vec.extract.i.i, %23
-  %26 = fmul float %.sroa.24.0.copyload.i, %23
+20:                                               ; preds = %GetCameraForward.exit
+  %sqrt.i.i31 = tail call float @llvm.sqrt.f32(float %18)
+  %21 = fdiv float 1.000000e+00, %sqrt.i.i31
+  %22 = fmul float %.sroa.07.0.vec.extract.i.i, %21
+  %23 = fmul float %.sroa.07.4.vec.extract.i.i, %21
+  %24 = fmul float %.sroa.24.0.copyload.i, %21
   br label %GetCameraUp.exit
 
-GetCameraUp.exit:                                 ; preds = %GetCameraForward.exit, %22
-  %.sroa.03.0.vec.extract.i.pre-phi = phi float [ %.sroa.07.0.vec.extract.i.i, %GetCameraForward.exit ], [ %24, %22 ]
-  %.sroa.03.4.vec.extract.i.pre-phi = phi float [ %.sroa.07.4.vec.extract.i.i, %GetCameraForward.exit ], [ %25, %22 ]
-  %.sroa.617.0.i.i30 = phi float [ %.sroa.24.0.copyload.i, %GetCameraForward.exit ], [ %26, %22 ]
+GetCameraUp.exit:                                 ; preds = %GetCameraForward.exit, %20
+  %.sroa.03.0.vec.extract.i.pre-phi = phi float [ %.sroa.07.0.vec.extract.i.i, %GetCameraForward.exit ], [ %22, %20 ]
+  %.sroa.03.4.vec.extract.i.pre-phi = phi float [ %.sroa.07.4.vec.extract.i.i, %GetCameraForward.exit ], [ %23, %20 ]
+  %.sroa.617.0.i.i30 = phi float [ %.sroa.24.0.copyload.i, %GetCameraForward.exit ], [ %24, %20 ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 1
-  %27 = fneg float %.sroa.03.4.vec.extract.i.pre-phi
-  %28 = fmul float %.sroa.617.0.i.i, %27
-  %29 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.617.0.i.i30, float %28)
-  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %29, i64 0
+  %25 = fneg float %.sroa.03.4.vec.extract.i.pre-phi
+  %26 = fmul float %.sroa.617.0.i.i, %25
+  %27 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.617.0.i.i30, float %26)
+  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %27, i64 0
   %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
-  %30 = fneg float %.sroa.617.0.i.i30
-  %31 = fmul float %.sroa.011.0.vec.extract.i, %30
-  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.03.0.vec.extract.i.pre-phi, float %31)
-  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %32, i64 1
-  %33 = fneg float %.sroa.03.0.vec.extract.i.pre-phi
-  %34 = fmul float %.sroa.011.4.vec.extract.i, %33
-  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.03.4.vec.extract.i.pre-phi, float %34)
-  %36 = fmul float %32, %32
-  %37 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %36)
-  %38 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %37)
-  %39 = fcmp une float %38, 0.000000e+00
-  br i1 %39, label %40, label %Vector3Normalize.exit
+  %28 = fneg float %.sroa.617.0.i.i30
+  %29 = fmul float %.sroa.011.0.vec.extract.i, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.03.0.vec.extract.i.pre-phi, float %29)
+  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %30, i64 1
+  %31 = fneg float %.sroa.03.0.vec.extract.i.pre-phi
+  %32 = fmul float %.sroa.011.4.vec.extract.i, %31
+  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.03.4.vec.extract.i.pre-phi, float %32)
+  %34 = fmul float %30, %30
+  %35 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %34)
+  %36 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %35)
+  %37 = fcmp une float %36, 0.000000e+00
+  br i1 %37, label %38, label %Vector3Normalize.exit
 
-40:                                               ; preds = %GetCameraUp.exit
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %38)
-  %41 = fdiv float 1.000000e+00, %sqrt.i
-  %42 = fmul float %29, %41
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %42, i64 0
-  %43 = fmul float %32, %41
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %43, i64 1
-  %44 = fmul float %35, %41
+38:                                               ; preds = %GetCameraUp.exit
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %36)
+  %39 = fdiv float 1.000000e+00, %sqrt.i
+  %40 = fmul float %27, %39
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %40, i64 0
+  %41 = fmul float %30, %39
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %41, i64 1
+  %42 = fmul float %33, %39
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %GetCameraUp.exit, %40
-  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %40 ], [ %.sroa.018.4.vec.insert.i, %GetCameraUp.exit ]
-  %.sroa.617.0.i = phi float [ %44, %40 ], [ %35, %GetCameraUp.exit ]
+Vector3Normalize.exit:                            ; preds = %GetCameraUp.exit, %38
+  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %38 ], [ %.sroa.018.4.vec.insert.i, %GetCameraUp.exit ]
+  %.sroa.617.0.i = phi float [ %42, %38 ], [ %33, %GetCameraUp.exit ]
   %.fca.0.insert.i34 = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.013.0.i, 0
   %.fca.1.insert.i35 = insertvalue { <2 x float>, float } %.fca.0.insert.i34, float %.sroa.617.0.i, 1
   ret { <2 x float>, float } %.fca.1.insert.i35
@@ -29744,76 +29744,76 @@ define void @CameraMoveForward(ptr noundef captures(none) %0, float noundef %1, 
   %.sroa.09.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i = load float, ptr %.sroa.210.0..sroa_idx.i, align 4
-  %5 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
-  %6 = extractelement <2 x float> %5, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.06.4.vec.extract.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i, i64 1
   %.sroa.03.4.vec.extract.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i, i64 1
-  %7 = fsub float %.sroa.06.4.vec.extract.i.i, %.sroa.03.4.vec.extract.i.i
-  %.sroa.08.4.vec.insert.i.i = insertelement <2 x float> %5, float %7, i64 1
-  %8 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
-  %9 = fmul float %7, %7
-  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %10)
-  %12 = fcmp une float %11, 0.000000e+00
-  br i1 %12, label %13, label %GetCameraForward.exit
+  %6 = fsub float %.sroa.06.4.vec.extract.i.i, %.sroa.03.4.vec.extract.i.i
+  %.sroa.08.4.vec.insert.i.i = insertelement <2 x float> %foldExtExtBinop, float %6, i64 1
+  %7 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
+  %8 = fmul float %6, %6
+  %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
+  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
+  %11 = fcmp une float %10, 0.000000e+00
+  br i1 %11, label %12, label %GetCameraForward.exit
 
-13:                                               ; preds = %3
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %11)
-  %14 = fdiv float 1.000000e+00, %sqrt.i.i
-  %15 = fmul float %6, %14
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %15, i64 0
-  %16 = fmul float %7, %14
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %16, i64 1
-  %17 = fmul float %8, %14
+12:                                               ; preds = %3
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %10)
+  %13 = fdiv float 1.000000e+00, %sqrt.i.i
+  %14 = fmul float %5, %13
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %14, i64 0
+  %15 = fmul float %6, %13
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %15, i64 1
+  %16 = fmul float %7, %13
   br label %GetCameraForward.exit
 
-GetCameraForward.exit:                            ; preds = %3, %13
-  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %13 ], [ %.sroa.08.4.vec.insert.i.i, %3 ]
-  %.sroa.617.0.i.i = phi float [ %17, %13 ], [ %8, %3 ]
-  br i1 %2, label %18, label %Vector3Normalize.exit
+GetCameraForward.exit:                            ; preds = %3, %12
+  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %12 ], [ %.sroa.08.4.vec.insert.i.i, %3 ]
+  %.sroa.617.0.i.i = phi float [ %16, %12 ], [ %7, %3 ]
+  br i1 %2, label %17, label %Vector3Normalize.exit
 
-18:                                               ; preds = %GetCameraForward.exit
+17:                                               ; preds = %GetCameraForward.exit
   %.sroa.036.4.vec.insert = insertelement <2 x float> %.sroa.013.0.i.i, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
-  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.07.0.vec.extract.i, float 0.000000e+00)
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %19)
-  %21 = fcmp une float %20, 0.000000e+00
-  br i1 %21, label %22, label %Vector3Normalize.exit
+  %18 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.07.0.vec.extract.i, float 0.000000e+00)
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %18)
+  %20 = fcmp une float %19, 0.000000e+00
+  br i1 %20, label %21, label %Vector3Normalize.exit
 
-22:                                               ; preds = %18
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %20)
-  %23 = fdiv float 1.000000e+00, %sqrt.i
-  %24 = fmul float %.sroa.07.0.vec.extract.i, %23
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %24, i64 0
-  %25 = fmul float %23, 0.000000e+00
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %25, i64 1
-  %26 = fmul float %.sroa.617.0.i.i, %23
+21:                                               ; preds = %17
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %19)
+  %22 = fdiv float 1.000000e+00, %sqrt.i
+  %23 = fmul float %.sroa.07.0.vec.extract.i, %22
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %23, i64 0
+  %24 = fmul float %22, 0.000000e+00
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %24, i64 1
+  %25 = fmul float %.sroa.617.0.i.i, %22
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %22, %18, %GetCameraForward.exit
-  %.sroa.036.0 = phi <2 x float> [ %.sroa.013.0.i.i, %GetCameraForward.exit ], [ %.sroa.013.4.vec.insert.i, %22 ], [ %.sroa.036.4.vec.insert, %18 ]
-  %.sroa.10.0 = phi float [ %.sroa.617.0.i.i, %GetCameraForward.exit ], [ %26, %22 ], [ %.sroa.617.0.i.i, %18 ]
+Vector3Normalize.exit:                            ; preds = %21, %17, %GetCameraForward.exit
+  %.sroa.036.0 = phi <2 x float> [ %.sroa.013.0.i.i, %GetCameraForward.exit ], [ %.sroa.013.4.vec.insert.i, %21 ], [ %.sroa.036.4.vec.insert, %17 ]
+  %.sroa.10.0 = phi float [ %.sroa.617.0.i.i, %GetCameraForward.exit ], [ %25, %21 ], [ %.sroa.617.0.i.i, %17 ]
   %.sroa.03.0.vec.extract.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i, i64 0
   %.sroa.06.0.vec.extract.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i, i64 0
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.036.0, i64 0
-  %27 = fmul float %1, %.sroa.05.0.vec.extract.i
+  %26 = fmul float %1, %.sroa.05.0.vec.extract.i
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %.sroa.036.0, i64 1
-  %28 = fmul float %1, %.sroa.05.4.vec.extract.i
-  %29 = fmul float %1, %.sroa.10.0
-  %30 = fadd float %.sroa.03.0.vec.extract.i.i, %27
-  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %30, i64 0
-  %31 = fadd float %.sroa.03.4.vec.extract.i.i, %28
-  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %31, i64 1
-  %32 = fadd float %.sroa.210.0.copyload.i, %29
+  %27 = fmul float %1, %.sroa.05.4.vec.extract.i
+  %28 = fmul float %1, %.sroa.10.0
+  %29 = fadd float %.sroa.03.0.vec.extract.i.i, %26
+  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %29, i64 0
+  %30 = fadd float %.sroa.03.4.vec.extract.i.i, %27
+  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %30, i64 1
+  %31 = fadd float %.sroa.210.0.copyload.i, %28
   store <2 x float> %.sroa.08.4.vec.insert.i, ptr %0, align 4
-  store float %32, ptr %.sroa.210.0..sroa_idx.i, align 4
-  %33 = fadd float %.sroa.06.0.vec.extract.i.i, %27
-  %.sroa.08.0.vec.insert.i51 = insertelement <2 x float> poison, float %33, i64 0
-  %34 = fadd float %.sroa.06.4.vec.extract.i.i, %28
-  %.sroa.08.4.vec.insert.i54 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51, float %34, i64 1
-  %35 = fadd float %.sroa.212.0.copyload.i, %29
+  store float %31, ptr %.sroa.210.0..sroa_idx.i, align 4
+  %32 = fadd float %.sroa.06.0.vec.extract.i.i, %26
+  %.sroa.08.0.vec.insert.i51 = insertelement <2 x float> poison, float %32, i64 0
+  %33 = fadd float %.sroa.06.4.vec.extract.i.i, %27
+  %.sroa.08.4.vec.insert.i54 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51, float %33, i64 1
+  %34 = fadd float %.sroa.212.0.copyload.i, %28
   store <2 x float> %.sroa.08.4.vec.insert.i54, ptr %4, align 4
-  store float %35, ptr %.sroa.212.0..sroa_idx.i, align 4
+  store float %34, ptr %.sroa.212.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -29883,132 +29883,132 @@ define void @CameraMoveRight(ptr noundef captures(none) %0, float noundef %1, i1
   %.sroa.09.0.copyload.i.i = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i.i = load float, ptr %.sroa.210.0..sroa_idx.i.i, align 4
-  %5 = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
-  %6 = extractelement <2 x float> %5, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.06.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i, i64 1
   %.sroa.03.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i, i64 1
-  %7 = fsub float %.sroa.06.4.vec.extract.i.i.i, %.sroa.03.4.vec.extract.i.i.i
-  %.sroa.08.4.vec.insert.i.i.i = insertelement <2 x float> %5, float %7, i64 1
-  %8 = fsub float %.sroa.212.0.copyload.i.i, %.sroa.210.0.copyload.i.i
-  %9 = fmul float %7, %7
-  %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %10)
-  %12 = fcmp une float %11, 0.000000e+00
-  br i1 %12, label %13, label %GetCameraForward.exit.i
+  %6 = fsub float %.sroa.06.4.vec.extract.i.i.i, %.sroa.03.4.vec.extract.i.i.i
+  %.sroa.08.4.vec.insert.i.i.i = insertelement <2 x float> %foldExtExtBinop, float %6, i64 1
+  %7 = fsub float %.sroa.212.0.copyload.i.i, %.sroa.210.0.copyload.i.i
+  %8 = fmul float %6, %6
+  %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
+  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
+  %11 = fcmp une float %10, 0.000000e+00
+  br i1 %11, label %12, label %GetCameraForward.exit.i
 
-13:                                               ; preds = %3
-  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %11)
-  %14 = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %15 = fmul float %6, %14
-  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %15, i64 0
-  %16 = fmul float %7, %14
-  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %16, i64 1
-  %17 = fmul float %8, %14
+12:                                               ; preds = %3
+  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %10)
+  %13 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %14 = fmul float %5, %13
+  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %14, i64 0
+  %15 = fmul float %6, %13
+  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %15, i64 1
+  %16 = fmul float %7, %13
   br label %GetCameraForward.exit.i
 
-GetCameraForward.exit.i:                          ; preds = %13, %3
-  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %13 ], [ %.sroa.08.4.vec.insert.i.i.i, %3 ]
-  %.sroa.617.0.i.i.i = phi float [ %17, %13 ], [ %8, %3 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %18, align 4
+GetCameraForward.exit.i:                          ; preds = %12, %3
+  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %12 ], [ %.sroa.08.4.vec.insert.i.i.i, %3 ]
+  %.sroa.617.0.i.i.i = phi float [ %16, %12 ], [ %7, %3 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %17, align 4
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i = load float, ptr %.sroa.24.0..sroa_idx.i.i, align 4
   %.sroa.07.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 0
   %.sroa.07.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 1
-  %19 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %19)
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %20)
-  %22 = fcmp une float %21, 0.000000e+00
-  br i1 %22, label %23, label %GetCameraUp.exit.i
+  %18 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %18)
+  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %19)
+  %21 = fcmp une float %20, 0.000000e+00
+  br i1 %21, label %22, label %GetCameraUp.exit.i
 
-23:                                               ; preds = %GetCameraForward.exit.i
-  %sqrt.i.i31.i = tail call float @llvm.sqrt.f32(float %21)
-  %24 = fdiv float 1.000000e+00, %sqrt.i.i31.i
-  %25 = fmul float %.sroa.07.0.vec.extract.i.i.i, %24
-  %26 = fmul float %.sroa.07.4.vec.extract.i.i.i, %24
-  %27 = fmul float %.sroa.24.0.copyload.i.i, %24
+22:                                               ; preds = %GetCameraForward.exit.i
+  %sqrt.i.i31.i = tail call float @llvm.sqrt.f32(float %20)
+  %23 = fdiv float 1.000000e+00, %sqrt.i.i31.i
+  %24 = fmul float %.sroa.07.0.vec.extract.i.i.i, %23
+  %25 = fmul float %.sroa.07.4.vec.extract.i.i.i, %23
+  %26 = fmul float %.sroa.24.0.copyload.i.i, %23
   br label %GetCameraUp.exit.i
 
-GetCameraUp.exit.i:                               ; preds = %23, %GetCameraForward.exit.i
-  %.sroa.03.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %25, %23 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %26, %23 ]
-  %.sroa.617.0.i.i30.i = phi float [ %.sroa.24.0.copyload.i.i, %GetCameraForward.exit.i ], [ %27, %23 ]
+GetCameraUp.exit.i:                               ; preds = %22, %GetCameraForward.exit.i
+  %.sroa.03.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %24, %22 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %25, %22 ]
+  %.sroa.617.0.i.i30.i = phi float [ %.sroa.24.0.copyload.i.i, %GetCameraForward.exit.i ], [ %26, %22 ]
   %.sroa.011.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 1
-  %28 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i
-  %29 = fmul float %.sroa.617.0.i.i.i, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i, float %.sroa.617.0.i.i30.i, float %29)
-  %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %30, i64 0
+  %27 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i
+  %28 = fmul float %.sroa.617.0.i.i.i, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i, float %.sroa.617.0.i.i30.i, float %28)
+  %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %29, i64 0
   %.sroa.011.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 0
-  %31 = fneg float %.sroa.617.0.i.i30.i
-  %32 = fmul float %.sroa.011.0.vec.extract.i.i, %31
-  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i, float %32)
-  %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %33, i64 1
-  %34 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i
-  %35 = fmul float %.sroa.011.4.vec.extract.i.i, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i, float %35)
-  %37 = fmul float %33, %33
-  %38 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %37)
-  %39 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %38)
-  %40 = fcmp une float %39, 0.000000e+00
-  br i1 %40, label %41, label %GetCameraRight.exit
+  %30 = fneg float %.sroa.617.0.i.i30.i
+  %31 = fmul float %.sroa.011.0.vec.extract.i.i, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i, float %31)
+  %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %32, i64 1
+  %33 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i
+  %34 = fmul float %.sroa.011.4.vec.extract.i.i, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i, float %34)
+  %36 = fmul float %32, %32
+  %37 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %36)
+  %38 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %37)
+  %39 = fcmp une float %38, 0.000000e+00
+  br i1 %39, label %40, label %GetCameraRight.exit
 
-41:                                               ; preds = %GetCameraUp.exit.i
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %39)
-  %42 = fdiv float 1.000000e+00, %sqrt.i.i
-  %43 = fmul float %30, %42
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %43, i64 0
-  %44 = fmul float %33, %42
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %44, i64 1
-  %45 = fmul float %36, %42
+40:                                               ; preds = %GetCameraUp.exit.i
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %38)
+  %41 = fdiv float 1.000000e+00, %sqrt.i.i
+  %42 = fmul float %29, %41
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %42, i64 0
+  %43 = fmul float %32, %41
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %43, i64 1
+  %44 = fmul float %35, %41
   br label %GetCameraRight.exit
 
-GetCameraRight.exit:                              ; preds = %GetCameraUp.exit.i, %41
-  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %41 ], [ %.sroa.018.4.vec.insert.i.i, %GetCameraUp.exit.i ]
-  %.sroa.617.0.i.i = phi float [ %45, %41 ], [ %36, %GetCameraUp.exit.i ]
-  br i1 %2, label %46, label %Vector3Normalize.exit
+GetCameraRight.exit:                              ; preds = %GetCameraUp.exit.i, %40
+  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %40 ], [ %.sroa.018.4.vec.insert.i.i, %GetCameraUp.exit.i ]
+  %.sroa.617.0.i.i = phi float [ %44, %40 ], [ %35, %GetCameraUp.exit.i ]
+  br i1 %2, label %45, label %Vector3Normalize.exit
 
-46:                                               ; preds = %GetCameraRight.exit
+45:                                               ; preds = %GetCameraRight.exit
   %.sroa.036.4.vec.insert = insertelement <2 x float> %.sroa.013.0.i.i, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
-  %47 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.07.0.vec.extract.i, float 0.000000e+00)
-  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %47)
-  %49 = fcmp une float %48, 0.000000e+00
-  br i1 %49, label %50, label %Vector3Normalize.exit
+  %46 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.07.0.vec.extract.i, float 0.000000e+00)
+  %47 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %46)
+  %48 = fcmp une float %47, 0.000000e+00
+  br i1 %48, label %49, label %Vector3Normalize.exit
 
-50:                                               ; preds = %46
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %48)
-  %51 = fdiv float 1.000000e+00, %sqrt.i
-  %52 = fmul float %.sroa.07.0.vec.extract.i, %51
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %52, i64 0
-  %53 = fmul float %51, 0.000000e+00
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %53, i64 1
-  %54 = fmul float %.sroa.617.0.i.i, %51
+49:                                               ; preds = %45
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %47)
+  %50 = fdiv float 1.000000e+00, %sqrt.i
+  %51 = fmul float %.sroa.07.0.vec.extract.i, %50
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %51, i64 0
+  %52 = fmul float %50, 0.000000e+00
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %52, i64 1
+  %53 = fmul float %.sroa.617.0.i.i, %50
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %50, %46, %GetCameraRight.exit
-  %.sroa.036.0 = phi <2 x float> [ %.sroa.013.0.i.i, %GetCameraRight.exit ], [ %.sroa.013.4.vec.insert.i, %50 ], [ %.sroa.036.4.vec.insert, %46 ]
-  %.sroa.10.0 = phi float [ %.sroa.617.0.i.i, %GetCameraRight.exit ], [ %54, %50 ], [ %.sroa.617.0.i.i, %46 ]
+Vector3Normalize.exit:                            ; preds = %49, %45, %GetCameraRight.exit
+  %.sroa.036.0 = phi <2 x float> [ %.sroa.013.0.i.i, %GetCameraRight.exit ], [ %.sroa.013.4.vec.insert.i, %49 ], [ %.sroa.036.4.vec.insert, %45 ]
+  %.sroa.10.0 = phi float [ %.sroa.617.0.i.i, %GetCameraRight.exit ], [ %53, %49 ], [ %.sroa.617.0.i.i, %45 ]
   %.sroa.03.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i, i64 0
   %.sroa.06.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i, i64 0
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.036.0, i64 0
-  %55 = fmul float %1, %.sroa.05.0.vec.extract.i
+  %54 = fmul float %1, %.sroa.05.0.vec.extract.i
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %.sroa.036.0, i64 1
-  %56 = fmul float %1, %.sroa.05.4.vec.extract.i
-  %57 = fmul float %1, %.sroa.10.0
-  %58 = fadd float %.sroa.03.0.vec.extract.i.i.i, %55
-  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %58, i64 0
-  %59 = fadd float %.sroa.03.4.vec.extract.i.i.i, %56
-  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %59, i64 1
-  %60 = fadd float %.sroa.210.0.copyload.i.i, %57
+  %55 = fmul float %1, %.sroa.05.4.vec.extract.i
+  %56 = fmul float %1, %.sroa.10.0
+  %57 = fadd float %.sroa.03.0.vec.extract.i.i.i, %54
+  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %57, i64 0
+  %58 = fadd float %.sroa.03.4.vec.extract.i.i.i, %55
+  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %58, i64 1
+  %59 = fadd float %.sroa.210.0.copyload.i.i, %56
   store <2 x float> %.sroa.08.4.vec.insert.i, ptr %0, align 4
-  store float %60, ptr %.sroa.210.0..sroa_idx.i.i, align 4
-  %61 = fadd float %.sroa.06.0.vec.extract.i.i.i, %55
-  %.sroa.08.0.vec.insert.i51 = insertelement <2 x float> poison, float %61, i64 0
-  %62 = fadd float %.sroa.06.4.vec.extract.i.i.i, %56
-  %.sroa.08.4.vec.insert.i54 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51, float %62, i64 1
-  %63 = fadd float %.sroa.212.0.copyload.i.i, %57
+  store float %59, ptr %.sroa.210.0..sroa_idx.i.i, align 4
+  %60 = fadd float %.sroa.06.0.vec.extract.i.i.i, %54
+  %.sroa.08.0.vec.insert.i51 = insertelement <2 x float> poison, float %60, i64 0
+  %61 = fadd float %.sroa.06.4.vec.extract.i.i.i, %55
+  %.sroa.08.4.vec.insert.i54 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51, float %61, i64 1
+  %62 = fadd float %.sroa.212.0.copyload.i.i, %56
   store <2 x float> %.sroa.08.4.vec.insert.i54, ptr %4, align 4
-  store float %63, ptr %.sroa.212.0..sroa_idx.i.i, align 4
+  store float %62, ptr %.sroa.212.0..sroa_idx.i.i, align 4
   ret void
 }
 
@@ -30021,49 +30021,49 @@ define void @CameraMoveToTarget(ptr noundef captures(none) %0, float noundef %1)
   %.sroa.020.0.copyload = load <2 x float>, ptr %3, align 4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.221.0.copyload = load float, ptr %.sroa.221.0..sroa_idx, align 4
-  %4 = fsub <2 x float> %.sroa.020.0.copyload, %.sroa.022.0.copyload
-  %5 = extractelement <2 x float> %4, i64 0
-  %6 = fsub <2 x float> %.sroa.020.0.copyload, %.sroa.022.0.copyload
-  %7 = extractelement <2 x float> %6, i64 1
-  %8 = fsub float %.sroa.221.0.copyload, %.sroa.223.0.copyload
-  %9 = fmul float %7, %7
-  %10 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %10)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %11)
-  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %4, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %12 = fcmp une float %11, 0.000000e+00
-  br i1 %12, label %13, label %GetCameraForward.exit
+  %foldExtExtBinop = fsub <2 x float> %.sroa.020.0.copyload, %.sroa.022.0.copyload
+  %4 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop36 = fsub <2 x float> %.sroa.020.0.copyload, %.sroa.022.0.copyload
+  %5 = extractelement <2 x float> %foldExtExtBinop36, i64 1
+  %6 = fsub float %.sroa.221.0.copyload, %.sroa.223.0.copyload
+  %7 = fmul float %5, %5
+  %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %7)
+  %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %9)
+  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop36, <2 x i32> <i32 0, i32 3>
+  %10 = fcmp une float %9, 0.000000e+00
+  br i1 %10, label %11, label %GetCameraForward.exit
 
-13:                                               ; preds = %2
-  %14 = fdiv float 1.000000e+00, %sqrt.i
-  %15 = fmul float %5, %14
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %15, i64 0
-  %16 = fmul float %7, %14
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %16, i64 1
-  %17 = fmul float %8, %14
+11:                                               ; preds = %2
+  %12 = fdiv float 1.000000e+00, %sqrt.i
+  %13 = fmul float %4, %12
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %14 = fmul float %5, %12
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %14, i64 1
+  %15 = fmul float %6, %12
   br label %GetCameraForward.exit
 
-GetCameraForward.exit:                            ; preds = %2, %13
-  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %13 ], [ %.sroa.08.4.vec.insert.i.i, %2 ]
-  %.sroa.617.0.i.i = phi float [ %17, %13 ], [ %8, %2 ]
+GetCameraForward.exit:                            ; preds = %2, %11
+  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %11 ], [ %.sroa.08.4.vec.insert.i.i, %2 ]
+  %.sroa.617.0.i.i = phi float [ %15, %11 ], [ %6, %2 ]
   %.sroa.07.4.vec.extract.i = extractelement <2 x float> %.sroa.020.0.copyload, i64 1
   %.sroa.07.0.vec.extract.i = extractelement <2 x float> %.sroa.020.0.copyload, i64 0
-  %18 = fadd float %1, %sqrt.i
-  %19 = fcmp ugt float %18, 0.000000e+00
-  %.neg = fneg float %18
-  %20 = select i1 %19, float %.neg, float 0xBF50624DE0000000
+  %16 = fadd float %1, %sqrt.i
+  %17 = fcmp ugt float %16, 0.000000e+00
+  %.neg = fneg float %16
+  %18 = select i1 %17, float %.neg, float 0xBF50624DE0000000
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
-  %21 = fmul float %20, %.sroa.05.0.vec.extract.i
+  %19 = fmul float %18, %.sroa.05.0.vec.extract.i
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 1
-  %22 = fmul float %20, %.sroa.05.4.vec.extract.i
-  %23 = fmul float %20, %.sroa.617.0.i.i
-  %24 = fadd float %.sroa.07.0.vec.extract.i, %21
-  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %24, i64 0
-  %25 = fadd float %.sroa.07.4.vec.extract.i, %22
-  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %25, i64 1
-  %26 = fadd float %.sroa.221.0.copyload, %23
+  %20 = fmul float %18, %.sroa.05.4.vec.extract.i
+  %21 = fmul float %18, %.sroa.617.0.i.i
+  %22 = fadd float %.sroa.07.0.vec.extract.i, %19
+  %.sroa.08.0.vec.insert.i = insertelement <2 x float> poison, float %22, i64 0
+  %23 = fadd float %.sroa.07.4.vec.extract.i, %20
+  %.sroa.08.4.vec.insert.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i, float %23, i64 1
+  %24 = fadd float %.sroa.221.0.copyload, %21
   store <2 x float> %.sroa.08.4.vec.insert.i, ptr %0, align 4
-  store float %26, ptr %.sroa.223.0..sroa_idx, align 4
+  store float %24, ptr %.sroa.223.0..sroa_idx, align 4
   ret void
 }
 
@@ -30104,86 +30104,86 @@ GetCameraUp.exit:                                 ; preds = %3, %9
   %.sroa.030.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload = load float, ptr %.sroa.231.0..sroa_idx, align 4
-  %15 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
-  %16 = extractelement <2 x float> %15, i64 0
-  %17 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
-  %18 = extractelement <2 x float> %17, i64 1
-  %19 = fsub float %.sroa.233.0.copyload, %.sroa.231.0.copyload
+  %foldExtExtBinop = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
+  %15 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop75 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
+  %16 = extractelement <2 x float> %foldExtExtBinop75, i64 1
+  %17 = fsub float %.sroa.233.0.copyload, %.sroa.231.0.copyload
   %sqrt.i = tail call float @llvm.sqrt.f32(float %.pre-phi73)
-  %20 = fcmp oeq float %.pre-phi73, 0.000000e+00
-  %21 = fdiv float 1.000000e+00, %sqrt.i
-  %22 = select i1 %20, float 1.000000e+00, float %21
-  %23 = fmul float %.sroa.044.0.vec.extract.i.pre-phi, %22
-  %24 = fmul float %.sroa.044.4.vec.extract.i.pre-phi, %22
-  %25 = fmul float %.sroa.617.0.i.i, %22
-  %26 = fmul float %1, 5.000000e-01
-  %27 = tail call float @sinf(float noundef %26) #60
-  %28 = fmul float %27, %23
-  %29 = fmul float %27, %24
-  %30 = fmul float %27, %25
-  %31 = tail call float @cosf(float noundef %26) #60
-  %32 = fneg float %18
-  %33 = fmul float %30, %32
-  %34 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %33)
-  %35 = fneg float %19
-  %36 = fmul float %28, %35
-  %37 = tail call float @llvm.fmuladd.f32(float %30, float %16, float %36)
-  %38 = fneg float %16
-  %39 = fmul float %29, %38
-  %40 = tail call float @llvm.fmuladd.f32(float %28, float %18, float %39)
-  %41 = fneg float %37
-  %42 = fmul float %30, %41
-  %43 = tail call float @llvm.fmuladd.f32(float %29, float %40, float %42)
-  %44 = fneg float %40
-  %45 = fmul float %28, %44
-  %46 = tail call float @llvm.fmuladd.f32(float %30, float %34, float %45)
-  %47 = fneg float %34
-  %48 = fmul float %29, %47
-  %49 = tail call float @llvm.fmuladd.f32(float %28, float %37, float %48)
-  %50 = fmul float %31, 2.000000e+00
-  %51 = fmul float %50, %34
-  %52 = fmul float %50, %37
-  %53 = fmul float %50, %40
-  %54 = fmul float %43, 2.000000e+00
-  %55 = fmul float %46, 2.000000e+00
-  %56 = fmul float %49, 2.000000e+00
-  %57 = fadd float %16, %51
-  %58 = fadd float %18, %52
-  %59 = fadd float %19, %53
+  %18 = fcmp oeq float %.pre-phi73, 0.000000e+00
+  %19 = fdiv float 1.000000e+00, %sqrt.i
+  %20 = select i1 %18, float 1.000000e+00, float %19
+  %21 = fmul float %.sroa.044.0.vec.extract.i.pre-phi, %20
+  %22 = fmul float %.sroa.044.4.vec.extract.i.pre-phi, %20
+  %23 = fmul float %.sroa.617.0.i.i, %20
+  %24 = fmul float %1, 5.000000e-01
+  %25 = tail call float @sinf(float noundef %24) #60
+  %26 = fmul float %25, %21
+  %27 = fmul float %25, %22
+  %28 = fmul float %25, %23
+  %29 = tail call float @cosf(float noundef %24) #60
+  %30 = fneg float %16
+  %31 = fmul float %28, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %27, float %17, float %31)
+  %33 = fneg float %17
+  %34 = fmul float %26, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %28, float %15, float %34)
+  %36 = fneg float %15
+  %37 = fmul float %27, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %26, float %16, float %37)
+  %39 = fneg float %35
+  %40 = fmul float %28, %39
+  %41 = tail call float @llvm.fmuladd.f32(float %27, float %38, float %40)
+  %42 = fneg float %38
+  %43 = fmul float %26, %42
+  %44 = tail call float @llvm.fmuladd.f32(float %28, float %32, float %43)
+  %45 = fneg float %32
+  %46 = fmul float %27, %45
+  %47 = tail call float @llvm.fmuladd.f32(float %26, float %35, float %46)
+  %48 = fmul float %29, 2.000000e+00
+  %49 = fmul float %48, %32
+  %50 = fmul float %48, %35
+  %51 = fmul float %48, %38
+  %52 = fmul float %41, 2.000000e+00
+  %53 = fmul float %44, 2.000000e+00
+  %54 = fmul float %47, 2.000000e+00
+  %55 = fadd float %15, %49
+  %56 = fadd float %16, %50
+  %57 = fadd float %17, %51
+  %58 = fadd float %55, %52
+  %59 = fadd float %56, %53
   %60 = fadd float %57, %54
-  %61 = fadd float %58, %55
-  %62 = fadd float %59, %56
-  br i1 %2, label %63, label %67
+  br i1 %2, label %61, label %65
 
-63:                                               ; preds = %GetCameraUp.exit
+61:                                               ; preds = %GetCameraUp.exit
   %.sroa.012.0.copyload = load <2 x float>, ptr %14, align 4
   %.sroa.213.0.copyload = load float, ptr %.sroa.233.0..sroa_idx, align 4
   %.sroa.06.0.vec.extract.i52 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
-  %64 = fsub float %.sroa.06.0.vec.extract.i52, %60
-  %.sroa.08.0.vec.insert.i54 = insertelement <2 x float> poison, float %64, i64 0
+  %62 = fsub float %.sroa.06.0.vec.extract.i52, %58
+  %.sroa.08.0.vec.insert.i54 = insertelement <2 x float> poison, float %62, i64 0
   %.sroa.06.4.vec.extract.i55 = extractelement <2 x float> %.sroa.012.0.copyload, i64 1
-  %65 = fsub float %.sroa.06.4.vec.extract.i55, %61
-  %.sroa.08.4.vec.insert.i57 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54, float %65, i64 1
-  %66 = fsub float %.sroa.213.0.copyload, %62
+  %63 = fsub float %.sroa.06.4.vec.extract.i55, %59
+  %.sroa.08.4.vec.insert.i57 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54, float %63, i64 1
+  %64 = fsub float %.sroa.213.0.copyload, %60
   store <2 x float> %.sroa.08.4.vec.insert.i57, ptr %0, align 4
-  store float %66, ptr %.sroa.231.0..sroa_idx, align 4
-  br label %71
+  store float %64, ptr %.sroa.231.0..sroa_idx, align 4
+  br label %69
 
-67:                                               ; preds = %GetCameraUp.exit
+65:                                               ; preds = %GetCameraUp.exit
   %.sroa.03.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload = load float, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.06.0.vec.extract.i60 = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %68 = fadd float %60, %.sroa.06.0.vec.extract.i60
-  %.sroa.08.0.vec.insert.i62 = insertelement <2 x float> poison, float %68, i64 0
+  %66 = fadd float %58, %.sroa.06.0.vec.extract.i60
+  %.sroa.08.0.vec.insert.i62 = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.06.4.vec.extract.i63 = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %69 = fadd float %61, %.sroa.06.4.vec.extract.i63
-  %.sroa.08.4.vec.insert.i65 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62, float %69, i64 1
-  %70 = fadd float %62, %.sroa.24.0.copyload
+  %67 = fadd float %59, %.sroa.06.4.vec.extract.i63
+  %.sroa.08.4.vec.insert.i65 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62, float %67, i64 1
+  %68 = fadd float %60, %.sroa.24.0.copyload
   store <2 x float> %.sroa.08.4.vec.insert.i65, ptr %14, align 4
-  store float %70, ptr %.sroa.233.0..sroa_idx, align 4
-  br label %71
+  store float %68, ptr %.sroa.233.0..sroa_idx, align 4
+  br label %69
 
-71:                                               ; preds = %67, %63
+69:                                               ; preds = %65, %61
   ret void
 }
 
@@ -30221,277 +30221,277 @@ GetCameraUp.exit:                                 ; preds = %5, %11
   %.sroa.068.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.269.0.copyload = load float, ptr %.sroa.269.0..sroa_idx, align 4
-  %17 = fsub <2 x float> %.sroa.070.0.copyload, %.sroa.068.0.copyload
-  %18 = extractelement <2 x float> %17, i64 0
-  %19 = fsub <2 x float> %.sroa.070.0.copyload, %.sroa.068.0.copyload
-  %20 = extractelement <2 x float> %19, i64 1
-  %21 = fsub float %.sroa.271.0.copyload, %.sroa.269.0.copyload
-  br i1 %2, label %22, label %61
+  %foldExtExtBinop = fsub <2 x float> %.sroa.070.0.copyload, %.sroa.068.0.copyload
+  %17 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop157 = fsub <2 x float> %.sroa.070.0.copyload, %.sroa.068.0.copyload
+  %18 = extractelement <2 x float> %foldExtExtBinop157, i64 1
+  %19 = fsub float %.sroa.271.0.copyload, %.sroa.269.0.copyload
+  br i1 %2, label %20, label %57
 
-22:                                               ; preds = %GetCameraUp.exit
+20:                                               ; preds = %GetCameraUp.exit
   %.sroa.020.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 1
-  %23 = fneg float %20
-  %24 = fmul float %.sroa.617.0.i.i, %23
-  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.020.4.vec.extract.i, float %21, float %24)
+  %21 = fneg float %18
+  %22 = fmul float %.sroa.617.0.i.i, %21
+  %23 = tail call float @llvm.fmuladd.f32(float %.sroa.020.4.vec.extract.i, float %19, float %22)
   %.sroa.020.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
-  %26 = fneg float %21
-  %27 = fmul float %.sroa.020.0.vec.extract.i, %26
-  %28 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %18, float %27)
-  %29 = fneg float %18
-  %30 = fmul float %.sroa.020.4.vec.extract.i, %29
-  %31 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract.i, float %20, float %30)
-  %32 = fmul float %28, %28
-  %33 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %32)
-  %34 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %33)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %34)
-  %35 = fmul float %.sroa.020.4.vec.extract.i, %20
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract.i, float %18, float %35)
-  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %21, float %36)
-  %38 = tail call float @atan2f(float noundef %sqrt.i, float noundef %37) #60
-  %39 = fadd float %38, 0xBF50624DE0000000
-  %40 = fcmp ogt float %1, %39
-  %.1 = select i1 %40, float %39, float %1
-  %41 = fneg float %.sroa.020.0.vec.extract.i
-  %42 = fneg float %.sroa.020.4.vec.extract.i
-  %43 = fneg float %.sroa.617.0.i.i
-  %44 = fmul float %.sroa.617.0.i.i, %20
-  %45 = tail call float @llvm.fmuladd.f32(float %42, float %21, float %44)
-  %46 = fmul float %.sroa.020.0.vec.extract.i, %21
-  %47 = tail call float @llvm.fmuladd.f32(float %43, float %18, float %46)
-  %48 = fmul float %.sroa.020.4.vec.extract.i, %18
-  %49 = tail call float @llvm.fmuladd.f32(float %41, float %20, float %48)
-  %50 = fmul float %47, %47
-  %51 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %51)
-  %sqrt.i111 = tail call float @llvm.sqrt.f32(float %52)
-  %53 = fmul float %20, %42
-  %54 = tail call float @llvm.fmuladd.f32(float %41, float %18, float %53)
-  %55 = tail call float @llvm.fmuladd.f32(float %43, float %21, float %54)
-  %56 = tail call float @atan2f(float noundef %sqrt.i111, float noundef %55) #60
-  %57 = fsub float 0x3F50624DE0000000, %56
-  %58 = fcmp olt float %.1, %57
-  %.2 = select i1 %58, float %57, float %.1
+  %24 = fneg float %19
+  %25 = fmul float %.sroa.020.0.vec.extract.i, %24
+  %26 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %17, float %25)
+  %27 = fneg float %17
+  %28 = fmul float %.sroa.020.4.vec.extract.i, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract.i, float %18, float %28)
+  %30 = fmul float %26, %26
+  %31 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %30)
+  %32 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %31)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %32)
+  %33 = fmul float %.sroa.020.4.vec.extract.i, %18
+  %34 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract.i, float %17, float %33)
+  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %19, float %34)
+  %36 = tail call float @atan2f(float noundef %sqrt.i, float noundef %35) #60
+  %37 = fadd float %36, 0xBF50624DE0000000
+  %38 = fcmp ogt float %1, %37
+  %.1 = select i1 %38, float %37, float %1
+  %39 = fneg float %.sroa.020.0.vec.extract.i
+  %40 = fneg float %.sroa.020.4.vec.extract.i
+  %41 = fneg float %.sroa.617.0.i.i
+  %42 = fmul float %.sroa.617.0.i.i, %18
+  %43 = tail call float @llvm.fmuladd.f32(float %40, float %19, float %42)
+  %44 = fmul float %.sroa.020.0.vec.extract.i, %19
+  %45 = tail call float @llvm.fmuladd.f32(float %41, float %17, float %44)
+  %46 = fmul float %.sroa.020.4.vec.extract.i, %17
+  %47 = tail call float @llvm.fmuladd.f32(float %39, float %18, float %46)
+  %48 = fmul float %45, %45
+  %49 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %48)
+  %50 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %49)
+  %sqrt.i111 = tail call float @llvm.sqrt.f32(float %50)
+  %51 = fmul float %18, %40
+  %52 = tail call float @llvm.fmuladd.f32(float %39, float %17, float %51)
+  %53 = tail call float @llvm.fmuladd.f32(float %41, float %19, float %52)
+  %54 = tail call float @atan2f(float noundef %sqrt.i111, float noundef %53) #60
+  %55 = fsub float 0x3F50624DE0000000, %54
+  %56 = fcmp olt float %.1, %55
+  %.2 = select i1 %56, float %55, float %.1
   %.sroa.011.0.copyload.i.i.pre = load <2 x float>, ptr %16, align 4
   %.sroa.212.0.copyload.i.i.pre = load float, ptr %.sroa.271.0..sroa_idx, align 4
   %.sroa.09.0.copyload.i.i.pre = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i.pre = load float, ptr %.sroa.269.0..sroa_idx, align 4
-  %59 = fsub <2 x float> %.sroa.011.0.copyload.i.i.pre, %.sroa.09.0.copyload.i.i.pre
-  %.pre149 = extractelement <2 x float> %59, i64 0
-  %60 = fsub <2 x float> %.sroa.011.0.copyload.i.i.pre, %.sroa.09.0.copyload.i.i.pre
-  %.pre152 = extractelement <2 x float> %60, i64 1
+  %foldExtExtBinop159 = fsub <2 x float> %.sroa.011.0.copyload.i.i.pre, %.sroa.09.0.copyload.i.i.pre
+  %.pre149 = extractelement <2 x float> %foldExtExtBinop159, i64 0
+  %foldExtExtBinop161 = fsub <2 x float> %.sroa.011.0.copyload.i.i.pre, %.sroa.09.0.copyload.i.i.pre
+  %.pre152 = extractelement <2 x float> %foldExtExtBinop161, i64 1
   %.pre154 = fsub float %.sroa.212.0.copyload.i.i.pre, %.sroa.210.0.copyload.i.i.pre
-  br label %61
+  br label %57
 
-61:                                               ; preds = %22, %GetCameraUp.exit
-  %.pre-phi155 = phi float [ %.pre154, %22 ], [ %21, %GetCameraUp.exit ]
-  %.pre-phi153 = phi float [ %.pre152, %22 ], [ %20, %GetCameraUp.exit ]
-  %.pre-phi = phi float [ %.pre149, %22 ], [ %18, %GetCameraUp.exit ]
-  %.0 = phi float [ %.2, %22 ], [ %1, %GetCameraUp.exit ]
+57:                                               ; preds = %20, %GetCameraUp.exit
+  %.pre-phi155 = phi float [ %.pre154, %20 ], [ %19, %GetCameraUp.exit ]
+  %.pre-phi153 = phi float [ %.pre152, %20 ], [ %18, %GetCameraUp.exit ]
+  %.pre-phi = phi float [ %.pre149, %20 ], [ %17, %GetCameraUp.exit ]
+  %.0 = phi float [ %.2, %20 ], [ %1, %GetCameraUp.exit ]
   %.sroa.08.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %.pre-phi, i64 0
   %.sroa.08.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i, float %.pre-phi153, i64 1
-  %62 = fmul float %.pre-phi153, %.pre-phi153
-  %63 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %.pre-phi, float %62)
-  %64 = tail call float @llvm.fmuladd.f32(float %.pre-phi155, float %.pre-phi155, float %63)
-  %65 = fcmp une float %64, 0.000000e+00
-  br i1 %65, label %66, label %GetCameraForward.exit.i
+  %58 = fmul float %.pre-phi153, %.pre-phi153
+  %59 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %.pre-phi, float %58)
+  %60 = tail call float @llvm.fmuladd.f32(float %.pre-phi155, float %.pre-phi155, float %59)
+  %61 = fcmp une float %60, 0.000000e+00
+  br i1 %61, label %62, label %GetCameraForward.exit.i
 
-66:                                               ; preds = %61
-  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %64)
-  %67 = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %68 = fmul float %.pre-phi, %67
-  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %68, i64 0
-  %69 = fmul float %.pre-phi153, %67
-  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %69, i64 1
-  %70 = fmul float %.pre-phi155, %67
+62:                                               ; preds = %57
+  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %60)
+  %63 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %64 = fmul float %.pre-phi, %63
+  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %64, i64 0
+  %65 = fmul float %.pre-phi153, %63
+  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %65, i64 1
+  %66 = fmul float %.pre-phi155, %63
   br label %GetCameraForward.exit.i
 
-GetCameraForward.exit.i:                          ; preds = %66, %61
-  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %66 ], [ %.sroa.08.4.vec.insert.i.i.i, %61 ]
-  %.sroa.617.0.i.i.i = phi float [ %70, %66 ], [ %.pre-phi155, %61 ]
+GetCameraForward.exit.i:                          ; preds = %62, %57
+  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %62 ], [ %.sroa.08.4.vec.insert.i.i.i, %57 ]
+  %.sroa.617.0.i.i.i = phi float [ %66, %62 ], [ %.pre-phi155, %57 ]
   %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %6, align 4
   %.sroa.24.0.copyload.i.i = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
   %.sroa.07.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 0
   %.sroa.07.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 1
-  %71 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
-  %72 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %71)
-  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %72)
-  %74 = fcmp une float %73, 0.000000e+00
-  br i1 %74, label %75, label %GetCameraUp.exit.i
+  %67 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
+  %68 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %67)
+  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %68)
+  %70 = fcmp une float %69, 0.000000e+00
+  br i1 %70, label %71, label %GetCameraUp.exit.i
 
-75:                                               ; preds = %GetCameraForward.exit.i
-  %sqrt.i.i31.i = tail call float @llvm.sqrt.f32(float %73)
-  %76 = fdiv float 1.000000e+00, %sqrt.i.i31.i
-  %77 = fmul float %.sroa.07.0.vec.extract.i.i.i, %76
-  %78 = fmul float %.sroa.07.4.vec.extract.i.i.i, %76
-  %79 = fmul float %.sroa.24.0.copyload.i.i, %76
+71:                                               ; preds = %GetCameraForward.exit.i
+  %sqrt.i.i31.i = tail call float @llvm.sqrt.f32(float %69)
+  %72 = fdiv float 1.000000e+00, %sqrt.i.i31.i
+  %73 = fmul float %.sroa.07.0.vec.extract.i.i.i, %72
+  %74 = fmul float %.sroa.07.4.vec.extract.i.i.i, %72
+  %75 = fmul float %.sroa.24.0.copyload.i.i, %72
   br label %GetCameraUp.exit.i
 
-GetCameraUp.exit.i:                               ; preds = %75, %GetCameraForward.exit.i
-  %.sroa.03.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %77, %75 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %78, %75 ]
-  %.sroa.617.0.i.i30.i = phi float [ %.sroa.24.0.copyload.i.i, %GetCameraForward.exit.i ], [ %79, %75 ]
+GetCameraUp.exit.i:                               ; preds = %71, %GetCameraForward.exit.i
+  %.sroa.03.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %73, %71 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %GetCameraForward.exit.i ], [ %74, %71 ]
+  %.sroa.617.0.i.i30.i = phi float [ %.sroa.24.0.copyload.i.i, %GetCameraForward.exit.i ], [ %75, %71 ]
   %.sroa.011.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 1
-  %80 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i
-  %81 = fmul float %.sroa.617.0.i.i.i, %80
-  %82 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i, float %.sroa.617.0.i.i30.i, float %81)
-  %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %82, i64 0
+  %76 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i
+  %77 = fmul float %.sroa.617.0.i.i.i, %76
+  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i, float %.sroa.617.0.i.i30.i, float %77)
+  %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %78, i64 0
   %.sroa.011.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 0
-  %83 = fneg float %.sroa.617.0.i.i30.i
-  %84 = fmul float %.sroa.011.0.vec.extract.i.i, %83
-  %85 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i, float %84)
-  %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %85, i64 1
-  %86 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i
-  %87 = fmul float %.sroa.011.4.vec.extract.i.i, %86
-  %88 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i, float %87)
-  %89 = fmul float %85, %85
-  %90 = tail call float @llvm.fmuladd.f32(float %82, float %82, float %89)
-  %91 = tail call float @llvm.fmuladd.f32(float %88, float %88, float %90)
-  %92 = fcmp une float %91, 0.000000e+00
-  br i1 %92, label %93, label %GetCameraRight.exit
+  %79 = fneg float %.sroa.617.0.i.i30.i
+  %80 = fmul float %.sroa.011.0.vec.extract.i.i, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i, float %80)
+  %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %81, i64 1
+  %82 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i
+  %83 = fmul float %.sroa.011.4.vec.extract.i.i, %82
+  %84 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i, float %83)
+  %85 = fmul float %81, %81
+  %86 = tail call float @llvm.fmuladd.f32(float %78, float %78, float %85)
+  %87 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %86)
+  %88 = fcmp une float %87, 0.000000e+00
+  br i1 %88, label %89, label %GetCameraRight.exit
 
-93:                                               ; preds = %GetCameraUp.exit.i
-  %sqrt.i.i114 = tail call float @llvm.sqrt.f32(float %91)
-  %94 = fdiv float 1.000000e+00, %sqrt.i.i114
-  %95 = fmul float %82, %94
-  %.sroa.013.0.vec.insert.i.i115 = insertelement <2 x float> poison, float %95, i64 0
-  %96 = fmul float %85, %94
-  %.sroa.013.4.vec.insert.i.i116 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i115, float %96, i64 1
-  %97 = fmul float %88, %94
+89:                                               ; preds = %GetCameraUp.exit.i
+  %sqrt.i.i114 = tail call float @llvm.sqrt.f32(float %87)
+  %90 = fdiv float 1.000000e+00, %sqrt.i.i114
+  %91 = fmul float %78, %90
+  %.sroa.013.0.vec.insert.i.i115 = insertelement <2 x float> poison, float %91, i64 0
+  %92 = fmul float %81, %90
+  %.sroa.013.4.vec.insert.i.i116 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i115, float %92, i64 1
+  %93 = fmul float %84, %90
   br label %GetCameraRight.exit
 
-GetCameraRight.exit:                              ; preds = %GetCameraUp.exit.i, %93
-  %.sroa.013.0.i.i112 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i116, %93 ], [ %.sroa.018.4.vec.insert.i.i, %GetCameraUp.exit.i ]
-  %.sroa.617.0.i.i113 = phi float [ %97, %93 ], [ %88, %GetCameraUp.exit.i ]
+GetCameraRight.exit:                              ; preds = %GetCameraUp.exit.i, %89
+  %.sroa.013.0.i.i112 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i116, %89 ], [ %.sroa.018.4.vec.insert.i.i, %GetCameraUp.exit.i ]
+  %.sroa.617.0.i.i113 = phi float [ %93, %89 ], [ %84, %GetCameraUp.exit.i ]
   %.sroa.044.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i112, i64 0
   %.sroa.044.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i112, i64 1
-  %98 = fmul float %.sroa.044.4.vec.extract.i, %.sroa.044.4.vec.extract.i
-  %99 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i, float %.sroa.044.0.vec.extract.i, float %98)
-  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i113, float %.sroa.617.0.i.i113, float %99)
-  %sqrt.i117 = tail call float @llvm.sqrt.f32(float %100)
-  %101 = fcmp oeq float %100, 0.000000e+00
-  %102 = fdiv float 1.000000e+00, %sqrt.i117
-  %103 = select i1 %101, float 1.000000e+00, float %102
-  %104 = fmul float %.sroa.044.0.vec.extract.i, %103
-  %105 = fmul float %.sroa.044.4.vec.extract.i, %103
-  %106 = fmul float %.sroa.617.0.i.i113, %103
-  %107 = fmul float %.0, 5.000000e-01
-  %108 = tail call float @sinf(float noundef %107) #60
-  %109 = fmul float %108, %104
-  %110 = fmul float %108, %105
-  %111 = fmul float %108, %106
-  %112 = tail call float @cosf(float noundef %107) #60
-  %113 = fneg float %20
-  %114 = fmul float %111, %113
-  %115 = tail call float @llvm.fmuladd.f32(float %110, float %21, float %114)
-  %116 = fneg float %21
-  %117 = fmul float %109, %116
-  %118 = tail call float @llvm.fmuladd.f32(float %111, float %18, float %117)
-  %119 = fneg float %18
-  %120 = fmul float %110, %119
-  %121 = tail call float @llvm.fmuladd.f32(float %109, float %20, float %120)
-  %122 = fneg float %118
-  %123 = fmul float %111, %122
-  %124 = tail call float @llvm.fmuladd.f32(float %110, float %121, float %123)
-  %125 = fneg float %121
-  %126 = fmul float %109, %125
-  %127 = tail call float @llvm.fmuladd.f32(float %111, float %115, float %126)
-  %128 = fneg float %115
-  %129 = fmul float %110, %128
-  %130 = tail call float @llvm.fmuladd.f32(float %109, float %118, float %129)
-  %131 = fmul float %112, 2.000000e+00
-  %132 = fmul float %131, %115
-  %133 = fmul float %131, %118
-  %134 = fmul float %131, %121
-  %135 = fmul float %124, 2.000000e+00
-  %136 = fmul float %127, 2.000000e+00
-  %137 = fmul float %130, 2.000000e+00
-  %138 = fadd float %18, %132
-  %139 = fadd float %20, %133
-  %140 = fadd float %21, %134
-  %141 = fadd float %138, %135
-  %142 = fadd float %139, %136
-  %143 = fadd float %140, %137
-  br i1 %3, label %144, label %148
+  %94 = fmul float %.sroa.044.4.vec.extract.i, %.sroa.044.4.vec.extract.i
+  %95 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i, float %.sroa.044.0.vec.extract.i, float %94)
+  %96 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i113, float %.sroa.617.0.i.i113, float %95)
+  %sqrt.i117 = tail call float @llvm.sqrt.f32(float %96)
+  %97 = fcmp oeq float %96, 0.000000e+00
+  %98 = fdiv float 1.000000e+00, %sqrt.i117
+  %99 = select i1 %97, float 1.000000e+00, float %98
+  %100 = fmul float %.sroa.044.0.vec.extract.i, %99
+  %101 = fmul float %.sroa.044.4.vec.extract.i, %99
+  %102 = fmul float %.sroa.617.0.i.i113, %99
+  %103 = fmul float %.0, 5.000000e-01
+  %104 = tail call float @sinf(float noundef %103) #60
+  %105 = fmul float %104, %100
+  %106 = fmul float %104, %101
+  %107 = fmul float %104, %102
+  %108 = tail call float @cosf(float noundef %103) #60
+  %109 = fneg float %18
+  %110 = fmul float %107, %109
+  %111 = tail call float @llvm.fmuladd.f32(float %106, float %19, float %110)
+  %112 = fneg float %19
+  %113 = fmul float %105, %112
+  %114 = tail call float @llvm.fmuladd.f32(float %107, float %17, float %113)
+  %115 = fneg float %17
+  %116 = fmul float %106, %115
+  %117 = tail call float @llvm.fmuladd.f32(float %105, float %18, float %116)
+  %118 = fneg float %114
+  %119 = fmul float %107, %118
+  %120 = tail call float @llvm.fmuladd.f32(float %106, float %117, float %119)
+  %121 = fneg float %117
+  %122 = fmul float %105, %121
+  %123 = tail call float @llvm.fmuladd.f32(float %107, float %111, float %122)
+  %124 = fneg float %111
+  %125 = fmul float %106, %124
+  %126 = tail call float @llvm.fmuladd.f32(float %105, float %114, float %125)
+  %127 = fmul float %108, 2.000000e+00
+  %128 = fmul float %127, %111
+  %129 = fmul float %127, %114
+  %130 = fmul float %127, %117
+  %131 = fmul float %120, 2.000000e+00
+  %132 = fmul float %123, 2.000000e+00
+  %133 = fmul float %126, 2.000000e+00
+  %134 = fadd float %17, %128
+  %135 = fadd float %18, %129
+  %136 = fadd float %19, %130
+  %137 = fadd float %134, %131
+  %138 = fadd float %135, %132
+  %139 = fadd float %136, %133
+  br i1 %3, label %140, label %144
 
-144:                                              ; preds = %GetCameraRight.exit
+140:                                              ; preds = %GetCameraRight.exit
   %.sroa.022.0.copyload = load <2 x float>, ptr %16, align 4
   %.sroa.223.0.copyload = load float, ptr %.sroa.271.0..sroa_idx, align 4
   %.sroa.06.0.vec.extract.i120 = extractelement <2 x float> %.sroa.022.0.copyload, i64 0
-  %145 = fsub float %.sroa.06.0.vec.extract.i120, %141
-  %.sroa.08.0.vec.insert.i122 = insertelement <2 x float> poison, float %145, i64 0
+  %141 = fsub float %.sroa.06.0.vec.extract.i120, %137
+  %.sroa.08.0.vec.insert.i122 = insertelement <2 x float> poison, float %141, i64 0
   %.sroa.06.4.vec.extract.i123 = extractelement <2 x float> %.sroa.022.0.copyload, i64 1
-  %146 = fsub float %.sroa.06.4.vec.extract.i123, %142
-  %.sroa.08.4.vec.insert.i125 = insertelement <2 x float> %.sroa.08.0.vec.insert.i122, float %146, i64 1
-  %147 = fsub float %.sroa.223.0.copyload, %143
+  %142 = fsub float %.sroa.06.4.vec.extract.i123, %138
+  %.sroa.08.4.vec.insert.i125 = insertelement <2 x float> %.sroa.08.0.vec.insert.i122, float %142, i64 1
+  %143 = fsub float %.sroa.223.0.copyload, %139
   store <2 x float> %.sroa.08.4.vec.insert.i125, ptr %0, align 4
-  store float %147, ptr %.sroa.269.0..sroa_idx, align 4
-  br label %152
+  store float %143, ptr %.sroa.269.0..sroa_idx, align 4
+  br label %148
 
-148:                                              ; preds = %GetCameraRight.exit
+144:                                              ; preds = %GetCameraRight.exit
   %.sroa.012.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.213.0.copyload = load float, ptr %.sroa.269.0..sroa_idx, align 4
   %.sroa.06.0.vec.extract.i128 = extractelement <2 x float> %.sroa.012.0.copyload, i64 0
-  %149 = fadd float %141, %.sroa.06.0.vec.extract.i128
-  %.sroa.08.0.vec.insert.i130 = insertelement <2 x float> poison, float %149, i64 0
+  %145 = fadd float %137, %.sroa.06.0.vec.extract.i128
+  %.sroa.08.0.vec.insert.i130 = insertelement <2 x float> poison, float %145, i64 0
   %.sroa.06.4.vec.extract.i131 = extractelement <2 x float> %.sroa.012.0.copyload, i64 1
-  %150 = fadd float %142, %.sroa.06.4.vec.extract.i131
-  %.sroa.08.4.vec.insert.i133 = insertelement <2 x float> %.sroa.08.0.vec.insert.i130, float %150, i64 1
-  %151 = fadd float %143, %.sroa.213.0.copyload
+  %146 = fadd float %138, %.sroa.06.4.vec.extract.i131
+  %.sroa.08.4.vec.insert.i133 = insertelement <2 x float> %.sroa.08.0.vec.insert.i130, float %146, i64 1
+  %147 = fadd float %139, %.sroa.213.0.copyload
   store <2 x float> %.sroa.08.4.vec.insert.i133, ptr %16, align 4
-  store float %151, ptr %.sroa.271.0..sroa_idx, align 4
-  br label %152
+  store float %147, ptr %.sroa.271.0..sroa_idx, align 4
+  br label %148
 
-152:                                              ; preds = %148, %144
-  br i1 %4, label %153, label %191
+148:                                              ; preds = %144, %140
+  br i1 %4, label %149, label %187
 
-153:                                              ; preds = %152
+149:                                              ; preds = %148
   %.sroa.03.0.copyload = load <2 x float>, ptr %6, align 4
   %.sroa.24.0.copyload = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
-  %154 = tail call float @sinf(float noundef %107) #60
-  %155 = fmul float %104, %154
-  %156 = fmul float %105, %154
-  %157 = fmul float %106, %154
-  %158 = tail call float @cosf(float noundef %107) #60
+  %150 = tail call float @sinf(float noundef %103) #60
+  %151 = fmul float %100, %150
+  %152 = fmul float %101, %150
+  %153 = fmul float %102, %150
+  %154 = tail call float @cosf(float noundef %103) #60
   %.sroa.064.4.vec.extract.i139 = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %159 = fneg float %.sroa.064.4.vec.extract.i139
-  %160 = fmul float %157, %159
-  %161 = tail call float @llvm.fmuladd.f32(float %156, float %.sroa.24.0.copyload, float %160)
+  %155 = fneg float %.sroa.064.4.vec.extract.i139
+  %156 = fmul float %153, %155
+  %157 = tail call float @llvm.fmuladd.f32(float %152, float %.sroa.24.0.copyload, float %156)
   %.sroa.064.0.vec.extract.i140 = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %162 = fneg float %.sroa.24.0.copyload
-  %163 = fmul float %155, %162
-  %164 = tail call float @llvm.fmuladd.f32(float %157, float %.sroa.064.0.vec.extract.i140, float %163)
-  %165 = fneg float %.sroa.064.0.vec.extract.i140
-  %166 = fmul float %156, %165
-  %167 = tail call float @llvm.fmuladd.f32(float %155, float %.sroa.064.4.vec.extract.i139, float %166)
-  %168 = fneg float %164
-  %169 = fmul float %157, %168
-  %170 = tail call float @llvm.fmuladd.f32(float %156, float %167, float %169)
-  %171 = fneg float %167
-  %172 = fmul float %155, %171
-  %173 = tail call float @llvm.fmuladd.f32(float %157, float %161, float %172)
-  %174 = fneg float %161
-  %175 = fmul float %156, %174
-  %176 = tail call float @llvm.fmuladd.f32(float %155, float %164, float %175)
-  %177 = fmul float %158, 2.000000e+00
-  %178 = fmul float %177, %161
-  %179 = fmul float %177, %164
-  %180 = fmul float %177, %167
-  %181 = fmul float %170, 2.000000e+00
-  %182 = fmul float %173, 2.000000e+00
-  %183 = fmul float %176, 2.000000e+00
-  %184 = fadd float %.sroa.064.0.vec.extract.i140, %178
-  %185 = fadd float %.sroa.064.4.vec.extract.i139, %179
-  %186 = fadd float %.sroa.24.0.copyload, %180
-  %187 = fadd float %184, %181
-  %188 = insertelement <2 x float> poison, float %187, i64 0
-  %189 = fadd float %185, %182
-  %.sroa.071.4.vec.insert82.i141 = insertelement <2 x float> %188, float %189, i64 1
-  %190 = fadd float %186, %183
+  %158 = fneg float %.sroa.24.0.copyload
+  %159 = fmul float %151, %158
+  %160 = tail call float @llvm.fmuladd.f32(float %153, float %.sroa.064.0.vec.extract.i140, float %159)
+  %161 = fneg float %.sroa.064.0.vec.extract.i140
+  %162 = fmul float %152, %161
+  %163 = tail call float @llvm.fmuladd.f32(float %151, float %.sroa.064.4.vec.extract.i139, float %162)
+  %164 = fneg float %160
+  %165 = fmul float %153, %164
+  %166 = tail call float @llvm.fmuladd.f32(float %152, float %163, float %165)
+  %167 = fneg float %163
+  %168 = fmul float %151, %167
+  %169 = tail call float @llvm.fmuladd.f32(float %153, float %157, float %168)
+  %170 = fneg float %157
+  %171 = fmul float %152, %170
+  %172 = tail call float @llvm.fmuladd.f32(float %151, float %160, float %171)
+  %173 = fmul float %154, 2.000000e+00
+  %174 = fmul float %173, %157
+  %175 = fmul float %173, %160
+  %176 = fmul float %173, %163
+  %177 = fmul float %166, 2.000000e+00
+  %178 = fmul float %169, 2.000000e+00
+  %179 = fmul float %172, 2.000000e+00
+  %180 = fadd float %.sroa.064.0.vec.extract.i140, %174
+  %181 = fadd float %.sroa.064.4.vec.extract.i139, %175
+  %182 = fadd float %.sroa.24.0.copyload, %176
+  %183 = fadd float %180, %177
+  %184 = insertelement <2 x float> poison, float %183, i64 0
+  %185 = fadd float %181, %178
+  %.sroa.071.4.vec.insert82.i141 = insertelement <2 x float> %184, float %185, i64 1
+  %186 = fadd float %182, %179
   store <2 x float> %.sroa.071.4.vec.insert82.i141, ptr %6, align 4
-  store float %190, ptr %.sroa.24.0..sroa_idx.i, align 4
-  br label %191
+  store float %186, ptr %.sroa.24.0..sroa_idx.i, align 4
+  br label %187
 
-191:                                              ; preds = %153, %152
+187:                                              ; preds = %149, %148
   ret void
 }
 
@@ -30504,90 +30504,90 @@ define void @CameraRoll(ptr noundef captures(none) %0, float noundef %1) local_u
   %.sroa.09.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i = load float, ptr %.sroa.210.0..sroa_idx.i, align 4
-  %4 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
-  %5 = extractelement <2 x float> %4, i64 0
-  %6 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
-  %7 = extractelement <2 x float> %6, i64 1
-  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %4, <2 x float> %6, <2 x i32> <i32 0, i32 3>
-  %8 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
-  %9 = fmul float %7, %7
-  %10 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %10)
-  %12 = fcmp une float %11, 0.000000e+00
-  br i1 %12, label %13, label %GetCameraForward.exit
+  %foldExtExtBinop = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
+  %4 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop16 = fsub <2 x float> %.sroa.011.0.copyload.i, %.sroa.09.0.copyload.i
+  %5 = extractelement <2 x float> %foldExtExtBinop16, i64 1
+  %.sroa.08.4.vec.insert.i.i = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop16, <2 x i32> <i32 0, i32 3>
+  %6 = fsub float %.sroa.212.0.copyload.i, %.sroa.210.0.copyload.i
+  %7 = fmul float %5, %5
+  %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %7)
+  %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
+  %10 = fcmp une float %9, 0.000000e+00
+  br i1 %10, label %11, label %GetCameraForward.exit
 
-13:                                               ; preds = %2
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %11)
-  %14 = fdiv float 1.000000e+00, %sqrt.i.i
-  %15 = fmul float %5, %14
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %15, i64 0
-  %16 = fmul float %7, %14
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %16, i64 1
-  %17 = fmul float %8, %14
+11:                                               ; preds = %2
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %9)
+  %12 = fdiv float 1.000000e+00, %sqrt.i.i
+  %13 = fmul float %4, %12
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %14 = fmul float %5, %12
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %14, i64 1
+  %15 = fmul float %6, %12
   br label %GetCameraForward.exit
 
-GetCameraForward.exit:                            ; preds = %2, %13
-  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %13 ], [ %.sroa.08.4.vec.insert.i.i, %2 ]
-  %.sroa.617.0.i.i = phi float [ %17, %13 ], [ %8, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload = load <2 x float>, ptr %18, align 4
+GetCameraForward.exit:                            ; preds = %2, %11
+  %.sroa.013.0.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %11 ], [ %.sroa.08.4.vec.insert.i.i, %2 ]
+  %.sroa.617.0.i.i = phi float [ %15, %11 ], [ %6, %2 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload = load <2 x float>, ptr %16, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload = load float, ptr %.sroa.24.0..sroa_idx, align 4
   %.sroa.044.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 0
   %.sroa.044.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i.i, i64 1
-  %19 = fmul float %.sroa.044.4.vec.extract.i, %.sroa.044.4.vec.extract.i
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i, float %.sroa.044.0.vec.extract.i, float %19)
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %20)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %21)
-  %22 = fcmp oeq float %21, 0.000000e+00
-  %23 = fdiv float 1.000000e+00, %sqrt.i
-  %24 = select i1 %22, float 1.000000e+00, float %23
-  %25 = fmul float %.sroa.044.0.vec.extract.i, %24
-  %26 = fmul float %.sroa.044.4.vec.extract.i, %24
-  %27 = fmul float %.sroa.617.0.i.i, %24
-  %28 = fmul float %1, 5.000000e-01
-  %29 = tail call float @sinf(float noundef %28) #60
-  %30 = fmul float %29, %25
-  %31 = fmul float %29, %26
-  %32 = fmul float %29, %27
-  %33 = tail call float @cosf(float noundef %28) #60
+  %17 = fmul float %.sroa.044.4.vec.extract.i, %.sroa.044.4.vec.extract.i
+  %18 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i, float %.sroa.044.0.vec.extract.i, float %17)
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i, float %.sroa.617.0.i.i, float %18)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %19)
+  %20 = fcmp oeq float %19, 0.000000e+00
+  %21 = fdiv float 1.000000e+00, %sqrt.i
+  %22 = select i1 %20, float 1.000000e+00, float %21
+  %23 = fmul float %.sroa.044.0.vec.extract.i, %22
+  %24 = fmul float %.sroa.044.4.vec.extract.i, %22
+  %25 = fmul float %.sroa.617.0.i.i, %22
+  %26 = fmul float %1, 5.000000e-01
+  %27 = tail call float @sinf(float noundef %26) #60
+  %28 = fmul float %27, %23
+  %29 = fmul float %27, %24
+  %30 = fmul float %27, %25
+  %31 = tail call float @cosf(float noundef %26) #60
   %.sroa.064.4.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %34 = fneg float %.sroa.064.4.vec.extract.i
-  %35 = fmul float %32, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %31, float %.sroa.24.0.copyload, float %35)
+  %32 = fneg float %.sroa.064.4.vec.extract.i
+  %33 = fmul float %30, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %29, float %.sroa.24.0.copyload, float %33)
   %.sroa.064.0.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %37 = fneg float %.sroa.24.0.copyload
-  %38 = fmul float %30, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %32, float %.sroa.064.0.vec.extract.i, float %38)
-  %40 = fneg float %.sroa.064.0.vec.extract.i
-  %41 = fmul float %31, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %30, float %.sroa.064.4.vec.extract.i, float %41)
-  %43 = fneg float %39
-  %44 = fmul float %32, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %31, float %42, float %44)
-  %46 = fneg float %42
-  %47 = fmul float %30, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %32, float %36, float %47)
-  %49 = fneg float %36
-  %50 = fmul float %31, %49
-  %51 = tail call float @llvm.fmuladd.f32(float %30, float %39, float %50)
-  %52 = fmul float %33, 2.000000e+00
-  %53 = fmul float %52, %36
-  %54 = fmul float %52, %39
-  %55 = fmul float %52, %42
-  %56 = fmul float %45, 2.000000e+00
-  %57 = fmul float %48, 2.000000e+00
-  %58 = fmul float %51, 2.000000e+00
-  %59 = fadd float %.sroa.064.0.vec.extract.i, %53
-  %60 = fadd float %.sroa.064.4.vec.extract.i, %54
-  %61 = fadd float %.sroa.24.0.copyload, %55
-  %62 = fadd float %59, %56
-  %63 = insertelement <2 x float> poison, float %62, i64 0
-  %64 = fadd float %60, %57
-  %.sroa.071.4.vec.insert82.i = insertelement <2 x float> %63, float %64, i64 1
-  %65 = fadd float %61, %58
-  store <2 x float> %.sroa.071.4.vec.insert82.i, ptr %18, align 4
-  store float %65, ptr %.sroa.24.0..sroa_idx, align 4
+  %35 = fneg float %.sroa.24.0.copyload
+  %36 = fmul float %28, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %30, float %.sroa.064.0.vec.extract.i, float %36)
+  %38 = fneg float %.sroa.064.0.vec.extract.i
+  %39 = fmul float %29, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %28, float %.sroa.064.4.vec.extract.i, float %39)
+  %41 = fneg float %37
+  %42 = fmul float %30, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %29, float %40, float %42)
+  %44 = fneg float %40
+  %45 = fmul float %28, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %30, float %34, float %45)
+  %47 = fneg float %34
+  %48 = fmul float %29, %47
+  %49 = tail call float @llvm.fmuladd.f32(float %28, float %37, float %48)
+  %50 = fmul float %31, 2.000000e+00
+  %51 = fmul float %50, %34
+  %52 = fmul float %50, %37
+  %53 = fmul float %50, %40
+  %54 = fmul float %43, 2.000000e+00
+  %55 = fmul float %46, 2.000000e+00
+  %56 = fmul float %49, 2.000000e+00
+  %57 = fadd float %.sroa.064.0.vec.extract.i, %51
+  %58 = fadd float %.sroa.064.4.vec.extract.i, %52
+  %59 = fadd float %.sroa.24.0.copyload, %53
+  %60 = fadd float %57, %54
+  %61 = insertelement <2 x float> poison, float %60, i64 0
+  %62 = fadd float %58, %55
+  %.sroa.071.4.vec.insert82.i = insertelement <2 x float> %61, float %62, i64 1
+  %63 = fadd float %59, %56
+  store <2 x float> %.sroa.071.4.vec.insert82.i, ptr %16, align 4
+  store float %63, ptr %.sroa.24.0..sroa_idx, align 4
   ret void
 }
 
@@ -30605,95 +30605,95 @@ define void @GetCameraViewMatrix(ptr dead_on_unwind noalias writable writeonly s
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.069.0.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %5 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %6 = extractelement <2 x float> %5, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %7 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %8 = extractelement <2 x float> %7, i64 1
-  %9 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
-  %10 = fmul float %8, %8
-  %11 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %10)
-  %12 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %11)
-  %sqrt87.i = tail call float @llvm.sqrt.f32(float %12)
-  %13 = fcmp oeq float %12, 0.000000e+00
-  %14 = fdiv float 1.000000e+00, %sqrt87.i
-  %15 = select i1 %13, float 1.000000e+00, float %14
-  %16 = fmul float %6, %15
-  %17 = fmul float %8, %15
-  %18 = fmul float %9, %15
+  %foldExtExtBinop8 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %6 = extractelement <2 x float> %foldExtExtBinop8, i64 1
+  %7 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
+  %8 = fmul float %6, %6
+  %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
+  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
+  %sqrt87.i = tail call float @llvm.sqrt.f32(float %10)
+  %11 = fcmp oeq float %10, 0.000000e+00
+  %12 = fdiv float 1.000000e+00, %sqrt87.i
+  %13 = select i1 %11, float 1.000000e+00, float %12
+  %14 = fmul float %5, %13
+  %15 = fmul float %6, %13
+  %16 = fmul float %7, %13
   %.sroa.057.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 1
-  %19 = fneg float %17
-  %20 = fmul float %.sroa.2.0.copyload, %19
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %18, float %20)
+  %17 = fneg float %15
+  %18 = fmul float %.sroa.2.0.copyload, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %16, float %18)
   %.sroa.057.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 0
-  %22 = fneg float %18
-  %23 = fmul float %.sroa.057.0.vec.extract.i, %22
-  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %16, float %23)
-  %25 = fneg float %16
-  %26 = fmul float %.sroa.057.4.vec.extract.i, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %17, float %26)
-  %28 = fmul float %24, %24
-  %29 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %28)
-  %30 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %29)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %30)
-  %31 = fcmp oeq float %30, 0.000000e+00
-  %32 = fdiv float 1.000000e+00, %sqrt.i
-  %33 = select i1 %31, float 1.000000e+00, float %32
-  %34 = fmul float %21, %33
-  %35 = fmul float %24, %33
-  %36 = fmul float %27, %33
-  %37 = fneg float %35
-  %38 = fmul float %18, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %17, float %36, float %38)
-  %40 = fneg float %36
-  %41 = fmul float %16, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %18, float %34, float %41)
-  %43 = fneg float %34
-  %44 = fmul float %17, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %16, float %35, float %44)
-  store float %34, ptr %0, align 4, !alias.scope !22
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %39, ptr %46, align 4, !alias.scope !22
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %16, ptr %47, align 4, !alias.scope !22
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %48, align 4, !alias.scope !22
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %35, ptr %49, align 4, !alias.scope !22
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %42, ptr %50, align 4, !alias.scope !22
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %17, ptr %51, align 4, !alias.scope !22
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %52, align 4, !alias.scope !22
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %36, ptr %53, align 4, !alias.scope !22
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %45, ptr %54, align 4, !alias.scope !22
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %18, ptr %55, align 4, !alias.scope !22
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %56, align 4, !alias.scope !22
-  %57 = fmul float %.sroa.069.4.vec.extract.i, %35
-  %58 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.069.0.vec.extract.i, float %57)
-  %59 = tail call float @llvm.fmuladd.f32(float %36, float %.sroa.24.0.copyload, float %58)
-  %60 = fneg float %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %60, ptr %61, align 4, !alias.scope !22
-  %62 = fmul float %.sroa.069.4.vec.extract.i, %42
-  %63 = tail call float @llvm.fmuladd.f32(float %39, float %.sroa.069.0.vec.extract.i, float %62)
-  %64 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.24.0.copyload, float %63)
-  %65 = fneg float %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %65, ptr %66, align 4, !alias.scope !22
-  %67 = fmul float %.sroa.069.4.vec.extract.i, %17
-  %68 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.069.0.vec.extract.i, float %67)
-  %69 = tail call float @llvm.fmuladd.f32(float %18, float %.sroa.24.0.copyload, float %68)
-  %70 = fneg float %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %70, ptr %71, align 4, !alias.scope !22
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %72, align 4, !alias.scope !22
+  %20 = fneg float %16
+  %21 = fmul float %.sroa.057.0.vec.extract.i, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %14, float %21)
+  %23 = fneg float %14
+  %24 = fmul float %.sroa.057.4.vec.extract.i, %23
+  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %15, float %24)
+  %26 = fmul float %22, %22
+  %27 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %26)
+  %28 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %27)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %28)
+  %29 = fcmp oeq float %28, 0.000000e+00
+  %30 = fdiv float 1.000000e+00, %sqrt.i
+  %31 = select i1 %29, float 1.000000e+00, float %30
+  %32 = fmul float %19, %31
+  %33 = fmul float %22, %31
+  %34 = fmul float %25, %31
+  %35 = fneg float %33
+  %36 = fmul float %16, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %15, float %34, float %36)
+  %38 = fneg float %34
+  %39 = fmul float %14, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %16, float %32, float %39)
+  %41 = fneg float %32
+  %42 = fmul float %15, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %14, float %33, float %42)
+  store float %32, ptr %0, align 4, !alias.scope !22
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %37, ptr %44, align 4, !alias.scope !22
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %14, ptr %45, align 4, !alias.scope !22
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float 0.000000e+00, ptr %46, align 4, !alias.scope !22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %33, ptr %47, align 4, !alias.scope !22
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %40, ptr %48, align 4, !alias.scope !22
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %15, ptr %49, align 4, !alias.scope !22
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float 0.000000e+00, ptr %50, align 4, !alias.scope !22
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %34, ptr %51, align 4, !alias.scope !22
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %43, ptr %52, align 4, !alias.scope !22
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %16, ptr %53, align 4, !alias.scope !22
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float 0.000000e+00, ptr %54, align 4, !alias.scope !22
+  %55 = fmul float %.sroa.069.4.vec.extract.i, %33
+  %56 = tail call float @llvm.fmuladd.f32(float %32, float %.sroa.069.0.vec.extract.i, float %55)
+  %57 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.24.0.copyload, float %56)
+  %58 = fneg float %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %58, ptr %59, align 4, !alias.scope !22
+  %60 = fmul float %.sroa.069.4.vec.extract.i, %40
+  %61 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.069.0.vec.extract.i, float %60)
+  %62 = tail call float @llvm.fmuladd.f32(float %43, float %.sroa.24.0.copyload, float %61)
+  %63 = fneg float %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %63, ptr %64, align 4, !alias.scope !22
+  %65 = fmul float %.sroa.069.4.vec.extract.i, %15
+  %66 = tail call float @llvm.fmuladd.f32(float %14, float %.sroa.069.0.vec.extract.i, float %65)
+  %67 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.24.0.copyload, float %66)
+  %68 = fneg float %67
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %68, ptr %69, align 4, !alias.scope !22
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float 1.000000e+00, ptr %70, align 4, !alias.scope !22
   ret void
 }
 
@@ -30845,7 +30845,7 @@ define void @UpdateCamera(ptr noundef %0, i32 noundef %1) local_unnamed_addr #32
   br i1 %cond, label %IsKeyPressed.exit856.thread, label %24
 
 24:                                               ; preds = %16
-  br i1 %12, label %25, label %87
+  br i1 %12, label %25, label %85
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30927,520 +30927,520 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.231.0.copyload = load float, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.03.0.vec.extract.i = extractelement <2 x float> %.sroa.030.0.copyload, i64 0
-  %67 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
-  %68 = extractelement <2 x float> %67, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
+  %67 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %.sroa.030.0.copyload, i64 1
-  %69 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
-  %70 = extractelement <2 x float> %69, i64 1
-  %71 = fsub float %.sroa.233.0.copyload, %.sroa.231.0.copyload
-  %72 = fmul float %56, %70
-  %73 = tail call float @llvm.fmuladd.f32(float %47, float %68, float %72)
-  %74 = tail call float @llvm.fmuladd.f32(float %61, float %71, float %73)
-  %75 = fadd float %74, 0.000000e+00
-  %76 = fmul float %57, %70
-  %77 = tail call float @llvm.fmuladd.f32(float %50, float %68, float %76)
-  %78 = tail call float @llvm.fmuladd.f32(float %63, float %71, float %77)
-  %79 = fadd float %78, 0.000000e+00
-  %80 = fmul float %60, %70
-  %81 = tail call float @llvm.fmuladd.f32(float %54, float %68, float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %65, float %71, float %81)
-  %83 = fadd float %82, 0.000000e+00
-  %84 = fadd float %.sroa.03.0.vec.extract.i, %75
-  %.sroa.08.0.vec.insert.i141 = insertelement <2 x float> poison, float %84, i64 0
-  %85 = fadd float %.sroa.03.4.vec.extract.i, %79
-  %.sroa.08.4.vec.insert.i144 = insertelement <2 x float> %.sroa.08.0.vec.insert.i141, float %85, i64 1
-  %86 = fadd float %.sroa.231.0.copyload, %83
+  %foldExtExtBinop909 = fsub <2 x float> %.sroa.032.0.copyload, %.sroa.030.0.copyload
+  %68 = extractelement <2 x float> %foldExtExtBinop909, i64 1
+  %69 = fsub float %.sroa.233.0.copyload, %.sroa.231.0.copyload
+  %70 = fmul float %56, %68
+  %71 = tail call float @llvm.fmuladd.f32(float %47, float %67, float %70)
+  %72 = tail call float @llvm.fmuladd.f32(float %61, float %69, float %71)
+  %73 = fadd float %72, 0.000000e+00
+  %74 = fmul float %57, %68
+  %75 = tail call float @llvm.fmuladd.f32(float %50, float %67, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %63, float %69, float %75)
+  %77 = fadd float %76, 0.000000e+00
+  %78 = fmul float %60, %68
+  %79 = tail call float @llvm.fmuladd.f32(float %54, float %67, float %78)
+  %80 = tail call float @llvm.fmuladd.f32(float %65, float %69, float %79)
+  %81 = fadd float %80, 0.000000e+00
+  %82 = fadd float %.sroa.03.0.vec.extract.i, %73
+  %.sroa.08.0.vec.insert.i141 = insertelement <2 x float> poison, float %82, i64 0
+  %83 = fadd float %.sroa.03.4.vec.extract.i, %77
+  %.sroa.08.4.vec.insert.i144 = insertelement <2 x float> %.sroa.08.0.vec.insert.i141, float %83, i64 1
+  %84 = fadd float %.sroa.231.0.copyload, %81
   store <2 x float> %.sroa.08.4.vec.insert.i144, ptr %0, align 4
-  store float %86, ptr %.sroa.233.0..sroa_idx, align 4
+  store float %84, ptr %.sroa.233.0..sroa_idx, align 4
   br label %.thread
 
-87:                                               ; preds = %24
-  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 460), align 4
-  %89 = icmp eq i8 %88, 1
-  br i1 %89, label %90, label %92
+85:                                               ; preds = %24
+  %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 460), align 4
+  %87 = icmp eq i8 %86, 1
+  br i1 %87, label %88, label %90
 
-90:                                               ; preds = %87
-  %91 = fneg float %21
-  tail call void @CameraPitch(ptr noundef %0, float noundef %91, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  br label %92
+88:                                               ; preds = %85
+  %89 = fneg float %21
+  tail call void @CameraPitch(ptr noundef %0, float noundef %89, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
+  br label %90
 
-92:                                               ; preds = %90, %87
-  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 461), align 1
-  %94 = icmp eq i8 %93, 1
-  br i1 %94, label %95, label %96
+90:                                               ; preds = %88, %85
+  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 461), align 1
+  %92 = icmp eq i8 %91, 1
+  br i1 %92, label %93, label %94
 
-95:                                               ; preds = %92
+93:                                               ; preds = %90
   tail call void @CameraPitch(ptr noundef %0, float noundef %21, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  br label %96
+  br label %94
 
-96:                                               ; preds = %95, %92
-  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 458), align 2
-  %98 = icmp eq i8 %97, 1
-  br i1 %98, label %99, label %CameraYaw.exit
+94:                                               ; preds = %93, %90
+  %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 458), align 2
+  %96 = icmp eq i8 %95, 1
+  br i1 %96, label %97, label %CameraYaw.exit
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %100, align 4
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %98, align 4
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i = load float, ptr %.sroa.24.0..sroa_idx.i.i, align 4
   %.sroa.07.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 0
   %.sroa.07.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i, i64 1
-  %101 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
-  %102 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %101)
-  %103 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %102)
-  %104 = fcmp une float %103, 0.000000e+00
-  br i1 %104, label %105, label %GetCameraUp.exit.i
+  %99 = fmul float %.sroa.07.4.vec.extract.i.i.i, %.sroa.07.4.vec.extract.i.i.i
+  %100 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i, float %.sroa.07.0.vec.extract.i.i.i, float %99)
+  %101 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i, float %.sroa.24.0.copyload.i.i, float %100)
+  %102 = fcmp une float %101, 0.000000e+00
+  br i1 %102, label %103, label %GetCameraUp.exit.i
 
-105:                                              ; preds = %99
-  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %103)
-  %106 = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %107 = fmul float %.sroa.07.0.vec.extract.i.i.i, %106
-  %108 = fmul float %.sroa.07.4.vec.extract.i.i.i, %106
-  %109 = fmul float %.sroa.24.0.copyload.i.i, %106
-  %.pre69.i = fmul float %108, %108
-  %.pre70.i = tail call float @llvm.fmuladd.f32(float %107, float %107, float %.pre69.i)
-  %.pre72.i = tail call float @llvm.fmuladd.f32(float %109, float %109, float %.pre70.i)
+103:                                              ; preds = %97
+  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %101)
+  %104 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %105 = fmul float %.sroa.07.0.vec.extract.i.i.i, %104
+  %106 = fmul float %.sroa.07.4.vec.extract.i.i.i, %104
+  %107 = fmul float %.sroa.24.0.copyload.i.i, %104
+  %.pre69.i = fmul float %106, %106
+  %.pre70.i = tail call float @llvm.fmuladd.f32(float %105, float %105, float %.pre69.i)
+  %.pre72.i = tail call float @llvm.fmuladd.f32(float %107, float %107, float %.pre70.i)
   br label %GetCameraUp.exit.i
 
-GetCameraUp.exit.i:                               ; preds = %105, %99
-  %.pre-phi73.i = phi float [ %103, %99 ], [ %.pre72.i, %105 ]
-  %.sroa.044.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %99 ], [ %108, %105 ]
-  %.sroa.044.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %99 ], [ %107, %105 ]
-  %.sroa.617.0.i.i.i = phi float [ %.sroa.24.0.copyload.i.i, %99 ], [ %109, %105 ]
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.032.0.copyload.i = load <2 x float>, ptr %110, align 4
+GetCameraUp.exit.i:                               ; preds = %103, %97
+  %.pre-phi73.i = phi float [ %101, %97 ], [ %.pre72.i, %103 ]
+  %.sroa.044.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i, %97 ], [ %106, %103 ]
+  %.sroa.044.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i, %97 ], [ %105, %103 ]
+  %.sroa.617.0.i.i.i = phi float [ %.sroa.24.0.copyload.i.i, %97 ], [ %107, %103 ]
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.032.0.copyload.i = load <2 x float>, ptr %108, align 4
   %.sroa.233.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.233.0.copyload.i = load float, ptr %.sroa.233.0..sroa_idx.i, align 4
   %.sroa.030.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload.i = load float, ptr %.sroa.231.0..sroa_idx.i, align 4
-  %111 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
-  %112 = extractelement <2 x float> %111, i64 0
-  %113 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
-  %114 = extractelement <2 x float> %113, i64 1
-  %115 = fsub float %.sroa.233.0.copyload.i, %.sroa.231.0.copyload.i
+  %foldExtExtBinop911 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
+  %109 = extractelement <2 x float> %foldExtExtBinop911, i64 0
+  %foldExtExtBinop913 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
+  %110 = extractelement <2 x float> %foldExtExtBinop913, i64 1
+  %111 = fsub float %.sroa.233.0.copyload.i, %.sroa.231.0.copyload.i
   %sqrt.i.i150 = tail call float @llvm.sqrt.f32(float %.pre-phi73.i)
-  %116 = fcmp oeq float %.pre-phi73.i, 0.000000e+00
-  %117 = fdiv float 1.000000e+00, %sqrt.i.i150
-  %118 = select i1 %116, float 1.000000e+00, float %117
-  %119 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i, %118
-  %120 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i, %118
-  %121 = fmul float %.sroa.617.0.i.i.i, %118
-  %122 = fmul float %21, -5.000000e-01
-  %123 = tail call float @sinf(float noundef %122) #60
-  %124 = fmul float %119, %123
-  %125 = fmul float %120, %123
-  %126 = fmul float %121, %123
-  %127 = tail call float @cosf(float noundef %122) #60
-  %128 = fneg float %114
-  %129 = fmul float %126, %128
-  %130 = tail call float @llvm.fmuladd.f32(float %125, float %115, float %129)
-  %131 = fneg float %115
-  %132 = fmul float %124, %131
-  %133 = tail call float @llvm.fmuladd.f32(float %126, float %112, float %132)
-  %134 = fneg float %112
-  %135 = fmul float %125, %134
-  %136 = tail call float @llvm.fmuladd.f32(float %124, float %114, float %135)
-  %137 = fneg float %133
-  %138 = fmul float %126, %137
-  %139 = tail call float @llvm.fmuladd.f32(float %125, float %136, float %138)
-  %140 = fneg float %136
-  %141 = fmul float %124, %140
-  %142 = tail call float @llvm.fmuladd.f32(float %126, float %130, float %141)
-  %143 = fneg float %130
-  %144 = fmul float %125, %143
-  %145 = tail call float @llvm.fmuladd.f32(float %124, float %133, float %144)
-  %146 = fmul float %127, 2.000000e+00
-  %147 = fmul float %146, %130
-  %148 = fmul float %146, %133
-  %149 = fmul float %146, %136
-  %150 = fmul float %139, 2.000000e+00
-  %151 = fmul float %142, 2.000000e+00
-  %152 = fmul float %145, 2.000000e+00
-  %153 = fadd float %112, %147
-  %154 = fadd float %114, %148
-  %155 = fadd float %115, %149
-  %156 = fadd float %153, %150
-  %157 = fadd float %154, %151
-  %158 = fadd float %155, %152
-  switch i32 %1, label %163 [
-    i32 4, label %159
-    i32 2, label %159
+  %112 = fcmp oeq float %.pre-phi73.i, 0.000000e+00
+  %113 = fdiv float 1.000000e+00, %sqrt.i.i150
+  %114 = select i1 %112, float 1.000000e+00, float %113
+  %115 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i, %114
+  %116 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i, %114
+  %117 = fmul float %.sroa.617.0.i.i.i, %114
+  %118 = fmul float %21, -5.000000e-01
+  %119 = tail call float @sinf(float noundef %118) #60
+  %120 = fmul float %115, %119
+  %121 = fmul float %116, %119
+  %122 = fmul float %117, %119
+  %123 = tail call float @cosf(float noundef %118) #60
+  %124 = fneg float %110
+  %125 = fmul float %122, %124
+  %126 = tail call float @llvm.fmuladd.f32(float %121, float %111, float %125)
+  %127 = fneg float %111
+  %128 = fmul float %120, %127
+  %129 = tail call float @llvm.fmuladd.f32(float %122, float %109, float %128)
+  %130 = fneg float %109
+  %131 = fmul float %121, %130
+  %132 = tail call float @llvm.fmuladd.f32(float %120, float %110, float %131)
+  %133 = fneg float %129
+  %134 = fmul float %122, %133
+  %135 = tail call float @llvm.fmuladd.f32(float %121, float %132, float %134)
+  %136 = fneg float %132
+  %137 = fmul float %120, %136
+  %138 = tail call float @llvm.fmuladd.f32(float %122, float %126, float %137)
+  %139 = fneg float %126
+  %140 = fmul float %121, %139
+  %141 = tail call float @llvm.fmuladd.f32(float %120, float %129, float %140)
+  %142 = fmul float %123, 2.000000e+00
+  %143 = fmul float %142, %126
+  %144 = fmul float %142, %129
+  %145 = fmul float %142, %132
+  %146 = fmul float %135, 2.000000e+00
+  %147 = fmul float %138, 2.000000e+00
+  %148 = fmul float %141, 2.000000e+00
+  %149 = fadd float %109, %143
+  %150 = fadd float %110, %144
+  %151 = fadd float %111, %145
+  %152 = fadd float %149, %146
+  %153 = fadd float %150, %147
+  %154 = fadd float %151, %148
+  switch i32 %1, label %159 [
+    i32 4, label %155
+    i32 2, label %155
   ]
 
-159:                                              ; preds = %GetCameraUp.exit.i, %GetCameraUp.exit.i
-  %.sroa.012.0.copyload.i = load <2 x float>, ptr %110, align 4
+155:                                              ; preds = %GetCameraUp.exit.i, %GetCameraUp.exit.i
+  %.sroa.012.0.copyload.i = load <2 x float>, ptr %108, align 4
   %.sroa.213.0.copyload.i = load float, ptr %.sroa.233.0..sroa_idx.i, align 4
   %.sroa.06.0.vec.extract.i52.i = extractelement <2 x float> %.sroa.012.0.copyload.i, i64 0
-  %160 = fsub float %.sroa.06.0.vec.extract.i52.i, %156
-  %.sroa.08.0.vec.insert.i54.i = insertelement <2 x float> poison, float %160, i64 0
+  %156 = fsub float %.sroa.06.0.vec.extract.i52.i, %152
+  %.sroa.08.0.vec.insert.i54.i = insertelement <2 x float> poison, float %156, i64 0
   %.sroa.06.4.vec.extract.i55.i = extractelement <2 x float> %.sroa.012.0.copyload.i, i64 1
-  %161 = fsub float %.sroa.06.4.vec.extract.i55.i, %157
-  %.sroa.08.4.vec.insert.i57.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i, float %161, i64 1
-  %162 = fsub float %.sroa.213.0.copyload.i, %158
+  %157 = fsub float %.sroa.06.4.vec.extract.i55.i, %153
+  %.sroa.08.4.vec.insert.i57.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i, float %157, i64 1
+  %158 = fsub float %.sroa.213.0.copyload.i, %154
   store <2 x float> %.sroa.08.4.vec.insert.i57.i, ptr %0, align 4
-  store float %162, ptr %.sroa.231.0..sroa_idx.i, align 4
+  store float %158, ptr %.sroa.231.0..sroa_idx.i, align 4
   br label %CameraYaw.exit
 
-163:                                              ; preds = %GetCameraUp.exit.i
+159:                                              ; preds = %GetCameraUp.exit.i
   %.sroa.03.0.copyload.i151 = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload.i152 = load float, ptr %.sroa.231.0..sroa_idx.i, align 4
   %.sroa.06.0.vec.extract.i60.i = extractelement <2 x float> %.sroa.03.0.copyload.i151, i64 0
-  %164 = fadd float %156, %.sroa.06.0.vec.extract.i60.i
-  %.sroa.08.0.vec.insert.i62.i = insertelement <2 x float> poison, float %164, i64 0
+  %160 = fadd float %152, %.sroa.06.0.vec.extract.i60.i
+  %.sroa.08.0.vec.insert.i62.i = insertelement <2 x float> poison, float %160, i64 0
   %.sroa.06.4.vec.extract.i63.i = extractelement <2 x float> %.sroa.03.0.copyload.i151, i64 1
-  %165 = fadd float %157, %.sroa.06.4.vec.extract.i63.i
-  %.sroa.08.4.vec.insert.i65.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i, float %165, i64 1
-  %166 = fadd float %158, %.sroa.24.0.copyload.i152
-  store <2 x float> %.sroa.08.4.vec.insert.i65.i, ptr %110, align 4
-  store float %166, ptr %.sroa.233.0..sroa_idx.i, align 4
+  %161 = fadd float %153, %.sroa.06.4.vec.extract.i63.i
+  %.sroa.08.4.vec.insert.i65.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i, float %161, i64 1
+  %162 = fadd float %154, %.sroa.24.0.copyload.i152
+  store <2 x float> %.sroa.08.4.vec.insert.i65.i, ptr %108, align 4
+  store float %162, ptr %.sroa.233.0..sroa_idx.i, align 4
   br label %CameraYaw.exit
 
-CameraYaw.exit:                                   ; preds = %163, %159, %96
-  %167 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 459), align 1
-  %168 = icmp eq i8 %167, 1
-  br i1 %168, label %169, label %CameraYaw.exit191
+CameraYaw.exit:                                   ; preds = %159, %155, %94
+  %163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 459), align 1
+  %164 = icmp eq i8 %163, 1
+  br i1 %164, label %165, label %CameraYaw.exit191
 
-169:                                              ; preds = %CameraYaw.exit
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i154 = load <2 x float>, ptr %170, align 4
+165:                                              ; preds = %CameraYaw.exit
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i154 = load <2 x float>, ptr %166, align 4
   %.sroa.24.0..sroa_idx.i.i155 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i156 = load float, ptr %.sroa.24.0..sroa_idx.i.i155, align 4
   %.sroa.07.0.vec.extract.i.i.i157 = extractelement <2 x float> %.sroa.03.0.copyload.i.i154, i64 0
   %.sroa.07.4.vec.extract.i.i.i158 = extractelement <2 x float> %.sroa.03.0.copyload.i.i154, i64 1
-  %171 = fmul float %.sroa.07.4.vec.extract.i.i.i158, %.sroa.07.4.vec.extract.i.i.i158
-  %172 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i157, float %.sroa.07.0.vec.extract.i.i.i157, float %171)
-  %173 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i156, float %.sroa.24.0.copyload.i.i156, float %172)
-  %174 = fcmp une float %173, 0.000000e+00
-  br i1 %174, label %175, label %GetCameraUp.exit.i159
+  %167 = fmul float %.sroa.07.4.vec.extract.i.i.i158, %.sroa.07.4.vec.extract.i.i.i158
+  %168 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i157, float %.sroa.07.0.vec.extract.i.i.i157, float %167)
+  %169 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i156, float %.sroa.24.0.copyload.i.i156, float %168)
+  %170 = fcmp une float %169, 0.000000e+00
+  br i1 %170, label %171, label %GetCameraUp.exit.i159
 
-175:                                              ; preds = %169
-  %sqrt.i.i.i187 = tail call float @llvm.sqrt.f32(float %173)
-  %176 = fdiv float 1.000000e+00, %sqrt.i.i.i187
-  %177 = fmul float %.sroa.07.0.vec.extract.i.i.i157, %176
-  %178 = fmul float %.sroa.07.4.vec.extract.i.i.i158, %176
-  %179 = fmul float %.sroa.24.0.copyload.i.i156, %176
-  %.pre69.i188 = fmul float %178, %178
-  %.pre70.i189 = tail call float @llvm.fmuladd.f32(float %177, float %177, float %.pre69.i188)
-  %.pre72.i190 = tail call float @llvm.fmuladd.f32(float %179, float %179, float %.pre70.i189)
+171:                                              ; preds = %165
+  %sqrt.i.i.i187 = tail call float @llvm.sqrt.f32(float %169)
+  %172 = fdiv float 1.000000e+00, %sqrt.i.i.i187
+  %173 = fmul float %.sroa.07.0.vec.extract.i.i.i157, %172
+  %174 = fmul float %.sroa.07.4.vec.extract.i.i.i158, %172
+  %175 = fmul float %.sroa.24.0.copyload.i.i156, %172
+  %.pre69.i188 = fmul float %174, %174
+  %.pre70.i189 = tail call float @llvm.fmuladd.f32(float %173, float %173, float %.pre69.i188)
+  %.pre72.i190 = tail call float @llvm.fmuladd.f32(float %175, float %175, float %.pre70.i189)
   br label %GetCameraUp.exit.i159
 
-GetCameraUp.exit.i159:                            ; preds = %175, %169
-  %.pre-phi73.i160 = phi float [ %173, %169 ], [ %.pre72.i190, %175 ]
-  %.sroa.044.4.vec.extract.i.pre-phi.i161 = phi float [ %.sroa.07.4.vec.extract.i.i.i158, %169 ], [ %178, %175 ]
-  %.sroa.044.0.vec.extract.i.pre-phi.i162 = phi float [ %.sroa.07.0.vec.extract.i.i.i157, %169 ], [ %177, %175 ]
-  %.sroa.617.0.i.i.i163 = phi float [ %.sroa.24.0.copyload.i.i156, %169 ], [ %179, %175 ]
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.032.0.copyload.i164 = load <2 x float>, ptr %180, align 4
+GetCameraUp.exit.i159:                            ; preds = %171, %165
+  %.pre-phi73.i160 = phi float [ %169, %165 ], [ %.pre72.i190, %171 ]
+  %.sroa.044.4.vec.extract.i.pre-phi.i161 = phi float [ %.sroa.07.4.vec.extract.i.i.i158, %165 ], [ %174, %171 ]
+  %.sroa.044.0.vec.extract.i.pre-phi.i162 = phi float [ %.sroa.07.0.vec.extract.i.i.i157, %165 ], [ %173, %171 ]
+  %.sroa.617.0.i.i.i163 = phi float [ %.sroa.24.0.copyload.i.i156, %165 ], [ %175, %171 ]
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.032.0.copyload.i164 = load <2 x float>, ptr %176, align 4
   %.sroa.233.0..sroa_idx.i165 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.233.0.copyload.i166 = load float, ptr %.sroa.233.0..sroa_idx.i165, align 4
   %.sroa.030.0.copyload.i167 = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx.i168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload.i169 = load float, ptr %.sroa.231.0..sroa_idx.i168, align 4
-  %181 = fsub <2 x float> %.sroa.032.0.copyload.i164, %.sroa.030.0.copyload.i167
-  %182 = extractelement <2 x float> %181, i64 0
-  %183 = fsub <2 x float> %.sroa.032.0.copyload.i164, %.sroa.030.0.copyload.i167
-  %184 = extractelement <2 x float> %183, i64 1
-  %185 = fsub float %.sroa.233.0.copyload.i166, %.sroa.231.0.copyload.i169
+  %foldExtExtBinop915 = fsub <2 x float> %.sroa.032.0.copyload.i164, %.sroa.030.0.copyload.i167
+  %177 = extractelement <2 x float> %foldExtExtBinop915, i64 0
+  %foldExtExtBinop917 = fsub <2 x float> %.sroa.032.0.copyload.i164, %.sroa.030.0.copyload.i167
+  %178 = extractelement <2 x float> %foldExtExtBinop917, i64 1
+  %179 = fsub float %.sroa.233.0.copyload.i166, %.sroa.231.0.copyload.i169
   %sqrt.i.i174 = tail call float @llvm.sqrt.f32(float %.pre-phi73.i160)
-  %186 = fcmp oeq float %.pre-phi73.i160, 0.000000e+00
-  %187 = fdiv float 1.000000e+00, %sqrt.i.i174
-  %188 = select i1 %186, float 1.000000e+00, float %187
-  %189 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i162, %188
-  %190 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i161, %188
-  %191 = fmul float %.sroa.617.0.i.i.i163, %188
-  %192 = fmul float %21, 5.000000e-01
-  %193 = tail call float @sinf(float noundef %192) #60
-  %194 = fmul float %189, %193
-  %195 = fmul float %190, %193
-  %196 = fmul float %191, %193
-  %197 = tail call float @cosf(float noundef %192) #60
-  %198 = fneg float %184
-  %199 = fmul float %196, %198
-  %200 = tail call float @llvm.fmuladd.f32(float %195, float %185, float %199)
-  %201 = fneg float %185
-  %202 = fmul float %194, %201
-  %203 = tail call float @llvm.fmuladd.f32(float %196, float %182, float %202)
-  %204 = fneg float %182
-  %205 = fmul float %195, %204
-  %206 = tail call float @llvm.fmuladd.f32(float %194, float %184, float %205)
-  %207 = fneg float %203
-  %208 = fmul float %196, %207
-  %209 = tail call float @llvm.fmuladd.f32(float %195, float %206, float %208)
-  %210 = fneg float %206
-  %211 = fmul float %194, %210
-  %212 = tail call float @llvm.fmuladd.f32(float %196, float %200, float %211)
-  %213 = fneg float %200
-  %214 = fmul float %195, %213
-  %215 = tail call float @llvm.fmuladd.f32(float %194, float %203, float %214)
-  %216 = fmul float %197, 2.000000e+00
-  %217 = fmul float %216, %200
-  %218 = fmul float %216, %203
-  %219 = fmul float %216, %206
-  %220 = fmul float %209, 2.000000e+00
-  %221 = fmul float %212, 2.000000e+00
-  %222 = fmul float %215, 2.000000e+00
-  %223 = fadd float %182, %217
-  %224 = fadd float %184, %218
-  %225 = fadd float %185, %219
-  %226 = fadd float %223, %220
-  %227 = fadd float %224, %221
-  %228 = fadd float %225, %222
-  switch i32 %1, label %233 [
-    i32 4, label %229
-    i32 2, label %229
+  %180 = fcmp oeq float %.pre-phi73.i160, 0.000000e+00
+  %181 = fdiv float 1.000000e+00, %sqrt.i.i174
+  %182 = select i1 %180, float 1.000000e+00, float %181
+  %183 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i162, %182
+  %184 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i161, %182
+  %185 = fmul float %.sroa.617.0.i.i.i163, %182
+  %186 = fmul float %21, 5.000000e-01
+  %187 = tail call float @sinf(float noundef %186) #60
+  %188 = fmul float %183, %187
+  %189 = fmul float %184, %187
+  %190 = fmul float %185, %187
+  %191 = tail call float @cosf(float noundef %186) #60
+  %192 = fneg float %178
+  %193 = fmul float %190, %192
+  %194 = tail call float @llvm.fmuladd.f32(float %189, float %179, float %193)
+  %195 = fneg float %179
+  %196 = fmul float %188, %195
+  %197 = tail call float @llvm.fmuladd.f32(float %190, float %177, float %196)
+  %198 = fneg float %177
+  %199 = fmul float %189, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %188, float %178, float %199)
+  %201 = fneg float %197
+  %202 = fmul float %190, %201
+  %203 = tail call float @llvm.fmuladd.f32(float %189, float %200, float %202)
+  %204 = fneg float %200
+  %205 = fmul float %188, %204
+  %206 = tail call float @llvm.fmuladd.f32(float %190, float %194, float %205)
+  %207 = fneg float %194
+  %208 = fmul float %189, %207
+  %209 = tail call float @llvm.fmuladd.f32(float %188, float %197, float %208)
+  %210 = fmul float %191, 2.000000e+00
+  %211 = fmul float %210, %194
+  %212 = fmul float %210, %197
+  %213 = fmul float %210, %200
+  %214 = fmul float %203, 2.000000e+00
+  %215 = fmul float %206, 2.000000e+00
+  %216 = fmul float %209, 2.000000e+00
+  %217 = fadd float %177, %211
+  %218 = fadd float %178, %212
+  %219 = fadd float %179, %213
+  %220 = fadd float %217, %214
+  %221 = fadd float %218, %215
+  %222 = fadd float %219, %216
+  switch i32 %1, label %227 [
+    i32 4, label %223
+    i32 2, label %223
   ]
 
-229:                                              ; preds = %GetCameraUp.exit.i159, %GetCameraUp.exit.i159
-  %.sroa.012.0.copyload.i181 = load <2 x float>, ptr %180, align 4
+223:                                              ; preds = %GetCameraUp.exit.i159, %GetCameraUp.exit.i159
+  %.sroa.012.0.copyload.i181 = load <2 x float>, ptr %176, align 4
   %.sroa.213.0.copyload.i182 = load float, ptr %.sroa.233.0..sroa_idx.i165, align 4
   %.sroa.06.0.vec.extract.i52.i183 = extractelement <2 x float> %.sroa.012.0.copyload.i181, i64 0
-  %230 = fsub float %.sroa.06.0.vec.extract.i52.i183, %226
-  %.sroa.08.0.vec.insert.i54.i184 = insertelement <2 x float> poison, float %230, i64 0
+  %224 = fsub float %.sroa.06.0.vec.extract.i52.i183, %220
+  %.sroa.08.0.vec.insert.i54.i184 = insertelement <2 x float> poison, float %224, i64 0
   %.sroa.06.4.vec.extract.i55.i185 = extractelement <2 x float> %.sroa.012.0.copyload.i181, i64 1
-  %231 = fsub float %.sroa.06.4.vec.extract.i55.i185, %227
-  %.sroa.08.4.vec.insert.i57.i186 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i184, float %231, i64 1
-  %232 = fsub float %.sroa.213.0.copyload.i182, %228
+  %225 = fsub float %.sroa.06.4.vec.extract.i55.i185, %221
+  %.sroa.08.4.vec.insert.i57.i186 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i184, float %225, i64 1
+  %226 = fsub float %.sroa.213.0.copyload.i182, %222
   store <2 x float> %.sroa.08.4.vec.insert.i57.i186, ptr %0, align 4
-  store float %232, ptr %.sroa.231.0..sroa_idx.i168, align 4
+  store float %226, ptr %.sroa.231.0..sroa_idx.i168, align 4
   br label %CameraYaw.exit191
 
-233:                                              ; preds = %GetCameraUp.exit.i159
+227:                                              ; preds = %GetCameraUp.exit.i159
   %.sroa.03.0.copyload.i175 = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload.i176 = load float, ptr %.sroa.231.0..sroa_idx.i168, align 4
   %.sroa.06.0.vec.extract.i60.i177 = extractelement <2 x float> %.sroa.03.0.copyload.i175, i64 0
-  %234 = fadd float %226, %.sroa.06.0.vec.extract.i60.i177
-  %.sroa.08.0.vec.insert.i62.i178 = insertelement <2 x float> poison, float %234, i64 0
+  %228 = fadd float %220, %.sroa.06.0.vec.extract.i60.i177
+  %.sroa.08.0.vec.insert.i62.i178 = insertelement <2 x float> poison, float %228, i64 0
   %.sroa.06.4.vec.extract.i63.i179 = extractelement <2 x float> %.sroa.03.0.copyload.i175, i64 1
-  %235 = fadd float %227, %.sroa.06.4.vec.extract.i63.i179
-  %.sroa.08.4.vec.insert.i65.i180 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i178, float %235, i64 1
-  %236 = fadd float %228, %.sroa.24.0.copyload.i176
-  store <2 x float> %.sroa.08.4.vec.insert.i65.i180, ptr %180, align 4
-  store float %236, ptr %.sroa.233.0..sroa_idx.i165, align 4
+  %229 = fadd float %221, %.sroa.06.4.vec.extract.i63.i179
+  %.sroa.08.4.vec.insert.i65.i180 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i178, float %229, i64 1
+  %230 = fadd float %222, %.sroa.24.0.copyload.i176
+  store <2 x float> %.sroa.08.4.vec.insert.i65.i180, ptr %176, align 4
+  store float %230, ptr %.sroa.233.0..sroa_idx.i165, align 4
   br label %CameraYaw.exit191
 
-CameraYaw.exit191:                                ; preds = %233, %229, %CameraYaw.exit
-  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 277), align 1
-  %238 = icmp eq i8 %237, 1
-  br i1 %238, label %239, label %303
+CameraYaw.exit191:                                ; preds = %227, %223, %CameraYaw.exit
+  %231 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 277), align 1
+  %232 = icmp eq i8 %231, 1
+  br i1 %232, label %233, label %295
 
-239:                                              ; preds = %CameraYaw.exit191
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i = load <2 x float>, ptr %240, align 4
+233:                                              ; preds = %CameraYaw.exit191
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i = load <2 x float>, ptr %234, align 4
   %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i = load float, ptr %.sroa.212.0..sroa_idx.i.i, align 4
   %.sroa.09.0.copyload.i.i = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i.i = load float, ptr %.sroa.210.0..sroa_idx.i.i, align 4
-  %241 = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
-  %242 = extractelement <2 x float> %241, i64 0
-  %243 = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
-  %244 = extractelement <2 x float> %243, i64 1
-  %.sroa.08.4.vec.insert.i.i.i = shufflevector <2 x float> %241, <2 x float> %243, <2 x i32> <i32 0, i32 3>
-  %245 = fsub float %.sroa.212.0.copyload.i.i, %.sroa.210.0.copyload.i.i
-  %246 = fmul float %244, %244
-  %247 = tail call float @llvm.fmuladd.f32(float %242, float %242, float %246)
-  %248 = tail call float @llvm.fmuladd.f32(float %245, float %245, float %247)
-  %249 = fcmp une float %248, 0.000000e+00
-  br i1 %249, label %250, label %CameraRoll.exit
+  %foldExtExtBinop919 = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
+  %235 = extractelement <2 x float> %foldExtExtBinop919, i64 0
+  %foldExtExtBinop921 = fsub <2 x float> %.sroa.011.0.copyload.i.i, %.sroa.09.0.copyload.i.i
+  %236 = extractelement <2 x float> %foldExtExtBinop921, i64 1
+  %.sroa.08.4.vec.insert.i.i.i = shufflevector <2 x float> %foldExtExtBinop919, <2 x float> %foldExtExtBinop921, <2 x i32> <i32 0, i32 3>
+  %237 = fsub float %.sroa.212.0.copyload.i.i, %.sroa.210.0.copyload.i.i
+  %238 = fmul float %236, %236
+  %239 = tail call float @llvm.fmuladd.f32(float %235, float %235, float %238)
+  %240 = tail call float @llvm.fmuladd.f32(float %237, float %237, float %239)
+  %241 = fcmp une float %240, 0.000000e+00
+  br i1 %241, label %242, label %CameraRoll.exit
 
-250:                                              ; preds = %239
-  %sqrt.i.i.i198 = tail call float @llvm.sqrt.f32(float %248)
-  %251 = fdiv float 1.000000e+00, %sqrt.i.i.i198
-  %252 = fmul float %242, %251
-  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %252, i64 0
-  %253 = fmul float %244, %251
-  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %253, i64 1
-  %254 = fmul float %245, %251
+242:                                              ; preds = %233
+  %sqrt.i.i.i198 = tail call float @llvm.sqrt.f32(float %240)
+  %243 = fdiv float 1.000000e+00, %sqrt.i.i.i198
+  %244 = fmul float %235, %243
+  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %244, i64 0
+  %245 = fmul float %236, %243
+  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %245, i64 1
+  %246 = fmul float %237, %243
   br label %CameraRoll.exit
 
-CameraRoll.exit:                                  ; preds = %239, %250
-  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %250 ], [ %.sroa.08.4.vec.insert.i.i.i, %239 ]
-  %.sroa.617.0.i.i.i193 = phi float [ %254, %250 ], [ %245, %239 ]
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i194 = load <2 x float>, ptr %255, align 4
+CameraRoll.exit:                                  ; preds = %233, %242
+  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %242 ], [ %.sroa.08.4.vec.insert.i.i.i, %233 ]
+  %.sroa.617.0.i.i.i193 = phi float [ %246, %242 ], [ %237, %233 ]
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i194 = load <2 x float>, ptr %247, align 4
   %.sroa.24.0..sroa_idx.i195 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i196 = load float, ptr %.sroa.24.0..sroa_idx.i195, align 4
   %.sroa.044.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 0
   %.sroa.044.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 1
-  %256 = fmul float %.sroa.044.4.vec.extract.i.i, %.sroa.044.4.vec.extract.i.i
-  %257 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i, float %.sroa.044.0.vec.extract.i.i, float %256)
-  %258 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i193, float %.sroa.617.0.i.i.i193, float %257)
-  %sqrt.i.i197 = tail call float @llvm.sqrt.f32(float %258)
-  %259 = fcmp oeq float %258, 0.000000e+00
-  %260 = fdiv float 1.000000e+00, %sqrt.i.i197
-  %261 = select i1 %259, float 1.000000e+00, float %260
-  %262 = fmul float %.sroa.044.0.vec.extract.i.i, %261
-  %263 = fmul float %.sroa.044.4.vec.extract.i.i, %261
-  %264 = fmul float %.sroa.617.0.i.i.i193, %261
-  %265 = fmul float %21, -5.000000e-01
-  %266 = tail call float @sinf(float noundef %265) #60
-  %267 = fmul float %266, %262
-  %268 = fmul float %266, %263
-  %269 = fmul float %266, %264
-  %270 = tail call float @cosf(float noundef %265) #60
+  %248 = fmul float %.sroa.044.4.vec.extract.i.i, %.sroa.044.4.vec.extract.i.i
+  %249 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i, float %.sroa.044.0.vec.extract.i.i, float %248)
+  %250 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i193, float %.sroa.617.0.i.i.i193, float %249)
+  %sqrt.i.i197 = tail call float @llvm.sqrt.f32(float %250)
+  %251 = fcmp oeq float %250, 0.000000e+00
+  %252 = fdiv float 1.000000e+00, %sqrt.i.i197
+  %253 = select i1 %251, float 1.000000e+00, float %252
+  %254 = fmul float %.sroa.044.0.vec.extract.i.i, %253
+  %255 = fmul float %.sroa.044.4.vec.extract.i.i, %253
+  %256 = fmul float %.sroa.617.0.i.i.i193, %253
+  %257 = fmul float %21, -5.000000e-01
+  %258 = tail call float @sinf(float noundef %257) #60
+  %259 = fmul float %258, %254
+  %260 = fmul float %258, %255
+  %261 = fmul float %258, %256
+  %262 = tail call float @cosf(float noundef %257) #60
   %.sroa.064.4.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i194, i64 1
-  %271 = fneg float %.sroa.064.4.vec.extract.i.i
-  %272 = fmul float %269, %271
-  %273 = tail call float @llvm.fmuladd.f32(float %268, float %.sroa.24.0.copyload.i196, float %272)
+  %263 = fneg float %.sroa.064.4.vec.extract.i.i
+  %264 = fmul float %261, %263
+  %265 = tail call float @llvm.fmuladd.f32(float %260, float %.sroa.24.0.copyload.i196, float %264)
   %.sroa.064.0.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i194, i64 0
-  %274 = fneg float %.sroa.24.0.copyload.i196
-  %275 = fmul float %267, %274
-  %276 = tail call float @llvm.fmuladd.f32(float %269, float %.sroa.064.0.vec.extract.i.i, float %275)
-  %277 = fneg float %.sroa.064.0.vec.extract.i.i
-  %278 = fmul float %268, %277
-  %279 = tail call float @llvm.fmuladd.f32(float %267, float %.sroa.064.4.vec.extract.i.i, float %278)
-  %280 = fneg float %276
-  %281 = fmul float %269, %280
-  %282 = tail call float @llvm.fmuladd.f32(float %268, float %279, float %281)
-  %283 = fneg float %279
-  %284 = fmul float %267, %283
-  %285 = tail call float @llvm.fmuladd.f32(float %269, float %273, float %284)
-  %286 = fneg float %273
-  %287 = fmul float %268, %286
-  %288 = tail call float @llvm.fmuladd.f32(float %267, float %276, float %287)
-  %289 = fmul float %270, 2.000000e+00
-  %290 = fmul float %289, %273
-  %291 = fmul float %289, %276
-  %292 = fmul float %289, %279
-  %293 = fmul float %282, 2.000000e+00
-  %294 = fmul float %285, 2.000000e+00
-  %295 = fmul float %288, 2.000000e+00
-  %296 = fadd float %.sroa.064.0.vec.extract.i.i, %290
-  %297 = fadd float %.sroa.064.4.vec.extract.i.i, %291
-  %298 = fadd float %.sroa.24.0.copyload.i196, %292
-  %299 = fadd float %296, %293
-  %300 = insertelement <2 x float> poison, float %299, i64 0
-  %301 = fadd float %297, %294
-  %.sroa.071.4.vec.insert82.i.i = insertelement <2 x float> %300, float %301, i64 1
-  %302 = fadd float %298, %295
-  store <2 x float> %.sroa.071.4.vec.insert82.i.i, ptr %255, align 4
-  store float %302, ptr %.sroa.24.0..sroa_idx.i195, align 4
-  br label %303
+  %266 = fneg float %.sroa.24.0.copyload.i196
+  %267 = fmul float %259, %266
+  %268 = tail call float @llvm.fmuladd.f32(float %261, float %.sroa.064.0.vec.extract.i.i, float %267)
+  %269 = fneg float %.sroa.064.0.vec.extract.i.i
+  %270 = fmul float %260, %269
+  %271 = tail call float @llvm.fmuladd.f32(float %259, float %.sroa.064.4.vec.extract.i.i, float %270)
+  %272 = fneg float %268
+  %273 = fmul float %261, %272
+  %274 = tail call float @llvm.fmuladd.f32(float %260, float %271, float %273)
+  %275 = fneg float %271
+  %276 = fmul float %259, %275
+  %277 = tail call float @llvm.fmuladd.f32(float %261, float %265, float %276)
+  %278 = fneg float %265
+  %279 = fmul float %260, %278
+  %280 = tail call float @llvm.fmuladd.f32(float %259, float %268, float %279)
+  %281 = fmul float %262, 2.000000e+00
+  %282 = fmul float %281, %265
+  %283 = fmul float %281, %268
+  %284 = fmul float %281, %271
+  %285 = fmul float %274, 2.000000e+00
+  %286 = fmul float %277, 2.000000e+00
+  %287 = fmul float %280, 2.000000e+00
+  %288 = fadd float %.sroa.064.0.vec.extract.i.i, %282
+  %289 = fadd float %.sroa.064.4.vec.extract.i.i, %283
+  %290 = fadd float %.sroa.24.0.copyload.i196, %284
+  %291 = fadd float %288, %285
+  %292 = insertelement <2 x float> poison, float %291, i64 0
+  %293 = fadd float %289, %286
+  %.sroa.071.4.vec.insert82.i.i = insertelement <2 x float> %292, float %293, i64 1
+  %294 = fadd float %290, %287
+  store <2 x float> %.sroa.071.4.vec.insert82.i.i, ptr %247, align 4
+  store float %294, ptr %.sroa.24.0..sroa_idx.i195, align 4
+  br label %295
 
-303:                                              ; preds = %CameraRoll.exit, %CameraYaw.exit191
-  %304 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 265), align 1
-  %305 = icmp eq i8 %304, 1
-  br i1 %305, label %306, label %370
+295:                                              ; preds = %CameraRoll.exit, %CameraYaw.exit191
+  %296 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 265), align 1
+  %297 = icmp eq i8 %296, 1
+  br i1 %297, label %298, label %360
 
-306:                                              ; preds = %303
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i200 = load <2 x float>, ptr %307, align 4
+298:                                              ; preds = %295
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i200 = load <2 x float>, ptr %299, align 4
   %.sroa.212.0..sroa_idx.i.i201 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i202 = load float, ptr %.sroa.212.0..sroa_idx.i.i201, align 4
   %.sroa.09.0.copyload.i.i203 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0..sroa_idx.i.i204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.210.0.copyload.i.i205 = load float, ptr %.sroa.210.0..sroa_idx.i.i204, align 4
-  %308 = fsub <2 x float> %.sroa.011.0.copyload.i.i200, %.sroa.09.0.copyload.i.i203
-  %309 = extractelement <2 x float> %308, i64 0
-  %310 = fsub <2 x float> %.sroa.011.0.copyload.i.i200, %.sroa.09.0.copyload.i.i203
-  %311 = extractelement <2 x float> %310, i64 1
-  %.sroa.08.4.vec.insert.i.i.i211 = shufflevector <2 x float> %308, <2 x float> %310, <2 x i32> <i32 0, i32 3>
-  %312 = fsub float %.sroa.212.0.copyload.i.i202, %.sroa.210.0.copyload.i.i205
-  %313 = fmul float %311, %311
-  %314 = tail call float @llvm.fmuladd.f32(float %309, float %309, float %313)
-  %315 = tail call float @llvm.fmuladd.f32(float %312, float %312, float %314)
-  %316 = fcmp une float %315, 0.000000e+00
-  br i1 %316, label %317, label %CameraRoll.exit226
+  %foldExtExtBinop923 = fsub <2 x float> %.sroa.011.0.copyload.i.i200, %.sroa.09.0.copyload.i.i203
+  %300 = extractelement <2 x float> %foldExtExtBinop923, i64 0
+  %foldExtExtBinop925 = fsub <2 x float> %.sroa.011.0.copyload.i.i200, %.sroa.09.0.copyload.i.i203
+  %301 = extractelement <2 x float> %foldExtExtBinop925, i64 1
+  %.sroa.08.4.vec.insert.i.i.i211 = shufflevector <2 x float> %foldExtExtBinop923, <2 x float> %foldExtExtBinop925, <2 x i32> <i32 0, i32 3>
+  %302 = fsub float %.sroa.212.0.copyload.i.i202, %.sroa.210.0.copyload.i.i205
+  %303 = fmul float %301, %301
+  %304 = tail call float @llvm.fmuladd.f32(float %300, float %300, float %303)
+  %305 = tail call float @llvm.fmuladd.f32(float %302, float %302, float %304)
+  %306 = fcmp une float %305, 0.000000e+00
+  br i1 %306, label %307, label %CameraRoll.exit226
 
-317:                                              ; preds = %306
-  %sqrt.i.i.i223 = tail call float @llvm.sqrt.f32(float %315)
-  %318 = fdiv float 1.000000e+00, %sqrt.i.i.i223
-  %319 = fmul float %309, %318
-  %.sroa.013.0.vec.insert.i.i.i224 = insertelement <2 x float> poison, float %319, i64 0
-  %320 = fmul float %311, %318
-  %.sroa.013.4.vec.insert.i.i.i225 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i224, float %320, i64 1
-  %321 = fmul float %312, %318
+307:                                              ; preds = %298
+  %sqrt.i.i.i223 = tail call float @llvm.sqrt.f32(float %305)
+  %308 = fdiv float 1.000000e+00, %sqrt.i.i.i223
+  %309 = fmul float %300, %308
+  %.sroa.013.0.vec.insert.i.i.i224 = insertelement <2 x float> poison, float %309, i64 0
+  %310 = fmul float %301, %308
+  %.sroa.013.4.vec.insert.i.i.i225 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i224, float %310, i64 1
+  %311 = fmul float %302, %308
   br label %CameraRoll.exit226
 
-CameraRoll.exit226:                               ; preds = %306, %317
-  %.sroa.013.0.i.i.i212 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i225, %317 ], [ %.sroa.08.4.vec.insert.i.i.i211, %306 ]
-  %.sroa.617.0.i.i.i213 = phi float [ %321, %317 ], [ %312, %306 ]
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i214 = load <2 x float>, ptr %322, align 4
+CameraRoll.exit226:                               ; preds = %298, %307
+  %.sroa.013.0.i.i.i212 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i225, %307 ], [ %.sroa.08.4.vec.insert.i.i.i211, %298 ]
+  %.sroa.617.0.i.i.i213 = phi float [ %311, %307 ], [ %302, %298 ]
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i214 = load <2 x float>, ptr %312, align 4
   %.sroa.24.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i216 = load float, ptr %.sroa.24.0..sroa_idx.i215, align 4
   %.sroa.044.0.vec.extract.i.i217 = extractelement <2 x float> %.sroa.013.0.i.i.i212, i64 0
   %.sroa.044.4.vec.extract.i.i218 = extractelement <2 x float> %.sroa.013.0.i.i.i212, i64 1
-  %323 = fmul float %.sroa.044.4.vec.extract.i.i218, %.sroa.044.4.vec.extract.i.i218
-  %324 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i217, float %.sroa.044.0.vec.extract.i.i217, float %323)
-  %325 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i213, float %.sroa.617.0.i.i.i213, float %324)
-  %sqrt.i.i219 = tail call float @llvm.sqrt.f32(float %325)
-  %326 = fcmp oeq float %325, 0.000000e+00
-  %327 = fdiv float 1.000000e+00, %sqrt.i.i219
-  %328 = select i1 %326, float 1.000000e+00, float %327
-  %329 = fmul float %.sroa.044.0.vec.extract.i.i217, %328
-  %330 = fmul float %.sroa.044.4.vec.extract.i.i218, %328
-  %331 = fmul float %.sroa.617.0.i.i.i213, %328
-  %332 = fmul float %21, 5.000000e-01
-  %333 = tail call float @sinf(float noundef %332) #60
-  %334 = fmul float %333, %329
-  %335 = fmul float %333, %330
-  %336 = fmul float %333, %331
-  %337 = tail call float @cosf(float noundef %332) #60
+  %313 = fmul float %.sroa.044.4.vec.extract.i.i218, %.sroa.044.4.vec.extract.i.i218
+  %314 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i217, float %.sroa.044.0.vec.extract.i.i217, float %313)
+  %315 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i213, float %.sroa.617.0.i.i.i213, float %314)
+  %sqrt.i.i219 = tail call float @llvm.sqrt.f32(float %315)
+  %316 = fcmp oeq float %315, 0.000000e+00
+  %317 = fdiv float 1.000000e+00, %sqrt.i.i219
+  %318 = select i1 %316, float 1.000000e+00, float %317
+  %319 = fmul float %.sroa.044.0.vec.extract.i.i217, %318
+  %320 = fmul float %.sroa.044.4.vec.extract.i.i218, %318
+  %321 = fmul float %.sroa.617.0.i.i.i213, %318
+  %322 = fmul float %21, 5.000000e-01
+  %323 = tail call float @sinf(float noundef %322) #60
+  %324 = fmul float %323, %319
+  %325 = fmul float %323, %320
+  %326 = fmul float %323, %321
+  %327 = tail call float @cosf(float noundef %322) #60
   %.sroa.064.4.vec.extract.i.i220 = extractelement <2 x float> %.sroa.03.0.copyload.i214, i64 1
-  %338 = fneg float %.sroa.064.4.vec.extract.i.i220
-  %339 = fmul float %336, %338
-  %340 = tail call float @llvm.fmuladd.f32(float %335, float %.sroa.24.0.copyload.i216, float %339)
+  %328 = fneg float %.sroa.064.4.vec.extract.i.i220
+  %329 = fmul float %326, %328
+  %330 = tail call float @llvm.fmuladd.f32(float %325, float %.sroa.24.0.copyload.i216, float %329)
   %.sroa.064.0.vec.extract.i.i221 = extractelement <2 x float> %.sroa.03.0.copyload.i214, i64 0
-  %341 = fneg float %.sroa.24.0.copyload.i216
-  %342 = fmul float %334, %341
-  %343 = tail call float @llvm.fmuladd.f32(float %336, float %.sroa.064.0.vec.extract.i.i221, float %342)
-  %344 = fneg float %.sroa.064.0.vec.extract.i.i221
-  %345 = fmul float %335, %344
-  %346 = tail call float @llvm.fmuladd.f32(float %334, float %.sroa.064.4.vec.extract.i.i220, float %345)
-  %347 = fneg float %343
-  %348 = fmul float %336, %347
-  %349 = tail call float @llvm.fmuladd.f32(float %335, float %346, float %348)
-  %350 = fneg float %346
-  %351 = fmul float %334, %350
-  %352 = tail call float @llvm.fmuladd.f32(float %336, float %340, float %351)
-  %353 = fneg float %340
-  %354 = fmul float %335, %353
-  %355 = tail call float @llvm.fmuladd.f32(float %334, float %343, float %354)
-  %356 = fmul float %337, 2.000000e+00
-  %357 = fmul float %356, %340
-  %358 = fmul float %356, %343
-  %359 = fmul float %356, %346
-  %360 = fmul float %349, 2.000000e+00
-  %361 = fmul float %352, 2.000000e+00
-  %362 = fmul float %355, 2.000000e+00
-  %363 = fadd float %.sroa.064.0.vec.extract.i.i221, %357
-  %364 = fadd float %.sroa.064.4.vec.extract.i.i220, %358
-  %365 = fadd float %.sroa.24.0.copyload.i216, %359
-  %366 = fadd float %363, %360
-  %367 = insertelement <2 x float> poison, float %366, i64 0
-  %368 = fadd float %364, %361
-  %.sroa.071.4.vec.insert82.i.i222 = insertelement <2 x float> %367, float %368, i64 1
-  %369 = fadd float %365, %362
-  store <2 x float> %.sroa.071.4.vec.insert82.i.i222, ptr %322, align 4
-  store float %369, ptr %.sroa.24.0..sroa_idx.i215, align 4
-  br label %370
+  %331 = fneg float %.sroa.24.0.copyload.i216
+  %332 = fmul float %324, %331
+  %333 = tail call float @llvm.fmuladd.f32(float %326, float %.sroa.064.0.vec.extract.i.i221, float %332)
+  %334 = fneg float %.sroa.064.0.vec.extract.i.i221
+  %335 = fmul float %325, %334
+  %336 = tail call float @llvm.fmuladd.f32(float %324, float %.sroa.064.4.vec.extract.i.i220, float %335)
+  %337 = fneg float %333
+  %338 = fmul float %326, %337
+  %339 = tail call float @llvm.fmuladd.f32(float %325, float %336, float %338)
+  %340 = fneg float %336
+  %341 = fmul float %324, %340
+  %342 = tail call float @llvm.fmuladd.f32(float %326, float %330, float %341)
+  %343 = fneg float %330
+  %344 = fmul float %325, %343
+  %345 = tail call float @llvm.fmuladd.f32(float %324, float %333, float %344)
+  %346 = fmul float %327, 2.000000e+00
+  %347 = fmul float %346, %330
+  %348 = fmul float %346, %333
+  %349 = fmul float %346, %336
+  %350 = fmul float %339, 2.000000e+00
+  %351 = fmul float %342, 2.000000e+00
+  %352 = fmul float %345, 2.000000e+00
+  %353 = fadd float %.sroa.064.0.vec.extract.i.i221, %347
+  %354 = fadd float %.sroa.064.4.vec.extract.i.i220, %348
+  %355 = fadd float %.sroa.24.0.copyload.i216, %349
+  %356 = fadd float %353, %350
+  %357 = insertelement <2 x float> poison, float %356, i64 0
+  %358 = fadd float %354, %351
+  %.sroa.071.4.vec.insert82.i.i222 = insertelement <2 x float> %357, float %358, i64 1
+  %359 = fadd float %355, %352
+  store <2 x float> %.sroa.071.4.vec.insert82.i.i222, ptr %312, align 4
+  store float %359, ptr %.sroa.24.0..sroa_idx.i215, align 4
+  br label %360
 
-370:                                              ; preds = %CameraRoll.exit226, %303
-  br i1 %14, label %371, label %538
+360:                                              ; preds = %CameraRoll.exit226, %295
+  br i1 %14, label %361, label %526
 
-371:                                              ; preds = %370
-  %372 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1908), align 4
-  %373 = icmp eq i8 %372, 1
-  %374 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2042), align 2
-  %375 = icmp eq i8 %374, 1
-  %narrow.i = select i1 %375, i1 true, i1 %373
-  br i1 %narrow.i, label %376, label %538
+361:                                              ; preds = %360
+  %362 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1908), align 4
+  %363 = icmp eq i8 %362, 1
+  %364 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2042), align 2
+  %365 = icmp eq i8 %364, 1
+  %narrow.i = select i1 %365, i1 true, i1 %363
+  br i1 %narrow.i, label %366, label %526
 
-376:                                              ; preds = %371
-  %377 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
-  %378 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
-  %379 = fsub float %377, %378
-  %380 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
-  %381 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
-  %382 = fsub float %380, %381
-  %383 = fcmp ogt float %379, 0.000000e+00
-  br i1 %383, label %384, label %436
+366:                                              ; preds = %361
+  %367 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
+  %368 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1892), align 4
+  %369 = fsub float %367, %368
+  %370 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1888), align 8
+  %371 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1896), align 8
+  %372 = fsub float %370, %371
+  %373 = fcmp ogt float %369, 0.000000e+00
+  br i1 %373, label %374, label %425
 
-384:                                              ; preds = %376
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %385, align 4
+374:                                              ; preds = %366
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %375, align 4
   %.sroa.212.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i.i = load float, ptr %.sroa.212.0..sroa_idx.i.i.i, align 4
   %.sroa.09.0.copyload.i.i.i = load <2 x float>, ptr %0, align 4
@@ -31448,117 +31448,117 @@ CameraRoll.exit226:                               ; preds = %306, %317
   %.sroa.210.0.copyload.i.i.i = load float, ptr %.sroa.210.0..sroa_idx.i.i.i, align 4
   %.sroa.06.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i, i64 0
-  %386 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i, %.sroa.09.0.copyload.i.i.i
-  %387 = extractelement <2 x float> %386, i64 0
+  %foldExtExtBinop927 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i, %.sroa.09.0.copyload.i.i.i
+  %376 = extractelement <2 x float> %foldExtExtBinop927, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i, i64 1
-  %388 = fsub float %.sroa.06.4.vec.extract.i.i.i.i, %.sroa.03.4.vec.extract.i.i.i.i
-  %.sroa.08.4.vec.insert.i.i.i.i = insertelement <2 x float> %386, float %388, i64 1
-  %389 = fsub float %.sroa.212.0.copyload.i.i.i, %.sroa.210.0.copyload.i.i.i
-  %390 = fmul float %388, %388
-  %391 = tail call float @llvm.fmuladd.f32(float %387, float %387, float %390)
-  %392 = tail call float @llvm.fmuladd.f32(float %389, float %389, float %391)
-  %393 = fcmp une float %392, 0.000000e+00
-  br i1 %393, label %394, label %GetCameraForward.exit.i.i
+  %377 = fsub float %.sroa.06.4.vec.extract.i.i.i.i, %.sroa.03.4.vec.extract.i.i.i.i
+  %.sroa.08.4.vec.insert.i.i.i.i = insertelement <2 x float> %foldExtExtBinop927, float %377, i64 1
+  %378 = fsub float %.sroa.212.0.copyload.i.i.i, %.sroa.210.0.copyload.i.i.i
+  %379 = fmul float %377, %377
+  %380 = tail call float @llvm.fmuladd.f32(float %376, float %376, float %379)
+  %381 = tail call float @llvm.fmuladd.f32(float %378, float %378, float %380)
+  %382 = fcmp une float %381, 0.000000e+00
+  br i1 %382, label %383, label %GetCameraForward.exit.i.i
 
-394:                                              ; preds = %384
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %392)
-  %395 = fdiv float 1.000000e+00, %sqrt.i.i.i.i
-  %396 = fmul float %387, %395
-  %.sroa.013.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %396, i64 0
-  %397 = fmul float %388, %395
-  %.sroa.013.4.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i, float %397, i64 1
-  %398 = fmul float %389, %395
+383:                                              ; preds = %374
+  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %381)
+  %384 = fdiv float 1.000000e+00, %sqrt.i.i.i.i
+  %385 = fmul float %376, %384
+  %.sroa.013.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %385, i64 0
+  %386 = fmul float %377, %384
+  %.sroa.013.4.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i, float %386, i64 1
+  %387 = fmul float %378, %384
   br label %GetCameraForward.exit.i.i
 
-GetCameraForward.exit.i.i:                        ; preds = %394, %384
-  %.sroa.013.0.i.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i, %394 ], [ %.sroa.08.4.vec.insert.i.i.i.i, %384 ]
-  %.sroa.617.0.i.i.i.i = phi float [ %398, %394 ], [ %389, %384 ]
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i.i = load <2 x float>, ptr %399, align 4
+GetCameraForward.exit.i.i:                        ; preds = %383, %374
+  %.sroa.013.0.i.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i, %383 ], [ %.sroa.08.4.vec.insert.i.i.i.i, %374 ]
+  %.sroa.617.0.i.i.i.i = phi float [ %387, %383 ], [ %378, %374 ]
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i.i = load <2 x float>, ptr %388, align 4
   %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i.i = load float, ptr %.sroa.24.0..sroa_idx.i.i.i, align 4
   %.sroa.07.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i, i64 1
-  %400 = fmul float %.sroa.07.4.vec.extract.i.i.i.i, %.sroa.07.4.vec.extract.i.i.i.i
-  %401 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i, float %.sroa.07.0.vec.extract.i.i.i.i, float %400)
-  %402 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i, float %.sroa.24.0.copyload.i.i.i, float %401)
-  %403 = fcmp une float %402, 0.000000e+00
-  br i1 %403, label %404, label %GetCameraUp.exit.i.i
+  %389 = fmul float %.sroa.07.4.vec.extract.i.i.i.i, %.sroa.07.4.vec.extract.i.i.i.i
+  %390 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i, float %.sroa.07.0.vec.extract.i.i.i.i, float %389)
+  %391 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i, float %.sroa.24.0.copyload.i.i.i, float %390)
+  %392 = fcmp une float %391, 0.000000e+00
+  br i1 %392, label %393, label %GetCameraUp.exit.i.i
 
-404:                                              ; preds = %GetCameraForward.exit.i.i
-  %sqrt.i.i31.i.i = tail call float @llvm.sqrt.f32(float %402)
-  %405 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i
-  %406 = fmul float %.sroa.07.0.vec.extract.i.i.i.i, %405
-  %407 = fmul float %.sroa.07.4.vec.extract.i.i.i.i, %405
-  %408 = fmul float %.sroa.24.0.copyload.i.i.i, %405
+393:                                              ; preds = %GetCameraForward.exit.i.i
+  %sqrt.i.i31.i.i = tail call float @llvm.sqrt.f32(float %391)
+  %394 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i
+  %395 = fmul float %.sroa.07.0.vec.extract.i.i.i.i, %394
+  %396 = fmul float %.sroa.07.4.vec.extract.i.i.i.i, %394
+  %397 = fmul float %.sroa.24.0.copyload.i.i.i, %394
   br label %GetCameraUp.exit.i.i
 
-GetCameraUp.exit.i.i:                             ; preds = %404, %GetCameraForward.exit.i.i
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i = phi float [ %.sroa.07.0.vec.extract.i.i.i.i, %GetCameraForward.exit.i.i ], [ %406, %404 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i = phi float [ %.sroa.07.4.vec.extract.i.i.i.i, %GetCameraForward.exit.i.i ], [ %407, %404 ]
-  %.sroa.617.0.i.i30.i.i = phi float [ %.sroa.24.0.copyload.i.i.i, %GetCameraForward.exit.i.i ], [ %408, %404 ]
+GetCameraUp.exit.i.i:                             ; preds = %393, %GetCameraForward.exit.i.i
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i = phi float [ %.sroa.07.0.vec.extract.i.i.i.i, %GetCameraForward.exit.i.i ], [ %395, %393 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i = phi float [ %.sroa.07.4.vec.extract.i.i.i.i, %GetCameraForward.exit.i.i ], [ %396, %393 ]
+  %.sroa.617.0.i.i30.i.i = phi float [ %.sroa.24.0.copyload.i.i.i, %GetCameraForward.exit.i.i ], [ %397, %393 ]
   %.sroa.011.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i.i, i64 1
-  %409 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i
-  %410 = fmul float %.sroa.617.0.i.i.i.i, %409
-  %411 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i, float %.sroa.617.0.i.i30.i.i, float %410)
-  %.sroa.018.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %411, i64 0
+  %398 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i
+  %399 = fmul float %.sroa.617.0.i.i.i.i, %398
+  %400 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i, float %.sroa.617.0.i.i30.i.i, float %399)
+  %.sroa.018.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %400, i64 0
   %.sroa.011.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i.i, i64 0
-  %412 = fneg float %.sroa.617.0.i.i30.i.i
-  %413 = fmul float %.sroa.011.0.vec.extract.i.i.i, %412
-  %414 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i.i, float %413)
-  %.sroa.018.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i, float %414, i64 1
-  %415 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i
-  %416 = fmul float %.sroa.011.4.vec.extract.i.i.i, %415
-  %417 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i.i, float %416)
-  %418 = fmul float %414, %414
-  %419 = tail call float @llvm.fmuladd.f32(float %411, float %411, float %418)
-  %420 = tail call float @llvm.fmuladd.f32(float %417, float %417, float %419)
-  %421 = fcmp une float %420, 0.000000e+00
-  br i1 %421, label %422, label %CameraMoveRight.exit
+  %401 = fneg float %.sroa.617.0.i.i30.i.i
+  %402 = fmul float %.sroa.011.0.vec.extract.i.i.i, %401
+  %403 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i.i, float %402)
+  %.sroa.018.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i, float %403, i64 1
+  %404 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i
+  %405 = fmul float %.sroa.011.4.vec.extract.i.i.i, %404
+  %406 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i.i, float %405)
+  %407 = fmul float %403, %403
+  %408 = tail call float @llvm.fmuladd.f32(float %400, float %400, float %407)
+  %409 = tail call float @llvm.fmuladd.f32(float %406, float %406, float %408)
+  %410 = fcmp une float %409, 0.000000e+00
+  br i1 %410, label %411, label %CameraMoveRight.exit
 
-422:                                              ; preds = %GetCameraUp.exit.i.i
-  %sqrt.i.i.i235 = tail call float @llvm.sqrt.f32(float %420)
-  %423 = fdiv float 1.000000e+00, %sqrt.i.i.i235
-  %424 = fmul float %411, %423
-  %.sroa.013.0.vec.insert.i.i.i236 = insertelement <2 x float> poison, float %424, i64 0
-  %425 = fmul float %414, %423
-  %.sroa.013.4.vec.insert.i.i.i237 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i236, float %425, i64 1
-  %426 = fmul float %417, %423
+411:                                              ; preds = %GetCameraUp.exit.i.i
+  %sqrt.i.i.i235 = tail call float @llvm.sqrt.f32(float %409)
+  %412 = fdiv float 1.000000e+00, %sqrt.i.i.i235
+  %413 = fmul float %400, %412
+  %.sroa.013.0.vec.insert.i.i.i236 = insertelement <2 x float> poison, float %413, i64 0
+  %414 = fmul float %403, %412
+  %.sroa.013.4.vec.insert.i.i.i237 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i236, float %414, i64 1
+  %415 = fmul float %406, %412
   br label %CameraMoveRight.exit
 
-CameraMoveRight.exit:                             ; preds = %GetCameraUp.exit.i.i, %422
-  %.sroa.013.0.i.i.i229 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i237, %422 ], [ %.sroa.018.4.vec.insert.i.i.i, %GetCameraUp.exit.i.i ]
-  %.sroa.617.0.i.i.i230 = phi float [ %426, %422 ], [ %417, %GetCameraUp.exit.i.i ]
+CameraMoveRight.exit:                             ; preds = %GetCameraUp.exit.i.i, %411
+  %.sroa.013.0.i.i.i229 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i237, %411 ], [ %.sroa.018.4.vec.insert.i.i.i, %GetCameraUp.exit.i.i ]
+  %.sroa.617.0.i.i.i230 = phi float [ %415, %411 ], [ %406, %GetCameraUp.exit.i.i ]
   %.sroa.05.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i229, i64 0
-  %427 = fmul float %22, %.sroa.05.0.vec.extract.i.i
+  %416 = fmul float %22, %.sroa.05.0.vec.extract.i.i
   %.sroa.05.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i229, i64 1
-  %428 = fmul float %22, %.sroa.05.4.vec.extract.i.i
-  %429 = fmul float %22, %.sroa.617.0.i.i.i230
-  %430 = fadd float %.sroa.03.0.vec.extract.i.i.i.i, %427
-  %.sroa.08.0.vec.insert.i.i = insertelement <2 x float> poison, float %430, i64 0
-  %431 = fadd float %.sroa.03.4.vec.extract.i.i.i.i, %428
-  %.sroa.08.4.vec.insert.i.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i, float %431, i64 1
-  %432 = fadd float %.sroa.210.0.copyload.i.i.i, %429
+  %417 = fmul float %22, %.sroa.05.4.vec.extract.i.i
+  %418 = fmul float %22, %.sroa.617.0.i.i.i230
+  %419 = fadd float %.sroa.03.0.vec.extract.i.i.i.i, %416
+  %.sroa.08.0.vec.insert.i.i = insertelement <2 x float> poison, float %419, i64 0
+  %420 = fadd float %.sroa.03.4.vec.extract.i.i.i.i, %417
+  %.sroa.08.4.vec.insert.i.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i, float %420, i64 1
+  %421 = fadd float %.sroa.210.0.copyload.i.i.i, %418
   store <2 x float> %.sroa.08.4.vec.insert.i.i, ptr %0, align 4
-  store float %432, ptr %.sroa.210.0..sroa_idx.i.i.i, align 4
-  %433 = fadd float %.sroa.06.0.vec.extract.i.i.i.i, %427
-  %.sroa.08.0.vec.insert.i51.i = insertelement <2 x float> poison, float %433, i64 0
-  %434 = fadd float %.sroa.06.4.vec.extract.i.i.i.i, %428
-  %.sroa.08.4.vec.insert.i54.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i, float %434, i64 1
-  %435 = fadd float %.sroa.212.0.copyload.i.i.i, %429
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i, ptr %385, align 4
-  store float %435, ptr %.sroa.212.0..sroa_idx.i.i.i, align 4
-  br label %436
+  store float %421, ptr %.sroa.210.0..sroa_idx.i.i.i, align 4
+  %422 = fadd float %.sroa.06.0.vec.extract.i.i.i.i, %416
+  %.sroa.08.0.vec.insert.i51.i = insertelement <2 x float> poison, float %422, i64 0
+  %423 = fadd float %.sroa.06.4.vec.extract.i.i.i.i, %417
+  %.sroa.08.4.vec.insert.i54.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i, float %423, i64 1
+  %424 = fadd float %.sroa.212.0.copyload.i.i.i, %418
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i, ptr %375, align 4
+  store float %424, ptr %.sroa.212.0..sroa_idx.i.i.i, align 4
+  br label %425
 
-436:                                              ; preds = %CameraMoveRight.exit, %376
-  %437 = fcmp olt float %379, 0.000000e+00
-  br i1 %437, label %438, label %491
+425:                                              ; preds = %CameraMoveRight.exit, %366
+  %426 = fcmp olt float %369, 0.000000e+00
+  br i1 %426, label %427, label %479
 
-438:                                              ; preds = %436
-  %439 = fneg float %22
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i.i238 = load <2 x float>, ptr %440, align 4
+427:                                              ; preds = %425
+  %428 = fneg float %22
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i.i238 = load <2 x float>, ptr %429, align 4
   %.sroa.212.0..sroa_idx.i.i.i239 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i.i240 = load float, ptr %.sroa.212.0..sroa_idx.i.i.i239, align 4
   %.sroa.09.0.copyload.i.i.i241 = load <2 x float>, ptr %0, align 4
@@ -31566,360 +31566,360 @@ CameraMoveRight.exit:                             ; preds = %GetCameraUp.exit.i.
   %.sroa.210.0.copyload.i.i.i243 = load float, ptr %.sroa.210.0..sroa_idx.i.i.i242, align 4
   %.sroa.06.0.vec.extract.i.i.i.i244 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i238, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i245 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i241, i64 0
-  %441 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i238, %.sroa.09.0.copyload.i.i.i241
-  %442 = extractelement <2 x float> %441, i64 0
+  %foldExtExtBinop929 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i238, %.sroa.09.0.copyload.i.i.i241
+  %430 = extractelement <2 x float> %foldExtExtBinop929, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i247 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i238, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i248 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i241, i64 1
-  %443 = fsub float %.sroa.06.4.vec.extract.i.i.i.i247, %.sroa.03.4.vec.extract.i.i.i.i248
-  %.sroa.08.4.vec.insert.i.i.i.i249 = insertelement <2 x float> %441, float %443, i64 1
-  %444 = fsub float %.sroa.212.0.copyload.i.i.i240, %.sroa.210.0.copyload.i.i.i243
-  %445 = fmul float %443, %443
-  %446 = tail call float @llvm.fmuladd.f32(float %442, float %442, float %445)
-  %447 = tail call float @llvm.fmuladd.f32(float %444, float %444, float %446)
-  %448 = fcmp une float %447, 0.000000e+00
-  br i1 %448, label %449, label %GetCameraForward.exit.i.i250
+  %431 = fsub float %.sroa.06.4.vec.extract.i.i.i.i247, %.sroa.03.4.vec.extract.i.i.i.i248
+  %.sroa.08.4.vec.insert.i.i.i.i249 = insertelement <2 x float> %foldExtExtBinop929, float %431, i64 1
+  %432 = fsub float %.sroa.212.0.copyload.i.i.i240, %.sroa.210.0.copyload.i.i.i243
+  %433 = fmul float %431, %431
+  %434 = tail call float @llvm.fmuladd.f32(float %430, float %430, float %433)
+  %435 = tail call float @llvm.fmuladd.f32(float %432, float %432, float %434)
+  %436 = fcmp une float %435, 0.000000e+00
+  br i1 %436, label %437, label %GetCameraForward.exit.i.i250
 
-449:                                              ; preds = %438
-  %sqrt.i.i.i.i286 = tail call float @llvm.sqrt.f32(float %447)
-  %450 = fdiv float 1.000000e+00, %sqrt.i.i.i.i286
-  %451 = fmul float %442, %450
-  %.sroa.013.0.vec.insert.i.i.i.i287 = insertelement <2 x float> poison, float %451, i64 0
-  %452 = fmul float %443, %450
-  %.sroa.013.4.vec.insert.i.i.i.i288 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i287, float %452, i64 1
-  %453 = fmul float %444, %450
+437:                                              ; preds = %427
+  %sqrt.i.i.i.i286 = tail call float @llvm.sqrt.f32(float %435)
+  %438 = fdiv float 1.000000e+00, %sqrt.i.i.i.i286
+  %439 = fmul float %430, %438
+  %.sroa.013.0.vec.insert.i.i.i.i287 = insertelement <2 x float> poison, float %439, i64 0
+  %440 = fmul float %431, %438
+  %.sroa.013.4.vec.insert.i.i.i.i288 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i287, float %440, i64 1
+  %441 = fmul float %432, %438
   br label %GetCameraForward.exit.i.i250
 
-GetCameraForward.exit.i.i250:                     ; preds = %449, %438
-  %.sroa.013.0.i.i.i.i251 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i288, %449 ], [ %.sroa.08.4.vec.insert.i.i.i.i249, %438 ]
-  %.sroa.617.0.i.i.i.i252 = phi float [ %453, %449 ], [ %444, %438 ]
-  %454 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i.i253 = load <2 x float>, ptr %454, align 4
+GetCameraForward.exit.i.i250:                     ; preds = %437, %427
+  %.sroa.013.0.i.i.i.i251 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i288, %437 ], [ %.sroa.08.4.vec.insert.i.i.i.i249, %427 ]
+  %.sroa.617.0.i.i.i.i252 = phi float [ %441, %437 ], [ %432, %427 ]
+  %442 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i.i253 = load <2 x float>, ptr %442, align 4
   %.sroa.24.0..sroa_idx.i.i.i254 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i.i255 = load float, ptr %.sroa.24.0..sroa_idx.i.i.i254, align 4
   %.sroa.07.0.vec.extract.i.i.i.i256 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i253, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i257 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i253, i64 1
-  %455 = fmul float %.sroa.07.4.vec.extract.i.i.i.i257, %.sroa.07.4.vec.extract.i.i.i.i257
-  %456 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i256, float %.sroa.07.0.vec.extract.i.i.i.i256, float %455)
-  %457 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i255, float %.sroa.24.0.copyload.i.i.i255, float %456)
-  %458 = fcmp une float %457, 0.000000e+00
-  br i1 %458, label %459, label %GetCameraUp.exit.i.i258
+  %443 = fmul float %.sroa.07.4.vec.extract.i.i.i.i257, %.sroa.07.4.vec.extract.i.i.i.i257
+  %444 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i256, float %.sroa.07.0.vec.extract.i.i.i.i256, float %443)
+  %445 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i255, float %.sroa.24.0.copyload.i.i.i255, float %444)
+  %446 = fcmp une float %445, 0.000000e+00
+  br i1 %446, label %447, label %GetCameraUp.exit.i.i258
 
-459:                                              ; preds = %GetCameraForward.exit.i.i250
-  %sqrt.i.i31.i.i285 = tail call float @llvm.sqrt.f32(float %457)
-  %460 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i285
-  %461 = fmul float %.sroa.07.0.vec.extract.i.i.i.i256, %460
-  %462 = fmul float %.sroa.07.4.vec.extract.i.i.i.i257, %460
-  %463 = fmul float %.sroa.24.0.copyload.i.i.i255, %460
+447:                                              ; preds = %GetCameraForward.exit.i.i250
+  %sqrt.i.i31.i.i285 = tail call float @llvm.sqrt.f32(float %445)
+  %448 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i285
+  %449 = fmul float %.sroa.07.0.vec.extract.i.i.i.i256, %448
+  %450 = fmul float %.sroa.07.4.vec.extract.i.i.i.i257, %448
+  %451 = fmul float %.sroa.24.0.copyload.i.i.i255, %448
   br label %GetCameraUp.exit.i.i258
 
-GetCameraUp.exit.i.i258:                          ; preds = %459, %GetCameraForward.exit.i.i250
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i259 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i256, %GetCameraForward.exit.i.i250 ], [ %461, %459 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i260 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i257, %GetCameraForward.exit.i.i250 ], [ %462, %459 ]
-  %.sroa.617.0.i.i30.i.i261 = phi float [ %.sroa.24.0.copyload.i.i.i255, %GetCameraForward.exit.i.i250 ], [ %463, %459 ]
+GetCameraUp.exit.i.i258:                          ; preds = %447, %GetCameraForward.exit.i.i250
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i259 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i256, %GetCameraForward.exit.i.i250 ], [ %449, %447 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i260 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i257, %GetCameraForward.exit.i.i250 ], [ %450, %447 ]
+  %.sroa.617.0.i.i30.i.i261 = phi float [ %.sroa.24.0.copyload.i.i.i255, %GetCameraForward.exit.i.i250 ], [ %451, %447 ]
   %.sroa.011.4.vec.extract.i.i.i262 = extractelement <2 x float> %.sroa.013.0.i.i.i.i251, i64 1
-  %464 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i260
-  %465 = fmul float %.sroa.617.0.i.i.i.i252, %464
-  %466 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i262, float %.sroa.617.0.i.i30.i.i261, float %465)
-  %.sroa.018.0.vec.insert.i.i.i263 = insertelement <2 x float> poison, float %466, i64 0
+  %452 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i260
+  %453 = fmul float %.sroa.617.0.i.i.i.i252, %452
+  %454 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i262, float %.sroa.617.0.i.i30.i.i261, float %453)
+  %.sroa.018.0.vec.insert.i.i.i263 = insertelement <2 x float> poison, float %454, i64 0
   %.sroa.011.0.vec.extract.i.i.i264 = extractelement <2 x float> %.sroa.013.0.i.i.i.i251, i64 0
-  %467 = fneg float %.sroa.617.0.i.i30.i.i261
-  %468 = fmul float %.sroa.011.0.vec.extract.i.i.i264, %467
-  %469 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i252, float %.sroa.03.0.vec.extract.i.pre-phi.i.i259, float %468)
-  %.sroa.018.4.vec.insert.i.i.i265 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i263, float %469, i64 1
-  %470 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i259
-  %471 = fmul float %.sroa.011.4.vec.extract.i.i.i262, %470
-  %472 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i264, float %.sroa.03.4.vec.extract.i.pre-phi.i.i260, float %471)
-  %473 = fmul float %469, %469
-  %474 = tail call float @llvm.fmuladd.f32(float %466, float %466, float %473)
-  %475 = tail call float @llvm.fmuladd.f32(float %472, float %472, float %474)
-  %476 = fcmp une float %475, 0.000000e+00
-  br i1 %476, label %477, label %CameraMoveRight.exit289
+  %455 = fneg float %.sroa.617.0.i.i30.i.i261
+  %456 = fmul float %.sroa.011.0.vec.extract.i.i.i264, %455
+  %457 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i252, float %.sroa.03.0.vec.extract.i.pre-phi.i.i259, float %456)
+  %.sroa.018.4.vec.insert.i.i.i265 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i263, float %457, i64 1
+  %458 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i259
+  %459 = fmul float %.sroa.011.4.vec.extract.i.i.i262, %458
+  %460 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i264, float %.sroa.03.4.vec.extract.i.pre-phi.i.i260, float %459)
+  %461 = fmul float %457, %457
+  %462 = tail call float @llvm.fmuladd.f32(float %454, float %454, float %461)
+  %463 = tail call float @llvm.fmuladd.f32(float %460, float %460, float %462)
+  %464 = fcmp une float %463, 0.000000e+00
+  br i1 %464, label %465, label %CameraMoveRight.exit289
 
-477:                                              ; preds = %GetCameraUp.exit.i.i258
-  %sqrt.i.i.i282 = tail call float @llvm.sqrt.f32(float %475)
-  %478 = fdiv float 1.000000e+00, %sqrt.i.i.i282
-  %479 = fmul float %466, %478
-  %.sroa.013.0.vec.insert.i.i.i283 = insertelement <2 x float> poison, float %479, i64 0
-  %480 = fmul float %469, %478
-  %.sroa.013.4.vec.insert.i.i.i284 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i283, float %480, i64 1
-  %481 = fmul float %472, %478
+465:                                              ; preds = %GetCameraUp.exit.i.i258
+  %sqrt.i.i.i282 = tail call float @llvm.sqrt.f32(float %463)
+  %466 = fdiv float 1.000000e+00, %sqrt.i.i.i282
+  %467 = fmul float %454, %466
+  %.sroa.013.0.vec.insert.i.i.i283 = insertelement <2 x float> poison, float %467, i64 0
+  %468 = fmul float %457, %466
+  %.sroa.013.4.vec.insert.i.i.i284 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i283, float %468, i64 1
+  %469 = fmul float %460, %466
   br label %CameraMoveRight.exit289
 
-CameraMoveRight.exit289:                          ; preds = %GetCameraUp.exit.i.i258, %477
-  %.sroa.013.0.i.i.i267 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i284, %477 ], [ %.sroa.018.4.vec.insert.i.i.i265, %GetCameraUp.exit.i.i258 ]
-  %.sroa.617.0.i.i.i268 = phi float [ %481, %477 ], [ %472, %GetCameraUp.exit.i.i258 ]
+CameraMoveRight.exit289:                          ; preds = %GetCameraUp.exit.i.i258, %465
+  %.sroa.013.0.i.i.i267 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i284, %465 ], [ %.sroa.018.4.vec.insert.i.i.i265, %GetCameraUp.exit.i.i258 ]
+  %.sroa.617.0.i.i.i268 = phi float [ %469, %465 ], [ %460, %GetCameraUp.exit.i.i258 ]
   %.sroa.05.0.vec.extract.i.i271 = extractelement <2 x float> %.sroa.013.0.i.i.i267, i64 0
-  %482 = fmul float %.sroa.05.0.vec.extract.i.i271, %439
+  %470 = fmul float %.sroa.05.0.vec.extract.i.i271, %428
   %.sroa.05.4.vec.extract.i.i272 = extractelement <2 x float> %.sroa.013.0.i.i.i267, i64 1
-  %483 = fmul float %.sroa.05.4.vec.extract.i.i272, %439
-  %484 = fmul float %.sroa.617.0.i.i.i268, %439
-  %485 = fadd float %.sroa.03.0.vec.extract.i.i.i.i245, %482
-  %.sroa.08.0.vec.insert.i.i273 = insertelement <2 x float> poison, float %485, i64 0
-  %486 = fadd float %.sroa.03.4.vec.extract.i.i.i.i248, %483
-  %.sroa.08.4.vec.insert.i.i274 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i273, float %486, i64 1
-  %487 = fadd float %.sroa.210.0.copyload.i.i.i243, %484
+  %471 = fmul float %.sroa.05.4.vec.extract.i.i272, %428
+  %472 = fmul float %.sroa.617.0.i.i.i268, %428
+  %473 = fadd float %.sroa.03.0.vec.extract.i.i.i.i245, %470
+  %.sroa.08.0.vec.insert.i.i273 = insertelement <2 x float> poison, float %473, i64 0
+  %474 = fadd float %.sroa.03.4.vec.extract.i.i.i.i248, %471
+  %.sroa.08.4.vec.insert.i.i274 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i273, float %474, i64 1
+  %475 = fadd float %.sroa.210.0.copyload.i.i.i243, %472
   store <2 x float> %.sroa.08.4.vec.insert.i.i274, ptr %0, align 4
-  store float %487, ptr %.sroa.210.0..sroa_idx.i.i.i242, align 4
-  %488 = fadd float %.sroa.06.0.vec.extract.i.i.i.i244, %482
-  %.sroa.08.0.vec.insert.i51.i275 = insertelement <2 x float> poison, float %488, i64 0
-  %489 = fadd float %.sroa.06.4.vec.extract.i.i.i.i247, %483
-  %.sroa.08.4.vec.insert.i54.i276 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i275, float %489, i64 1
-  %490 = fadd float %.sroa.212.0.copyload.i.i.i240, %484
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i276, ptr %440, align 4
-  store float %490, ptr %.sroa.212.0..sroa_idx.i.i.i239, align 4
-  br label %491
+  store float %475, ptr %.sroa.210.0..sroa_idx.i.i.i242, align 4
+  %476 = fadd float %.sroa.06.0.vec.extract.i.i.i.i244, %470
+  %.sroa.08.0.vec.insert.i51.i275 = insertelement <2 x float> poison, float %476, i64 0
+  %477 = fadd float %.sroa.06.4.vec.extract.i.i.i.i247, %471
+  %.sroa.08.4.vec.insert.i54.i276 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i275, float %477, i64 1
+  %478 = fadd float %.sroa.212.0.copyload.i.i.i240, %472
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i276, ptr %429, align 4
+  store float %478, ptr %.sroa.212.0..sroa_idx.i.i.i239, align 4
+  br label %479
 
-491:                                              ; preds = %CameraMoveRight.exit289, %436
-  %492 = fcmp ogt float %382, 0.000000e+00
-  br i1 %492, label %493, label %515
+479:                                              ; preds = %CameraMoveRight.exit289, %425
+  %480 = fcmp ogt float %372, 0.000000e+00
+  br i1 %480, label %481, label %503
 
-493:                                              ; preds = %491
-  %494 = fneg float %22
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i290 = load <2 x float>, ptr %495, align 4
+481:                                              ; preds = %479
+  %482 = fneg float %22
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i290 = load <2 x float>, ptr %483, align 4
   %.sroa.24.0..sroa_idx.i.i291 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i292 = load float, ptr %.sroa.24.0..sroa_idx.i.i291, align 4
   %.sroa.07.0.vec.extract.i.i.i293 = extractelement <2 x float> %.sroa.03.0.copyload.i.i290, i64 0
   %.sroa.07.4.vec.extract.i.i.i294 = extractelement <2 x float> %.sroa.03.0.copyload.i.i290, i64 1
-  %496 = fmul float %.sroa.07.4.vec.extract.i.i.i294, %.sroa.07.4.vec.extract.i.i.i294
-  %497 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i293, float %.sroa.07.0.vec.extract.i.i.i293, float %496)
-  %498 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i292, float %.sroa.24.0.copyload.i.i292, float %497)
-  %499 = fcmp une float %498, 0.000000e+00
-  br i1 %499, label %500, label %CameraMoveUp.exit
+  %484 = fmul float %.sroa.07.4.vec.extract.i.i.i294, %.sroa.07.4.vec.extract.i.i.i294
+  %485 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i293, float %.sroa.07.0.vec.extract.i.i.i293, float %484)
+  %486 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i292, float %.sroa.24.0.copyload.i.i292, float %485)
+  %487 = fcmp une float %486, 0.000000e+00
+  br i1 %487, label %488, label %CameraMoveUp.exit
 
-500:                                              ; preds = %493
-  %sqrt.i.i.i306 = tail call float @llvm.sqrt.f32(float %498)
-  %501 = fdiv float 1.000000e+00, %sqrt.i.i.i306
-  %502 = fmul float %.sroa.07.0.vec.extract.i.i.i293, %501
-  %503 = fmul float %.sroa.07.4.vec.extract.i.i.i294, %501
-  %504 = fmul float %.sroa.24.0.copyload.i.i292, %501
+488:                                              ; preds = %481
+  %sqrt.i.i.i306 = tail call float @llvm.sqrt.f32(float %486)
+  %489 = fdiv float 1.000000e+00, %sqrt.i.i.i306
+  %490 = fmul float %.sroa.07.0.vec.extract.i.i.i293, %489
+  %491 = fmul float %.sroa.07.4.vec.extract.i.i.i294, %489
+  %492 = fmul float %.sroa.24.0.copyload.i.i292, %489
   br label %CameraMoveUp.exit
 
-CameraMoveUp.exit:                                ; preds = %493, %500
-  %.sroa.05.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i294, %493 ], [ %503, %500 ]
-  %.sroa.05.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i293, %493 ], [ %502, %500 ]
-  %.sroa.617.0.i.i.i296 = phi float [ %.sroa.24.0.copyload.i.i292, %493 ], [ %504, %500 ]
-  %505 = fmul float %.sroa.05.0.vec.extract.i.pre-phi.i, %494
-  %506 = fmul float %.sroa.05.4.vec.extract.i.pre-phi.i, %494
-  %507 = fmul float %.sroa.617.0.i.i.i296, %494
+CameraMoveUp.exit:                                ; preds = %481, %488
+  %.sroa.05.4.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.4.vec.extract.i.i.i294, %481 ], [ %491, %488 ]
+  %.sroa.05.0.vec.extract.i.pre-phi.i = phi float [ %.sroa.07.0.vec.extract.i.i.i293, %481 ], [ %490, %488 ]
+  %.sroa.617.0.i.i.i296 = phi float [ %.sroa.24.0.copyload.i.i292, %481 ], [ %492, %488 ]
+  %493 = fmul float %.sroa.05.0.vec.extract.i.pre-phi.i, %482
+  %494 = fmul float %.sroa.05.4.vec.extract.i.pre-phi.i, %482
+  %495 = fmul float %.sroa.617.0.i.i.i296, %482
   %.sroa.012.0.copyload.i297 = load <2 x float>, ptr %0, align 4
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.213.0.copyload.i298 = load float, ptr %.sroa.213.0..sroa_idx.i, align 4
   %.sroa.06.0.vec.extract.i.i299 = extractelement <2 x float> %.sroa.012.0.copyload.i297, i64 0
-  %508 = fadd float %505, %.sroa.06.0.vec.extract.i.i299
-  %.sroa.08.0.vec.insert.i.i300 = insertelement <2 x float> poison, float %508, i64 0
+  %496 = fadd float %493, %.sroa.06.0.vec.extract.i.i299
+  %.sroa.08.0.vec.insert.i.i300 = insertelement <2 x float> poison, float %496, i64 0
   %.sroa.06.4.vec.extract.i.i301 = extractelement <2 x float> %.sroa.012.0.copyload.i297, i64 1
-  %509 = fadd float %506, %.sroa.06.4.vec.extract.i.i301
-  %.sroa.08.4.vec.insert.i.i302 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i300, float %509, i64 1
-  %510 = fadd float %507, %.sroa.213.0.copyload.i298
+  %497 = fadd float %494, %.sroa.06.4.vec.extract.i.i301
+  %.sroa.08.4.vec.insert.i.i302 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i300, float %497, i64 1
+  %498 = fadd float %495, %.sroa.213.0.copyload.i298
   store <2 x float> %.sroa.08.4.vec.insert.i.i302, ptr %0, align 4
-  store float %510, ptr %.sroa.213.0..sroa_idx.i, align 4
-  %511 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.03.0.copyload.i303 = load <2 x float>, ptr %511, align 4
+  store float %498, ptr %.sroa.213.0..sroa_idx.i, align 4
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.03.0.copyload.i303 = load <2 x float>, ptr %499, align 4
   %.sroa.24.0..sroa_idx.i304 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.24.0.copyload.i305 = load float, ptr %.sroa.24.0..sroa_idx.i304, align 4
   %.sroa.06.0.vec.extract.i38.i = extractelement <2 x float> %.sroa.03.0.copyload.i303, i64 0
-  %512 = fadd float %505, %.sroa.06.0.vec.extract.i38.i
-  %.sroa.08.0.vec.insert.i40.i = insertelement <2 x float> poison, float %512, i64 0
+  %500 = fadd float %493, %.sroa.06.0.vec.extract.i38.i
+  %.sroa.08.0.vec.insert.i40.i = insertelement <2 x float> poison, float %500, i64 0
   %.sroa.06.4.vec.extract.i41.i = extractelement <2 x float> %.sroa.03.0.copyload.i303, i64 1
-  %513 = fadd float %506, %.sroa.06.4.vec.extract.i41.i
-  %.sroa.08.4.vec.insert.i43.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i, float %513, i64 1
-  %514 = fadd float %507, %.sroa.24.0.copyload.i305
-  store <2 x float> %.sroa.08.4.vec.insert.i43.i, ptr %511, align 4
-  store float %514, ptr %.sroa.24.0..sroa_idx.i304, align 4
-  br label %515
+  %501 = fadd float %494, %.sroa.06.4.vec.extract.i41.i
+  %.sroa.08.4.vec.insert.i43.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i, float %501, i64 1
+  %502 = fadd float %495, %.sroa.24.0.copyload.i305
+  store <2 x float> %.sroa.08.4.vec.insert.i43.i, ptr %499, align 4
+  store float %502, ptr %.sroa.24.0..sroa_idx.i304, align 4
+  br label %503
 
-515:                                              ; preds = %CameraMoveUp.exit, %491
-  %516 = fcmp olt float %382, 0.000000e+00
-  br i1 %516, label %517, label %608
+503:                                              ; preds = %CameraMoveUp.exit, %479
+  %504 = fcmp olt float %372, 0.000000e+00
+  br i1 %504, label %505, label %594
 
-517:                                              ; preds = %515
-  %518 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i307 = load <2 x float>, ptr %518, align 4
+505:                                              ; preds = %503
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i307 = load <2 x float>, ptr %506, align 4
   %.sroa.24.0..sroa_idx.i.i308 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i309 = load float, ptr %.sroa.24.0..sroa_idx.i.i308, align 4
   %.sroa.07.0.vec.extract.i.i.i310 = extractelement <2 x float> %.sroa.03.0.copyload.i.i307, i64 0
   %.sroa.07.4.vec.extract.i.i.i311 = extractelement <2 x float> %.sroa.03.0.copyload.i.i307, i64 1
-  %519 = fmul float %.sroa.07.4.vec.extract.i.i.i311, %.sroa.07.4.vec.extract.i.i.i311
-  %520 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i310, float %.sroa.07.0.vec.extract.i.i.i310, float %519)
-  %521 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i309, float %.sroa.24.0.copyload.i.i309, float %520)
-  %522 = fcmp une float %521, 0.000000e+00
-  br i1 %522, label %523, label %CameraMoveUp.exit331
+  %507 = fmul float %.sroa.07.4.vec.extract.i.i.i311, %.sroa.07.4.vec.extract.i.i.i311
+  %508 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i310, float %.sroa.07.0.vec.extract.i.i.i310, float %507)
+  %509 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i309, float %.sroa.24.0.copyload.i.i309, float %508)
+  %510 = fcmp une float %509, 0.000000e+00
+  br i1 %510, label %511, label %CameraMoveUp.exit331
 
-523:                                              ; preds = %517
-  %sqrt.i.i.i330 = tail call float @llvm.sqrt.f32(float %521)
-  %524 = fdiv float 1.000000e+00, %sqrt.i.i.i330
-  %525 = fmul float %.sroa.07.0.vec.extract.i.i.i310, %524
-  %526 = fmul float %.sroa.07.4.vec.extract.i.i.i311, %524
-  %527 = fmul float %.sroa.24.0.copyload.i.i309, %524
+511:                                              ; preds = %505
+  %sqrt.i.i.i330 = tail call float @llvm.sqrt.f32(float %509)
+  %512 = fdiv float 1.000000e+00, %sqrt.i.i.i330
+  %513 = fmul float %.sroa.07.0.vec.extract.i.i.i310, %512
+  %514 = fmul float %.sroa.07.4.vec.extract.i.i.i311, %512
+  %515 = fmul float %.sroa.24.0.copyload.i.i309, %512
   br label %CameraMoveUp.exit331
 
-CameraMoveUp.exit331:                             ; preds = %517, %523
-  %.sroa.05.4.vec.extract.i.pre-phi.i313 = phi float [ %.sroa.07.4.vec.extract.i.i.i311, %517 ], [ %526, %523 ]
-  %.sroa.05.0.vec.extract.i.pre-phi.i314 = phi float [ %.sroa.07.0.vec.extract.i.i.i310, %517 ], [ %525, %523 ]
-  %.sroa.617.0.i.i.i315 = phi float [ %.sroa.24.0.copyload.i.i309, %517 ], [ %527, %523 ]
-  %528 = fmul float %22, %.sroa.05.0.vec.extract.i.pre-phi.i314
-  %529 = fmul float %22, %.sroa.05.4.vec.extract.i.pre-phi.i313
-  %530 = fmul float %22, %.sroa.617.0.i.i.i315
+CameraMoveUp.exit331:                             ; preds = %505, %511
+  %.sroa.05.4.vec.extract.i.pre-phi.i313 = phi float [ %.sroa.07.4.vec.extract.i.i.i311, %505 ], [ %514, %511 ]
+  %.sroa.05.0.vec.extract.i.pre-phi.i314 = phi float [ %.sroa.07.0.vec.extract.i.i.i310, %505 ], [ %513, %511 ]
+  %.sroa.617.0.i.i.i315 = phi float [ %.sroa.24.0.copyload.i.i309, %505 ], [ %515, %511 ]
+  %516 = fmul float %22, %.sroa.05.0.vec.extract.i.pre-phi.i314
+  %517 = fmul float %22, %.sroa.05.4.vec.extract.i.pre-phi.i313
+  %518 = fmul float %22, %.sroa.617.0.i.i.i315
   %.sroa.012.0.copyload.i316 = load <2 x float>, ptr %0, align 4
   %.sroa.213.0..sroa_idx.i317 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.213.0.copyload.i318 = load float, ptr %.sroa.213.0..sroa_idx.i317, align 4
   %.sroa.06.0.vec.extract.i.i319 = extractelement <2 x float> %.sroa.012.0.copyload.i316, i64 0
-  %531 = fadd float %528, %.sroa.06.0.vec.extract.i.i319
-  %.sroa.08.0.vec.insert.i.i320 = insertelement <2 x float> poison, float %531, i64 0
+  %519 = fadd float %516, %.sroa.06.0.vec.extract.i.i319
+  %.sroa.08.0.vec.insert.i.i320 = insertelement <2 x float> poison, float %519, i64 0
   %.sroa.06.4.vec.extract.i.i321 = extractelement <2 x float> %.sroa.012.0.copyload.i316, i64 1
-  %532 = fadd float %529, %.sroa.06.4.vec.extract.i.i321
-  %.sroa.08.4.vec.insert.i.i322 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i320, float %532, i64 1
-  %533 = fadd float %530, %.sroa.213.0.copyload.i318
+  %520 = fadd float %517, %.sroa.06.4.vec.extract.i.i321
+  %.sroa.08.4.vec.insert.i.i322 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i320, float %520, i64 1
+  %521 = fadd float %518, %.sroa.213.0.copyload.i318
   store <2 x float> %.sroa.08.4.vec.insert.i.i322, ptr %0, align 4
-  store float %533, ptr %.sroa.213.0..sroa_idx.i317, align 4
-  %534 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.03.0.copyload.i323 = load <2 x float>, ptr %534, align 4
+  store float %521, ptr %.sroa.213.0..sroa_idx.i317, align 4
+  %522 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.03.0.copyload.i323 = load <2 x float>, ptr %522, align 4
   %.sroa.24.0..sroa_idx.i324 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.24.0.copyload.i325 = load float, ptr %.sroa.24.0..sroa_idx.i324, align 4
   %.sroa.06.0.vec.extract.i38.i326 = extractelement <2 x float> %.sroa.03.0.copyload.i323, i64 0
-  %535 = fadd float %528, %.sroa.06.0.vec.extract.i38.i326
-  %.sroa.08.0.vec.insert.i40.i327 = insertelement <2 x float> poison, float %535, i64 0
+  %523 = fadd float %516, %.sroa.06.0.vec.extract.i38.i326
+  %.sroa.08.0.vec.insert.i40.i327 = insertelement <2 x float> poison, float %523, i64 0
   %.sroa.06.4.vec.extract.i41.i328 = extractelement <2 x float> %.sroa.03.0.copyload.i323, i64 1
-  %536 = fadd float %529, %.sroa.06.4.vec.extract.i41.i328
-  %.sroa.08.4.vec.insert.i43.i329 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i327, float %536, i64 1
-  %537 = fadd float %530, %.sroa.24.0.copyload.i325
-  store <2 x float> %.sroa.08.4.vec.insert.i43.i329, ptr %534, align 4
-  store float %537, ptr %.sroa.24.0..sroa_idx.i324, align 4
-  br label %608
+  %524 = fadd float %517, %.sroa.06.4.vec.extract.i41.i328
+  %.sroa.08.4.vec.insert.i43.i329 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i327, float %524, i64 1
+  %525 = fadd float %518, %.sroa.24.0.copyload.i325
+  store <2 x float> %.sroa.08.4.vec.insert.i43.i329, ptr %522, align 4
+  store float %525, ptr %.sroa.24.0..sroa_idx.i324, align 4
+  br label %594
 
-538:                                              ; preds = %371, %370
-  %539 = fmul float %5, 0xBF689374C0000000
-  %540 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i332 = load <2 x float>, ptr %540, align 4
+526:                                              ; preds = %361, %360
+  %527 = fmul float %5, 0xBF689374C0000000
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i332 = load <2 x float>, ptr %528, align 4
   %.sroa.24.0..sroa_idx.i.i333 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i334 = load float, ptr %.sroa.24.0..sroa_idx.i.i333, align 4
   %.sroa.07.0.vec.extract.i.i.i335 = extractelement <2 x float> %.sroa.03.0.copyload.i.i332, i64 0
   %.sroa.07.4.vec.extract.i.i.i336 = extractelement <2 x float> %.sroa.03.0.copyload.i.i332, i64 1
-  %541 = fmul float %.sroa.07.4.vec.extract.i.i.i336, %.sroa.07.4.vec.extract.i.i.i336
-  %542 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i335, float %.sroa.07.0.vec.extract.i.i.i335, float %541)
-  %543 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i334, float %.sroa.24.0.copyload.i.i334, float %542)
-  %544 = fcmp une float %543, 0.000000e+00
-  br i1 %544, label %545, label %GetCameraUp.exit.i337
+  %529 = fmul float %.sroa.07.4.vec.extract.i.i.i336, %.sroa.07.4.vec.extract.i.i.i336
+  %530 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i335, float %.sroa.07.0.vec.extract.i.i.i335, float %529)
+  %531 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i334, float %.sroa.24.0.copyload.i.i334, float %530)
+  %532 = fcmp une float %531, 0.000000e+00
+  br i1 %532, label %533, label %GetCameraUp.exit.i337
 
-545:                                              ; preds = %538
-  %sqrt.i.i.i365 = tail call float @llvm.sqrt.f32(float %543)
-  %546 = fdiv float 1.000000e+00, %sqrt.i.i.i365
-  %547 = fmul float %.sroa.07.0.vec.extract.i.i.i335, %546
-  %548 = fmul float %.sroa.07.4.vec.extract.i.i.i336, %546
-  %549 = fmul float %.sroa.24.0.copyload.i.i334, %546
-  %.pre69.i366 = fmul float %548, %548
-  %.pre70.i367 = tail call float @llvm.fmuladd.f32(float %547, float %547, float %.pre69.i366)
-  %.pre72.i368 = tail call float @llvm.fmuladd.f32(float %549, float %549, float %.pre70.i367)
+533:                                              ; preds = %526
+  %sqrt.i.i.i365 = tail call float @llvm.sqrt.f32(float %531)
+  %534 = fdiv float 1.000000e+00, %sqrt.i.i.i365
+  %535 = fmul float %.sroa.07.0.vec.extract.i.i.i335, %534
+  %536 = fmul float %.sroa.07.4.vec.extract.i.i.i336, %534
+  %537 = fmul float %.sroa.24.0.copyload.i.i334, %534
+  %.pre69.i366 = fmul float %536, %536
+  %.pre70.i367 = tail call float @llvm.fmuladd.f32(float %535, float %535, float %.pre69.i366)
+  %.pre72.i368 = tail call float @llvm.fmuladd.f32(float %537, float %537, float %.pre70.i367)
   br label %GetCameraUp.exit.i337
 
-GetCameraUp.exit.i337:                            ; preds = %545, %538
-  %.pre-phi73.i338 = phi float [ %543, %538 ], [ %.pre72.i368, %545 ]
-  %.sroa.044.4.vec.extract.i.pre-phi.i339 = phi float [ %.sroa.07.4.vec.extract.i.i.i336, %538 ], [ %548, %545 ]
-  %.sroa.044.0.vec.extract.i.pre-phi.i340 = phi float [ %.sroa.07.0.vec.extract.i.i.i335, %538 ], [ %547, %545 ]
-  %.sroa.617.0.i.i.i341 = phi float [ %.sroa.24.0.copyload.i.i334, %538 ], [ %549, %545 ]
-  %550 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.032.0.copyload.i342 = load <2 x float>, ptr %550, align 4
+GetCameraUp.exit.i337:                            ; preds = %533, %526
+  %.pre-phi73.i338 = phi float [ %531, %526 ], [ %.pre72.i368, %533 ]
+  %.sroa.044.4.vec.extract.i.pre-phi.i339 = phi float [ %.sroa.07.4.vec.extract.i.i.i336, %526 ], [ %536, %533 ]
+  %.sroa.044.0.vec.extract.i.pre-phi.i340 = phi float [ %.sroa.07.0.vec.extract.i.i.i335, %526 ], [ %535, %533 ]
+  %.sroa.617.0.i.i.i341 = phi float [ %.sroa.24.0.copyload.i.i334, %526 ], [ %537, %533 ]
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.032.0.copyload.i342 = load <2 x float>, ptr %538, align 4
   %.sroa.233.0..sroa_idx.i343 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.233.0.copyload.i344 = load float, ptr %.sroa.233.0..sroa_idx.i343, align 4
   %.sroa.030.0.copyload.i345 = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx.i346 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload.i347 = load float, ptr %.sroa.231.0..sroa_idx.i346, align 4
-  %551 = fsub <2 x float> %.sroa.032.0.copyload.i342, %.sroa.030.0.copyload.i345
-  %552 = extractelement <2 x float> %551, i64 0
-  %553 = fsub <2 x float> %.sroa.032.0.copyload.i342, %.sroa.030.0.copyload.i345
-  %554 = extractelement <2 x float> %553, i64 1
-  %555 = fsub float %.sroa.233.0.copyload.i344, %.sroa.231.0.copyload.i347
+  %foldExtExtBinop931 = fsub <2 x float> %.sroa.032.0.copyload.i342, %.sroa.030.0.copyload.i345
+  %539 = extractelement <2 x float> %foldExtExtBinop931, i64 0
+  %foldExtExtBinop933 = fsub <2 x float> %.sroa.032.0.copyload.i342, %.sroa.030.0.copyload.i345
+  %540 = extractelement <2 x float> %foldExtExtBinop933, i64 1
+  %541 = fsub float %.sroa.233.0.copyload.i344, %.sroa.231.0.copyload.i347
   %sqrt.i.i352 = tail call float @llvm.sqrt.f32(float %.pre-phi73.i338)
-  %556 = fcmp oeq float %.pre-phi73.i338, 0.000000e+00
-  %557 = fdiv float 1.000000e+00, %sqrt.i.i352
-  %558 = select i1 %556, float 1.000000e+00, float %557
-  %559 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i340, %558
-  %560 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i339, %558
-  %561 = fmul float %.sroa.617.0.i.i.i341, %558
-  %562 = fmul float %539, 5.000000e-01
-  %563 = tail call float @sinf(float noundef %562) #60
-  %564 = fmul float %559, %563
-  %565 = fmul float %560, %563
-  %566 = fmul float %561, %563
-  %567 = tail call float @cosf(float noundef %562) #60
-  %568 = fneg float %554
-  %569 = fmul float %566, %568
-  %570 = tail call float @llvm.fmuladd.f32(float %565, float %555, float %569)
-  %571 = fneg float %555
-  %572 = fmul float %564, %571
-  %573 = tail call float @llvm.fmuladd.f32(float %566, float %552, float %572)
-  %574 = fneg float %552
-  %575 = fmul float %565, %574
-  %576 = tail call float @llvm.fmuladd.f32(float %564, float %554, float %575)
-  %577 = fneg float %573
-  %578 = fmul float %566, %577
-  %579 = tail call float @llvm.fmuladd.f32(float %565, float %576, float %578)
-  %580 = fneg float %576
-  %581 = fmul float %564, %580
-  %582 = tail call float @llvm.fmuladd.f32(float %566, float %570, float %581)
-  %583 = fneg float %570
-  %584 = fmul float %565, %583
-  %585 = tail call float @llvm.fmuladd.f32(float %564, float %573, float %584)
-  %586 = fmul float %567, 2.000000e+00
-  %587 = fmul float %586, %570
-  %588 = fmul float %586, %573
-  %589 = fmul float %586, %576
-  %590 = fmul float %579, 2.000000e+00
-  %591 = fmul float %582, 2.000000e+00
-  %592 = fmul float %585, 2.000000e+00
-  %593 = fadd float %552, %587
-  %594 = fadd float %554, %588
-  %595 = fadd float %555, %589
-  %596 = fadd float %593, %590
-  %597 = fadd float %594, %591
-  %598 = fadd float %595, %592
-  switch i32 %1, label %603 [
-    i32 4, label %599
-    i32 2, label %599
+  %542 = fcmp oeq float %.pre-phi73.i338, 0.000000e+00
+  %543 = fdiv float 1.000000e+00, %sqrt.i.i352
+  %544 = select i1 %542, float 1.000000e+00, float %543
+  %545 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i340, %544
+  %546 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i339, %544
+  %547 = fmul float %.sroa.617.0.i.i.i341, %544
+  %548 = fmul float %527, 5.000000e-01
+  %549 = tail call float @sinf(float noundef %548) #60
+  %550 = fmul float %545, %549
+  %551 = fmul float %546, %549
+  %552 = fmul float %547, %549
+  %553 = tail call float @cosf(float noundef %548) #60
+  %554 = fneg float %540
+  %555 = fmul float %552, %554
+  %556 = tail call float @llvm.fmuladd.f32(float %551, float %541, float %555)
+  %557 = fneg float %541
+  %558 = fmul float %550, %557
+  %559 = tail call float @llvm.fmuladd.f32(float %552, float %539, float %558)
+  %560 = fneg float %539
+  %561 = fmul float %551, %560
+  %562 = tail call float @llvm.fmuladd.f32(float %550, float %540, float %561)
+  %563 = fneg float %559
+  %564 = fmul float %552, %563
+  %565 = tail call float @llvm.fmuladd.f32(float %551, float %562, float %564)
+  %566 = fneg float %562
+  %567 = fmul float %550, %566
+  %568 = tail call float @llvm.fmuladd.f32(float %552, float %556, float %567)
+  %569 = fneg float %556
+  %570 = fmul float %551, %569
+  %571 = tail call float @llvm.fmuladd.f32(float %550, float %559, float %570)
+  %572 = fmul float %553, 2.000000e+00
+  %573 = fmul float %572, %556
+  %574 = fmul float %572, %559
+  %575 = fmul float %572, %562
+  %576 = fmul float %565, 2.000000e+00
+  %577 = fmul float %568, 2.000000e+00
+  %578 = fmul float %571, 2.000000e+00
+  %579 = fadd float %539, %573
+  %580 = fadd float %540, %574
+  %581 = fadd float %541, %575
+  %582 = fadd float %579, %576
+  %583 = fadd float %580, %577
+  %584 = fadd float %581, %578
+  switch i32 %1, label %589 [
+    i32 4, label %585
+    i32 2, label %585
   ]
 
-599:                                              ; preds = %GetCameraUp.exit.i337, %GetCameraUp.exit.i337
-  %.sroa.012.0.copyload.i359 = load <2 x float>, ptr %550, align 4
+585:                                              ; preds = %GetCameraUp.exit.i337, %GetCameraUp.exit.i337
+  %.sroa.012.0.copyload.i359 = load <2 x float>, ptr %538, align 4
   %.sroa.213.0.copyload.i360 = load float, ptr %.sroa.233.0..sroa_idx.i343, align 4
   %.sroa.06.0.vec.extract.i52.i361 = extractelement <2 x float> %.sroa.012.0.copyload.i359, i64 0
-  %600 = fsub float %.sroa.06.0.vec.extract.i52.i361, %596
-  %.sroa.08.0.vec.insert.i54.i362 = insertelement <2 x float> poison, float %600, i64 0
+  %586 = fsub float %.sroa.06.0.vec.extract.i52.i361, %582
+  %.sroa.08.0.vec.insert.i54.i362 = insertelement <2 x float> poison, float %586, i64 0
   %.sroa.06.4.vec.extract.i55.i363 = extractelement <2 x float> %.sroa.012.0.copyload.i359, i64 1
-  %601 = fsub float %.sroa.06.4.vec.extract.i55.i363, %597
-  %.sroa.08.4.vec.insert.i57.i364 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i362, float %601, i64 1
-  %602 = fsub float %.sroa.213.0.copyload.i360, %598
+  %587 = fsub float %.sroa.06.4.vec.extract.i55.i363, %583
+  %.sroa.08.4.vec.insert.i57.i364 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i362, float %587, i64 1
+  %588 = fsub float %.sroa.213.0.copyload.i360, %584
   store <2 x float> %.sroa.08.4.vec.insert.i57.i364, ptr %0, align 4
-  store float %602, ptr %.sroa.231.0..sroa_idx.i346, align 4
+  store float %588, ptr %.sroa.231.0..sroa_idx.i346, align 4
   br label %CameraYaw.exit369
 
-603:                                              ; preds = %GetCameraUp.exit.i337
+589:                                              ; preds = %GetCameraUp.exit.i337
   %.sroa.03.0.copyload.i353 = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload.i354 = load float, ptr %.sroa.231.0..sroa_idx.i346, align 4
   %.sroa.06.0.vec.extract.i60.i355 = extractelement <2 x float> %.sroa.03.0.copyload.i353, i64 0
-  %604 = fadd float %596, %.sroa.06.0.vec.extract.i60.i355
-  %.sroa.08.0.vec.insert.i62.i356 = insertelement <2 x float> poison, float %604, i64 0
+  %590 = fadd float %582, %.sroa.06.0.vec.extract.i60.i355
+  %.sroa.08.0.vec.insert.i62.i356 = insertelement <2 x float> poison, float %590, i64 0
   %.sroa.06.4.vec.extract.i63.i357 = extractelement <2 x float> %.sroa.03.0.copyload.i353, i64 1
-  %605 = fadd float %597, %.sroa.06.4.vec.extract.i63.i357
-  %.sroa.08.4.vec.insert.i65.i358 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i356, float %605, i64 1
-  %606 = fadd float %598, %.sroa.24.0.copyload.i354
-  store <2 x float> %.sroa.08.4.vec.insert.i65.i358, ptr %550, align 4
-  store float %606, ptr %.sroa.233.0..sroa_idx.i343, align 4
+  %591 = fadd float %583, %.sroa.06.4.vec.extract.i63.i357
+  %.sroa.08.4.vec.insert.i65.i358 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i356, float %591, i64 1
+  %592 = fadd float %584, %.sroa.24.0.copyload.i354
+  store <2 x float> %.sroa.08.4.vec.insert.i65.i358, ptr %538, align 4
+  store float %592, ptr %.sroa.233.0..sroa_idx.i343, align 4
   br label %CameraYaw.exit369
 
-CameraYaw.exit369:                                ; preds = %599, %603
-  %607 = fmul float %8, 0xBF689374C0000000
-  tail call void @CameraPitch(ptr noundef nonnull %0, float noundef %607, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  br label %608
+CameraYaw.exit369:                                ; preds = %585, %589
+  %593 = fmul float %8, 0xBF689374C0000000
+  tail call void @CameraPitch(ptr noundef nonnull %0, float noundef %593, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
+  br label %594
 
-608:                                              ; preds = %515, %CameraMoveUp.exit331, %CameraYaw.exit369
-  %609 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 283), align 1
-  %610 = icmp eq i8 %609, 1
-  br i1 %610, label %611, label %644
+594:                                              ; preds = %503, %CameraMoveUp.exit331, %CameraYaw.exit369
+  %595 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 283), align 1
+  %596 = icmp eq i8 %595, 1
+  br i1 %596, label %597, label %629
 
-611:                                              ; preds = %608
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i371 = load <2 x float>, ptr %612, align 4
+597:                                              ; preds = %594
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i371 = load <2 x float>, ptr %598, align 4
   %.sroa.212.0..sroa_idx.i.i372 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i373 = load float, ptr %.sroa.212.0..sroa_idx.i.i372, align 4
   %.sroa.09.0.copyload.i.i374 = load <2 x float>, ptr %0, align 4
@@ -31927,85 +31927,85 @@ CameraYaw.exit369:                                ; preds = %599, %603
   %.sroa.210.0.copyload.i.i376 = load float, ptr %.sroa.210.0..sroa_idx.i.i375, align 4
   %.sroa.06.0.vec.extract.i.i.i377 = extractelement <2 x float> %.sroa.011.0.copyload.i.i371, i64 0
   %.sroa.03.0.vec.extract.i.i.i378 = extractelement <2 x float> %.sroa.09.0.copyload.i.i374, i64 0
-  %613 = fsub <2 x float> %.sroa.011.0.copyload.i.i371, %.sroa.09.0.copyload.i.i374
-  %614 = extractelement <2 x float> %613, i64 0
+  %foldExtExtBinop935 = fsub <2 x float> %.sroa.011.0.copyload.i.i371, %.sroa.09.0.copyload.i.i374
+  %599 = extractelement <2 x float> %foldExtExtBinop935, i64 0
   %.sroa.06.4.vec.extract.i.i.i380 = extractelement <2 x float> %.sroa.011.0.copyload.i.i371, i64 1
   %.sroa.03.4.vec.extract.i.i.i381 = extractelement <2 x float> %.sroa.09.0.copyload.i.i374, i64 1
-  %615 = fsub float %.sroa.06.4.vec.extract.i.i.i380, %.sroa.03.4.vec.extract.i.i.i381
-  %.sroa.08.4.vec.insert.i.i.i382 = insertelement <2 x float> %613, float %615, i64 1
-  %616 = fsub float %.sroa.212.0.copyload.i.i373, %.sroa.210.0.copyload.i.i376
-  %617 = fmul float %615, %615
-  %618 = tail call float @llvm.fmuladd.f32(float %614, float %614, float %617)
-  %619 = tail call float @llvm.fmuladd.f32(float %616, float %616, float %618)
-  %620 = fcmp une float %619, 0.000000e+00
-  br i1 %620, label %621, label %GetCameraForward.exit.i
+  %600 = fsub float %.sroa.06.4.vec.extract.i.i.i380, %.sroa.03.4.vec.extract.i.i.i381
+  %.sroa.08.4.vec.insert.i.i.i382 = insertelement <2 x float> %foldExtExtBinop935, float %600, i64 1
+  %601 = fsub float %.sroa.212.0.copyload.i.i373, %.sroa.210.0.copyload.i.i376
+  %602 = fmul float %600, %600
+  %603 = tail call float @llvm.fmuladd.f32(float %599, float %599, float %602)
+  %604 = tail call float @llvm.fmuladd.f32(float %601, float %601, float %603)
+  %605 = fcmp une float %604, 0.000000e+00
+  br i1 %605, label %606, label %GetCameraForward.exit.i
 
-621:                                              ; preds = %611
-  %sqrt.i.i.i398 = tail call float @llvm.sqrt.f32(float %619)
-  %622 = fdiv float 1.000000e+00, %sqrt.i.i.i398
-  %623 = fmul float %614, %622
-  %.sroa.013.0.vec.insert.i.i.i399 = insertelement <2 x float> poison, float %623, i64 0
-  %624 = fmul float %615, %622
-  %.sroa.013.4.vec.insert.i.i.i400 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i399, float %624, i64 1
-  %625 = fmul float %616, %622
+606:                                              ; preds = %597
+  %sqrt.i.i.i398 = tail call float @llvm.sqrt.f32(float %604)
+  %607 = fdiv float 1.000000e+00, %sqrt.i.i.i398
+  %608 = fmul float %599, %607
+  %.sroa.013.0.vec.insert.i.i.i399 = insertelement <2 x float> poison, float %608, i64 0
+  %609 = fmul float %600, %607
+  %.sroa.013.4.vec.insert.i.i.i400 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i399, float %609, i64 1
+  %610 = fmul float %601, %607
   br label %GetCameraForward.exit.i
 
-GetCameraForward.exit.i:                          ; preds = %621, %611
-  %.sroa.013.0.i.i.i383 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i400, %621 ], [ %.sroa.08.4.vec.insert.i.i.i382, %611 ]
-  %.sroa.617.0.i.i.i384 = phi float [ %625, %621 ], [ %616, %611 ]
-  br i1 %11, label %626, label %CameraMoveForward.exit
+GetCameraForward.exit.i:                          ; preds = %606, %597
+  %.sroa.013.0.i.i.i383 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i400, %606 ], [ %.sroa.08.4.vec.insert.i.i.i382, %597 ]
+  %.sroa.617.0.i.i.i384 = phi float [ %610, %606 ], [ %601, %597 ]
+  br i1 %11, label %611, label %CameraMoveForward.exit
 
-626:                                              ; preds = %GetCameraForward.exit.i
+611:                                              ; preds = %GetCameraForward.exit.i
   %.sroa.036.4.vec.insert.i393 = insertelement <2 x float> %.sroa.013.0.i.i.i383, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i394 = extractelement <2 x float> %.sroa.013.0.i.i.i383, i64 0
-  %627 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i394, float %.sroa.07.0.vec.extract.i.i394, float 0.000000e+00)
-  %628 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i384, float %.sroa.617.0.i.i.i384, float %627)
-  %629 = fcmp une float %628, 0.000000e+00
-  br i1 %629, label %630, label %CameraMoveForward.exit
+  %612 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i394, float %.sroa.07.0.vec.extract.i.i394, float 0.000000e+00)
+  %613 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i384, float %.sroa.617.0.i.i.i384, float %612)
+  %614 = fcmp une float %613, 0.000000e+00
+  br i1 %614, label %615, label %CameraMoveForward.exit
 
-630:                                              ; preds = %626
-  %sqrt.i.i395 = tail call float @llvm.sqrt.f32(float %628)
-  %631 = fdiv float 1.000000e+00, %sqrt.i.i395
-  %632 = fmul float %.sroa.07.0.vec.extract.i.i394, %631
-  %.sroa.013.0.vec.insert.i.i396 = insertelement <2 x float> poison, float %632, i64 0
-  %633 = fmul float %631, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i397 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i396, float %633, i64 1
-  %634 = fmul float %.sroa.617.0.i.i.i384, %631
+615:                                              ; preds = %611
+  %sqrt.i.i395 = tail call float @llvm.sqrt.f32(float %613)
+  %616 = fdiv float 1.000000e+00, %sqrt.i.i395
+  %617 = fmul float %.sroa.07.0.vec.extract.i.i394, %616
+  %.sroa.013.0.vec.insert.i.i396 = insertelement <2 x float> poison, float %617, i64 0
+  %618 = fmul float %616, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i397 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i396, float %618, i64 1
+  %619 = fmul float %.sroa.617.0.i.i.i384, %616
   br label %CameraMoveForward.exit
 
-CameraMoveForward.exit:                           ; preds = %GetCameraForward.exit.i, %626, %630
-  %.sroa.036.0.i385 = phi <2 x float> [ %.sroa.013.0.i.i.i383, %GetCameraForward.exit.i ], [ %.sroa.013.4.vec.insert.i.i397, %630 ], [ %.sroa.036.4.vec.insert.i393, %626 ]
-  %.sroa.10.0.i386 = phi float [ %.sroa.617.0.i.i.i384, %GetCameraForward.exit.i ], [ %634, %630 ], [ %.sroa.617.0.i.i.i384, %626 ]
+CameraMoveForward.exit:                           ; preds = %GetCameraForward.exit.i, %611, %615
+  %.sroa.036.0.i385 = phi <2 x float> [ %.sroa.013.0.i.i.i383, %GetCameraForward.exit.i ], [ %.sroa.013.4.vec.insert.i.i397, %615 ], [ %.sroa.036.4.vec.insert.i393, %611 ]
+  %.sroa.10.0.i386 = phi float [ %.sroa.617.0.i.i.i384, %GetCameraForward.exit.i ], [ %619, %615 ], [ %.sroa.617.0.i.i.i384, %611 ]
   %.sroa.05.0.vec.extract.i.i387 = extractelement <2 x float> %.sroa.036.0.i385, i64 0
-  %635 = fmul float %20, %.sroa.05.0.vec.extract.i.i387
+  %620 = fmul float %20, %.sroa.05.0.vec.extract.i.i387
   %.sroa.05.4.vec.extract.i.i388 = extractelement <2 x float> %.sroa.036.0.i385, i64 1
-  %636 = fmul float %20, %.sroa.05.4.vec.extract.i.i388
-  %637 = fmul float %20, %.sroa.10.0.i386
-  %638 = fadd float %.sroa.03.0.vec.extract.i.i.i378, %635
-  %.sroa.08.0.vec.insert.i.i389 = insertelement <2 x float> poison, float %638, i64 0
-  %639 = fadd float %.sroa.03.4.vec.extract.i.i.i381, %636
-  %.sroa.08.4.vec.insert.i.i390 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i389, float %639, i64 1
-  %640 = fadd float %.sroa.210.0.copyload.i.i376, %637
+  %621 = fmul float %20, %.sroa.05.4.vec.extract.i.i388
+  %622 = fmul float %20, %.sroa.10.0.i386
+  %623 = fadd float %.sroa.03.0.vec.extract.i.i.i378, %620
+  %.sroa.08.0.vec.insert.i.i389 = insertelement <2 x float> poison, float %623, i64 0
+  %624 = fadd float %.sroa.03.4.vec.extract.i.i.i381, %621
+  %.sroa.08.4.vec.insert.i.i390 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i389, float %624, i64 1
+  %625 = fadd float %.sroa.210.0.copyload.i.i376, %622
   store <2 x float> %.sroa.08.4.vec.insert.i.i390, ptr %0, align 4
-  store float %640, ptr %.sroa.210.0..sroa_idx.i.i375, align 4
-  %641 = fadd float %.sroa.06.0.vec.extract.i.i.i377, %635
-  %.sroa.08.0.vec.insert.i51.i391 = insertelement <2 x float> poison, float %641, i64 0
-  %642 = fadd float %.sroa.06.4.vec.extract.i.i.i380, %636
-  %.sroa.08.4.vec.insert.i54.i392 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i391, float %642, i64 1
-  %643 = fadd float %.sroa.212.0.copyload.i.i373, %637
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i392, ptr %612, align 4
-  store float %643, ptr %.sroa.212.0..sroa_idx.i.i372, align 4
-  br label %644
+  store float %625, ptr %.sroa.210.0..sroa_idx.i.i375, align 4
+  %626 = fadd float %.sroa.06.0.vec.extract.i.i.i377, %620
+  %.sroa.08.0.vec.insert.i51.i391 = insertelement <2 x float> poison, float %626, i64 0
+  %627 = fadd float %.sroa.06.4.vec.extract.i.i.i380, %621
+  %.sroa.08.4.vec.insert.i54.i392 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i391, float %627, i64 1
+  %628 = fadd float %.sroa.212.0.copyload.i.i373, %622
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i392, ptr %598, align 4
+  store float %628, ptr %.sroa.212.0..sroa_idx.i.i372, align 4
+  br label %629
 
-644:                                              ; preds = %CameraMoveForward.exit, %608
-  %645 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 261), align 1
-  %646 = icmp eq i8 %645, 1
-  br i1 %646, label %647, label %709
+629:                                              ; preds = %CameraMoveForward.exit, %594
+  %630 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 261), align 1
+  %631 = icmp eq i8 %630, 1
+  br i1 %631, label %632, label %693
 
-647:                                              ; preds = %644
-  %648 = fneg float %20
-  %649 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i.i402 = load <2 x float>, ptr %649, align 4
+632:                                              ; preds = %629
+  %633 = fneg float %20
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i.i402 = load <2 x float>, ptr %634, align 4
   %.sroa.212.0..sroa_idx.i.i.i403 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i.i404 = load float, ptr %.sroa.212.0..sroa_idx.i.i.i403, align 4
   %.sroa.09.0.copyload.i.i.i405 = load <2 x float>, ptr %0, align 4
@@ -32013,141 +32013,141 @@ CameraMoveForward.exit:                           ; preds = %GetCameraForward.ex
   %.sroa.210.0.copyload.i.i.i407 = load float, ptr %.sroa.210.0..sroa_idx.i.i.i406, align 4
   %.sroa.06.0.vec.extract.i.i.i.i408 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i402, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i409 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i405, i64 0
-  %650 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i402, %.sroa.09.0.copyload.i.i.i405
-  %651 = extractelement <2 x float> %650, i64 0
+  %foldExtExtBinop937 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i402, %.sroa.09.0.copyload.i.i.i405
+  %635 = extractelement <2 x float> %foldExtExtBinop937, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i411 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i402, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i412 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i405, i64 1
-  %652 = fsub float %.sroa.06.4.vec.extract.i.i.i.i411, %.sroa.03.4.vec.extract.i.i.i.i412
-  %.sroa.08.4.vec.insert.i.i.i.i413 = insertelement <2 x float> %650, float %652, i64 1
-  %653 = fsub float %.sroa.212.0.copyload.i.i.i404, %.sroa.210.0.copyload.i.i.i407
-  %654 = fmul float %652, %652
-  %655 = tail call float @llvm.fmuladd.f32(float %651, float %651, float %654)
-  %656 = tail call float @llvm.fmuladd.f32(float %653, float %653, float %655)
-  %657 = fcmp une float %656, 0.000000e+00
-  br i1 %657, label %658, label %GetCameraForward.exit.i.i414
+  %636 = fsub float %.sroa.06.4.vec.extract.i.i.i.i411, %.sroa.03.4.vec.extract.i.i.i.i412
+  %.sroa.08.4.vec.insert.i.i.i.i413 = insertelement <2 x float> %foldExtExtBinop937, float %636, i64 1
+  %637 = fsub float %.sroa.212.0.copyload.i.i.i404, %.sroa.210.0.copyload.i.i.i407
+  %638 = fmul float %636, %636
+  %639 = tail call float @llvm.fmuladd.f32(float %635, float %635, float %638)
+  %640 = tail call float @llvm.fmuladd.f32(float %637, float %637, float %639)
+  %641 = fcmp une float %640, 0.000000e+00
+  br i1 %641, label %642, label %GetCameraForward.exit.i.i414
 
-658:                                              ; preds = %647
-  %sqrt.i.i.i.i450 = tail call float @llvm.sqrt.f32(float %656)
-  %659 = fdiv float 1.000000e+00, %sqrt.i.i.i.i450
-  %660 = fmul float %651, %659
-  %.sroa.013.0.vec.insert.i.i.i.i451 = insertelement <2 x float> poison, float %660, i64 0
-  %661 = fmul float %652, %659
-  %.sroa.013.4.vec.insert.i.i.i.i452 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i451, float %661, i64 1
-  %662 = fmul float %653, %659
+642:                                              ; preds = %632
+  %sqrt.i.i.i.i450 = tail call float @llvm.sqrt.f32(float %640)
+  %643 = fdiv float 1.000000e+00, %sqrt.i.i.i.i450
+  %644 = fmul float %635, %643
+  %.sroa.013.0.vec.insert.i.i.i.i451 = insertelement <2 x float> poison, float %644, i64 0
+  %645 = fmul float %636, %643
+  %.sroa.013.4.vec.insert.i.i.i.i452 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i451, float %645, i64 1
+  %646 = fmul float %637, %643
   br label %GetCameraForward.exit.i.i414
 
-GetCameraForward.exit.i.i414:                     ; preds = %658, %647
-  %.sroa.013.0.i.i.i.i415 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i452, %658 ], [ %.sroa.08.4.vec.insert.i.i.i.i413, %647 ]
-  %.sroa.617.0.i.i.i.i416 = phi float [ %662, %658 ], [ %653, %647 ]
-  %663 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i.i417 = load <2 x float>, ptr %663, align 4
+GetCameraForward.exit.i.i414:                     ; preds = %642, %632
+  %.sroa.013.0.i.i.i.i415 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i452, %642 ], [ %.sroa.08.4.vec.insert.i.i.i.i413, %632 ]
+  %.sroa.617.0.i.i.i.i416 = phi float [ %646, %642 ], [ %637, %632 ]
+  %647 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i.i417 = load <2 x float>, ptr %647, align 4
   %.sroa.24.0..sroa_idx.i.i.i418 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i.i419 = load float, ptr %.sroa.24.0..sroa_idx.i.i.i418, align 4
   %.sroa.07.0.vec.extract.i.i.i.i420 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i417, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i421 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i417, i64 1
-  %664 = fmul float %.sroa.07.4.vec.extract.i.i.i.i421, %.sroa.07.4.vec.extract.i.i.i.i421
-  %665 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i420, float %.sroa.07.0.vec.extract.i.i.i.i420, float %664)
-  %666 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i419, float %.sroa.24.0.copyload.i.i.i419, float %665)
-  %667 = fcmp une float %666, 0.000000e+00
-  br i1 %667, label %668, label %GetCameraUp.exit.i.i422
+  %648 = fmul float %.sroa.07.4.vec.extract.i.i.i.i421, %.sroa.07.4.vec.extract.i.i.i.i421
+  %649 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i420, float %.sroa.07.0.vec.extract.i.i.i.i420, float %648)
+  %650 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i419, float %.sroa.24.0.copyload.i.i.i419, float %649)
+  %651 = fcmp une float %650, 0.000000e+00
+  br i1 %651, label %652, label %GetCameraUp.exit.i.i422
 
-668:                                              ; preds = %GetCameraForward.exit.i.i414
-  %sqrt.i.i31.i.i449 = tail call float @llvm.sqrt.f32(float %666)
-  %669 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i449
-  %670 = fmul float %.sroa.07.0.vec.extract.i.i.i.i420, %669
-  %671 = fmul float %.sroa.07.4.vec.extract.i.i.i.i421, %669
-  %672 = fmul float %.sroa.24.0.copyload.i.i.i419, %669
+652:                                              ; preds = %GetCameraForward.exit.i.i414
+  %sqrt.i.i31.i.i449 = tail call float @llvm.sqrt.f32(float %650)
+  %653 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i449
+  %654 = fmul float %.sroa.07.0.vec.extract.i.i.i.i420, %653
+  %655 = fmul float %.sroa.07.4.vec.extract.i.i.i.i421, %653
+  %656 = fmul float %.sroa.24.0.copyload.i.i.i419, %653
   br label %GetCameraUp.exit.i.i422
 
-GetCameraUp.exit.i.i422:                          ; preds = %668, %GetCameraForward.exit.i.i414
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i423 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i420, %GetCameraForward.exit.i.i414 ], [ %670, %668 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i424 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i421, %GetCameraForward.exit.i.i414 ], [ %671, %668 ]
-  %.sroa.617.0.i.i30.i.i425 = phi float [ %.sroa.24.0.copyload.i.i.i419, %GetCameraForward.exit.i.i414 ], [ %672, %668 ]
+GetCameraUp.exit.i.i422:                          ; preds = %652, %GetCameraForward.exit.i.i414
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i423 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i420, %GetCameraForward.exit.i.i414 ], [ %654, %652 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i424 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i421, %GetCameraForward.exit.i.i414 ], [ %655, %652 ]
+  %.sroa.617.0.i.i30.i.i425 = phi float [ %.sroa.24.0.copyload.i.i.i419, %GetCameraForward.exit.i.i414 ], [ %656, %652 ]
   %.sroa.011.4.vec.extract.i.i.i426 = extractelement <2 x float> %.sroa.013.0.i.i.i.i415, i64 1
-  %673 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i424
-  %674 = fmul float %.sroa.617.0.i.i.i.i416, %673
-  %675 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i426, float %.sroa.617.0.i.i30.i.i425, float %674)
-  %.sroa.018.0.vec.insert.i.i.i427 = insertelement <2 x float> poison, float %675, i64 0
+  %657 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i424
+  %658 = fmul float %.sroa.617.0.i.i.i.i416, %657
+  %659 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i426, float %.sroa.617.0.i.i30.i.i425, float %658)
+  %.sroa.018.0.vec.insert.i.i.i427 = insertelement <2 x float> poison, float %659, i64 0
   %.sroa.011.0.vec.extract.i.i.i428 = extractelement <2 x float> %.sroa.013.0.i.i.i.i415, i64 0
-  %676 = fneg float %.sroa.617.0.i.i30.i.i425
-  %677 = fmul float %.sroa.011.0.vec.extract.i.i.i428, %676
-  %678 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i416, float %.sroa.03.0.vec.extract.i.pre-phi.i.i423, float %677)
-  %.sroa.018.4.vec.insert.i.i.i429 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i427, float %678, i64 1
-  %679 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i423
-  %680 = fmul float %.sroa.011.4.vec.extract.i.i.i426, %679
-  %681 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i428, float %.sroa.03.4.vec.extract.i.pre-phi.i.i424, float %680)
-  %682 = fmul float %678, %678
-  %683 = tail call float @llvm.fmuladd.f32(float %675, float %675, float %682)
-  %684 = tail call float @llvm.fmuladd.f32(float %681, float %681, float %683)
-  %685 = fcmp une float %684, 0.000000e+00
-  br i1 %685, label %686, label %GetCameraRight.exit.i430
+  %660 = fneg float %.sroa.617.0.i.i30.i.i425
+  %661 = fmul float %.sroa.011.0.vec.extract.i.i.i428, %660
+  %662 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i416, float %.sroa.03.0.vec.extract.i.pre-phi.i.i423, float %661)
+  %.sroa.018.4.vec.insert.i.i.i429 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i427, float %662, i64 1
+  %663 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i423
+  %664 = fmul float %.sroa.011.4.vec.extract.i.i.i426, %663
+  %665 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i428, float %.sroa.03.4.vec.extract.i.pre-phi.i.i424, float %664)
+  %666 = fmul float %662, %662
+  %667 = tail call float @llvm.fmuladd.f32(float %659, float %659, float %666)
+  %668 = tail call float @llvm.fmuladd.f32(float %665, float %665, float %667)
+  %669 = fcmp une float %668, 0.000000e+00
+  br i1 %669, label %670, label %GetCameraRight.exit.i430
 
-686:                                              ; preds = %GetCameraUp.exit.i.i422
-  %sqrt.i.i.i446 = tail call float @llvm.sqrt.f32(float %684)
-  %687 = fdiv float 1.000000e+00, %sqrt.i.i.i446
-  %688 = fmul float %675, %687
-  %.sroa.013.0.vec.insert.i.i.i447 = insertelement <2 x float> poison, float %688, i64 0
-  %689 = fmul float %678, %687
-  %.sroa.013.4.vec.insert.i.i.i448 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i447, float %689, i64 1
-  %690 = fmul float %681, %687
+670:                                              ; preds = %GetCameraUp.exit.i.i422
+  %sqrt.i.i.i446 = tail call float @llvm.sqrt.f32(float %668)
+  %671 = fdiv float 1.000000e+00, %sqrt.i.i.i446
+  %672 = fmul float %659, %671
+  %.sroa.013.0.vec.insert.i.i.i447 = insertelement <2 x float> poison, float %672, i64 0
+  %673 = fmul float %662, %671
+  %.sroa.013.4.vec.insert.i.i.i448 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i447, float %673, i64 1
+  %674 = fmul float %665, %671
   br label %GetCameraRight.exit.i430
 
-GetCameraRight.exit.i430:                         ; preds = %686, %GetCameraUp.exit.i.i422
-  %.sroa.013.0.i.i.i431 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i448, %686 ], [ %.sroa.018.4.vec.insert.i.i.i429, %GetCameraUp.exit.i.i422 ]
-  %.sroa.617.0.i.i.i432 = phi float [ %690, %686 ], [ %681, %GetCameraUp.exit.i.i422 ]
-  br i1 %11, label %691, label %CameraMoveRight.exit453
+GetCameraRight.exit.i430:                         ; preds = %670, %GetCameraUp.exit.i.i422
+  %.sroa.013.0.i.i.i431 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i448, %670 ], [ %.sroa.018.4.vec.insert.i.i.i429, %GetCameraUp.exit.i.i422 ]
+  %.sroa.617.0.i.i.i432 = phi float [ %674, %670 ], [ %665, %GetCameraUp.exit.i.i422 ]
+  br i1 %11, label %675, label %CameraMoveRight.exit453
 
-691:                                              ; preds = %GetCameraRight.exit.i430
+675:                                              ; preds = %GetCameraRight.exit.i430
   %.sroa.036.4.vec.insert.i441 = insertelement <2 x float> %.sroa.013.0.i.i.i431, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i442 = extractelement <2 x float> %.sroa.013.0.i.i.i431, i64 0
-  %692 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i442, float %.sroa.07.0.vec.extract.i.i442, float 0.000000e+00)
-  %693 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i432, float %.sroa.617.0.i.i.i432, float %692)
-  %694 = fcmp une float %693, 0.000000e+00
-  br i1 %694, label %695, label %CameraMoveRight.exit453
+  %676 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i442, float %.sroa.07.0.vec.extract.i.i442, float 0.000000e+00)
+  %677 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i432, float %.sroa.617.0.i.i.i432, float %676)
+  %678 = fcmp une float %677, 0.000000e+00
+  br i1 %678, label %679, label %CameraMoveRight.exit453
 
-695:                                              ; preds = %691
-  %sqrt.i.i443 = tail call float @llvm.sqrt.f32(float %693)
-  %696 = fdiv float 1.000000e+00, %sqrt.i.i443
-  %697 = fmul float %.sroa.07.0.vec.extract.i.i442, %696
-  %.sroa.013.0.vec.insert.i.i444 = insertelement <2 x float> poison, float %697, i64 0
-  %698 = fmul float %696, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i445 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i444, float %698, i64 1
-  %699 = fmul float %.sroa.617.0.i.i.i432, %696
+679:                                              ; preds = %675
+  %sqrt.i.i443 = tail call float @llvm.sqrt.f32(float %677)
+  %680 = fdiv float 1.000000e+00, %sqrt.i.i443
+  %681 = fmul float %.sroa.07.0.vec.extract.i.i442, %680
+  %.sroa.013.0.vec.insert.i.i444 = insertelement <2 x float> poison, float %681, i64 0
+  %682 = fmul float %680, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i445 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i444, float %682, i64 1
+  %683 = fmul float %.sroa.617.0.i.i.i432, %680
   br label %CameraMoveRight.exit453
 
-CameraMoveRight.exit453:                          ; preds = %GetCameraRight.exit.i430, %691, %695
-  %.sroa.036.0.i433 = phi <2 x float> [ %.sroa.013.0.i.i.i431, %GetCameraRight.exit.i430 ], [ %.sroa.013.4.vec.insert.i.i445, %695 ], [ %.sroa.036.4.vec.insert.i441, %691 ]
-  %.sroa.10.0.i434 = phi float [ %.sroa.617.0.i.i.i432, %GetCameraRight.exit.i430 ], [ %699, %695 ], [ %.sroa.617.0.i.i.i432, %691 ]
+CameraMoveRight.exit453:                          ; preds = %GetCameraRight.exit.i430, %675, %679
+  %.sroa.036.0.i433 = phi <2 x float> [ %.sroa.013.0.i.i.i431, %GetCameraRight.exit.i430 ], [ %.sroa.013.4.vec.insert.i.i445, %679 ], [ %.sroa.036.4.vec.insert.i441, %675 ]
+  %.sroa.10.0.i434 = phi float [ %.sroa.617.0.i.i.i432, %GetCameraRight.exit.i430 ], [ %683, %679 ], [ %.sroa.617.0.i.i.i432, %675 ]
   %.sroa.05.0.vec.extract.i.i435 = extractelement <2 x float> %.sroa.036.0.i433, i64 0
-  %700 = fmul float %.sroa.05.0.vec.extract.i.i435, %648
+  %684 = fmul float %.sroa.05.0.vec.extract.i.i435, %633
   %.sroa.05.4.vec.extract.i.i436 = extractelement <2 x float> %.sroa.036.0.i433, i64 1
-  %701 = fmul float %.sroa.05.4.vec.extract.i.i436, %648
-  %702 = fmul float %.sroa.10.0.i434, %648
-  %703 = fadd float %.sroa.03.0.vec.extract.i.i.i.i409, %700
-  %.sroa.08.0.vec.insert.i.i437 = insertelement <2 x float> poison, float %703, i64 0
-  %704 = fadd float %.sroa.03.4.vec.extract.i.i.i.i412, %701
-  %.sroa.08.4.vec.insert.i.i438 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i437, float %704, i64 1
-  %705 = fadd float %.sroa.210.0.copyload.i.i.i407, %702
+  %685 = fmul float %.sroa.05.4.vec.extract.i.i436, %633
+  %686 = fmul float %.sroa.10.0.i434, %633
+  %687 = fadd float %.sroa.03.0.vec.extract.i.i.i.i409, %684
+  %.sroa.08.0.vec.insert.i.i437 = insertelement <2 x float> poison, float %687, i64 0
+  %688 = fadd float %.sroa.03.4.vec.extract.i.i.i.i412, %685
+  %.sroa.08.4.vec.insert.i.i438 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i437, float %688, i64 1
+  %689 = fadd float %.sroa.210.0.copyload.i.i.i407, %686
   store <2 x float> %.sroa.08.4.vec.insert.i.i438, ptr %0, align 4
-  store float %705, ptr %.sroa.210.0..sroa_idx.i.i.i406, align 4
-  %706 = fadd float %.sroa.06.0.vec.extract.i.i.i.i408, %700
-  %.sroa.08.0.vec.insert.i51.i439 = insertelement <2 x float> poison, float %706, i64 0
-  %707 = fadd float %.sroa.06.4.vec.extract.i.i.i.i411, %701
-  %.sroa.08.4.vec.insert.i54.i440 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i439, float %707, i64 1
-  %708 = fadd float %.sroa.212.0.copyload.i.i.i404, %702
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i440, ptr %649, align 4
-  store float %708, ptr %.sroa.212.0..sroa_idx.i.i.i403, align 4
-  br label %709
+  store float %689, ptr %.sroa.210.0..sroa_idx.i.i.i406, align 4
+  %690 = fadd float %.sroa.06.0.vec.extract.i.i.i.i408, %684
+  %.sroa.08.0.vec.insert.i51.i439 = insertelement <2 x float> poison, float %690, i64 0
+  %691 = fadd float %.sroa.06.4.vec.extract.i.i.i.i411, %685
+  %.sroa.08.4.vec.insert.i54.i440 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i439, float %691, i64 1
+  %692 = fadd float %.sroa.212.0.copyload.i.i.i404, %686
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i440, ptr %634, align 4
+  store float %692, ptr %.sroa.212.0..sroa_idx.i.i.i403, align 4
+  br label %693
 
-709:                                              ; preds = %CameraMoveRight.exit453, %644
-  %710 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 279), align 1
-  %711 = icmp eq i8 %710, 1
-  br i1 %711, label %712, label %746
+693:                                              ; preds = %CameraMoveRight.exit453, %629
+  %694 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 279), align 1
+  %695 = icmp eq i8 %694, 1
+  br i1 %695, label %696, label %729
 
-712:                                              ; preds = %709
-  %713 = fneg float %20
-  %714 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i455 = load <2 x float>, ptr %714, align 4
+696:                                              ; preds = %693
+  %697 = fneg float %20
+  %698 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i455 = load <2 x float>, ptr %698, align 4
   %.sroa.212.0..sroa_idx.i.i456 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i457 = load float, ptr %.sroa.212.0..sroa_idx.i.i456, align 4
   %.sroa.09.0.copyload.i.i458 = load <2 x float>, ptr %0, align 4
@@ -32155,84 +32155,84 @@ CameraMoveRight.exit453:                          ; preds = %GetCameraRight.exit
   %.sroa.210.0.copyload.i.i460 = load float, ptr %.sroa.210.0..sroa_idx.i.i459, align 4
   %.sroa.06.0.vec.extract.i.i.i461 = extractelement <2 x float> %.sroa.011.0.copyload.i.i455, i64 0
   %.sroa.03.0.vec.extract.i.i.i462 = extractelement <2 x float> %.sroa.09.0.copyload.i.i458, i64 0
-  %715 = fsub <2 x float> %.sroa.011.0.copyload.i.i455, %.sroa.09.0.copyload.i.i458
-  %716 = extractelement <2 x float> %715, i64 0
+  %foldExtExtBinop939 = fsub <2 x float> %.sroa.011.0.copyload.i.i455, %.sroa.09.0.copyload.i.i458
+  %699 = extractelement <2 x float> %foldExtExtBinop939, i64 0
   %.sroa.06.4.vec.extract.i.i.i464 = extractelement <2 x float> %.sroa.011.0.copyload.i.i455, i64 1
   %.sroa.03.4.vec.extract.i.i.i465 = extractelement <2 x float> %.sroa.09.0.copyload.i.i458, i64 1
-  %717 = fsub float %.sroa.06.4.vec.extract.i.i.i464, %.sroa.03.4.vec.extract.i.i.i465
-  %.sroa.08.4.vec.insert.i.i.i466 = insertelement <2 x float> %715, float %717, i64 1
-  %718 = fsub float %.sroa.212.0.copyload.i.i457, %.sroa.210.0.copyload.i.i460
-  %719 = fmul float %717, %717
-  %720 = tail call float @llvm.fmuladd.f32(float %716, float %716, float %719)
-  %721 = tail call float @llvm.fmuladd.f32(float %718, float %718, float %720)
-  %722 = fcmp une float %721, 0.000000e+00
-  br i1 %722, label %723, label %GetCameraForward.exit.i467
+  %700 = fsub float %.sroa.06.4.vec.extract.i.i.i464, %.sroa.03.4.vec.extract.i.i.i465
+  %.sroa.08.4.vec.insert.i.i.i466 = insertelement <2 x float> %foldExtExtBinop939, float %700, i64 1
+  %701 = fsub float %.sroa.212.0.copyload.i.i457, %.sroa.210.0.copyload.i.i460
+  %702 = fmul float %700, %700
+  %703 = tail call float @llvm.fmuladd.f32(float %699, float %699, float %702)
+  %704 = tail call float @llvm.fmuladd.f32(float %701, float %701, float %703)
+  %705 = fcmp une float %704, 0.000000e+00
+  br i1 %705, label %706, label %GetCameraForward.exit.i467
 
-723:                                              ; preds = %712
-  %sqrt.i.i.i483 = tail call float @llvm.sqrt.f32(float %721)
-  %724 = fdiv float 1.000000e+00, %sqrt.i.i.i483
-  %725 = fmul float %716, %724
-  %.sroa.013.0.vec.insert.i.i.i484 = insertelement <2 x float> poison, float %725, i64 0
-  %726 = fmul float %717, %724
-  %.sroa.013.4.vec.insert.i.i.i485 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i484, float %726, i64 1
-  %727 = fmul float %718, %724
+706:                                              ; preds = %696
+  %sqrt.i.i.i483 = tail call float @llvm.sqrt.f32(float %704)
+  %707 = fdiv float 1.000000e+00, %sqrt.i.i.i483
+  %708 = fmul float %699, %707
+  %.sroa.013.0.vec.insert.i.i.i484 = insertelement <2 x float> poison, float %708, i64 0
+  %709 = fmul float %700, %707
+  %.sroa.013.4.vec.insert.i.i.i485 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i484, float %709, i64 1
+  %710 = fmul float %701, %707
   br label %GetCameraForward.exit.i467
 
-GetCameraForward.exit.i467:                       ; preds = %723, %712
-  %.sroa.013.0.i.i.i468 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i485, %723 ], [ %.sroa.08.4.vec.insert.i.i.i466, %712 ]
-  %.sroa.617.0.i.i.i469 = phi float [ %727, %723 ], [ %718, %712 ]
-  br i1 %11, label %728, label %CameraMoveForward.exit486
+GetCameraForward.exit.i467:                       ; preds = %706, %696
+  %.sroa.013.0.i.i.i468 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i485, %706 ], [ %.sroa.08.4.vec.insert.i.i.i466, %696 ]
+  %.sroa.617.0.i.i.i469 = phi float [ %710, %706 ], [ %701, %696 ]
+  br i1 %11, label %711, label %CameraMoveForward.exit486
 
-728:                                              ; preds = %GetCameraForward.exit.i467
+711:                                              ; preds = %GetCameraForward.exit.i467
   %.sroa.036.4.vec.insert.i478 = insertelement <2 x float> %.sroa.013.0.i.i.i468, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i479 = extractelement <2 x float> %.sroa.013.0.i.i.i468, i64 0
-  %729 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i479, float %.sroa.07.0.vec.extract.i.i479, float 0.000000e+00)
-  %730 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i469, float %.sroa.617.0.i.i.i469, float %729)
-  %731 = fcmp une float %730, 0.000000e+00
-  br i1 %731, label %732, label %CameraMoveForward.exit486
+  %712 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i479, float %.sroa.07.0.vec.extract.i.i479, float 0.000000e+00)
+  %713 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i469, float %.sroa.617.0.i.i.i469, float %712)
+  %714 = fcmp une float %713, 0.000000e+00
+  br i1 %714, label %715, label %CameraMoveForward.exit486
 
-732:                                              ; preds = %728
-  %sqrt.i.i480 = tail call float @llvm.sqrt.f32(float %730)
-  %733 = fdiv float 1.000000e+00, %sqrt.i.i480
-  %734 = fmul float %.sroa.07.0.vec.extract.i.i479, %733
-  %.sroa.013.0.vec.insert.i.i481 = insertelement <2 x float> poison, float %734, i64 0
-  %735 = fmul float %733, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i482 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i481, float %735, i64 1
-  %736 = fmul float %.sroa.617.0.i.i.i469, %733
+715:                                              ; preds = %711
+  %sqrt.i.i480 = tail call float @llvm.sqrt.f32(float %713)
+  %716 = fdiv float 1.000000e+00, %sqrt.i.i480
+  %717 = fmul float %.sroa.07.0.vec.extract.i.i479, %716
+  %.sroa.013.0.vec.insert.i.i481 = insertelement <2 x float> poison, float %717, i64 0
+  %718 = fmul float %716, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i482 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i481, float %718, i64 1
+  %719 = fmul float %.sroa.617.0.i.i.i469, %716
   br label %CameraMoveForward.exit486
 
-CameraMoveForward.exit486:                        ; preds = %GetCameraForward.exit.i467, %728, %732
-  %.sroa.036.0.i470 = phi <2 x float> [ %.sroa.013.0.i.i.i468, %GetCameraForward.exit.i467 ], [ %.sroa.013.4.vec.insert.i.i482, %732 ], [ %.sroa.036.4.vec.insert.i478, %728 ]
-  %.sroa.10.0.i471 = phi float [ %.sroa.617.0.i.i.i469, %GetCameraForward.exit.i467 ], [ %736, %732 ], [ %.sroa.617.0.i.i.i469, %728 ]
+CameraMoveForward.exit486:                        ; preds = %GetCameraForward.exit.i467, %711, %715
+  %.sroa.036.0.i470 = phi <2 x float> [ %.sroa.013.0.i.i.i468, %GetCameraForward.exit.i467 ], [ %.sroa.013.4.vec.insert.i.i482, %715 ], [ %.sroa.036.4.vec.insert.i478, %711 ]
+  %.sroa.10.0.i471 = phi float [ %.sroa.617.0.i.i.i469, %GetCameraForward.exit.i467 ], [ %719, %715 ], [ %.sroa.617.0.i.i.i469, %711 ]
   %.sroa.05.0.vec.extract.i.i472 = extractelement <2 x float> %.sroa.036.0.i470, i64 0
-  %737 = fmul float %.sroa.05.0.vec.extract.i.i472, %713
+  %720 = fmul float %.sroa.05.0.vec.extract.i.i472, %697
   %.sroa.05.4.vec.extract.i.i473 = extractelement <2 x float> %.sroa.036.0.i470, i64 1
-  %738 = fmul float %.sroa.05.4.vec.extract.i.i473, %713
-  %739 = fmul float %.sroa.10.0.i471, %713
-  %740 = fadd float %.sroa.03.0.vec.extract.i.i.i462, %737
-  %.sroa.08.0.vec.insert.i.i474 = insertelement <2 x float> poison, float %740, i64 0
-  %741 = fadd float %.sroa.03.4.vec.extract.i.i.i465, %738
-  %.sroa.08.4.vec.insert.i.i475 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i474, float %741, i64 1
-  %742 = fadd float %.sroa.210.0.copyload.i.i460, %739
+  %721 = fmul float %.sroa.05.4.vec.extract.i.i473, %697
+  %722 = fmul float %.sroa.10.0.i471, %697
+  %723 = fadd float %.sroa.03.0.vec.extract.i.i.i462, %720
+  %.sroa.08.0.vec.insert.i.i474 = insertelement <2 x float> poison, float %723, i64 0
+  %724 = fadd float %.sroa.03.4.vec.extract.i.i.i465, %721
+  %.sroa.08.4.vec.insert.i.i475 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i474, float %724, i64 1
+  %725 = fadd float %.sroa.210.0.copyload.i.i460, %722
   store <2 x float> %.sroa.08.4.vec.insert.i.i475, ptr %0, align 4
-  store float %742, ptr %.sroa.210.0..sroa_idx.i.i459, align 4
-  %743 = fadd float %.sroa.06.0.vec.extract.i.i.i461, %737
-  %.sroa.08.0.vec.insert.i51.i476 = insertelement <2 x float> poison, float %743, i64 0
-  %744 = fadd float %.sroa.06.4.vec.extract.i.i.i464, %738
-  %.sroa.08.4.vec.insert.i54.i477 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i476, float %744, i64 1
-  %745 = fadd float %.sroa.212.0.copyload.i.i457, %739
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i477, ptr %714, align 4
-  store float %745, ptr %.sroa.212.0..sroa_idx.i.i456, align 4
-  br label %746
+  store float %725, ptr %.sroa.210.0..sroa_idx.i.i459, align 4
+  %726 = fadd float %.sroa.06.0.vec.extract.i.i.i461, %720
+  %.sroa.08.0.vec.insert.i51.i476 = insertelement <2 x float> poison, float %726, i64 0
+  %727 = fadd float %.sroa.06.4.vec.extract.i.i.i464, %721
+  %.sroa.08.4.vec.insert.i54.i477 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i476, float %727, i64 1
+  %728 = fadd float %.sroa.212.0.copyload.i.i457, %722
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i477, ptr %698, align 4
+  store float %728, ptr %.sroa.212.0..sroa_idx.i.i456, align 4
+  br label %729
 
-746:                                              ; preds = %CameraMoveForward.exit486, %709
-  %747 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 264), align 8
-  %748 = icmp eq i8 %747, 1
-  br i1 %748, label %749, label %810
+729:                                              ; preds = %CameraMoveForward.exit486, %693
+  %730 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 264), align 8
+  %731 = icmp eq i8 %730, 1
+  br i1 %731, label %732, label %792
 
-749:                                              ; preds = %746
-  %750 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.011.0.copyload.i.i.i488 = load <2 x float>, ptr %750, align 4
+732:                                              ; preds = %729
+  %733 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.011.0.copyload.i.i.i488 = load <2 x float>, ptr %733, align 4
   %.sroa.212.0..sroa_idx.i.i.i489 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.212.0.copyload.i.i.i490 = load float, ptr %.sroa.212.0..sroa_idx.i.i.i489, align 4
   %.sroa.09.0.copyload.i.i.i491 = load <2 x float>, ptr %0, align 4
@@ -32240,1026 +32240,1026 @@ CameraMoveForward.exit486:                        ; preds = %GetCameraForward.ex
   %.sroa.210.0.copyload.i.i.i493 = load float, ptr %.sroa.210.0..sroa_idx.i.i.i492, align 4
   %.sroa.06.0.vec.extract.i.i.i.i494 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i488, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i495 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i491, i64 0
-  %751 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i488, %.sroa.09.0.copyload.i.i.i491
-  %752 = extractelement <2 x float> %751, i64 0
+  %foldExtExtBinop941 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i488, %.sroa.09.0.copyload.i.i.i491
+  %734 = extractelement <2 x float> %foldExtExtBinop941, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i497 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i488, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i498 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i491, i64 1
-  %753 = fsub float %.sroa.06.4.vec.extract.i.i.i.i497, %.sroa.03.4.vec.extract.i.i.i.i498
-  %.sroa.08.4.vec.insert.i.i.i.i499 = insertelement <2 x float> %751, float %753, i64 1
-  %754 = fsub float %.sroa.212.0.copyload.i.i.i490, %.sroa.210.0.copyload.i.i.i493
-  %755 = fmul float %753, %753
-  %756 = tail call float @llvm.fmuladd.f32(float %752, float %752, float %755)
-  %757 = tail call float @llvm.fmuladd.f32(float %754, float %754, float %756)
-  %758 = fcmp une float %757, 0.000000e+00
-  br i1 %758, label %759, label %GetCameraForward.exit.i.i500
+  %735 = fsub float %.sroa.06.4.vec.extract.i.i.i.i497, %.sroa.03.4.vec.extract.i.i.i.i498
+  %.sroa.08.4.vec.insert.i.i.i.i499 = insertelement <2 x float> %foldExtExtBinop941, float %735, i64 1
+  %736 = fsub float %.sroa.212.0.copyload.i.i.i490, %.sroa.210.0.copyload.i.i.i493
+  %737 = fmul float %735, %735
+  %738 = tail call float @llvm.fmuladd.f32(float %734, float %734, float %737)
+  %739 = tail call float @llvm.fmuladd.f32(float %736, float %736, float %738)
+  %740 = fcmp une float %739, 0.000000e+00
+  br i1 %740, label %741, label %GetCameraForward.exit.i.i500
 
-759:                                              ; preds = %749
-  %sqrt.i.i.i.i536 = tail call float @llvm.sqrt.f32(float %757)
-  %760 = fdiv float 1.000000e+00, %sqrt.i.i.i.i536
-  %761 = fmul float %752, %760
-  %.sroa.013.0.vec.insert.i.i.i.i537 = insertelement <2 x float> poison, float %761, i64 0
-  %762 = fmul float %753, %760
-  %.sroa.013.4.vec.insert.i.i.i.i538 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i537, float %762, i64 1
-  %763 = fmul float %754, %760
+741:                                              ; preds = %732
+  %sqrt.i.i.i.i536 = tail call float @llvm.sqrt.f32(float %739)
+  %742 = fdiv float 1.000000e+00, %sqrt.i.i.i.i536
+  %743 = fmul float %734, %742
+  %.sroa.013.0.vec.insert.i.i.i.i537 = insertelement <2 x float> poison, float %743, i64 0
+  %744 = fmul float %735, %742
+  %.sroa.013.4.vec.insert.i.i.i.i538 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i537, float %744, i64 1
+  %745 = fmul float %736, %742
   br label %GetCameraForward.exit.i.i500
 
-GetCameraForward.exit.i.i500:                     ; preds = %759, %749
-  %.sroa.013.0.i.i.i.i501 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i538, %759 ], [ %.sroa.08.4.vec.insert.i.i.i.i499, %749 ]
-  %.sroa.617.0.i.i.i.i502 = phi float [ %763, %759 ], [ %754, %749 ]
-  %764 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i.i503 = load <2 x float>, ptr %764, align 4
+GetCameraForward.exit.i.i500:                     ; preds = %741, %732
+  %.sroa.013.0.i.i.i.i501 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i538, %741 ], [ %.sroa.08.4.vec.insert.i.i.i.i499, %732 ]
+  %.sroa.617.0.i.i.i.i502 = phi float [ %745, %741 ], [ %736, %732 ]
+  %746 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i.i503 = load <2 x float>, ptr %746, align 4
   %.sroa.24.0..sroa_idx.i.i.i504 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i.i505 = load float, ptr %.sroa.24.0..sroa_idx.i.i.i504, align 4
   %.sroa.07.0.vec.extract.i.i.i.i506 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i503, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i507 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i503, i64 1
-  %765 = fmul float %.sroa.07.4.vec.extract.i.i.i.i507, %.sroa.07.4.vec.extract.i.i.i.i507
-  %766 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i506, float %.sroa.07.0.vec.extract.i.i.i.i506, float %765)
-  %767 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i505, float %.sroa.24.0.copyload.i.i.i505, float %766)
-  %768 = fcmp une float %767, 0.000000e+00
-  br i1 %768, label %769, label %GetCameraUp.exit.i.i508
+  %747 = fmul float %.sroa.07.4.vec.extract.i.i.i.i507, %.sroa.07.4.vec.extract.i.i.i.i507
+  %748 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i506, float %.sroa.07.0.vec.extract.i.i.i.i506, float %747)
+  %749 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i505, float %.sroa.24.0.copyload.i.i.i505, float %748)
+  %750 = fcmp une float %749, 0.000000e+00
+  br i1 %750, label %751, label %GetCameraUp.exit.i.i508
 
-769:                                              ; preds = %GetCameraForward.exit.i.i500
-  %sqrt.i.i31.i.i535 = tail call float @llvm.sqrt.f32(float %767)
-  %770 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i535
-  %771 = fmul float %.sroa.07.0.vec.extract.i.i.i.i506, %770
-  %772 = fmul float %.sroa.07.4.vec.extract.i.i.i.i507, %770
-  %773 = fmul float %.sroa.24.0.copyload.i.i.i505, %770
+751:                                              ; preds = %GetCameraForward.exit.i.i500
+  %sqrt.i.i31.i.i535 = tail call float @llvm.sqrt.f32(float %749)
+  %752 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i535
+  %753 = fmul float %.sroa.07.0.vec.extract.i.i.i.i506, %752
+  %754 = fmul float %.sroa.07.4.vec.extract.i.i.i.i507, %752
+  %755 = fmul float %.sroa.24.0.copyload.i.i.i505, %752
   br label %GetCameraUp.exit.i.i508
 
-GetCameraUp.exit.i.i508:                          ; preds = %769, %GetCameraForward.exit.i.i500
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i509 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i506, %GetCameraForward.exit.i.i500 ], [ %771, %769 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i510 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i507, %GetCameraForward.exit.i.i500 ], [ %772, %769 ]
-  %.sroa.617.0.i.i30.i.i511 = phi float [ %.sroa.24.0.copyload.i.i.i505, %GetCameraForward.exit.i.i500 ], [ %773, %769 ]
+GetCameraUp.exit.i.i508:                          ; preds = %751, %GetCameraForward.exit.i.i500
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i509 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i506, %GetCameraForward.exit.i.i500 ], [ %753, %751 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i510 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i507, %GetCameraForward.exit.i.i500 ], [ %754, %751 ]
+  %.sroa.617.0.i.i30.i.i511 = phi float [ %.sroa.24.0.copyload.i.i.i505, %GetCameraForward.exit.i.i500 ], [ %755, %751 ]
   %.sroa.011.4.vec.extract.i.i.i512 = extractelement <2 x float> %.sroa.013.0.i.i.i.i501, i64 1
-  %774 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i510
-  %775 = fmul float %.sroa.617.0.i.i.i.i502, %774
-  %776 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i512, float %.sroa.617.0.i.i30.i.i511, float %775)
-  %.sroa.018.0.vec.insert.i.i.i513 = insertelement <2 x float> poison, float %776, i64 0
+  %756 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i510
+  %757 = fmul float %.sroa.617.0.i.i.i.i502, %756
+  %758 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i512, float %.sroa.617.0.i.i30.i.i511, float %757)
+  %.sroa.018.0.vec.insert.i.i.i513 = insertelement <2 x float> poison, float %758, i64 0
   %.sroa.011.0.vec.extract.i.i.i514 = extractelement <2 x float> %.sroa.013.0.i.i.i.i501, i64 0
-  %777 = fneg float %.sroa.617.0.i.i30.i.i511
-  %778 = fmul float %.sroa.011.0.vec.extract.i.i.i514, %777
-  %779 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i502, float %.sroa.03.0.vec.extract.i.pre-phi.i.i509, float %778)
-  %.sroa.018.4.vec.insert.i.i.i515 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i513, float %779, i64 1
-  %780 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i509
-  %781 = fmul float %.sroa.011.4.vec.extract.i.i.i512, %780
-  %782 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i514, float %.sroa.03.4.vec.extract.i.pre-phi.i.i510, float %781)
-  %783 = fmul float %779, %779
-  %784 = tail call float @llvm.fmuladd.f32(float %776, float %776, float %783)
-  %785 = tail call float @llvm.fmuladd.f32(float %782, float %782, float %784)
-  %786 = fcmp une float %785, 0.000000e+00
-  br i1 %786, label %787, label %GetCameraRight.exit.i516
+  %759 = fneg float %.sroa.617.0.i.i30.i.i511
+  %760 = fmul float %.sroa.011.0.vec.extract.i.i.i514, %759
+  %761 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i502, float %.sroa.03.0.vec.extract.i.pre-phi.i.i509, float %760)
+  %.sroa.018.4.vec.insert.i.i.i515 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i513, float %761, i64 1
+  %762 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i509
+  %763 = fmul float %.sroa.011.4.vec.extract.i.i.i512, %762
+  %764 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i514, float %.sroa.03.4.vec.extract.i.pre-phi.i.i510, float %763)
+  %765 = fmul float %761, %761
+  %766 = tail call float @llvm.fmuladd.f32(float %758, float %758, float %765)
+  %767 = tail call float @llvm.fmuladd.f32(float %764, float %764, float %766)
+  %768 = fcmp une float %767, 0.000000e+00
+  br i1 %768, label %769, label %GetCameraRight.exit.i516
 
-787:                                              ; preds = %GetCameraUp.exit.i.i508
-  %sqrt.i.i.i532 = tail call float @llvm.sqrt.f32(float %785)
-  %788 = fdiv float 1.000000e+00, %sqrt.i.i.i532
-  %789 = fmul float %776, %788
-  %.sroa.013.0.vec.insert.i.i.i533 = insertelement <2 x float> poison, float %789, i64 0
-  %790 = fmul float %779, %788
-  %.sroa.013.4.vec.insert.i.i.i534 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i533, float %790, i64 1
-  %791 = fmul float %782, %788
+769:                                              ; preds = %GetCameraUp.exit.i.i508
+  %sqrt.i.i.i532 = tail call float @llvm.sqrt.f32(float %767)
+  %770 = fdiv float 1.000000e+00, %sqrt.i.i.i532
+  %771 = fmul float %758, %770
+  %.sroa.013.0.vec.insert.i.i.i533 = insertelement <2 x float> poison, float %771, i64 0
+  %772 = fmul float %761, %770
+  %.sroa.013.4.vec.insert.i.i.i534 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i533, float %772, i64 1
+  %773 = fmul float %764, %770
   br label %GetCameraRight.exit.i516
 
-GetCameraRight.exit.i516:                         ; preds = %787, %GetCameraUp.exit.i.i508
-  %.sroa.013.0.i.i.i517 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i534, %787 ], [ %.sroa.018.4.vec.insert.i.i.i515, %GetCameraUp.exit.i.i508 ]
-  %.sroa.617.0.i.i.i518 = phi float [ %791, %787 ], [ %782, %GetCameraUp.exit.i.i508 ]
-  br i1 %11, label %792, label %CameraMoveRight.exit539
+GetCameraRight.exit.i516:                         ; preds = %769, %GetCameraUp.exit.i.i508
+  %.sroa.013.0.i.i.i517 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i534, %769 ], [ %.sroa.018.4.vec.insert.i.i.i515, %GetCameraUp.exit.i.i508 ]
+  %.sroa.617.0.i.i.i518 = phi float [ %773, %769 ], [ %764, %GetCameraUp.exit.i.i508 ]
+  br i1 %11, label %774, label %CameraMoveRight.exit539
 
-792:                                              ; preds = %GetCameraRight.exit.i516
+774:                                              ; preds = %GetCameraRight.exit.i516
   %.sroa.036.4.vec.insert.i527 = insertelement <2 x float> %.sroa.013.0.i.i.i517, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i528 = extractelement <2 x float> %.sroa.013.0.i.i.i517, i64 0
-  %793 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i528, float %.sroa.07.0.vec.extract.i.i528, float 0.000000e+00)
-  %794 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i518, float %.sroa.617.0.i.i.i518, float %793)
-  %795 = fcmp une float %794, 0.000000e+00
-  br i1 %795, label %796, label %CameraMoveRight.exit539
+  %775 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i528, float %.sroa.07.0.vec.extract.i.i528, float 0.000000e+00)
+  %776 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i518, float %.sroa.617.0.i.i.i518, float %775)
+  %777 = fcmp une float %776, 0.000000e+00
+  br i1 %777, label %778, label %CameraMoveRight.exit539
 
-796:                                              ; preds = %792
-  %sqrt.i.i529 = tail call float @llvm.sqrt.f32(float %794)
-  %797 = fdiv float 1.000000e+00, %sqrt.i.i529
-  %798 = fmul float %.sroa.07.0.vec.extract.i.i528, %797
-  %.sroa.013.0.vec.insert.i.i530 = insertelement <2 x float> poison, float %798, i64 0
-  %799 = fmul float %797, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i531 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i530, float %799, i64 1
-  %800 = fmul float %.sroa.617.0.i.i.i518, %797
+778:                                              ; preds = %774
+  %sqrt.i.i529 = tail call float @llvm.sqrt.f32(float %776)
+  %779 = fdiv float 1.000000e+00, %sqrt.i.i529
+  %780 = fmul float %.sroa.07.0.vec.extract.i.i528, %779
+  %.sroa.013.0.vec.insert.i.i530 = insertelement <2 x float> poison, float %780, i64 0
+  %781 = fmul float %779, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i531 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i530, float %781, i64 1
+  %782 = fmul float %.sroa.617.0.i.i.i518, %779
   br label %CameraMoveRight.exit539
 
-CameraMoveRight.exit539:                          ; preds = %GetCameraRight.exit.i516, %792, %796
-  %.sroa.036.0.i519 = phi <2 x float> [ %.sroa.013.0.i.i.i517, %GetCameraRight.exit.i516 ], [ %.sroa.013.4.vec.insert.i.i531, %796 ], [ %.sroa.036.4.vec.insert.i527, %792 ]
-  %.sroa.10.0.i520 = phi float [ %.sroa.617.0.i.i.i518, %GetCameraRight.exit.i516 ], [ %800, %796 ], [ %.sroa.617.0.i.i.i518, %792 ]
+CameraMoveRight.exit539:                          ; preds = %GetCameraRight.exit.i516, %774, %778
+  %.sroa.036.0.i519 = phi <2 x float> [ %.sroa.013.0.i.i.i517, %GetCameraRight.exit.i516 ], [ %.sroa.013.4.vec.insert.i.i531, %778 ], [ %.sroa.036.4.vec.insert.i527, %774 ]
+  %.sroa.10.0.i520 = phi float [ %.sroa.617.0.i.i.i518, %GetCameraRight.exit.i516 ], [ %782, %778 ], [ %.sroa.617.0.i.i.i518, %774 ]
   %.sroa.05.0.vec.extract.i.i521 = extractelement <2 x float> %.sroa.036.0.i519, i64 0
-  %801 = fmul float %20, %.sroa.05.0.vec.extract.i.i521
+  %783 = fmul float %20, %.sroa.05.0.vec.extract.i.i521
   %.sroa.05.4.vec.extract.i.i522 = extractelement <2 x float> %.sroa.036.0.i519, i64 1
-  %802 = fmul float %20, %.sroa.05.4.vec.extract.i.i522
-  %803 = fmul float %20, %.sroa.10.0.i520
-  %804 = fadd float %.sroa.03.0.vec.extract.i.i.i.i495, %801
-  %.sroa.08.0.vec.insert.i.i523 = insertelement <2 x float> poison, float %804, i64 0
-  %805 = fadd float %.sroa.03.4.vec.extract.i.i.i.i498, %802
-  %.sroa.08.4.vec.insert.i.i524 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i523, float %805, i64 1
-  %806 = fadd float %.sroa.210.0.copyload.i.i.i493, %803
+  %784 = fmul float %20, %.sroa.05.4.vec.extract.i.i522
+  %785 = fmul float %20, %.sroa.10.0.i520
+  %786 = fadd float %.sroa.03.0.vec.extract.i.i.i.i495, %783
+  %.sroa.08.0.vec.insert.i.i523 = insertelement <2 x float> poison, float %786, i64 0
+  %787 = fadd float %.sroa.03.4.vec.extract.i.i.i.i498, %784
+  %.sroa.08.4.vec.insert.i.i524 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i523, float %787, i64 1
+  %788 = fadd float %.sroa.210.0.copyload.i.i.i493, %785
   store <2 x float> %.sroa.08.4.vec.insert.i.i524, ptr %0, align 4
-  store float %806, ptr %.sroa.210.0..sroa_idx.i.i.i492, align 4
-  %807 = fadd float %.sroa.06.0.vec.extract.i.i.i.i494, %801
-  %.sroa.08.0.vec.insert.i51.i525 = insertelement <2 x float> poison, float %807, i64 0
-  %808 = fadd float %.sroa.06.4.vec.extract.i.i.i.i497, %802
-  %.sroa.08.4.vec.insert.i54.i526 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i525, float %808, i64 1
-  %809 = fadd float %.sroa.212.0.copyload.i.i.i490, %803
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i526, ptr %750, align 4
-  store float %809, ptr %.sroa.212.0..sroa_idx.i.i.i489, align 4
-  br label %810
+  store float %788, ptr %.sroa.210.0..sroa_idx.i.i.i492, align 4
+  %789 = fadd float %.sroa.06.0.vec.extract.i.i.i.i494, %783
+  %.sroa.08.0.vec.insert.i51.i525 = insertelement <2 x float> poison, float %789, i64 0
+  %790 = fadd float %.sroa.06.4.vec.extract.i.i.i.i497, %784
+  %.sroa.08.4.vec.insert.i54.i526 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i525, float %790, i64 1
+  %791 = fadd float %.sroa.212.0.copyload.i.i.i490, %785
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i526, ptr %733, align 4
+  store float %791, ptr %.sroa.212.0..sroa_idx.i.i.i489, align 4
+  br label %792
 
-810:                                              ; preds = %CameraMoveRight.exit539, %746
-  %811 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
-  %812 = trunc nuw i8 %811 to i1
-  br i1 %812, label %GetGamepadAxisMovement.exit, label %GetGamepadAxisMovement.exit711.thread
+792:                                              ; preds = %CameraMoveRight.exit539, %729
+  %793 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
+  %794 = trunc nuw i8 %793 to i1
+  br i1 %794, label %GetGamepadAxisMovement.exit, label %GetGamepadAxisMovement.exit711.thread
 
-GetGamepadAxisMovement.exit:                      ; preds = %810
-  %813 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2856), align 8
-  %814 = fcmp one float %813, 0.000000e+00
-  %815 = fmul float %813, -2.000000e+00
-  %816 = fmul float %815, 0x3F689374C0000000
-  %817 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i543 = load <2 x float>, ptr %817, align 4
+GetGamepadAxisMovement.exit:                      ; preds = %792
+  %795 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2856), align 8
+  %796 = fcmp one float %795, 0.000000e+00
+  %797 = fmul float %795, -2.000000e+00
+  %798 = fmul float %797, 0x3F689374C0000000
+  %799 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i543 = load <2 x float>, ptr %799, align 4
   %.sroa.24.0..sroa_idx.i.i544 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i545 = load float, ptr %.sroa.24.0..sroa_idx.i.i544, align 4
   %.sroa.07.0.vec.extract.i.i.i546 = extractelement <2 x float> %.sroa.03.0.copyload.i.i543, i64 0
   %.sroa.07.4.vec.extract.i.i.i547 = extractelement <2 x float> %.sroa.03.0.copyload.i.i543, i64 1
-  %818 = fmul float %.sroa.07.4.vec.extract.i.i.i547, %.sroa.07.4.vec.extract.i.i.i547
-  %819 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i546, float %.sroa.07.0.vec.extract.i.i.i546, float %818)
-  %820 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i545, float %.sroa.24.0.copyload.i.i545, float %819)
-  %821 = fcmp une float %820, 0.000000e+00
-  br i1 %821, label %822, label %GetCameraUp.exit.i548
+  %800 = fmul float %.sroa.07.4.vec.extract.i.i.i547, %.sroa.07.4.vec.extract.i.i.i547
+  %801 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i546, float %.sroa.07.0.vec.extract.i.i.i546, float %800)
+  %802 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i545, float %.sroa.24.0.copyload.i.i545, float %801)
+  %803 = fcmp une float %802, 0.000000e+00
+  br i1 %803, label %804, label %GetCameraUp.exit.i548
 
-822:                                              ; preds = %GetGamepadAxisMovement.exit
-  %sqrt.i.i.i576 = tail call float @llvm.sqrt.f32(float %820)
-  %823 = fdiv float 1.000000e+00, %sqrt.i.i.i576
-  %824 = fmul float %.sroa.07.0.vec.extract.i.i.i546, %823
-  %825 = fmul float %.sroa.07.4.vec.extract.i.i.i547, %823
-  %826 = fmul float %.sroa.24.0.copyload.i.i545, %823
-  %.pre69.i577 = fmul float %825, %825
-  %.pre70.i578 = tail call float @llvm.fmuladd.f32(float %824, float %824, float %.pre69.i577)
-  %.pre72.i579 = tail call float @llvm.fmuladd.f32(float %826, float %826, float %.pre70.i578)
+804:                                              ; preds = %GetGamepadAxisMovement.exit
+  %sqrt.i.i.i576 = tail call float @llvm.sqrt.f32(float %802)
+  %805 = fdiv float 1.000000e+00, %sqrt.i.i.i576
+  %806 = fmul float %.sroa.07.0.vec.extract.i.i.i546, %805
+  %807 = fmul float %.sroa.07.4.vec.extract.i.i.i547, %805
+  %808 = fmul float %.sroa.24.0.copyload.i.i545, %805
+  %.pre69.i577 = fmul float %807, %807
+  %.pre70.i578 = tail call float @llvm.fmuladd.f32(float %806, float %806, float %.pre69.i577)
+  %.pre72.i579 = tail call float @llvm.fmuladd.f32(float %808, float %808, float %.pre70.i578)
   br label %GetCameraUp.exit.i548
 
-GetCameraUp.exit.i548:                            ; preds = %822, %GetGamepadAxisMovement.exit
-  %.pre-phi73.i549 = phi float [ %820, %GetGamepadAxisMovement.exit ], [ %.pre72.i579, %822 ]
-  %.sroa.044.4.vec.extract.i.pre-phi.i550 = phi float [ %.sroa.07.4.vec.extract.i.i.i547, %GetGamepadAxisMovement.exit ], [ %825, %822 ]
-  %.sroa.044.0.vec.extract.i.pre-phi.i551 = phi float [ %.sroa.07.0.vec.extract.i.i.i546, %GetGamepadAxisMovement.exit ], [ %824, %822 ]
-  %.sroa.617.0.i.i.i552 = phi float [ %.sroa.24.0.copyload.i.i545, %GetGamepadAxisMovement.exit ], [ %826, %822 ]
-  %827 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.032.0.copyload.i553 = load <2 x float>, ptr %827, align 4
+GetCameraUp.exit.i548:                            ; preds = %804, %GetGamepadAxisMovement.exit
+  %.pre-phi73.i549 = phi float [ %802, %GetGamepadAxisMovement.exit ], [ %.pre72.i579, %804 ]
+  %.sroa.044.4.vec.extract.i.pre-phi.i550 = phi float [ %.sroa.07.4.vec.extract.i.i.i547, %GetGamepadAxisMovement.exit ], [ %807, %804 ]
+  %.sroa.044.0.vec.extract.i.pre-phi.i551 = phi float [ %.sroa.07.0.vec.extract.i.i.i546, %GetGamepadAxisMovement.exit ], [ %806, %804 ]
+  %.sroa.617.0.i.i.i552 = phi float [ %.sroa.24.0.copyload.i.i545, %GetGamepadAxisMovement.exit ], [ %808, %804 ]
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.032.0.copyload.i553 = load <2 x float>, ptr %809, align 4
   %.sroa.233.0..sroa_idx.i554 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.233.0.copyload.i555 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.030.0.copyload.i556 = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx.i557 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload.i558 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
-  %828 = fsub <2 x float> %.sroa.032.0.copyload.i553, %.sroa.030.0.copyload.i556
-  %829 = extractelement <2 x float> %828, i64 0
-  %830 = fsub <2 x float> %.sroa.032.0.copyload.i553, %.sroa.030.0.copyload.i556
-  %831 = extractelement <2 x float> %830, i64 1
-  %832 = fsub float %.sroa.233.0.copyload.i555, %.sroa.231.0.copyload.i558
+  %foldExtExtBinop943 = fsub <2 x float> %.sroa.032.0.copyload.i553, %.sroa.030.0.copyload.i556
+  %810 = extractelement <2 x float> %foldExtExtBinop943, i64 0
+  %foldExtExtBinop945 = fsub <2 x float> %.sroa.032.0.copyload.i553, %.sroa.030.0.copyload.i556
+  %811 = extractelement <2 x float> %foldExtExtBinop945, i64 1
+  %812 = fsub float %.sroa.233.0.copyload.i555, %.sroa.231.0.copyload.i558
   %sqrt.i.i563 = tail call float @llvm.sqrt.f32(float %.pre-phi73.i549)
-  %833 = fcmp oeq float %.pre-phi73.i549, 0.000000e+00
-  %834 = fdiv float 1.000000e+00, %sqrt.i.i563
-  %835 = select i1 %833, float 1.000000e+00, float %834
-  %836 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i551, %835
-  %837 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i550, %835
-  %838 = fmul float %.sroa.617.0.i.i.i552, %835
-  %839 = fmul float %816, 5.000000e-01
-  %840 = select i1 %814, float %839, float -0.000000e+00
-  %841 = tail call float @sinf(float noundef %840) #60
-  %842 = fmul float %836, %841
-  %843 = fmul float %837, %841
-  %844 = fmul float %838, %841
-  %845 = tail call float @cosf(float noundef %840) #60
-  %846 = fneg float %831
-  %847 = fmul float %844, %846
-  %848 = tail call float @llvm.fmuladd.f32(float %843, float %832, float %847)
-  %849 = fneg float %832
-  %850 = fmul float %842, %849
-  %851 = tail call float @llvm.fmuladd.f32(float %844, float %829, float %850)
-  %852 = fneg float %829
-  %853 = fmul float %843, %852
-  %854 = tail call float @llvm.fmuladd.f32(float %842, float %831, float %853)
-  %855 = fneg float %851
-  %856 = fmul float %844, %855
-  %857 = tail call float @llvm.fmuladd.f32(float %843, float %854, float %856)
-  %858 = fneg float %854
-  %859 = fmul float %842, %858
-  %860 = tail call float @llvm.fmuladd.f32(float %844, float %848, float %859)
-  %861 = fneg float %848
-  %862 = fmul float %843, %861
-  %863 = tail call float @llvm.fmuladd.f32(float %842, float %851, float %862)
-  %864 = fmul float %845, 2.000000e+00
-  %865 = fmul float %864, %848
-  %866 = fmul float %864, %851
-  %867 = fmul float %864, %854
-  %868 = fmul float %857, 2.000000e+00
-  %869 = fmul float %860, 2.000000e+00
-  %870 = fmul float %863, 2.000000e+00
-  %871 = fadd float %829, %865
-  %872 = fadd float %831, %866
-  %873 = fadd float %832, %867
-  %874 = fadd float %871, %868
-  %875 = fadd float %872, %869
-  %876 = fadd float %873, %870
-  switch i32 %1, label %881 [
-    i32 4, label %877
-    i32 2, label %877
+  %813 = fcmp oeq float %.pre-phi73.i549, 0.000000e+00
+  %814 = fdiv float 1.000000e+00, %sqrt.i.i563
+  %815 = select i1 %813, float 1.000000e+00, float %814
+  %816 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i551, %815
+  %817 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i550, %815
+  %818 = fmul float %.sroa.617.0.i.i.i552, %815
+  %819 = fmul float %798, 5.000000e-01
+  %820 = select i1 %796, float %819, float -0.000000e+00
+  %821 = tail call float @sinf(float noundef %820) #60
+  %822 = fmul float %816, %821
+  %823 = fmul float %817, %821
+  %824 = fmul float %818, %821
+  %825 = tail call float @cosf(float noundef %820) #60
+  %826 = fneg float %811
+  %827 = fmul float %824, %826
+  %828 = tail call float @llvm.fmuladd.f32(float %823, float %812, float %827)
+  %829 = fneg float %812
+  %830 = fmul float %822, %829
+  %831 = tail call float @llvm.fmuladd.f32(float %824, float %810, float %830)
+  %832 = fneg float %810
+  %833 = fmul float %823, %832
+  %834 = tail call float @llvm.fmuladd.f32(float %822, float %811, float %833)
+  %835 = fneg float %831
+  %836 = fmul float %824, %835
+  %837 = tail call float @llvm.fmuladd.f32(float %823, float %834, float %836)
+  %838 = fneg float %834
+  %839 = fmul float %822, %838
+  %840 = tail call float @llvm.fmuladd.f32(float %824, float %828, float %839)
+  %841 = fneg float %828
+  %842 = fmul float %823, %841
+  %843 = tail call float @llvm.fmuladd.f32(float %822, float %831, float %842)
+  %844 = fmul float %825, 2.000000e+00
+  %845 = fmul float %844, %828
+  %846 = fmul float %844, %831
+  %847 = fmul float %844, %834
+  %848 = fmul float %837, 2.000000e+00
+  %849 = fmul float %840, 2.000000e+00
+  %850 = fmul float %843, 2.000000e+00
+  %851 = fadd float %810, %845
+  %852 = fadd float %811, %846
+  %853 = fadd float %812, %847
+  %854 = fadd float %851, %848
+  %855 = fadd float %852, %849
+  %856 = fadd float %853, %850
+  switch i32 %1, label %861 [
+    i32 4, label %857
+    i32 2, label %857
   ]
 
-877:                                              ; preds = %GetCameraUp.exit.i548, %GetCameraUp.exit.i548
-  %.sroa.012.0.copyload.i570 = load <2 x float>, ptr %827, align 4
+857:                                              ; preds = %GetCameraUp.exit.i548, %GetCameraUp.exit.i548
+  %.sroa.012.0.copyload.i570 = load <2 x float>, ptr %809, align 4
   %.sroa.213.0.copyload.i571 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.06.0.vec.extract.i52.i572 = extractelement <2 x float> %.sroa.012.0.copyload.i570, i64 0
-  %878 = fsub float %.sroa.06.0.vec.extract.i52.i572, %874
-  %.sroa.08.0.vec.insert.i54.i573 = insertelement <2 x float> poison, float %878, i64 0
+  %858 = fsub float %.sroa.06.0.vec.extract.i52.i572, %854
+  %.sroa.08.0.vec.insert.i54.i573 = insertelement <2 x float> poison, float %858, i64 0
   %.sroa.06.4.vec.extract.i55.i574 = extractelement <2 x float> %.sroa.012.0.copyload.i570, i64 1
-  %879 = fsub float %.sroa.06.4.vec.extract.i55.i574, %875
-  %.sroa.08.4.vec.insert.i57.i575 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i573, float %879, i64 1
-  %880 = fsub float %.sroa.213.0.copyload.i571, %876
+  %859 = fsub float %.sroa.06.4.vec.extract.i55.i574, %855
+  %.sroa.08.4.vec.insert.i57.i575 = insertelement <2 x float> %.sroa.08.0.vec.insert.i54.i573, float %859, i64 1
+  %860 = fsub float %.sroa.213.0.copyload.i571, %856
   store <2 x float> %.sroa.08.4.vec.insert.i57.i575, ptr %0, align 4
-  store float %880, ptr %.sroa.231.0..sroa_idx.i557, align 4
+  store float %860, ptr %.sroa.231.0..sroa_idx.i557, align 4
   br label %CameraYaw.exit580
 
-881:                                              ; preds = %GetCameraUp.exit.i548
+861:                                              ; preds = %GetCameraUp.exit.i548
   %.sroa.03.0.copyload.i564 = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload.i565 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
   %.sroa.06.0.vec.extract.i60.i566 = extractelement <2 x float> %.sroa.03.0.copyload.i564, i64 0
-  %882 = fadd float %874, %.sroa.06.0.vec.extract.i60.i566
-  %.sroa.08.0.vec.insert.i62.i567 = insertelement <2 x float> poison, float %882, i64 0
+  %862 = fadd float %854, %.sroa.06.0.vec.extract.i60.i566
+  %.sroa.08.0.vec.insert.i62.i567 = insertelement <2 x float> poison, float %862, i64 0
   %.sroa.06.4.vec.extract.i63.i568 = extractelement <2 x float> %.sroa.03.0.copyload.i564, i64 1
-  %883 = fadd float %875, %.sroa.06.4.vec.extract.i63.i568
-  %.sroa.08.4.vec.insert.i65.i569 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i567, float %883, i64 1
-  %884 = fadd float %876, %.sroa.24.0.copyload.i565
-  store <2 x float> %.sroa.08.4.vec.insert.i65.i569, ptr %827, align 4
-  store float %884, ptr %.sroa.233.0..sroa_idx.i554, align 4
+  %863 = fadd float %855, %.sroa.06.4.vec.extract.i63.i568
+  %.sroa.08.4.vec.insert.i65.i569 = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i567, float %863, i64 1
+  %864 = fadd float %856, %.sroa.24.0.copyload.i565
+  store <2 x float> %.sroa.08.4.vec.insert.i65.i569, ptr %809, align 4
+  store float %864, ptr %.sroa.233.0..sroa_idx.i554, align 4
   br label %CameraYaw.exit580
 
-CameraYaw.exit580:                                ; preds = %877, %881
-  %885 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
-  %886 = trunc nuw i8 %885 to i1
-  br i1 %886, label %887, label %GetGamepadAxisMovement.exit583
+CameraYaw.exit580:                                ; preds = %857, %861
+  %865 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
+  %866 = trunc nuw i8 %865 to i1
+  br i1 %866, label %867, label %GetGamepadAxisMovement.exit583
 
-887:                                              ; preds = %CameraYaw.exit580
-  %888 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2860), align 4
-  %889 = fcmp ueq float %888, 0.000000e+00
-  br i1 %889, label %GetGamepadAxisMovement.exit583, label %890
+867:                                              ; preds = %CameraYaw.exit580
+  %868 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2860), align 4
+  %869 = fcmp ueq float %868, 0.000000e+00
+  br i1 %869, label %GetGamepadAxisMovement.exit583, label %870
 
-890:                                              ; preds = %887
-  %891 = fmul float %888, -2.000000e+00
-  %892 = fmul float %891, 0x3F689374C0000000
+870:                                              ; preds = %867
+  %871 = fmul float %868, -2.000000e+00
+  %872 = fmul float %871, 0x3F689374C0000000
   br label %GetGamepadAxisMovement.exit583
 
-GetGamepadAxisMovement.exit583:                   ; preds = %CameraYaw.exit580, %887, %890
-  %.0.i582 = phi float [ -0.000000e+00, %CameraYaw.exit580 ], [ %892, %890 ], [ -0.000000e+00, %887 ]
+GetGamepadAxisMovement.exit583:                   ; preds = %CameraYaw.exit580, %867, %870
+  %.0.i582 = phi float [ -0.000000e+00, %CameraYaw.exit580 ], [ %872, %870 ], [ -0.000000e+00, %867 ]
   tail call void @CameraPitch(ptr noundef nonnull %0, float noundef %.0.i582, i1 noundef zeroext %17, i1 noundef zeroext %13, i1 noundef zeroext false)
-  %893 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
-  %894 = trunc nuw i8 %893 to i1
-  br i1 %894, label %895, label %GetGamepadAxisMovement.exit711.thread
+  %873 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3, !noundef !4
+  %874 = trunc nuw i8 %873 to i1
+  br i1 %874, label %875, label %GetGamepadAxisMovement.exit711.thread
 
-895:                                              ; preds = %GetGamepadAxisMovement.exit583
-  %896 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2852), align 4
-  %897 = fcmp ueq float %896, 0.000000e+00
-  %898 = fcmp ugt float %896, -2.500000e-01
-  %or.cond = or i1 %897, %898
-  br i1 %or.cond, label %GetGamepadAxisMovement.exit586.thread.thread, label %899
+875:                                              ; preds = %GetGamepadAxisMovement.exit583
+  %876 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2852), align 4
+  %877 = fcmp ueq float %876, 0.000000e+00
+  %878 = fcmp ugt float %876, -2.500000e-01
+  %or.cond = or i1 %877, %878
+  br i1 %or.cond, label %GetGamepadAxisMovement.exit586.thread.thread, label %879
 
-899:                                              ; preds = %895
-  %.sroa.011.0.copyload.i.i587 = load <2 x float>, ptr %827, align 4
+879:                                              ; preds = %875
+  %.sroa.011.0.copyload.i.i587 = load <2 x float>, ptr %809, align 4
   %.sroa.212.0.copyload.i.i589 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.09.0.copyload.i.i590 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i592 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
   %.sroa.06.0.vec.extract.i.i.i593 = extractelement <2 x float> %.sroa.011.0.copyload.i.i587, i64 0
   %.sroa.03.0.vec.extract.i.i.i594 = extractelement <2 x float> %.sroa.09.0.copyload.i.i590, i64 0
-  %900 = fsub <2 x float> %.sroa.011.0.copyload.i.i587, %.sroa.09.0.copyload.i.i590
-  %901 = extractelement <2 x float> %900, i64 0
+  %foldExtExtBinop947 = fsub <2 x float> %.sroa.011.0.copyload.i.i587, %.sroa.09.0.copyload.i.i590
+  %880 = extractelement <2 x float> %foldExtExtBinop947, i64 0
   %.sroa.06.4.vec.extract.i.i.i596 = extractelement <2 x float> %.sroa.011.0.copyload.i.i587, i64 1
   %.sroa.03.4.vec.extract.i.i.i597 = extractelement <2 x float> %.sroa.09.0.copyload.i.i590, i64 1
-  %902 = fsub float %.sroa.06.4.vec.extract.i.i.i596, %.sroa.03.4.vec.extract.i.i.i597
-  %.sroa.08.4.vec.insert.i.i.i598 = insertelement <2 x float> %900, float %902, i64 1
-  %903 = fsub float %.sroa.212.0.copyload.i.i589, %.sroa.210.0.copyload.i.i592
-  %904 = fmul float %902, %902
-  %905 = tail call float @llvm.fmuladd.f32(float %901, float %901, float %904)
-  %906 = tail call float @llvm.fmuladd.f32(float %903, float %903, float %905)
-  %907 = fcmp une float %906, 0.000000e+00
-  br i1 %907, label %908, label %GetCameraForward.exit.i599
+  %881 = fsub float %.sroa.06.4.vec.extract.i.i.i596, %.sroa.03.4.vec.extract.i.i.i597
+  %.sroa.08.4.vec.insert.i.i.i598 = insertelement <2 x float> %foldExtExtBinop947, float %881, i64 1
+  %882 = fsub float %.sroa.212.0.copyload.i.i589, %.sroa.210.0.copyload.i.i592
+  %883 = fmul float %881, %881
+  %884 = tail call float @llvm.fmuladd.f32(float %880, float %880, float %883)
+  %885 = tail call float @llvm.fmuladd.f32(float %882, float %882, float %884)
+  %886 = fcmp une float %885, 0.000000e+00
+  br i1 %886, label %887, label %GetCameraForward.exit.i599
 
-908:                                              ; preds = %899
-  %sqrt.i.i.i615 = tail call float @llvm.sqrt.f32(float %906)
-  %909 = fdiv float 1.000000e+00, %sqrt.i.i.i615
-  %910 = fmul float %901, %909
-  %.sroa.013.0.vec.insert.i.i.i616 = insertelement <2 x float> poison, float %910, i64 0
-  %911 = fmul float %902, %909
-  %.sroa.013.4.vec.insert.i.i.i617 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i616, float %911, i64 1
-  %912 = fmul float %903, %909
+887:                                              ; preds = %879
+  %sqrt.i.i.i615 = tail call float @llvm.sqrt.f32(float %885)
+  %888 = fdiv float 1.000000e+00, %sqrt.i.i.i615
+  %889 = fmul float %880, %888
+  %.sroa.013.0.vec.insert.i.i.i616 = insertelement <2 x float> poison, float %889, i64 0
+  %890 = fmul float %881, %888
+  %.sroa.013.4.vec.insert.i.i.i617 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i616, float %890, i64 1
+  %891 = fmul float %882, %888
   br label %GetCameraForward.exit.i599
 
-GetCameraForward.exit.i599:                       ; preds = %908, %899
-  %.sroa.013.0.i.i.i600 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i617, %908 ], [ %.sroa.08.4.vec.insert.i.i.i598, %899 ]
-  %.sroa.617.0.i.i.i601 = phi float [ %912, %908 ], [ %903, %899 ]
-  br i1 %11, label %913, label %GetGamepadAxisMovement.exit586.thread
+GetCameraForward.exit.i599:                       ; preds = %887, %879
+  %.sroa.013.0.i.i.i600 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i617, %887 ], [ %.sroa.08.4.vec.insert.i.i.i598, %879 ]
+  %.sroa.617.0.i.i.i601 = phi float [ %891, %887 ], [ %882, %879 ]
+  br i1 %11, label %892, label %GetGamepadAxisMovement.exit586.thread
 
-913:                                              ; preds = %GetCameraForward.exit.i599
+892:                                              ; preds = %GetCameraForward.exit.i599
   %.sroa.036.4.vec.insert.i610 = insertelement <2 x float> %.sroa.013.0.i.i.i600, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i611 = extractelement <2 x float> %.sroa.013.0.i.i.i600, i64 0
-  %914 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i611, float %.sroa.07.0.vec.extract.i.i611, float 0.000000e+00)
-  %915 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i601, float %.sroa.617.0.i.i.i601, float %914)
-  %916 = fcmp une float %915, 0.000000e+00
-  br i1 %916, label %917, label %GetGamepadAxisMovement.exit586.thread
+  %893 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i611, float %.sroa.07.0.vec.extract.i.i611, float 0.000000e+00)
+  %894 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i601, float %.sroa.617.0.i.i.i601, float %893)
+  %895 = fcmp une float %894, 0.000000e+00
+  br i1 %895, label %896, label %GetGamepadAxisMovement.exit586.thread
 
-917:                                              ; preds = %913
-  %sqrt.i.i612 = tail call float @llvm.sqrt.f32(float %915)
-  %918 = fdiv float 1.000000e+00, %sqrt.i.i612
-  %919 = fmul float %.sroa.07.0.vec.extract.i.i611, %918
-  %.sroa.013.0.vec.insert.i.i613 = insertelement <2 x float> poison, float %919, i64 0
-  %920 = fmul float %918, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i614 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i613, float %920, i64 1
-  %921 = fmul float %.sroa.617.0.i.i.i601, %918
+896:                                              ; preds = %892
+  %sqrt.i.i612 = tail call float @llvm.sqrt.f32(float %894)
+  %897 = fdiv float 1.000000e+00, %sqrt.i.i612
+  %898 = fmul float %.sroa.07.0.vec.extract.i.i611, %897
+  %.sroa.013.0.vec.insert.i.i613 = insertelement <2 x float> poison, float %898, i64 0
+  %899 = fmul float %897, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i614 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i613, float %899, i64 1
+  %900 = fmul float %.sroa.617.0.i.i.i601, %897
   br label %GetGamepadAxisMovement.exit586.thread
 
-GetGamepadAxisMovement.exit586.thread:            ; preds = %917, %913, %GetCameraForward.exit.i599
-  %.sroa.036.0.i602 = phi <2 x float> [ %.sroa.013.0.i.i.i600, %GetCameraForward.exit.i599 ], [ %.sroa.013.4.vec.insert.i.i614, %917 ], [ %.sroa.036.4.vec.insert.i610, %913 ]
-  %.sroa.10.0.i603 = phi float [ %.sroa.617.0.i.i.i601, %GetCameraForward.exit.i599 ], [ %921, %917 ], [ %.sroa.617.0.i.i.i601, %913 ]
+GetGamepadAxisMovement.exit586.thread:            ; preds = %896, %892, %GetCameraForward.exit.i599
+  %.sroa.036.0.i602 = phi <2 x float> [ %.sroa.013.0.i.i.i600, %GetCameraForward.exit.i599 ], [ %.sroa.013.4.vec.insert.i.i614, %896 ], [ %.sroa.036.4.vec.insert.i610, %892 ]
+  %.sroa.10.0.i603 = phi float [ %.sroa.617.0.i.i.i601, %GetCameraForward.exit.i599 ], [ %900, %896 ], [ %.sroa.617.0.i.i.i601, %892 ]
   %.sroa.05.0.vec.extract.i.i604 = extractelement <2 x float> %.sroa.036.0.i602, i64 0
-  %922 = fmul float %20, %.sroa.05.0.vec.extract.i.i604
+  %901 = fmul float %20, %.sroa.05.0.vec.extract.i.i604
   %.sroa.05.4.vec.extract.i.i605 = extractelement <2 x float> %.sroa.036.0.i602, i64 1
-  %923 = fmul float %20, %.sroa.05.4.vec.extract.i.i605
-  %924 = fmul float %20, %.sroa.10.0.i603
-  %925 = fadd float %.sroa.03.0.vec.extract.i.i.i594, %922
-  %.sroa.08.0.vec.insert.i.i606 = insertelement <2 x float> poison, float %925, i64 0
-  %926 = fadd float %.sroa.03.4.vec.extract.i.i.i597, %923
-  %.sroa.08.4.vec.insert.i.i607 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i606, float %926, i64 1
-  %927 = fadd float %.sroa.210.0.copyload.i.i592, %924
+  %902 = fmul float %20, %.sroa.05.4.vec.extract.i.i605
+  %903 = fmul float %20, %.sroa.10.0.i603
+  %904 = fadd float %.sroa.03.0.vec.extract.i.i.i594, %901
+  %.sroa.08.0.vec.insert.i.i606 = insertelement <2 x float> poison, float %904, i64 0
+  %905 = fadd float %.sroa.03.4.vec.extract.i.i.i597, %902
+  %.sroa.08.4.vec.insert.i.i607 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i606, float %905, i64 1
+  %906 = fadd float %.sroa.210.0.copyload.i.i592, %903
   store <2 x float> %.sroa.08.4.vec.insert.i.i607, ptr %0, align 4
-  store float %927, ptr %.sroa.231.0..sroa_idx.i557, align 4
-  %928 = fadd float %.sroa.06.0.vec.extract.i.i.i593, %922
-  %.sroa.08.0.vec.insert.i51.i608 = insertelement <2 x float> poison, float %928, i64 0
-  %929 = fadd float %.sroa.06.4.vec.extract.i.i.i596, %923
-  %.sroa.08.4.vec.insert.i54.i609 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i608, float %929, i64 1
-  %930 = fadd float %.sroa.212.0.copyload.i.i589, %924
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i609, ptr %827, align 4
-  store float %930, ptr %.sroa.233.0..sroa_idx.i554, align 4
+  store float %906, ptr %.sroa.231.0..sroa_idx.i557, align 4
+  %907 = fadd float %.sroa.06.0.vec.extract.i.i.i593, %901
+  %.sroa.08.0.vec.insert.i51.i608 = insertelement <2 x float> poison, float %907, i64 0
+  %908 = fadd float %.sroa.06.4.vec.extract.i.i.i596, %902
+  %.sroa.08.4.vec.insert.i54.i609 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i608, float %908, i64 1
+  %909 = fadd float %.sroa.212.0.copyload.i.i589, %903
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i609, ptr %809, align 4
+  store float %909, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3
-  %931 = trunc nuw i8 %.pre to i1
-  br i1 %931, label %GetGamepadAxisMovement.exit586.thread.thread, label %GetGamepadAxisMovement.exit711.thread
+  %910 = trunc nuw i8 %.pre to i1
+  br i1 %910, label %GetGamepadAxisMovement.exit586.thread.thread, label %GetGamepadAxisMovement.exit711.thread
 
-GetGamepadAxisMovement.exit586.thread.thread:     ; preds = %895, %GetGamepadAxisMovement.exit586.thread
-  %932 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), align 8
-  %933 = fcmp ueq float %932, 0.000000e+00
-  %934 = fcmp ugt float %932, -2.500000e-01
-  %or.cond887 = or i1 %933, %934
-  br i1 %or.cond887, label %GetGamepadAxisMovement.exit621.thread.thread906, label %935
+GetGamepadAxisMovement.exit586.thread.thread:     ; preds = %875, %GetGamepadAxisMovement.exit586.thread
+  %911 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), align 8
+  %912 = fcmp ueq float %911, 0.000000e+00
+  %913 = fcmp ugt float %911, -2.500000e-01
+  %or.cond887 = or i1 %912, %913
+  br i1 %or.cond887, label %GetGamepadAxisMovement.exit621.thread.thread906, label %914
 
-935:                                              ; preds = %GetGamepadAxisMovement.exit586.thread.thread
-  %936 = fneg float %20
-  %.sroa.011.0.copyload.i.i.i622 = load <2 x float>, ptr %827, align 4
+914:                                              ; preds = %GetGamepadAxisMovement.exit586.thread.thread
+  %915 = fneg float %20
+  %.sroa.011.0.copyload.i.i.i622 = load <2 x float>, ptr %809, align 4
   %.sroa.212.0.copyload.i.i.i624 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.09.0.copyload.i.i.i625 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i.i627 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
   %.sroa.06.0.vec.extract.i.i.i.i628 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i622, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i629 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i625, i64 0
-  %937 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i622, %.sroa.09.0.copyload.i.i.i625
-  %938 = extractelement <2 x float> %937, i64 0
+  %foldExtExtBinop949 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i622, %.sroa.09.0.copyload.i.i.i625
+  %916 = extractelement <2 x float> %foldExtExtBinop949, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i631 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i622, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i632 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i625, i64 1
-  %939 = fsub float %.sroa.06.4.vec.extract.i.i.i.i631, %.sroa.03.4.vec.extract.i.i.i.i632
-  %.sroa.08.4.vec.insert.i.i.i.i633 = insertelement <2 x float> %937, float %939, i64 1
-  %940 = fsub float %.sroa.212.0.copyload.i.i.i624, %.sroa.210.0.copyload.i.i.i627
-  %941 = fmul float %939, %939
-  %942 = tail call float @llvm.fmuladd.f32(float %938, float %938, float %941)
-  %943 = tail call float @llvm.fmuladd.f32(float %940, float %940, float %942)
-  %944 = fcmp une float %943, 0.000000e+00
-  br i1 %944, label %945, label %GetCameraForward.exit.i.i634
+  %917 = fsub float %.sroa.06.4.vec.extract.i.i.i.i631, %.sroa.03.4.vec.extract.i.i.i.i632
+  %.sroa.08.4.vec.insert.i.i.i.i633 = insertelement <2 x float> %foldExtExtBinop949, float %917, i64 1
+  %918 = fsub float %.sroa.212.0.copyload.i.i.i624, %.sroa.210.0.copyload.i.i.i627
+  %919 = fmul float %917, %917
+  %920 = tail call float @llvm.fmuladd.f32(float %916, float %916, float %919)
+  %921 = tail call float @llvm.fmuladd.f32(float %918, float %918, float %920)
+  %922 = fcmp une float %921, 0.000000e+00
+  br i1 %922, label %923, label %GetCameraForward.exit.i.i634
 
-945:                                              ; preds = %935
-  %sqrt.i.i.i.i670 = tail call float @llvm.sqrt.f32(float %943)
-  %946 = fdiv float 1.000000e+00, %sqrt.i.i.i.i670
-  %947 = fmul float %938, %946
-  %.sroa.013.0.vec.insert.i.i.i.i671 = insertelement <2 x float> poison, float %947, i64 0
-  %948 = fmul float %939, %946
-  %.sroa.013.4.vec.insert.i.i.i.i672 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i671, float %948, i64 1
-  %949 = fmul float %940, %946
+923:                                              ; preds = %914
+  %sqrt.i.i.i.i670 = tail call float @llvm.sqrt.f32(float %921)
+  %924 = fdiv float 1.000000e+00, %sqrt.i.i.i.i670
+  %925 = fmul float %916, %924
+  %.sroa.013.0.vec.insert.i.i.i.i671 = insertelement <2 x float> poison, float %925, i64 0
+  %926 = fmul float %917, %924
+  %.sroa.013.4.vec.insert.i.i.i.i672 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i671, float %926, i64 1
+  %927 = fmul float %918, %924
   br label %GetCameraForward.exit.i.i634
 
-GetCameraForward.exit.i.i634:                     ; preds = %945, %935
-  %.sroa.013.0.i.i.i.i635 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i672, %945 ], [ %.sroa.08.4.vec.insert.i.i.i.i633, %935 ]
-  %.sroa.617.0.i.i.i.i636 = phi float [ %949, %945 ], [ %940, %935 ]
-  %.sroa.03.0.copyload.i.i.i637 = load <2 x float>, ptr %817, align 4
+GetCameraForward.exit.i.i634:                     ; preds = %923, %914
+  %.sroa.013.0.i.i.i.i635 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i672, %923 ], [ %.sroa.08.4.vec.insert.i.i.i.i633, %914 ]
+  %.sroa.617.0.i.i.i.i636 = phi float [ %927, %923 ], [ %918, %914 ]
+  %.sroa.03.0.copyload.i.i.i637 = load <2 x float>, ptr %799, align 4
   %.sroa.24.0.copyload.i.i.i639 = load float, ptr %.sroa.24.0..sroa_idx.i.i544, align 4
   %.sroa.07.0.vec.extract.i.i.i.i640 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i637, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i641 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i637, i64 1
-  %950 = fmul float %.sroa.07.4.vec.extract.i.i.i.i641, %.sroa.07.4.vec.extract.i.i.i.i641
-  %951 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i640, float %.sroa.07.0.vec.extract.i.i.i.i640, float %950)
-  %952 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i639, float %.sroa.24.0.copyload.i.i.i639, float %951)
-  %953 = fcmp une float %952, 0.000000e+00
-  br i1 %953, label %954, label %GetCameraUp.exit.i.i642
+  %928 = fmul float %.sroa.07.4.vec.extract.i.i.i.i641, %.sroa.07.4.vec.extract.i.i.i.i641
+  %929 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i640, float %.sroa.07.0.vec.extract.i.i.i.i640, float %928)
+  %930 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i639, float %.sroa.24.0.copyload.i.i.i639, float %929)
+  %931 = fcmp une float %930, 0.000000e+00
+  br i1 %931, label %932, label %GetCameraUp.exit.i.i642
 
-954:                                              ; preds = %GetCameraForward.exit.i.i634
-  %sqrt.i.i31.i.i669 = tail call float @llvm.sqrt.f32(float %952)
-  %955 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i669
-  %956 = fmul float %.sroa.07.0.vec.extract.i.i.i.i640, %955
-  %957 = fmul float %.sroa.07.4.vec.extract.i.i.i.i641, %955
-  %958 = fmul float %.sroa.24.0.copyload.i.i.i639, %955
+932:                                              ; preds = %GetCameraForward.exit.i.i634
+  %sqrt.i.i31.i.i669 = tail call float @llvm.sqrt.f32(float %930)
+  %933 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i669
+  %934 = fmul float %.sroa.07.0.vec.extract.i.i.i.i640, %933
+  %935 = fmul float %.sroa.07.4.vec.extract.i.i.i.i641, %933
+  %936 = fmul float %.sroa.24.0.copyload.i.i.i639, %933
   br label %GetCameraUp.exit.i.i642
 
-GetCameraUp.exit.i.i642:                          ; preds = %954, %GetCameraForward.exit.i.i634
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i643 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i640, %GetCameraForward.exit.i.i634 ], [ %956, %954 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i644 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i641, %GetCameraForward.exit.i.i634 ], [ %957, %954 ]
-  %.sroa.617.0.i.i30.i.i645 = phi float [ %.sroa.24.0.copyload.i.i.i639, %GetCameraForward.exit.i.i634 ], [ %958, %954 ]
+GetCameraUp.exit.i.i642:                          ; preds = %932, %GetCameraForward.exit.i.i634
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i643 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i640, %GetCameraForward.exit.i.i634 ], [ %934, %932 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i644 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i641, %GetCameraForward.exit.i.i634 ], [ %935, %932 ]
+  %.sroa.617.0.i.i30.i.i645 = phi float [ %.sroa.24.0.copyload.i.i.i639, %GetCameraForward.exit.i.i634 ], [ %936, %932 ]
   %.sroa.011.4.vec.extract.i.i.i646 = extractelement <2 x float> %.sroa.013.0.i.i.i.i635, i64 1
-  %959 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i644
-  %960 = fmul float %.sroa.617.0.i.i.i.i636, %959
-  %961 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i646, float %.sroa.617.0.i.i30.i.i645, float %960)
-  %.sroa.018.0.vec.insert.i.i.i647 = insertelement <2 x float> poison, float %961, i64 0
+  %937 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i644
+  %938 = fmul float %.sroa.617.0.i.i.i.i636, %937
+  %939 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i646, float %.sroa.617.0.i.i30.i.i645, float %938)
+  %.sroa.018.0.vec.insert.i.i.i647 = insertelement <2 x float> poison, float %939, i64 0
   %.sroa.011.0.vec.extract.i.i.i648 = extractelement <2 x float> %.sroa.013.0.i.i.i.i635, i64 0
-  %962 = fneg float %.sroa.617.0.i.i30.i.i645
-  %963 = fmul float %.sroa.011.0.vec.extract.i.i.i648, %962
-  %964 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i636, float %.sroa.03.0.vec.extract.i.pre-phi.i.i643, float %963)
-  %.sroa.018.4.vec.insert.i.i.i649 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i647, float %964, i64 1
-  %965 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i643
-  %966 = fmul float %.sroa.011.4.vec.extract.i.i.i646, %965
-  %967 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i648, float %.sroa.03.4.vec.extract.i.pre-phi.i.i644, float %966)
-  %968 = fmul float %964, %964
-  %969 = tail call float @llvm.fmuladd.f32(float %961, float %961, float %968)
-  %970 = tail call float @llvm.fmuladd.f32(float %967, float %967, float %969)
-  %971 = fcmp une float %970, 0.000000e+00
-  br i1 %971, label %972, label %GetCameraRight.exit.i650
+  %940 = fneg float %.sroa.617.0.i.i30.i.i645
+  %941 = fmul float %.sroa.011.0.vec.extract.i.i.i648, %940
+  %942 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i636, float %.sroa.03.0.vec.extract.i.pre-phi.i.i643, float %941)
+  %.sroa.018.4.vec.insert.i.i.i649 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i647, float %942, i64 1
+  %943 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i643
+  %944 = fmul float %.sroa.011.4.vec.extract.i.i.i646, %943
+  %945 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i648, float %.sroa.03.4.vec.extract.i.pre-phi.i.i644, float %944)
+  %946 = fmul float %942, %942
+  %947 = tail call float @llvm.fmuladd.f32(float %939, float %939, float %946)
+  %948 = tail call float @llvm.fmuladd.f32(float %945, float %945, float %947)
+  %949 = fcmp une float %948, 0.000000e+00
+  br i1 %949, label %950, label %GetCameraRight.exit.i650
 
-972:                                              ; preds = %GetCameraUp.exit.i.i642
-  %sqrt.i.i.i666 = tail call float @llvm.sqrt.f32(float %970)
-  %973 = fdiv float 1.000000e+00, %sqrt.i.i.i666
-  %974 = fmul float %961, %973
-  %.sroa.013.0.vec.insert.i.i.i667 = insertelement <2 x float> poison, float %974, i64 0
-  %975 = fmul float %964, %973
-  %.sroa.013.4.vec.insert.i.i.i668 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i667, float %975, i64 1
-  %976 = fmul float %967, %973
+950:                                              ; preds = %GetCameraUp.exit.i.i642
+  %sqrt.i.i.i666 = tail call float @llvm.sqrt.f32(float %948)
+  %951 = fdiv float 1.000000e+00, %sqrt.i.i.i666
+  %952 = fmul float %939, %951
+  %.sroa.013.0.vec.insert.i.i.i667 = insertelement <2 x float> poison, float %952, i64 0
+  %953 = fmul float %942, %951
+  %.sroa.013.4.vec.insert.i.i.i668 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i667, float %953, i64 1
+  %954 = fmul float %945, %951
   br label %GetCameraRight.exit.i650
 
-GetCameraRight.exit.i650:                         ; preds = %972, %GetCameraUp.exit.i.i642
-  %.sroa.013.0.i.i.i651 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i668, %972 ], [ %.sroa.018.4.vec.insert.i.i.i649, %GetCameraUp.exit.i.i642 ]
-  %.sroa.617.0.i.i.i652 = phi float [ %976, %972 ], [ %967, %GetCameraUp.exit.i.i642 ]
-  br i1 %11, label %977, label %GetGamepadAxisMovement.exit621.thread
+GetCameraRight.exit.i650:                         ; preds = %950, %GetCameraUp.exit.i.i642
+  %.sroa.013.0.i.i.i651 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i668, %950 ], [ %.sroa.018.4.vec.insert.i.i.i649, %GetCameraUp.exit.i.i642 ]
+  %.sroa.617.0.i.i.i652 = phi float [ %954, %950 ], [ %945, %GetCameraUp.exit.i.i642 ]
+  br i1 %11, label %955, label %GetGamepadAxisMovement.exit621.thread
 
-977:                                              ; preds = %GetCameraRight.exit.i650
+955:                                              ; preds = %GetCameraRight.exit.i650
   %.sroa.036.4.vec.insert.i661 = insertelement <2 x float> %.sroa.013.0.i.i.i651, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i662 = extractelement <2 x float> %.sroa.013.0.i.i.i651, i64 0
-  %978 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i662, float %.sroa.07.0.vec.extract.i.i662, float 0.000000e+00)
-  %979 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i652, float %.sroa.617.0.i.i.i652, float %978)
-  %980 = fcmp une float %979, 0.000000e+00
-  br i1 %980, label %981, label %GetGamepadAxisMovement.exit621.thread
+  %956 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i662, float %.sroa.07.0.vec.extract.i.i662, float 0.000000e+00)
+  %957 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i652, float %.sroa.617.0.i.i.i652, float %956)
+  %958 = fcmp une float %957, 0.000000e+00
+  br i1 %958, label %959, label %GetGamepadAxisMovement.exit621.thread
 
-981:                                              ; preds = %977
-  %sqrt.i.i663 = tail call float @llvm.sqrt.f32(float %979)
-  %982 = fdiv float 1.000000e+00, %sqrt.i.i663
-  %983 = fmul float %.sroa.07.0.vec.extract.i.i662, %982
-  %.sroa.013.0.vec.insert.i.i664 = insertelement <2 x float> poison, float %983, i64 0
-  %984 = fmul float %982, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i665 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i664, float %984, i64 1
-  %985 = fmul float %.sroa.617.0.i.i.i652, %982
+959:                                              ; preds = %955
+  %sqrt.i.i663 = tail call float @llvm.sqrt.f32(float %957)
+  %960 = fdiv float 1.000000e+00, %sqrt.i.i663
+  %961 = fmul float %.sroa.07.0.vec.extract.i.i662, %960
+  %.sroa.013.0.vec.insert.i.i664 = insertelement <2 x float> poison, float %961, i64 0
+  %962 = fmul float %960, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i665 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i664, float %962, i64 1
+  %963 = fmul float %.sroa.617.0.i.i.i652, %960
   br label %GetGamepadAxisMovement.exit621.thread
 
-GetGamepadAxisMovement.exit621.thread:            ; preds = %981, %977, %GetCameraRight.exit.i650
-  %.sroa.036.0.i653 = phi <2 x float> [ %.sroa.013.0.i.i.i651, %GetCameraRight.exit.i650 ], [ %.sroa.013.4.vec.insert.i.i665, %981 ], [ %.sroa.036.4.vec.insert.i661, %977 ]
-  %.sroa.10.0.i654 = phi float [ %.sroa.617.0.i.i.i652, %GetCameraRight.exit.i650 ], [ %985, %981 ], [ %.sroa.617.0.i.i.i652, %977 ]
+GetGamepadAxisMovement.exit621.thread:            ; preds = %959, %955, %GetCameraRight.exit.i650
+  %.sroa.036.0.i653 = phi <2 x float> [ %.sroa.013.0.i.i.i651, %GetCameraRight.exit.i650 ], [ %.sroa.013.4.vec.insert.i.i665, %959 ], [ %.sroa.036.4.vec.insert.i661, %955 ]
+  %.sroa.10.0.i654 = phi float [ %.sroa.617.0.i.i.i652, %GetCameraRight.exit.i650 ], [ %963, %959 ], [ %.sroa.617.0.i.i.i652, %955 ]
   %.sroa.05.0.vec.extract.i.i655 = extractelement <2 x float> %.sroa.036.0.i653, i64 0
-  %986 = fmul float %.sroa.05.0.vec.extract.i.i655, %936
+  %964 = fmul float %.sroa.05.0.vec.extract.i.i655, %915
   %.sroa.05.4.vec.extract.i.i656 = extractelement <2 x float> %.sroa.036.0.i653, i64 1
-  %987 = fmul float %.sroa.05.4.vec.extract.i.i656, %936
-  %988 = fmul float %.sroa.10.0.i654, %936
-  %989 = fadd float %.sroa.03.0.vec.extract.i.i.i.i629, %986
-  %.sroa.08.0.vec.insert.i.i657 = insertelement <2 x float> poison, float %989, i64 0
-  %990 = fadd float %.sroa.03.4.vec.extract.i.i.i.i632, %987
-  %.sroa.08.4.vec.insert.i.i658 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i657, float %990, i64 1
-  %991 = fadd float %.sroa.210.0.copyload.i.i.i627, %988
+  %965 = fmul float %.sroa.05.4.vec.extract.i.i656, %915
+  %966 = fmul float %.sroa.10.0.i654, %915
+  %967 = fadd float %.sroa.03.0.vec.extract.i.i.i.i629, %964
+  %.sroa.08.0.vec.insert.i.i657 = insertelement <2 x float> poison, float %967, i64 0
+  %968 = fadd float %.sroa.03.4.vec.extract.i.i.i.i632, %965
+  %.sroa.08.4.vec.insert.i.i658 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i657, float %968, i64 1
+  %969 = fadd float %.sroa.210.0.copyload.i.i.i627, %966
   store <2 x float> %.sroa.08.4.vec.insert.i.i658, ptr %0, align 4
-  store float %991, ptr %.sroa.231.0..sroa_idx.i557, align 4
-  %992 = fadd float %.sroa.06.0.vec.extract.i.i.i.i628, %986
-  %.sroa.08.0.vec.insert.i51.i659 = insertelement <2 x float> poison, float %992, i64 0
-  %993 = fadd float %.sroa.06.4.vec.extract.i.i.i.i631, %987
-  %.sroa.08.4.vec.insert.i54.i660 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i659, float %993, i64 1
-  %994 = fadd float %.sroa.212.0.copyload.i.i.i624, %988
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i660, ptr %827, align 4
-  store float %994, ptr %.sroa.233.0..sroa_idx.i554, align 4
+  store float %969, ptr %.sroa.231.0..sroa_idx.i557, align 4
+  %970 = fadd float %.sroa.06.0.vec.extract.i.i.i.i628, %964
+  %.sroa.08.0.vec.insert.i51.i659 = insertelement <2 x float> poison, float %970, i64 0
+  %971 = fadd float %.sroa.06.4.vec.extract.i.i.i.i631, %965
+  %.sroa.08.4.vec.insert.i54.i660 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i659, float %971, i64 1
+  %972 = fadd float %.sroa.212.0.copyload.i.i.i624, %966
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i660, ptr %809, align 4
+  store float %972, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.pre894 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3
-  %995 = trunc nuw i8 %.pre894 to i1
-  br i1 %995, label %GetGamepadAxisMovement.exit621.thread.thread906, label %GetGamepadAxisMovement.exit711.thread
+  %973 = trunc nuw i8 %.pre894 to i1
+  br i1 %973, label %GetGamepadAxisMovement.exit621.thread.thread906, label %GetGamepadAxisMovement.exit711.thread
 
 GetGamepadAxisMovement.exit621.thread.thread906:  ; preds = %GetGamepadAxisMovement.exit586.thread.thread, %GetGamepadAxisMovement.exit621.thread
-  %996 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2852), align 4
-  %997 = fcmp ueq float %996, 0.000000e+00
-  %998 = fcmp ult float %996, 2.500000e-01
-  %or.cond888 = or i1 %997, %998
-  br i1 %or.cond888, label %GetGamepadAxisMovement.exit676.thread.thread907, label %999
+  %974 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2852), align 4
+  %975 = fcmp ueq float %974, 0.000000e+00
+  %976 = fcmp ult float %974, 2.500000e-01
+  %or.cond888 = or i1 %975, %976
+  br i1 %or.cond888, label %GetGamepadAxisMovement.exit676.thread.thread907, label %977
 
-999:                                              ; preds = %GetGamepadAxisMovement.exit621.thread.thread906
-  %1000 = fneg float %20
-  %.sroa.011.0.copyload.i.i677 = load <2 x float>, ptr %827, align 4
+977:                                              ; preds = %GetGamepadAxisMovement.exit621.thread.thread906
+  %978 = fneg float %20
+  %.sroa.011.0.copyload.i.i677 = load <2 x float>, ptr %809, align 4
   %.sroa.212.0.copyload.i.i679 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.09.0.copyload.i.i680 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i682 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
   %.sroa.06.0.vec.extract.i.i.i683 = extractelement <2 x float> %.sroa.011.0.copyload.i.i677, i64 0
   %.sroa.03.0.vec.extract.i.i.i684 = extractelement <2 x float> %.sroa.09.0.copyload.i.i680, i64 0
-  %1001 = fsub <2 x float> %.sroa.011.0.copyload.i.i677, %.sroa.09.0.copyload.i.i680
-  %1002 = extractelement <2 x float> %1001, i64 0
+  %foldExtExtBinop951 = fsub <2 x float> %.sroa.011.0.copyload.i.i677, %.sroa.09.0.copyload.i.i680
+  %979 = extractelement <2 x float> %foldExtExtBinop951, i64 0
   %.sroa.06.4.vec.extract.i.i.i686 = extractelement <2 x float> %.sroa.011.0.copyload.i.i677, i64 1
   %.sroa.03.4.vec.extract.i.i.i687 = extractelement <2 x float> %.sroa.09.0.copyload.i.i680, i64 1
-  %1003 = fsub float %.sroa.06.4.vec.extract.i.i.i686, %.sroa.03.4.vec.extract.i.i.i687
-  %.sroa.08.4.vec.insert.i.i.i688 = insertelement <2 x float> %1001, float %1003, i64 1
-  %1004 = fsub float %.sroa.212.0.copyload.i.i679, %.sroa.210.0.copyload.i.i682
-  %1005 = fmul float %1003, %1003
-  %1006 = tail call float @llvm.fmuladd.f32(float %1002, float %1002, float %1005)
-  %1007 = tail call float @llvm.fmuladd.f32(float %1004, float %1004, float %1006)
-  %1008 = fcmp une float %1007, 0.000000e+00
-  br i1 %1008, label %1009, label %GetCameraForward.exit.i689
+  %980 = fsub float %.sroa.06.4.vec.extract.i.i.i686, %.sroa.03.4.vec.extract.i.i.i687
+  %.sroa.08.4.vec.insert.i.i.i688 = insertelement <2 x float> %foldExtExtBinop951, float %980, i64 1
+  %981 = fsub float %.sroa.212.0.copyload.i.i679, %.sroa.210.0.copyload.i.i682
+  %982 = fmul float %980, %980
+  %983 = tail call float @llvm.fmuladd.f32(float %979, float %979, float %982)
+  %984 = tail call float @llvm.fmuladd.f32(float %981, float %981, float %983)
+  %985 = fcmp une float %984, 0.000000e+00
+  br i1 %985, label %986, label %GetCameraForward.exit.i689
 
-1009:                                             ; preds = %999
-  %sqrt.i.i.i705 = tail call float @llvm.sqrt.f32(float %1007)
-  %1010 = fdiv float 1.000000e+00, %sqrt.i.i.i705
-  %1011 = fmul float %1002, %1010
-  %.sroa.013.0.vec.insert.i.i.i706 = insertelement <2 x float> poison, float %1011, i64 0
-  %1012 = fmul float %1003, %1010
-  %.sroa.013.4.vec.insert.i.i.i707 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i706, float %1012, i64 1
-  %1013 = fmul float %1004, %1010
+986:                                              ; preds = %977
+  %sqrt.i.i.i705 = tail call float @llvm.sqrt.f32(float %984)
+  %987 = fdiv float 1.000000e+00, %sqrt.i.i.i705
+  %988 = fmul float %979, %987
+  %.sroa.013.0.vec.insert.i.i.i706 = insertelement <2 x float> poison, float %988, i64 0
+  %989 = fmul float %980, %987
+  %.sroa.013.4.vec.insert.i.i.i707 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i706, float %989, i64 1
+  %990 = fmul float %981, %987
   br label %GetCameraForward.exit.i689
 
-GetCameraForward.exit.i689:                       ; preds = %1009, %999
-  %.sroa.013.0.i.i.i690 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i707, %1009 ], [ %.sroa.08.4.vec.insert.i.i.i688, %999 ]
-  %.sroa.617.0.i.i.i691 = phi float [ %1013, %1009 ], [ %1004, %999 ]
-  br i1 %11, label %1014, label %GetGamepadAxisMovement.exit676.thread
+GetCameraForward.exit.i689:                       ; preds = %986, %977
+  %.sroa.013.0.i.i.i690 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i707, %986 ], [ %.sroa.08.4.vec.insert.i.i.i688, %977 ]
+  %.sroa.617.0.i.i.i691 = phi float [ %990, %986 ], [ %981, %977 ]
+  br i1 %11, label %991, label %GetGamepadAxisMovement.exit676.thread
 
-1014:                                             ; preds = %GetCameraForward.exit.i689
+991:                                              ; preds = %GetCameraForward.exit.i689
   %.sroa.036.4.vec.insert.i700 = insertelement <2 x float> %.sroa.013.0.i.i.i690, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i701 = extractelement <2 x float> %.sroa.013.0.i.i.i690, i64 0
-  %1015 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i701, float %.sroa.07.0.vec.extract.i.i701, float 0.000000e+00)
-  %1016 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i691, float %.sroa.617.0.i.i.i691, float %1015)
-  %1017 = fcmp une float %1016, 0.000000e+00
-  br i1 %1017, label %1018, label %GetGamepadAxisMovement.exit676.thread
+  %992 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i701, float %.sroa.07.0.vec.extract.i.i701, float 0.000000e+00)
+  %993 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i691, float %.sroa.617.0.i.i.i691, float %992)
+  %994 = fcmp une float %993, 0.000000e+00
+  br i1 %994, label %995, label %GetGamepadAxisMovement.exit676.thread
 
-1018:                                             ; preds = %1014
-  %sqrt.i.i702 = tail call float @llvm.sqrt.f32(float %1016)
-  %1019 = fdiv float 1.000000e+00, %sqrt.i.i702
-  %1020 = fmul float %.sroa.07.0.vec.extract.i.i701, %1019
-  %.sroa.013.0.vec.insert.i.i703 = insertelement <2 x float> poison, float %1020, i64 0
-  %1021 = fmul float %1019, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i704 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i703, float %1021, i64 1
-  %1022 = fmul float %.sroa.617.0.i.i.i691, %1019
+995:                                              ; preds = %991
+  %sqrt.i.i702 = tail call float @llvm.sqrt.f32(float %993)
+  %996 = fdiv float 1.000000e+00, %sqrt.i.i702
+  %997 = fmul float %.sroa.07.0.vec.extract.i.i701, %996
+  %.sroa.013.0.vec.insert.i.i703 = insertelement <2 x float> poison, float %997, i64 0
+  %998 = fmul float %996, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i704 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i703, float %998, i64 1
+  %999 = fmul float %.sroa.617.0.i.i.i691, %996
   br label %GetGamepadAxisMovement.exit676.thread
 
-GetGamepadAxisMovement.exit676.thread:            ; preds = %1018, %1014, %GetCameraForward.exit.i689
-  %.sroa.036.0.i692 = phi <2 x float> [ %.sroa.013.0.i.i.i690, %GetCameraForward.exit.i689 ], [ %.sroa.013.4.vec.insert.i.i704, %1018 ], [ %.sroa.036.4.vec.insert.i700, %1014 ]
-  %.sroa.10.0.i693 = phi float [ %.sroa.617.0.i.i.i691, %GetCameraForward.exit.i689 ], [ %1022, %1018 ], [ %.sroa.617.0.i.i.i691, %1014 ]
+GetGamepadAxisMovement.exit676.thread:            ; preds = %995, %991, %GetCameraForward.exit.i689
+  %.sroa.036.0.i692 = phi <2 x float> [ %.sroa.013.0.i.i.i690, %GetCameraForward.exit.i689 ], [ %.sroa.013.4.vec.insert.i.i704, %995 ], [ %.sroa.036.4.vec.insert.i700, %991 ]
+  %.sroa.10.0.i693 = phi float [ %.sroa.617.0.i.i.i691, %GetCameraForward.exit.i689 ], [ %999, %995 ], [ %.sroa.617.0.i.i.i691, %991 ]
   %.sroa.05.0.vec.extract.i.i694 = extractelement <2 x float> %.sroa.036.0.i692, i64 0
-  %1023 = fmul float %.sroa.05.0.vec.extract.i.i694, %1000
+  %1000 = fmul float %.sroa.05.0.vec.extract.i.i694, %978
   %.sroa.05.4.vec.extract.i.i695 = extractelement <2 x float> %.sroa.036.0.i692, i64 1
-  %1024 = fmul float %.sroa.05.4.vec.extract.i.i695, %1000
-  %1025 = fmul float %.sroa.10.0.i693, %1000
-  %1026 = fadd float %.sroa.03.0.vec.extract.i.i.i684, %1023
-  %.sroa.08.0.vec.insert.i.i696 = insertelement <2 x float> poison, float %1026, i64 0
-  %1027 = fadd float %.sroa.03.4.vec.extract.i.i.i687, %1024
-  %.sroa.08.4.vec.insert.i.i697 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i696, float %1027, i64 1
-  %1028 = fadd float %.sroa.210.0.copyload.i.i682, %1025
+  %1001 = fmul float %.sroa.05.4.vec.extract.i.i695, %978
+  %1002 = fmul float %.sroa.10.0.i693, %978
+  %1003 = fadd float %.sroa.03.0.vec.extract.i.i.i684, %1000
+  %.sroa.08.0.vec.insert.i.i696 = insertelement <2 x float> poison, float %1003, i64 0
+  %1004 = fadd float %.sroa.03.4.vec.extract.i.i.i687, %1001
+  %.sroa.08.4.vec.insert.i.i697 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i696, float %1004, i64 1
+  %1005 = fadd float %.sroa.210.0.copyload.i.i682, %1002
   store <2 x float> %.sroa.08.4.vec.insert.i.i697, ptr %0, align 4
-  store float %1028, ptr %.sroa.231.0..sroa_idx.i557, align 4
-  %1029 = fadd float %.sroa.06.0.vec.extract.i.i.i683, %1023
-  %.sroa.08.0.vec.insert.i51.i698 = insertelement <2 x float> poison, float %1029, i64 0
-  %1030 = fadd float %.sroa.06.4.vec.extract.i.i.i686, %1024
-  %.sroa.08.4.vec.insert.i54.i699 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i698, float %1030, i64 1
-  %1031 = fadd float %.sroa.212.0.copyload.i.i679, %1025
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i699, ptr %827, align 4
-  store float %1031, ptr %.sroa.233.0..sroa_idx.i554, align 4
+  store float %1005, ptr %.sroa.231.0..sroa_idx.i557, align 4
+  %1006 = fadd float %.sroa.06.0.vec.extract.i.i.i683, %1000
+  %.sroa.08.0.vec.insert.i51.i698 = insertelement <2 x float> poison, float %1006, i64 0
+  %1007 = fadd float %.sroa.06.4.vec.extract.i.i.i686, %1001
+  %.sroa.08.4.vec.insert.i54.i699 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i698, float %1007, i64 1
+  %1008 = fadd float %.sroa.212.0.copyload.i.i679, %1002
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i699, ptr %809, align 4
+  store float %1008, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.pre895 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3
-  %1032 = trunc nuw i8 %.pre895 to i1
-  br i1 %1032, label %GetGamepadAxisMovement.exit676.thread.thread907, label %GetGamepadAxisMovement.exit711.thread
+  %1009 = trunc nuw i8 %.pre895 to i1
+  br i1 %1009, label %GetGamepadAxisMovement.exit676.thread.thread907, label %GetGamepadAxisMovement.exit711.thread
 
 GetGamepadAxisMovement.exit676.thread.thread907:  ; preds = %GetGamepadAxisMovement.exit621.thread.thread906, %GetGamepadAxisMovement.exit676.thread
-  %1033 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), align 8
-  %1034 = fcmp ueq float %1033, 0.000000e+00
-  %1035 = fcmp ult float %1033, 2.500000e-01
-  %or.cond889 = or i1 %1034, %1035
-  br i1 %or.cond889, label %GetGamepadAxisMovement.exit711.thread, label %1036
+  %1010 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), align 8
+  %1011 = fcmp ueq float %1010, 0.000000e+00
+  %1012 = fcmp ult float %1010, 2.500000e-01
+  %or.cond889 = or i1 %1011, %1012
+  br i1 %or.cond889, label %GetGamepadAxisMovement.exit711.thread, label %1013
 
-1036:                                             ; preds = %GetGamepadAxisMovement.exit676.thread.thread907
-  %.sroa.011.0.copyload.i.i.i712 = load <2 x float>, ptr %827, align 4
+1013:                                             ; preds = %GetGamepadAxisMovement.exit676.thread.thread907
+  %.sroa.011.0.copyload.i.i.i712 = load <2 x float>, ptr %809, align 4
   %.sroa.212.0.copyload.i.i.i714 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.09.0.copyload.i.i.i715 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i.i717 = load float, ptr %.sroa.231.0..sroa_idx.i557, align 4
   %.sroa.06.0.vec.extract.i.i.i.i718 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i712, i64 0
   %.sroa.03.0.vec.extract.i.i.i.i719 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i715, i64 0
-  %1037 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i712, %.sroa.09.0.copyload.i.i.i715
-  %1038 = extractelement <2 x float> %1037, i64 0
+  %foldExtExtBinop953 = fsub <2 x float> %.sroa.011.0.copyload.i.i.i712, %.sroa.09.0.copyload.i.i.i715
+  %1014 = extractelement <2 x float> %foldExtExtBinop953, i64 0
   %.sroa.06.4.vec.extract.i.i.i.i721 = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i712, i64 1
   %.sroa.03.4.vec.extract.i.i.i.i722 = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i715, i64 1
-  %1039 = fsub float %.sroa.06.4.vec.extract.i.i.i.i721, %.sroa.03.4.vec.extract.i.i.i.i722
-  %.sroa.08.4.vec.insert.i.i.i.i723 = insertelement <2 x float> %1037, float %1039, i64 1
-  %1040 = fsub float %.sroa.212.0.copyload.i.i.i714, %.sroa.210.0.copyload.i.i.i717
-  %1041 = fmul float %1039, %1039
-  %1042 = tail call float @llvm.fmuladd.f32(float %1038, float %1038, float %1041)
-  %1043 = tail call float @llvm.fmuladd.f32(float %1040, float %1040, float %1042)
-  %1044 = fcmp une float %1043, 0.000000e+00
-  br i1 %1044, label %1045, label %GetCameraForward.exit.i.i724
+  %1015 = fsub float %.sroa.06.4.vec.extract.i.i.i.i721, %.sroa.03.4.vec.extract.i.i.i.i722
+  %.sroa.08.4.vec.insert.i.i.i.i723 = insertelement <2 x float> %foldExtExtBinop953, float %1015, i64 1
+  %1016 = fsub float %.sroa.212.0.copyload.i.i.i714, %.sroa.210.0.copyload.i.i.i717
+  %1017 = fmul float %1015, %1015
+  %1018 = tail call float @llvm.fmuladd.f32(float %1014, float %1014, float %1017)
+  %1019 = tail call float @llvm.fmuladd.f32(float %1016, float %1016, float %1018)
+  %1020 = fcmp une float %1019, 0.000000e+00
+  br i1 %1020, label %1021, label %GetCameraForward.exit.i.i724
 
-1045:                                             ; preds = %1036
-  %sqrt.i.i.i.i760 = tail call float @llvm.sqrt.f32(float %1043)
-  %1046 = fdiv float 1.000000e+00, %sqrt.i.i.i.i760
-  %1047 = fmul float %1038, %1046
-  %.sroa.013.0.vec.insert.i.i.i.i761 = insertelement <2 x float> poison, float %1047, i64 0
-  %1048 = fmul float %1039, %1046
-  %.sroa.013.4.vec.insert.i.i.i.i762 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i761, float %1048, i64 1
-  %1049 = fmul float %1040, %1046
+1021:                                             ; preds = %1013
+  %sqrt.i.i.i.i760 = tail call float @llvm.sqrt.f32(float %1019)
+  %1022 = fdiv float 1.000000e+00, %sqrt.i.i.i.i760
+  %1023 = fmul float %1014, %1022
+  %.sroa.013.0.vec.insert.i.i.i.i761 = insertelement <2 x float> poison, float %1023, i64 0
+  %1024 = fmul float %1015, %1022
+  %.sroa.013.4.vec.insert.i.i.i.i762 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i761, float %1024, i64 1
+  %1025 = fmul float %1016, %1022
   br label %GetCameraForward.exit.i.i724
 
-GetCameraForward.exit.i.i724:                     ; preds = %1045, %1036
-  %.sroa.013.0.i.i.i.i725 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i762, %1045 ], [ %.sroa.08.4.vec.insert.i.i.i.i723, %1036 ]
-  %.sroa.617.0.i.i.i.i726 = phi float [ %1049, %1045 ], [ %1040, %1036 ]
-  %.sroa.03.0.copyload.i.i.i727 = load <2 x float>, ptr %817, align 4
+GetCameraForward.exit.i.i724:                     ; preds = %1021, %1013
+  %.sroa.013.0.i.i.i.i725 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i762, %1021 ], [ %.sroa.08.4.vec.insert.i.i.i.i723, %1013 ]
+  %.sroa.617.0.i.i.i.i726 = phi float [ %1025, %1021 ], [ %1016, %1013 ]
+  %.sroa.03.0.copyload.i.i.i727 = load <2 x float>, ptr %799, align 4
   %.sroa.24.0.copyload.i.i.i729 = load float, ptr %.sroa.24.0..sroa_idx.i.i544, align 4
   %.sroa.07.0.vec.extract.i.i.i.i730 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i727, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i731 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i727, i64 1
-  %1050 = fmul float %.sroa.07.4.vec.extract.i.i.i.i731, %.sroa.07.4.vec.extract.i.i.i.i731
-  %1051 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i730, float %.sroa.07.0.vec.extract.i.i.i.i730, float %1050)
-  %1052 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i729, float %.sroa.24.0.copyload.i.i.i729, float %1051)
-  %1053 = fcmp une float %1052, 0.000000e+00
-  br i1 %1053, label %1054, label %GetCameraUp.exit.i.i732
+  %1026 = fmul float %.sroa.07.4.vec.extract.i.i.i.i731, %.sroa.07.4.vec.extract.i.i.i.i731
+  %1027 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i.i730, float %.sroa.07.0.vec.extract.i.i.i.i730, float %1026)
+  %1028 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i.i729, float %.sroa.24.0.copyload.i.i.i729, float %1027)
+  %1029 = fcmp une float %1028, 0.000000e+00
+  br i1 %1029, label %1030, label %GetCameraUp.exit.i.i732
 
-1054:                                             ; preds = %GetCameraForward.exit.i.i724
-  %sqrt.i.i31.i.i759 = tail call float @llvm.sqrt.f32(float %1052)
-  %1055 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i759
-  %1056 = fmul float %.sroa.07.0.vec.extract.i.i.i.i730, %1055
-  %1057 = fmul float %.sroa.07.4.vec.extract.i.i.i.i731, %1055
-  %1058 = fmul float %.sroa.24.0.copyload.i.i.i729, %1055
+1030:                                             ; preds = %GetCameraForward.exit.i.i724
+  %sqrt.i.i31.i.i759 = tail call float @llvm.sqrt.f32(float %1028)
+  %1031 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i759
+  %1032 = fmul float %.sroa.07.0.vec.extract.i.i.i.i730, %1031
+  %1033 = fmul float %.sroa.07.4.vec.extract.i.i.i.i731, %1031
+  %1034 = fmul float %.sroa.24.0.copyload.i.i.i729, %1031
   br label %GetCameraUp.exit.i.i732
 
-GetCameraUp.exit.i.i732:                          ; preds = %1054, %GetCameraForward.exit.i.i724
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i733 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i730, %GetCameraForward.exit.i.i724 ], [ %1056, %1054 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i734 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i731, %GetCameraForward.exit.i.i724 ], [ %1057, %1054 ]
-  %.sroa.617.0.i.i30.i.i735 = phi float [ %.sroa.24.0.copyload.i.i.i729, %GetCameraForward.exit.i.i724 ], [ %1058, %1054 ]
+GetCameraUp.exit.i.i732:                          ; preds = %1030, %GetCameraForward.exit.i.i724
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i733 = phi float [ %.sroa.07.0.vec.extract.i.i.i.i730, %GetCameraForward.exit.i.i724 ], [ %1032, %1030 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i734 = phi float [ %.sroa.07.4.vec.extract.i.i.i.i731, %GetCameraForward.exit.i.i724 ], [ %1033, %1030 ]
+  %.sroa.617.0.i.i30.i.i735 = phi float [ %.sroa.24.0.copyload.i.i.i729, %GetCameraForward.exit.i.i724 ], [ %1034, %1030 ]
   %.sroa.011.4.vec.extract.i.i.i736 = extractelement <2 x float> %.sroa.013.0.i.i.i.i725, i64 1
-  %1059 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i734
-  %1060 = fmul float %.sroa.617.0.i.i.i.i726, %1059
-  %1061 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i736, float %.sroa.617.0.i.i30.i.i735, float %1060)
-  %.sroa.018.0.vec.insert.i.i.i737 = insertelement <2 x float> poison, float %1061, i64 0
+  %1035 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i734
+  %1036 = fmul float %.sroa.617.0.i.i.i.i726, %1035
+  %1037 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i736, float %.sroa.617.0.i.i30.i.i735, float %1036)
+  %.sroa.018.0.vec.insert.i.i.i737 = insertelement <2 x float> poison, float %1037, i64 0
   %.sroa.011.0.vec.extract.i.i.i738 = extractelement <2 x float> %.sroa.013.0.i.i.i.i725, i64 0
-  %1062 = fneg float %.sroa.617.0.i.i30.i.i735
-  %1063 = fmul float %.sroa.011.0.vec.extract.i.i.i738, %1062
-  %1064 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i726, float %.sroa.03.0.vec.extract.i.pre-phi.i.i733, float %1063)
-  %.sroa.018.4.vec.insert.i.i.i739 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i737, float %1064, i64 1
-  %1065 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i733
-  %1066 = fmul float %.sroa.011.4.vec.extract.i.i.i736, %1065
-  %1067 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i738, float %.sroa.03.4.vec.extract.i.pre-phi.i.i734, float %1066)
-  %1068 = fmul float %1064, %1064
-  %1069 = tail call float @llvm.fmuladd.f32(float %1061, float %1061, float %1068)
-  %1070 = tail call float @llvm.fmuladd.f32(float %1067, float %1067, float %1069)
-  %1071 = fcmp une float %1070, 0.000000e+00
-  br i1 %1071, label %1072, label %GetCameraRight.exit.i740
+  %1038 = fneg float %.sroa.617.0.i.i30.i.i735
+  %1039 = fmul float %.sroa.011.0.vec.extract.i.i.i738, %1038
+  %1040 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i726, float %.sroa.03.0.vec.extract.i.pre-phi.i.i733, float %1039)
+  %.sroa.018.4.vec.insert.i.i.i739 = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i737, float %1040, i64 1
+  %1041 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i733
+  %1042 = fmul float %.sroa.011.4.vec.extract.i.i.i736, %1041
+  %1043 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i738, float %.sroa.03.4.vec.extract.i.pre-phi.i.i734, float %1042)
+  %1044 = fmul float %1040, %1040
+  %1045 = tail call float @llvm.fmuladd.f32(float %1037, float %1037, float %1044)
+  %1046 = tail call float @llvm.fmuladd.f32(float %1043, float %1043, float %1045)
+  %1047 = fcmp une float %1046, 0.000000e+00
+  br i1 %1047, label %1048, label %GetCameraRight.exit.i740
 
-1072:                                             ; preds = %GetCameraUp.exit.i.i732
-  %sqrt.i.i.i756 = tail call float @llvm.sqrt.f32(float %1070)
-  %1073 = fdiv float 1.000000e+00, %sqrt.i.i.i756
-  %1074 = fmul float %1061, %1073
-  %.sroa.013.0.vec.insert.i.i.i757 = insertelement <2 x float> poison, float %1074, i64 0
-  %1075 = fmul float %1064, %1073
-  %.sroa.013.4.vec.insert.i.i.i758 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i757, float %1075, i64 1
-  %1076 = fmul float %1067, %1073
+1048:                                             ; preds = %GetCameraUp.exit.i.i732
+  %sqrt.i.i.i756 = tail call float @llvm.sqrt.f32(float %1046)
+  %1049 = fdiv float 1.000000e+00, %sqrt.i.i.i756
+  %1050 = fmul float %1037, %1049
+  %.sroa.013.0.vec.insert.i.i.i757 = insertelement <2 x float> poison, float %1050, i64 0
+  %1051 = fmul float %1040, %1049
+  %.sroa.013.4.vec.insert.i.i.i758 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i757, float %1051, i64 1
+  %1052 = fmul float %1043, %1049
   br label %GetCameraRight.exit.i740
 
-GetCameraRight.exit.i740:                         ; preds = %1072, %GetCameraUp.exit.i.i732
-  %.sroa.013.0.i.i.i741 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i758, %1072 ], [ %.sroa.018.4.vec.insert.i.i.i739, %GetCameraUp.exit.i.i732 ]
-  %.sroa.617.0.i.i.i742 = phi float [ %1076, %1072 ], [ %1067, %GetCameraUp.exit.i.i732 ]
-  br i1 %11, label %1077, label %CameraMoveRight.exit763
+GetCameraRight.exit.i740:                         ; preds = %1048, %GetCameraUp.exit.i.i732
+  %.sroa.013.0.i.i.i741 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i758, %1048 ], [ %.sroa.018.4.vec.insert.i.i.i739, %GetCameraUp.exit.i.i732 ]
+  %.sroa.617.0.i.i.i742 = phi float [ %1052, %1048 ], [ %1043, %GetCameraUp.exit.i.i732 ]
+  br i1 %11, label %1053, label %CameraMoveRight.exit763
 
-1077:                                             ; preds = %GetCameraRight.exit.i740
+1053:                                             ; preds = %GetCameraRight.exit.i740
   %.sroa.036.4.vec.insert.i751 = insertelement <2 x float> %.sroa.013.0.i.i.i741, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i752 = extractelement <2 x float> %.sroa.013.0.i.i.i741, i64 0
-  %1078 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i752, float %.sroa.07.0.vec.extract.i.i752, float 0.000000e+00)
-  %1079 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i742, float %.sroa.617.0.i.i.i742, float %1078)
-  %1080 = fcmp une float %1079, 0.000000e+00
-  br i1 %1080, label %1081, label %CameraMoveRight.exit763
+  %1054 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i752, float %.sroa.07.0.vec.extract.i.i752, float 0.000000e+00)
+  %1055 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i742, float %.sroa.617.0.i.i.i742, float %1054)
+  %1056 = fcmp une float %1055, 0.000000e+00
+  br i1 %1056, label %1057, label %CameraMoveRight.exit763
 
-1081:                                             ; preds = %1077
-  %sqrt.i.i753 = tail call float @llvm.sqrt.f32(float %1079)
-  %1082 = fdiv float 1.000000e+00, %sqrt.i.i753
-  %1083 = fmul float %.sroa.07.0.vec.extract.i.i752, %1082
-  %.sroa.013.0.vec.insert.i.i754 = insertelement <2 x float> poison, float %1083, i64 0
-  %1084 = fmul float %1082, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i755 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i754, float %1084, i64 1
-  %1085 = fmul float %.sroa.617.0.i.i.i742, %1082
+1057:                                             ; preds = %1053
+  %sqrt.i.i753 = tail call float @llvm.sqrt.f32(float %1055)
+  %1058 = fdiv float 1.000000e+00, %sqrt.i.i753
+  %1059 = fmul float %.sroa.07.0.vec.extract.i.i752, %1058
+  %.sroa.013.0.vec.insert.i.i754 = insertelement <2 x float> poison, float %1059, i64 0
+  %1060 = fmul float %1058, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i755 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i754, float %1060, i64 1
+  %1061 = fmul float %.sroa.617.0.i.i.i742, %1058
   br label %CameraMoveRight.exit763
 
-CameraMoveRight.exit763:                          ; preds = %GetCameraRight.exit.i740, %1077, %1081
-  %.sroa.036.0.i743 = phi <2 x float> [ %.sroa.013.0.i.i.i741, %GetCameraRight.exit.i740 ], [ %.sroa.013.4.vec.insert.i.i755, %1081 ], [ %.sroa.036.4.vec.insert.i751, %1077 ]
-  %.sroa.10.0.i744 = phi float [ %.sroa.617.0.i.i.i742, %GetCameraRight.exit.i740 ], [ %1085, %1081 ], [ %.sroa.617.0.i.i.i742, %1077 ]
+CameraMoveRight.exit763:                          ; preds = %GetCameraRight.exit.i740, %1053, %1057
+  %.sroa.036.0.i743 = phi <2 x float> [ %.sroa.013.0.i.i.i741, %GetCameraRight.exit.i740 ], [ %.sroa.013.4.vec.insert.i.i755, %1057 ], [ %.sroa.036.4.vec.insert.i751, %1053 ]
+  %.sroa.10.0.i744 = phi float [ %.sroa.617.0.i.i.i742, %GetCameraRight.exit.i740 ], [ %1061, %1057 ], [ %.sroa.617.0.i.i.i742, %1053 ]
   %.sroa.05.0.vec.extract.i.i745 = extractelement <2 x float> %.sroa.036.0.i743, i64 0
-  %1086 = fmul float %20, %.sroa.05.0.vec.extract.i.i745
+  %1062 = fmul float %20, %.sroa.05.0.vec.extract.i.i745
   %.sroa.05.4.vec.extract.i.i746 = extractelement <2 x float> %.sroa.036.0.i743, i64 1
-  %1087 = fmul float %20, %.sroa.05.4.vec.extract.i.i746
-  %1088 = fmul float %20, %.sroa.10.0.i744
-  %1089 = fadd float %.sroa.03.0.vec.extract.i.i.i.i719, %1086
-  %.sroa.08.0.vec.insert.i.i747 = insertelement <2 x float> poison, float %1089, i64 0
-  %1090 = fadd float %.sroa.03.4.vec.extract.i.i.i.i722, %1087
-  %.sroa.08.4.vec.insert.i.i748 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i747, float %1090, i64 1
-  %1091 = fadd float %.sroa.210.0.copyload.i.i.i717, %1088
+  %1063 = fmul float %20, %.sroa.05.4.vec.extract.i.i746
+  %1064 = fmul float %20, %.sroa.10.0.i744
+  %1065 = fadd float %.sroa.03.0.vec.extract.i.i.i.i719, %1062
+  %.sroa.08.0.vec.insert.i.i747 = insertelement <2 x float> poison, float %1065, i64 0
+  %1066 = fadd float %.sroa.03.4.vec.extract.i.i.i.i722, %1063
+  %.sroa.08.4.vec.insert.i.i748 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i747, float %1066, i64 1
+  %1067 = fadd float %.sroa.210.0.copyload.i.i.i717, %1064
   store <2 x float> %.sroa.08.4.vec.insert.i.i748, ptr %0, align 4
-  store float %1091, ptr %.sroa.231.0..sroa_idx.i557, align 4
-  %1092 = fadd float %.sroa.06.0.vec.extract.i.i.i.i718, %1086
-  %.sroa.08.0.vec.insert.i51.i749 = insertelement <2 x float> poison, float %1092, i64 0
-  %1093 = fadd float %.sroa.06.4.vec.extract.i.i.i.i721, %1087
-  %.sroa.08.4.vec.insert.i54.i750 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i749, float %1093, i64 1
-  %1094 = fadd float %.sroa.212.0.copyload.i.i.i714, %1088
-  store <2 x float> %.sroa.08.4.vec.insert.i54.i750, ptr %827, align 4
-  store float %1094, ptr %.sroa.233.0..sroa_idx.i554, align 4
+  store float %1067, ptr %.sroa.231.0..sroa_idx.i557, align 4
+  %1068 = fadd float %.sroa.06.0.vec.extract.i.i.i.i718, %1062
+  %.sroa.08.0.vec.insert.i51.i749 = insertelement <2 x float> poison, float %1068, i64 0
+  %1069 = fadd float %.sroa.06.4.vec.extract.i.i.i.i721, %1063
+  %.sroa.08.4.vec.insert.i54.i750 = insertelement <2 x float> %.sroa.08.0.vec.insert.i51.i749, float %1069, i64 1
+  %1070 = fadd float %.sroa.212.0.copyload.i.i.i714, %1064
+  store <2 x float> %.sroa.08.4.vec.insert.i54.i750, ptr %809, align 4
+  store float %1070, ptr %.sroa.233.0..sroa_idx.i554, align 4
   br label %GetGamepadAxisMovement.exit711.thread
 
-GetGamepadAxisMovement.exit711.thread:            ; preds = %GetGamepadAxisMovement.exit583, %GetGamepadAxisMovement.exit586.thread, %GetGamepadAxisMovement.exit621.thread, %GetGamepadAxisMovement.exit676.thread.thread907, %GetGamepadAxisMovement.exit676.thread, %CameraMoveRight.exit763, %810
-  br i1 %14, label %1095, label %1144
+GetGamepadAxisMovement.exit711.thread:            ; preds = %GetGamepadAxisMovement.exit583, %GetGamepadAxisMovement.exit586.thread, %GetGamepadAxisMovement.exit621.thread, %GetGamepadAxisMovement.exit676.thread.thread907, %GetGamepadAxisMovement.exit676.thread, %CameraMoveRight.exit763, %792
+  br i1 %14, label %1071, label %1120
 
-1095:                                             ; preds = %GetGamepadAxisMovement.exit711.thread
-  %1096 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 228), align 4
-  %1097 = icmp eq i8 %1096, 1
-  br i1 %1097, label %1098, label %1119
+1071:                                             ; preds = %GetGamepadAxisMovement.exit711.thread
+  %1072 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 228), align 4
+  %1073 = icmp eq i8 %1072, 1
+  br i1 %1073, label %1074, label %1095
 
-1098:                                             ; preds = %1095
-  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i765 = load <2 x float>, ptr %1099, align 4
+1074:                                             ; preds = %1071
+  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i765 = load <2 x float>, ptr %1075, align 4
   %.sroa.24.0..sroa_idx.i.i766 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i767 = load float, ptr %.sroa.24.0..sroa_idx.i.i766, align 4
   %.sroa.07.0.vec.extract.i.i.i768 = extractelement <2 x float> %.sroa.03.0.copyload.i.i765, i64 0
   %.sroa.07.4.vec.extract.i.i.i769 = extractelement <2 x float> %.sroa.03.0.copyload.i.i765, i64 1
-  %1100 = fmul float %.sroa.07.4.vec.extract.i.i.i769, %.sroa.07.4.vec.extract.i.i.i769
-  %1101 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i768, float %.sroa.07.0.vec.extract.i.i.i768, float %1100)
-  %1102 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i767, float %.sroa.24.0.copyload.i.i767, float %1101)
-  %1103 = fcmp une float %1102, 0.000000e+00
-  br i1 %1103, label %1104, label %CameraMoveUp.exit789
+  %1076 = fmul float %.sroa.07.4.vec.extract.i.i.i769, %.sroa.07.4.vec.extract.i.i.i769
+  %1077 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i768, float %.sroa.07.0.vec.extract.i.i.i768, float %1076)
+  %1078 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i767, float %.sroa.24.0.copyload.i.i767, float %1077)
+  %1079 = fcmp une float %1078, 0.000000e+00
+  br i1 %1079, label %1080, label %CameraMoveUp.exit789
 
-1104:                                             ; preds = %1098
-  %sqrt.i.i.i788 = tail call float @llvm.sqrt.f32(float %1102)
-  %1105 = fdiv float 1.000000e+00, %sqrt.i.i.i788
-  %1106 = fmul float %.sroa.07.0.vec.extract.i.i.i768, %1105
-  %1107 = fmul float %.sroa.07.4.vec.extract.i.i.i769, %1105
-  %1108 = fmul float %.sroa.24.0.copyload.i.i767, %1105
+1080:                                             ; preds = %1074
+  %sqrt.i.i.i788 = tail call float @llvm.sqrt.f32(float %1078)
+  %1081 = fdiv float 1.000000e+00, %sqrt.i.i.i788
+  %1082 = fmul float %.sroa.07.0.vec.extract.i.i.i768, %1081
+  %1083 = fmul float %.sroa.07.4.vec.extract.i.i.i769, %1081
+  %1084 = fmul float %.sroa.24.0.copyload.i.i767, %1081
   br label %CameraMoveUp.exit789
 
-CameraMoveUp.exit789:                             ; preds = %1098, %1104
-  %.sroa.05.4.vec.extract.i.pre-phi.i771 = phi float [ %.sroa.07.4.vec.extract.i.i.i769, %1098 ], [ %1107, %1104 ]
-  %.sroa.05.0.vec.extract.i.pre-phi.i772 = phi float [ %.sroa.07.0.vec.extract.i.i.i768, %1098 ], [ %1106, %1104 ]
-  %.sroa.617.0.i.i.i773 = phi float [ %.sroa.24.0.copyload.i.i767, %1098 ], [ %1108, %1104 ]
-  %1109 = fmul float %20, %.sroa.05.0.vec.extract.i.pre-phi.i772
-  %1110 = fmul float %20, %.sroa.05.4.vec.extract.i.pre-phi.i771
-  %1111 = fmul float %20, %.sroa.617.0.i.i.i773
+CameraMoveUp.exit789:                             ; preds = %1074, %1080
+  %.sroa.05.4.vec.extract.i.pre-phi.i771 = phi float [ %.sroa.07.4.vec.extract.i.i.i769, %1074 ], [ %1083, %1080 ]
+  %.sroa.05.0.vec.extract.i.pre-phi.i772 = phi float [ %.sroa.07.0.vec.extract.i.i.i768, %1074 ], [ %1082, %1080 ]
+  %.sroa.617.0.i.i.i773 = phi float [ %.sroa.24.0.copyload.i.i767, %1074 ], [ %1084, %1080 ]
+  %1085 = fmul float %20, %.sroa.05.0.vec.extract.i.pre-phi.i772
+  %1086 = fmul float %20, %.sroa.05.4.vec.extract.i.pre-phi.i771
+  %1087 = fmul float %20, %.sroa.617.0.i.i.i773
   %.sroa.012.0.copyload.i774 = load <2 x float>, ptr %0, align 4
   %.sroa.213.0..sroa_idx.i775 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.213.0.copyload.i776 = load float, ptr %.sroa.213.0..sroa_idx.i775, align 4
   %.sroa.06.0.vec.extract.i.i777 = extractelement <2 x float> %.sroa.012.0.copyload.i774, i64 0
-  %1112 = fadd float %1109, %.sroa.06.0.vec.extract.i.i777
-  %.sroa.08.0.vec.insert.i.i778 = insertelement <2 x float> poison, float %1112, i64 0
+  %1088 = fadd float %1085, %.sroa.06.0.vec.extract.i.i777
+  %.sroa.08.0.vec.insert.i.i778 = insertelement <2 x float> poison, float %1088, i64 0
   %.sroa.06.4.vec.extract.i.i779 = extractelement <2 x float> %.sroa.012.0.copyload.i774, i64 1
-  %1113 = fadd float %1110, %.sroa.06.4.vec.extract.i.i779
-  %.sroa.08.4.vec.insert.i.i780 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i778, float %1113, i64 1
-  %1114 = fadd float %1111, %.sroa.213.0.copyload.i776
+  %1089 = fadd float %1086, %.sroa.06.4.vec.extract.i.i779
+  %.sroa.08.4.vec.insert.i.i780 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i778, float %1089, i64 1
+  %1090 = fadd float %1087, %.sroa.213.0.copyload.i776
   store <2 x float> %.sroa.08.4.vec.insert.i.i780, ptr %0, align 4
-  store float %1114, ptr %.sroa.213.0..sroa_idx.i775, align 4
-  %1115 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.03.0.copyload.i781 = load <2 x float>, ptr %1115, align 4
+  store float %1090, ptr %.sroa.213.0..sroa_idx.i775, align 4
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.03.0.copyload.i781 = load <2 x float>, ptr %1091, align 4
   %.sroa.24.0..sroa_idx.i782 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.24.0.copyload.i783 = load float, ptr %.sroa.24.0..sroa_idx.i782, align 4
   %.sroa.06.0.vec.extract.i38.i784 = extractelement <2 x float> %.sroa.03.0.copyload.i781, i64 0
-  %1116 = fadd float %1109, %.sroa.06.0.vec.extract.i38.i784
-  %.sroa.08.0.vec.insert.i40.i785 = insertelement <2 x float> poison, float %1116, i64 0
+  %1092 = fadd float %1085, %.sroa.06.0.vec.extract.i38.i784
+  %.sroa.08.0.vec.insert.i40.i785 = insertelement <2 x float> poison, float %1092, i64 0
   %.sroa.06.4.vec.extract.i41.i786 = extractelement <2 x float> %.sroa.03.0.copyload.i781, i64 1
-  %1117 = fadd float %1110, %.sroa.06.4.vec.extract.i41.i786
-  %.sroa.08.4.vec.insert.i43.i787 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i785, float %1117, i64 1
-  %1118 = fadd float %1111, %.sroa.24.0.copyload.i783
-  store <2 x float> %.sroa.08.4.vec.insert.i43.i787, ptr %1115, align 4
-  store float %1118, ptr %.sroa.24.0..sroa_idx.i782, align 4
-  br label %1119
+  %1093 = fadd float %1086, %.sroa.06.4.vec.extract.i41.i786
+  %.sroa.08.4.vec.insert.i43.i787 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i785, float %1093, i64 1
+  %1094 = fadd float %1087, %.sroa.24.0.copyload.i783
+  store <2 x float> %.sroa.08.4.vec.insert.i43.i787, ptr %1091, align 4
+  store float %1094, ptr %.sroa.24.0..sroa_idx.i782, align 4
+  br label %1095
 
-1119:                                             ; preds = %CameraMoveUp.exit789, %1095
-  %1120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 537), align 1
-  %1121 = icmp eq i8 %1120, 1
-  br i1 %1121, label %1122, label %.thread
+1095:                                             ; preds = %CameraMoveUp.exit789, %1071
+  %1096 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 537), align 1
+  %1097 = icmp eq i8 %1096, 1
+  br i1 %1097, label %1098, label %.thread
 
-1122:                                             ; preds = %1119
-  %1123 = fneg float %20
-  %1124 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i791 = load <2 x float>, ptr %1124, align 4
+1098:                                             ; preds = %1095
+  %1099 = fneg float %20
+  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i791 = load <2 x float>, ptr %1100, align 4
   %.sroa.24.0..sroa_idx.i.i792 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i793 = load float, ptr %.sroa.24.0..sroa_idx.i.i792, align 4
   %.sroa.07.0.vec.extract.i.i.i794 = extractelement <2 x float> %.sroa.03.0.copyload.i.i791, i64 0
   %.sroa.07.4.vec.extract.i.i.i795 = extractelement <2 x float> %.sroa.03.0.copyload.i.i791, i64 1
-  %1125 = fmul float %.sroa.07.4.vec.extract.i.i.i795, %.sroa.07.4.vec.extract.i.i.i795
-  %1126 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i794, float %.sroa.07.0.vec.extract.i.i.i794, float %1125)
-  %1127 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i793, float %.sroa.24.0.copyload.i.i793, float %1126)
-  %1128 = fcmp une float %1127, 0.000000e+00
-  br i1 %1128, label %1129, label %CameraMoveUp.exit815
+  %1101 = fmul float %.sroa.07.4.vec.extract.i.i.i795, %.sroa.07.4.vec.extract.i.i.i795
+  %1102 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i794, float %.sroa.07.0.vec.extract.i.i.i794, float %1101)
+  %1103 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i793, float %.sroa.24.0.copyload.i.i793, float %1102)
+  %1104 = fcmp une float %1103, 0.000000e+00
+  br i1 %1104, label %1105, label %CameraMoveUp.exit815
 
-1129:                                             ; preds = %1122
-  %sqrt.i.i.i814 = tail call float @llvm.sqrt.f32(float %1127)
-  %1130 = fdiv float 1.000000e+00, %sqrt.i.i.i814
-  %1131 = fmul float %.sroa.07.0.vec.extract.i.i.i794, %1130
-  %1132 = fmul float %.sroa.07.4.vec.extract.i.i.i795, %1130
-  %1133 = fmul float %.sroa.24.0.copyload.i.i793, %1130
+1105:                                             ; preds = %1098
+  %sqrt.i.i.i814 = tail call float @llvm.sqrt.f32(float %1103)
+  %1106 = fdiv float 1.000000e+00, %sqrt.i.i.i814
+  %1107 = fmul float %.sroa.07.0.vec.extract.i.i.i794, %1106
+  %1108 = fmul float %.sroa.07.4.vec.extract.i.i.i795, %1106
+  %1109 = fmul float %.sroa.24.0.copyload.i.i793, %1106
   br label %CameraMoveUp.exit815
 
-CameraMoveUp.exit815:                             ; preds = %1122, %1129
-  %.sroa.05.4.vec.extract.i.pre-phi.i797 = phi float [ %.sroa.07.4.vec.extract.i.i.i795, %1122 ], [ %1132, %1129 ]
-  %.sroa.05.0.vec.extract.i.pre-phi.i798 = phi float [ %.sroa.07.0.vec.extract.i.i.i794, %1122 ], [ %1131, %1129 ]
-  %.sroa.617.0.i.i.i799 = phi float [ %.sroa.24.0.copyload.i.i793, %1122 ], [ %1133, %1129 ]
-  %1134 = fmul float %.sroa.05.0.vec.extract.i.pre-phi.i798, %1123
-  %1135 = fmul float %.sroa.05.4.vec.extract.i.pre-phi.i797, %1123
-  %1136 = fmul float %.sroa.617.0.i.i.i799, %1123
+CameraMoveUp.exit815:                             ; preds = %1098, %1105
+  %.sroa.05.4.vec.extract.i.pre-phi.i797 = phi float [ %.sroa.07.4.vec.extract.i.i.i795, %1098 ], [ %1108, %1105 ]
+  %.sroa.05.0.vec.extract.i.pre-phi.i798 = phi float [ %.sroa.07.0.vec.extract.i.i.i794, %1098 ], [ %1107, %1105 ]
+  %.sroa.617.0.i.i.i799 = phi float [ %.sroa.24.0.copyload.i.i793, %1098 ], [ %1109, %1105 ]
+  %1110 = fmul float %.sroa.05.0.vec.extract.i.pre-phi.i798, %1099
+  %1111 = fmul float %.sroa.05.4.vec.extract.i.pre-phi.i797, %1099
+  %1112 = fmul float %.sroa.617.0.i.i.i799, %1099
   %.sroa.012.0.copyload.i800 = load <2 x float>, ptr %0, align 4
   %.sroa.213.0..sroa_idx.i801 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.213.0.copyload.i802 = load float, ptr %.sroa.213.0..sroa_idx.i801, align 4
   %.sroa.06.0.vec.extract.i.i803 = extractelement <2 x float> %.sroa.012.0.copyload.i800, i64 0
-  %1137 = fadd float %1134, %.sroa.06.0.vec.extract.i.i803
-  %.sroa.08.0.vec.insert.i.i804 = insertelement <2 x float> poison, float %1137, i64 0
+  %1113 = fadd float %1110, %.sroa.06.0.vec.extract.i.i803
+  %.sroa.08.0.vec.insert.i.i804 = insertelement <2 x float> poison, float %1113, i64 0
   %.sroa.06.4.vec.extract.i.i805 = extractelement <2 x float> %.sroa.012.0.copyload.i800, i64 1
-  %1138 = fadd float %1135, %.sroa.06.4.vec.extract.i.i805
-  %.sroa.08.4.vec.insert.i.i806 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i804, float %1138, i64 1
-  %1139 = fadd float %1136, %.sroa.213.0.copyload.i802
+  %1114 = fadd float %1111, %.sroa.06.4.vec.extract.i.i805
+  %.sroa.08.4.vec.insert.i.i806 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i804, float %1114, i64 1
+  %1115 = fadd float %1112, %.sroa.213.0.copyload.i802
   store <2 x float> %.sroa.08.4.vec.insert.i.i806, ptr %0, align 4
-  store float %1139, ptr %.sroa.213.0..sroa_idx.i801, align 4
-  %1140 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.03.0.copyload.i807 = load <2 x float>, ptr %1140, align 4
+  store float %1115, ptr %.sroa.213.0..sroa_idx.i801, align 4
+  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.03.0.copyload.i807 = load <2 x float>, ptr %1116, align 4
   %.sroa.24.0..sroa_idx.i808 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.24.0.copyload.i809 = load float, ptr %.sroa.24.0..sroa_idx.i808, align 4
   %.sroa.06.0.vec.extract.i38.i810 = extractelement <2 x float> %.sroa.03.0.copyload.i807, i64 0
-  %1141 = fadd float %1134, %.sroa.06.0.vec.extract.i38.i810
-  %.sroa.08.0.vec.insert.i40.i811 = insertelement <2 x float> poison, float %1141, i64 0
+  %1117 = fadd float %1110, %.sroa.06.0.vec.extract.i38.i810
+  %.sroa.08.0.vec.insert.i40.i811 = insertelement <2 x float> poison, float %1117, i64 0
   %.sroa.06.4.vec.extract.i41.i812 = extractelement <2 x float> %.sroa.03.0.copyload.i807, i64 1
-  %1142 = fadd float %1135, %.sroa.06.4.vec.extract.i41.i812
-  %.sroa.08.4.vec.insert.i43.i813 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i811, float %1142, i64 1
-  %1143 = fadd float %1136, %.sroa.24.0.copyload.i809
-  store <2 x float> %.sroa.08.4.vec.insert.i43.i813, ptr %1140, align 4
-  store float %1143, ptr %.sroa.24.0..sroa_idx.i808, align 4
+  %1118 = fadd float %1111, %.sroa.06.4.vec.extract.i41.i812
+  %.sroa.08.4.vec.insert.i43.i813 = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i811, float %1118, i64 1
+  %1119 = fadd float %1112, %.sroa.24.0.copyload.i809
+  store <2 x float> %.sroa.08.4.vec.insert.i43.i813, ptr %1116, align 4
+  store float %1119, ptr %.sroa.24.0..sroa_idx.i808, align 4
   br label %.thread
 
-1144:                                             ; preds = %GetGamepadAxisMovement.exit711.thread
+1120:                                             ; preds = %GetGamepadAxisMovement.exit711.thread
   switch i32 %1, label %IsKeyPressed.exit856.thread [
     i32 4, label %.thread
     i32 2, label %.thread
   ]
 
-.thread:                                          ; preds = %CameraMoveUp.exit815, %1119, %MatrixRotate.exit, %1144, %1144
-  %1145 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
-  %1146 = tail call float @llvm.fabs.f32(float %1145)
-  %1147 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
-  %1148 = tail call float @llvm.fabs.f32(float %1147)
-  %1149 = fcmp ogt float %1146, %1148
-  %..i = select i1 %1149, float %1145, float %1147
-  %1150 = getelementptr inbounds nuw i8, ptr %0, i64 12
+.thread:                                          ; preds = %CameraMoveUp.exit815, %1095, %MatrixRotate.exit, %1120, %1120
+  %1121 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1924), align 4
+  %1122 = tail call float @llvm.fabs.f32(float %1121)
+  %1123 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1928), align 8
+  %1124 = tail call float @llvm.fabs.f32(float %1123)
+  %1125 = fcmp ogt float %1122, %1124
+  %..i = select i1 %1125, float %1121, float %1123
+  %1126 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.022.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.223.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.223.0.copyload.i = load float, ptr %.sroa.223.0..sroa_idx.i, align 4
-  %.sroa.020.0.copyload.i = load <2 x float>, ptr %1150, align 4
+  %.sroa.020.0.copyload.i = load <2 x float>, ptr %1126, align 4
   %.sroa.221.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.221.0.copyload.i = load float, ptr %.sroa.221.0..sroa_idx.i, align 4
   %.sroa.07.0.vec.extract.i.i816 = extractelement <2 x float> %.sroa.020.0.copyload.i, i64 0
-  %1151 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i
-  %1152 = extractelement <2 x float> %1151, i64 0
+  %foldExtExtBinop955 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i
+  %1127 = extractelement <2 x float> %foldExtExtBinop955, i64 0
   %.sroa.07.4.vec.extract.i.i817 = extractelement <2 x float> %.sroa.020.0.copyload.i, i64 1
-  %1153 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i
-  %1154 = extractelement <2 x float> %1153, i64 1
-  %1155 = fsub float %.sroa.221.0.copyload.i, %.sroa.223.0.copyload.i
-  %1156 = fmul float %1154, %1154
-  %1157 = tail call float @llvm.fmuladd.f32(float %1152, float %1152, float %1156)
-  %1158 = tail call float @llvm.fmuladd.f32(float %1155, float %1155, float %1157)
-  %sqrt.i.i818 = tail call float @llvm.sqrt.f32(float %1158)
-  %.sroa.08.4.vec.insert.i.i.i820 = shufflevector <2 x float> %1151, <2 x float> %1153, <2 x i32> <i32 0, i32 3>
-  %1159 = fcmp une float %1158, 0.000000e+00
-  br i1 %1159, label %1160, label %CameraMoveToTarget.exit
+  %foldExtExtBinop957 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i
+  %1128 = extractelement <2 x float> %foldExtExtBinop957, i64 1
+  %1129 = fsub float %.sroa.221.0.copyload.i, %.sroa.223.0.copyload.i
+  %1130 = fmul float %1128, %1128
+  %1131 = tail call float @llvm.fmuladd.f32(float %1127, float %1127, float %1130)
+  %1132 = tail call float @llvm.fmuladd.f32(float %1129, float %1129, float %1131)
+  %sqrt.i.i818 = tail call float @llvm.sqrt.f32(float %1132)
+  %.sroa.08.4.vec.insert.i.i.i820 = shufflevector <2 x float> %foldExtExtBinop955, <2 x float> %foldExtExtBinop957, <2 x i32> <i32 0, i32 3>
+  %1133 = fcmp une float %1132, 0.000000e+00
+  br i1 %1133, label %1134, label %CameraMoveToTarget.exit
 
-1160:                                             ; preds = %.thread
-  %1161 = fdiv float 1.000000e+00, %sqrt.i.i818
-  %1162 = fmul float %1152, %1161
-  %.sroa.013.0.vec.insert.i.i.i828 = insertelement <2 x float> poison, float %1162, i64 0
-  %1163 = fmul float %1154, %1161
-  %.sroa.013.4.vec.insert.i.i.i829 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i828, float %1163, i64 1
-  %1164 = fmul float %1155, %1161
+1134:                                             ; preds = %.thread
+  %1135 = fdiv float 1.000000e+00, %sqrt.i.i818
+  %1136 = fmul float %1127, %1135
+  %.sroa.013.0.vec.insert.i.i.i828 = insertelement <2 x float> poison, float %1136, i64 0
+  %1137 = fmul float %1128, %1135
+  %.sroa.013.4.vec.insert.i.i.i829 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i828, float %1137, i64 1
+  %1138 = fmul float %1129, %1135
   br label %CameraMoveToTarget.exit
 
-CameraMoveToTarget.exit:                          ; preds = %.thread, %1160
-  %.sroa.013.0.i.i.i822 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i829, %1160 ], [ %.sroa.08.4.vec.insert.i.i.i820, %.thread ]
-  %.sroa.617.0.i.i.i823 = phi float [ %1164, %1160 ], [ %1155, %.thread ]
-  %1165 = fsub float %sqrt.i.i818, %..i
-  %1166 = fcmp ugt float %1165, 0.000000e+00
-  %.neg.i = fneg float %1165
-  %1167 = select i1 %1166, float %.neg.i, float 0xBF50624DE0000000
+CameraMoveToTarget.exit:                          ; preds = %.thread, %1134
+  %.sroa.013.0.i.i.i822 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i829, %1134 ], [ %.sroa.08.4.vec.insert.i.i.i820, %.thread ]
+  %.sroa.617.0.i.i.i823 = phi float [ %1138, %1134 ], [ %1129, %.thread ]
+  %1139 = fsub float %sqrt.i.i818, %..i
+  %1140 = fcmp ugt float %1139, 0.000000e+00
+  %.neg.i = fneg float %1139
+  %1141 = select i1 %1140, float %.neg.i, float 0xBF50624DE0000000
   %.sroa.05.0.vec.extract.i.i824 = extractelement <2 x float> %.sroa.013.0.i.i.i822, i64 0
-  %1168 = fmul float %1167, %.sroa.05.0.vec.extract.i.i824
+  %1142 = fmul float %1141, %.sroa.05.0.vec.extract.i.i824
   %.sroa.05.4.vec.extract.i.i825 = extractelement <2 x float> %.sroa.013.0.i.i.i822, i64 1
-  %1169 = fmul float %1167, %.sroa.05.4.vec.extract.i.i825
-  %1170 = fmul float %1167, %.sroa.617.0.i.i.i823
-  %1171 = fadd float %.sroa.07.0.vec.extract.i.i816, %1168
-  %.sroa.08.0.vec.insert.i.i826 = insertelement <2 x float> poison, float %1171, i64 0
-  %1172 = fadd float %.sroa.07.4.vec.extract.i.i817, %1169
-  %.sroa.08.4.vec.insert.i.i827 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i826, float %1172, i64 1
-  %1173 = fadd float %.sroa.221.0.copyload.i, %1170
+  %1143 = fmul float %1141, %.sroa.05.4.vec.extract.i.i825
+  %1144 = fmul float %1141, %.sroa.617.0.i.i.i823
+  %1145 = fadd float %.sroa.07.0.vec.extract.i.i816, %1142
+  %.sroa.08.0.vec.insert.i.i826 = insertelement <2 x float> poison, float %1145, i64 0
+  %1146 = fadd float %.sroa.07.4.vec.extract.i.i817, %1143
+  %.sroa.08.4.vec.insert.i.i827 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i826, float %1146, i64 1
+  %1147 = fadd float %.sroa.221.0.copyload.i, %1144
   store <2 x float> %.sroa.08.4.vec.insert.i.i827, ptr %0, align 4
-  store float %1173, ptr %.sroa.223.0..sroa_idx.i, align 4
-  %1174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1041), align 1
-  %1175 = icmp eq i8 %1174, 0
-  %1176 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 529), align 1
-  %1177 = icmp eq i8 %1176, 1
-  %or.cond891 = select i1 %1175, i1 %1177, i1 false
-  br i1 %or.cond891, label %1178, label %IsKeyPressed.exit.thread
+  store float %1147, ptr %.sroa.223.0..sroa_idx.i, align 4
+  %1148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1041), align 1
+  %1149 = icmp eq i8 %1148, 0
+  %1150 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 529), align 1
+  %1151 = icmp eq i8 %1150, 1
+  %or.cond891 = select i1 %1149, i1 %1151, i1 false
+  br i1 %or.cond891, label %1152, label %IsKeyPressed.exit.thread
 
-1178:                                             ; preds = %CameraMoveToTarget.exit
-  %1179 = fsub float %.sroa.07.0.vec.extract.i.i816, %1171
-  %1180 = fsub float %.sroa.07.4.vec.extract.i.i817, %1172
-  %1181 = fsub float %.sroa.221.0.copyload.i, %1173
-  %1182 = fmul float %1180, %1180
-  %1183 = tail call float @llvm.fmuladd.f32(float %1179, float %1179, float %1182)
-  %1184 = tail call float @llvm.fmuladd.f32(float %1181, float %1181, float %1183)
-  %sqrt.i.i841 = tail call float @llvm.sqrt.f32(float %1184)
-  %.sroa.08.0.vec.insert.i.i.i842 = insertelement <2 x float> poison, float %1179, i64 0
-  %.sroa.08.4.vec.insert.i.i.i843 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i842, float %1180, i64 1
-  %1185 = fcmp une float %1184, 0.000000e+00
-  br i1 %1185, label %1186, label %CameraMoveToTarget.exit854
+1152:                                             ; preds = %CameraMoveToTarget.exit
+  %1153 = fsub float %.sroa.07.0.vec.extract.i.i816, %1145
+  %1154 = fsub float %.sroa.07.4.vec.extract.i.i817, %1146
+  %1155 = fsub float %.sroa.221.0.copyload.i, %1147
+  %1156 = fmul float %1154, %1154
+  %1157 = tail call float @llvm.fmuladd.f32(float %1153, float %1153, float %1156)
+  %1158 = tail call float @llvm.fmuladd.f32(float %1155, float %1155, float %1157)
+  %sqrt.i.i841 = tail call float @llvm.sqrt.f32(float %1158)
+  %.sroa.08.0.vec.insert.i.i.i842 = insertelement <2 x float> poison, float %1153, i64 0
+  %.sroa.08.4.vec.insert.i.i.i843 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i842, float %1154, i64 1
+  %1159 = fcmp une float %1158, 0.000000e+00
+  br i1 %1159, label %1160, label %CameraMoveToTarget.exit854
 
-1186:                                             ; preds = %1178
-  %1187 = fdiv float 1.000000e+00, %sqrt.i.i841
-  %1188 = fmul float %1179, %1187
-  %.sroa.013.0.vec.insert.i.i.i852 = insertelement <2 x float> poison, float %1188, i64 0
-  %1189 = fmul float %1180, %1187
-  %.sroa.013.4.vec.insert.i.i.i853 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i852, float %1189, i64 1
-  %1190 = fmul float %1181, %1187
+1160:                                             ; preds = %1152
+  %1161 = fdiv float 1.000000e+00, %sqrt.i.i841
+  %1162 = fmul float %1153, %1161
+  %.sroa.013.0.vec.insert.i.i.i852 = insertelement <2 x float> poison, float %1162, i64 0
+  %1163 = fmul float %1154, %1161
+  %.sroa.013.4.vec.insert.i.i.i853 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i852, float %1163, i64 1
+  %1164 = fmul float %1155, %1161
   br label %CameraMoveToTarget.exit854
 
-CameraMoveToTarget.exit854:                       ; preds = %1178, %1186
-  %.sroa.013.0.i.i.i845 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i853, %1186 ], [ %.sroa.08.4.vec.insert.i.i.i843, %1178 ]
-  %.sroa.617.0.i.i.i846 = phi float [ %1190, %1186 ], [ %1181, %1178 ]
-  %1191 = fadd float %sqrt.i.i841, 2.000000e+00
-  %1192 = fcmp ugt float %1191, 0.000000e+00
-  %.neg.i847 = fneg float %1191
-  %1193 = select i1 %1192, float %.neg.i847, float 0xBF50624DE0000000
+CameraMoveToTarget.exit854:                       ; preds = %1152, %1160
+  %.sroa.013.0.i.i.i845 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i853, %1160 ], [ %.sroa.08.4.vec.insert.i.i.i843, %1152 ]
+  %.sroa.617.0.i.i.i846 = phi float [ %1164, %1160 ], [ %1155, %1152 ]
+  %1165 = fadd float %sqrt.i.i841, 2.000000e+00
+  %1166 = fcmp ugt float %1165, 0.000000e+00
+  %.neg.i847 = fneg float %1165
+  %1167 = select i1 %1166, float %.neg.i847, float 0xBF50624DE0000000
   %.sroa.05.0.vec.extract.i.i848 = extractelement <2 x float> %.sroa.013.0.i.i.i845, i64 0
-  %1194 = fmul float %1193, %.sroa.05.0.vec.extract.i.i848
+  %1168 = fmul float %1167, %.sroa.05.0.vec.extract.i.i848
   %.sroa.05.4.vec.extract.i.i849 = extractelement <2 x float> %.sroa.013.0.i.i.i845, i64 1
-  %1195 = fmul float %1193, %.sroa.05.4.vec.extract.i.i849
-  %1196 = fmul float %1193, %.sroa.617.0.i.i.i846
-  %1197 = fadd float %.sroa.07.0.vec.extract.i.i816, %1194
-  %.sroa.08.0.vec.insert.i.i850 = insertelement <2 x float> poison, float %1197, i64 0
-  %1198 = fadd float %.sroa.07.4.vec.extract.i.i817, %1195
-  %.sroa.08.4.vec.insert.i.i851 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i850, float %1198, i64 1
-  %1199 = fadd float %.sroa.221.0.copyload.i, %1196
+  %1169 = fmul float %1167, %.sroa.05.4.vec.extract.i.i849
+  %1170 = fmul float %1167, %.sroa.617.0.i.i.i846
+  %1171 = fadd float %.sroa.07.0.vec.extract.i.i816, %1168
+  %.sroa.08.0.vec.insert.i.i850 = insertelement <2 x float> poison, float %1171, i64 0
+  %1172 = fadd float %.sroa.07.4.vec.extract.i.i817, %1169
+  %.sroa.08.4.vec.insert.i.i851 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i850, float %1172, i64 1
+  %1173 = fadd float %.sroa.221.0.copyload.i, %1170
   store <2 x float> %.sroa.08.4.vec.insert.i.i851, ptr %0, align 4
-  store float %1199, ptr %.sroa.223.0..sroa_idx.i, align 4
+  store float %1173, ptr %.sroa.223.0..sroa_idx.i, align 4
   br label %IsKeyPressed.exit.thread
 
 IsKeyPressed.exit.thread:                         ; preds = %CameraMoveToTarget.exit, %CameraMoveToTarget.exit854
-  %.sroa.223.0.copyload.i859 = phi float [ %1173, %CameraMoveToTarget.exit ], [ %1199, %CameraMoveToTarget.exit854 ]
+  %.sroa.223.0.copyload.i859 = phi float [ %1147, %CameraMoveToTarget.exit ], [ %1173, %CameraMoveToTarget.exit854 ]
   %.sroa.022.0.copyload.i857 = phi <2 x float> [ %.sroa.08.4.vec.insert.i.i827, %CameraMoveToTarget.exit ], [ %.sroa.08.4.vec.insert.i.i851, %CameraMoveToTarget.exit854 ]
-  %1200 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1042), align 2
-  %1201 = icmp eq i8 %1200, 0
-  %1202 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 530), align 2
-  %1203 = icmp eq i8 %1202, 1
-  %or.cond893 = select i1 %1201, i1 %1203, i1 false
-  br i1 %or.cond893, label %1204, label %IsKeyPressed.exit856.thread
+  %1174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1042), align 2
+  %1175 = icmp eq i8 %1174, 0
+  %1176 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 530), align 2
+  %1177 = icmp eq i8 %1176, 1
+  %or.cond893 = select i1 %1175, i1 %1177, i1 false
+  br i1 %or.cond893, label %1178, label %IsKeyPressed.exit856.thread
 
-1204:                                             ; preds = %IsKeyPressed.exit.thread
-  %1205 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i857
-  %1206 = extractelement <2 x float> %1205, i64 0
-  %1207 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i857
-  %1208 = extractelement <2 x float> %1207, i64 1
-  %1209 = fsub float %.sroa.221.0.copyload.i, %.sroa.223.0.copyload.i859
-  %1210 = fmul float %1208, %1208
-  %1211 = tail call float @llvm.fmuladd.f32(float %1206, float %1206, float %1210)
-  %1212 = tail call float @llvm.fmuladd.f32(float %1209, float %1209, float %1211)
-  %sqrt.i.i867 = tail call float @llvm.sqrt.f32(float %1212)
-  %.sroa.08.4.vec.insert.i.i.i869 = shufflevector <2 x float> %1205, <2 x float> %1207, <2 x i32> <i32 0, i32 3>
-  %1213 = fcmp une float %1212, 0.000000e+00
-  br i1 %1213, label %1214, label %CameraMoveToTarget.exit880
+1178:                                             ; preds = %IsKeyPressed.exit.thread
+  %foldExtExtBinop959 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i857
+  %1179 = extractelement <2 x float> %foldExtExtBinop959, i64 0
+  %foldExtExtBinop961 = fsub <2 x float> %.sroa.020.0.copyload.i, %.sroa.022.0.copyload.i857
+  %1180 = extractelement <2 x float> %foldExtExtBinop961, i64 1
+  %1181 = fsub float %.sroa.221.0.copyload.i, %.sroa.223.0.copyload.i859
+  %1182 = fmul float %1180, %1180
+  %1183 = tail call float @llvm.fmuladd.f32(float %1179, float %1179, float %1182)
+  %1184 = tail call float @llvm.fmuladd.f32(float %1181, float %1181, float %1183)
+  %sqrt.i.i867 = tail call float @llvm.sqrt.f32(float %1184)
+  %.sroa.08.4.vec.insert.i.i.i869 = shufflevector <2 x float> %foldExtExtBinop959, <2 x float> %foldExtExtBinop961, <2 x i32> <i32 0, i32 3>
+  %1185 = fcmp une float %1184, 0.000000e+00
+  br i1 %1185, label %1186, label %CameraMoveToTarget.exit880
 
-1214:                                             ; preds = %1204
-  %1215 = fdiv float 1.000000e+00, %sqrt.i.i867
-  %1216 = fmul float %1206, %1215
-  %.sroa.013.0.vec.insert.i.i.i878 = insertelement <2 x float> poison, float %1216, i64 0
-  %1217 = fmul float %1208, %1215
-  %.sroa.013.4.vec.insert.i.i.i879 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i878, float %1217, i64 1
-  %1218 = fmul float %1209, %1215
+1186:                                             ; preds = %1178
+  %1187 = fdiv float 1.000000e+00, %sqrt.i.i867
+  %1188 = fmul float %1179, %1187
+  %.sroa.013.0.vec.insert.i.i.i878 = insertelement <2 x float> poison, float %1188, i64 0
+  %1189 = fmul float %1180, %1187
+  %.sroa.013.4.vec.insert.i.i.i879 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i878, float %1189, i64 1
+  %1190 = fmul float %1181, %1187
   br label %CameraMoveToTarget.exit880
 
-CameraMoveToTarget.exit880:                       ; preds = %1204, %1214
-  %.sroa.013.0.i.i.i871 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i879, %1214 ], [ %.sroa.08.4.vec.insert.i.i.i869, %1204 ]
-  %.sroa.617.0.i.i.i872 = phi float [ %1218, %1214 ], [ %1209, %1204 ]
-  %1219 = fadd float %sqrt.i.i867, -2.000000e+00
-  %1220 = fcmp ugt float %1219, 0.000000e+00
-  %.neg.i873 = fneg float %1219
-  %1221 = select i1 %1220, float %.neg.i873, float 0xBF50624DE0000000
+CameraMoveToTarget.exit880:                       ; preds = %1178, %1186
+  %.sroa.013.0.i.i.i871 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i879, %1186 ], [ %.sroa.08.4.vec.insert.i.i.i869, %1178 ]
+  %.sroa.617.0.i.i.i872 = phi float [ %1190, %1186 ], [ %1181, %1178 ]
+  %1191 = fadd float %sqrt.i.i867, -2.000000e+00
+  %1192 = fcmp ugt float %1191, 0.000000e+00
+  %.neg.i873 = fneg float %1191
+  %1193 = select i1 %1192, float %.neg.i873, float 0xBF50624DE0000000
   %.sroa.05.0.vec.extract.i.i874 = extractelement <2 x float> %.sroa.013.0.i.i.i871, i64 0
-  %1222 = fmul float %1221, %.sroa.05.0.vec.extract.i.i874
+  %1194 = fmul float %1193, %.sroa.05.0.vec.extract.i.i874
   %.sroa.05.4.vec.extract.i.i875 = extractelement <2 x float> %.sroa.013.0.i.i.i871, i64 1
-  %1223 = fmul float %1221, %.sroa.05.4.vec.extract.i.i875
-  %1224 = fmul float %1221, %.sroa.617.0.i.i.i872
-  %1225 = fadd float %.sroa.07.0.vec.extract.i.i816, %1222
-  %.sroa.08.0.vec.insert.i.i876 = insertelement <2 x float> poison, float %1225, i64 0
-  %1226 = fadd float %.sroa.07.4.vec.extract.i.i817, %1223
-  %.sroa.08.4.vec.insert.i.i877 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i876, float %1226, i64 1
-  %1227 = fadd float %.sroa.221.0.copyload.i, %1224
+  %1195 = fmul float %1193, %.sroa.05.4.vec.extract.i.i875
+  %1196 = fmul float %1193, %.sroa.617.0.i.i.i872
+  %1197 = fadd float %.sroa.07.0.vec.extract.i.i816, %1194
+  %.sroa.08.0.vec.insert.i.i876 = insertelement <2 x float> poison, float %1197, i64 0
+  %1198 = fadd float %.sroa.07.4.vec.extract.i.i817, %1195
+  %.sroa.08.4.vec.insert.i.i877 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i876, float %1198, i64 1
+  %1199 = fadd float %.sroa.221.0.copyload.i, %1196
   store <2 x float> %.sroa.08.4.vec.insert.i.i877, ptr %0, align 4
-  store float %1227, ptr %.sroa.223.0..sroa_idx.i, align 4
+  store float %1199, ptr %.sroa.223.0..sroa_idx.i, align 4
   br label %IsKeyPressed.exit856.thread
 
-IsKeyPressed.exit856.thread:                      ; preds = %IsKeyPressed.exit.thread, %16, %1144, %CameraMoveToTarget.exit880
+IsKeyPressed.exit856.thread:                      ; preds = %IsKeyPressed.exit.thread, %16, %1120, %CameraMoveToTarget.exit880
   ret void
 }
 
@@ -33456,385 +33456,385 @@ CameraYaw.exit:                                   ; preds = %6, %14
   %.sroa.030.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.231.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.231.0.copyload.i = load float, ptr %.sroa.231.0..sroa_idx.i, align 4
-  %20 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
-  %21 = extractelement <2 x float> %20, i64 0
-  %22 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
-  %23 = extractelement <2 x float> %22, i64 1
-  %24 = fsub float %.sroa.233.0.copyload.i, %.sroa.231.0.copyload.i
+  %foldExtExtBinop = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
+  %20 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop87 = fsub <2 x float> %.sroa.032.0.copyload.i, %.sroa.030.0.copyload.i
+  %21 = extractelement <2 x float> %foldExtExtBinop87, i64 1
+  %22 = fsub float %.sroa.233.0.copyload.i, %.sroa.231.0.copyload.i
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %.pre-phi73.i)
-  %25 = fcmp oeq float %.pre-phi73.i, 0.000000e+00
-  %26 = fdiv float 1.000000e+00, %sqrt.i.i
-  %27 = select i1 %25, float 1.000000e+00, float %26
-  %28 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i, %27
-  %29 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i, %27
-  %30 = fmul float %.sroa.617.0.i.i.i, %27
-  %31 = fmul float %8, 5.000000e-01
-  %32 = tail call float @sinf(float noundef %31) #60
-  %33 = fmul float %28, %32
-  %34 = fmul float %29, %32
-  %35 = fmul float %30, %32
-  %36 = tail call float @cosf(float noundef %31) #60
-  %37 = fneg float %23
-  %38 = fmul float %35, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %34, float %24, float %38)
-  %40 = fneg float %24
-  %41 = fmul float %33, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %35, float %21, float %41)
-  %43 = fneg float %21
-  %44 = fmul float %34, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %33, float %23, float %44)
-  %46 = fneg float %42
-  %47 = fmul float %35, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %34, float %45, float %47)
-  %49 = fneg float %45
-  %50 = fmul float %33, %49
-  %51 = tail call float @llvm.fmuladd.f32(float %35, float %39, float %50)
-  %52 = fneg float %39
-  %53 = fmul float %34, %52
-  %54 = tail call float @llvm.fmuladd.f32(float %33, float %42, float %53)
-  %55 = fmul float %36, 2.000000e+00
-  %56 = fmul float %55, %39
-  %57 = fmul float %55, %42
-  %58 = fmul float %55, %45
-  %59 = fmul float %48, 2.000000e+00
-  %60 = fmul float %51, 2.000000e+00
-  %61 = fmul float %54, 2.000000e+00
-  %62 = fadd float %21, %56
-  %63 = fadd float %23, %57
-  %64 = fadd float %24, %58
+  %23 = fcmp oeq float %.pre-phi73.i, 0.000000e+00
+  %24 = fdiv float 1.000000e+00, %sqrt.i.i
+  %25 = select i1 %23, float 1.000000e+00, float %24
+  %26 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i, %25
+  %27 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i, %25
+  %28 = fmul float %.sroa.617.0.i.i.i, %25
+  %29 = fmul float %8, 5.000000e-01
+  %30 = tail call float @sinf(float noundef %29) #60
+  %31 = fmul float %26, %30
+  %32 = fmul float %27, %30
+  %33 = fmul float %28, %30
+  %34 = tail call float @cosf(float noundef %29) #60
+  %35 = fneg float %21
+  %36 = fmul float %33, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %32, float %22, float %36)
+  %38 = fneg float %22
+  %39 = fmul float %31, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %33, float %20, float %39)
+  %41 = fneg float %20
+  %42 = fmul float %32, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %31, float %21, float %42)
+  %44 = fneg float %40
+  %45 = fmul float %33, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %32, float %43, float %45)
+  %47 = fneg float %43
+  %48 = fmul float %31, %47
+  %49 = tail call float @llvm.fmuladd.f32(float %33, float %37, float %48)
+  %50 = fneg float %37
+  %51 = fmul float %32, %50
+  %52 = tail call float @llvm.fmuladd.f32(float %31, float %40, float %51)
+  %53 = fmul float %34, 2.000000e+00
+  %54 = fmul float %53, %37
+  %55 = fmul float %53, %40
+  %56 = fmul float %53, %43
+  %57 = fmul float %46, 2.000000e+00
+  %58 = fmul float %49, 2.000000e+00
+  %59 = fmul float %52, 2.000000e+00
+  %60 = fadd float %20, %54
+  %61 = fadd float %21, %55
+  %62 = fadd float %22, %56
+  %63 = fadd float %60, %57
+  %64 = fadd float %61, %58
   %65 = fadd float %62, %59
-  %66 = fadd float %63, %60
-  %67 = fadd float %64, %61
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %0, align 4
   %.sroa.24.0.copyload.i = load float, ptr %.sroa.231.0..sroa_idx.i, align 4
   %.sroa.06.0.vec.extract.i60.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 0
-  %68 = fadd float %.sroa.06.0.vec.extract.i60.i, %65
-  %.sroa.08.0.vec.insert.i62.i = insertelement <2 x float> poison, float %68, i64 0
+  %66 = fadd float %.sroa.06.0.vec.extract.i60.i, %63
+  %.sroa.08.0.vec.insert.i62.i = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.06.4.vec.extract.i63.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 1
-  %69 = fadd float %.sroa.06.4.vec.extract.i63.i, %66
-  %.sroa.08.4.vec.insert.i65.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i, float %69, i64 1
-  %70 = fadd float %.sroa.24.0.copyload.i, %67
+  %67 = fadd float %.sroa.06.4.vec.extract.i63.i, %64
+  %.sroa.08.4.vec.insert.i65.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i62.i, float %67, i64 1
+  %68 = fadd float %.sroa.24.0.copyload.i, %65
   store <2 x float> %.sroa.08.4.vec.insert.i65.i, ptr %19, align 4
-  store float %70, ptr %.sroa.233.0..sroa_idx.i, align 4
-  %71 = fmul float %4, 0x3F91DF46A0000000
-  %72 = fsub float %68, %.sroa.06.0.vec.extract.i60.i
-  %.sroa.08.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %72, i64 0
-  %73 = fsub float %69, %.sroa.06.4.vec.extract.i63.i
-  %.sroa.08.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i, float %73, i64 1
-  %74 = fsub float %70, %.sroa.24.0.copyload.i
-  %75 = fmul float %73, %73
-  %76 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %75)
-  %77 = tail call float @llvm.fmuladd.f32(float %74, float %74, float %76)
-  %78 = fcmp une float %77, 0.000000e+00
-  br i1 %78, label %79, label %CameraRoll.exit
+  store float %68, ptr %.sroa.233.0..sroa_idx.i, align 4
+  %69 = fmul float %4, 0x3F91DF46A0000000
+  %70 = fsub float %66, %.sroa.06.0.vec.extract.i60.i
+  %.sroa.08.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %70, i64 0
+  %71 = fsub float %67, %.sroa.06.4.vec.extract.i63.i
+  %.sroa.08.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i, float %71, i64 1
+  %72 = fsub float %68, %.sroa.24.0.copyload.i
+  %73 = fmul float %71, %71
+  %74 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %73)
+  %75 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %74)
+  %76 = fcmp une float %75, 0.000000e+00
+  br i1 %76, label %77, label %CameraRoll.exit
 
-79:                                               ; preds = %CameraYaw.exit
-  %sqrt.i.i.i22 = tail call float @llvm.sqrt.f32(float %77)
-  %80 = fdiv float 1.000000e+00, %sqrt.i.i.i22
-  %81 = fmul float %72, %80
-  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %81, i64 0
-  %82 = fmul float %73, %80
-  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %82, i64 1
-  %83 = fmul float %74, %80
+77:                                               ; preds = %CameraYaw.exit
+  %sqrt.i.i.i22 = tail call float @llvm.sqrt.f32(float %75)
+  %78 = fdiv float 1.000000e+00, %sqrt.i.i.i22
+  %79 = fmul float %70, %78
+  %.sroa.013.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %79, i64 0
+  %80 = fmul float %71, %78
+  %.sroa.013.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i, float %80, i64 1
+  %81 = fmul float %72, %78
   br label %CameraRoll.exit
 
-CameraRoll.exit:                                  ; preds = %CameraYaw.exit, %79
-  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %79 ], [ %.sroa.08.4.vec.insert.i.i.i, %CameraYaw.exit ]
-  %.sroa.617.0.i.i.i18 = phi float [ %83, %79 ], [ %74, %CameraYaw.exit ]
+CameraRoll.exit:                                  ; preds = %CameraYaw.exit, %77
+  %.sroa.013.0.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i, %77 ], [ %.sroa.08.4.vec.insert.i.i.i, %CameraYaw.exit ]
+  %.sroa.617.0.i.i.i18 = phi float [ %81, %77 ], [ %72, %CameraYaw.exit ]
   %.sroa.03.0.copyload.i19 = load <2 x float>, ptr %9, align 4
   %.sroa.24.0.copyload.i20 = load float, ptr %.sroa.24.0..sroa_idx.i.i, align 4
   %.sroa.044.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 0
   %.sroa.044.4.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i, i64 1
-  %84 = fmul float %.sroa.044.4.vec.extract.i.i, %.sroa.044.4.vec.extract.i.i
-  %85 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i, float %.sroa.044.0.vec.extract.i.i, float %84)
-  %86 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i18, float %.sroa.617.0.i.i.i18, float %85)
-  %sqrt.i.i21 = tail call float @llvm.sqrt.f32(float %86)
-  %87 = fcmp oeq float %86, 0.000000e+00
-  %88 = fdiv float 1.000000e+00, %sqrt.i.i21
-  %89 = select i1 %87, float 1.000000e+00, float %88
-  %90 = fmul float %.sroa.044.0.vec.extract.i.i, %89
-  %91 = fmul float %.sroa.044.4.vec.extract.i.i, %89
-  %92 = fmul float %.sroa.617.0.i.i.i18, %89
-  %93 = fmul float %71, 5.000000e-01
-  %94 = tail call float @sinf(float noundef %93) #60
-  %95 = fmul float %94, %90
-  %96 = fmul float %94, %91
-  %97 = fmul float %94, %92
-  %98 = tail call float @cosf(float noundef %93) #60
+  %82 = fmul float %.sroa.044.4.vec.extract.i.i, %.sroa.044.4.vec.extract.i.i
+  %83 = tail call float @llvm.fmuladd.f32(float %.sroa.044.0.vec.extract.i.i, float %.sroa.044.0.vec.extract.i.i, float %82)
+  %84 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i18, float %.sroa.617.0.i.i.i18, float %83)
+  %sqrt.i.i21 = tail call float @llvm.sqrt.f32(float %84)
+  %85 = fcmp oeq float %84, 0.000000e+00
+  %86 = fdiv float 1.000000e+00, %sqrt.i.i21
+  %87 = select i1 %85, float 1.000000e+00, float %86
+  %88 = fmul float %.sroa.044.0.vec.extract.i.i, %87
+  %89 = fmul float %.sroa.044.4.vec.extract.i.i, %87
+  %90 = fmul float %.sroa.617.0.i.i.i18, %87
+  %91 = fmul float %69, 5.000000e-01
+  %92 = tail call float @sinf(float noundef %91) #60
+  %93 = fmul float %92, %88
+  %94 = fmul float %92, %89
+  %95 = fmul float %92, %90
+  %96 = tail call float @cosf(float noundef %91) #60
   %.sroa.064.4.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i19, i64 1
-  %99 = fneg float %.sroa.064.4.vec.extract.i.i
-  %100 = fmul float %97, %99
-  %101 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.24.0.copyload.i20, float %100)
+  %97 = fneg float %.sroa.064.4.vec.extract.i.i
+  %98 = fmul float %95, %97
+  %99 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.24.0.copyload.i20, float %98)
   %.sroa.064.0.vec.extract.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i19, i64 0
-  %102 = fneg float %.sroa.24.0.copyload.i20
-  %103 = fmul float %95, %102
-  %104 = tail call float @llvm.fmuladd.f32(float %97, float %.sroa.064.0.vec.extract.i.i, float %103)
-  %105 = fneg float %.sroa.064.0.vec.extract.i.i
-  %106 = fmul float %96, %105
-  %107 = tail call float @llvm.fmuladd.f32(float %95, float %.sroa.064.4.vec.extract.i.i, float %106)
-  %108 = fneg float %104
-  %109 = fmul float %97, %108
-  %110 = tail call float @llvm.fmuladd.f32(float %96, float %107, float %109)
-  %111 = fneg float %107
-  %112 = fmul float %95, %111
-  %113 = tail call float @llvm.fmuladd.f32(float %97, float %101, float %112)
-  %114 = fneg float %101
-  %115 = fmul float %96, %114
-  %116 = tail call float @llvm.fmuladd.f32(float %95, float %104, float %115)
-  %117 = fmul float %98, 2.000000e+00
-  %118 = fmul float %117, %101
-  %119 = fmul float %117, %104
-  %120 = fmul float %117, %107
-  %121 = fmul float %110, 2.000000e+00
-  %122 = fmul float %113, 2.000000e+00
-  %123 = fmul float %116, 2.000000e+00
-  %124 = fadd float %.sroa.064.0.vec.extract.i.i, %118
-  %125 = fadd float %.sroa.064.4.vec.extract.i.i, %119
-  %126 = fadd float %.sroa.24.0.copyload.i20, %120
-  %127 = fadd float %124, %121
-  %128 = insertelement <2 x float> poison, float %127, i64 0
-  %129 = fadd float %125, %122
-  %.sroa.071.4.vec.insert82.i.i = insertelement <2 x float> %128, float %129, i64 1
-  %130 = fadd float %126, %123
+  %100 = fneg float %.sroa.24.0.copyload.i20
+  %101 = fmul float %93, %100
+  %102 = tail call float @llvm.fmuladd.f32(float %95, float %.sroa.064.0.vec.extract.i.i, float %101)
+  %103 = fneg float %.sroa.064.0.vec.extract.i.i
+  %104 = fmul float %94, %103
+  %105 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.064.4.vec.extract.i.i, float %104)
+  %106 = fneg float %102
+  %107 = fmul float %95, %106
+  %108 = tail call float @llvm.fmuladd.f32(float %94, float %105, float %107)
+  %109 = fneg float %105
+  %110 = fmul float %93, %109
+  %111 = tail call float @llvm.fmuladd.f32(float %95, float %99, float %110)
+  %112 = fneg float %99
+  %113 = fmul float %94, %112
+  %114 = tail call float @llvm.fmuladd.f32(float %93, float %102, float %113)
+  %115 = fmul float %96, 2.000000e+00
+  %116 = fmul float %115, %99
+  %117 = fmul float %115, %102
+  %118 = fmul float %115, %105
+  %119 = fmul float %108, 2.000000e+00
+  %120 = fmul float %111, 2.000000e+00
+  %121 = fmul float %114, 2.000000e+00
+  %122 = fadd float %.sroa.064.0.vec.extract.i.i, %116
+  %123 = fadd float %.sroa.064.4.vec.extract.i.i, %117
+  %124 = fadd float %.sroa.24.0.copyload.i20, %118
+  %125 = fadd float %122, %119
+  %126 = insertelement <2 x float> poison, float %125, i64 0
+  %127 = fadd float %123, %120
+  %.sroa.071.4.vec.insert82.i.i = insertelement <2 x float> %126, float %127, i64 1
+  %128 = fadd float %124, %121
   store <2 x float> %.sroa.071.4.vec.insert82.i.i, ptr %9, align 4
-  store float %130, ptr %.sroa.24.0..sroa_idx.i.i, align 4
+  store float %128, ptr %.sroa.24.0..sroa_idx.i.i, align 4
   %.sroa.016.0.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.011.0.copyload.i.i23 = load <2 x float>, ptr %19, align 4
   %.sroa.212.0.copyload.i.i25 = load float, ptr %.sroa.233.0..sroa_idx.i, align 4
   %.sroa.09.0.copyload.i.i26 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i28 = load float, ptr %.sroa.231.0..sroa_idx.i, align 4
-  %131 = fsub <2 x float> %.sroa.011.0.copyload.i.i23, %.sroa.09.0.copyload.i.i26
-  %132 = extractelement <2 x float> %131, i64 0
+  %foldExtExtBinop89 = fsub <2 x float> %.sroa.011.0.copyload.i.i23, %.sroa.09.0.copyload.i.i26
+  %129 = extractelement <2 x float> %foldExtExtBinop89, i64 0
   %.sroa.06.4.vec.extract.i.i.i32 = extractelement <2 x float> %.sroa.011.0.copyload.i.i23, i64 1
   %.sroa.03.4.vec.extract.i.i.i33 = extractelement <2 x float> %.sroa.09.0.copyload.i.i26, i64 1
-  %133 = fsub float %.sroa.06.4.vec.extract.i.i.i32, %.sroa.03.4.vec.extract.i.i.i33
-  %.sroa.08.4.vec.insert.i.i.i34 = insertelement <2 x float> %131, float %133, i64 1
-  %134 = fsub float %.sroa.212.0.copyload.i.i25, %.sroa.210.0.copyload.i.i28
-  %135 = fmul float %133, %133
-  %136 = tail call float @llvm.fmuladd.f32(float %132, float %132, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %134, float %134, float %136)
-  %138 = fcmp une float %137, 0.000000e+00
-  br i1 %138, label %139, label %GetCameraForward.exit.i
+  %130 = fsub float %.sroa.06.4.vec.extract.i.i.i32, %.sroa.03.4.vec.extract.i.i.i33
+  %.sroa.08.4.vec.insert.i.i.i34 = insertelement <2 x float> %foldExtExtBinop89, float %130, i64 1
+  %131 = fsub float %.sroa.212.0.copyload.i.i25, %.sroa.210.0.copyload.i.i28
+  %132 = fmul float %130, %130
+  %133 = tail call float @llvm.fmuladd.f32(float %129, float %129, float %132)
+  %134 = tail call float @llvm.fmuladd.f32(float %131, float %131, float %133)
+  %135 = fcmp une float %134, 0.000000e+00
+  br i1 %135, label %136, label %GetCameraForward.exit.i
 
-139:                                              ; preds = %CameraRoll.exit
-  %sqrt.i.i.i38 = tail call float @llvm.sqrt.f32(float %137)
-  %140 = fdiv float 1.000000e+00, %sqrt.i.i.i38
-  %141 = fmul float %132, %140
-  %.sroa.013.0.vec.insert.i.i.i39 = insertelement <2 x float> poison, float %141, i64 0
-  %142 = fmul float %133, %140
-  %.sroa.013.4.vec.insert.i.i.i40 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i39, float %142, i64 1
-  %143 = fmul float %134, %140
+136:                                              ; preds = %CameraRoll.exit
+  %sqrt.i.i.i38 = tail call float @llvm.sqrt.f32(float %134)
+  %137 = fdiv float 1.000000e+00, %sqrt.i.i.i38
+  %138 = fmul float %129, %137
+  %.sroa.013.0.vec.insert.i.i.i39 = insertelement <2 x float> poison, float %138, i64 0
+  %139 = fmul float %130, %137
+  %.sroa.013.4.vec.insert.i.i.i40 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i39, float %139, i64 1
+  %140 = fmul float %131, %137
   br label %GetCameraForward.exit.i
 
-GetCameraForward.exit.i:                          ; preds = %139, %CameraRoll.exit
-  %.sroa.013.0.i.i.i35 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i40, %139 ], [ %.sroa.08.4.vec.insert.i.i.i34, %CameraRoll.exit ]
-  %.sroa.617.0.i.i.i36 = phi float [ %143, %139 ], [ %134, %CameraRoll.exit ]
+GetCameraForward.exit.i:                          ; preds = %136, %CameraRoll.exit
+  %.sroa.013.0.i.i.i35 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i40, %136 ], [ %.sroa.08.4.vec.insert.i.i.i34, %CameraRoll.exit ]
+  %.sroa.617.0.i.i.i36 = phi float [ %140, %136 ], [ %131, %CameraRoll.exit ]
   %.sroa.036.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.i.i.i35, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i35, i64 0
-  %144 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i, float %.sroa.07.0.vec.extract.i.i, float 0.000000e+00)
-  %145 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i36, float %.sroa.617.0.i.i.i36, float %144)
-  %146 = fcmp une float %145, 0.000000e+00
-  br i1 %146, label %147, label %CameraMoveForward.exit
+  %141 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i, float %.sroa.07.0.vec.extract.i.i, float 0.000000e+00)
+  %142 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i36, float %.sroa.617.0.i.i.i36, float %141)
+  %143 = fcmp une float %142, 0.000000e+00
+  br i1 %143, label %144, label %CameraMoveForward.exit
 
-147:                                              ; preds = %GetCameraForward.exit.i
-  %sqrt.i.i37 = tail call float @llvm.sqrt.f32(float %145)
-  %148 = fdiv float 1.000000e+00, %sqrt.i.i37
-  %149 = fmul float %.sroa.07.0.vec.extract.i.i, %148
-  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %149, i64 0
-  %150 = fmul float %148, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %150, i64 1
-  %151 = fmul float %.sroa.617.0.i.i.i36, %148
+144:                                              ; preds = %GetCameraForward.exit.i
+  %sqrt.i.i37 = tail call float @llvm.sqrt.f32(float %142)
+  %145 = fdiv float 1.000000e+00, %sqrt.i.i37
+  %146 = fmul float %.sroa.07.0.vec.extract.i.i, %145
+  %.sroa.013.0.vec.insert.i.i = insertelement <2 x float> poison, float %146, i64 0
+  %147 = fmul float %145, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i, float %147, i64 1
+  %148 = fmul float %.sroa.617.0.i.i.i36, %145
   br label %CameraMoveForward.exit
 
-CameraMoveForward.exit:                           ; preds = %GetCameraForward.exit.i, %147
-  %.sroa.036.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %147 ], [ %.sroa.036.4.vec.insert.i, %GetCameraForward.exit.i ]
-  %.sroa.10.0.i = phi float [ %151, %147 ], [ %.sroa.617.0.i.i.i36, %GetCameraForward.exit.i ]
-  %152 = fmul <2 x float> %1, %.sroa.036.0.i
+CameraMoveForward.exit:                           ; preds = %GetCameraForward.exit.i, %144
+  %.sroa.036.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i, %144 ], [ %.sroa.036.4.vec.insert.i, %GetCameraForward.exit.i ]
+  %.sroa.10.0.i = phi float [ %148, %144 ], [ %.sroa.617.0.i.i.i36, %GetCameraForward.exit.i ]
+  %foldExtExtBinop91 = fmul <2 x float> %1, %.sroa.036.0.i
   %shift = shufflevector <2 x float> %.sroa.036.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %153 = fmul <2 x float> %1, %shift
-  %154 = extractelement <2 x float> %153, i64 0
-  %155 = fmul float %.sroa.016.0.vec.extract, %.sroa.10.0.i
-  %156 = fadd <2 x float> %.sroa.09.0.copyload.i.i26, %152
-  %157 = extractelement <2 x float> %156, i64 0
-  %158 = fadd float %.sroa.03.4.vec.extract.i.i.i33, %154
-  %159 = fadd float %.sroa.210.0.copyload.i.i28, %155
-  %160 = fadd <2 x float> %.sroa.011.0.copyload.i.i23, %152
-  %161 = extractelement <2 x float> %160, i64 0
-  %162 = fadd float %.sroa.06.4.vec.extract.i.i.i32, %154
-  %163 = fadd float %.sroa.212.0.copyload.i.i25, %155
+  %foldExtExtBinop93 = fmul <2 x float> %1, %shift
+  %149 = extractelement <2 x float> %foldExtExtBinop93, i64 0
+  %150 = fmul float %.sroa.016.0.vec.extract, %.sroa.10.0.i
+  %foldExtExtBinop95 = fadd <2 x float> %.sroa.09.0.copyload.i.i26, %foldExtExtBinop91
+  %151 = extractelement <2 x float> %foldExtExtBinop95, i64 0
+  %152 = fadd float %.sroa.03.4.vec.extract.i.i.i33, %149
+  %153 = fadd float %.sroa.210.0.copyload.i.i28, %150
+  %foldExtExtBinop97 = fadd <2 x float> %.sroa.011.0.copyload.i.i23, %foldExtExtBinop91
+  %154 = extractelement <2 x float> %foldExtExtBinop97, i64 0
+  %155 = fadd float %.sroa.06.4.vec.extract.i.i.i32, %149
+  %156 = fadd float %.sroa.212.0.copyload.i.i25, %150
   %.sroa.016.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %164 = fsub <2 x float> %160, %156
-  %165 = extractelement <2 x float> %164, i64 0
-  %166 = fsub float %162, %158
-  %.sroa.08.4.vec.insert.i.i.i.i = insertelement <2 x float> %164, float %166, i64 1
-  %167 = fsub float %163, %159
-  %168 = fmul float %166, %166
-  %169 = tail call float @llvm.fmuladd.f32(float %165, float %165, float %168)
-  %170 = tail call float @llvm.fmuladd.f32(float %167, float %167, float %169)
-  %171 = fcmp une float %170, 0.000000e+00
-  br i1 %171, label %172, label %GetCameraForward.exit.i.i
+  %foldExtExtBinop99 = fsub <2 x float> %foldExtExtBinop97, %foldExtExtBinop95
+  %157 = extractelement <2 x float> %foldExtExtBinop99, i64 0
+  %158 = fsub float %155, %152
+  %.sroa.08.4.vec.insert.i.i.i.i = insertelement <2 x float> %foldExtExtBinop99, float %158, i64 1
+  %159 = fsub float %156, %153
+  %160 = fmul float %158, %158
+  %161 = tail call float @llvm.fmuladd.f32(float %157, float %157, float %160)
+  %162 = tail call float @llvm.fmuladd.f32(float %159, float %159, float %161)
+  %163 = fcmp une float %162, 0.000000e+00
+  br i1 %163, label %164, label %GetCameraForward.exit.i.i
 
-172:                                              ; preds = %CameraMoveForward.exit
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %170)
-  %173 = fdiv float 1.000000e+00, %sqrt.i.i.i.i
-  %174 = fmul float %165, %173
-  %.sroa.013.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %174, i64 0
-  %175 = fmul float %166, %173
-  %.sroa.013.4.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i, float %175, i64 1
-  %176 = fmul float %167, %173
+164:                                              ; preds = %CameraMoveForward.exit
+  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %162)
+  %165 = fdiv float 1.000000e+00, %sqrt.i.i.i.i
+  %166 = fmul float %157, %165
+  %.sroa.013.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %166, i64 0
+  %167 = fmul float %158, %165
+  %.sroa.013.4.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i.i, float %167, i64 1
+  %168 = fmul float %159, %165
   br label %GetCameraForward.exit.i.i
 
-GetCameraForward.exit.i.i:                        ; preds = %172, %CameraMoveForward.exit
-  %.sroa.013.0.i.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i, %172 ], [ %.sroa.08.4.vec.insert.i.i.i.i, %CameraMoveForward.exit ]
-  %.sroa.617.0.i.i.i.i = phi float [ %176, %172 ], [ %167, %CameraMoveForward.exit ]
-  %177 = fmul float %129, %129
-  %178 = tail call float @llvm.fmuladd.f32(float %127, float %127, float %177)
-  %179 = tail call float @llvm.fmuladd.f32(float %130, float %130, float %178)
-  %180 = fcmp une float %179, 0.000000e+00
-  br i1 %180, label %181, label %GetCameraUp.exit.i.i
+GetCameraForward.exit.i.i:                        ; preds = %164, %CameraMoveForward.exit
+  %.sroa.013.0.i.i.i.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i, %164 ], [ %.sroa.08.4.vec.insert.i.i.i.i, %CameraMoveForward.exit ]
+  %.sroa.617.0.i.i.i.i = phi float [ %168, %164 ], [ %159, %CameraMoveForward.exit ]
+  %169 = fmul float %127, %127
+  %170 = tail call float @llvm.fmuladd.f32(float %125, float %125, float %169)
+  %171 = tail call float @llvm.fmuladd.f32(float %128, float %128, float %170)
+  %172 = fcmp une float %171, 0.000000e+00
+  br i1 %172, label %173, label %GetCameraUp.exit.i.i
 
-181:                                              ; preds = %GetCameraForward.exit.i.i
-  %sqrt.i.i31.i.i = tail call float @llvm.sqrt.f32(float %179)
-  %182 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i
-  %183 = fmul float %127, %182
-  %184 = fmul float %129, %182
-  %185 = fmul float %130, %182
+173:                                              ; preds = %GetCameraForward.exit.i.i
+  %sqrt.i.i31.i.i = tail call float @llvm.sqrt.f32(float %171)
+  %174 = fdiv float 1.000000e+00, %sqrt.i.i31.i.i
+  %175 = fmul float %125, %174
+  %176 = fmul float %127, %174
+  %177 = fmul float %128, %174
   br label %GetCameraUp.exit.i.i
 
-GetCameraUp.exit.i.i:                             ; preds = %181, %GetCameraForward.exit.i.i
-  %.sroa.03.0.vec.extract.i.pre-phi.i.i = phi float [ %127, %GetCameraForward.exit.i.i ], [ %183, %181 ]
-  %.sroa.03.4.vec.extract.i.pre-phi.i.i = phi float [ %129, %GetCameraForward.exit.i.i ], [ %184, %181 ]
-  %.sroa.617.0.i.i30.i.i = phi float [ %130, %GetCameraForward.exit.i.i ], [ %185, %181 ]
+GetCameraUp.exit.i.i:                             ; preds = %173, %GetCameraForward.exit.i.i
+  %.sroa.03.0.vec.extract.i.pre-phi.i.i = phi float [ %125, %GetCameraForward.exit.i.i ], [ %175, %173 ]
+  %.sroa.03.4.vec.extract.i.pre-phi.i.i = phi float [ %127, %GetCameraForward.exit.i.i ], [ %176, %173 ]
+  %.sroa.617.0.i.i30.i.i = phi float [ %128, %GetCameraForward.exit.i.i ], [ %177, %173 ]
   %.sroa.011.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i.i, i64 1
-  %186 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i
-  %187 = fmul float %.sroa.617.0.i.i.i.i, %186
-  %188 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i, float %.sroa.617.0.i.i30.i.i, float %187)
-  %.sroa.018.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %188, i64 0
+  %178 = fneg float %.sroa.03.4.vec.extract.i.pre-phi.i.i
+  %179 = fmul float %.sroa.617.0.i.i.i.i, %178
+  %180 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i.i.i, float %.sroa.617.0.i.i30.i.i, float %179)
+  %.sroa.018.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %180, i64 0
   %.sroa.011.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.013.0.i.i.i.i, i64 0
-  %189 = fneg float %.sroa.617.0.i.i30.i.i
-  %190 = fmul float %.sroa.011.0.vec.extract.i.i.i, %189
-  %191 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i.i, float %190)
-  %.sroa.018.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i, float %191, i64 1
-  %192 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i
-  %193 = fmul float %.sroa.011.4.vec.extract.i.i.i, %192
-  %194 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i.i, float %193)
-  %195 = fmul float %191, %191
-  %196 = tail call float @llvm.fmuladd.f32(float %188, float %188, float %195)
-  %197 = tail call float @llvm.fmuladd.f32(float %194, float %194, float %196)
-  %198 = fcmp une float %197, 0.000000e+00
-  br i1 %198, label %199, label %GetCameraRight.exit.i
+  %181 = fneg float %.sroa.617.0.i.i30.i.i
+  %182 = fmul float %.sroa.011.0.vec.extract.i.i.i, %181
+  %183 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i.i, float %.sroa.03.0.vec.extract.i.pre-phi.i.i, float %182)
+  %.sroa.018.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i.i, float %183, i64 1
+  %184 = fneg float %.sroa.03.0.vec.extract.i.pre-phi.i.i
+  %185 = fmul float %.sroa.011.4.vec.extract.i.i.i, %184
+  %186 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i.i.i, float %.sroa.03.4.vec.extract.i.pre-phi.i.i, float %185)
+  %187 = fmul float %183, %183
+  %188 = tail call float @llvm.fmuladd.f32(float %180, float %180, float %187)
+  %189 = tail call float @llvm.fmuladd.f32(float %186, float %186, float %188)
+  %190 = fcmp une float %189, 0.000000e+00
+  br i1 %190, label %191, label %GetCameraRight.exit.i
 
-199:                                              ; preds = %GetCameraUp.exit.i.i
-  %sqrt.i.i.i56 = tail call float @llvm.sqrt.f32(float %197)
-  %200 = fdiv float 1.000000e+00, %sqrt.i.i.i56
-  %201 = fmul float %188, %200
-  %.sroa.013.0.vec.insert.i.i.i57 = insertelement <2 x float> poison, float %201, i64 0
-  %202 = fmul float %191, %200
-  %.sroa.013.4.vec.insert.i.i.i58 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i57, float %202, i64 1
-  %203 = fmul float %194, %200
+191:                                              ; preds = %GetCameraUp.exit.i.i
+  %sqrt.i.i.i56 = tail call float @llvm.sqrt.f32(float %189)
+  %192 = fdiv float 1.000000e+00, %sqrt.i.i.i56
+  %193 = fmul float %180, %192
+  %.sroa.013.0.vec.insert.i.i.i57 = insertelement <2 x float> poison, float %193, i64 0
+  %194 = fmul float %183, %192
+  %.sroa.013.4.vec.insert.i.i.i58 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i57, float %194, i64 1
+  %195 = fmul float %186, %192
   br label %GetCameraRight.exit.i
 
-GetCameraRight.exit.i:                            ; preds = %199, %GetCameraUp.exit.i.i
-  %.sroa.013.0.i.i.i41 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i58, %199 ], [ %.sroa.018.4.vec.insert.i.i.i, %GetCameraUp.exit.i.i ]
-  %.sroa.617.0.i.i.i42 = phi float [ %203, %199 ], [ %194, %GetCameraUp.exit.i.i ]
+GetCameraRight.exit.i:                            ; preds = %191, %GetCameraUp.exit.i.i
+  %.sroa.013.0.i.i.i41 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i58, %191 ], [ %.sroa.018.4.vec.insert.i.i.i, %GetCameraUp.exit.i.i ]
+  %.sroa.617.0.i.i.i42 = phi float [ %195, %191 ], [ %186, %GetCameraUp.exit.i.i ]
   %.sroa.036.4.vec.insert.i43 = insertelement <2 x float> %.sroa.013.0.i.i.i41, float 0.000000e+00, i64 1
   %.sroa.07.0.vec.extract.i.i44 = extractelement <2 x float> %.sroa.013.0.i.i.i41, i64 0
-  %204 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i44, float %.sroa.07.0.vec.extract.i.i44, float 0.000000e+00)
-  %205 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i42, float %.sroa.617.0.i.i.i42, float %204)
-  %206 = fcmp une float %205, 0.000000e+00
-  br i1 %206, label %207, label %CameraMoveRight.exit
+  %196 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i44, float %.sroa.07.0.vec.extract.i.i44, float 0.000000e+00)
+  %197 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i.i.i42, float %.sroa.617.0.i.i.i42, float %196)
+  %198 = fcmp une float %197, 0.000000e+00
+  br i1 %198, label %199, label %CameraMoveRight.exit
 
-207:                                              ; preds = %GetCameraRight.exit.i
-  %sqrt.i.i53 = tail call float @llvm.sqrt.f32(float %205)
-  %208 = fdiv float 1.000000e+00, %sqrt.i.i53
-  %209 = fmul float %.sroa.07.0.vec.extract.i.i44, %208
-  %.sroa.013.0.vec.insert.i.i54 = insertelement <2 x float> poison, float %209, i64 0
-  %210 = fmul float %208, 0.000000e+00
-  %.sroa.013.4.vec.insert.i.i55 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i54, float %210, i64 1
-  %211 = fmul float %.sroa.617.0.i.i.i42, %208
+199:                                              ; preds = %GetCameraRight.exit.i
+  %sqrt.i.i53 = tail call float @llvm.sqrt.f32(float %197)
+  %200 = fdiv float 1.000000e+00, %sqrt.i.i53
+  %201 = fmul float %.sroa.07.0.vec.extract.i.i44, %200
+  %.sroa.013.0.vec.insert.i.i54 = insertelement <2 x float> poison, float %201, i64 0
+  %202 = fmul float %200, 0.000000e+00
+  %.sroa.013.4.vec.insert.i.i55 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i54, float %202, i64 1
+  %203 = fmul float %.sroa.617.0.i.i.i42, %200
   br label %CameraMoveRight.exit
 
-CameraMoveRight.exit:                             ; preds = %GetCameraRight.exit.i, %207
-  %.sroa.036.0.i45 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i55, %207 ], [ %.sroa.036.4.vec.insert.i43, %GetCameraRight.exit.i ]
-  %.sroa.10.0.i46 = phi float [ %211, %207 ], [ %.sroa.617.0.i.i.i42, %GetCameraRight.exit.i ]
+CameraMoveRight.exit:                             ; preds = %GetCameraRight.exit.i, %199
+  %.sroa.036.0.i45 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i55, %199 ], [ %.sroa.036.4.vec.insert.i43, %GetCameraRight.exit.i ]
+  %.sroa.10.0.i46 = phi float [ %203, %199 ], [ %.sroa.617.0.i.i.i42, %GetCameraRight.exit.i ]
   %.sroa.05.0.vec.extract.i.i47 = extractelement <2 x float> %.sroa.036.0.i45, i64 0
-  %212 = fmul float %.sroa.016.4.vec.extract, %.sroa.05.0.vec.extract.i.i47
-  %213 = fmul <2 x float> %1, %.sroa.036.0.i45
-  %214 = extractelement <2 x float> %213, i64 1
-  %215 = fmul float %.sroa.016.4.vec.extract, %.sroa.10.0.i46
-  %216 = fadd float %157, %212
-  %217 = fadd float %158, %214
-  %218 = fadd float %159, %215
-  %219 = fadd float %161, %212
-  %220 = fadd float %162, %214
-  %221 = fadd float %163, %215
-  br i1 %180, label %222, label %CameraMoveUp.exit
+  %204 = fmul float %.sroa.016.4.vec.extract, %.sroa.05.0.vec.extract.i.i47
+  %foldExtExtBinop101 = fmul <2 x float> %1, %.sroa.036.0.i45
+  %205 = extractelement <2 x float> %foldExtExtBinop101, i64 1
+  %206 = fmul float %.sroa.016.4.vec.extract, %.sroa.10.0.i46
+  %207 = fadd float %151, %204
+  %208 = fadd float %152, %205
+  %209 = fadd float %153, %206
+  %210 = fadd float %154, %204
+  %211 = fadd float %155, %205
+  %212 = fadd float %156, %206
+  br i1 %172, label %213, label %CameraMoveUp.exit
 
-222:                                              ; preds = %CameraMoveRight.exit
-  %sqrt.i.i.i72 = tail call float @llvm.sqrt.f32(float %179)
-  %223 = fdiv float 1.000000e+00, %sqrt.i.i.i72
-  %224 = fmul float %127, %223
-  %225 = fmul float %129, %223
-  %226 = fmul float %130, %223
+213:                                              ; preds = %CameraMoveRight.exit
+  %sqrt.i.i.i72 = tail call float @llvm.sqrt.f32(float %171)
+  %214 = fdiv float 1.000000e+00, %sqrt.i.i.i72
+  %215 = fmul float %125, %214
+  %216 = fmul float %127, %214
+  %217 = fmul float %128, %214
   br label %CameraMoveUp.exit
 
-CameraMoveUp.exit:                                ; preds = %CameraMoveRight.exit, %222
-  %.sroa.05.4.vec.extract.i.pre-phi.i = phi float [ %129, %CameraMoveRight.exit ], [ %225, %222 ]
-  %.sroa.05.0.vec.extract.i.pre-phi.i = phi float [ %127, %CameraMoveRight.exit ], [ %224, %222 ]
-  %.sroa.617.0.i.i.i64 = phi float [ %130, %CameraMoveRight.exit ], [ %226, %222 ]
-  %227 = fmul float %2, %.sroa.05.0.vec.extract.i.pre-phi.i
-  %228 = fmul float %2, %.sroa.05.4.vec.extract.i.pre-phi.i
-  %229 = fmul float %2, %.sroa.617.0.i.i.i64
-  %230 = fadd float %216, %227
-  %231 = fadd float %217, %228
-  %232 = fadd float %218, %229
-  %233 = fadd float %219, %227
-  %.sroa.08.0.vec.insert.i40.i = insertelement <2 x float> poison, float %233, i64 0
-  %234 = fadd float %220, %228
-  %.sroa.08.4.vec.insert.i43.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i, float %234, i64 1
-  %235 = fadd float %221, %229
+CameraMoveUp.exit:                                ; preds = %CameraMoveRight.exit, %213
+  %.sroa.05.4.vec.extract.i.pre-phi.i = phi float [ %127, %CameraMoveRight.exit ], [ %216, %213 ]
+  %.sroa.05.0.vec.extract.i.pre-phi.i = phi float [ %125, %CameraMoveRight.exit ], [ %215, %213 ]
+  %.sroa.617.0.i.i.i64 = phi float [ %128, %CameraMoveRight.exit ], [ %217, %213 ]
+  %218 = fmul float %2, %.sroa.05.0.vec.extract.i.pre-phi.i
+  %219 = fmul float %2, %.sroa.05.4.vec.extract.i.pre-phi.i
+  %220 = fmul float %2, %.sroa.617.0.i.i.i64
+  %221 = fadd float %207, %218
+  %222 = fadd float %208, %219
+  %223 = fadd float %209, %220
+  %224 = fadd float %210, %218
+  %.sroa.08.0.vec.insert.i40.i = insertelement <2 x float> poison, float %224, i64 0
+  %225 = fadd float %211, %219
+  %.sroa.08.4.vec.insert.i43.i = insertelement <2 x float> %.sroa.08.0.vec.insert.i40.i, float %225, i64 1
+  %226 = fadd float %212, %220
   store <2 x float> %.sroa.08.4.vec.insert.i43.i, ptr %19, align 4
-  store float %235, ptr %.sroa.233.0..sroa_idx.i, align 4
-  %236 = fsub float %233, %230
-  %237 = fsub float %234, %231
-  %238 = fsub float %235, %232
-  %239 = fmul float %237, %237
-  %240 = tail call float @llvm.fmuladd.f32(float %236, float %236, float %239)
-  %241 = tail call float @llvm.fmuladd.f32(float %238, float %238, float %240)
-  %sqrt.i.i74 = tail call float @llvm.sqrt.f32(float %241)
-  %.sroa.08.0.vec.insert.i.i.i75 = insertelement <2 x float> poison, float %236, i64 0
-  %.sroa.08.4.vec.insert.i.i.i76 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i75, float %237, i64 1
-  %242 = fcmp une float %241, 0.000000e+00
-  br i1 %242, label %243, label %CameraMoveToTarget.exit
+  store float %226, ptr %.sroa.233.0..sroa_idx.i, align 4
+  %227 = fsub float %224, %221
+  %228 = fsub float %225, %222
+  %229 = fsub float %226, %223
+  %230 = fmul float %228, %228
+  %231 = tail call float @llvm.fmuladd.f32(float %227, float %227, float %230)
+  %232 = tail call float @llvm.fmuladd.f32(float %229, float %229, float %231)
+  %sqrt.i.i74 = tail call float @llvm.sqrt.f32(float %232)
+  %.sroa.08.0.vec.insert.i.i.i75 = insertelement <2 x float> poison, float %227, i64 0
+  %.sroa.08.4.vec.insert.i.i.i76 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i.i75, float %228, i64 1
+  %233 = fcmp une float %232, 0.000000e+00
+  br i1 %233, label %234, label %CameraMoveToTarget.exit
 
-243:                                              ; preds = %CameraMoveUp.exit
-  %244 = fdiv float 1.000000e+00, %sqrt.i.i74
-  %245 = fmul float %236, %244
-  %.sroa.013.0.vec.insert.i.i.i84 = insertelement <2 x float> poison, float %245, i64 0
-  %246 = fmul float %237, %244
-  %.sroa.013.4.vec.insert.i.i.i85 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i84, float %246, i64 1
-  %247 = fmul float %238, %244
+234:                                              ; preds = %CameraMoveUp.exit
+  %235 = fdiv float 1.000000e+00, %sqrt.i.i74
+  %236 = fmul float %227, %235
+  %.sroa.013.0.vec.insert.i.i.i84 = insertelement <2 x float> poison, float %236, i64 0
+  %237 = fmul float %228, %235
+  %.sroa.013.4.vec.insert.i.i.i85 = insertelement <2 x float> %.sroa.013.0.vec.insert.i.i.i84, float %237, i64 1
+  %238 = fmul float %229, %235
   br label %CameraMoveToTarget.exit
 
-CameraMoveToTarget.exit:                          ; preds = %CameraMoveUp.exit, %243
-  %.sroa.013.0.i.i.i78 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i85, %243 ], [ %.sroa.08.4.vec.insert.i.i.i76, %CameraMoveUp.exit ]
-  %.sroa.617.0.i.i.i79 = phi float [ %247, %243 ], [ %238, %CameraMoveUp.exit ]
-  %248 = fadd float %5, %sqrt.i.i74
-  %249 = fcmp ugt float %248, 0.000000e+00
-  %.neg.i = fneg float %248
-  %250 = select i1 %249, float %.neg.i, float 0xBF50624DE0000000
+CameraMoveToTarget.exit:                          ; preds = %CameraMoveUp.exit, %234
+  %.sroa.013.0.i.i.i78 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i85, %234 ], [ %.sroa.08.4.vec.insert.i.i.i76, %CameraMoveUp.exit ]
+  %.sroa.617.0.i.i.i79 = phi float [ %238, %234 ], [ %229, %CameraMoveUp.exit ]
+  %239 = fadd float %5, %sqrt.i.i74
+  %240 = fcmp ugt float %239, 0.000000e+00
+  %.neg.i = fneg float %239
+  %241 = select i1 %240, float %.neg.i, float 0xBF50624DE0000000
   %.sroa.05.0.vec.extract.i.i80 = extractelement <2 x float> %.sroa.013.0.i.i.i78, i64 0
-  %251 = fmul float %250, %.sroa.05.0.vec.extract.i.i80
+  %242 = fmul float %241, %.sroa.05.0.vec.extract.i.i80
   %.sroa.05.4.vec.extract.i.i81 = extractelement <2 x float> %.sroa.013.0.i.i.i78, i64 1
-  %252 = fmul float %250, %.sroa.05.4.vec.extract.i.i81
-  %253 = fmul float %250, %.sroa.617.0.i.i.i79
-  %254 = fadd float %233, %251
-  %.sroa.08.0.vec.insert.i.i82 = insertelement <2 x float> poison, float %254, i64 0
-  %255 = fadd float %234, %252
-  %.sroa.08.4.vec.insert.i.i83 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i82, float %255, i64 1
-  %256 = fadd float %235, %253
+  %243 = fmul float %241, %.sroa.05.4.vec.extract.i.i81
+  %244 = fmul float %241, %.sroa.617.0.i.i.i79
+  %245 = fadd float %224, %242
+  %.sroa.08.0.vec.insert.i.i82 = insertelement <2 x float> poison, float %245, i64 0
+  %246 = fadd float %225, %243
+  %.sroa.08.4.vec.insert.i.i83 = insertelement <2 x float> %.sroa.08.0.vec.insert.i.i82, float %246, i64 1
+  %247 = fadd float %226, %244
   store <2 x float> %.sroa.08.4.vec.insert.i.i83, ptr %0, align 4
-  store float %256, ptr %.sroa.231.0..sroa_idx.i, align 4
+  store float %247, ptr %.sroa.231.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -43788,98 +43788,98 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.069.0.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %52 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %53 = extractelement <2 x float> %52, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %52 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %54 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %55 = extractelement <2 x float> %54, i64 1
-  %56 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
-  %57 = fmul float %55, %55
-  %58 = tail call float @llvm.fmuladd.f32(float %53, float %53, float %57)
-  %59 = tail call float @llvm.fmuladd.f32(float %56, float %56, float %58)
-  %sqrt87.i = tail call float @llvm.sqrt.f32(float %59)
-  %60 = fcmp oeq float %59, 0.000000e+00
-  %61 = fdiv float 1.000000e+00, %sqrt87.i
-  %62 = select i1 %60, float 1.000000e+00, float %61
-  %63 = fmul float %53, %62
-  %64 = fmul float %55, %62
-  %65 = fmul float %56, %62
+  %foldExtExtBinop34 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %53 = extractelement <2 x float> %foldExtExtBinop34, i64 1
+  %54 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
+  %55 = fmul float %53, %53
+  %56 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %55)
+  %57 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %56)
+  %sqrt87.i = tail call float @llvm.sqrt.f32(float %57)
+  %58 = fcmp oeq float %57, 0.000000e+00
+  %59 = fdiv float 1.000000e+00, %sqrt87.i
+  %60 = select i1 %58, float 1.000000e+00, float %59
+  %61 = fmul float %52, %60
+  %62 = fmul float %53, %60
+  %63 = fmul float %54, %60
   %.sroa.057.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 1
-  %66 = fneg float %64
-  %67 = fmul float %.sroa.2.0.copyload, %66
-  %68 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %65, float %67)
+  %64 = fneg float %62
+  %65 = fmul float %.sroa.2.0.copyload, %64
+  %66 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %63, float %65)
   %.sroa.057.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 0
-  %69 = fneg float %65
-  %70 = fmul float %.sroa.057.0.vec.extract.i, %69
-  %71 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %63, float %70)
-  %72 = fneg float %63
-  %73 = fmul float %.sroa.057.4.vec.extract.i, %72
-  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %64, float %73)
-  %75 = fmul float %71, %71
-  %76 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %75)
-  %77 = tail call float @llvm.fmuladd.f32(float %74, float %74, float %76)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %77)
-  %78 = fcmp oeq float %77, 0.000000e+00
-  %79 = fdiv float 1.000000e+00, %sqrt.i
-  %80 = select i1 %78, float 1.000000e+00, float %79
-  %81 = fmul float %68, %80
-  %82 = fmul float %71, %80
-  %83 = fmul float %74, %80
-  %84 = fneg float %82
-  %85 = fmul float %65, %84
-  %86 = tail call float @llvm.fmuladd.f32(float %64, float %83, float %85)
-  %87 = fneg float %83
-  %88 = fmul float %63, %87
-  %89 = tail call float @llvm.fmuladd.f32(float %65, float %81, float %88)
-  %90 = fneg float %81
-  %91 = fmul float %64, %90
-  %92 = tail call float @llvm.fmuladd.f32(float %63, float %82, float %91)
-  %93 = fmul float %.sroa.069.4.vec.extract.i, %82
-  %94 = tail call float @llvm.fmuladd.f32(float %81, float %.sroa.069.0.vec.extract.i, float %93)
-  %95 = tail call float @llvm.fmuladd.f32(float %83, float %.sroa.24.0.copyload, float %94)
-  %96 = fneg float %95
-  %97 = fmul float %.sroa.069.4.vec.extract.i, %89
-  %98 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.069.0.vec.extract.i, float %97)
-  %99 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.24.0.copyload, float %98)
-  %100 = fneg float %99
-  %101 = fmul float %.sroa.069.4.vec.extract.i, %64
-  %102 = tail call float @llvm.fmuladd.f32(float %63, float %.sroa.069.0.vec.extract.i, float %101)
-  %103 = tail call float @llvm.fmuladd.f32(float %65, float %.sroa.24.0.copyload, float %102)
-  %104 = fneg float %103
-  store float %81, ptr %2, align 4, !alias.scope !53
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %86, ptr %105, align 4, !alias.scope !53
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %63, ptr %106, align 4, !alias.scope !53
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0.000000e+00, ptr %107, align 4, !alias.scope !53
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %82, ptr %108, align 4, !alias.scope !53
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float %89, ptr %109, align 4, !alias.scope !53
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %64, ptr %110, align 4, !alias.scope !53
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0.000000e+00, ptr %111, align 4, !alias.scope !53
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float %83, ptr %112, align 4, !alias.scope !53
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float %92, ptr %113, align 4, !alias.scope !53
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float %65, ptr %114, align 4, !alias.scope !53
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0.000000e+00, ptr %115, align 4, !alias.scope !53
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float %96, ptr %116, align 4, !alias.scope !53
-  %117 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store float %100, ptr %117, align 4, !alias.scope !53
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store float %104, ptr %118, align 4, !alias.scope !53
-  %119 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store float 1.000000e+00, ptr %119, align 4, !alias.scope !53
+  %67 = fneg float %63
+  %68 = fmul float %.sroa.057.0.vec.extract.i, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %61, float %68)
+  %70 = fneg float %61
+  %71 = fmul float %.sroa.057.4.vec.extract.i, %70
+  %72 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %62, float %71)
+  %73 = fmul float %69, %69
+  %74 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %73)
+  %75 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %74)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %75)
+  %76 = fcmp oeq float %75, 0.000000e+00
+  %77 = fdiv float 1.000000e+00, %sqrt.i
+  %78 = select i1 %76, float 1.000000e+00, float %77
+  %79 = fmul float %66, %78
+  %80 = fmul float %69, %78
+  %81 = fmul float %72, %78
+  %82 = fneg float %80
+  %83 = fmul float %63, %82
+  %84 = tail call float @llvm.fmuladd.f32(float %62, float %81, float %83)
+  %85 = fneg float %81
+  %86 = fmul float %61, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %63, float %79, float %86)
+  %88 = fneg float %79
+  %89 = fmul float %62, %88
+  %90 = tail call float @llvm.fmuladd.f32(float %61, float %80, float %89)
+  %91 = fmul float %.sroa.069.4.vec.extract.i, %80
+  %92 = tail call float @llvm.fmuladd.f32(float %79, float %.sroa.069.0.vec.extract.i, float %91)
+  %93 = tail call float @llvm.fmuladd.f32(float %81, float %.sroa.24.0.copyload, float %92)
+  %94 = fneg float %93
+  %95 = fmul float %.sroa.069.4.vec.extract.i, %87
+  %96 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.069.0.vec.extract.i, float %95)
+  %97 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.24.0.copyload, float %96)
+  %98 = fneg float %97
+  %99 = fmul float %.sroa.069.4.vec.extract.i, %62
+  %100 = tail call float @llvm.fmuladd.f32(float %61, float %.sroa.069.0.vec.extract.i, float %99)
+  %101 = tail call float @llvm.fmuladd.f32(float %63, float %.sroa.24.0.copyload, float %100)
+  %102 = fneg float %101
+  store float %79, ptr %2, align 4, !alias.scope !53
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %84, ptr %103, align 4, !alias.scope !53
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %61, ptr %104, align 4, !alias.scope !53
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store float 0.000000e+00, ptr %105, align 4, !alias.scope !53
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store float %80, ptr %106, align 4, !alias.scope !53
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store float %87, ptr %107, align 4, !alias.scope !53
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store float %62, ptr %108, align 4, !alias.scope !53
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store float 0.000000e+00, ptr %109, align 4, !alias.scope !53
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store float %81, ptr %110, align 4, !alias.scope !53
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store float %90, ptr %111, align 4, !alias.scope !53
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store float %63, ptr %112, align 4, !alias.scope !53
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  store float 0.000000e+00, ptr %113, align 4, !alias.scope !53
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store float %94, ptr %114, align 4, !alias.scope !53
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  store float %98, ptr %115, align 4, !alias.scope !53
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store float %102, ptr %116, align 4, !alias.scope !53
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  store float 1.000000e+00, ptr %117, align 4, !alias.scope !53
   call void @rlMultMatrixf(ptr noundef nonnull %2)
-  %120 = load ptr, ptr @glad_glEnable, align 8
-  tail call void %120(i32 noundef 2929) #60
+  %118 = load ptr, ptr @glad_glEnable, align 8
+  tail call void %118(i32 noundef 2929) #60
   ret void
 }
 
@@ -44906,269 +44906,269 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.252.0.copyload = load float, ptr %.sroa.252.0..sroa_idx, align 8
   %.sroa.069.0.vec.extract.i = extractelement <2 x float> %.sroa.055.0.copyload, i64 0
-  %18 = fsub <2 x float> %.sroa.055.0.copyload, %.sroa.053.0.copyload
-  %19 = extractelement <2 x float> %18, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.055.0.copyload, %.sroa.053.0.copyload
+  %18 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract.i = extractelement <2 x float> %.sroa.055.0.copyload, i64 1
-  %20 = fsub <2 x float> %.sroa.055.0.copyload, %.sroa.053.0.copyload
-  %21 = extractelement <2 x float> %20, i64 1
-  %22 = fsub float %.sroa.256.0.copyload, %.sroa.254.0.copyload
-  %23 = fmul float %21, %21
-  %24 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %23)
-  %25 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %24)
-  %sqrt87.i = tail call float @llvm.sqrt.f32(float %25)
-  %26 = fcmp oeq float %25, 0.000000e+00
-  %27 = fdiv float 1.000000e+00, %sqrt87.i
-  %28 = select i1 %26, float 1.000000e+00, float %27
-  %29 = fmul float %19, %28
-  %30 = fmul float %21, %28
-  %31 = fmul float %22, %28
+  %foldExtExtBinop89 = fsub <2 x float> %.sroa.055.0.copyload, %.sroa.053.0.copyload
+  %19 = extractelement <2 x float> %foldExtExtBinop89, i64 1
+  %20 = fsub float %.sroa.256.0.copyload, %.sroa.254.0.copyload
+  %21 = fmul float %19, %19
+  %22 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %21)
+  %23 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %22)
+  %sqrt87.i = tail call float @llvm.sqrt.f32(float %23)
+  %24 = fcmp oeq float %23, 0.000000e+00
+  %25 = fdiv float 1.000000e+00, %sqrt87.i
+  %26 = select i1 %24, float 1.000000e+00, float %25
+  %27 = fmul float %18, %26
+  %28 = fmul float %19, %26
+  %29 = fmul float %20, %26
   %.sroa.057.4.vec.extract.i = extractelement <2 x float> %.sroa.051.0.copyload, i64 1
-  %32 = fneg float %30
-  %33 = fmul float %.sroa.252.0.copyload, %32
-  %34 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %31, float %33)
+  %30 = fneg float %28
+  %31 = fmul float %.sroa.252.0.copyload, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %29, float %31)
   %.sroa.057.0.vec.extract.i = extractelement <2 x float> %.sroa.051.0.copyload, i64 0
-  %35 = fneg float %31
-  %36 = fmul float %.sroa.057.0.vec.extract.i, %35
-  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.252.0.copyload, float %29, float %36)
-  %38 = fneg float %29
-  %39 = fmul float %.sroa.057.4.vec.extract.i, %38
-  %40 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %30, float %39)
-  %41 = fmul float %37, %37
-  %42 = tail call float @llvm.fmuladd.f32(float %34, float %34, float %41)
-  %43 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %42)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %43)
-  %44 = fcmp oeq float %43, 0.000000e+00
-  %45 = fdiv float 1.000000e+00, %sqrt.i
-  %46 = select i1 %44, float 1.000000e+00, float %45
-  %47 = fmul float %34, %46
-  %48 = fmul float %37, %46
-  %49 = fmul float %40, %46
-  %50 = fneg float %48
-  %51 = fmul float %31, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %30, float %49, float %51)
-  %53 = fneg float %49
-  %54 = fmul float %29, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %31, float %47, float %54)
-  %56 = fneg float %47
-  %57 = fmul float %30, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %29, float %48, float %57)
-  store float %47, ptr %6, align 8, !alias.scope !65
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store float %52, ptr %59, align 8, !alias.scope !65
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %29, ptr %60, align 8, !alias.scope !65
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store float 0.000000e+00, ptr %61, align 8, !alias.scope !65
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %48, ptr %62, align 4, !alias.scope !65
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store float %55, ptr %63, align 4, !alias.scope !65
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store float %30, ptr %64, align 4, !alias.scope !65
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store float 0.000000e+00, ptr %65, align 4, !alias.scope !65
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store float %49, ptr %66, align 8, !alias.scope !65
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store float %58, ptr %67, align 8, !alias.scope !65
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float %31, ptr %68, align 8, !alias.scope !65
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store float 0.000000e+00, ptr %69, align 8, !alias.scope !65
-  %70 = fmul float %.sroa.069.4.vec.extract.i, %48
-  %71 = tail call float @llvm.fmuladd.f32(float %47, float %.sroa.069.0.vec.extract.i, float %70)
-  %72 = tail call float @llvm.fmuladd.f32(float %49, float %.sroa.256.0.copyload, float %71)
-  %73 = fneg float %72
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store float %73, ptr %74, align 4, !alias.scope !65
-  %75 = fmul float %.sroa.069.4.vec.extract.i, %55
-  %76 = tail call float @llvm.fmuladd.f32(float %52, float %.sroa.069.0.vec.extract.i, float %75)
-  %77 = tail call float @llvm.fmuladd.f32(float %58, float %.sroa.256.0.copyload, float %76)
-  %78 = fneg float %77
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %78, ptr %79, align 4, !alias.scope !65
-  %80 = fmul float %.sroa.069.4.vec.extract.i, %30
-  %81 = tail call float @llvm.fmuladd.f32(float %29, float %.sroa.069.0.vec.extract.i, float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %31, float %.sroa.256.0.copyload, float %81)
-  %83 = fneg float %82
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store float %83, ptr %84, align 4, !alias.scope !65
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store float 1.000000e+00, ptr %85, align 4, !alias.scope !65
+  %33 = fneg float %29
+  %34 = fmul float %.sroa.057.0.vec.extract.i, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.252.0.copyload, float %27, float %34)
+  %36 = fneg float %27
+  %37 = fmul float %.sroa.057.4.vec.extract.i, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %28, float %37)
+  %39 = fmul float %35, %35
+  %40 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %39)
+  %41 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %40)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %41)
+  %42 = fcmp oeq float %41, 0.000000e+00
+  %43 = fdiv float 1.000000e+00, %sqrt.i
+  %44 = select i1 %42, float 1.000000e+00, float %43
+  %45 = fmul float %32, %44
+  %46 = fmul float %35, %44
+  %47 = fmul float %38, %44
+  %48 = fneg float %46
+  %49 = fmul float %29, %48
+  %50 = tail call float @llvm.fmuladd.f32(float %28, float %47, float %49)
+  %51 = fneg float %47
+  %52 = fmul float %27, %51
+  %53 = tail call float @llvm.fmuladd.f32(float %29, float %45, float %52)
+  %54 = fneg float %45
+  %55 = fmul float %28, %54
+  %56 = tail call float @llvm.fmuladd.f32(float %27, float %46, float %55)
+  store float %45, ptr %6, align 8, !alias.scope !65
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store float %50, ptr %57, align 8, !alias.scope !65
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float %27, ptr %58, align 8, !alias.scope !65
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store float 0.000000e+00, ptr %59, align 8, !alias.scope !65
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store float %46, ptr %60, align 4, !alias.scope !65
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store float %53, ptr %61, align 4, !alias.scope !65
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store float %28, ptr %62, align 4, !alias.scope !65
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  store float 0.000000e+00, ptr %63, align 4, !alias.scope !65
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store float %47, ptr %64, align 8, !alias.scope !65
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store float %56, ptr %65, align 8, !alias.scope !65
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store float %29, ptr %66, align 8, !alias.scope !65
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store float 0.000000e+00, ptr %67, align 8, !alias.scope !65
+  %68 = fmul float %.sroa.069.4.vec.extract.i, %46
+  %69 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.069.0.vec.extract.i, float %68)
+  %70 = tail call float @llvm.fmuladd.f32(float %47, float %.sroa.256.0.copyload, float %69)
+  %71 = fneg float %70
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store float %71, ptr %72, align 4, !alias.scope !65
+  %73 = fmul float %.sroa.069.4.vec.extract.i, %53
+  %74 = tail call float @llvm.fmuladd.f32(float %50, float %.sroa.069.0.vec.extract.i, float %73)
+  %75 = tail call float @llvm.fmuladd.f32(float %56, float %.sroa.256.0.copyload, float %74)
+  %76 = fneg float %75
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store float %76, ptr %77, align 4, !alias.scope !65
+  %78 = fmul float %.sroa.069.4.vec.extract.i, %28
+  %79 = tail call float @llvm.fmuladd.f32(float %27, float %.sroa.069.0.vec.extract.i, float %78)
+  %80 = tail call float @llvm.fmuladd.f32(float %29, float %.sroa.256.0.copyload, float %79)
+  %81 = fneg float %80
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store float %81, ptr %82, align 4, !alias.scope !65
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  store float 1.000000e+00, ptr %83, align 4, !alias.scope !65
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %86, i8 0, i64 56, i1 false), !alias.scope !68
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %84, i8 0, i64 56, i1 false), !alias.scope !68
   store float 1.000000e+00, ptr %7, align 8, !alias.scope !68
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store float 1.000000e+00, ptr %85, align 4, !alias.scope !68
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store float 1.000000e+00, ptr %86, align 8, !alias.scope !68
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store float 1.000000e+00, ptr %87, align 4, !alias.scope !68
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store float 1.000000e+00, ptr %88, align 8, !alias.scope !68
-  %89 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store float 1.000000e+00, ptr %89, align 4, !alias.scope !68
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %91 = load i32, ptr %90, align 8
-  switch i32 %91, label %152 [
-    i32 0, label %92
-    i32 1, label %129
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %89 = load i32, ptr %88, align 8
+  switch i32 %89, label %150 [
+    i32 0, label %90
+    i32 1, label %127
   ]
 
-92:                                               ; preds = %5
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %94 = load float, ptr %93, align 4
-  %95 = fmul float %94, 0x3F91DF46A0000000
-  %96 = fpext float %95 to double
-  %97 = sitofp i32 %3 to double
-  %98 = sitofp i32 %4 to double
-  %99 = fdiv double %97, %98
-  %100 = load double, ptr @rlCullDistanceNear, align 8
-  %101 = load double, ptr @rlCullDistanceFar, align 8
-  %102 = fmul double %96, 5.000000e-01
-  %103 = tail call double @tan(double noundef %102) #60, !noalias !71
-  %104 = fmul double %100, %103
-  %105 = fmul double %99, %104
-  %106 = fadd double %105, %105
+90:                                               ; preds = %5
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %92 = load float, ptr %91, align 4
+  %93 = fmul float %92, 0x3F91DF46A0000000
+  %94 = fpext float %93 to double
+  %95 = sitofp i32 %3 to double
+  %96 = sitofp i32 %4 to double
+  %97 = fdiv double %95, %96
+  %98 = load double, ptr @rlCullDistanceNear, align 8
+  %99 = load double, ptr @rlCullDistanceFar, align 8
+  %100 = fmul double %94, 5.000000e-01
+  %101 = tail call double @tan(double noundef %100) #60, !noalias !71
+  %102 = fmul double %98, %101
+  %103 = fmul double %97, %102
+  %104 = fadd double %103, %103
+  %105 = fptrunc double %104 to float
+  %106 = fadd double %102, %102
   %107 = fptrunc double %106 to float
-  %108 = fadd double %104, %104
+  %108 = fsub double %99, %98
   %109 = fptrunc double %108 to float
-  %110 = fsub double %101, %100
-  %111 = fptrunc double %110 to float
-  %112 = fptrunc double %100 to float
-  %113 = fmul float %112, 2.000000e+00
-  %114 = fdiv float %113, %107
-  %115 = fdiv float %113, %109
-  %116 = fptrunc double %105 to float
-  %117 = fsub float %116, %116
-  %118 = fdiv float %117, %107
-  %119 = fptrunc double %104 to float
-  %120 = fsub float %119, %119
-  %121 = fdiv float %120, %109
-  %122 = fptrunc double %101 to float
-  %123 = fadd float %112, %122
-  %124 = fneg float %123
-  %125 = fdiv float %124, %111
-  %126 = fmul float %112, %122
-  %127 = fmul float %126, -2.000000e+00
-  %128 = fdiv float %127, %111
-  store float %114, ptr %7, align 8
-  store float 0.000000e+00, ptr %86, align 4
+  %110 = fptrunc double %98 to float
+  %111 = fmul float %110, 2.000000e+00
+  %112 = fdiv float %111, %105
+  %113 = fdiv float %111, %107
+  %114 = fptrunc double %103 to float
+  %115 = fsub float %114, %114
+  %116 = fdiv float %115, %105
+  %117 = fptrunc double %102 to float
+  %118 = fsub float %117, %117
+  %119 = fdiv float %118, %107
+  %120 = fptrunc double %99 to float
+  %121 = fadd float %110, %120
+  %122 = fneg float %121
+  %123 = fdiv float %122, %109
+  %124 = fmul float %110, %120
+  %125 = fmul float %124, -2.000000e+00
+  %126 = fdiv float %125, %109
+  store float %112, ptr %7, align 8
+  store float 0.000000e+00, ptr %84, align 4
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store float %118, ptr %.sroa.578.0..sroa_idx, align 8
+  store float %116, ptr %.sroa.578.0..sroa_idx, align 8
   %.sroa.679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i64 0, ptr %.sroa.679.0..sroa_idx, align 4
-  store float %115, ptr %87, align 4
+  store float %113, ptr %85, align 4
   %.sroa.781.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store float %121, ptr %.sroa.781.0..sroa_idx, align 8
+  store float %119, ptr %.sroa.781.0..sroa_idx, align 8
   %.sroa.882.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.882.0..sroa_idx, i8 0, i64 12, i1 false)
-  store float %125, ptr %88, align 8
+  store float %123, ptr %86, align 8
   %.sroa.984.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store float %128, ptr %.sroa.984.0..sroa_idx, align 4
+  store float %126, ptr %.sroa.984.0..sroa_idx, align 4
   %.sroa.1085.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 0, ptr %.sroa.1085.0..sroa_idx, align 8
   %.sroa.1086.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   store float -1.000000e+00, ptr %.sroa.1086.0..sroa_idx, align 8
   br label %.sink.split
 
-129:                                              ; preds = %5
-  %130 = sitofp i32 %3 to double
-  %131 = sitofp i32 %4 to double
-  %132 = fdiv double %130, %131
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %134 = load float, ptr %133, align 4
-  %135 = fpext float %134 to double
-  %136 = fmul double %135, 5.000000e-01
-  %137 = fmul double %132, %136
-  %138 = fadd double %137, %137
+127:                                              ; preds = %5
+  %128 = sitofp i32 %3 to double
+  %129 = sitofp i32 %4 to double
+  %130 = fdiv double %128, %129
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %132 = load float, ptr %131, align 4
+  %133 = fpext float %132 to double
+  %134 = fmul double %133, 5.000000e-01
+  %135 = fmul double %130, %134
+  %136 = fadd double %135, %135
+  %137 = fptrunc double %136 to float
+  %138 = fadd double %134, %134
   %139 = fptrunc double %138 to float
-  %140 = fadd double %136, %136
-  %141 = fptrunc double %140 to float
-  %142 = fdiv float 2.000000e+00, %139
-  %143 = fdiv float 2.000000e+00, %141
-  %144 = fptrunc double %137 to float
-  %145 = fsub float %144, %144
-  %146 = fneg float %145
-  %147 = fdiv float %146, %139
-  %148 = fptrunc double %136 to float
-  %149 = fsub float %148, %148
-  %150 = fneg float %149
-  %151 = fdiv float %150, %141
-  store float %142, ptr %7, align 8
+  %140 = fdiv float 2.000000e+00, %137
+  %141 = fdiv float 2.000000e+00, %139
+  %142 = fptrunc double %135 to float
+  %143 = fsub float %142, %142
+  %144 = fneg float %143
+  %145 = fdiv float %144, %137
+  %146 = fptrunc double %134 to float
+  %147 = fsub float %146, %146
+  %148 = fneg float %147
+  %149 = fdiv float %148, %139
+  store float %140, ptr %7, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store float %147, ptr %.sroa.6.0..sroa_idx, align 4
-  store float %143, ptr %87, align 4
+  store float %145, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %141, ptr %85, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store float %151, ptr %.sroa.10.0..sroa_idx, align 4
+  store float %149, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 36
   store float 0.000000e+00, ptr %.sroa.12.0..sroa_idx, align 4
-  store float 0xBF606258A0000000, ptr %88, align 8
+  store float 0xBF606258A0000000, ptr %86, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 44
   store float 0xBFF0001500000000, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 52
   store float 0.000000e+00, ptr %.sroa.16.0..sroa_idx, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %92, %129
-  %.sink = phi float [ 1.000000e+00, %129 ], [ 0.000000e+00, %92 ]
-  store float %.sink, ptr %89, align 4
-  br label %152
+.sink.split:                                      ; preds = %90, %127
+  %.sink = phi float [ 1.000000e+00, %127 ], [ 0.000000e+00, %90 ]
+  store float %.sink, ptr %87, align 4
+  br label %150
 
-152:                                              ; preds = %.sink.split, %5
+150:                                              ; preds = %.sink.split, %5
   %.sroa.041.0.vec.insert = insertelement <2 x float> poison, float %11, i64 0
   %.sroa.041.4.vec.insert = insertelement <2 x float> %.sroa.041.0.vec.insert, float %15, i64 1
-  %153 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float 0.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
-  %.fca.0.extract35 = extractvalue { <2 x float>, float } %153, 0
-  %.fca.1.extract36 = extractvalue { <2 x float>, float } %153, 1
-  %154 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float 1.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
-  %.fca.0.extract24 = extractvalue { <2 x float>, float } %154, 0
-  %.fca.1.extract25 = extractvalue { <2 x float>, float } %154, 1
-  %155 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float -1.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
-  %.fca.0.extract14 = extractvalue { <2 x float>, float } %155, 0
-  %.fca.1.extract15 = extractvalue { <2 x float>, float } %155, 1
-  %156 = fsub <2 x float> %.fca.0.extract24, %.fca.0.extract35
-  %157 = extractelement <2 x float> %156, i64 0
-  %158 = fsub <2 x float> %.fca.0.extract24, %.fca.0.extract35
-  %159 = extractelement <2 x float> %158, i64 1
-  %.sroa.08.4.vec.insert.i = shufflevector <2 x float> %156, <2 x float> %158, <2 x i32> <i32 0, i32 3>
-  %160 = fsub float %.fca.1.extract25, %.fca.1.extract36
-  %161 = fmul float %159, %159
-  %162 = tail call float @llvm.fmuladd.f32(float %157, float %157, float %161)
-  %163 = tail call float @llvm.fmuladd.f32(float %160, float %160, float %162)
-  %164 = fcmp une float %163, 0.000000e+00
-  br i1 %164, label %165, label %Vector3Normalize.exit
+  %151 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float 0.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
+  %.fca.0.extract35 = extractvalue { <2 x float>, float } %151, 0
+  %.fca.1.extract36 = extractvalue { <2 x float>, float } %151, 1
+  %152 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float 1.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
+  %.fca.0.extract24 = extractvalue { <2 x float>, float } %152, 0
+  %.fca.1.extract25 = extractvalue { <2 x float>, float } %152, 1
+  %153 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float -1.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
+  %.fca.0.extract14 = extractvalue { <2 x float>, float } %153, 0
+  %.fca.1.extract15 = extractvalue { <2 x float>, float } %153, 1
+  %foldExtExtBinop91 = fsub <2 x float> %.fca.0.extract24, %.fca.0.extract35
+  %154 = extractelement <2 x float> %foldExtExtBinop91, i64 0
+  %foldExtExtBinop93 = fsub <2 x float> %.fca.0.extract24, %.fca.0.extract35
+  %155 = extractelement <2 x float> %foldExtExtBinop93, i64 1
+  %.sroa.08.4.vec.insert.i = shufflevector <2 x float> %foldExtExtBinop91, <2 x float> %foldExtExtBinop93, <2 x i32> <i32 0, i32 3>
+  %156 = fsub float %.fca.1.extract25, %.fca.1.extract36
+  %157 = fmul float %155, %155
+  %158 = tail call float @llvm.fmuladd.f32(float %154, float %154, float %157)
+  %159 = tail call float @llvm.fmuladd.f32(float %156, float %156, float %158)
+  %160 = fcmp une float %159, 0.000000e+00
+  br i1 %160, label %161, label %Vector3Normalize.exit
 
-165:                                              ; preds = %152
-  %sqrt.i74 = tail call float @llvm.sqrt.f32(float %163)
-  %166 = fdiv float 1.000000e+00, %sqrt.i74
-  %167 = fmul float %157, %166
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %167, i64 0
-  %168 = fmul float %159, %166
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %168, i64 1
-  %169 = fmul float %160, %166
+161:                                              ; preds = %150
+  %sqrt.i74 = tail call float @llvm.sqrt.f32(float %159)
+  %162 = fdiv float 1.000000e+00, %sqrt.i74
+  %163 = fmul float %154, %162
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %163, i64 0
+  %164 = fmul float %155, %162
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %164, i64 1
+  %165 = fmul float %156, %162
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %152, %165
-  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %165 ], [ %.sroa.08.4.vec.insert.i, %152 ]
-  %.sroa.617.0.i = phi float [ %169, %165 ], [ %160, %152 ]
-  switch i32 %91, label %172 [
-    i32 0, label %170
-    i32 1, label %171
+Vector3Normalize.exit:                            ; preds = %150, %161
+  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %161 ], [ %.sroa.08.4.vec.insert.i, %150 ]
+  %.sroa.617.0.i = phi float [ %165, %161 ], [ %156, %150 ]
+  switch i32 %89, label %168 [
+    i32 0, label %166
+    i32 1, label %167
   ]
 
-170:                                              ; preds = %Vector3Normalize.exit
+166:                                              ; preds = %Vector3Normalize.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
-  br label %172
+  br label %168
 
-171:                                              ; preds = %Vector3Normalize.exit
+167:                                              ; preds = %Vector3Normalize.exit
   store <2 x float> %.fca.0.extract14, ptr %0, align 4
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.fca.1.extract15, ptr %.sroa.423.0..sroa_idx, align 4
-  br label %172
+  br label %168
 
-172:                                              ; preds = %Vector3Normalize.exit, %171, %170
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store <2 x float> %.sroa.013.0.i, ptr %173, align 4
+168:                                              ; preds = %Vector3Normalize.exit, %167, %166
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store <2 x float> %.sroa.013.0.i, ptr %169, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.617.0.i, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -45190,95 +45190,95 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias writable writeonly sret(
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.069.0.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
-  %5 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %6 = extractelement <2 x float> %5, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %5 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
-  %7 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
-  %8 = extractelement <2 x float> %7, i64 1
-  %9 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
-  %10 = fmul float %8, %8
-  %11 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %10)
-  %12 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %11)
-  %sqrt87.i = tail call float @llvm.sqrt.f32(float %12)
-  %13 = fcmp oeq float %12, 0.000000e+00
-  %14 = fdiv float 1.000000e+00, %sqrt87.i
-  %15 = select i1 %13, float 1.000000e+00, float %14
-  %16 = fmul float %6, %15
-  %17 = fmul float %8, %15
-  %18 = fmul float %9, %15
+  %foldExtExtBinop6 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.01.0.copyload
+  %6 = extractelement <2 x float> %foldExtExtBinop6, i64 1
+  %7 = fsub float %.sroa.24.0.copyload, %.sroa.22.0.copyload
+  %8 = fmul float %6, %6
+  %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
+  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
+  %sqrt87.i = tail call float @llvm.sqrt.f32(float %10)
+  %11 = fcmp oeq float %10, 0.000000e+00
+  %12 = fdiv float 1.000000e+00, %sqrt87.i
+  %13 = select i1 %11, float 1.000000e+00, float %12
+  %14 = fmul float %5, %13
+  %15 = fmul float %6, %13
+  %16 = fmul float %7, %13
   %.sroa.057.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 1
-  %19 = fneg float %17
-  %20 = fmul float %.sroa.2.0.copyload, %19
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %18, float %20)
+  %17 = fneg float %15
+  %18 = fmul float %.sroa.2.0.copyload, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %16, float %18)
   %.sroa.057.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload, i64 0
-  %22 = fneg float %18
-  %23 = fmul float %.sroa.057.0.vec.extract.i, %22
-  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %16, float %23)
-  %25 = fneg float %16
-  %26 = fmul float %.sroa.057.4.vec.extract.i, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %17, float %26)
-  %28 = fmul float %24, %24
-  %29 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %28)
-  %30 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %29)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %30)
-  %31 = fcmp oeq float %30, 0.000000e+00
-  %32 = fdiv float 1.000000e+00, %sqrt.i
-  %33 = select i1 %31, float 1.000000e+00, float %32
-  %34 = fmul float %21, %33
-  %35 = fmul float %24, %33
-  %36 = fmul float %27, %33
-  %37 = fneg float %35
-  %38 = fmul float %18, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %17, float %36, float %38)
-  %40 = fneg float %36
-  %41 = fmul float %16, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %18, float %34, float %41)
-  %43 = fneg float %34
-  %44 = fmul float %17, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %16, float %35, float %44)
-  store float %34, ptr %0, align 4, !alias.scope !74
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %39, ptr %46, align 4, !alias.scope !74
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %16, ptr %47, align 4, !alias.scope !74
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %48, align 4, !alias.scope !74
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %35, ptr %49, align 4, !alias.scope !74
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %42, ptr %50, align 4, !alias.scope !74
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %17, ptr %51, align 4, !alias.scope !74
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %52, align 4, !alias.scope !74
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %36, ptr %53, align 4, !alias.scope !74
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %45, ptr %54, align 4, !alias.scope !74
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %18, ptr %55, align 4, !alias.scope !74
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %56, align 4, !alias.scope !74
-  %57 = fmul float %.sroa.069.4.vec.extract.i, %35
-  %58 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.069.0.vec.extract.i, float %57)
-  %59 = tail call float @llvm.fmuladd.f32(float %36, float %.sroa.24.0.copyload, float %58)
-  %60 = fneg float %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %60, ptr %61, align 4, !alias.scope !74
-  %62 = fmul float %.sroa.069.4.vec.extract.i, %42
-  %63 = tail call float @llvm.fmuladd.f32(float %39, float %.sroa.069.0.vec.extract.i, float %62)
-  %64 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.24.0.copyload, float %63)
-  %65 = fneg float %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %65, ptr %66, align 4, !alias.scope !74
-  %67 = fmul float %.sroa.069.4.vec.extract.i, %17
-  %68 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.069.0.vec.extract.i, float %67)
-  %69 = tail call float @llvm.fmuladd.f32(float %18, float %.sroa.24.0.copyload, float %68)
-  %70 = fneg float %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %70, ptr %71, align 4, !alias.scope !74
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %72, align 4, !alias.scope !74
+  %20 = fneg float %16
+  %21 = fmul float %.sroa.057.0.vec.extract.i, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %14, float %21)
+  %23 = fneg float %14
+  %24 = fmul float %.sroa.057.4.vec.extract.i, %23
+  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %15, float %24)
+  %26 = fmul float %22, %22
+  %27 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %26)
+  %28 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %27)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %28)
+  %29 = fcmp oeq float %28, 0.000000e+00
+  %30 = fdiv float 1.000000e+00, %sqrt.i
+  %31 = select i1 %29, float 1.000000e+00, float %30
+  %32 = fmul float %19, %31
+  %33 = fmul float %22, %31
+  %34 = fmul float %25, %31
+  %35 = fneg float %33
+  %36 = fmul float %16, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %15, float %34, float %36)
+  %38 = fneg float %34
+  %39 = fmul float %14, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %16, float %32, float %39)
+  %41 = fneg float %32
+  %42 = fmul float %15, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %14, float %33, float %42)
+  store float %32, ptr %0, align 4, !alias.scope !74
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %37, ptr %44, align 4, !alias.scope !74
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %14, ptr %45, align 4, !alias.scope !74
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float 0.000000e+00, ptr %46, align 4, !alias.scope !74
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %33, ptr %47, align 4, !alias.scope !74
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %40, ptr %48, align 4, !alias.scope !74
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %15, ptr %49, align 4, !alias.scope !74
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float 0.000000e+00, ptr %50, align 4, !alias.scope !74
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %34, ptr %51, align 4, !alias.scope !74
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %43, ptr %52, align 4, !alias.scope !74
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %16, ptr %53, align 4, !alias.scope !74
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float 0.000000e+00, ptr %54, align 4, !alias.scope !74
+  %55 = fmul float %.sroa.069.4.vec.extract.i, %33
+  %56 = tail call float @llvm.fmuladd.f32(float %32, float %.sroa.069.0.vec.extract.i, float %55)
+  %57 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.24.0.copyload, float %56)
+  %58 = fneg float %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %58, ptr %59, align 4, !alias.scope !74
+  %60 = fmul float %.sroa.069.4.vec.extract.i, %40
+  %61 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.069.0.vec.extract.i, float %60)
+  %62 = tail call float @llvm.fmuladd.f32(float %43, float %.sroa.24.0.copyload, float %61)
+  %63 = fneg float %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %63, ptr %64, align 4, !alias.scope !74
+  %65 = fmul float %.sroa.069.4.vec.extract.i, %15
+  %66 = tail call float @llvm.fmuladd.f32(float %14, float %.sroa.069.0.vec.extract.i, float %65)
+  %67 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.24.0.copyload, float %66)
+  %68 = fneg float %67
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %68, ptr %69, align 4, !alias.scope !74
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float 1.000000e+00, ptr %70, align 4, !alias.scope !74
   ret void
 }
 
@@ -45374,102 +45374,102 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef rea
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.069.0.vec.extract.i = extractelement <2 x float> %.sroa.021.0.copyload, i64 0
-  %61 = fsub <2 x float> %.sroa.021.0.copyload, %.sroa.019.0.copyload
-  %62 = extractelement <2 x float> %61, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.021.0.copyload, %.sroa.019.0.copyload
+  %61 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.069.4.vec.extract.i = extractelement <2 x float> %.sroa.021.0.copyload, i64 1
-  %63 = fsub <2 x float> %.sroa.021.0.copyload, %.sroa.019.0.copyload
-  %64 = extractelement <2 x float> %63, i64 1
-  %65 = fsub float %.sroa.222.0.copyload, %.sroa.220.0.copyload
-  %66 = fmul float %64, %64
-  %67 = tail call float @llvm.fmuladd.f32(float %62, float %62, float %66)
-  %68 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %67)
-  %sqrt87.i = tail call float @llvm.sqrt.f32(float %68)
-  %69 = fcmp oeq float %68, 0.000000e+00
-  %70 = fdiv float 1.000000e+00, %sqrt87.i
-  %71 = select i1 %69, float 1.000000e+00, float %70
-  %72 = fmul float %62, %71
-  %73 = fmul float %64, %71
-  %74 = fmul float %65, %71
+  %foldExtExtBinop78 = fsub <2 x float> %.sroa.021.0.copyload, %.sroa.019.0.copyload
+  %62 = extractelement <2 x float> %foldExtExtBinop78, i64 1
+  %63 = fsub float %.sroa.222.0.copyload, %.sroa.220.0.copyload
+  %64 = fmul float %62, %62
+  %65 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %64)
+  %66 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %65)
+  %sqrt87.i = tail call float @llvm.sqrt.f32(float %66)
+  %67 = fcmp oeq float %66, 0.000000e+00
+  %68 = fdiv float 1.000000e+00, %sqrt87.i
+  %69 = select i1 %67, float 1.000000e+00, float %68
+  %70 = fmul float %61, %69
+  %71 = fmul float %62, %69
+  %72 = fmul float %63, %69
   %.sroa.057.4.vec.extract.i = extractelement <2 x float> %.sroa.018.0.copyload, i64 1
-  %75 = fneg float %73
-  %76 = fmul float %.sroa.2.0.copyload, %75
-  %77 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %74, float %76)
+  %73 = fneg float %71
+  %74 = fmul float %.sroa.2.0.copyload, %73
+  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.057.4.vec.extract.i, float %72, float %74)
   %.sroa.057.0.vec.extract.i = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
-  %78 = fneg float %74
-  %79 = fmul float %.sroa.057.0.vec.extract.i, %78
-  %80 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %72, float %79)
-  %81 = fneg float %72
-  %82 = fmul float %.sroa.057.4.vec.extract.i, %81
-  %83 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %73, float %82)
-  %84 = fmul float %80, %80
-  %85 = tail call float @llvm.fmuladd.f32(float %77, float %77, float %84)
-  %86 = tail call float @llvm.fmuladd.f32(float %83, float %83, float %85)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %86)
-  %87 = fcmp oeq float %86, 0.000000e+00
-  %88 = fdiv float 1.000000e+00, %sqrt.i
-  %89 = select i1 %87, float 1.000000e+00, float %88
-  %90 = fmul float %77, %89
-  %91 = fmul float %80, %89
-  %92 = fmul float %83, %89
-  %93 = fneg float %91
-  %94 = fmul float %74, %93
-  %95 = tail call float @llvm.fmuladd.f32(float %73, float %92, float %94)
-  %96 = fneg float %92
-  %97 = fmul float %72, %96
-  %98 = tail call float @llvm.fmuladd.f32(float %74, float %90, float %97)
-  %99 = fneg float %90
-  %100 = fmul float %73, %99
-  %101 = tail call float @llvm.fmuladd.f32(float %72, float %91, float %100)
-  %102 = fmul float %.sroa.069.4.vec.extract.i, %91
-  %103 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.069.0.vec.extract.i, float %102)
-  %104 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.222.0.copyload, float %103)
-  %105 = fmul float %.sroa.069.4.vec.extract.i, %98
-  %106 = tail call float @llvm.fmuladd.f32(float %95, float %.sroa.069.0.vec.extract.i, float %105)
-  %107 = tail call float @llvm.fmuladd.f32(float %101, float %.sroa.222.0.copyload, float %106)
-  %108 = fmul float %.sroa.069.4.vec.extract.i, %73
-  %109 = tail call float @llvm.fmuladd.f32(float %72, float %.sroa.069.0.vec.extract.i, float %108)
-  %110 = tail call float @llvm.fmuladd.f32(float %74, float %.sroa.222.0.copyload, float %109)
+  %76 = fneg float %72
+  %77 = fmul float %.sroa.057.0.vec.extract.i, %76
+  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.2.0.copyload, float %70, float %77)
+  %79 = fneg float %70
+  %80 = fmul float %.sroa.057.4.vec.extract.i, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %.sroa.057.0.vec.extract.i, float %71, float %80)
+  %82 = fmul float %78, %78
+  %83 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %82)
+  %84 = tail call float @llvm.fmuladd.f32(float %81, float %81, float %83)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %84)
+  %85 = fcmp oeq float %84, 0.000000e+00
+  %86 = fdiv float 1.000000e+00, %sqrt.i
+  %87 = select i1 %85, float 1.000000e+00, float %86
+  %88 = fmul float %75, %87
+  %89 = fmul float %78, %87
+  %90 = fmul float %81, %87
+  %91 = fneg float %89
+  %92 = fmul float %72, %91
+  %93 = tail call float @llvm.fmuladd.f32(float %71, float %90, float %92)
+  %94 = fneg float %90
+  %95 = fmul float %70, %94
+  %96 = tail call float @llvm.fmuladd.f32(float %72, float %88, float %95)
+  %97 = fneg float %88
+  %98 = fmul float %71, %97
+  %99 = tail call float @llvm.fmuladd.f32(float %70, float %89, float %98)
+  %100 = fmul float %.sroa.069.4.vec.extract.i, %89
+  %101 = tail call float @llvm.fmuladd.f32(float %88, float %.sroa.069.0.vec.extract.i, float %100)
+  %102 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.222.0.copyload, float %101)
+  %103 = fmul float %.sroa.069.4.vec.extract.i, %96
+  %104 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.069.0.vec.extract.i, float %103)
+  %105 = tail call float @llvm.fmuladd.f32(float %99, float %.sroa.222.0.copyload, float %104)
+  %106 = fmul float %.sroa.069.4.vec.extract.i, %71
+  %107 = tail call float @llvm.fmuladd.f32(float %70, float %.sroa.069.0.vec.extract.i, float %106)
+  %108 = tail call float @llvm.fmuladd.f32(float %72, float %.sroa.222.0.copyload, float %107)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %0, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %0, i64 1
-  %111 = fmul float %.sroa.0.4.vec.extract.i, %91
-  %112 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.0.0.vec.extract.i, float %111)
-  %113 = tail call float @llvm.fmuladd.f32(float %92, float %1, float %112)
-  %114 = fsub float %113, %104
-  %115 = fmul float %.sroa.0.4.vec.extract.i, %98
-  %116 = tail call float @llvm.fmuladd.f32(float %95, float %.sroa.0.0.vec.extract.i, float %115)
-  %117 = tail call float @llvm.fmuladd.f32(float %101, float %1, float %116)
-  %118 = fsub float %117, %107
-  %119 = fmul float %.sroa.0.4.vec.extract.i, %73
-  %120 = tail call float @llvm.fmuladd.f32(float %72, float %.sroa.0.0.vec.extract.i, float %119)
-  %121 = tail call float @llvm.fmuladd.f32(float %74, float %1, float %120)
-  %122 = fsub float %121, %110
-  %123 = fmul float %.sroa.0.4.vec.extract.i, 0.000000e+00
-  %124 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float 0.000000e+00, float %123)
-  %125 = tail call float @llvm.fmuladd.f32(float %1, float 0.000000e+00, float %124)
-  %126 = fadd float %125, 1.000000e+00
-  %127 = fmul float %118, 0.000000e+00
-  %128 = tail call float @llvm.fmuladd.f32(float %.sroa.067.0, float %114, float %127)
-  %129 = tail call float @llvm.fmuladd.f32(float %.sroa.1069.0, float %122, float %128)
-  %130 = tail call float @llvm.fmuladd.f32(float %.sroa.1370.0, float %126, float %129)
-  %131 = fmul float %.sroa.1872.0, %118
-  %132 = tail call float @llvm.fmuladd.f32(float %114, float 0.000000e+00, float %131)
-  %133 = tail call float @llvm.fmuladd.f32(float %.sroa.2273.0, float %122, float %132)
-  %134 = tail call float @llvm.fmuladd.f32(float %.sroa.25.0, float %126, float %133)
-  %135 = tail call float @llvm.fmuladd.f32(float %114, float 0.000000e+00, float %127)
-  %136 = tail call float @llvm.fmuladd.f32(float %.sroa.44.0, float %122, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %.sroa.47.0, float %126, float %136)
-  %138 = fdiv float %130, %137
-  %139 = fadd float %138, 1.000000e+00
-  %140 = fmul float %139, 5.000000e-01
-  %141 = sitofp i32 %3 to float
-  %142 = fmul float %140, %141
-  %.sroa.036.0.vec.insert = insertelement <2 x float> poison, float %142, i64 0
-  %143 = fdiv float %134, %137
-  %144 = fsub float 1.000000e+00, %143
-  %145 = fmul float %144, 5.000000e-01
-  %146 = sitofp i32 %4 to float
-  %147 = fmul float %145, %146
-  %.sroa.036.4.vec.insert = insertelement <2 x float> %.sroa.036.0.vec.insert, float %147, i64 1
+  %109 = fmul float %.sroa.0.4.vec.extract.i, %89
+  %110 = tail call float @llvm.fmuladd.f32(float %88, float %.sroa.0.0.vec.extract.i, float %109)
+  %111 = tail call float @llvm.fmuladd.f32(float %90, float %1, float %110)
+  %112 = fsub float %111, %102
+  %113 = fmul float %.sroa.0.4.vec.extract.i, %96
+  %114 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.0.0.vec.extract.i, float %113)
+  %115 = tail call float @llvm.fmuladd.f32(float %99, float %1, float %114)
+  %116 = fsub float %115, %105
+  %117 = fmul float %.sroa.0.4.vec.extract.i, %71
+  %118 = tail call float @llvm.fmuladd.f32(float %70, float %.sroa.0.0.vec.extract.i, float %117)
+  %119 = tail call float @llvm.fmuladd.f32(float %72, float %1, float %118)
+  %120 = fsub float %119, %108
+  %121 = fmul float %.sroa.0.4.vec.extract.i, 0.000000e+00
+  %122 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float 0.000000e+00, float %121)
+  %123 = tail call float @llvm.fmuladd.f32(float %1, float 0.000000e+00, float %122)
+  %124 = fadd float %123, 1.000000e+00
+  %125 = fmul float %116, 0.000000e+00
+  %126 = tail call float @llvm.fmuladd.f32(float %.sroa.067.0, float %112, float %125)
+  %127 = tail call float @llvm.fmuladd.f32(float %.sroa.1069.0, float %120, float %126)
+  %128 = tail call float @llvm.fmuladd.f32(float %.sroa.1370.0, float %124, float %127)
+  %129 = fmul float %.sroa.1872.0, %116
+  %130 = tail call float @llvm.fmuladd.f32(float %112, float 0.000000e+00, float %129)
+  %131 = tail call float @llvm.fmuladd.f32(float %.sroa.2273.0, float %120, float %130)
+  %132 = tail call float @llvm.fmuladd.f32(float %.sroa.25.0, float %124, float %131)
+  %133 = tail call float @llvm.fmuladd.f32(float %112, float 0.000000e+00, float %125)
+  %134 = tail call float @llvm.fmuladd.f32(float %.sroa.44.0, float %120, float %133)
+  %135 = tail call float @llvm.fmuladd.f32(float %.sroa.47.0, float %124, float %134)
+  %136 = fdiv float %128, %135
+  %137 = fadd float %136, 1.000000e+00
+  %138 = fmul float %137, 5.000000e-01
+  %139 = sitofp i32 %3 to float
+  %140 = fmul float %138, %139
+  %.sroa.036.0.vec.insert = insertelement <2 x float> poison, float %140, i64 0
+  %141 = fdiv float %132, %135
+  %142 = fsub float 1.000000e+00, %141
+  %143 = fmul float %142, 5.000000e-01
+  %144 = sitofp i32 %4 to float
+  %145 = fmul float %143, %144
+  %.sroa.036.4.vec.insert = insertelement <2 x float> %.sroa.036.0.vec.insert, float %145, i64 1
   ret <2 x float> %.sroa.036.4.vec.insert
 }
 

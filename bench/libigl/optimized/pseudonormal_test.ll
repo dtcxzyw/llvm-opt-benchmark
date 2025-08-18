@@ -409,20 +409,20 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %246 = load <2 x double>, ptr %10, align 8, !tbaa !54
   %247 = fmul <2 x double> %245, %246
   %shift = shufflevector <2 x double> %247, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %248 = fadd <2 x double> %247, %shift
-  %249 = extractelement <2 x double> %248, i64 0
-  %250 = getelementptr i8, ptr %6, i64 16
-  %251 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %foldExtExtBinop = fadd <2 x double> %247, %shift
+  %248 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %249 = getelementptr i8, ptr %6, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %251 = load double, ptr %249, align 8, !tbaa !20
   %252 = load double, ptr %250, align 8, !tbaa !20
-  %253 = load double, ptr %251, align 8, !tbaa !20
-  %254 = fsub double %252, %253
-  %255 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %256 = load double, ptr %255, align 8, !tbaa !20
-  %257 = fmul double %254, %256
-  %258 = fadd double %249, %257
-  %259 = fcmp oge double %258, 0.000000e+00
-  %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
-  store double %260, ptr %9, align 8, !tbaa !20
+  %253 = fsub double %251, %252
+  %254 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %255 = load double, ptr %254, align 8, !tbaa !20
+  %256 = fmul double %253, %255
+  %257 = fadd double %248, %256
+  %258 = fcmp oge double %257, 0.000000e+00
+  %259 = select i1 %258, double 1.000000e+00, double -1.000000e+00
+  store double %259, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -527,11 +527,11 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %72 = load <2 x double>, ptr %8, align 16, !tbaa !54
   %73 = fmul <2 x double> %71, %72
   %shift = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %74 = fadd <2 x double> %73, %shift
-  %75 = extractelement <2 x double> %74, i64 0
-  %76 = fcmp oge double %75, 0.000000e+00
-  %77 = select i1 %76, double 1.000000e+00, double -1.000000e+00
-  store double %77, ptr %7, align 8, !tbaa !20
+  %foldExtExtBinop = fadd <2 x double> %73, %shift
+  %74 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %75 = fcmp oge double %74, 0.000000e+00
+  %76 = select i1 %75, double 1.000000e+00, double -1.000000e+00
+  store double %76, ptr %7, align 8, !tbaa !20
   ret void
 }
 
@@ -648,11 +648,11 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %79 = load <2 x double>, ptr %8, align 16, !tbaa !54
   %80 = fmul <2 x double> %78, %79
   %shift = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %81 = fadd <2 x double> %80, %shift
-  %82 = extractelement <2 x double> %81, i64 0
-  %83 = fcmp oge double %82, 0.000000e+00
-  %84 = select i1 %83, double 1.000000e+00, double -1.000000e+00
-  store double %84, ptr %7, align 8, !tbaa !20
+  %foldExtExtBinop = fadd <2 x double> %80, %shift
+  %81 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %82 = fcmp oge double %81, 0.000000e+00
+  %83 = select i1 %82, double 1.000000e+00, double -1.000000e+00
+  store double %83, ptr %7, align 8, !tbaa !20
   ret void
 }
 
@@ -1551,11 +1551,11 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %79 = load <2 x double>, ptr %8, align 16, !tbaa !54
   %80 = fmul <2 x double> %78, %79
   %shift = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %81 = fadd <2 x double> %80, %shift
-  %82 = extractelement <2 x double> %81, i64 0
-  %83 = fcmp oge double %82, 0.000000e+00
-  %84 = select i1 %83, double 1.000000e+00, double -1.000000e+00
-  store double %84, ptr %7, align 8, !tbaa !20
+  %foldExtExtBinop = fadd <2 x double> %80, %shift
+  %81 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %82 = fcmp oge double %81, 0.000000e+00
+  %83 = select i1 %82, double 1.000000e+00, double -1.000000e+00
+  store double %83, ptr %7, align 8, !tbaa !20
   ret void
 }
 
@@ -1761,7 +1761,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %159
+  br label %158
 
 142:                                              ; preds = %.thread, %.preheader186
   %indvars.iv = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next211, %.thread ]
@@ -1774,136 +1774,136 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %148 = fsub <2 x double> %57, %147
   %149 = fmul <2 x double> %148, %148
   %shift = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %150 = fadd <2 x double> %149, %shift
-  %151 = extractelement <2 x double> %150, i64 0
-  %152 = getelementptr i8, ptr %146, i64 16
-  %153 = load double, ptr %152, align 8, !tbaa !20
-  %154 = fsub double %58, %153
-  %155 = fmul double %154, %154
-  %156 = fadd double %151, %155
-  %.scalar.i = call noundef double @llvm.sqrt.f64(double %156)
-  %157 = fcmp olt double %.scalar.i, 0x3D719799812DEA11
-  br i1 %157, label %._crit_edge.thread, label %.thread
+  %foldExtExtBinop = fadd <2 x double> %149, %shift
+  %150 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %151 = getelementptr i8, ptr %146, i64 16
+  %152 = load double, ptr %151, align 8, !tbaa !20
+  %153 = fsub double %58, %152
+  %154 = fmul double %153, %153
+  %155 = fadd double %150, %154
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %155)
+  %156 = fcmp olt double %.scalar.i, 0x3D719799812DEA11
+  br i1 %156, label %._crit_edge.thread, label %.thread
 
 .thread:                                          ; preds = %142
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv, 1
-  %158 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %158, label %.lr.ph, label %142, !llvm.loop !186
+  %157 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %157, label %.lr.ph, label %142, !llvm.loop !186
 
-159:                                              ; preds = %.lr.ph, %201
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %201 ]
+158:                                              ; preds = %.lr.ph, %200
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %200 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %160 = icmp eq i64 %indvars.iv.next201, 3
-  %161 = and i64 %indvars.iv.next201, 4294967295
-  %162 = select i1 %160, i64 0, i64 %161
-  %163 = load ptr, ptr %1, align 8, !tbaa !81
-  %164 = getelementptr i8, ptr %163, i64 %.idx.i.i.i
-  %165 = getelementptr i32, ptr %164, i64 %162
-  %166 = load i32, ptr %165, align 4, !tbaa !11
-  %167 = sext i32 %166 to i64
-  %168 = load ptr, ptr %0, align 8, !tbaa !164, !noalias !187
-  %.idx.i.i.i.i89 = mul nsw i64 %167, 24
-  %169 = getelementptr inbounds i8, ptr %168, i64 %.idx.i.i.i.i89
-  %170 = load <2 x double>, ptr %169, align 1, !tbaa !54
-  store <2 x double> %170, ptr %17, align 16, !tbaa !54
-  %171 = getelementptr i8, ptr %169, i64 16
-  %172 = load double, ptr %171, align 8, !tbaa !20
-  store double %172, ptr %138, align 16, !tbaa !20
+  %159 = icmp eq i64 %indvars.iv.next201, 3
+  %160 = and i64 %indvars.iv.next201, 4294967295
+  %161 = select i1 %159, i64 0, i64 %160
+  %162 = load ptr, ptr %1, align 8, !tbaa !81
+  %163 = getelementptr i8, ptr %162, i64 %.idx.i.i.i
+  %164 = getelementptr i32, ptr %163, i64 %161
+  %165 = load i32, ptr %164, align 4, !tbaa !11
+  %166 = sext i32 %165 to i64
+  %167 = load ptr, ptr %0, align 8, !tbaa !164, !noalias !187
+  %.idx.i.i.i.i89 = mul nsw i64 %166, 24
+  %168 = getelementptr inbounds i8, ptr %167, i64 %.idx.i.i.i.i89
+  %169 = load <2 x double>, ptr %168, align 1, !tbaa !54
+  store <2 x double> %169, ptr %17, align 16, !tbaa !54
+  %170 = getelementptr i8, ptr %168, i64 16
+  %171 = load double, ptr %170, align 8, !tbaa !20
+  store double %171, ptr %138, align 16, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv200, 0
-  %173 = add nuw nsw i64 %indvars.iv200, 4294967295
-  %174 = and i64 %173, 4294967295
-  %175 = select i1 %.cmp, i64 2, i64 %174
-  %176 = getelementptr i32, ptr %164, i64 %175
-  %177 = load i32, ptr %176, align 4, !tbaa !11
-  %178 = sext i32 %177 to i64
-  %.idx.i.i.i.i91 = mul nsw i64 %178, 24
-  %179 = getelementptr inbounds i8, ptr %168, i64 %.idx.i.i.i.i91
-  %180 = load <2 x double>, ptr %179, align 1, !tbaa !54
-  store <2 x double> %180, ptr %18, align 16, !tbaa !54
-  %181 = getelementptr i8, ptr %179, i64 16
-  %182 = load double, ptr %181, align 8, !tbaa !20
-  store double %182, ptr %139, align 16, !tbaa !20
+  %172 = add nuw nsw i64 %indvars.iv200, 4294967295
+  %173 = and i64 %172, 4294967295
+  %174 = select i1 %.cmp, i64 2, i64 %173
+  %175 = getelementptr i32, ptr %163, i64 %174
+  %176 = load i32, ptr %175, align 4, !tbaa !11
+  %177 = sext i32 %176 to i64
+  %.idx.i.i.i.i91 = mul nsw i64 %177, 24
+  %178 = getelementptr inbounds i8, ptr %167, i64 %.idx.i.i.i.i91
+  %179 = load <2 x double>, ptr %178, align 1, !tbaa !54
+  store <2 x double> %179, ptr %18, align 16, !tbaa !54
+  %180 = getelementptr i8, ptr %178, i64 16
+  %181 = load double, ptr %180, align 8, !tbaa !20
+  store double %181, ptr %139, align 16, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %183 = load double, ptr %19, align 8, !tbaa !20
-  %184 = call double @sqrt(double noundef %183) #6, !tbaa !11
-  %185 = fcmp olt double %184, 0x3D719799812DEA11
-  br i1 %185, label %._crit_edge.thread216, label %201
+  %182 = load double, ptr %19, align 8, !tbaa !20
+  %183 = call double @sqrt(double noundef %182) #6, !tbaa !11
+  %184 = fcmp olt double %183, 0x3D719799812DEA11
+  br i1 %184, label %._crit_edge.thread216, label %200
 
-._crit_edge.thread216:                            ; preds = %159
-  %186 = load i64, ptr %140, align 8, !tbaa !102
-  %187 = mul nsw i64 %186, %indvars.iv200
-  %188 = load ptr, ptr %5, align 8, !tbaa !32
-  %189 = getelementptr i32, ptr %188, i64 %187
-  %190 = getelementptr i32, ptr %189, i64 %21
-  %191 = load i32, ptr %190, align 4, !tbaa !11
-  %192 = sext i32 %191 to i64
-  %193 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !190
-  %194 = getelementptr inbounds double, ptr %193, i64 %192
-  %195 = load i64, ptr %141, align 8, !tbaa !19
-  %196 = load double, ptr %194, align 8, !tbaa !20
-  store double %196, ptr %10, align 8, !tbaa !20
-  %197 = getelementptr inbounds double, ptr %194, i64 %195
-  %198 = load double, ptr %197, align 8, !tbaa !20
-  store double %198, ptr %55, align 8, !tbaa !20
-  %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %195, 4
-  %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
-  %200 = load double, ptr %199, align 8, !tbaa !20
-  store double %200, ptr %56, align 8, !tbaa !20
+._crit_edge.thread216:                            ; preds = %158
+  %185 = load i64, ptr %140, align 8, !tbaa !102
+  %186 = mul nsw i64 %185, %indvars.iv200
+  %187 = load ptr, ptr %5, align 8, !tbaa !32
+  %188 = getelementptr i32, ptr %187, i64 %186
+  %189 = getelementptr i32, ptr %188, i64 %21
+  %190 = load i32, ptr %189, align 4, !tbaa !11
+  %191 = sext i32 %190 to i64
+  %192 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !190
+  %193 = getelementptr inbounds double, ptr %192, i64 %191
+  %194 = load i64, ptr %141, align 8, !tbaa !19
+  %195 = load double, ptr %193, align 8, !tbaa !20
+  store double %195, ptr %10, align 8, !tbaa !20
+  %196 = getelementptr inbounds double, ptr %193, i64 %194
+  %197 = load double, ptr %196, align 8, !tbaa !20
+  store double %197, ptr %55, align 8, !tbaa !20
+  %.idx.i.i.i.i.i.i.i.i.i.i.i92 = shl nsw i64 %194, 4
+  %198 = getelementptr inbounds i8, ptr %193, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
+  %199 = load double, ptr %198, align 8, !tbaa !20
+  store double %199, ptr %56, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
-201:                                              ; preds = %159
+200:                                              ; preds = %158
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %202 = icmp samesign ugt i64 %indvars.iv200, 1
-  br i1 %202, label %._crit_edge, label %159, !llvm.loop !193
+  %201 = icmp samesign ugt i64 %indvars.iv200, 1
+  br i1 %201, label %._crit_edge, label %158, !llvm.loop !193
 
-._crit_edge:                                      ; preds = %201
-  %203 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !194
-  %204 = getelementptr inbounds double, ptr %203, i64 %21
-  %205 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %206 = load i64, ptr %205, align 8, !tbaa !19
-  %207 = load double, ptr %204, align 8, !tbaa !20
-  store double %207, ptr %10, align 8, !tbaa !20
-  %208 = getelementptr inbounds double, ptr %204, i64 %206
-  %209 = load double, ptr %208, align 8, !tbaa !20
-  store double %209, ptr %55, align 8, !tbaa !20
-  %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %206, 4
-  %210 = getelementptr inbounds i8, ptr %204, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i93
-  %211 = load double, ptr %210, align 8, !tbaa !20
-  store double %211, ptr %56, align 8, !tbaa !20
+._crit_edge:                                      ; preds = %200
+  %202 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !194
+  %203 = getelementptr inbounds double, ptr %202, i64 %21
+  %204 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %205 = load i64, ptr %204, align 8, !tbaa !19
+  %206 = load double, ptr %203, align 8, !tbaa !20
+  store double %206, ptr %10, align 8, !tbaa !20
+  %207 = getelementptr inbounds double, ptr %203, i64 %205
+  %208 = load double, ptr %207, align 8, !tbaa !20
+  store double %208, ptr %55, align 8, !tbaa !20
+  %.idx.i.i.i.i.i.i.i.i.i.i.i93 = shl nsw i64 %205, 4
+  %209 = getelementptr inbounds i8, ptr %203, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i93
+  %210 = load double, ptr %209, align 8, !tbaa !20
+  store double %210, ptr %56, align 8, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %73, %._crit_edge.thread216, %._crit_edge.thread, %._crit_edge, %118, %77, %98
-  %212 = load <2 x double>, ptr %6, align 1, !tbaa !54
-  %213 = load <2 x double>, ptr %8, align 8, !tbaa !54
-  %214 = fsub <2 x double> %212, %213
-  %215 = load <2 x double>, ptr %10, align 8, !tbaa !54
-  %216 = fmul <2 x double> %214, %215
-  %shift228 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %217 = fadd <2 x double> %216, %shift228
-  %218 = extractelement <2 x double> %217, i64 0
-  %219 = getelementptr i8, ptr %6, i64 16
-  %220 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %221 = load double, ptr %219, align 8, !tbaa !20
-  %222 = load double, ptr %220, align 8, !tbaa !20
-  %223 = fsub double %221, %222
-  %224 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %225 = load double, ptr %224, align 8, !tbaa !20
-  %226 = fmul double %223, %225
-  %227 = fadd double %218, %226
-  %228 = fcmp oge double %227, 0.000000e+00
-  %229 = select i1 %228, double 1.000000e+00, double -1.000000e+00
-  store double %229, ptr %9, align 8, !tbaa !20
+  %211 = load <2 x double>, ptr %6, align 1, !tbaa !54
+  %212 = load <2 x double>, ptr %8, align 8, !tbaa !54
+  %213 = fsub <2 x double> %211, %212
+  %214 = load <2 x double>, ptr %10, align 8, !tbaa !54
+  %215 = fmul <2 x double> %213, %214
+  %shift229 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop230 = fadd <2 x double> %215, %shift229
+  %216 = extractelement <2 x double> %foldExtExtBinop230, i64 0
+  %217 = getelementptr i8, ptr %6, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %219 = load double, ptr %217, align 8, !tbaa !20
+  %220 = load double, ptr %218, align 8, !tbaa !20
+  %221 = fsub double %219, %220
+  %222 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %223 = load double, ptr %222, align 8, !tbaa !20
+  %224 = fmul double %221, %223
+  %225 = fadd double %216, %224
+  %226 = fcmp oge double %225, 0.000000e+00
+  %227 = select i1 %226, double 1.000000e+00, double -1.000000e+00
+  store double %227, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3091,20 +3091,20 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %258 = load <2 x double>, ptr %10, align 8, !tbaa !54
   %259 = fmul <2 x double> %257, %258
   %shift = shufflevector <2 x double> %259, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %260 = fadd <2 x double> %259, %shift
-  %261 = extractelement <2 x double> %260, i64 0
-  %262 = getelementptr i8, ptr %6, i64 16
-  %263 = getelementptr i8, ptr %254, i64 16
+  %foldExtExtBinop = fadd <2 x double> %259, %shift
+  %260 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %261 = getelementptr i8, ptr %6, i64 16
+  %262 = getelementptr i8, ptr %254, i64 16
+  %263 = load double, ptr %261, align 8, !tbaa !20
   %264 = load double, ptr %262, align 8, !tbaa !20
-  %265 = load double, ptr %263, align 8, !tbaa !20
-  %266 = fsub double %264, %265
-  %267 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %268 = load double, ptr %267, align 8, !tbaa !20
-  %269 = fmul double %266, %268
-  %270 = fadd double %261, %269
-  %271 = fcmp oge double %270, 0.000000e+00
-  %272 = select i1 %271, double 1.000000e+00, double -1.000000e+00
-  store double %272, ptr %9, align 8, !tbaa !20
+  %265 = fsub double %263, %264
+  %266 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %267 = load double, ptr %266, align 8, !tbaa !20
+  %268 = fmul double %265, %267
+  %269 = fadd double %260, %268
+  %270 = fcmp oge double %269, 0.000000e+00
+  %271 = select i1 %270, double 1.000000e+00, double -1.000000e+00
+  store double %271, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4261,20 +4261,20 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %246 = load <2 x double>, ptr %10, align 8, !tbaa !54
   %247 = fmul <2 x double> %245, %246
   %shift = shufflevector <2 x double> %247, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %248 = fadd <2 x double> %247, %shift
-  %249 = extractelement <2 x double> %248, i64 0
-  %250 = getelementptr i8, ptr %6, i64 16
-  %251 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %foldExtExtBinop = fadd <2 x double> %247, %shift
+  %248 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %249 = getelementptr i8, ptr %6, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %251 = load double, ptr %249, align 8, !tbaa !20
   %252 = load double, ptr %250, align 8, !tbaa !20
-  %253 = load double, ptr %251, align 8, !tbaa !20
-  %254 = fsub double %252, %253
-  %255 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %256 = load double, ptr %255, align 8, !tbaa !20
-  %257 = fmul double %254, %256
-  %258 = fadd double %249, %257
-  %259 = fcmp oge double %258, 0.000000e+00
-  %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
-  store double %260, ptr %9, align 8, !tbaa !20
+  %253 = fsub double %251, %252
+  %254 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %255 = load double, ptr %254, align 8, !tbaa !20
+  %256 = fmul double %253, %255
+  %257 = fadd double %248, %256
+  %258 = fcmp oge double %257, 0.000000e+00
+  %259 = select i1 %258, double 1.000000e+00, double -1.000000e+00
+  store double %259, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4645,20 +4645,20 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %246 = load <2 x double>, ptr %10, align 8, !tbaa !54
   %247 = fmul <2 x double> %245, %246
   %shift = shufflevector <2 x double> %247, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %248 = fadd <2 x double> %247, %shift
-  %249 = extractelement <2 x double> %248, i64 0
-  %250 = getelementptr i8, ptr %6, i64 16
-  %251 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %foldExtExtBinop = fadd <2 x double> %247, %shift
+  %248 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %249 = getelementptr i8, ptr %6, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %251 = load double, ptr %249, align 8, !tbaa !20
   %252 = load double, ptr %250, align 8, !tbaa !20
-  %253 = load double, ptr %251, align 8, !tbaa !20
-  %254 = fsub double %252, %253
-  %255 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %256 = load double, ptr %255, align 8, !tbaa !20
-  %257 = fmul double %254, %256
-  %258 = fadd double %249, %257
-  %259 = fcmp oge double %258, 0.000000e+00
-  %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
-  store double %260, ptr %9, align 8, !tbaa !20
+  %253 = fsub double %251, %252
+  %254 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %255 = load double, ptr %254, align 8, !tbaa !20
+  %256 = fmul double %253, %255
+  %257 = fadd double %248, %256
+  %258 = fcmp oge double %257, 0.000000e+00
+  %259 = select i1 %258, double 1.000000e+00, double -1.000000e+00
+  store double %259, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

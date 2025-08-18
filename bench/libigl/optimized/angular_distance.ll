@@ -17,12 +17,12 @@ define dso_local noundef double @_ZN3igl16angular_distanceERKN5Eigen10Quaternion
   %10 = fmul <2 x double> %7, %9
   %11 = fadd <2 x double> %5, %10
   %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %12 = fadd <2 x double> %11, %shift
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = tail call double @acos(double noundef %13) #2, !tbaa !7
-  %15 = fmul double %14, 2.000000e+00
-  %16 = tail call double @fmod(double noundef %15, double noundef 0x401921FB54442D18) #2, !tbaa !7
-  ret double %16
+  %foldExtExtBinop = fadd <2 x double> %11, %shift
+  %12 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %13 = tail call double @acos(double noundef %12) #2, !tbaa !7
+  %14 = fmul double %13, 2.000000e+00
+  %15 = tail call double @fmod(double noundef %14, double noundef 0x401921FB54442D18) #2, !tbaa !7
+  ret double %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)

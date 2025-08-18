@@ -2289,14 +2289,14 @@ define linkonce_odr dso_local void @_ZN6Weeble4StepER8Settings(ptr noundef nonnu
   %.sroa.02.0.vec.insert.i32 = insertelement <2 x float> poison, float %10, i64 0
   %11 = fadd float %.sroa.01.4.vec.extract.i, 0.000000e+00
   %.sroa.02.4.vec.insert.i34 = insertelement <2 x float> %.sroa.02.0.vec.insert.i32, float %11, i64 1
-  %12 = fadd <2 x float> %7, %9
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = fadd <2 x float> %7, %9
-  %15 = extractelement <2 x float> %14, i64 1
-  %16 = fadd float %13, 0x3FA99999A0000000
-  %.sroa.02.0.vec.insert.i42 = insertelement <2 x float> poison, float %16, i64 0
-  %17 = fadd float %15, 0.000000e+00
-  %.sroa.02.4.vec.insert.i44 = insertelement <2 x float> %.sroa.02.0.vec.insert.i42, float %17, i64 1
+  %foldExtExtBinop48 = fadd <2 x float> %7, %9
+  %12 = extractelement <2 x float> %foldExtExtBinop48, i64 0
+  %foldExtExtBinop50 = fadd <2 x float> %7, %9
+  %13 = extractelement <2 x float> %foldExtExtBinop50, i64 1
+  %14 = fadd float %12, 0x3FA99999A0000000
+  %.sroa.02.0.vec.insert.i42 = insertelement <2 x float> poison, float %14, i64 0
+  %15 = fadd float %13, 0.000000e+00
+  %.sroa.02.4.vec.insert.i44 = insertelement <2 x float> %.sroa.02.0.vec.insert.i42, float %15, i64 1
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i34, <2 x float> %.sroa.02.4.vec.insert.i44, i32 noundef 32768)
   ret void
 }

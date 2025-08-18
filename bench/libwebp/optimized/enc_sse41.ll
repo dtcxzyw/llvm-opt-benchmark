@@ -477,15 +477,15 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noalias noundef r
   %99 = add <4 x i32> %97, %98
   %100 = sub <4 x i32> %.neg7, %99
   %shift = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %101 = add nsw <4 x i32> %100, %shift
-  %shift8 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %102 = add nsw <4 x i32> %101, %shift8
-  %shift9 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %103 = add nsw <4 x i32> %102, %shift9
-  %104 = extractelement <4 x i32> %103, i64 0
-  %105 = tail call i32 @llvm.abs.i32(i32 %104, i1 true)
-  %106 = lshr i32 %105, 5
-  ret i32 %106
+  %foldExtExtBinop = add nsw <4 x i32> %100, %shift
+  %shift9 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop10 = add nsw <4 x i32> %foldExtExtBinop, %shift9
+  %shift12 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop13 = add nsw <4 x i32> %foldExtExtBinop10, %shift12
+  %101 = extractelement <4 x i32> %foldExtExtBinop13, i64 0
+  %102 = tail call i32 @llvm.abs.i32(i32 %101, i1 true)
+  %103 = lshr i32 %102, 5
+  ret i32 %103
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -495,16 +495,16 @@ define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none
   %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !9, !alias.scope !15, !noalias !18
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %110
-  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %110 ]
-  %.01320 = phi i32 [ 0, %3 ], [ %108, %110 ]
+.preheader:                                       ; preds = %3, %107
+  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %107 ]
+  %.01320 = phi i32 [ 0, %3 ], [ %105, %107 ]
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv23
   %invariant.gep16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv23
   br label %5
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %.118 = phi i32 [ %.01320, %.preheader ], [ %108, %5 ]
+  %.118 = phi i32 [ %.01320, %.preheader ], [ %105, %5 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %gep17 = getelementptr inbounds nuw i8, ptr %invariant.gep16, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -608,26 +608,26 @@ define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none
   %100 = add <4 x i32> %98, %99
   %101 = sub <4 x i32> %.neg15, %100
   %shift = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %102 = add nsw <4 x i32> %101, %shift
-  %shift26 = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %103 = add nsw <4 x i32> %102, %shift26
-  %shift27 = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %104 = add nsw <4 x i32> %103, %shift27
-  %105 = extractelement <4 x i32> %104, i64 0
-  %106 = tail call i32 @llvm.abs.i32(i32 %105, i1 true)
-  %107 = lshr i32 %106, 5
-  %108 = add nsw i32 %107, %.118
+  %foldExtExtBinop = add nsw <4 x i32> %101, %shift
+  %shift27 = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop28 = add nsw <4 x i32> %foldExtExtBinop, %shift27
+  %shift30 = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop31 = add nsw <4 x i32> %foldExtExtBinop28, %shift30
+  %102 = extractelement <4 x i32> %foldExtExtBinop31, i64 0
+  %103 = tail call i32 @llvm.abs.i32(i32 %102, i1 true)
+  %104 = lshr i32 %103, 5
+  %105 = add nsw i32 %104, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %109 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %109, label %5, label %110, !llvm.loop !25
+  %106 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %106, label %5, label %107, !llvm.loop !25
 
-110:                                              ; preds = %5
+107:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
-  %111 = icmp samesign ult i64 %indvars.iv23, 384
-  br i1 %111, label %.preheader, label %112, !llvm.loop !26
+  %108 = icmp samesign ult i64 %indvars.iv23, 384
+  br i1 %108, label %.preheader, label %109, !llvm.loop !26
 
-112:                                              ; preds = %110
-  ret i32 %108
+109:                                              ; preds = %107
+  ret i32 %105
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -1257,25 +1257,25 @@ define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, do
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(248) %12, <2 x float> %11)
   %.b16 = load i1, ptr @_ZL16s_rightMouseDown, align 1
-  br i1 %.b16, label %16, label %26
+  br i1 %.b16, label %16, label %24
 
 16:                                               ; preds = %3
   %.sroa.02.0.copyload = load <2 x float>, ptr @_ZL14s_clickPointWS.0, align 8
-  %17 = fsub <2 x float> %11, %.sroa.02.0.copyload
-  %18 = extractelement <2 x float> %17, i64 0
-  %19 = fsub <2 x float> %11, %.sroa.02.0.copyload
-  %20 = extractelement <2 x float> %19, i64 1
-  %21 = load float, ptr @g_camera, align 4, !tbaa !92
+  %foldExtExtBinop = fsub <2 x float> %11, %.sroa.02.0.copyload
+  %17 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop18 = fsub <2 x float> %11, %.sroa.02.0.copyload
+  %18 = extractelement <2 x float> %foldExtExtBinop18, i64 1
+  %19 = load float, ptr @g_camera, align 4, !tbaa !92
+  %20 = fsub float %19, %17
+  store float %20, ptr @g_camera, align 4, !tbaa !92
+  %21 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
   %22 = fsub float %21, %18
-  store float %22, ptr @g_camera, align 4, !tbaa !92
-  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
-  %24 = fsub float %23, %20
-  store float %24, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
-  %25 = tail call <2 x float> @_ZN6Camera20ConvertScreenToWorldE6b2Vec2(ptr noundef nonnull align 4 dereferenceable(20) @g_camera, <2 x float> %.sroa.09.4.vec.insert)
-  store <2 x float> %25, ptr @_ZL14s_clickPointWS.0, align 8
-  br label %26
+  store float %22, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  %23 = tail call <2 x float> @_ZN6Camera20ConvertScreenToWorldE6b2Vec2(ptr noundef nonnull align 4 dereferenceable(20) @g_camera, <2 x float> %.sroa.09.4.vec.insert)
+  store <2 x float> %23, ptr @_ZL14s_clickPointWS.0, align 8
+  br label %24
 
-26:                                               ; preds = %16, %3
+24:                                               ; preds = %16, %3
   ret void
 }
 

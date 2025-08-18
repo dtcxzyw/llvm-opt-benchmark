@@ -2992,28 +2992,28 @@ _ZN7mitsuba14linear_rgb_recINS_8SpectrumIfLm4EEENS_5ColorIS2_Lm3EEEEET0_T_N5drji
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %84 = fadd contract <4 x float> %82, %83
   %shift = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %85 = fadd contract <4 x float> %84, %shift
-  %86 = extractelement <4 x float> %85, i64 0
-  %87 = fmul contract float %86, 2.500000e-01
-  %88 = fmul contract <4 x float> %81, %.sroa.2.0.copyload
-  %89 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %90 = fadd contract <4 x float> %88, %89
-  %shift134 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %91 = fadd contract <4 x float> %90, %shift134
-  %92 = extractelement <4 x float> %91, i64 0
-  %93 = fmul contract float %92, 2.500000e-01
-  %94 = fmul contract <4 x float> %81, %.sroa.3.0.copyload
-  %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %96 = fadd contract <4 x float> %94, %95
-  %shift135 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %97 = fadd contract <4 x float> %96, %shift135
-  %98 = extractelement <4 x float> %97, i64 0
-  %99 = fmul contract float %98, 2.500000e-01
-  %100 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %87, i64 0
-  %101 = insertelement <4 x float> %100, float %93, i64 1
-  %102 = insertelement <4 x float> %101, float %99, i64 2
-  %103 = fmul contract <4 x float> %102, splat (float 0x3F832F59E0000000)
-  ret <4 x float> %103
+  %foldExtExtBinop = fadd contract <4 x float> %84, %shift
+  %85 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %86 = fmul contract float %85, 2.500000e-01
+  %87 = fmul contract <4 x float> %81, %.sroa.2.0.copyload
+  %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %89 = fadd contract <4 x float> %87, %88
+  %shift135 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop136 = fadd contract <4 x float> %89, %shift135
+  %90 = extractelement <4 x float> %foldExtExtBinop136, i64 0
+  %91 = fmul contract float %90, 2.500000e-01
+  %92 = fmul contract <4 x float> %81, %.sroa.3.0.copyload
+  %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %94 = fadd contract <4 x float> %92, %93
+  %shift138 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop139 = fadd contract <4 x float> %94, %shift138
+  %95 = extractelement <4 x float> %foldExtExtBinop139, i64 0
+  %96 = fmul contract float %95, 2.500000e-01
+  %97 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %86, i64 0
+  %98 = insertelement <4 x float> %97, float %91, i64 1
+  %99 = insertelement <4 x float> %98, float %96, i64 2
+  %100 = fmul contract <4 x float> %99, splat (float 0x3F832F59E0000000)
+  ret <4 x float> %100
 }
 
 declare void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3putERKNS_5PointIfLm2EEEPKfb(ptr noundef nonnull align 8 dereferenceable(149), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

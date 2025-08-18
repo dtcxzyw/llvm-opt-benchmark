@@ -5689,8 +5689,8 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_address_famil
   %6 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.75.llvm.11181120138937278269, i64 noundef 23)
   br label %7
 
-7:                                                ; preds = %5, %31, %33, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread, %.thread20
-  %.0 = phi ptr [ %6, %.thread20 ], [ %32, %31 ], [ %34, %33 ], [ null, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread ], [ null, %5 ]
+7:                                                ; preds = %5, %30, %32, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread, %.thread20
+  %.0 = phi ptr [ %6, %.thread20 ], [ %31, %30 ], [ %33, %32 ], [ null, %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread ], [ null, %5 ]
   ret ptr %.0
 
 8:                                                ; preds = %.thread
@@ -5705,66 +5705,66 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_address_famil
   %.sroa.0.2.vec.extract = extractelement <2 x i16> %.sroa.03.sroa.0.0.copyload29, i64 1
   %.sroa.0.8.vec.extract = extractelement <6 x i16> %.sroa.03.sroa.4.sroa.0.0.copyload, i64 2
   %shift = shufflevector <6 x i16> %.sroa.03.sroa.4.sroa.0.0.copyload, <6 x i16> poison, <6 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %10 = or <6 x i16> %shift, %.sroa.03.sroa.4.sroa.0.0.copyload
-  %11 = extractelement <6 x i16> %10, i64 0
-  %12 = or i16 %11, %.sroa.0.8.vec.extract
-  %13 = or i16 %12, %.sroa.0.2.vec.extract
-  %14 = or i16 %13, %.sroa.0.0.vec.extract
-  %or.cond3.i = icmp eq i16 %14, 0
+  %foldExtExtBinop = or <6 x i16> %shift, %.sroa.03.sroa.4.sroa.0.0.copyload
+  %10 = extractelement <6 x i16> %foldExtExtBinop, i64 0
+  %11 = or i16 %10, %.sroa.0.8.vec.extract
+  %12 = or i16 %11, %.sroa.0.2.vec.extract
+  %13 = or i16 %12, %.sroa.0.0.vec.extract
+  %or.cond3.i = icmp eq i16 %13, 0
   %.sroa.0.10.vec.extract = extractelement <6 x i16> %.sroa.03.sroa.4.sroa.0.0.copyload, i64 3
-  %15 = icmp eq i16 %.sroa.0.10.vec.extract, 0
-  %.015.i = select i1 %or.cond3.i, i1 %15, i1 false
-  %16 = bitcast <8 x i16> %.sroa.0.4.vecblend to i128
-  %17 = and i128 %16, -1329227995784915872903807060280344577
-  %spec.select.i = icmp ne i128 %17, 0
+  %14 = icmp eq i16 %.sroa.0.10.vec.extract, 0
+  %.015.i = select i1 %or.cond3.i, i1 %14, i1 false
+  %15 = bitcast <8 x i16> %.sroa.0.4.vecblend to i128
+  %16 = and i128 %15, -1329227995784915872903807060280344577
+  %spec.select.i = icmp ne i128 %16, 0
   %or.cond28 = select i1 %.015.i, i1 %spec.select.i, i1 false
-  br i1 %or.cond28, label %31, label %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread
+  br i1 %or.cond28, label %30, label %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread
 
 _ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread: ; preds = %8
-  %18 = bitcast <8 x i16> %.sroa.0.4.vecblend to <16 x i8>
-  %.sroa.033.0.vec.extract.i = extractelement <16 x i8> %18, i64 0
-  %19 = icmp eq i8 %.sroa.033.0.vec.extract.i, 0
-  %.sroa.033.1.vec.extract.i = extractelement <16 x i8> %18, i64 1
-  %20 = icmp eq i8 %.sroa.033.1.vec.extract.i, 0
-  %or.cond.i = select i1 %19, i1 %20, i1 false
-  %.sroa.033.2.vec.extract.i = extractelement <16 x i8> %18, i64 2
-  %21 = icmp eq i8 %.sroa.033.2.vec.extract.i, 0
-  %or.cond5.i = select i1 %or.cond.i, i1 %21, i1 false
-  %.sroa.033.3.vec.extract.i = extractelement <16 x i8> %18, i64 3
-  %22 = icmp eq i8 %.sroa.033.3.vec.extract.i, 0
-  %or.cond8.i = select i1 %or.cond5.i, i1 %22, i1 false
-  %.sroa.033.4.vec.extract.i = extractelement <16 x i8> %18, i64 4
-  %23 = icmp eq i8 %.sroa.033.4.vec.extract.i, 0
-  %or.cond11.i = select i1 %or.cond8.i, i1 %23, i1 false
-  %.sroa.033.5.vec.extract.i = extractelement <16 x i8> %18, i64 5
-  %24 = icmp eq i8 %.sroa.033.5.vec.extract.i, 0
-  %or.cond14.i = select i1 %or.cond11.i, i1 %24, i1 false
-  %.sroa.033.6.vec.extract.i = extractelement <16 x i8> %18, i64 6
-  %25 = icmp eq i8 %.sroa.033.6.vec.extract.i, 0
-  %or.cond17.i = select i1 %or.cond14.i, i1 %25, i1 false
-  %.sroa.033.7.vec.extract.i = extractelement <16 x i8> %18, i64 7
-  %26 = icmp eq i8 %.sroa.033.7.vec.extract.i, 0
-  %or.cond20.i = select i1 %or.cond17.i, i1 %26, i1 false
-  %.sroa.033.8.vec.extract.i = extractelement <16 x i8> %18, i64 8
-  %27 = icmp eq i8 %.sroa.033.8.vec.extract.i, 0
-  %or.cond23.i = select i1 %or.cond20.i, i1 %27, i1 false
-  %.sroa.033.9.vec.extract.i = extractelement <16 x i8> %18, i64 9
-  %28 = icmp eq i8 %.sroa.033.9.vec.extract.i, 0
-  %or.cond26.i = select i1 %or.cond23.i, i1 %28, i1 false
-  %.sroa.033.10.vec.extract.i = extractelement <16 x i8> %18, i64 10
-  %29 = icmp eq i8 %.sroa.033.10.vec.extract.i, -1
-  %or.cond29.i = select i1 %or.cond26.i, i1 %29, i1 false
-  %.sroa.033.11.vec.extract.i = extractelement <16 x i8> %18, i64 11
-  %30 = icmp eq i8 %.sroa.033.11.vec.extract.i, -1
-  %or.cond32.i = select i1 %or.cond29.i, i1 %30, i1 false
-  br i1 %or.cond32.i, label %33, label %7
+  %17 = bitcast <8 x i16> %.sroa.0.4.vecblend to <16 x i8>
+  %.sroa.033.0.vec.extract.i = extractelement <16 x i8> %17, i64 0
+  %18 = icmp eq i8 %.sroa.033.0.vec.extract.i, 0
+  %.sroa.033.1.vec.extract.i = extractelement <16 x i8> %17, i64 1
+  %19 = icmp eq i8 %.sroa.033.1.vec.extract.i, 0
+  %or.cond.i = select i1 %18, i1 %19, i1 false
+  %.sroa.033.2.vec.extract.i = extractelement <16 x i8> %17, i64 2
+  %20 = icmp eq i8 %.sroa.033.2.vec.extract.i, 0
+  %or.cond5.i = select i1 %or.cond.i, i1 %20, i1 false
+  %.sroa.033.3.vec.extract.i = extractelement <16 x i8> %17, i64 3
+  %21 = icmp eq i8 %.sroa.033.3.vec.extract.i, 0
+  %or.cond8.i = select i1 %or.cond5.i, i1 %21, i1 false
+  %.sroa.033.4.vec.extract.i = extractelement <16 x i8> %17, i64 4
+  %22 = icmp eq i8 %.sroa.033.4.vec.extract.i, 0
+  %or.cond11.i = select i1 %or.cond8.i, i1 %22, i1 false
+  %.sroa.033.5.vec.extract.i = extractelement <16 x i8> %17, i64 5
+  %23 = icmp eq i8 %.sroa.033.5.vec.extract.i, 0
+  %or.cond14.i = select i1 %or.cond11.i, i1 %23, i1 false
+  %.sroa.033.6.vec.extract.i = extractelement <16 x i8> %17, i64 6
+  %24 = icmp eq i8 %.sroa.033.6.vec.extract.i, 0
+  %or.cond17.i = select i1 %or.cond14.i, i1 %24, i1 false
+  %.sroa.033.7.vec.extract.i = extractelement <16 x i8> %17, i64 7
+  %25 = icmp eq i8 %.sroa.033.7.vec.extract.i, 0
+  %or.cond20.i = select i1 %or.cond17.i, i1 %25, i1 false
+  %.sroa.033.8.vec.extract.i = extractelement <16 x i8> %17, i64 8
+  %26 = icmp eq i8 %.sroa.033.8.vec.extract.i, 0
+  %or.cond23.i = select i1 %or.cond20.i, i1 %26, i1 false
+  %.sroa.033.9.vec.extract.i = extractelement <16 x i8> %17, i64 9
+  %27 = icmp eq i8 %.sroa.033.9.vec.extract.i, 0
+  %or.cond26.i = select i1 %or.cond23.i, i1 %27, i1 false
+  %.sroa.033.10.vec.extract.i = extractelement <16 x i8> %17, i64 10
+  %28 = icmp eq i8 %.sroa.033.10.vec.extract.i, -1
+  %or.cond29.i = select i1 %or.cond26.i, i1 %28, i1 false
+  %.sroa.033.11.vec.extract.i = extractelement <16 x i8> %17, i64 11
+  %29 = icmp eq i8 %.sroa.033.11.vec.extract.i, -1
+  %or.cond32.i = select i1 %or.cond29.i, i1 %29, i1 false
+  br i1 %or.cond32.i, label %32, label %7
 
-31:                                               ; preds = %8
-  %32 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.74.llvm.11181120138937278269, i64 noundef 48)
+30:                                               ; preds = %8
+  %31 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.74.llvm.11181120138937278269, i64 noundef 48)
   br label %7
 
-33:                                               ; preds = %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread
-  %34 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.73.llvm.11181120138937278269, i64 noundef 54)
+32:                                               ; preds = %_ZN13wasmtime_wasi4host7network4util29is_deprecated_ipv4_compatible17h8a7ae7dcaeafe27eE.llvm.11181120138937278269.exit.thread
+  %33 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.73.llvm.11181120138937278269, i64 noundef 54)
   br label %7
 }
 

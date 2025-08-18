@@ -90811,17 +90811,17 @@ define void @"_ZN4gpui8platform5linux11text_system123_$LT$impl$u20$core..convert
   %.sroa.0.0.vec.extract = extractelement <4 x float> %3, i64 0
   %.sroa.01.4.vec.extract = extractelement <4 x float> %3, i64 1
   %shift = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %4 = fsub <4 x float> %shift, %3
-  %5 = extractelement <4 x float> %4, i64 0
+  %foldExtExtBinop = fsub <4 x float> %shift, %3
+  %4 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %.sroa.04.12.vec.extract = extractelement <4 x float> %3, i64 3
-  %6 = fsub float %.sroa.04.12.vec.extract, %.sroa.01.4.vec.extract
+  %5 = fsub float %.sroa.04.12.vec.extract, %.sroa.01.4.vec.extract
   store float %.sroa.0.0.vec.extract, ptr %0, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.01.4.vec.extract, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.01.4.vec.extract, ptr %6, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %4, ptr %7, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %5, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %6, ptr %9, align 4
   ret void
 }
 

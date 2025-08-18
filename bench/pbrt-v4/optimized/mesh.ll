@@ -8360,51 +8360,51 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE6resizeEm.exit: ; preds = %20, %22, %24, 
   %.not134 = icmp eq ptr %29, %30
   br i1 %.not134, label %._crit_edge132, label %.lr.ph131
 
-._crit_edge132:                                   ; preds = %162, %147
+._crit_edge132:                                   ; preds = %161, %147
   ret void
 
-.lr.ph131:                                        ; preds = %147, %162
-  %148 = phi ptr [ %163, %162 ], [ %30, %147 ]
-  %149 = phi ptr [ %164, %162 ], [ %29, %147 ]
-  %.090129 = phi i64 [ %165, %162 ], [ 0, %147 ]
+.lr.ph131:                                        ; preds = %147, %161
+  %148 = phi ptr [ %162, %161 ], [ %30, %147 ]
+  %149 = phi ptr [ %163, %161 ], [ %29, %147 ]
+  %.090129 = phi i64 [ %164, %161 ], [ 0, %147 ]
   %150 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %148, i64 %.090129
   %.sroa.08.0.copyload = load <2 x float>, ptr %150, align 4
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
   %.sroa.29.0.copyload = load float, ptr %.sroa.29.0..sroa_idx, align 4
-  %151 = fmul <2 x float> %.sroa.08.0.copyload, %.sroa.08.0.copyload
-  %152 = extractelement <2 x float> %151, i64 0
+  %foldExtExtBinop = fmul <2 x float> %.sroa.08.0.copyload, %.sroa.08.0.copyload
+  %151 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.01.4.vec.extract.i112 = extractelement <2 x float> %.sroa.08.0.copyload, i64 1
-  %153 = fmul float %.sroa.01.4.vec.extract.i112, %.sroa.01.4.vec.extract.i112
-  %154 = fadd float %152, %153
-  %155 = fmul float %.sroa.29.0.copyload, %.sroa.29.0.copyload
-  %156 = fadd float %155, %154
-  %157 = fcmp ogt float %156, 0.000000e+00
-  br i1 %157, label %158, label %162
+  %152 = fmul float %.sroa.01.4.vec.extract.i112, %.sroa.01.4.vec.extract.i112
+  %153 = fadd float %151, %152
+  %154 = fmul float %.sroa.29.0.copyload, %.sroa.29.0.copyload
+  %155 = fadd float %154, %153
+  %156 = fcmp ogt float %155, 0.000000e+00
+  br i1 %156, label %157, label %161
 
-158:                                              ; preds = %.lr.ph131
+157:                                              ; preds = %.lr.ph131
   %.sroa.01.0.vec.extract.i111 = extractelement <2 x float> %.sroa.08.0.copyload, i64 0
-  %sqrt.i.i115 = tail call noundef float @llvm.sqrt.f32(float %156)
-  %159 = fdiv float %.sroa.01.0.vec.extract.i111, %sqrt.i.i115
-  %160 = fdiv float %.sroa.01.4.vec.extract.i112, %sqrt.i.i115
-  %161 = fdiv float %.sroa.29.0.copyload, %sqrt.i.i115
-  %.sroa.0.0.vec.insert.i.i116 = insertelement <2 x float> poison, float %159, i64 0
-  %.sroa.0.4.vec.insert.i.i117 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i116, float %160, i64 1
+  %sqrt.i.i115 = tail call noundef float @llvm.sqrt.f32(float %155)
+  %158 = fdiv float %.sroa.01.0.vec.extract.i111, %sqrt.i.i115
+  %159 = fdiv float %.sroa.01.4.vec.extract.i112, %sqrt.i.i115
+  %160 = fdiv float %.sroa.29.0.copyload, %sqrt.i.i115
+  %.sroa.0.0.vec.insert.i.i116 = insertelement <2 x float> poison, float %158, i64 0
+  %.sroa.0.4.vec.insert.i.i117 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i116, float %159, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i117, ptr %150, align 4
-  store float %161, ptr %.sroa.29.0..sroa_idx, align 4
+  store float %160, ptr %.sroa.29.0..sroa_idx, align 4
   %.pre137 = load ptr, ptr %12, align 8, !tbaa !48
   %.pre138 = load ptr, ptr %4, align 8, !tbaa !46
-  br label %162
+  br label %161
 
-162:                                              ; preds = %.lr.ph131, %158
-  %163 = phi ptr [ %148, %.lr.ph131 ], [ %.pre138, %158 ]
-  %164 = phi ptr [ %149, %.lr.ph131 ], [ %.pre137, %158 ]
-  %165 = add nuw i64 %.090129, 1
-  %166 = ptrtoint ptr %164 to i64
-  %167 = ptrtoint ptr %163 to i64
-  %168 = sub i64 %166, %167
-  %169 = sdiv exact i64 %168, 12
-  %170 = icmp ult i64 %165, %169
-  br i1 %170, label %.lr.ph131, label %._crit_edge132, !llvm.loop !247
+161:                                              ; preds = %.lr.ph131, %157
+  %162 = phi ptr [ %148, %.lr.ph131 ], [ %.pre138, %157 ]
+  %163 = phi ptr [ %149, %.lr.ph131 ], [ %.pre137, %157 ]
+  %164 = add nuw i64 %.090129, 1
+  %165 = ptrtoint ptr %163 to i64
+  %166 = ptrtoint ptr %162 to i64
+  %167 = sub i64 %165, %166
+  %168 = sdiv exact i64 %167, 12
+  %169 = icmp ult i64 %164, %168
+  br i1 %169, label %.lr.ph131, label %._crit_edge132, !llvm.loop !247
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable

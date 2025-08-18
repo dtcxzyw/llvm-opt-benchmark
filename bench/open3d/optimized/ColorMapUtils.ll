@@ -32853,8 +32853,8 @@ define internal void @_ZN6open3d9pipelines9color_map30CreateVertexAndImageVisibi
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = sext i32 %25 to i64
   %.pre = load i64, ptr %3, align 8, !tbaa !48
-  %.sroa.0.i.8.i.8.i.8..sroa_idx77 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
-  %.sroa.0.i.16.i.16.i.16..sroa_idx78 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
+  %.sroa.0.i.8.i.8.i.8..sroa_idx90 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
+  %.sroa.0.i.16.i.16.i.16..sroa_idx91 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
   %.sroa.0.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 24
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
   %.sroa.0.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
@@ -32907,8 +32907,8 @@ define internal void @_ZN6open3d9pipelines9color_map30CreateVertexAndImageVisibi
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store double %.sroa.048.0.copyload, ptr %.sroa.0.i, align 16, !tbaa !638, !noalias !659
-  store double %.sroa.449.0.copyload, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx77, align 8, !tbaa !638, !noalias !659
-  store double %.sroa.5.0.copyload, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx78, align 16, !tbaa !638, !noalias !659
+  store double %.sroa.449.0.copyload, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx90, align 8, !tbaa !638, !noalias !659
+  store double %.sroa.5.0.copyload, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx91, align 16, !tbaa !638, !noalias !659
   store double 1.000000e+00, ptr %.sroa.0.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !659
   %52 = load <2 x double>, ptr %51, align 8, !tbaa !26, !noalias !659
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !659
@@ -33787,13 +33787,13 @@ define internal void @_ZN6open3d9pipelines9color_map26SetProxyIntensityForVertex
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %39 = sext i32 %27 to i64
   %.pre = load ptr, ptr %4, align 8, !tbaa !648
-  %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx128 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 8
-  %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx129 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 16
+  %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx155 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 8
+  %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx156 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 16
   %.sroa.0.i.i56.24.i.i56.24.i.i56.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 24
   %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 8
   %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i56, i64 16
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx126 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
-  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx127 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx153 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx154 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
@@ -33898,8 +33898,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i: ; preds = %
   %89 = getelementptr inbounds nuw i8, ptr %79, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   store double %.sroa.019.0.copyload.i, ptr %.sroa.0.i.i, align 16, !tbaa !638, !noalias !692
-  store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx126, align 8, !tbaa !638, !noalias !692
-  store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx127, align 16, !tbaa !638, !noalias !692
+  store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx153, align 8, !tbaa !638, !noalias !692
+  store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx154, align 16, !tbaa !638, !noalias !692
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !692
   %90 = load <2 x double>, ptr %89, align 8, !tbaa !26, !noalias !692
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i = load <2 x double>, ptr %.sroa.0.i.i, align 16, !noalias !692
@@ -34044,8 +34044,8 @@ _ZN6open3d7utility13optional_baseINS_9pipelines9color_map17ImageWarpingFieldEED2
   %174 = getelementptr inbounds nuw i8, ptr %164, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i56)
   store double %.sroa.019.0.copyload.i57, ptr %.sroa.0.i.i56, align 16, !tbaa !638, !noalias !698
-  store double %.sroa.2.0.copyload.i59, ptr %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx128, align 8, !tbaa !638, !noalias !698
-  store double %.sroa.3.0.copyload.i61, ptr %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx129, align 16, !tbaa !638, !noalias !698
+  store double %.sroa.2.0.copyload.i59, ptr %.sroa.0.i.i56.8.i.i56.8.i.i56.8.i.8.i.8..sroa_idx155, align 8, !tbaa !638, !noalias !698
+  store double %.sroa.3.0.copyload.i61, ptr %.sroa.0.i.i56.16.i.i56.16.i.i56.16.i.16.i.16..sroa_idx156, align 16, !tbaa !638, !noalias !698
   store double 1.000000e+00, ptr %.sroa.0.i.i56.24.i.i56.24.i.i56.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !698
   %175 = load <2 x double>, ptr %174, align 8, !tbaa !26, !noalias !698
   %.sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.i56.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i65 = load <2 x double>, ptr %.sroa.0.i.i56, align 16, !noalias !698
@@ -34716,18 +34716,18 @@ define internal void @_ZN6open3d9pipelines9color_map23SetGeometryColorAverageERN
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %44 = sext i32 %28 to i64
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx208 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
-  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx209 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx249 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx250 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
-  %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx210 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 8
-  %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx211 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 16
+  %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx251 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 8
+  %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx252 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 16
   %.sroa.0.i.i67.24.i.i67.24.i.i67.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 24
   %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 8
   %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i67, i64 16
-  %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx212 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 8
-  %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx213 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 16
+  %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx253 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 8
+  %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx254 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 16
   %.sroa.0.i.i96.24.i.i96.24.i.i96.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 24
   %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 8
   %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i96, i64 16
@@ -34840,8 +34840,8 @@ _ZN6open3d7utility8optionalINS_9pipelines9color_map17ImageWarpingFieldEEaSENS0_9
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   store double %.sroa.019.0.copyload.i, ptr %.sroa.0.i.i, align 16, !tbaa !638, !noalias !719
-  store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx208, align 8, !tbaa !638, !noalias !719
-  store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx209, align 16, !tbaa !638, !noalias !719
+  store double %.sroa.2.0.copyload.i, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx249, align 8, !tbaa !638, !noalias !719
+  store double %.sroa.3.0.copyload.i, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx250, align 16, !tbaa !638, !noalias !719
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !719
   %93 = load <2 x double>, ptr %92, align 8, !tbaa !26, !noalias !719
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i = load <2 x double>, ptr %.sroa.0.i.i, align 16, !noalias !719
@@ -34970,8 +34970,8 @@ _ZNR6open3d7utility8optionalIiE5valueEv.exit.i:   ; preds = %.noexc64
   %175 = getelementptr inbounds nuw i8, ptr %165, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i67)
   store double %.sroa.019.0.copyload.i68, ptr %.sroa.0.i.i67, align 16, !tbaa !638, !noalias !725
-  store double %.sroa.2.0.copyload.i70, ptr %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx210, align 8, !tbaa !638, !noalias !725
-  store double %.sroa.3.0.copyload.i72, ptr %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx211, align 16, !tbaa !638, !noalias !725
+  store double %.sroa.2.0.copyload.i70, ptr %.sroa.0.i.i67.8.i.i67.8.i.i67.8.i.8.i.8..sroa_idx251, align 8, !tbaa !638, !noalias !725
+  store double %.sroa.3.0.copyload.i72, ptr %.sroa.0.i.i67.16.i.i67.16.i.i67.16.i.16.i.16..sroa_idx252, align 16, !tbaa !638, !noalias !725
   store double 1.000000e+00, ptr %.sroa.0.i.i67.24.i.i67.24.i.i67.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !725
   %176 = load <2 x double>, ptr %175, align 8, !tbaa !26, !noalias !725
   %.sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.i67.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i76 = load <2 x double>, ptr %.sroa.0.i.i67, align 16, !noalias !725
@@ -35100,8 +35100,8 @@ _ZNR6open3d7utility8optionalIiE5valueEv.exit.i88: ; preds = %.noexc92
   %258 = getelementptr inbounds nuw i8, ptr %248, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i96)
   store double %.sroa.019.0.copyload.i97, ptr %.sroa.0.i.i96, align 16, !tbaa !638, !noalias !731
-  store double %.sroa.2.0.copyload.i99, ptr %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx212, align 8, !tbaa !638, !noalias !731
-  store double %.sroa.3.0.copyload.i101, ptr %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx213, align 16, !tbaa !638, !noalias !731
+  store double %.sroa.2.0.copyload.i99, ptr %.sroa.0.i.i96.8.i.i96.8.i.i96.8.i.8.i.8..sroa_idx253, align 8, !tbaa !638, !noalias !731
+  store double %.sroa.3.0.copyload.i101, ptr %.sroa.0.i.i96.16.i.i96.16.i.i96.16.i.16.i.16..sroa_idx254, align 16, !tbaa !638, !noalias !731
   store double 1.000000e+00, ptr %.sroa.0.i.i96.24.i.i96.24.i.i96.24.i.24.i.24..sroa_idx, align 8, !tbaa !638, !noalias !731
   %259 = load <2 x double>, ptr %258, align 8, !tbaa !26, !noalias !731
   %.sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.i96.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i105 = load <2 x double>, ptr %.sroa.0.i.i96, align 16, !noalias !731

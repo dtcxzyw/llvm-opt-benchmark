@@ -42063,7 +42063,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4COLR11get_extentsEP9hb_fo
   %.sroa.0.0.vec.extract29 = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.5.8.vec.extract31 = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 0
   %105 = fcmp ogt float %.sroa.0.0.vec.extract29, %.sroa.5.8.vec.extract31
-  br i1 %105, label %117, label %108
+  br i1 %105, label %115, label %108
 
 106:                                              ; preds = %90
   %107 = landingpad { ptr, i32 }
@@ -42075,69 +42075,69 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4COLR11get_extentsEP9hb_fo
   %109 = fptosi float %.sroa.0.0.vec.extract29 to i32
   %.sroa.5.12.vec.extract33 = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 1
   %110 = fptosi float %.sroa.5.12.vec.extract33 to i32
-  %111 = fsub <2 x float> %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
-  %112 = extractelement <2 x float> %111, i64 0
-  %113 = fptosi float %112 to i32
-  %114 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %115 = extractelement <2 x float> %114, i64 1
-  %116 = fptosi float %115 to i32
-  br label %117
+  %foldExtExtBinop = fsub <2 x float> %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
+  %111 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %112 = fptosi float %111 to i32
+  %foldExtExtBinop44 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %113 = extractelement <2 x float> %foldExtExtBinop44, i64 1
+  %114 = fptosi float %113 to i32
+  br label %115
 
-117:                                              ; preds = %103, %108
+115:                                              ; preds = %103, %108
   %.sink42 = phi i32 [ %109, %108 ], [ 0, %103 ]
   %.sink41 = phi i32 [ %110, %108 ], [ 0, %103 ]
-  %.sink40 = phi i32 [ %113, %108 ], [ 0, %103 ]
-  %.sink = phi i32 [ %116, %108 ], [ 0, %103 ]
+  %.sink40 = phi i32 [ %112, %108 ], [ 0, %103 ]
+  %.sink = phi i32 [ %114, %108 ], [ 0, %103 ]
   store i32 %.sink42, ptr %3, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink41, ptr %118, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink40, ptr %119, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.sink, ptr %120, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %122 = load i32, ptr %121, align 8
-  %.not.i.i.i = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i, label %123
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sink41, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sink40, ptr %117, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %.sink, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %120 = load i32, ptr %119, align 8
+  %.not.i.i.i = icmp eq i32 %120, 0
+  br i1 %.not.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i, label %121
 
-123:                                              ; preds = %117
+121:                                              ; preds = %115
   store i32 0, ptr %94, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %125 = load ptr, ptr %124, align 8
-  call void @free(ptr noundef %125) #23
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %123 = load ptr, ptr %122, align 8
+  call void @free(ptr noundef %123) #23
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
 
-_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i:   ; preds = %123, %117
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %127 = load i32, ptr %126, align 8
-  %.not.i.i1.i = icmp eq i32 %127, 0
-  br i1 %.not.i.i1.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, label %128
+_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i:   ; preds = %121, %115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %125 = load i32, ptr %124, align 8
+  %.not.i.i1.i = icmp eq i32 %125, 0
+  br i1 %.not.i.i1.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, label %126
 
-128:                                              ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
-  %129 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %129, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %131 = load ptr, ptr %130, align 8
-  call void @free(ptr noundef %131) #23
+126:                                              ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %127, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %129 = load ptr, ptr %128, align 8
+  call void @free(ptr noundef %129) #23
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
 
-_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i:  ; preds = %128, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
-  %132 = load i32, ptr %6, align 8
-  %.not.i.i3.i = icmp eq i32 %132, 0
-  br i1 %.not.i.i3.i, label %_ZN26hb_paint_extents_context_tD2Ev.exit, label %133
+_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i:  ; preds = %126, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
+  %130 = load i32, ptr %6, align 8
+  %.not.i.i3.i = icmp eq i32 %130, 0
+  br i1 %.not.i.i3.i, label %_ZN26hb_paint_extents_context_tD2Ev.exit, label %131
 
-133:                                              ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %134, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %136 = load ptr, ptr %135, align 8
-  call void @free(ptr noundef %136) #23
+131:                                              ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %132, align 4
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %134 = load ptr, ptr %133, align 8
+  call void @free(ptr noundef %134) #23
   br label %_ZN26hb_paint_extents_context_tD2Ev.exit
 
-_ZN26hb_paint_extents_context_tD2Ev.exit:         ; preds = %133, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, %4, %89
-  %.0 = phi i1 [ true, %89 ], [ false, %4 ], [ %92, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i ], [ %92, %133 ]
+_ZN26hb_paint_extents_context_tD2Ev.exit:         ; preds = %131, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, %4, %89
+  %.0 = phi i1 [ true, %89 ], [ false, %4 ], [ %92, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i ], [ %92, %131 ]
   ret i1 %.0
 }
 

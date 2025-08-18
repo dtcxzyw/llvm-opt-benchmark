@@ -8390,80 +8390,80 @@ _ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %30, %_Z
   %58 = fdiv float 1.000000e+00, %57
   %.sroa.081.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
   %.sroa.070.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i15.i, i64 0
-  %59 = fsub <2 x float> %.sroa.06.0.copyload.i.i.i, %.sroa.06.0.copyload.i.i15.i
-  %60 = extractelement <2 x float> %59, i64 0
+  %foldExtExtBinop = fsub <2 x float> %.sroa.06.0.copyload.i.i.i, %.sroa.06.0.copyload.i.i15.i
+  %59 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.081.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
   %.sroa.070.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i15.i, i64 1
-  %61 = fsub float %.sroa.081.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
-  %62 = fmul float %.sroa.speculated.i.i, %44
-  %63 = fmul float %62, %62
-  %64 = fmul float %61, %61
-  %65 = tail call float @llvm.fmuladd.f32(float %60, float %60, float %64)
-  %66 = fcmp ogt float %65, %63
-  br i1 %66, label %67, label %72
+  %60 = fsub float %.sroa.081.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
+  %61 = fmul float %.sroa.speculated.i.i, %44
+  %62 = fmul float %61, %61
+  %63 = fmul float %60, %60
+  %64 = tail call float @llvm.fmuladd.f32(float %59, float %59, float %63)
+  %65 = fcmp ogt float %64, %62
+  br i1 %65, label %66, label %71
 
-67:                                               ; preds = %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %65)
-  %68 = fdiv float %60, %sqrt.i.i
-  %69 = fmul float %68, %62
-  %70 = fdiv float %61, %sqrt.i.i
-  %71 = fmul float %70, %62
-  br label %72
+66:                                               ; preds = %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %64)
+  %67 = fdiv float %59, %sqrt.i.i
+  %68 = fmul float %67, %61
+  %69 = fdiv float %60, %sqrt.i.i
+  %70 = fmul float %69, %61
+  br label %71
 
-72:                                               ; preds = %67, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %.090.i.i = phi float [ %71, %67 ], [ %61, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
-  %.0.i.i = phi float [ %69, %67 ], [ %60, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
-  %73 = fsub float %.sroa.081.0.vec.extract.i.i, %.0.i.i
-  %74 = fsub float %.sroa.081.4.vec.extract.i.i, %.090.i.i
-  %75 = load float, ptr %36, align 4
-  %76 = tail call float @llvm.fmuladd.f32(float %50, float %.0.i.i, float %75)
-  %77 = fmul float %76, %48
-  %78 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %79 = load float, ptr %78, align 4
-  %80 = tail call float @llvm.fmuladd.f32(float %50, float %.090.i.i, float %79)
-  %81 = fmul float %80, %48
-  %82 = fneg float %50
-  %83 = tail call float @llvm.fmuladd.f32(float %82, float %77, float %75)
-  %84 = fmul float %58, %83
-  store float %84, ptr %36, align 4
-  %85 = tail call float @llvm.fmuladd.f32(float %82, float %81, float %79)
-  %86 = fmul float %58, %85
-  store float %86, ptr %78, align 4
-  %87 = fadd float %.0.i.i, %77
-  %88 = tail call float @llvm.fmuladd.f32(float %87, float %58, float %73)
-  %89 = fadd float %.090.i.i, %81
-  %90 = tail call float @llvm.fmuladd.f32(float %89, float %58, float %74)
-  %91 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i.i
-  %92 = extractelement <2 x float> %91, i64 0
-  %93 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.081.4.vec.extract.i.i
-  %94 = fsub float %88, %.sroa.070.0.vec.extract.i.i
-  %95 = fsub float %90, %.sroa.070.4.vec.extract.i.i
-  %96 = fmul float %93, %95
-  %97 = tail call float @llvm.fmuladd.f32(float %92, float %94, float %96)
-  %98 = fcmp ogt float %97, 0.000000e+00
-  br i1 %98, label %99, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
+71:                                               ; preds = %66, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
+  %.090.i.i = phi float [ %70, %66 ], [ %60, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
+  %.0.i.i = phi float [ %68, %66 ], [ %59, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
+  %72 = fsub float %.sroa.081.0.vec.extract.i.i, %.0.i.i
+  %73 = fsub float %.sroa.081.4.vec.extract.i.i, %.090.i.i
+  %74 = load float, ptr %36, align 4
+  %75 = tail call float @llvm.fmuladd.f32(float %50, float %.0.i.i, float %74)
+  %76 = fmul float %75, %48
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %78 = load float, ptr %77, align 4
+  %79 = tail call float @llvm.fmuladd.f32(float %50, float %.090.i.i, float %78)
+  %80 = fmul float %79, %48
+  %81 = fneg float %50
+  %82 = tail call float @llvm.fmuladd.f32(float %81, float %76, float %74)
+  %83 = fmul float %58, %82
+  store float %83, ptr %36, align 4
+  %84 = tail call float @llvm.fmuladd.f32(float %81, float %80, float %78)
+  %85 = fmul float %58, %84
+  store float %85, ptr %77, align 4
+  %86 = fadd float %.0.i.i, %76
+  %87 = tail call float @llvm.fmuladd.f32(float %86, float %58, float %72)
+  %88 = fadd float %.090.i.i, %80
+  %89 = tail call float @llvm.fmuladd.f32(float %88, float %58, float %73)
+  %foldExtExtBinop2 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i.i
+  %90 = extractelement <2 x float> %foldExtExtBinop2, i64 0
+  %91 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.081.4.vec.extract.i.i
+  %92 = fsub float %87, %.sroa.070.0.vec.extract.i.i
+  %93 = fsub float %89, %.sroa.070.4.vec.extract.i.i
+  %94 = fmul float %91, %93
+  %95 = tail call float @llvm.fmuladd.f32(float %90, float %92, float %94)
+  %96 = fcmp ogt float %95, 0.000000e+00
+  br i1 %96, label %97, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
-99:                                               ; preds = %72
-  %100 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i15.i
-  %101 = extractelement <2 x float> %100, i64 0
-  %102 = fdiv float %101, %48
-  store float %102, ptr %36, align 4
-  %103 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
-  %104 = fdiv float %103, %48
-  store float %104, ptr %78, align 4
+97:                                               ; preds = %71
+  %foldExtExtBinop4 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i15.i
+  %98 = extractelement <2 x float> %foldExtExtBinop4, i64 0
+  %99 = fdiv float %98, %48
+  store float %99, ptr %36, align 4
+  %100 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
+  %101 = fdiv float %100, %48
+  store float %101, ptr %77, align 4
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %72, %99
-  %.092.i.i = phi float [ %.sroa.070.4.vec.extract.i.i, %99 ], [ %90, %72 ]
-  %.091.i.i = phi float [ %.sroa.070.0.vec.extract.i.i, %99 ], [ %88, %72 ]
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %71, %97
+  %.092.i.i = phi float [ %.sroa.070.4.vec.extract.i.i, %97 ], [ %89, %71 ]
+  %.091.i.i = phi float [ %.sroa.070.0.vec.extract.i.i, %97 ], [ %87, %71 ]
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %.091.i.i, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %.092.i.i, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
-  %105 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %106, i16 %105, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %102 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %104 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %103, i16 %102, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %107
+  ret ptr %104
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15376,30 +15376,30 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %13 = extractelement <4 x float> %12, i64 3
   %14 = fptrunc double %10 to float
   %15 = load float, ptr %7, align 4
-  %16 = fmul <4 x float> %12, %12
-  %17 = extractelement <4 x float> %16, i64 1
-  %18 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %17)
-  %sqrt2.i.i = tail call float @llvm.sqrt.f32(float %18)
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %20 = load float, ptr %19, align 4
-  %21 = fmul <4 x float> %12, %12
-  %22 = extractelement <4 x float> %21, i64 2
-  %23 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %22)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %23)
-  %24 = tail call float @cosf(float noundef %14) #33, !noalias !77
-  %25 = tail call float @sinf(float noundef %14) #33, !noalias !77
-  %26 = fmul float %24, %sqrt2.i.i
-  %27 = fneg float %sqrt.i.i
-  %28 = fmul float %25, %27
+  %foldExtExtBinop = fmul <4 x float> %12, %12
+  %16 = extractelement <4 x float> %foldExtExtBinop, i64 1
+  %17 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %16)
+  %sqrt2.i.i = tail call float @llvm.sqrt.f32(float %17)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %19 = load float, ptr %18, align 4
+  %foldExtExtBinop2 = fmul <4 x float> %12, %12
+  %20 = extractelement <4 x float> %foldExtExtBinop2, i64 2
+  %21 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %20)
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %21)
+  %22 = tail call float @cosf(float noundef %14) #33, !noalias !77
+  %23 = tail call float @sinf(float noundef %14) #33, !noalias !77
+  %24 = fmul float %22, %sqrt2.i.i
+  %25 = fneg float %sqrt.i.i
+  %26 = fmul float %23, %25
   %.sroa.010.0.vec.extract.i.i = extractelement <4 x float> %12, i64 0
-  %29 = fmul float %sqrt2.i.i, %25
-  %30 = fmul float %24, %sqrt.i.i
-  call void @_ZN4pkpy6Mat3x3C1Efffffffff(ptr noundef nonnull align 4 dereferenceable(36) %4, float noundef %26, float noundef %28, float noundef %.sroa.010.0.vec.extract.i.i, float noundef %29, float noundef %30, float noundef %13, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  %27 = fmul float %sqrt2.i.i, %23
+  %28 = fmul float %22, %sqrt.i.i
+  call void @_ZN4pkpy6Mat3x3C1Efffffffff(ptr noundef nonnull align 4 dereferenceable(36) %4, float noundef %24, float noundef %26, float noundef %.sroa.010.0.vec.extract.i.i, float noundef %27, float noundef %28, float noundef %13, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, ptr noundef nonnull align 4 dereferenceable(36) %4, i64 36, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 264520
-  %32 = load ptr, ptr %31, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264520
+  %30 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %32
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress uwtable

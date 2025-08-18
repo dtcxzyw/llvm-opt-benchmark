@@ -1404,21 +1404,21 @@ define weak_odr noundef float @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spe
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = tail call contract noundef float %7(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  br label %16
+  br label %14
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load <4 x float>, ptr %10, align 16
   %shift = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %12 = fadd contract <4 x float> %11, %shift
-  %shift23 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %13 = fadd contract <4 x float> %shift23, %12
-  %14 = extractelement <4 x float> %13, i64 0
-  %15 = fmul contract float %14, 0x3FD5555560000000
-  br label %16
+  %foldExtExtBinop = fadd contract <4 x float> %11, %shift
+  %shift24 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop25 = fadd contract <4 x float> %shift24, %foldExtExtBinop
+  %12 = extractelement <4 x float> %foldExtExtBinop25, i64 0
+  %13 = fmul contract float %12, 0x3FD5555560000000
+  br label %14
 
-16:                                               ; preds = %9, %4
-  %.0 = phi float [ %8, %4 ], [ %15, %9 ]
+14:                                               ; preds = %9, %4
+  %.0 = phi float [ %8, %4 ], [ %13, %9 ]
   ret float %.0
 }
 
@@ -1483,7 +1483,7 @@ define weak_odr noundef float @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spe
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = tail call contract noundef float %7(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  br label %50
+  br label %49
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1525,13 +1525,13 @@ define weak_odr noundef float @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spe
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %46 = fadd contract <4 x float> %44, %45
   %shift = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %47 = fadd contract <4 x float> %46, %shift
-  %48 = extractelement <4 x float> %47, i64 0
-  %49 = fmul contract float %48, 6.250000e-02
-  br label %50
+  %foldExtExtBinop = fadd contract <4 x float> %46, %shift
+  %47 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %48 = fmul contract float %47, 6.250000e-02
+  br label %49
 
-50:                                               ; preds = %9, %4
-  %.0 = phi float [ %8, %4 ], [ %49, %9 ]
+49:                                               ; preds = %9, %4
+  %.0 = phi float [ %8, %4 ], [ %48, %9 ]
   ret float %.0
 }
 

@@ -126,149 +126,149 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %.0166.lcssa = phi <4 x i64> [ zeroinitializer, %36 ], [ %72, %49 ]
   %.0161.lcssa = phi <4 x i64> [ zeroinitializer, %36 ], [ %60, %49 ]
   %shift = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %73 = add nsw <4 x i64> %.0161.lcssa, %shift
-  %shift374 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %74 = add nsw <4 x i64> %73, %shift374
-  %shift375 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %75 = add nsw <4 x i64> %74, %shift375
-  %76 = extractelement <4 x i64> %75, i64 0
-  %shift376 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %77 = add nsw <4 x i64> %.0169.lcssa, %shift376
-  %shift377 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %78 = add nsw <4 x i64> %77, %shift377
-  %shift378 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %79 = add nsw <4 x i64> %78, %shift378
-  %80 = extractelement <4 x i64> %79, i64 0
-  %shift379 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %81 = add nsw <4 x i64> %.0168.lcssa, %shift379
-  %shift380 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %82 = add nsw <4 x i64> %81, %shift380
-  %shift381 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %83 = add nsw <4 x i64> %82, %shift381
-  %84 = extractelement <4 x i64> %83, i64 0
-  %shift382 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %85 = add nsw <4 x i64> %.0167.lcssa, %shift382
-  %shift383 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %86 = add nsw <4 x i64> %85, %shift383
-  %shift384 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %87 = add nsw <4 x i64> %86, %shift384
-  %88 = extractelement <4 x i64> %87, i64 0
-  %shift385 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %89 = add nsw <4 x i64> %.0166.lcssa, %shift385
-  %shift386 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %90 = add nsw <4 x i64> %89, %shift386
-  %shift387 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %91 = add nsw <4 x i64> %90, %shift387
-  %92 = extractelement <4 x i64> %91, i64 0
-  %93 = tail call i64 @llvm.umin.i64(i64 %80, i64 %84)
-  %. = tail call i64 @llvm.umin.i64(i64 %93, i64 %88)
-  %94 = tail call i64 @llvm.umin.i64(i64 %., i64 %92)
-  %.not = icmp ugt i64 %76, %94
-  br i1 %.not, label %95, label %100
+  %foldExtExtBinop = add nsw <4 x i64> %.0161.lcssa, %shift
+  %shift375 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop376 = add nsw <4 x i64> %foldExtExtBinop, %shift375
+  %shift378 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop379 = add nsw <4 x i64> %foldExtExtBinop376, %shift378
+  %73 = extractelement <4 x i64> %foldExtExtBinop379, i64 0
+  %shift381 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop382 = add nsw <4 x i64> %.0169.lcssa, %shift381
+  %shift384 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop385 = add nsw <4 x i64> %foldExtExtBinop382, %shift384
+  %shift387 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop388 = add nsw <4 x i64> %foldExtExtBinop385, %shift387
+  %74 = extractelement <4 x i64> %foldExtExtBinop388, i64 0
+  %shift390 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop391 = add nsw <4 x i64> %.0168.lcssa, %shift390
+  %shift393 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop394 = add nsw <4 x i64> %foldExtExtBinop391, %shift393
+  %shift396 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop397 = add nsw <4 x i64> %foldExtExtBinop394, %shift396
+  %75 = extractelement <4 x i64> %foldExtExtBinop397, i64 0
+  %shift399 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop400 = add nsw <4 x i64> %.0167.lcssa, %shift399
+  %shift402 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop403 = add nsw <4 x i64> %foldExtExtBinop400, %shift402
+  %shift405 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop406 = add nsw <4 x i64> %foldExtExtBinop403, %shift405
+  %76 = extractelement <4 x i64> %foldExtExtBinop406, i64 0
+  %shift408 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop409 = add nsw <4 x i64> %.0166.lcssa, %shift408
+  %shift411 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop412 = add nsw <4 x i64> %foldExtExtBinop409, %shift411
+  %shift414 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop415 = add nsw <4 x i64> %foldExtExtBinop412, %shift414
+  %77 = extractelement <4 x i64> %foldExtExtBinop415, i64 0
+  %78 = tail call i64 @llvm.umin.i64(i64 %74, i64 %75)
+  %. = tail call i64 @llvm.umin.i64(i64 %78, i64 %76)
+  %79 = tail call i64 @llvm.umin.i64(i64 %., i64 %77)
+  %.not = icmp ugt i64 %73, %79
+  br i1 %.not, label %80, label %85
 
-95:                                               ; preds = %._crit_edge
-  %96 = tail call i64 @llvm.umin.i64(i64 %84, i64 %88)
-  %.190 = tail call i64 @llvm.umin.i64(i64 %96, i64 %92)
-  %.not181 = icmp ugt i64 %80, %.190
-  br i1 %.not181, label %97, label %.thread
+80:                                               ; preds = %._crit_edge
+  %81 = tail call i64 @llvm.umin.i64(i64 %75, i64 %76)
+  %.190 = tail call i64 @llvm.umin.i64(i64 %81, i64 %77)
+  %.not181 = icmp ugt i64 %74, %.190
+  br i1 %.not181, label %82, label %.thread
 
-97:                                               ; preds = %95
-  %98 = tail call i64 @llvm.umin.i64(i64 %88, i64 %92)
-  %.not182 = icmp ugt i64 %84, %98
-  br i1 %.not182, label %99, label %.thread
+82:                                               ; preds = %80
+  %83 = tail call i64 @llvm.umin.i64(i64 %76, i64 %77)
+  %.not182 = icmp ugt i64 %75, %83
+  br i1 %.not182, label %84, label %.thread
 
-99:                                               ; preds = %97
-  %.not183 = icmp ugt i64 %88, %92
+84:                                               ; preds = %82
+  %.not183 = icmp ugt i64 %76, %77
   %.191 = select i1 %.not183, i32 4, i32 3
   br label %.thread
 
-100:                                              ; preds = %._crit_edge
-  %.not184 = icmp eq i64 %76, 0
-  br i1 %.not184, label %108, label %.thread
+85:                                               ; preds = %._crit_edge
+  %.not184 = icmp eq i64 %73, 0
+  br i1 %.not184, label %93, label %.thread
 
-.thread:                                          ; preds = %95, %97, %99, %100
-  %.0160335 = phi i32 [ 0, %100 ], [ %.191, %99 ], [ 2, %97 ], [ 1, %95 ]
-  %101 = uitofp i64 %76 to double
-  %102 = fmul reassoc nsz arcp double %101, 0x3FE62E42FEFA39EF
-  %103 = uitofp i32 %1 to double
-  %104 = fdiv reassoc nsz arcp double %102, %103
-  %105 = tail call reassoc nsz arcp double @log(double noundef %104) #4, !tbaa !3
-  %106 = fmul reassoc nsz arcp double %105, 0x3FF71547652B82FE
-  %107 = fptrunc reassoc nsz arcp double %106 to float
-  br label %108
+.thread:                                          ; preds = %80, %82, %84, %85
+  %.0160335 = phi i32 [ 0, %85 ], [ %.191, %84 ], [ 2, %82 ], [ 1, %80 ]
+  %86 = uitofp i64 %73 to double
+  %87 = fmul reassoc nsz arcp double %86, 0x3FE62E42FEFA39EF
+  %88 = uitofp i32 %1 to double
+  %89 = fdiv reassoc nsz arcp double %87, %88
+  %90 = tail call reassoc nsz arcp double @log(double noundef %89) #4, !tbaa !3
+  %91 = fmul reassoc nsz arcp double %90, 0x3FF71547652B82FE
+  %92 = fptrunc reassoc nsz arcp double %91 to float
+  br label %93
 
-108:                                              ; preds = %100, %.thread
-  %.0160336 = phi i32 [ %.0160335, %.thread ], [ 0, %100 ]
-  %109 = phi float [ %107, %.thread ], [ 0.000000e+00, %100 ]
-  store float %109, ptr %2, align 4, !tbaa !13
-  %.not185 = icmp eq i64 %80, 0
-  br i1 %.not185, label %118, label %110
+93:                                               ; preds = %85, %.thread
+  %.0160336 = phi i32 [ %.0160335, %.thread ], [ 0, %85 ]
+  %94 = phi float [ %92, %.thread ], [ 0.000000e+00, %85 ]
+  store float %94, ptr %2, align 4, !tbaa !13
+  %.not185 = icmp eq i64 %74, 0
+  br i1 %.not185, label %103, label %95
 
-110:                                              ; preds = %108
-  %111 = uitofp i64 %80 to double
-  %112 = fmul reassoc nsz arcp double %111, 0x3FE62E42FEFA39EF
-  %113 = uitofp i32 %1 to double
-  %114 = fdiv reassoc nsz arcp double %112, %113
-  %115 = tail call reassoc nsz arcp double @log(double noundef %114) #4, !tbaa !3
-  %116 = fmul reassoc nsz arcp double %115, 0x3FF71547652B82FE
-  %117 = fptrunc reassoc nsz arcp double %116 to float
-  br label %118
+95:                                               ; preds = %93
+  %96 = uitofp i64 %74 to double
+  %97 = fmul reassoc nsz arcp double %96, 0x3FE62E42FEFA39EF
+  %98 = uitofp i32 %1 to double
+  %99 = fdiv reassoc nsz arcp double %97, %98
+  %100 = tail call reassoc nsz arcp double @log(double noundef %99) #4, !tbaa !3
+  %101 = fmul reassoc nsz arcp double %100, 0x3FF71547652B82FE
+  %102 = fptrunc reassoc nsz arcp double %101 to float
+  br label %103
 
-118:                                              ; preds = %108, %110
-  %119 = phi float [ %117, %110 ], [ 0.000000e+00, %108 ]
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %119, ptr %120, align 4, !tbaa !13
-  %.not186 = icmp eq i64 %84, 0
-  br i1 %.not186, label %129, label %121
+103:                                              ; preds = %93, %95
+  %104 = phi float [ %102, %95 ], [ 0.000000e+00, %93 ]
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %104, ptr %105, align 4, !tbaa !13
+  %.not186 = icmp eq i64 %75, 0
+  br i1 %.not186, label %114, label %106
 
-121:                                              ; preds = %118
-  %122 = uitofp i64 %84 to double
-  %123 = fmul reassoc nsz arcp double %122, 0x3FE62E42FEFA39EF
-  %124 = uitofp i32 %1 to double
-  %125 = fdiv reassoc nsz arcp double %123, %124
-  %126 = tail call reassoc nsz arcp double @log(double noundef %125) #4, !tbaa !3
-  %127 = fmul reassoc nsz arcp double %126, 0x3FF71547652B82FE
-  %128 = fptrunc reassoc nsz arcp double %127 to float
-  br label %129
+106:                                              ; preds = %103
+  %107 = uitofp i64 %75 to double
+  %108 = fmul reassoc nsz arcp double %107, 0x3FE62E42FEFA39EF
+  %109 = uitofp i32 %1 to double
+  %110 = fdiv reassoc nsz arcp double %108, %109
+  %111 = tail call reassoc nsz arcp double @log(double noundef %110) #4, !tbaa !3
+  %112 = fmul reassoc nsz arcp double %111, 0x3FF71547652B82FE
+  %113 = fptrunc reassoc nsz arcp double %112 to float
+  br label %114
 
-129:                                              ; preds = %118, %121
-  %130 = phi float [ %128, %121 ], [ 0.000000e+00, %118 ]
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %130, ptr %131, align 4, !tbaa !13
-  %.not187 = icmp eq i64 %88, 0
-  br i1 %.not187, label %140, label %132
+114:                                              ; preds = %103, %106
+  %115 = phi float [ %113, %106 ], [ 0.000000e+00, %103 ]
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %115, ptr %116, align 4, !tbaa !13
+  %.not187 = icmp eq i64 %76, 0
+  br i1 %.not187, label %125, label %117
 
-132:                                              ; preds = %129
-  %133 = uitofp i64 %88 to double
-  %134 = fmul reassoc nsz arcp double %133, 0x3FE62E42FEFA39EF
-  %135 = uitofp i32 %1 to double
-  %136 = fdiv reassoc nsz arcp double %134, %135
-  %137 = tail call reassoc nsz arcp double @log(double noundef %136) #4, !tbaa !3
-  %138 = fmul reassoc nsz arcp double %137, 0x3FF71547652B82FE
-  %139 = fptrunc reassoc nsz arcp double %138 to float
-  br label %140
+117:                                              ; preds = %114
+  %118 = uitofp i64 %76 to double
+  %119 = fmul reassoc nsz arcp double %118, 0x3FE62E42FEFA39EF
+  %120 = uitofp i32 %1 to double
+  %121 = fdiv reassoc nsz arcp double %119, %120
+  %122 = tail call reassoc nsz arcp double @log(double noundef %121) #4, !tbaa !3
+  %123 = fmul reassoc nsz arcp double %122, 0x3FF71547652B82FE
+  %124 = fptrunc reassoc nsz arcp double %123 to float
+  br label %125
 
-140:                                              ; preds = %129, %132
-  %141 = phi float [ %139, %132 ], [ 0.000000e+00, %129 ]
-  %142 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %141, ptr %142, align 4, !tbaa !13
-  %.not188 = icmp eq i64 %92, 0
-  br i1 %.not188, label %151, label %143
+125:                                              ; preds = %114, %117
+  %126 = phi float [ %124, %117 ], [ 0.000000e+00, %114 ]
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store float %126, ptr %127, align 4, !tbaa !13
+  %.not188 = icmp eq i64 %77, 0
+  br i1 %.not188, label %136, label %128
 
-143:                                              ; preds = %140
-  %144 = uitofp i64 %92 to double
-  %145 = fmul reassoc nsz arcp double %144, 0x3FE62E42FEFA39EF
-  %146 = uitofp i32 %1 to double
-  %147 = fdiv reassoc nsz arcp double %145, %146
-  %148 = tail call reassoc nsz arcp double @log(double noundef %147) #4, !tbaa !3
-  %149 = fmul reassoc nsz arcp double %148, 0x3FF71547652B82FE
-  %150 = fptrunc reassoc nsz arcp double %149 to float
-  br label %151
+128:                                              ; preds = %125
+  %129 = uitofp i64 %77 to double
+  %130 = fmul reassoc nsz arcp double %129, 0x3FE62E42FEFA39EF
+  %131 = uitofp i32 %1 to double
+  %132 = fdiv reassoc nsz arcp double %130, %131
+  %133 = tail call reassoc nsz arcp double @log(double noundef %132) #4, !tbaa !3
+  %134 = fmul reassoc nsz arcp double %133, 0x3FF71547652B82FE
+  %135 = fptrunc reassoc nsz arcp double %134 to float
+  br label %136
 
-151:                                              ; preds = %140, %143
-  %152 = phi float [ %150, %143 ], [ 0.000000e+00, %140 ]
-  %153 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %152, ptr %153, align 4, !tbaa !13
+136:                                              ; preds = %125, %128
+  %137 = phi float [ %135, %128 ], [ 0.000000e+00, %125 ]
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store float %137, ptr %138, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -522,254 +522,254 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %133 = add i64 %132, %.sroa.0.16.vec.extract562
   %134 = add i64 %133, %.sroa.0.24.vec.extract581
   %shift = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %135 = add nsw <4 x i64> %.0377.lcssa, %shift
-  %shift833 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %136 = add nsw <4 x i64> %135, %shift833
-  %shift834 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %137 = add nsw <4 x i64> %136, %shift834
-  %138 = extractelement <4 x i64> %137, i64 0
-  %shift835 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift836 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %139 = or <4 x i64> %shift835, %shift836
-  %shift837 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %140 = or <4 x i64> %139, %shift837
-  %141 = or <4 x i64> %140, %.0376.lcssa
-  %142 = extractelement <4 x i64> %141, i64 0
-  %143 = or i64 %142, %49
-  %shift838 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift839 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %144 = or <4 x i64> %shift838, %shift839
-  %shift840 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %145 = or <4 x i64> %144, %shift840
-  %146 = or <4 x i64> %145, %.0375.lcssa
-  %147 = extractelement <4 x i64> %146, i64 0
-  %148 = or i64 %147, %50
-  %shift841 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift842 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %149 = or <4 x i64> %shift841, %shift842
-  %shift843 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %150 = or <4 x i64> %149, %shift843
-  %151 = or <4 x i64> %150, %.0374.lcssa
-  %152 = extractelement <4 x i64> %151, i64 0
-  %153 = or i64 %152, %51
-  %shift844 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift845 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %154 = or <4 x i64> %shift844, %shift845
-  %shift846 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %155 = or <4 x i64> %154, %shift846
-  %156 = or <4 x i64> %155, %.0373.lcssa
-  %157 = extractelement <4 x i64> %156, i64 0
-  %158 = or i64 %157, %52
-  %shift847 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift848 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %159 = or <4 x i64> %shift847, %shift848
-  %shift849 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %160 = or <4 x i64> %159, %shift849
-  %161 = or <4 x i64> %160, %.0372.lcssa
-  %162 = extractelement <4 x i64> %161, i64 0
-  %163 = and i32 %1, -4
-  %.not728 = icmp eq i32 %163, %1
+  %foldExtExtBinop = add nsw <4 x i64> %.0377.lcssa, %shift
+  %shift834 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop835 = add nsw <4 x i64> %foldExtExtBinop, %shift834
+  %shift837 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop838 = add nsw <4 x i64> %foldExtExtBinop835, %shift837
+  %135 = extractelement <4 x i64> %foldExtExtBinop838, i64 0
+  %shift840 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift843 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %136 = or <4 x i64> %shift840, %shift843
+  %shift846 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %137 = or <4 x i64> %136, %shift846
+  %foldExtExtBinop847 = or <4 x i64> %137, %.0376.lcssa
+  %138 = extractelement <4 x i64> %foldExtExtBinop847, i64 0
+  %139 = or i64 %138, %49
+  %shift849 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift852 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %140 = or <4 x i64> %shift849, %shift852
+  %shift855 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %141 = or <4 x i64> %140, %shift855
+  %foldExtExtBinop856 = or <4 x i64> %141, %.0375.lcssa
+  %142 = extractelement <4 x i64> %foldExtExtBinop856, i64 0
+  %143 = or i64 %142, %50
+  %shift858 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift861 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %144 = or <4 x i64> %shift858, %shift861
+  %shift864 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %145 = or <4 x i64> %144, %shift864
+  %foldExtExtBinop865 = or <4 x i64> %145, %.0374.lcssa
+  %146 = extractelement <4 x i64> %foldExtExtBinop865, i64 0
+  %147 = or i64 %146, %51
+  %shift867 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift870 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %148 = or <4 x i64> %shift867, %shift870
+  %shift873 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %149 = or <4 x i64> %148, %shift873
+  %foldExtExtBinop874 = or <4 x i64> %149, %.0373.lcssa
+  %150 = extractelement <4 x i64> %foldExtExtBinop874, i64 0
+  %151 = or i64 %150, %52
+  %shift876 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift879 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %152 = or <4 x i64> %shift876, %shift879
+  %shift882 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %153 = or <4 x i64> %152, %shift882
+  %foldExtExtBinop883 = or <4 x i64> %153, %.0372.lcssa
+  %154 = extractelement <4 x i64> %foldExtExtBinop883, i64 0
+  %155 = and i32 %1, -4
+  %.not728 = icmp eq i32 %155, %1
   br i1 %.not728, label %._crit_edge717, label %.lr.ph716.preheader
 
 .lr.ph716.preheader:                              ; preds = %._crit_edge
-  %164 = sext i32 %163 to i64
-  %165 = sext i32 %1 to i64
+  %156 = sext i32 %155 to i64
+  %157 = sext i32 %1 to i64
   br label %.lr.ph716
 
 .lr.ph716:                                        ; preds = %.lr.ph716.preheader, %.lr.ph716
-  %indvars.iv765 = phi i64 [ %164, %.lr.ph716.preheader ], [ %indvars.iv.next766, %.lr.ph716 ]
-  %.1714 = phi i64 [ %122, %.lr.ph716.preheader ], [ %198, %.lr.ph716 ]
-  %.1365713 = phi i64 [ %126, %.lr.ph716.preheader ], [ %199, %.lr.ph716 ]
-  %.1367712 = phi i64 [ %130, %.lr.ph716.preheader ], [ %200, %.lr.ph716 ]
-  %.1385711 = phi i64 [ %134, %.lr.ph716.preheader ], [ %201, %.lr.ph716 ]
-  %.0390709 = phi i64 [ %138, %.lr.ph716.preheader ], [ %202, %.lr.ph716 ]
-  %.0391708 = phi i64 [ %162, %.lr.ph716.preheader ], [ %207, %.lr.ph716 ]
-  %.1393707 = phi i64 [ %158, %.lr.ph716.preheader ], [ %206, %.lr.ph716 ]
-  %.1395706 = phi i64 [ %153, %.lr.ph716.preheader ], [ %205, %.lr.ph716 ]
-  %.1397705 = phi i64 [ %148, %.lr.ph716.preheader ], [ %204, %.lr.ph716 ]
-  %.1399704 = phi i64 [ %143, %.lr.ph716.preheader ], [ %203, %.lr.ph716 ]
-  %166 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv765
-  %167 = load i32, ptr %166, align 4, !tbaa !3
-  %168 = sext i32 %167 to i64
-  %169 = tail call i64 @llvm.abs.i64(i64 %168, i1 true)
-  %170 = getelementptr i8, ptr %166, i64 -4
-  %171 = load i32, ptr %170, align 4, !tbaa !3
-  %172 = sext i32 %171 to i64
-  %173 = sub nsw i64 %168, %172
-  %174 = tail call i64 @llvm.abs.i64(i64 %173, i1 true)
-  %175 = shl nsw i64 %172, 1
-  %176 = sub nsw i64 %168, %175
-  %177 = getelementptr i8, ptr %166, i64 -8
-  %178 = load i32, ptr %177, align 4, !tbaa !3
-  %179 = sext i32 %178 to i64
-  %180 = add nsw i64 %176, %179
-  %181 = tail call i64 @llvm.abs.i64(i64 %180, i1 true)
-  %182 = getelementptr i8, ptr %166, i64 -12
-  %183 = load i32, ptr %182, align 4, !tbaa !3
-  %184 = sext i32 %183 to i64
-  %reass.add = sub nsw i64 %179, %172
+  %indvars.iv765 = phi i64 [ %156, %.lr.ph716.preheader ], [ %indvars.iv.next766, %.lr.ph716 ]
+  %.1714 = phi i64 [ %122, %.lr.ph716.preheader ], [ %190, %.lr.ph716 ]
+  %.1365713 = phi i64 [ %126, %.lr.ph716.preheader ], [ %191, %.lr.ph716 ]
+  %.1367712 = phi i64 [ %130, %.lr.ph716.preheader ], [ %192, %.lr.ph716 ]
+  %.1385711 = phi i64 [ %134, %.lr.ph716.preheader ], [ %193, %.lr.ph716 ]
+  %.0390709 = phi i64 [ %135, %.lr.ph716.preheader ], [ %194, %.lr.ph716 ]
+  %.0391708 = phi i64 [ %154, %.lr.ph716.preheader ], [ %199, %.lr.ph716 ]
+  %.1393707 = phi i64 [ %151, %.lr.ph716.preheader ], [ %198, %.lr.ph716 ]
+  %.1395706 = phi i64 [ %147, %.lr.ph716.preheader ], [ %197, %.lr.ph716 ]
+  %.1397705 = phi i64 [ %143, %.lr.ph716.preheader ], [ %196, %.lr.ph716 ]
+  %.1399704 = phi i64 [ %139, %.lr.ph716.preheader ], [ %195, %.lr.ph716 ]
+  %158 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv765
+  %159 = load i32, ptr %158, align 4, !tbaa !3
+  %160 = sext i32 %159 to i64
+  %161 = tail call i64 @llvm.abs.i64(i64 %160, i1 true)
+  %162 = getelementptr i8, ptr %158, i64 -4
+  %163 = load i32, ptr %162, align 4, !tbaa !3
+  %164 = sext i32 %163 to i64
+  %165 = sub nsw i64 %160, %164
+  %166 = tail call i64 @llvm.abs.i64(i64 %165, i1 true)
+  %167 = shl nsw i64 %164, 1
+  %168 = sub nsw i64 %160, %167
+  %169 = getelementptr i8, ptr %158, i64 -8
+  %170 = load i32, ptr %169, align 4, !tbaa !3
+  %171 = sext i32 %170 to i64
+  %172 = add nsw i64 %168, %171
+  %173 = tail call i64 @llvm.abs.i64(i64 %172, i1 true)
+  %174 = getelementptr i8, ptr %158, i64 -12
+  %175 = load i32, ptr %174, align 4, !tbaa !3
+  %176 = sext i32 %175 to i64
+  %reass.add = sub nsw i64 %171, %164
   %reass.mul = mul nsw i64 %reass.add, 3
-  %185 = sub nsw i64 %168, %184
-  %186 = add nsw i64 %185, %reass.mul
-  %187 = tail call i64 @llvm.abs.i64(i64 %186, i1 true)
-  %188 = mul nsw i64 %179, 6
-  %189 = add nsw i64 %188, %168
-  %190 = add nsw i64 %184, %172
-  %191 = getelementptr i8, ptr %166, i64 -16
-  %192 = load i32, ptr %191, align 4, !tbaa !3
-  %193 = sext i32 %192 to i64
-  %194 = add nsw i64 %189, %193
-  %195 = shl nsw i64 %190, 2
-  %196 = sub nsw i64 %194, %195
-  %197 = tail call i64 @llvm.abs.i64(i64 %196, i1 true)
-  %198 = add i64 %169, %.1714
-  %199 = add i64 %174, %.1365713
-  %200 = add i64 %181, %.1367712
-  %201 = add i64 %187, %.1385711
-  %202 = add i64 %197, %.0390709
-  %203 = or i64 %169, %.1399704
-  %204 = or i64 %174, %.1397705
-  %205 = or i64 %181, %.1395706
-  %206 = or i64 %187, %.1393707
-  %207 = or i64 %197, %.0391708
+  %177 = sub nsw i64 %160, %176
+  %178 = add nsw i64 %177, %reass.mul
+  %179 = tail call i64 @llvm.abs.i64(i64 %178, i1 true)
+  %180 = mul nsw i64 %171, 6
+  %181 = add nsw i64 %180, %160
+  %182 = add nsw i64 %176, %164
+  %183 = getelementptr i8, ptr %158, i64 -16
+  %184 = load i32, ptr %183, align 4, !tbaa !3
+  %185 = sext i32 %184 to i64
+  %186 = add nsw i64 %181, %185
+  %187 = shl nsw i64 %182, 2
+  %188 = sub nsw i64 %186, %187
+  %189 = tail call i64 @llvm.abs.i64(i64 %188, i1 true)
+  %190 = add i64 %161, %.1714
+  %191 = add i64 %166, %.1365713
+  %192 = add i64 %173, %.1367712
+  %193 = add i64 %179, %.1385711
+  %194 = add i64 %189, %.0390709
+  %195 = or i64 %161, %.1399704
+  %196 = or i64 %166, %.1397705
+  %197 = or i64 %173, %.1395706
+  %198 = or i64 %179, %.1393707
+  %199 = or i64 %189, %.0391708
   %indvars.iv.next766 = add nsw i64 %indvars.iv765, 1
-  %208 = icmp slt i64 %indvars.iv.next766, %165
-  br i1 %208, label %.lr.ph716, label %._crit_edge717, !llvm.loop !18
+  %200 = icmp slt i64 %indvars.iv.next766, %157
+  br i1 %200, label %.lr.ph716, label %._crit_edge717, !llvm.loop !18
 
 ._crit_edge717:                                   ; preds = %.lr.ph716, %._crit_edge
-  %.1399.lcssa = phi i64 [ %143, %._crit_edge ], [ %203, %.lr.ph716 ]
-  %.1397.lcssa = phi i64 [ %148, %._crit_edge ], [ %204, %.lr.ph716 ]
-  %.1395.lcssa = phi i64 [ %153, %._crit_edge ], [ %205, %.lr.ph716 ]
-  %.1393.lcssa = phi i64 [ %158, %._crit_edge ], [ %206, %.lr.ph716 ]
-  %.0391.lcssa = phi i64 [ %162, %._crit_edge ], [ %207, %.lr.ph716 ]
-  %.0390.lcssa = phi i64 [ %138, %._crit_edge ], [ %202, %.lr.ph716 ]
-  %.1385.lcssa = phi i64 [ %134, %._crit_edge ], [ %201, %.lr.ph716 ]
-  %.1367.lcssa = phi i64 [ %130, %._crit_edge ], [ %200, %.lr.ph716 ]
-  %.1365.lcssa = phi i64 [ %126, %._crit_edge ], [ %199, %.lr.ph716 ]
-  %.1.lcssa = phi i64 [ %122, %._crit_edge ], [ %198, %.lr.ph716 ]
-  %209 = icmp ult i64 %.1399.lcssa, 2147483648
-  br i1 %209, label %210, label %219
+  %.1399.lcssa = phi i64 [ %139, %._crit_edge ], [ %195, %.lr.ph716 ]
+  %.1397.lcssa = phi i64 [ %143, %._crit_edge ], [ %196, %.lr.ph716 ]
+  %.1395.lcssa = phi i64 [ %147, %._crit_edge ], [ %197, %.lr.ph716 ]
+  %.1393.lcssa = phi i64 [ %151, %._crit_edge ], [ %198, %.lr.ph716 ]
+  %.0391.lcssa = phi i64 [ %154, %._crit_edge ], [ %199, %.lr.ph716 ]
+  %.0390.lcssa = phi i64 [ %135, %._crit_edge ], [ %194, %.lr.ph716 ]
+  %.1385.lcssa = phi i64 [ %134, %._crit_edge ], [ %193, %.lr.ph716 ]
+  %.1367.lcssa = phi i64 [ %130, %._crit_edge ], [ %192, %.lr.ph716 ]
+  %.1365.lcssa = phi i64 [ %126, %._crit_edge ], [ %191, %.lr.ph716 ]
+  %.1.lcssa = phi i64 [ %122, %._crit_edge ], [ %190, %.lr.ph716 ]
+  %201 = icmp ult i64 %.1399.lcssa, 2147483648
+  br i1 %201, label %202, label %211
 
-210:                                              ; preds = %._crit_edge717
+202:                                              ; preds = %._crit_edge717
   %.not427 = icmp eq i64 %.1.lcssa, 0
-  br i1 %.not427, label %219, label %211
+  br i1 %.not427, label %211, label %203
 
-211:                                              ; preds = %210
-  %212 = uitofp i64 %.1.lcssa to double
-  %213 = fmul reassoc nsz arcp double %212, 0x3FE62E42FEFA39EF
-  %214 = uitofp i32 %1 to double
-  %215 = fdiv reassoc nsz arcp double %213, %214
-  %216 = tail call reassoc nsz arcp double @log(double noundef %215) #4, !tbaa !3
-  %217 = fmul reassoc nsz arcp double %216, 0x3FF71547652B82FE
-  %218 = fptrunc reassoc nsz arcp double %217 to float
-  br label %219
+203:                                              ; preds = %202
+  %204 = uitofp i64 %.1.lcssa to double
+  %205 = fmul reassoc nsz arcp double %204, 0x3FE62E42FEFA39EF
+  %206 = uitofp i32 %1 to double
+  %207 = fdiv reassoc nsz arcp double %205, %206
+  %208 = tail call reassoc nsz arcp double @log(double noundef %207) #4, !tbaa !3
+  %209 = fmul reassoc nsz arcp double %208, 0x3FF71547652B82FE
+  %210 = fptrunc reassoc nsz arcp double %209 to float
+  br label %211
 
-219:                                              ; preds = %._crit_edge717, %211, %210
-  %storemerge = phi float [ %218, %211 ], [ 0.000000e+00, %210 ], [ 3.400000e+01, %._crit_edge717 ]
-  %.1401 = phi i64 [ %.1.lcssa, %211 ], [ 0, %210 ], [ -1, %._crit_edge717 ]
+211:                                              ; preds = %._crit_edge717, %203, %202
+  %storemerge = phi float [ %210, %203 ], [ 0.000000e+00, %202 ], [ 3.400000e+01, %._crit_edge717 ]
+  %.1401 = phi i64 [ %.1.lcssa, %203 ], [ 0, %202 ], [ -1, %._crit_edge717 ]
   store float %storemerge, ptr %2, align 4, !tbaa !13
-  %220 = icmp ult i64 %.1397.lcssa, 2147483648
-  br i1 %220, label %221, label %231
+  %212 = icmp ult i64 %.1397.lcssa, 2147483648
+  br i1 %212, label %213, label %223
 
-221:                                              ; preds = %219
-  %222 = icmp ult i64 %.1365.lcssa, %.1401
+213:                                              ; preds = %211
+  %214 = icmp ult i64 %.1365.lcssa, %.1401
   %spec.select435 = tail call i64 @llvm.umin.i64(i64 %.1365.lcssa, i64 %.1401)
   %.not428 = icmp eq i64 %.1365.lcssa, 0
-  br i1 %.not428, label %231, label %223
+  br i1 %.not428, label %223, label %215
 
-223:                                              ; preds = %221
-  %224 = uitofp i64 %.1365.lcssa to double
-  %225 = fmul reassoc nsz arcp double %224, 0x3FE62E42FEFA39EF
-  %226 = uitofp i32 %1 to double
-  %227 = fdiv reassoc nsz arcp double %225, %226
-  %228 = tail call reassoc nsz arcp double @log(double noundef %227) #4, !tbaa !3
-  %229 = fmul reassoc nsz arcp double %228, 0x3FF71547652B82FE
-  %230 = fptrunc reassoc nsz arcp double %229 to float
-  br label %231
+215:                                              ; preds = %213
+  %216 = uitofp i64 %.1365.lcssa to double
+  %217 = fmul reassoc nsz arcp double %216, 0x3FE62E42FEFA39EF
+  %218 = uitofp i32 %1 to double
+  %219 = fdiv reassoc nsz arcp double %217, %218
+  %220 = tail call reassoc nsz arcp double @log(double noundef %219) #4, !tbaa !3
+  %221 = fmul reassoc nsz arcp double %220, 0x3FF71547652B82FE
+  %222 = fptrunc reassoc nsz arcp double %221 to float
+  br label %223
 
-231:                                              ; preds = %219, %223, %221
-  %.sink = phi float [ %230, %223 ], [ 0.000000e+00, %221 ], [ 3.400000e+01, %219 ]
-  %.3403 = phi i64 [ %spec.select435, %223 ], [ %spec.select435, %221 ], [ %.1401, %219 ]
-  %.3.shrunk = phi i1 [ %222, %223 ], [ %222, %221 ], [ false, %219 ]
+223:                                              ; preds = %211, %215, %213
+  %.sink = phi float [ %222, %215 ], [ 0.000000e+00, %213 ], [ 3.400000e+01, %211 ]
+  %.3403 = phi i64 [ %spec.select435, %215 ], [ %spec.select435, %213 ], [ %.1401, %211 ]
+  %.3.shrunk = phi i1 [ %214, %215 ], [ %214, %213 ], [ false, %211 ]
   %.3 = zext i1 %.3.shrunk to i32
-  %232 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %.sink, ptr %232, align 4, !tbaa !13
-  %233 = icmp ult i64 %.1395.lcssa, 2147483648
-  br i1 %233, label %234, label %244
+  %224 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %.sink, ptr %224, align 4, !tbaa !13
+  %225 = icmp ult i64 %.1395.lcssa, 2147483648
+  br i1 %225, label %226, label %236
 
-234:                                              ; preds = %231
-  %235 = icmp ult i64 %.1367.lcssa, %.3403
+226:                                              ; preds = %223
+  %227 = icmp ult i64 %.1367.lcssa, %.3403
   %spec.select437 = tail call i64 @llvm.umin.i64(i64 %.1367.lcssa, i64 %.3403)
-  %spec.select438 = select i1 %235, i32 2, i32 %.3
+  %spec.select438 = select i1 %227, i32 2, i32 %.3
   %.not429 = icmp eq i64 %.1367.lcssa, 0
-  br i1 %.not429, label %244, label %236
+  br i1 %.not429, label %236, label %228
 
-236:                                              ; preds = %234
-  %237 = uitofp i64 %.1367.lcssa to double
-  %238 = fmul reassoc nsz arcp double %237, 0x3FE62E42FEFA39EF
-  %239 = uitofp i32 %1 to double
-  %240 = fdiv reassoc nsz arcp double %238, %239
-  %241 = tail call reassoc nsz arcp double @log(double noundef %240) #4, !tbaa !3
-  %242 = fmul reassoc nsz arcp double %241, 0x3FF71547652B82FE
-  %243 = fptrunc reassoc nsz arcp double %242 to float
-  br label %244
+228:                                              ; preds = %226
+  %229 = uitofp i64 %.1367.lcssa to double
+  %230 = fmul reassoc nsz arcp double %229, 0x3FE62E42FEFA39EF
+  %231 = uitofp i32 %1 to double
+  %232 = fdiv reassoc nsz arcp double %230, %231
+  %233 = tail call reassoc nsz arcp double @log(double noundef %232) #4, !tbaa !3
+  %234 = fmul reassoc nsz arcp double %233, 0x3FF71547652B82FE
+  %235 = fptrunc reassoc nsz arcp double %234 to float
+  br label %236
 
-244:                                              ; preds = %231, %236, %234
-  %.sink800 = phi float [ %243, %236 ], [ 0.000000e+00, %234 ], [ 3.400000e+01, %231 ]
-  %.5405 = phi i64 [ %spec.select437, %236 ], [ %spec.select437, %234 ], [ %.3403, %231 ]
-  %.5 = phi i32 [ %spec.select438, %236 ], [ %spec.select438, %234 ], [ %.3, %231 ]
-  %245 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sink800, ptr %245, align 4, !tbaa !13
-  %246 = icmp ult i64 %.1393.lcssa, 2147483648
-  br i1 %246, label %247, label %257
+236:                                              ; preds = %223, %228, %226
+  %.sink800 = phi float [ %235, %228 ], [ 0.000000e+00, %226 ], [ 3.400000e+01, %223 ]
+  %.5405 = phi i64 [ %spec.select437, %228 ], [ %spec.select437, %226 ], [ %.3403, %223 ]
+  %.5 = phi i32 [ %spec.select438, %228 ], [ %spec.select438, %226 ], [ %.3, %223 ]
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %.sink800, ptr %237, align 4, !tbaa !13
+  %238 = icmp ult i64 %.1393.lcssa, 2147483648
+  br i1 %238, label %239, label %249
 
-247:                                              ; preds = %244
-  %248 = icmp ult i64 %.1385.lcssa, %.5405
+239:                                              ; preds = %236
+  %240 = icmp ult i64 %.1385.lcssa, %.5405
   %spec.select439 = tail call i64 @llvm.umin.i64(i64 %.1385.lcssa, i64 %.5405)
-  %spec.select440 = select i1 %248, i32 3, i32 %.5
+  %spec.select440 = select i1 %240, i32 3, i32 %.5
   %.not430 = icmp eq i64 %.1385.lcssa, 0
-  br i1 %.not430, label %257, label %249
+  br i1 %.not430, label %249, label %241
 
-249:                                              ; preds = %247
-  %250 = uitofp i64 %.1385.lcssa to double
-  %251 = fmul reassoc nsz arcp double %250, 0x3FE62E42FEFA39EF
-  %252 = uitofp i32 %1 to double
-  %253 = fdiv reassoc nsz arcp double %251, %252
-  %254 = tail call reassoc nsz arcp double @log(double noundef %253) #4, !tbaa !3
-  %255 = fmul reassoc nsz arcp double %254, 0x3FF71547652B82FE
-  %256 = fptrunc reassoc nsz arcp double %255 to float
-  br label %257
+241:                                              ; preds = %239
+  %242 = uitofp i64 %.1385.lcssa to double
+  %243 = fmul reassoc nsz arcp double %242, 0x3FE62E42FEFA39EF
+  %244 = uitofp i32 %1 to double
+  %245 = fdiv reassoc nsz arcp double %243, %244
+  %246 = tail call reassoc nsz arcp double @log(double noundef %245) #4, !tbaa !3
+  %247 = fmul reassoc nsz arcp double %246, 0x3FF71547652B82FE
+  %248 = fptrunc reassoc nsz arcp double %247 to float
+  br label %249
 
-257:                                              ; preds = %244, %249, %247
-  %.sink802 = phi float [ %256, %249 ], [ 0.000000e+00, %247 ], [ 3.400000e+01, %244 ]
-  %.7407 = phi i64 [ %spec.select439, %249 ], [ %spec.select439, %247 ], [ %.5405, %244 ]
-  %.7 = phi i32 [ %spec.select440, %249 ], [ %spec.select440, %247 ], [ %.5, %244 ]
-  %258 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %.sink802, ptr %258, align 4, !tbaa !13
-  %259 = icmp ult i64 %.0391.lcssa, 2147483648
-  br i1 %259, label %260, label %270
+249:                                              ; preds = %236, %241, %239
+  %.sink802 = phi float [ %248, %241 ], [ 0.000000e+00, %239 ], [ 3.400000e+01, %236 ]
+  %.7407 = phi i64 [ %spec.select439, %241 ], [ %spec.select439, %239 ], [ %.5405, %236 ]
+  %.7 = phi i32 [ %spec.select440, %241 ], [ %spec.select440, %239 ], [ %.5, %236 ]
+  %250 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store float %.sink802, ptr %250, align 4, !tbaa !13
+  %251 = icmp ult i64 %.0391.lcssa, 2147483648
+  br i1 %251, label %252, label %262
 
-260:                                              ; preds = %257
-  %261 = icmp ult i64 %.0390.lcssa, %.7407
-  %spec.select441 = select i1 %261, i32 4, i32 %.7
+252:                                              ; preds = %249
+  %253 = icmp ult i64 %.0390.lcssa, %.7407
+  %spec.select441 = select i1 %253, i32 4, i32 %.7
   %.not431 = icmp eq i64 %.0390.lcssa, 0
-  br i1 %.not431, label %270, label %262
+  br i1 %.not431, label %262, label %254
 
-262:                                              ; preds = %260
-  %263 = uitofp i64 %.0390.lcssa to double
-  %264 = fmul reassoc nsz arcp double %263, 0x3FE62E42FEFA39EF
-  %265 = uitofp i32 %1 to double
-  %266 = fdiv reassoc nsz arcp double %264, %265
-  %267 = tail call reassoc nsz arcp double @log(double noundef %266) #4, !tbaa !3
-  %268 = fmul reassoc nsz arcp double %267, 0x3FF71547652B82FE
-  %269 = fptrunc reassoc nsz arcp double %268 to float
-  br label %270
+254:                                              ; preds = %252
+  %255 = uitofp i64 %.0390.lcssa to double
+  %256 = fmul reassoc nsz arcp double %255, 0x3FE62E42FEFA39EF
+  %257 = uitofp i32 %1 to double
+  %258 = fdiv reassoc nsz arcp double %256, %257
+  %259 = tail call reassoc nsz arcp double @log(double noundef %258) #4, !tbaa !3
+  %260 = fmul reassoc nsz arcp double %259, 0x3FF71547652B82FE
+  %261 = fptrunc reassoc nsz arcp double %260 to float
+  br label %262
 
-270:                                              ; preds = %257, %262, %260
-  %.sink804 = phi float [ %269, %262 ], [ 0.000000e+00, %260 ], [ 3.400000e+01, %257 ]
-  %.9 = phi i32 [ %spec.select441, %262 ], [ %spec.select441, %260 ], [ %.7, %257 ]
-  %271 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %.sink804, ptr %271, align 4, !tbaa !13
+262:                                              ; preds = %249, %254, %252
+  %.sink804 = phi float [ %261, %254 ], [ 0.000000e+00, %252 ], [ 3.400000e+01, %249 ]
+  %.9 = phi i32 [ %spec.select441, %254 ], [ %spec.select441, %252 ], [ %.7, %249 ]
+  %263 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store float %.sink804, ptr %263, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

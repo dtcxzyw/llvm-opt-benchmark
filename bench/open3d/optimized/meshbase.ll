@@ -6811,63 +6811,63 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %28, %1
+._crit_edge:                                      ; preds = %27, %1
   ret ptr %0
 
-.lr.ph:                                           ; preds = %1, %28
-  %6 = phi ptr [ %29, %28 ], [ %5, %1 ]
-  %.07 = phi i64 [ %30, %28 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %27
+  %6 = phi ptr [ %28, %27 ], [ %5, %1 ]
+  %.07 = phi i64 [ %29, %27 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %6, i64 %.07
   %8 = load <2 x double>, ptr %7, align 1
   %9 = fmul <2 x double> %8, %8
   %shift = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = fadd <2 x double> %9, %shift
-  %11 = extractelement <2 x double> %10, i64 0
-  %12 = getelementptr i8, ptr %7, i64 16
-  %13 = load double, ptr %12, align 8, !tbaa !278
-  %14 = fmul double %13, %13
-  %15 = fadd double %14, %11
-  %16 = fcmp ogt double %15, 0.000000e+00
-  %17 = extractelement <2 x double> %8, i64 0
-  br i1 %16, label %18, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
+  %foldExtExtBinop = fadd <2 x double> %9, %shift
+  %10 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %11 = getelementptr i8, ptr %7, i64 16
+  %12 = load double, ptr %11, align 8, !tbaa !278
+  %13 = fmul double %12, %12
+  %14 = fadd double %13, %10
+  %15 = fcmp ogt double %14, 0.000000e+00
+  %16 = extractelement <2 x double> %8, i64 0
+  br i1 %15, label %17, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
-18:                                               ; preds = %.lr.ph
-  %.scalar.i = tail call double @llvm.sqrt.f64(double %15)
-  %19 = insertelement <2 x double> poison, double %.scalar.i, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fdiv <2 x double> %8, %20
-  store <2 x double> %21, ptr %7, align 1, !tbaa !127
-  %22 = fdiv double %13, %.scalar.i
-  store double %22, ptr %12, align 8, !tbaa !278
+17:                                               ; preds = %.lr.ph
+  %.scalar.i = tail call double @llvm.sqrt.f64(double %14)
+  %18 = insertelement <2 x double> poison, double %.scalar.i, i64 0
+  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
+  %20 = fdiv <2 x double> %8, %19
+  store <2 x double> %20, ptr %7, align 1, !tbaa !127
+  %21 = fdiv double %12, %.scalar.i
+  store double %21, ptr %11, align 8, !tbaa !278
   %.pre = load ptr, ptr %2, align 8, !tbaa !243
   %.phi.trans.insert = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %.pre, i64 %.07
   %.pre8 = load double, ptr %.phi.trans.insert, align 8, !tbaa !278
   br label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
-_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; preds = %.lr.ph, %18
-  %23 = phi ptr [ %6, %.lr.ph ], [ %.pre, %18 ]
-  %24 = phi double [ %17, %.lr.ph ], [ %.pre8, %18 ]
-  %25 = fcmp uno double %24, 0.000000e+00
-  br i1 %25, label %26, label %28
+_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; preds = %.lr.ph, %17
+  %22 = phi ptr [ %6, %.lr.ph ], [ %.pre, %17 ]
+  %23 = phi double [ %16, %.lr.ph ], [ %.pre8, %17 ]
+  %24 = fcmp uno double %23, 0.000000e+00
+  br i1 %24, label %25, label %27
 
-26:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
-  %27 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %23, i64 %.07
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+25:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
+  %26 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %22, i64 %.07
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !127
   %.pre9 = load ptr, ptr %2, align 8, !tbaa !243
-  br label %28
+  br label %27
 
-28:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit, %26
-  %29 = phi ptr [ %23, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %.pre9, %26 ]
-  %30 = add nuw i64 %.07, 1
-  %31 = load ptr, ptr %3, align 8, !tbaa !240
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %29 to i64
-  %34 = sub i64 %32, %33
-  %35 = sdiv exact i64 %34, 24
-  %36 = icmp ult i64 %30, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !280
+27:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit, %25
+  %28 = phi ptr [ %22, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %.pre9, %25 ]
+  %29 = add nuw i64 %.07, 1
+  %30 = load ptr, ptr %3, align 8, !tbaa !240
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %28 to i64
+  %33 = sub i64 %31, %32
+  %34 = sdiv exact i64 %33, 24
+  %35 = icmp ult i64 %29, %34
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !280
 }
 
 ; Function Attrs: mustprogress ssp uwtable

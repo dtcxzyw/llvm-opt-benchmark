@@ -12812,24 +12812,24 @@ if.end13:                                         ; preds = %if.then9, %_ZN3irr4
   %mul.i1 = fmul nsz float %rot.sroa.6.12.vec.extract, %rot.sroa.6.12.vec.extract
   %conv.i = fpext float %mul.i1 to double
   %rot.sroa.0.0.vec.extract = extractelement <2 x float> %rot.sroa.0.0, i64 0
-  %107 = fmul nsz <2 x float> %rot.sroa.0.0, %rot.sroa.0.0
-  %mul4.i = extractelement <2 x float> %107, i64 0
+  %foldExtExtBinop = fmul nsz <2 x float> %rot.sroa.0.0, %rot.sroa.0.0
+  %mul4.i = extractelement <2 x float> %foldExtExtBinop, i64 0
   %conv5.i = fpext float %mul4.i to double
   %rot.sroa.0.4.vec.extract = extractelement <2 x float> %rot.sroa.0.0, i64 1
   %mul7.i = fmul nsz float %rot.sroa.0.4.vec.extract, %rot.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %rot.sroa.6.8.vec.extract = extractelement <2 x float> %rot.sroa.6.0, i64 0
-  %108 = fmul nsz <2 x float> %rot.sroa.6.0, %rot.sroa.6.0
-  %mul10.i3 = extractelement <2 x float> %108, i64 0
+  %foldExtExtBinop12 = fmul nsz <2 x float> %rot.sroa.6.0, %rot.sroa.6.0
+  %mul10.i3 = extractelement <2 x float> %foldExtExtBinop12, i64 0
   %conv11.i = fpext float %mul10.i3 to double
-  %109 = fneg nsz float %rot.sroa.0.0.vec.extract
-  %neg.i = fmul nsz float %rot.sroa.6.8.vec.extract, %109
-  %110 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.4.vec.extract, float %rot.sroa.6.12.vec.extract, float %neg.i)
-  %conv18.i = fpext float %110 to double
+  %107 = fneg nsz float %rot.sroa.0.0.vec.extract
+  %neg.i = fmul nsz float %rot.sroa.6.8.vec.extract, %107
+  %108 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.4.vec.extract, float %rot.sroa.6.12.vec.extract, float %neg.i)
+  %conv18.i = fpext float %108 to double
   %mul19.i = fmul nsz double %conv18.i, 2.000000e+00
   %sub.i.i4 = fadd nsz double %mul19.i, -1.000000e+00
-  %111 = tail call nsz noundef double @llvm.fabs.f64(double %sub.i.i4)
-  %cmp.i.i = fcmp nsz ugt double %111, 0x3EB0C6F7A0B5ED8D
+  %109 = tail call nsz noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i = fcmp nsz ugt double %109, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i.i, label %if.else.i5, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end13
@@ -12841,8 +12841,8 @@ if.then.i:                                        ; preds = %if.end13
 
 if.else.i5:                                       ; preds = %if.end13
   %sub.i87.i = fadd nsz double %mul19.i, 1.000000e+00
-  %112 = tail call nsz noundef double @llvm.fabs.f64(double %sub.i87.i)
-  %cmp.i88.i = fcmp nsz ugt double %112, 0x3EB0C6F7A0B5ED8D
+  %110 = tail call nsz noundef double @llvm.fabs.f64(double %sub.i87.i)
+  %cmp.i88.i = fcmp nsz ugt double %110, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i88.i, label %if.else42.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.else.i5
@@ -12854,28 +12854,28 @@ if.then31.i:                                      ; preds = %if.else.i5
 
 if.else42.i:                                      ; preds = %if.else.i5
   %mul48.i = fmul nsz float %rot.sroa.6.12.vec.extract, %rot.sroa.6.8.vec.extract
-  %113 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.0.vec.extract, float %rot.sroa.0.4.vec.extract, float %mul48.i)
-  %conv49.i = fpext float %113 to double
+  %111 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.0.vec.extract, float %rot.sroa.0.4.vec.extract, float %mul48.i)
+  %conv49.i = fpext float %111 to double
   %mul50.i = fmul nsz double %conv49.i, 2.000000e+00
   %sub.i = fsub nsz double %conv5.i, %conv8.i
   %sub51.i = fsub nsz double %sub.i, %conv11.i
   %add.i = fadd nsz double %sub51.i, %conv.i
   %call52.i = tail call nsz double @atan2(double noundef %mul50.i, double noundef %add.i) #40
   %mul60.i = fmul nsz float %rot.sroa.6.12.vec.extract, %rot.sroa.0.0.vec.extract
-  %114 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.4.vec.extract, float %rot.sroa.6.8.vec.extract, float %mul60.i)
-  %conv61.i = fpext float %114 to double
+  %112 = tail call nsz float @llvm.fmuladd.f32(float %rot.sroa.0.4.vec.extract, float %rot.sroa.6.8.vec.extract, float %mul60.i)
+  %conv61.i = fpext float %112 to double
   %mul62.i = fmul nsz double %conv61.i, 2.000000e+00
-  %115 = fadd nsz double %conv5.i, %conv8.i
-  %add64.i = fsub nsz double %conv11.i, %115
+  %113 = fadd nsz double %conv5.i, %conv8.i
+  %add64.i = fsub nsz double %conv11.i, %113
   %add65.i = fadd nsz double %add64.i, %conv.i
   %call66.i = tail call nsz double @atan2(double noundef %mul62.i, double noundef %add65.i) #40
   %conv67.i = fptrunc double %call66.i to float
   %rot_euler.sroa.0.0.vec.insert10 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %conv67.i, i64 0
   %cmp.i.i.i = fcmp nsz olt double %mul19.i, -1.000000e+00
-  %116 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
-  %cmp.i2.i.i = fcmp nsz olt double %116, 1.000000e+00
-  %117 = select i1 %cmp.i2.i.i, double %116, double 1.000000e+00
-  %call71.i = tail call nsz double @asin(double noundef %117) #40
+  %114 = select i1 %cmp.i.i.i, double -1.000000e+00, double %mul19.i
+  %cmp.i2.i.i = fcmp nsz olt double %114, 1.000000e+00
+  %115 = select i1 %cmp.i2.i.i, double %114, double 1.000000e+00
+  %call71.i = tail call nsz double @asin(double noundef %115) #40
   %conv72.i = fptrunc double %call71.i to float
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
@@ -12885,9 +12885,9 @@ _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i,
   %.sink.i = phi float [ %conv72.i, %if.else42.i ], [ 0xBFF921FB60000000, %if.then31.i ], [ 0x3FF921FB60000000, %if.then.i ]
   %rot_euler.sroa.8.0 = fptrunc double %rot_euler.sroa.8.0.in to float
   %rot_euler.sroa.0.4.vec.insert = insertelement <2 x float> %rot_euler.sroa.0.0, float %.sink.i, i64 1
-  %118 = fmul nsz <2 x float> %rot_euler.sroa.0.4.vec.insert, splat (float 0x404CA5DC00000000)
+  %116 = fmul nsz <2 x float> %rot_euler.sroa.0.4.vec.insert, splat (float 0x404CA5DC00000000)
   %mul3.i45 = fmul nsz float %rot_euler.sroa.8.0, 0x404CA5DC00000000
-  %.fca.0.insert.i48 = insertvalue { <2 x float>, float } poison, <2 x float> %118, 0
+  %.fca.0.insert.i48 = insertvalue { <2 x float>, float } poison, <2 x float> %116, 0
   %.fca.1.insert.i49 = insertvalue { <2 x float>, float } %.fca.0.insert.i48, float %mul3.i45, 1
   ret { <2 x float>, float } %.fca.1.insert.i49
 }

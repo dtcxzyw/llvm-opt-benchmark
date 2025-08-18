@@ -861,7 +861,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i171, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !78
   %.not.i = icmp eq ptr %24, null
-  %indvars.iv.sroa.gep233 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvars.iv.sroa.gep238 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not.i, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, label %59
 
 59:                                               ; preds = %3
@@ -969,386 +969,386 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit: ; pred
 _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179: ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, %102
   %.sroa.0217.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i176, %102 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
   %.sroa.6.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i177, %102 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %145 = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
-  %146 = extractelement <2 x float> %145, i64 0
-  %147 = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
-  %148 = extractelement <2 x float> %147, i64 1
-  %149 = fsub <2 x float> %.sroa.6219.0, %.sroa.6.0
-  %150 = extractelement <2 x float> %149, i64 0
-  %151 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %152 = load float, ptr %151, align 4, !tbaa !79
-  %153 = getelementptr inbounds nuw i8, ptr %28, i64 68
-  %154 = load float, ptr %153, align 4, !tbaa !79
-  %155 = fmul float %148, %154
-  %156 = tail call float @llvm.fmuladd.f32(float %152, float %146, float %155)
-  %157 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %158 = load float, ptr %157, align 4, !tbaa !79
-  %159 = tail call noundef float @llvm.fmuladd.f32(float %158, float %150, float %156)
+  %foldExtExtBinop = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
+  %145 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop234 = fsub <2 x float> %.sroa.0218.0, %.sroa.0217.0
+  %146 = extractelement <2 x float> %foldExtExtBinop234, i64 1
+  %foldExtExtBinop236 = fsub <2 x float> %.sroa.6219.0, %.sroa.6.0
+  %147 = extractelement <2 x float> %foldExtExtBinop236, i64 0
+  %148 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %149 = load float, ptr %148, align 4, !tbaa !79
+  %150 = getelementptr inbounds nuw i8, ptr %28, i64 68
+  %151 = load float, ptr %150, align 4, !tbaa !79
+  %152 = fmul float %146, %151
+  %153 = tail call float @llvm.fmuladd.f32(float %149, float %145, float %152)
+  %154 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %155 = load float, ptr %154, align 4, !tbaa !79
+  %156 = tail call noundef float @llvm.fmuladd.f32(float %155, float %147, float %153)
   call void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %12, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(128) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %161 = load ptr, ptr %160, align 8, !tbaa !15
-  %162 = getelementptr inbounds i32, ptr %161, i64 %11
-  %163 = load i32, ptr %162, align 4, !tbaa !66
-  %164 = icmp sgt i32 %163, -1
-  br i1 %164, label %165, label %260
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %158 = load ptr, ptr %157, align 8, !tbaa !15
+  %159 = getelementptr inbounds i32, ptr %158, i64 %11
+  %160 = load i32, ptr %159, align 4, !tbaa !66
+  %161 = icmp sgt i32 %160, -1
+  br i1 %161, label %162, label %257
 
-165:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %167 = load ptr, ptr %166, align 8, !tbaa !67
-  %168 = zext nneg i32 %163 to i64
-  %169 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %167, i64 %168
-  %170 = getelementptr inbounds nuw i8, ptr %28, i64 92
-  %171 = load float, ptr %170, align 4, !tbaa !80
-  %172 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %169, ptr noundef nonnull align 4 dereferenceable(16) %151, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, float noundef %171, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %172, float noundef 0.000000e+00, float noundef 0.000000e+00)
+162:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %164 = load ptr, ptr %163, align 8, !tbaa !67
+  %165 = zext nneg i32 %160 to i64
+  %166 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %164, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %28, i64 92
+  %168 = load float, ptr %167, align 4, !tbaa !80
+  %169 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %166, ptr noundef nonnull align 4 dereferenceable(16) %148, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, float noundef %168, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %169, float noundef 0.000000e+00, float noundef 0.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %173 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %174 = load float, ptr %157, align 4, !tbaa !79
-  %175 = call noundef float @llvm.fabs.f32(float %174)
-  %176 = fcmp ogt float %175, 0x3FE6A09E60000000
-  %177 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %176, label %178, label %191
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %171 = load float, ptr %154, align 4, !tbaa !79
+  %172 = call noundef float @llvm.fabs.f32(float %171)
+  %173 = fcmp ogt float %172, 0x3FE6A09E60000000
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %173, label %175, label %188
 
-178:                                              ; preds = %165
-  %179 = load float, ptr %153, align 4, !tbaa !79
-  %180 = fmul float %174, %174
-  %181 = call float @llvm.fmuladd.f32(float %179, float %179, float %180)
-  %sqrt.i = call float @llvm.sqrt.f32(float %181)
-  %182 = fdiv float 1.000000e+00, %sqrt.i
-  %183 = fneg float %174
-  %184 = fmul float %182, %183
-  %185 = fmul float %179, %182
-  %186 = fmul float %181, %182
-  %187 = load float, ptr %151, align 4, !tbaa !79
-  %188 = fneg float %187
-  %189 = fmul float %185, %188
-  %190 = fmul float %184, %187
+175:                                              ; preds = %162
+  %176 = load float, ptr %150, align 4, !tbaa !79
+  %177 = fmul float %171, %171
+  %178 = call float @llvm.fmuladd.f32(float %176, float %176, float %177)
+  %sqrt.i = call float @llvm.sqrt.f32(float %178)
+  %179 = fdiv float 1.000000e+00, %sqrt.i
+  %180 = fneg float %171
+  %181 = fmul float %179, %180
+  %182 = fmul float %176, %179
+  %183 = fmul float %178, %179
+  %184 = load float, ptr %148, align 4, !tbaa !79
+  %185 = fneg float %184
+  %186 = fmul float %182, %185
+  %187 = fmul float %181, %184
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
-191:                                              ; preds = %165
-  %192 = load float, ptr %151, align 4, !tbaa !79
-  %193 = load float, ptr %153, align 4, !tbaa !79
-  %194 = fmul float %193, %193
-  %195 = call float @llvm.fmuladd.f32(float %192, float %192, float %194)
-  %sqrt43.i = call float @llvm.sqrt.f32(float %195)
-  %196 = fdiv float 1.000000e+00, %sqrt43.i
-  %197 = fneg float %193
+188:                                              ; preds = %162
+  %189 = load float, ptr %148, align 4, !tbaa !79
+  %190 = load float, ptr %150, align 4, !tbaa !79
+  %191 = fmul float %190, %190
+  %192 = call float @llvm.fmuladd.f32(float %189, float %189, float %191)
+  %sqrt43.i = call float @llvm.sqrt.f32(float %192)
+  %193 = fdiv float 1.000000e+00, %sqrt43.i
+  %194 = fneg float %190
+  %195 = fmul float %193, %194
+  %196 = fmul float %189, %193
+  %197 = fneg float %171
   %198 = fmul float %196, %197
-  %199 = fmul float %192, %196
-  %200 = fneg float %174
-  %201 = fmul float %199, %200
-  %202 = fmul float %174, %198
-  %203 = fmul float %195, %196
+  %199 = fmul float %171, %195
+  %200 = fmul float %192, %193
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
-_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %178, %191
-  %.sink225 = phi float [ 0.000000e+00, %178 ], [ %198, %191 ]
-  %.sink224 = phi float [ %184, %178 ], [ %199, %191 ]
-  %.sink223 = phi float [ %185, %178 ], [ 0.000000e+00, %191 ]
-  %.sink222 = phi float [ %186, %178 ], [ %201, %191 ]
-  %.sink = phi float [ %189, %178 ], [ %202, %191 ]
-  %.sink.i = phi float [ %190, %178 ], [ %203, %191 ]
-  %204 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %205 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %206 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %207 = fmul float %.sink224, %.sink224
-  %208 = call float @llvm.fmuladd.f32(float %.sink225, float %.sink225, float %207)
-  %209 = call noundef float @llvm.fmuladd.f32(float %.sink223, float %.sink223, float %208)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %209)
-  %210 = fdiv float 1.000000e+00, %sqrt.i.i
-  %211 = fmul float %.sink225, %210
-  store float %211, ptr %7, align 16, !tbaa !79
-  %212 = fmul float %.sink224, %210
-  store float %212, ptr %204, align 4, !tbaa !79
-  %213 = fmul float %.sink223, %210
-  store float %213, ptr %177, align 8, !tbaa !79
-  %214 = fmul float %.sink, %.sink
-  %215 = call float @llvm.fmuladd.f32(float %.sink222, float %.sink222, float %214)
-  %216 = call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %215)
-  %sqrt.i.i185 = call noundef float @llvm.sqrt.f32(float %216)
-  %217 = fdiv float 1.000000e+00, %sqrt.i.i185
-  %218 = fmul float %.sink222, %217
-  store float %218, ptr %173, align 16, !tbaa !79
-  %219 = fmul float %.sink, %217
-  store float %219, ptr %205, align 4, !tbaa !79
-  %220 = fmul float %.sink.i, %217
-  store float %220, ptr %206, align 8, !tbaa !79
+_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %175, %188
+  %.sink225 = phi float [ 0.000000e+00, %175 ], [ %195, %188 ]
+  %.sink224 = phi float [ %181, %175 ], [ %196, %188 ]
+  %.sink223 = phi float [ %182, %175 ], [ 0.000000e+00, %188 ]
+  %.sink222 = phi float [ %183, %175 ], [ %198, %188 ]
+  %.sink = phi float [ %186, %175 ], [ %199, %188 ]
+  %.sink.i = phi float [ %187, %175 ], [ %200, %188 ]
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %204 = fmul float %.sink224, %.sink224
+  %205 = call float @llvm.fmuladd.f32(float %.sink225, float %.sink225, float %204)
+  %206 = call noundef float @llvm.fmuladd.f32(float %.sink223, float %.sink223, float %205)
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %206)
+  %207 = fdiv float 1.000000e+00, %sqrt.i.i
+  %208 = fmul float %.sink225, %207
+  store float %208, ptr %7, align 16, !tbaa !79
+  %209 = fmul float %.sink224, %207
+  store float %209, ptr %201, align 4, !tbaa !79
+  %210 = fmul float %.sink223, %207
+  store float %210, ptr %174, align 8, !tbaa !79
+  %211 = fmul float %.sink, %.sink
+  %212 = call float @llvm.fmuladd.f32(float %.sink222, float %.sink222, float %211)
+  %213 = call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %212)
+  %sqrt.i.i185 = call noundef float @llvm.sqrt.f32(float %213)
+  %214 = fdiv float 1.000000e+00, %sqrt.i.i185
+  %215 = fmul float %.sink222, %214
+  store float %215, ptr %170, align 16, !tbaa !79
+  %216 = fmul float %.sink, %214
+  store float %216, ptr %202, align 4, !tbaa !79
+  %217 = fmul float %.sink.i, %214
+  store float %217, ptr %203, align 8, !tbaa !79
   call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef 2)
   call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef 2)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %173, i32 noundef 2)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %173, i32 noundef 2)
-  %221 = load float, ptr %173, align 16, !tbaa !79
-  %222 = load float, ptr %205, align 4, !tbaa !79
-  %223 = fmul float %222, %222
-  %224 = call float @llvm.fmuladd.f32(float %221, float %221, float %223)
-  %225 = load float, ptr %206, align 8, !tbaa !79
-  %226 = call noundef float @llvm.fmuladd.f32(float %225, float %225, float %224)
-  %227 = load float, ptr %7, align 16, !tbaa !79
-  %228 = load float, ptr %204, align 4, !tbaa !79
-  %229 = fmul float %228, %228
-  %230 = call float @llvm.fmuladd.f32(float %227, float %227, float %229)
-  %231 = load float, ptr %177, align 8, !tbaa !79
-  %232 = call noundef float @llvm.fmuladd.f32(float %231, float %231, float %230)
-  %233 = fcmp ogt float %226, %232
-  br i1 %233, label %234, label %235
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %170, i32 noundef 2)
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %170, i32 noundef 2)
+  %218 = load float, ptr %170, align 16, !tbaa !79
+  %219 = load float, ptr %202, align 4, !tbaa !79
+  %220 = fmul float %219, %219
+  %221 = call float @llvm.fmuladd.f32(float %218, float %218, float %220)
+  %222 = load float, ptr %203, align 8, !tbaa !79
+  %223 = call noundef float @llvm.fmuladd.f32(float %222, float %222, float %221)
+  %224 = load float, ptr %7, align 16, !tbaa !79
+  %225 = load float, ptr %201, align 4, !tbaa !79
+  %226 = fmul float %225, %225
+  %227 = call float @llvm.fmuladd.f32(float %224, float %224, float %226)
+  %228 = load float, ptr %174, align 8, !tbaa !79
+  %229 = call noundef float @llvm.fmuladd.f32(float %228, float %228, float %227)
+  %230 = fcmp ogt float %223, %229
+  br i1 %230, label %231, label %232
 
-234:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
+231:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %173, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %170, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !82
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  br label %235
+  br label %232
 
-235:                                              ; preds = %234, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %236 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %237 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %238 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %239 = zext nneg i32 %163 to i64
-  br label %241
+232:                                              ; preds = %231, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
+  %233 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  %236 = zext nneg i32 %160 to i64
+  br label %238
 
-240:                                              ; preds = %259
+237:                                              ; preds = %256
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %260
+  br label %257
 
-241:                                              ; preds = %235, %259
-  %242 = phi i1 [ true, %235 ], [ false, %259 ]
-  %indvars.iv.sroa.phi = phi ptr [ %7, %235 ], [ %indvars.iv.sroa.gep233, %259 ]
-  %indvars.iv = phi i64 [ 0, %235 ], [ 1, %259 ]
-  %243 = load ptr, ptr %166, align 8, !tbaa !67
-  %244 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %243, i64 %indvars.iv
-  %245 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %244, i64 %239
+238:                                              ; preds = %232, %256
+  %239 = phi i1 [ true, %232 ], [ false, %256 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %232 ], [ %indvars.iv.sroa.gep238, %256 ]
+  %indvars.iv = phi i64 [ 0, %232 ], [ 1, %256 ]
+  %240 = load ptr, ptr %163, align 8, !tbaa !67
+  %241 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %240, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %241, i64 %236
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %indvars.iv.sroa.phi, i64 16, i1 false), !tbaa.struct !82
-  %246 = load float, ptr %8, align 4, !tbaa !79
-  %247 = load float, ptr %236, align 4, !tbaa !79
-  %248 = fmul float %247, %247
-  %249 = call float @llvm.fmuladd.f32(float %246, float %246, float %248)
-  %250 = load float, ptr %237, align 4, !tbaa !79
-  %251 = call noundef float @llvm.fmuladd.f32(float %250, float %250, float %249)
-  %sqrt.i186 = call noundef float @llvm.sqrt.f32(float %251)
-  %252 = fcmp ogt float %sqrt.i186, 0x3F50624DE0000000
-  br i1 %252, label %253, label %257
+  %243 = load float, ptr %8, align 4, !tbaa !79
+  %244 = load float, ptr %233, align 4, !tbaa !79
+  %245 = fmul float %244, %244
+  %246 = call float @llvm.fmuladd.f32(float %243, float %243, float %245)
+  %247 = load float, ptr %234, align 4, !tbaa !79
+  %248 = call noundef float @llvm.fmuladd.f32(float %247, float %247, float %246)
+  %sqrt.i186 = call noundef float @llvm.sqrt.f32(float %248)
+  %249 = fcmp ogt float %sqrt.i186, 0x3F50624DE0000000
+  br i1 %249, label %250, label %254
 
-253:                                              ; preds = %241
-  %254 = getelementptr inbounds nuw i8, ptr %245, i64 160
-  %255 = load float, ptr %238, align 8, !tbaa !83
-  %256 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %254, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, float noundef %255, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %256, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %259
+250:                                              ; preds = %238
+  %251 = getelementptr inbounds nuw i8, ptr %242, i64 160
+  %252 = load float, ptr %235, align 8, !tbaa !83
+  %253 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %251, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, float noundef %252, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %253, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %256
 
-257:                                              ; preds = %241
-  %258 = getelementptr inbounds nuw i8, ptr %245, i64 308
-  store i32 -1, ptr %258, align 4, !tbaa !84
-  br label %259
+254:                                              ; preds = %238
+  %255 = getelementptr inbounds nuw i8, ptr %242, i64 308
+  store i32 -1, ptr %255, align 4, !tbaa !84
+  br label %256
 
-259:                                              ; preds = %257, %253
+256:                                              ; preds = %254, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %242, label %241, label %240, !llvm.loop !85
+  br i1 %239, label %238, label %237, !llvm.loop !85
 
-260:                                              ; preds = %240, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179
-  %261 = getelementptr inbounds nuw i8, ptr %12, i64 148
-  %262 = load i32, ptr %261, align 4, !tbaa !84
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %264 = load ptr, ptr %263, align 8, !tbaa !67
-  %265 = sext i32 %262 to i64
-  %266 = getelementptr %struct.btSolverConstraint, ptr %264, i64 %265
-  %267 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %268 = load i32, ptr %267, align 4, !tbaa !87
-  %269 = and i32 %268, 16
-  %.not = icmp eq i32 %269, 0
-  %270 = getelementptr i8, ptr %266, i64 160
-  %.0157 = select i1 %.not, ptr null, ptr %270
-  %271 = and i32 %268, 32
-  %.not161 = icmp eq i32 %271, 0
-  br i1 %.not161, label %276, label %272
+257:                                              ; preds = %237, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 148
+  %259 = load i32, ptr %258, align 4, !tbaa !84
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %261 = load ptr, ptr %260, align 8, !tbaa !67
+  %262 = sext i32 %259 to i64
+  %263 = getelementptr %struct.btSolverConstraint, ptr %261, i64 %262
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %265 = load i32, ptr %264, align 4, !tbaa !87
+  %266 = and i32 %265, 16
+  %.not = icmp eq i32 %266, 0
+  %267 = getelementptr i8, ptr %263, i64 160
+  %.0157 = select i1 %.not, ptr null, ptr %267
+  %268 = and i32 %265, 32
+  %.not161 = icmp eq i32 %268, 0
+  br i1 %.not161, label %273, label %269
 
-272:                                              ; preds = %260
-  %273 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %274 = load i32, ptr %273, align 8, !tbaa !89
-  %275 = and i32 %274, 1
-  %.not162 = icmp eq i32 %275, 0
-  br i1 %.not162, label %276, label %365
+269:                                              ; preds = %257
+  %270 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %271 = load i32, ptr %270, align 8, !tbaa !89
+  %272 = and i32 %271, 1
+  %.not162 = icmp eq i32 %272, 0
+  br i1 %.not162, label %273, label %362
 
-276:                                              ; preds = %272, %260
-  %277 = load float, ptr %151, align 4, !tbaa !79
-  %278 = fmul float %159, %277
-  %279 = load float, ptr %153, align 4, !tbaa !79
-  %280 = fmul float %159, %279
-  %281 = load float, ptr %157, align 4, !tbaa !79
-  %282 = fmul float %159, %281
-  %283 = fsub float %146, %278
-  %284 = fsub float %148, %280
-  %285 = fsub float %150, %282
-  %.sroa.0.0.vec.insert.i192 = insertelement <2 x float> poison, float %283, i64 0
-  %.sroa.0.4.vec.insert.i193 = insertelement <2 x float> %.sroa.0.0.vec.insert.i192, float %284, i64 1
-  %.sroa.3.12.vec.insert.i194 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %285, i64 0
-  %286 = getelementptr inbounds nuw i8, ptr %28, i64 172
-  store <2 x float> %.sroa.0.4.vec.insert.i193, ptr %286, align 4
+273:                                              ; preds = %269, %257
+  %274 = load float, ptr %148, align 4, !tbaa !79
+  %275 = fmul float %156, %274
+  %276 = load float, ptr %150, align 4, !tbaa !79
+  %277 = fmul float %156, %276
+  %278 = load float, ptr %154, align 4, !tbaa !79
+  %279 = fmul float %156, %278
+  %280 = fsub float %145, %275
+  %281 = fsub float %146, %277
+  %282 = fsub float %147, %279
+  %.sroa.0.0.vec.insert.i192 = insertelement <2 x float> poison, float %280, i64 0
+  %.sroa.0.4.vec.insert.i193 = insertelement <2 x float> %.sroa.0.0.vec.insert.i192, float %281, i64 1
+  %.sroa.3.12.vec.insert.i194 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %282, i64 0
+  %283 = getelementptr inbounds nuw i8, ptr %28, i64 172
+  store <2 x float> %.sroa.0.4.vec.insert.i193, ptr %283, align 4
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 180
   store <2 x float> %.sroa.3.12.vec.insert.i194, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !78
-  %287 = getelementptr inbounds nuw i8, ptr %28, i64 176
-  %288 = fmul float %284, %284
-  %289 = call float @llvm.fmuladd.f32(float %283, float %283, float %288)
-  %290 = call noundef float @llvm.fmuladd.f32(float %285, float %285, float %289)
-  %291 = load i32, ptr %267, align 4, !tbaa !87
-  %292 = and i32 %291, 64
-  %293 = icmp eq i32 %292, 0
-  %294 = fcmp ogt float %290, 0x3E80000000000000
-  %or.cond = and i1 %293, %294
-  br i1 %or.cond, label %295, label %327
+  %284 = getelementptr inbounds nuw i8, ptr %28, i64 176
+  %285 = fmul float %281, %281
+  %286 = call float @llvm.fmuladd.f32(float %280, float %280, float %285)
+  %287 = call noundef float @llvm.fmuladd.f32(float %282, float %282, float %286)
+  %288 = load i32, ptr %264, align 4, !tbaa !87
+  %289 = and i32 %288, 64
+  %290 = icmp eq i32 %289, 0
+  %291 = fcmp ogt float %287, 0x3E80000000000000
+  %or.cond = and i1 %290, %291
+  br i1 %or.cond, label %292, label %324
 
-295:                                              ; preds = %276
-  %sqrt = call float @llvm.sqrt.f32(float %290)
-  %296 = fdiv float 1.000000e+00, %sqrt
-  %297 = fmul float %283, %296
-  store float %297, ptr %286, align 4, !tbaa !79
-  %298 = fmul float %284, %296
-  store float %298, ptr %287, align 4, !tbaa !79
-  %299 = fmul float %285, %296
-  store float %299, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef 1)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef 1)
-  %300 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %266, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %300, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+292:                                              ; preds = %273
+  %sqrt = call float @llvm.sqrt.f32(float %287)
+  %293 = fdiv float 1.000000e+00, %sqrt
+  %294 = fmul float %280, %293
+  store float %294, ptr %283, align 4, !tbaa !79
+  %295 = fmul float %281, %293
+  store float %295, ptr %284, align 4, !tbaa !79
+  %296 = fmul float %282, %293
+  store float %296, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef 1)
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef 1)
+  %297 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %263, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %297, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.not166 = icmp eq ptr %.0157, null
-  br i1 %.not166, label %378, label %301
+  br i1 %.not166, label %375, label %298
 
-301:                                              ; preds = %295
-  %302 = load float, ptr %287, align 4, !tbaa !79
-  %303 = load float, ptr %157, align 4, !tbaa !79
-  %304 = load float, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !79
-  %305 = load float, ptr %153, align 4, !tbaa !79
-  %306 = fneg float %305
-  %307 = fmul float %304, %306
-  %308 = call float @llvm.fmuladd.f32(float %302, float %303, float %307)
-  %309 = load float, ptr %151, align 4, !tbaa !79
-  %310 = load float, ptr %286, align 4, !tbaa !79
-  %311 = fneg float %303
-  %312 = fmul float %310, %311
-  %313 = call float @llvm.fmuladd.f32(float %304, float %309, float %312)
-  %314 = fneg float %309
-  %315 = fmul float %302, %314
-  %316 = call float @llvm.fmuladd.f32(float %310, float %305, float %315)
-  %.sroa.3.12.vec.insert.i199 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %316, i64 0
-  %317 = getelementptr inbounds nuw i8, ptr %28, i64 188
+298:                                              ; preds = %292
+  %299 = load float, ptr %284, align 4, !tbaa !79
+  %300 = load float, ptr %154, align 4, !tbaa !79
+  %301 = load float, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !79
+  %302 = load float, ptr %150, align 4, !tbaa !79
+  %303 = fneg float %302
+  %304 = fmul float %301, %303
+  %305 = call float @llvm.fmuladd.f32(float %299, float %300, float %304)
+  %306 = load float, ptr %148, align 4, !tbaa !79
+  %307 = load float, ptr %283, align 4, !tbaa !79
+  %308 = fneg float %300
+  %309 = fmul float %307, %308
+  %310 = call float @llvm.fmuladd.f32(float %301, float %306, float %309)
+  %311 = fneg float %306
+  %312 = fmul float %299, %311
+  %313 = call float @llvm.fmuladd.f32(float %307, float %302, float %312)
+  %.sroa.3.12.vec.insert.i199 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %313, i64 0
+  %314 = getelementptr inbounds nuw i8, ptr %28, i64 188
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 196
   store <2 x float> %.sroa.3.12.vec.insert.i199, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !78
-  %318 = getelementptr inbounds nuw i8, ptr %28, i64 192
-  %319 = fmul float %313, %313
-  %320 = call float @llvm.fmuladd.f32(float %308, float %308, float %319)
-  %321 = call noundef float @llvm.fmuladd.f32(float %316, float %316, float %320)
-  %sqrt.i.i202 = call noundef float @llvm.sqrt.f32(float %321)
-  %322 = fdiv float 1.000000e+00, %sqrt.i.i202
-  %323 = fmul float %308, %322
-  store float %323, ptr %317, align 4, !tbaa !79
-  %324 = fmul float %313, %322
-  store float %324, ptr %318, align 4, !tbaa !79
-  %325 = fmul float %316, %322
-  store float %325, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %317, i32 noundef 1)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %317, i32 noundef 1)
-  %326 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %270, ptr noundef nonnull align 4 dereferenceable(16) %317, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %326, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %378
+  %315 = getelementptr inbounds nuw i8, ptr %28, i64 192
+  %316 = fmul float %310, %310
+  %317 = call float @llvm.fmuladd.f32(float %305, float %305, float %316)
+  %318 = call noundef float @llvm.fmuladd.f32(float %313, float %313, float %317)
+  %sqrt.i.i202 = call noundef float @llvm.sqrt.f32(float %318)
+  %319 = fdiv float 1.000000e+00, %sqrt.i.i202
+  %320 = fmul float %305, %319
+  store float %320, ptr %314, align 4, !tbaa !79
+  %321 = fmul float %310, %319
+  store float %321, ptr %315, align 4, !tbaa !79
+  %322 = fmul float %313, %319
+  store float %322, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %314, i32 noundef 1)
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %314, i32 noundef 1)
+  %323 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %267, ptr noundef nonnull align 4 dereferenceable(16) %314, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %323, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %375
 
-327:                                              ; preds = %276
-  %328 = getelementptr inbounds nuw i8, ptr %28, i64 188
-  %329 = call noundef float @llvm.fabs.f32(float %281)
-  %330 = fcmp ogt float %329, 0x3FE6A09E60000000
-  br i1 %330, label %331, label %342
+324:                                              ; preds = %273
+  %325 = getelementptr inbounds nuw i8, ptr %28, i64 188
+  %326 = call noundef float @llvm.fabs.f32(float %278)
+  %327 = fcmp ogt float %326, 0x3FE6A09E60000000
+  br i1 %327, label %328, label %339
 
-331:                                              ; preds = %327
-  %332 = fmul float %281, %281
-  %333 = call float @llvm.fmuladd.f32(float %279, float %279, float %332)
-  %sqrt.i205 = call float @llvm.sqrt.f32(float %333)
-  %334 = fdiv float 1.000000e+00, %sqrt.i205
-  %335 = fneg float %281
-  %336 = fmul float %334, %335
-  %337 = fmul float %279, %334
-  %338 = fmul float %333, %334
-  %339 = fneg float %277
-  %340 = fmul float %337, %339
-  %341 = fmul float %277, %336
+328:                                              ; preds = %324
+  %329 = fmul float %278, %278
+  %330 = call float @llvm.fmuladd.f32(float %276, float %276, float %329)
+  %sqrt.i205 = call float @llvm.sqrt.f32(float %330)
+  %331 = fdiv float 1.000000e+00, %sqrt.i205
+  %332 = fneg float %278
+  %333 = fmul float %331, %332
+  %334 = fmul float %276, %331
+  %335 = fmul float %330, %331
+  %336 = fneg float %274
+  %337 = fmul float %334, %336
+  %338 = fmul float %274, %333
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
 
-342:                                              ; preds = %327
-  %343 = fmul float %279, %279
-  %344 = call float @llvm.fmuladd.f32(float %277, float %277, float %343)
-  %sqrt43.i203 = call float @llvm.sqrt.f32(float %344)
-  %345 = fdiv float 1.000000e+00, %sqrt43.i203
-  %346 = fneg float %279
+339:                                              ; preds = %324
+  %340 = fmul float %276, %276
+  %341 = call float @llvm.fmuladd.f32(float %274, float %274, float %340)
+  %sqrt43.i203 = call float @llvm.sqrt.f32(float %341)
+  %342 = fdiv float 1.000000e+00, %sqrt43.i203
+  %343 = fneg float %276
+  %344 = fmul float %342, %343
+  %345 = fmul float %274, %342
+  %346 = fneg float %278
   %347 = fmul float %345, %346
-  %348 = fmul float %277, %345
-  %349 = fneg float %281
-  %350 = fmul float %348, %349
-  %351 = fmul float %281, %347
-  %352 = fmul float %344, %345
+  %348 = fmul float %278, %344
+  %349 = fmul float %341, %342
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
 
-_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206: ; preds = %331, %342
-  %.sink230 = phi float [ 0.000000e+00, %331 ], [ %347, %342 ]
-  %.sink229 = phi float [ %336, %331 ], [ %348, %342 ]
-  %.sink228 = phi float [ %337, %331 ], [ 0.000000e+00, %342 ]
-  %.sink227 = phi float [ %338, %331 ], [ %350, %342 ]
-  %.sink226 = phi float [ %340, %331 ], [ %351, %342 ]
-  %.sink.i204 = phi float [ %341, %331 ], [ %352, %342 ]
-  store float %.sink230, ptr %286, align 4, !tbaa !79
-  store float %.sink229, ptr %287, align 4, !tbaa !79
+_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206: ; preds = %328, %339
+  %.sink230 = phi float [ 0.000000e+00, %328 ], [ %344, %339 ]
+  %.sink229 = phi float [ %333, %328 ], [ %345, %339 ]
+  %.sink228 = phi float [ %334, %328 ], [ 0.000000e+00, %339 ]
+  %.sink227 = phi float [ %335, %328 ], [ %347, %339 ]
+  %.sink226 = phi float [ %337, %328 ], [ %348, %339 ]
+  %.sink.i204 = phi float [ %338, %328 ], [ %349, %339 ]
+  store float %.sink230, ptr %283, align 4, !tbaa !79
+  store float %.sink229, ptr %284, align 4, !tbaa !79
   store float %.sink228, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !79
-  store float %.sink227, ptr %328, align 4, !tbaa !79
-  %353 = getelementptr inbounds nuw i8, ptr %28, i64 192
-  store float %.sink226, ptr %353, align 4, !tbaa !79
-  %354 = getelementptr inbounds nuw i8, ptr %28, i64 196
-  store float %.sink.i204, ptr %354, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef 1)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef 1)
-  %355 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %266, ptr noundef nonnull align 4 dereferenceable(16) %286, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %355, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  store float %.sink227, ptr %325, align 4, !tbaa !79
+  %350 = getelementptr inbounds nuw i8, ptr %28, i64 192
+  store float %.sink226, ptr %350, align 4, !tbaa !79
+  %351 = getelementptr inbounds nuw i8, ptr %28, i64 196
+  store float %.sink.i204, ptr %351, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef 1)
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef 1)
+  %352 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %263, ptr noundef nonnull align 4 dereferenceable(16) %283, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %352, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.not163 = icmp eq ptr %.0157, null
-  br i1 %.not163, label %358, label %356
+  br i1 %.not163, label %355, label %353
 
-356:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %328, i32 noundef 1)
-  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %328, i32 noundef 1)
-  %357 = load float, ptr %6, align 4, !tbaa !79
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %270, ptr noundef nonnull align 4 dereferenceable(16) %328, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %357, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %358
+353:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %325, i32 noundef 1)
+  call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(16) %325, i32 noundef 1)
+  %354 = load float, ptr %6, align 4, !tbaa !79
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %267, ptr noundef nonnull align 4 dereferenceable(16) %325, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %354, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %355
 
-358:                                              ; preds = %356, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
-  %359 = load i32, ptr %267, align 4, !tbaa !87
-  %360 = and i32 %359, 80
-  %or.cond168.not = icmp eq i32 %360, 80
-  br i1 %or.cond168.not, label %361, label %378
+355:                                              ; preds = %353, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206
+  %356 = load i32, ptr %264, align 4, !tbaa !87
+  %357 = and i32 %356, 80
+  %or.cond168.not = icmp eq i32 %357, 80
+  br i1 %or.cond168.not, label %358, label %375
 
-361:                                              ; preds = %358
-  %362 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %363 = load i32, ptr %362, align 8, !tbaa !89
-  %364 = or i32 %363, 1
-  store i32 %364, ptr %362, align 8, !tbaa !89
-  br label %378
+358:                                              ; preds = %355
+  %359 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %360 = load i32, ptr %359, align 8, !tbaa !89
+  %361 = or i32 %360, 1
+  store i32 %361, ptr %359, align 8, !tbaa !89
+  br label %375
 
-365:                                              ; preds = %272
-  %366 = getelementptr inbounds nuw i8, ptr %28, i64 172
-  %367 = load float, ptr %6, align 4, !tbaa !79
-  %368 = getelementptr inbounds nuw i8, ptr %28, i64 148
-  %369 = load float, ptr %368, align 4, !tbaa !90
-  %370 = getelementptr inbounds nuw i8, ptr %28, i64 164
-  %371 = load float, ptr %370, align 4, !tbaa !91
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %266, ptr noundef nonnull align 4 dereferenceable(16) %366, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %367, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %369, float noundef %371)
+362:                                              ; preds = %269
+  %363 = getelementptr inbounds nuw i8, ptr %28, i64 172
+  %364 = load float, ptr %6, align 4, !tbaa !79
+  %365 = getelementptr inbounds nuw i8, ptr %28, i64 148
+  %366 = load float, ptr %365, align 4, !tbaa !90
+  %367 = getelementptr inbounds nuw i8, ptr %28, i64 164
+  %368 = load float, ptr %367, align 4, !tbaa !91
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %263, ptr noundef nonnull align 4 dereferenceable(16) %363, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %364, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %366, float noundef %368)
   %.not167 = icmp eq ptr %.0157, null
-  br i1 %.not167, label %378, label %372
+  br i1 %.not167, label %375, label %369
 
-372:                                              ; preds = %365
-  %373 = getelementptr inbounds nuw i8, ptr %28, i64 188
-  %374 = load float, ptr %6, align 4, !tbaa !79
-  %375 = getelementptr inbounds nuw i8, ptr %28, i64 152
-  %376 = load float, ptr %375, align 8, !tbaa !92
-  %377 = load float, ptr %370, align 4, !tbaa !91
-  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %270, ptr noundef nonnull align 4 dereferenceable(16) %373, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %374, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %376, float noundef %377)
-  br label %378
+369:                                              ; preds = %362
+  %370 = getelementptr inbounds nuw i8, ptr %28, i64 188
+  %371 = load float, ptr %6, align 4, !tbaa !79
+  %372 = getelementptr inbounds nuw i8, ptr %28, i64 152
+  %373 = load float, ptr %372, align 8, !tbaa !92
+  %374 = load float, ptr %367, align 4, !tbaa !91
+  call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %267, ptr noundef nonnull align 4 dereferenceable(16) %370, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %371, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %373, float noundef %374)
+  br label %375
 
-378:                                              ; preds = %301, %295, %361, %358, %365, %372
+375:                                              ; preds = %298, %292, %358, %355, %362, %369
   call void @_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %12, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(128) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

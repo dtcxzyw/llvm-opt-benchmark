@@ -276,651 +276,651 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %182 = fmul <2 x double> %156, %181
   %183 = fmul <2 x double> %182, %182
   %shift = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %184 = fadd <2 x double> %183, %shift
-  %185 = extractelement <2 x double> %184, i64 0
+  %foldExtExtBinop = fadd <2 x double> %183, %shift
+  %184 = extractelement <2 x double> %foldExtExtBinop, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i
 
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
-  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %191, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %.182.i.i.i.i34.i.i.i.i = phi double [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %185, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %186 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
-  %187 = load double, ptr %186, align 8, !tbaa !20
-  %188 = fmul double %.155.i.i.i, %187
-  %189 = fmul double %188, %188
-  %190 = fadd double %.182.i.i.i.i34.i.i.i.i, %189
-  %191 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %191, 3
+  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %.182.i.i.i.i34.i.i.i.i = phi double [ %189, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %184, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %185 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %186 = load double, ptr %185, align 8, !tbaa !20
+  %187 = fmul double %.155.i.i.i, %186
+  %188 = fmul double %187, %187
+  %189 = fadd double %.182.i.i.i.i34.i.i.i.i, %188
+  %190 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %190, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i, label %.lr.ph85.i.i.i.i32.i.i.i.i, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i
-  %192 = fadd double %.1.i.i.i, %190
+  %191 = fadd double %.1.i.i.i, %189
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit: ; preds = %179, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i
-  %.2.i.i.i = phi double [ %192, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %179 ]
-  %193 = fsub <2 x double> %157, %158
-  %194 = fmul <2 x double> %156, %193
-  %shift220 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %195 = fadd <2 x double> %194, %shift220
-  %196 = extractelement <2 x double> %195, i64 0
-  %197 = fsub double %159, %134
-  %198 = fmul double %153, %197
-  %199 = fadd double %198, %196
-  %200 = call noundef double @llvm.fabs.f64(double %199)
-  %201 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %202 = fmul double %.158.i.i.i, %201
-  %203 = fmul double %8, %202
-  %204 = fcmp olt double %200, %203
+  %.2.i.i.i = phi double [ %191, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %179 ]
+  %192 = fsub <2 x double> %157, %158
+  %193 = fmul <2 x double> %156, %192
+  %shift221 = shufflevector <2 x double> %193, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop222 = fadd <2 x double> %193, %shift221
+  %194 = extractelement <2 x double> %foldExtExtBinop222, i64 0
+  %195 = fsub double %159, %134
+  %196 = fmul double %153, %195
+  %197 = fadd double %196, %194
+  %198 = call noundef double @llvm.fabs.f64(double %197)
+  %199 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
+  %200 = fmul double %.158.i.i.i, %199
+  %201 = fmul double %8, %200
+  %202 = fcmp olt double %198, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %204, label %205, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
+  br i1 %202, label %203, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
 
-205:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit
-  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !40
-  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !40
-  %208 = fsub <2 x double> %206, %207
-  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !43
-  %210 = fsub <2 x double> %209, %207
-  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !46
-  %212 = fsub <2 x double> %211, %207
-  %213 = fmul <2 x double> %208, %208
-  %shift221 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %214 = fadd <2 x double> %213, %shift221
-  %215 = extractelement <2 x double> %214, i64 0
-  %216 = fmul double %137, %137
-  %217 = fadd double %216, %215
-  %218 = fmul <2 x double> %208, %210
-  %shift222 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %219 = fadd <2 x double> %218, %shift222
-  %220 = extractelement <2 x double> %219, i64 0
-  %221 = fmul double %135, %137
+203:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit
+  %204 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !40
+  %205 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !40
+  %206 = fsub <2 x double> %204, %205
+  %207 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !43
+  %208 = fsub <2 x double> %207, %205
+  %209 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !46
+  %210 = fsub <2 x double> %209, %205
+  %211 = fmul <2 x double> %206, %206
+  %shift224 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop225 = fadd <2 x double> %211, %shift224
+  %212 = extractelement <2 x double> %foldExtExtBinop225, i64 0
+  %213 = fmul double %137, %137
+  %214 = fadd double %213, %212
+  %215 = fmul <2 x double> %206, %208
+  %shift227 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop228 = fadd <2 x double> %215, %shift227
+  %216 = extractelement <2 x double> %foldExtExtBinop228, i64 0
+  %217 = fmul double %135, %137
+  %218 = fadd double %217, %216
+  %219 = fmul <2 x double> %208, %208
+  %shift230 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop231 = fadd <2 x double> %219, %shift230
+  %220 = extractelement <2 x double> %foldExtExtBinop231, i64 0
+  %221 = fmul double %135, %135
   %222 = fadd double %221, %220
-  %223 = fmul <2 x double> %210, %210
-  %shift223 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %224 = fadd <2 x double> %223, %shift223
-  %225 = extractelement <2 x double> %224, i64 0
-  %226 = fmul double %135, %135
-  %227 = fadd double %226, %225
-  %228 = fmul <2 x double> %208, %212
-  %shift224 = shufflevector <2 x double> %228, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %229 = fadd <2 x double> %228, %shift224
-  %230 = extractelement <2 x double> %229, i64 0
-  %231 = fmul double %137, %197
-  %232 = fadd double %231, %230
-  %233 = fmul <2 x double> %210, %212
-  %shift225 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %234 = fadd <2 x double> %233, %shift225
-  %235 = extractelement <2 x double> %234, i64 0
-  %236 = fmul double %135, %197
-  %237 = fadd double %236, %235
-  %238 = fneg double %222
-  %239 = fmul double %222, %238
-  %240 = call double @llvm.fmuladd.f64(double %217, double %227, double %239)
-  %241 = fneg double %237
-  %242 = fmul double %222, %241
-  %243 = call double @llvm.fmuladd.f64(double %227, double %232, double %242)
-  %244 = fdiv double %243, %240
-  %245 = fneg double %232
-  %246 = fmul double %222, %245
-  %247 = call double @llvm.fmuladd.f64(double %217, double %237, double %246)
-  %248 = fdiv double %247, %240
-  %249 = fsub <2 x double> %.sroa.0.0, %207
-  %250 = fsub double %.sroa.8.0, %134
-  %251 = fmul <2 x double> %208, %249
-  %shift226 = shufflevector <2 x double> %251, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %252 = fadd <2 x double> %251, %shift226
-  %253 = extractelement <2 x double> %252, i64 0
-  %254 = fmul double %250, %137
-  %255 = fadd double %254, %253
-  %256 = fmul <2 x double> %249, %210
-  %shift227 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %257 = fadd <2 x double> %256, %shift227
-  %258 = extractelement <2 x double> %257, i64 0
-  %259 = fmul double %135, %250
-  %260 = fadd double %259, %258
-  %261 = fneg double %260
-  %262 = fmul double %222, %261
-  %263 = call double @llvm.fmuladd.f64(double %227, double %255, double %262)
-  %264 = fdiv double %263, %240
-  %265 = fneg double %255
-  %266 = fmul double %222, %265
-  %267 = call double @llvm.fmuladd.f64(double %217, double %260, double %266)
-  %268 = fdiv double %267, %240
-  %269 = fcmp ult double %244, 0.000000e+00
-  br i1 %269, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i, label %270
+  %223 = fmul <2 x double> %206, %210
+  %shift233 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop234 = fadd <2 x double> %223, %shift233
+  %224 = extractelement <2 x double> %foldExtExtBinop234, i64 0
+  %225 = fmul double %137, %195
+  %226 = fadd double %225, %224
+  %227 = fmul <2 x double> %208, %210
+  %shift236 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop237 = fadd <2 x double> %227, %shift236
+  %228 = extractelement <2 x double> %foldExtExtBinop237, i64 0
+  %229 = fmul double %135, %195
+  %230 = fadd double %229, %228
+  %231 = fneg double %218
+  %232 = fmul double %218, %231
+  %233 = call double @llvm.fmuladd.f64(double %214, double %222, double %232)
+  %234 = fneg double %230
+  %235 = fmul double %218, %234
+  %236 = call double @llvm.fmuladd.f64(double %222, double %226, double %235)
+  %237 = fdiv double %236, %233
+  %238 = fneg double %226
+  %239 = fmul double %218, %238
+  %240 = call double @llvm.fmuladd.f64(double %214, double %230, double %239)
+  %241 = fdiv double %240, %233
+  %242 = fsub <2 x double> %.sroa.0.0, %205
+  %243 = fsub double %.sroa.8.0, %134
+  %244 = fmul <2 x double> %206, %242
+  %shift239 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop240 = fadd <2 x double> %244, %shift239
+  %245 = extractelement <2 x double> %foldExtExtBinop240, i64 0
+  %246 = fmul double %243, %137
+  %247 = fadd double %246, %245
+  %248 = fmul <2 x double> %242, %208
+  %shift242 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop243 = fadd <2 x double> %248, %shift242
+  %249 = extractelement <2 x double> %foldExtExtBinop243, i64 0
+  %250 = fmul double %135, %243
+  %251 = fadd double %250, %249
+  %252 = fneg double %251
+  %253 = fmul double %218, %252
+  %254 = call double @llvm.fmuladd.f64(double %222, double %247, double %253)
+  %255 = fdiv double %254, %233
+  %256 = fneg double %247
+  %257 = fmul double %218, %256
+  %258 = call double @llvm.fmuladd.f64(double %214, double %251, double %257)
+  %259 = fdiv double %258, %233
+  %260 = fcmp ult double %237, 0.000000e+00
+  br i1 %260, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i, label %261
 
-270:                                              ; preds = %205
-  %271 = fcmp oge double %248, 0.000000e+00
-  %272 = fadd double %244, %248
-  %273 = fcmp ole double %272, 1.000000e+00
-  %or.cond.i.i = and i1 %271, %273
+261:                                              ; preds = %203
+  %262 = fcmp oge double %241, 0.000000e+00
+  %263 = fadd double %237, %241
+  %264 = fcmp ole double %263, 1.000000e+00
+  %or.cond.i.i = and i1 %262, %264
   br i1 %or.cond.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i: ; preds = %270, %205
-  %274 = fcmp ult double %264, 0.000000e+00
-  br i1 %274, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i, label %275
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i: ; preds = %261, %203
+  %265 = fcmp ult double %255, 0.000000e+00
+  br i1 %265, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i, label %266
 
-275:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i
-  %276 = fcmp oge double %268, 0.000000e+00
-  %277 = fadd double %264, %268
-  %278 = fcmp ole double %277, 1.000000e+00
-  %or.cond69.i.i = and i1 %276, %278
+266:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i
+  %267 = fcmp oge double %259, 0.000000e+00
+  %268 = fadd double %255, %259
+  %269 = fcmp ole double %268, 1.000000e+00
+  %or.cond69.i.i = and i1 %267, %269
   br i1 %or.cond69.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i: ; preds = %275, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i
-  %279 = fcmp oeq double %248, 0.000000e+00
-  %280 = fcmp oeq double %268, 0.000000e+00
-  %or.cond.i.i.i = or i1 %280, %279
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i: ; preds = %266, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i
+  %270 = fcmp oeq double %241, 0.000000e+00
+  %271 = fcmp oeq double %259, 0.000000e+00
+  %or.cond.i.i.i = or i1 %271, %270
   br i1 %or.cond.i.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i
-  %281 = bitcast double %248 to i64
-  %282 = bitcast double %268 to i64
-  %283 = xor i64 %281, %282
-  %284 = icmp slt i64 %283, 0
-  br i1 %284, label %285, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i
+  %272 = bitcast double %241 to i64
+  %273 = bitcast double %259 to i64
+  %274 = xor i64 %272, %273
+  %275 = icmp slt i64 %274, 0
+  br i1 %275, label %276, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i
 
-285:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i
-  %286 = fsub double %248, %268
-  %287 = fdiv double %248, %286
-  %288 = fsub double %264, %244
-  %289 = call double @llvm.fmuladd.f64(double %287, double %288, double %244)
-  %290 = fcmp ult double %289, 0.000000e+00
-  %291 = fcmp ugt double %289, 1.000000e+00
-  %or.cond.not.i.i = or i1 %290, %291
+276:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i
+  %277 = fsub double %241, %259
+  %278 = fdiv double %241, %277
+  %279 = fsub double %255, %237
+  %280 = call double @llvm.fmuladd.f64(double %278, double %279, double %237)
+  %281 = fcmp ult double %280, 0.000000e+00
+  %282 = fcmp ugt double %280, 1.000000e+00
+  %or.cond.not.i.i = or i1 %281, %282
   br i1 %or.cond.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %285, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i
-  %292 = fcmp oeq double %244, 0.000000e+00
-  %293 = fcmp oeq double %264, 0.000000e+00
-  %or.cond.i57.i.i = or i1 %293, %292
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %276, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i
+  %283 = fcmp oeq double %237, 0.000000e+00
+  %284 = fcmp oeq double %255, 0.000000e+00
+  %or.cond.i57.i.i = or i1 %284, %283
   br i1 %or.cond.i57.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i
-  %294 = bitcast double %244 to i64
-  %295 = bitcast double %264 to i64
-  %296 = xor i64 %294, %295
-  %297 = icmp slt i64 %296, 0
-  br i1 %297, label %298, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i
+  %285 = bitcast double %237 to i64
+  %286 = bitcast double %255 to i64
+  %287 = xor i64 %285, %286
+  %288 = icmp slt i64 %287, 0
+  br i1 %288, label %289, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i
 
-298:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i
-  %299 = fsub double %244, %264
-  %300 = fdiv double %244, %299
-  %301 = fsub double %268, %248
-  %302 = call double @llvm.fmuladd.f64(double %300, double %301, double %248)
-  %303 = fcmp ult double %302, 0.000000e+00
-  %304 = fcmp ugt double %302, 1.000000e+00
-  %or.cond5.not.i.i = or i1 %303, %304
+289:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i
+  %290 = fsub double %237, %255
+  %291 = fdiv double %237, %290
+  %292 = fsub double %259, %241
+  %293 = call double @llvm.fmuladd.f64(double %291, double %292, double %241)
+  %294 = fcmp ult double %293, 0.000000e+00
+  %295 = fcmp ugt double %293, 1.000000e+00
+  %or.cond5.not.i.i = or i1 %294, %295
   br i1 %or.cond5.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %298, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i
-  %305 = fadd double %244, %248
-  %306 = fadd double %305, -1.000000e+00
-  %307 = fadd double %264, %268
-  %308 = fadd double %307, -1.000000e+00
-  %309 = fcmp oeq double %306, 0.000000e+00
-  %310 = fcmp oeq double %308, 0.000000e+00
-  %or.cond.i60.i.i = or i1 %310, %309
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %289, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i
+  %296 = fadd double %237, %241
+  %297 = fadd double %296, -1.000000e+00
+  %298 = fadd double %255, %259
+  %299 = fadd double %298, -1.000000e+00
+  %300 = fcmp oeq double %297, 0.000000e+00
+  %301 = fcmp oeq double %299, 0.000000e+00
+  %or.cond.i60.i.i = or i1 %301, %300
   br i1 %or.cond.i60.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i
-  %311 = bitcast double %306 to i64
-  %312 = bitcast double %308 to i64
-  %313 = xor i64 %311, %312
-  %314 = icmp slt i64 %313, 0
-  br i1 %314, label %315, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
+  %302 = bitcast double %297 to i64
+  %303 = bitcast double %299 to i64
+  %304 = xor i64 %302, %303
+  %305 = icmp slt i64 %304, 0
+  br i1 %305, label %306, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
 
-315:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i
-  %316 = fsub double 1.000000e+00, %244
-  %317 = fsub double %316, %248
-  %318 = fsub double %264, %244
-  %319 = fadd double %268, %318
-  %320 = fsub double %319, %248
-  %321 = fdiv double %317, %320
-  %322 = fsub double %268, %248
-  %323 = call double @llvm.fmuladd.f64(double %321, double %322, double %248)
-  %324 = fcmp ult double %323, 0.000000e+00
-  %325 = fcmp ugt double %323, 1.000000e+00
-  %or.cond7.not.i.i = or i1 %324, %325
+306:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i
+  %307 = fsub double 1.000000e+00, %237
+  %308 = fsub double %307, %241
+  %309 = fsub double %255, %237
+  %310 = fadd double %259, %309
+  %311 = fsub double %310, %241
+  %312 = fdiv double %308, %311
+  %313 = fsub double %259, %241
+  %314 = call double @llvm.fmuladd.f64(double %312, double %313, double %241)
+  %315 = fcmp ult double %314, 0.000000e+00
+  %316 = fcmp ugt double %314, 1.000000e+00
+  %or.cond7.not.i.i = or i1 %315, %316
   br i1 %or.cond7.not.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit: ; preds = %121
-  %326 = load double, ptr %17, align 8, !tbaa !20
-  %327 = fcmp ogt double %326, 0.000000e+00
-  %328 = fadd double %8, 1.000000e+00
-  %329 = fcmp olt double %326, %328
-  %330 = and i1 %327, %329
-  br i1 %330, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
+  %317 = load double, ptr %17, align 8, !tbaa !20
+  %318 = fcmp ogt double %317, 0.000000e+00
+  %319 = fadd double %8, 1.000000e+00
+  %320 = fcmp olt double %317, %319
+  %321 = and i1 %318, %320
+  br i1 %321, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i, %315, %127, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i, %306, %127, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %331 = sext i32 %2 to i64
-  %332 = load ptr, ptr %1, align 8, !tbaa !4
-  %333 = getelementptr i32, ptr %332, i64 %331
-  %334 = load i32, ptr %333, align 4, !tbaa !11
-  %335 = sext i32 %334 to i64
-  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !49
-  %337 = getelementptr inbounds double, ptr %336, i64 %335
-  %338 = load i64, ptr %32, align 8, !tbaa !19
-  %339 = load double, ptr %337, align 8, !tbaa !20
-  store double %339, ptr %21, align 16, !tbaa !20
-  %340 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %341 = getelementptr inbounds double, ptr %337, i64 %338
-  %342 = load double, ptr %341, align 8, !tbaa !20
-  store double %342, ptr %340, align 8, !tbaa !20
-  %343 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i51 = shl nsw i64 %338, 4
-  %344 = getelementptr inbounds i8, ptr %337, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %345 = load double, ptr %344, align 8, !tbaa !20
-  store double %345, ptr %343, align 16, !tbaa !20
-  %346 = load i64, ptr %26, align 8, !tbaa !22
-  %347 = getelementptr i32, ptr %333, i64 %346
-  %348 = load i32, ptr %347, align 4, !tbaa !11
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds double, ptr %336, i64 %349
-  %351 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %352 = load double, ptr %350, align 8, !tbaa !20
-  store double %352, ptr %351, align 8, !tbaa !20
-  %353 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %354 = getelementptr inbounds double, ptr %350, i64 %338
-  %355 = load double, ptr %354, align 8, !tbaa !20
-  store double %355, ptr %353, align 16, !tbaa !20
-  %356 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %357 = getelementptr inbounds i8, ptr %350, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %322 = sext i32 %2 to i64
+  %323 = load ptr, ptr %1, align 8, !tbaa !4
+  %324 = getelementptr i32, ptr %323, i64 %322
+  %325 = load i32, ptr %324, align 4, !tbaa !11
+  %326 = sext i32 %325 to i64
+  %327 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !49
+  %328 = getelementptr inbounds double, ptr %327, i64 %326
+  %329 = load i64, ptr %32, align 8, !tbaa !19
+  %330 = load double, ptr %328, align 8, !tbaa !20
+  store double %330, ptr %21, align 16, !tbaa !20
+  %331 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %332 = getelementptr inbounds double, ptr %328, i64 %329
+  %333 = load double, ptr %332, align 8, !tbaa !20
+  store double %333, ptr %331, align 8, !tbaa !20
+  %334 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i51 = shl nsw i64 %329, 4
+  %335 = getelementptr inbounds i8, ptr %328, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %336 = load double, ptr %335, align 8, !tbaa !20
+  store double %336, ptr %334, align 16, !tbaa !20
+  %337 = load i64, ptr %26, align 8, !tbaa !22
+  %338 = getelementptr i32, ptr %324, i64 %337
+  %339 = load i32, ptr %338, align 4, !tbaa !11
+  %340 = sext i32 %339 to i64
+  %341 = getelementptr inbounds double, ptr %327, i64 %340
+  %342 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %343 = load double, ptr %341, align 8, !tbaa !20
+  store double %343, ptr %342, align 8, !tbaa !20
+  %344 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %345 = getelementptr inbounds double, ptr %341, i64 %329
+  %346 = load double, ptr %345, align 8, !tbaa !20
+  store double %346, ptr %344, align 16, !tbaa !20
+  %347 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %348 = getelementptr inbounds i8, ptr %341, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %349 = load double, ptr %348, align 8, !tbaa !20
+  store double %349, ptr %347, align 8, !tbaa !20
+  %.idx215 = shl i64 %337, 3
+  %350 = getelementptr i8, ptr %324, i64 %.idx215
+  %351 = load i32, ptr %350, align 4, !tbaa !11
+  %352 = sext i32 %351 to i64
+  %353 = getelementptr inbounds double, ptr %327, i64 %352
+  %354 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %355 = load double, ptr %353, align 8, !tbaa !20
+  store double %355, ptr %354, align 16, !tbaa !20
+  %356 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %357 = getelementptr inbounds double, ptr %353, i64 %329
   %358 = load double, ptr %357, align 8, !tbaa !20
   store double %358, ptr %356, align 8, !tbaa !20
-  %.idx215 = shl i64 %346, 3
-  %359 = getelementptr i8, ptr %333, i64 %.idx215
-  %360 = load i32, ptr %359, align 4, !tbaa !11
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds double, ptr %336, i64 %361
-  %363 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %364 = load double, ptr %362, align 8, !tbaa !20
-  store double %364, ptr %363, align 16, !tbaa !20
-  %365 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %366 = getelementptr inbounds double, ptr %362, i64 %338
-  %367 = load double, ptr %366, align 8, !tbaa !20
-  store double %367, ptr %365, align 8, !tbaa !20
-  %368 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %369 = getelementptr inbounds i8, ptr %362, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %370 = load double, ptr %369, align 8, !tbaa !20
-  store double %370, ptr %368, align 16, !tbaa !20
-  %371 = sext i32 %4 to i64
-  %372 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %371
-  %373 = load ptr, ptr %5, align 8, !tbaa !23
-  %374 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %375 = load ptr, ptr %374, align 8, !tbaa !27
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  %377 = load i64, ptr %376, align 8, !tbaa !19
-  %378 = load double, ptr %373, align 8, !tbaa !20
-  store double %378, ptr %372, align 8, !tbaa !20
-  %379 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  %380 = getelementptr inbounds double, ptr %373, i64 %377
-  %381 = load double, ptr %380, align 8, !tbaa !20
-  store double %381, ptr %379, align 8, !tbaa !20
-  %382 = getelementptr inbounds nuw i8, ptr %372, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i54 = shl nsw i64 %377, 4
-  %383 = getelementptr inbounds i8, ptr %373, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i54
-  %384 = load double, ptr %383, align 8, !tbaa !20
-  store double %384, ptr %382, align 8, !tbaa !20
+  %359 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %360 = getelementptr inbounds i8, ptr %353, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %361 = load double, ptr %360, align 8, !tbaa !20
+  store double %361, ptr %359, align 16, !tbaa !20
+  %362 = sext i32 %4 to i64
+  %363 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %362
+  %364 = load ptr, ptr %5, align 8, !tbaa !23
+  %365 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %366 = load ptr, ptr %365, align 8, !tbaa !27
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
+  %368 = load i64, ptr %367, align 8, !tbaa !19
+  %369 = load double, ptr %364, align 8, !tbaa !20
+  store double %369, ptr %363, align 8, !tbaa !20
+  %370 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %371 = getelementptr inbounds double, ptr %364, i64 %368
+  %372 = load double, ptr %371, align 8, !tbaa !20
+  store double %372, ptr %370, align 8, !tbaa !20
+  %373 = getelementptr inbounds nuw i8, ptr %363, i64 16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i54 = shl nsw i64 %368, 4
+  %374 = getelementptr inbounds i8, ptr %364, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i54
+  %375 = load double, ptr %374, align 8, !tbaa !20
+  store double %375, ptr %373, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %385 = add nsw i32 %7, 1
-  %386 = srem i32 %385, 3
-  %387 = sext i32 %386 to i64
-  %388 = mul nsw i64 %346, %387
-  %389 = getelementptr i32, ptr %332, i64 %24
-  %390 = getelementptr i32, ptr %389, i64 %388
-  %391 = load i32, ptr %390, align 4, !tbaa !11
-  %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds double, ptr %336, i64 %392
-  %394 = load double, ptr %393, align 8, !tbaa !20
-  store double %394, ptr %22, align 16, !tbaa !20
-  %395 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %396 = getelementptr inbounds double, ptr %393, i64 %338
-  %397 = load double, ptr %396, align 8, !tbaa !20
-  store double %397, ptr %395, align 8, !tbaa !20
-  %398 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %399 = getelementptr inbounds i8, ptr %393, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %376 = add nsw i32 %7, 1
+  %377 = srem i32 %376, 3
+  %378 = sext i32 %377 to i64
+  %379 = mul nsw i64 %337, %378
+  %380 = getelementptr i32, ptr %323, i64 %24
+  %381 = getelementptr i32, ptr %380, i64 %379
+  %382 = load i32, ptr %381, align 4, !tbaa !11
+  %383 = sext i32 %382 to i64
+  %384 = getelementptr inbounds double, ptr %327, i64 %383
+  %385 = load double, ptr %384, align 8, !tbaa !20
+  store double %385, ptr %22, align 16, !tbaa !20
+  %386 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %387 = getelementptr inbounds double, ptr %384, i64 %329
+  %388 = load double, ptr %387, align 8, !tbaa !20
+  store double %388, ptr %386, align 8, !tbaa !20
+  %389 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %390 = getelementptr inbounds i8, ptr %384, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %391 = load double, ptr %390, align 8, !tbaa !20
+  store double %391, ptr %389, align 16, !tbaa !20
+  %392 = add nsw i32 %7, 2
+  %393 = srem i32 %392, 3
+  %394 = sext i32 %393 to i64
+  %395 = mul nsw i64 %337, %394
+  %396 = getelementptr i32, ptr %380, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !11
+  %398 = sext i32 %397 to i64
+  %399 = getelementptr inbounds double, ptr %327, i64 %398
   %400 = load double, ptr %399, align 8, !tbaa !20
-  store double %400, ptr %398, align 16, !tbaa !20
-  %401 = add nsw i32 %7, 2
-  %402 = srem i32 %401, 3
-  %403 = sext i32 %402 to i64
-  %404 = mul nsw i64 %346, %403
-  %405 = getelementptr i32, ptr %389, i64 %404
-  %406 = load i32, ptr %405, align 4, !tbaa !11
-  %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds double, ptr %336, i64 %407
-  %409 = load double, ptr %408, align 8, !tbaa !20
-  %.sroa.0205.0.vec.insert = insertelement <2 x double> poison, double %409, i64 0
-  %410 = getelementptr inbounds double, ptr %408, i64 %338
-  %411 = load double, ptr %410, align 8, !tbaa !20
-  %.sroa.0205.8.vec.insert = insertelement <2 x double> %.sroa.0205.0.vec.insert, double %411, i64 1
-  %412 = getelementptr inbounds i8, ptr %408, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %413 = load double, ptr %412, align 8, !tbaa !20
+  %.sroa.0205.0.vec.insert = insertelement <2 x double> poison, double %400, i64 0
+  %401 = getelementptr inbounds double, ptr %399, i64 %329
+  %402 = load double, ptr %401, align 8, !tbaa !20
+  %.sroa.0205.8.vec.insert = insertelement <2 x double> %.sroa.0205.0.vec.insert, double %402, i64 1
+  %403 = getelementptr inbounds i8, ptr %399, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %404 = load double, ptr %403, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %414 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %415 = fsub <2 x double> %.sroa.0205.8.vec.insert, %414
-  store <2 x double> %415, ptr %23, align 16, !tbaa !30
-  %416 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %417 = fsub double %413, %400
-  store double %417, ptr %416, align 16, !tbaa !20
-  %418 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %351, ptr noundef nonnull align 1 dereferenceable(1) %363, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
-  br i1 %418, label %419, label %425
+  %405 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %406 = fsub <2 x double> %.sroa.0205.8.vec.insert, %405
+  store <2 x double> %406, ptr %23, align 16, !tbaa !30
+  %407 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %408 = fsub double %404, %391
+  store double %408, ptr %407, align 16, !tbaa !20
+  %409 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %342, ptr noundef nonnull align 1 dereferenceable(1) %354, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  br i1 %409, label %410, label %416
 
-419:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
-  %420 = load double, ptr %17, align 8, !tbaa !20
-  %421 = fcmp ogt double %420, 0.000000e+00
-  %422 = fadd double %8, 1.000000e+00
-  %423 = fcmp olt double %420, %422
-  %424 = and i1 %421, %423
+410:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
+  %411 = load double, ptr %17, align 8, !tbaa !20
+  %412 = fcmp ogt double %411, 0.000000e+00
+  %413 = fadd double %8, 1.000000e+00
+  %414 = fcmp olt double %411, %413
+  %415 = and i1 %412, %414
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-425:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
-  %426 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
-  %427 = trunc nuw i8 %426 to i1
-  br i1 %427, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i85, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
+416:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
+  %417 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
+  %418 = trunc nuw i8 %417 to i1
+  br i1 %418, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i85, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-.lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %425
+.lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !52
-  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !52
-  %430 = fsub double %428, %429
-  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !52
-  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !52
-  %433 = fsub double %431, %432
-  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !52
-  %435 = fsub double %434, %432
-  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !52
-  %437 = fsub double %436, %429
-  %438 = fneg double %437
-  %439 = fmul double %435, %438
-  %440 = call double @llvm.fmuladd.f64(double %430, double %433, double %439)
-  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !52
-  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !52
-  %443 = fsub double %441, %442
-  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !52
-  %445 = fsub double %444, %442
-  %446 = fneg double %433
-  %447 = fmul double %445, %446
-  %448 = call double @llvm.fmuladd.f64(double %435, double %443, double %447)
-  %449 = fneg double %443
-  %450 = fmul double %430, %449
-  %451 = call double @llvm.fmuladd.f64(double %445, double %437, double %450)
-  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !52
-  %452 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !52
-  %453 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !52
-  %454 = load <2 x double>, ptr %10, align 16
-  %455 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %456 = load <2 x double>, ptr %21, align 16, !tbaa !30
-  %457 = load double, ptr %398, align 16, !tbaa !20
-  %458 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %454)
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86 = extractelement <2 x double> %458, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87 = extractelement <2 x double> %458, i64 1
-  %459 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87
-  %460 = select i1 %459, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86
-  %461 = call noundef double @llvm.fabs.f64(double %451)
-  %462 = fcmp olt double %460, %461
-  %463 = select i1 %462, double %461, double %460
-  %464 = fcmp ogt double %463, 0.000000e+00
-  br i1 %464, label %465, label %474
+  %419 = load double, ptr %344, align 16, !tbaa !20, !noalias !52
+  %420 = load double, ptr %331, align 8, !tbaa !20, !noalias !52
+  %421 = fsub double %419, %420
+  %422 = load double, ptr %359, align 16, !tbaa !20, !noalias !52
+  %423 = load double, ptr %334, align 16, !tbaa !20, !noalias !52
+  %424 = fsub double %422, %423
+  %425 = load double, ptr %347, align 8, !tbaa !20, !noalias !52
+  %426 = fsub double %425, %423
+  %427 = load double, ptr %356, align 8, !tbaa !20, !noalias !52
+  %428 = fsub double %427, %420
+  %429 = fneg double %428
+  %430 = fmul double %426, %429
+  %431 = call double @llvm.fmuladd.f64(double %421, double %424, double %430)
+  %432 = load double, ptr %354, align 16, !tbaa !20, !noalias !52
+  %433 = load double, ptr %21, align 16, !tbaa !20, !noalias !52
+  %434 = fsub double %432, %433
+  %435 = load double, ptr %342, align 8, !tbaa !20, !noalias !52
+  %436 = fsub double %435, %433
+  %437 = fneg double %424
+  %438 = fmul double %436, %437
+  %439 = call double @llvm.fmuladd.f64(double %426, double %434, double %438)
+  %440 = fneg double %434
+  %441 = fmul double %421, %440
+  %442 = call double @llvm.fmuladd.f64(double %436, double %428, double %441)
+  store double %431, ptr %10, align 16, !tbaa !20, !alias.scope !52
+  %443 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %439, ptr %443, align 8, !tbaa !20, !alias.scope !52
+  %444 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %442, ptr %444, align 16, !tbaa !20, !alias.scope !52
+  %445 = load <2 x double>, ptr %10, align 16
+  %446 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %447 = load <2 x double>, ptr %21, align 16, !tbaa !30
+  %448 = load double, ptr %389, align 16, !tbaa !20
+  %449 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %445)
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86 = extractelement <2 x double> %449, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87 = extractelement <2 x double> %449, i64 1
+  %450 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87
+  %451 = select i1 %450, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86
+  %452 = call noundef double @llvm.fabs.f64(double %442)
+  %453 = fcmp olt double %451, %452
+  %454 = select i1 %453, double %452, double %451
+  %455 = fcmp ogt double %454, 0.000000e+00
+  br i1 %455, label %456, label %465
+
+456:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
+  %457 = fdiv double 0.000000e+00, %454
+  %458 = fmul double %457, %457
+  %459 = fmul double %458, 0.000000e+00
+  %460 = fdiv double 1.000000e+00, %454
+  %461 = fcmp ogt double %460, 0x7FEFFFFFFFFFFFFF
+  br i1 %461, label %468, label %462
+
+462:                                              ; preds = %456
+  %463 = fcmp ogt double %454, 0x7FEFFFFFFFFFFFFF
+  br i1 %463, label %468, label %464
+
+464:                                              ; preds = %462
+  br label %468
 
 465:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
-  %466 = fdiv double 0.000000e+00, %463
-  %467 = fmul double %466, %466
-  %468 = fmul double %467, 0.000000e+00
-  %469 = fdiv double 1.000000e+00, %463
-  %470 = fcmp ogt double %469, 0x7FEFFFFFFFFFFFFF
-  br i1 %470, label %477, label %471
+  %466 = fcmp uno double %454, 0.000000e+00
+  br i1 %466, label %467, label %468
 
-471:                                              ; preds = %465
-  %472 = fcmp ogt double %463, 0x7FEFFFFFFFFFFFFF
-  br i1 %472, label %477, label %473
+467:                                              ; preds = %465
+  br label %468
 
-473:                                              ; preds = %471
-  br label %477
+468:                                              ; preds = %467, %465, %464, %462, %456
+  %.158.i.i.i73 = phi double [ %454, %464 ], [ %454, %467 ], [ 0.000000e+00, %465 ], [ 0x4000000000000, %456 ], [ %454, %462 ]
+  %.155.i.i.i74 = phi double [ %460, %464 ], [ 1.000000e+00, %467 ], [ 1.000000e+00, %465 ], [ 0x7FEFFFFFFFFFFFFF, %456 ], [ 1.000000e+00, %462 ]
+  %.1.i.i.i75 = phi double [ %459, %464 ], [ 0.000000e+00, %467 ], [ 0.000000e+00, %465 ], [ %459, %456 ], [ %459, %462 ]
+  %469 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
+  br i1 %469, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
 
-474:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
-  %475 = fcmp uno double %463, 0.000000e+00
-  br i1 %475, label %476, label %477
-
-476:                                              ; preds = %474
-  br label %477
-
-477:                                              ; preds = %476, %474, %473, %471, %465
-  %.158.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
-  %.155.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
-  %.1.i.i.i75 = phi double [ %468, %473 ], [ 0.000000e+00, %476 ], [ 0.000000e+00, %474 ], [ %468, %465 ], [ %468, %471 ]
-  %478 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
-  br i1 %478, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
-
-.lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %477
+.lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %468
   %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.155.i.i.i74, i64 0
-  %479 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
-  %480 = fmul <2 x double> %454, %479
-  %481 = fmul <2 x double> %480, %480
-  %shift228 = shufflevector <2 x double> %481, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %482 = fadd <2 x double> %481, %shift228
-  %483 = extractelement <2 x double> %482, i64 0
+  %470 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
+  %471 = fmul <2 x double> %445, %470
+  %472 = fmul <2 x double> %471, %471
+  %shift245 = shufflevector <2 x double> %472, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop246 = fadd <2 x double> %472, %shift245
+  %473 = extractelement <2 x double> %foldExtExtBinop246, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i80
 
 .lr.ph85.i.i.i.i32.i.i.i.i80:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i80
-  %.05283.i.i.i.i33.i.i.i.i81 = phi i64 [ %489, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
-  %.182.i.i.i.i34.i.i.i.i82 = phi double [ %488, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %483, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
-  %484 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
-  %485 = load double, ptr %484, align 8, !tbaa !20
-  %486 = fmul double %.155.i.i.i74, %485
-  %487 = fmul double %486, %486
-  %488 = fadd double %.182.i.i.i.i34.i.i.i.i82, %487
-  %489 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i83 = icmp eq i64 %489, 3
+  %.05283.i.i.i.i33.i.i.i.i81 = phi i64 [ %479, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
+  %.182.i.i.i.i34.i.i.i.i82 = phi double [ %478, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %473, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
+  %474 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
+  %475 = load double, ptr %474, align 8, !tbaa !20
+  %476 = fmul double %.155.i.i.i74, %475
+  %477 = fmul double %476, %476
+  %478 = fadd double %.182.i.i.i.i34.i.i.i.i82, %477
+  %479 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i83 = icmp eq i64 %479, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i83, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78, label %.lr.ph85.i.i.i.i32.i.i.i.i80, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i80
-  %490 = fadd double %.1.i.i.i75, %488
+  %480 = fadd double %.1.i.i.i75, %478
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88: ; preds = %477, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78
-  %.2.i.i.i76 = phi double [ %490, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78 ], [ %.1.i.i.i75, %477 ]
-  %491 = fsub <2 x double> %455, %456
-  %492 = fmul <2 x double> %454, %491
-  %shift229 = shufflevector <2 x double> %492, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %493 = fadd <2 x double> %492, %shift229
-  %494 = extractelement <2 x double> %493, i64 0
-  %495 = fsub double %457, %432
-  %496 = fmul double %451, %495
-  %497 = fadd double %496, %494
-  %498 = call noundef double @llvm.fabs.f64(double %497)
-  %499 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
-  %500 = fmul double %.158.i.i.i73, %499
-  %501 = fmul double %8, %500
-  %502 = fcmp olt double %498, %501
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88: ; preds = %468, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78
+  %.2.i.i.i76 = phi double [ %480, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78 ], [ %.1.i.i.i75, %468 ]
+  %481 = fsub <2 x double> %446, %447
+  %482 = fmul <2 x double> %445, %481
+  %shift248 = shufflevector <2 x double> %482, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop249 = fadd <2 x double> %482, %shift248
+  %483 = extractelement <2 x double> %foldExtExtBinop249, i64 0
+  %484 = fsub double %448, %423
+  %485 = fmul double %442, %484
+  %486 = fadd double %485, %483
+  %487 = call noundef double @llvm.fabs.f64(double %486)
+  %488 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
+  %489 = fmul double %.158.i.i.i73, %488
+  %490 = fmul double %8, %489
+  %491 = fcmp olt double %487, %490
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %502, label %503, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
+  br i1 %491, label %492, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-503:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
-  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !55
-  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !55
-  %506 = fsub <2 x double> %504, %505
-  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !58
-  %508 = fsub <2 x double> %507, %505
-  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !61
-  %510 = fsub <2 x double> %509, %505
-  %511 = fmul <2 x double> %506, %506
-  %shift230 = shufflevector <2 x double> %511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %512 = fadd <2 x double> %511, %shift230
-  %513 = extractelement <2 x double> %512, i64 0
-  %514 = fmul double %435, %435
+492:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
+  %493 = load <2 x double>, ptr %342, align 8, !tbaa !30, !noalias !55
+  %494 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !55
+  %495 = fsub <2 x double> %493, %494
+  %496 = load <2 x double>, ptr %354, align 16, !tbaa !30, !noalias !58
+  %497 = fsub <2 x double> %496, %494
+  %498 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !61
+  %499 = fsub <2 x double> %498, %494
+  %500 = fmul <2 x double> %495, %495
+  %shift251 = shufflevector <2 x double> %500, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop252 = fadd <2 x double> %500, %shift251
+  %501 = extractelement <2 x double> %foldExtExtBinop252, i64 0
+  %502 = fmul double %426, %426
+  %503 = fadd double %502, %501
+  %504 = fmul <2 x double> %495, %497
+  %shift254 = shufflevector <2 x double> %504, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop255 = fadd <2 x double> %504, %shift254
+  %505 = extractelement <2 x double> %foldExtExtBinop255, i64 0
+  %506 = fmul double %424, %426
+  %507 = fadd double %506, %505
+  %508 = fmul <2 x double> %497, %497
+  %shift257 = shufflevector <2 x double> %508, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop258 = fadd <2 x double> %508, %shift257
+  %509 = extractelement <2 x double> %foldExtExtBinop258, i64 0
+  %510 = fmul double %424, %424
+  %511 = fadd double %510, %509
+  %512 = fmul <2 x double> %495, %499
+  %shift260 = shufflevector <2 x double> %512, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop261 = fadd <2 x double> %512, %shift260
+  %513 = extractelement <2 x double> %foldExtExtBinop261, i64 0
+  %514 = fmul double %426, %484
   %515 = fadd double %514, %513
-  %516 = fmul <2 x double> %506, %508
-  %shift231 = shufflevector <2 x double> %516, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %517 = fadd <2 x double> %516, %shift231
-  %518 = extractelement <2 x double> %517, i64 0
-  %519 = fmul double %433, %435
-  %520 = fadd double %519, %518
-  %521 = fmul <2 x double> %508, %508
-  %shift232 = shufflevector <2 x double> %521, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %522 = fadd <2 x double> %521, %shift232
-  %523 = extractelement <2 x double> %522, i64 0
-  %524 = fmul double %433, %433
-  %525 = fadd double %524, %523
-  %526 = fmul <2 x double> %506, %510
-  %shift233 = shufflevector <2 x double> %526, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %527 = fadd <2 x double> %526, %shift233
-  %528 = extractelement <2 x double> %527, i64 0
-  %529 = fmul double %435, %495
-  %530 = fadd double %529, %528
-  %531 = fmul <2 x double> %508, %510
-  %shift234 = shufflevector <2 x double> %531, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %532 = fadd <2 x double> %531, %shift234
-  %533 = extractelement <2 x double> %532, i64 0
-  %534 = fmul double %433, %495
-  %535 = fadd double %534, %533
-  %536 = fneg double %520
-  %537 = fmul double %520, %536
-  %538 = call double @llvm.fmuladd.f64(double %515, double %525, double %537)
-  %539 = fneg double %535
-  %540 = fmul double %520, %539
-  %541 = call double @llvm.fmuladd.f64(double %525, double %530, double %540)
-  %542 = fdiv double %541, %538
-  %543 = fneg double %530
-  %544 = fmul double %520, %543
-  %545 = call double @llvm.fmuladd.f64(double %515, double %535, double %544)
-  %546 = fdiv double %545, %538
-  %547 = fsub <2 x double> %.sroa.0205.8.vec.insert, %505
-  %548 = fsub double %413, %432
-  %549 = fmul <2 x double> %506, %547
-  %shift235 = shufflevector <2 x double> %549, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %550 = fadd <2 x double> %549, %shift235
-  %551 = extractelement <2 x double> %550, i64 0
-  %552 = fmul double %548, %435
-  %553 = fadd double %552, %551
-  %554 = fmul <2 x double> %547, %508
-  %shift236 = shufflevector <2 x double> %554, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %555 = fadd <2 x double> %554, %shift236
-  %556 = extractelement <2 x double> %555, i64 0
-  %557 = fmul double %433, %548
-  %558 = fadd double %557, %556
-  %559 = fneg double %558
-  %560 = fmul double %520, %559
-  %561 = call double @llvm.fmuladd.f64(double %525, double %553, double %560)
-  %562 = fdiv double %561, %538
-  %563 = fneg double %553
-  %564 = fmul double %520, %563
-  %565 = call double @llvm.fmuladd.f64(double %515, double %558, double %564)
-  %566 = fdiv double %565, %538
-  %567 = fcmp ult double %542, 0.000000e+00
-  br i1 %567, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90, label %568
+  %516 = fmul <2 x double> %497, %499
+  %shift263 = shufflevector <2 x double> %516, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop264 = fadd <2 x double> %516, %shift263
+  %517 = extractelement <2 x double> %foldExtExtBinop264, i64 0
+  %518 = fmul double %424, %484
+  %519 = fadd double %518, %517
+  %520 = fneg double %507
+  %521 = fmul double %507, %520
+  %522 = call double @llvm.fmuladd.f64(double %503, double %511, double %521)
+  %523 = fneg double %519
+  %524 = fmul double %507, %523
+  %525 = call double @llvm.fmuladd.f64(double %511, double %515, double %524)
+  %526 = fdiv double %525, %522
+  %527 = fneg double %515
+  %528 = fmul double %507, %527
+  %529 = call double @llvm.fmuladd.f64(double %503, double %519, double %528)
+  %530 = fdiv double %529, %522
+  %531 = fsub <2 x double> %.sroa.0205.8.vec.insert, %494
+  %532 = fsub double %404, %423
+  %533 = fmul <2 x double> %495, %531
+  %shift266 = shufflevector <2 x double> %533, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop267 = fadd <2 x double> %533, %shift266
+  %534 = extractelement <2 x double> %foldExtExtBinop267, i64 0
+  %535 = fmul double %532, %426
+  %536 = fadd double %535, %534
+  %537 = fmul <2 x double> %531, %497
+  %shift269 = shufflevector <2 x double> %537, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop270 = fadd <2 x double> %537, %shift269
+  %538 = extractelement <2 x double> %foldExtExtBinop270, i64 0
+  %539 = fmul double %424, %532
+  %540 = fadd double %539, %538
+  %541 = fneg double %540
+  %542 = fmul double %507, %541
+  %543 = call double @llvm.fmuladd.f64(double %511, double %536, double %542)
+  %544 = fdiv double %543, %522
+  %545 = fneg double %536
+  %546 = fmul double %507, %545
+  %547 = call double @llvm.fmuladd.f64(double %503, double %540, double %546)
+  %548 = fdiv double %547, %522
+  %549 = fcmp ult double %526, 0.000000e+00
+  br i1 %549, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90, label %550
 
-568:                                              ; preds = %503
-  %569 = fcmp oge double %546, 0.000000e+00
-  %570 = fadd double %542, %546
-  %571 = fcmp ole double %570, 1.000000e+00
-  %or.cond.i.i89 = and i1 %569, %571
+550:                                              ; preds = %492
+  %551 = fcmp oge double %530, 0.000000e+00
+  %552 = fadd double %526, %530
+  %553 = fcmp ole double %552, 1.000000e+00
+  %or.cond.i.i89 = and i1 %551, %553
   br i1 %or.cond.i.i89, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90: ; preds = %568, %503
-  %572 = fcmp ult double %562, 0.000000e+00
-  br i1 %572, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94, label %573
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90: ; preds = %550, %492
+  %554 = fcmp ult double %544, 0.000000e+00
+  br i1 %554, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94, label %555
 
-573:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90
-  %574 = fcmp oge double %566, 0.000000e+00
-  %575 = fadd double %562, %566
-  %576 = fcmp ole double %575, 1.000000e+00
-  %or.cond69.i.i93 = and i1 %574, %576
+555:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90
+  %556 = fcmp oge double %548, 0.000000e+00
+  %557 = fadd double %544, %548
+  %558 = fcmp ole double %557, 1.000000e+00
+  %or.cond69.i.i93 = and i1 %556, %558
   br i1 %or.cond69.i.i93, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94: ; preds = %573, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90
-  %577 = fcmp oeq double %546, 0.000000e+00
-  %578 = fcmp oeq double %566, 0.000000e+00
-  %or.cond.i.i.i95 = or i1 %578, %577
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94: ; preds = %555, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit.thread.i.i90
+  %559 = fcmp oeq double %530, 0.000000e+00
+  %560 = fcmp oeq double %548, 0.000000e+00
+  %or.cond.i.i.i95 = or i1 %560, %559
   br i1 %or.cond.i.i.i95, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94
-  %579 = bitcast double %546 to i64
-  %580 = bitcast double %566 to i64
-  %581 = xor i64 %579, %580
-  %582 = icmp slt i64 %581, 0
-  br i1 %582, label %583, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97
+  %561 = bitcast double %530 to i64
+  %562 = bitcast double %548 to i64
+  %563 = xor i64 %561, %562
+  %564 = icmp slt i64 %563, 0
+  br i1 %564, label %565, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97
 
-583:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96
-  %584 = fsub double %546, %566
-  %585 = fdiv double %546, %584
-  %586 = fsub double %562, %542
-  %587 = call double @llvm.fmuladd.f64(double %585, double %586, double %542)
-  %588 = fcmp ult double %587, 0.000000e+00
-  %589 = fcmp ugt double %587, 1.000000e+00
-  %or.cond.not.i.i107 = or i1 %588, %589
+565:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96
+  %566 = fsub double %530, %548
+  %567 = fdiv double %530, %566
+  %568 = fsub double %544, %526
+  %569 = call double @llvm.fmuladd.f64(double %567, double %568, double %526)
+  %570 = fcmp ult double %569, 0.000000e+00
+  %571 = fcmp ugt double %569, 1.000000e+00
+  %or.cond.not.i.i107 = or i1 %570, %571
   br i1 %or.cond.not.i.i107, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97: ; preds = %583, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94
-  %590 = fcmp oeq double %542, 0.000000e+00
-  %591 = fcmp oeq double %562, 0.000000e+00
-  %or.cond.i57.i.i98 = or i1 %591, %590
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97: ; preds = %565, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlSO_E_clESO_.exit56.thread.i.i94
+  %572 = fcmp oeq double %526, 0.000000e+00
+  %573 = fcmp oeq double %544, 0.000000e+00
+  %or.cond.i57.i.i98 = or i1 %573, %572
   br i1 %or.cond.i57.i.i98, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97
-  %592 = bitcast double %542 to i64
-  %593 = bitcast double %562 to i64
-  %594 = xor i64 %592, %593
-  %595 = icmp slt i64 %594, 0
-  br i1 %595, label %596, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100
+  %574 = bitcast double %526 to i64
+  %575 = bitcast double %544 to i64
+  %576 = xor i64 %574, %575
+  %577 = icmp slt i64 %576, 0
+  br i1 %577, label %578, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100
 
-596:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99
-  %597 = fsub double %542, %562
-  %598 = fdiv double %542, %597
-  %599 = fsub double %566, %546
-  %600 = call double @llvm.fmuladd.f64(double %598, double %599, double %546)
-  %601 = fcmp ult double %600, 0.000000e+00
-  %602 = fcmp ugt double %600, 1.000000e+00
-  %or.cond5.not.i.i106 = or i1 %601, %602
+578:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99
+  %579 = fsub double %526, %544
+  %580 = fdiv double %526, %579
+  %581 = fsub double %548, %530
+  %582 = call double @llvm.fmuladd.f64(double %580, double %581, double %530)
+  %583 = fcmp ult double %582, 0.000000e+00
+  %584 = fcmp ugt double %582, 1.000000e+00
+  %or.cond5.not.i.i106 = or i1 %583, %584
   br i1 %or.cond5.not.i.i106, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100: ; preds = %596, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97
-  %603 = fadd double %542, %546
-  %604 = fadd double %603, -1.000000e+00
-  %605 = fadd double %562, %566
-  %606 = fadd double %605, -1.000000e+00
-  %607 = fcmp oeq double %604, 0.000000e+00
-  %608 = fcmp oeq double %606, 0.000000e+00
-  %or.cond.i60.i.i101 = or i1 %608, %607
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100: ; preds = %578, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit.thread.i.i97
+  %585 = fadd double %526, %530
+  %586 = fadd double %585, -1.000000e+00
+  %587 = fadd double %544, %548
+  %588 = fadd double %587, -1.000000e+00
+  %589 = fcmp oeq double %586, 0.000000e+00
+  %590 = fcmp oeq double %588, 0.000000e+00
+  %or.cond.i60.i.i101 = or i1 %590, %589
   br i1 %or.cond.i60.i.i101, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100
-  %609 = bitcast double %604 to i64
-  %610 = bitcast double %606 to i64
-  %611 = xor i64 %609, %610
-  %612 = icmp slt i64 %611, 0
-  br i1 %612, label %613, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103
+  %591 = bitcast double %586 to i64
+  %592 = bitcast double %588 to i64
+  %593 = xor i64 %591, %592
+  %594 = icmp slt i64 %593, 0
+  br i1 %594, label %595, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103
 
-613:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102
-  %614 = fsub double 1.000000e+00, %542
-  %615 = fsub double %614, %546
-  %616 = fsub double %562, %542
-  %617 = fadd double %566, %616
-  %618 = fsub double %617, %546
-  %619 = fdiv double %615, %618
-  %620 = fsub double %566, %546
-  %621 = call double @llvm.fmuladd.f64(double %619, double %620, double %546)
-  %622 = fcmp ult double %621, 0.000000e+00
-  %623 = fcmp ugt double %621, 1.000000e+00
-  %or.cond7.not.i.i105 = or i1 %622, %623
+595:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102
+  %596 = fsub double 1.000000e+00, %526
+  %597 = fsub double %596, %530
+  %598 = fsub double %544, %526
+  %599 = fadd double %548, %598
+  %600 = fsub double %599, %530
+  %601 = fdiv double %597, %600
+  %602 = fsub double %548, %530
+  %603 = call double @llvm.fmuladd.f64(double %601, double %602, double %530)
+  %604 = fcmp ult double %603, 0.000000e+00
+  %605 = fcmp ugt double %603, 1.000000e+00
+  %or.cond7.not.i.i105 = or i1 %604, %605
   br i1 %or.cond7.not.i.i105, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103: ; preds = %613, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103: ; preds = %595, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.i.i102, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit59.thread.i.i100
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103, %613, %596, %583, %573, %568, %425, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88, %419
-  %.2 = phi i1 [ %424, %419 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88 ], [ false, %425 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103 ], [ true, %613 ], [ true, %596 ], [ true, %583 ], [ true, %568 ], [ true, %573 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103, %595, %578, %565, %555, %550, %416, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88, %410
+  %.2 = phi i1 [ %415, %410 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88 ], [ false, %416 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E_clESO_SO_ENKUlddE_clEdd.exit62.thread.i.i103 ], [ true, %595 ], [ true, %578 ], [ true, %565 ], [ true, %550 ], [ true, %555 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread: ; preds = %275, %270, %285, %298, %315, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit
-  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108 ], [ true, %315 ], [ true, %298 ], [ true, %285 ], [ true, %270 ], [ true, %275 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread: ; preds = %266, %261, %276, %289, %306, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit
+  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108 ], [ true, %306 ], [ true, %289 ], [ true, %276 ], [ true, %261 ], [ true, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1175,642 +1175,642 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %169 = fmul <2 x double> %143, %168
   %170 = fmul <2 x double> %169, %169
   %shift = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %171 = fadd <2 x double> %170, %shift
-  %172 = extractelement <2 x double> %171, i64 0
+  %foldExtExtBinop = fadd <2 x double> %170, %shift
+  %171 = extractelement <2 x double> %foldExtExtBinop, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i
 
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
-  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %178, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %.182.i.i.i.i34.i.i.i.i = phi double [ %177, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %172, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %173 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
-  %174 = load double, ptr %173, align 8, !tbaa !20
-  %175 = fmul double %.155.i.i.i, %174
-  %176 = fmul double %175, %175
-  %177 = fadd double %.182.i.i.i.i34.i.i.i.i, %176
-  %178 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %178, 3
+  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %177, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %.182.i.i.i.i34.i.i.i.i = phi double [ %176, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %171, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %172 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %173 = load double, ptr %172, align 8, !tbaa !20
+  %174 = fmul double %.155.i.i.i, %173
+  %175 = fmul double %174, %174
+  %176 = fadd double %.182.i.i.i.i34.i.i.i.i, %175
+  %177 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %177, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i, label %.lr.ph85.i.i.i.i32.i.i.i.i, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i
-  %179 = fadd double %.1.i.i.i, %177
+  %178 = fadd double %.1.i.i.i, %176
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit: ; preds = %166, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i
-  %.2.i.i.i = phi double [ %179, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %166 ]
-  %180 = fsub <2 x double> %144, %145
-  %181 = fmul <2 x double> %143, %180
-  %shift213 = shufflevector <2 x double> %181, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %182 = fadd <2 x double> %181, %shift213
-  %183 = extractelement <2 x double> %182, i64 0
-  %184 = fsub double %146, %121
-  %185 = fmul double %140, %184
-  %186 = fadd double %185, %183
-  %187 = call noundef double @llvm.fabs.f64(double %186)
-  %188 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %189 = fmul double %.158.i.i.i, %188
-  %190 = fmul double %8, %189
-  %191 = fcmp olt double %187, %190
+  %.2.i.i.i = phi double [ %178, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %166 ]
+  %179 = fsub <2 x double> %144, %145
+  %180 = fmul <2 x double> %143, %179
+  %shift214 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop215 = fadd <2 x double> %180, %shift214
+  %181 = extractelement <2 x double> %foldExtExtBinop215, i64 0
+  %182 = fsub double %146, %121
+  %183 = fmul double %140, %182
+  %184 = fadd double %183, %181
+  %185 = call noundef double @llvm.fabs.f64(double %184)
+  %186 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
+  %187 = fmul double %.158.i.i.i, %186
+  %188 = fmul double %8, %187
+  %189 = fcmp olt double %185, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %191, label %192, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
+  br i1 %189, label %190, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
 
-192:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit
-  %193 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !72
-  %194 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !72
-  %195 = fsub <2 x double> %193, %194
-  %196 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !75
-  %197 = fsub <2 x double> %196, %194
-  %198 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !78
-  %199 = fsub <2 x double> %198, %194
-  %200 = fmul <2 x double> %195, %195
-  %shift214 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %201 = fadd <2 x double> %200, %shift214
-  %202 = extractelement <2 x double> %201, i64 0
-  %203 = fmul double %124, %124
-  %204 = fadd double %203, %202
-  %205 = fmul <2 x double> %195, %197
-  %shift215 = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %206 = fadd <2 x double> %205, %shift215
-  %207 = extractelement <2 x double> %206, i64 0
-  %208 = fmul double %122, %124
+190:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit
+  %191 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !72
+  %192 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !72
+  %193 = fsub <2 x double> %191, %192
+  %194 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !75
+  %195 = fsub <2 x double> %194, %192
+  %196 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !78
+  %197 = fsub <2 x double> %196, %192
+  %198 = fmul <2 x double> %193, %193
+  %shift217 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop218 = fadd <2 x double> %198, %shift217
+  %199 = extractelement <2 x double> %foldExtExtBinop218, i64 0
+  %200 = fmul double %124, %124
+  %201 = fadd double %200, %199
+  %202 = fmul <2 x double> %193, %195
+  %shift220 = shufflevector <2 x double> %202, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop221 = fadd <2 x double> %202, %shift220
+  %203 = extractelement <2 x double> %foldExtExtBinop221, i64 0
+  %204 = fmul double %122, %124
+  %205 = fadd double %204, %203
+  %206 = fmul <2 x double> %195, %195
+  %shift223 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop224 = fadd <2 x double> %206, %shift223
+  %207 = extractelement <2 x double> %foldExtExtBinop224, i64 0
+  %208 = fmul double %122, %122
   %209 = fadd double %208, %207
-  %210 = fmul <2 x double> %197, %197
-  %shift216 = shufflevector <2 x double> %210, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %211 = fadd <2 x double> %210, %shift216
-  %212 = extractelement <2 x double> %211, i64 0
-  %213 = fmul double %122, %122
-  %214 = fadd double %213, %212
-  %215 = fmul <2 x double> %195, %199
-  %shift217 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %216 = fadd <2 x double> %215, %shift217
-  %217 = extractelement <2 x double> %216, i64 0
-  %218 = fmul double %124, %184
-  %219 = fadd double %218, %217
-  %220 = fmul <2 x double> %197, %199
-  %shift218 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %221 = fadd <2 x double> %220, %shift218
-  %222 = extractelement <2 x double> %221, i64 0
-  %223 = fmul double %122, %184
-  %224 = fadd double %223, %222
-  %225 = fneg double %209
-  %226 = fmul double %209, %225
-  %227 = call double @llvm.fmuladd.f64(double %204, double %214, double %226)
-  %228 = fneg double %224
-  %229 = fmul double %209, %228
-  %230 = call double @llvm.fmuladd.f64(double %214, double %219, double %229)
-  %231 = fdiv double %230, %227
-  %232 = fneg double %219
-  %233 = fmul double %209, %232
-  %234 = call double @llvm.fmuladd.f64(double %204, double %224, double %233)
-  %235 = fdiv double %234, %227
-  %236 = fsub <2 x double> %.sroa.0.0, %194
-  %237 = fsub double %.sroa.7.0, %121
-  %238 = fmul <2 x double> %195, %236
-  %shift219 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %239 = fadd <2 x double> %238, %shift219
-  %240 = extractelement <2 x double> %239, i64 0
-  %241 = fmul double %237, %124
-  %242 = fadd double %241, %240
-  %243 = fmul <2 x double> %236, %197
-  %shift220 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %244 = fadd <2 x double> %243, %shift220
-  %245 = extractelement <2 x double> %244, i64 0
-  %246 = fmul double %122, %237
-  %247 = fadd double %246, %245
-  %248 = fneg double %247
-  %249 = fmul double %209, %248
-  %250 = call double @llvm.fmuladd.f64(double %214, double %242, double %249)
-  %251 = fdiv double %250, %227
-  %252 = fneg double %242
-  %253 = fmul double %209, %252
-  %254 = call double @llvm.fmuladd.f64(double %204, double %247, double %253)
-  %255 = fdiv double %254, %227
-  %256 = fcmp ult double %231, 0.000000e+00
-  br i1 %256, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i, label %257
+  %210 = fmul <2 x double> %193, %197
+  %shift226 = shufflevector <2 x double> %210, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop227 = fadd <2 x double> %210, %shift226
+  %211 = extractelement <2 x double> %foldExtExtBinop227, i64 0
+  %212 = fmul double %124, %182
+  %213 = fadd double %212, %211
+  %214 = fmul <2 x double> %195, %197
+  %shift229 = shufflevector <2 x double> %214, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop230 = fadd <2 x double> %214, %shift229
+  %215 = extractelement <2 x double> %foldExtExtBinop230, i64 0
+  %216 = fmul double %122, %182
+  %217 = fadd double %216, %215
+  %218 = fneg double %205
+  %219 = fmul double %205, %218
+  %220 = call double @llvm.fmuladd.f64(double %201, double %209, double %219)
+  %221 = fneg double %217
+  %222 = fmul double %205, %221
+  %223 = call double @llvm.fmuladd.f64(double %209, double %213, double %222)
+  %224 = fdiv double %223, %220
+  %225 = fneg double %213
+  %226 = fmul double %205, %225
+  %227 = call double @llvm.fmuladd.f64(double %201, double %217, double %226)
+  %228 = fdiv double %227, %220
+  %229 = fsub <2 x double> %.sroa.0.0, %192
+  %230 = fsub double %.sroa.7.0, %121
+  %231 = fmul <2 x double> %193, %229
+  %shift232 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop233 = fadd <2 x double> %231, %shift232
+  %232 = extractelement <2 x double> %foldExtExtBinop233, i64 0
+  %233 = fmul double %230, %124
+  %234 = fadd double %233, %232
+  %235 = fmul <2 x double> %229, %195
+  %shift235 = shufflevector <2 x double> %235, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop236 = fadd <2 x double> %235, %shift235
+  %236 = extractelement <2 x double> %foldExtExtBinop236, i64 0
+  %237 = fmul double %122, %230
+  %238 = fadd double %237, %236
+  %239 = fneg double %238
+  %240 = fmul double %205, %239
+  %241 = call double @llvm.fmuladd.f64(double %209, double %234, double %240)
+  %242 = fdiv double %241, %220
+  %243 = fneg double %234
+  %244 = fmul double %205, %243
+  %245 = call double @llvm.fmuladd.f64(double %201, double %238, double %244)
+  %246 = fdiv double %245, %220
+  %247 = fcmp ult double %224, 0.000000e+00
+  br i1 %247, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i, label %248
 
-257:                                              ; preds = %192
-  %258 = fcmp oge double %235, 0.000000e+00
-  %259 = fadd double %231, %235
-  %260 = fcmp ole double %259, 1.000000e+00
-  %or.cond.i.i = and i1 %258, %260
+248:                                              ; preds = %190
+  %249 = fcmp oge double %228, 0.000000e+00
+  %250 = fadd double %224, %228
+  %251 = fcmp ole double %250, 1.000000e+00
+  %or.cond.i.i = and i1 %249, %251
   br i1 %or.cond.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i: ; preds = %257, %192
-  %261 = fcmp ult double %251, 0.000000e+00
-  br i1 %261, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i, label %262
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i: ; preds = %248, %190
+  %252 = fcmp ult double %242, 0.000000e+00
+  br i1 %252, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i, label %253
 
-262:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i
-  %263 = fcmp oge double %255, 0.000000e+00
-  %264 = fadd double %251, %255
-  %265 = fcmp ole double %264, 1.000000e+00
-  %or.cond69.i.i = and i1 %263, %265
+253:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i
+  %254 = fcmp oge double %246, 0.000000e+00
+  %255 = fadd double %242, %246
+  %256 = fcmp ole double %255, 1.000000e+00
+  %or.cond69.i.i = and i1 %254, %256
   br i1 %or.cond69.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i: ; preds = %262, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i
-  %266 = fcmp oeq double %235, 0.000000e+00
-  %267 = fcmp oeq double %255, 0.000000e+00
-  %or.cond.i.i.i = or i1 %267, %266
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i: ; preds = %253, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i
+  %257 = fcmp oeq double %228, 0.000000e+00
+  %258 = fcmp oeq double %246, 0.000000e+00
+  %or.cond.i.i.i = or i1 %258, %257
   br i1 %or.cond.i.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i
-  %268 = bitcast double %235 to i64
-  %269 = bitcast double %255 to i64
-  %270 = xor i64 %268, %269
-  %271 = icmp slt i64 %270, 0
-  br i1 %271, label %272, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i
+  %259 = bitcast double %228 to i64
+  %260 = bitcast double %246 to i64
+  %261 = xor i64 %259, %260
+  %262 = icmp slt i64 %261, 0
+  br i1 %262, label %263, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i
 
-272:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i
-  %273 = fsub double %235, %255
-  %274 = fdiv double %235, %273
-  %275 = fsub double %251, %231
-  %276 = call double @llvm.fmuladd.f64(double %274, double %275, double %231)
-  %277 = fcmp ult double %276, 0.000000e+00
-  %278 = fcmp ugt double %276, 1.000000e+00
-  %or.cond.not.i.i = or i1 %277, %278
+263:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i
+  %264 = fsub double %228, %246
+  %265 = fdiv double %228, %264
+  %266 = fsub double %242, %224
+  %267 = call double @llvm.fmuladd.f64(double %265, double %266, double %224)
+  %268 = fcmp ult double %267, 0.000000e+00
+  %269 = fcmp ugt double %267, 1.000000e+00
+  %or.cond.not.i.i = or i1 %268, %269
   br i1 %or.cond.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %272, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i
-  %279 = fcmp oeq double %231, 0.000000e+00
-  %280 = fcmp oeq double %251, 0.000000e+00
-  %or.cond.i57.i.i = or i1 %280, %279
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %263, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i
+  %270 = fcmp oeq double %224, 0.000000e+00
+  %271 = fcmp oeq double %242, 0.000000e+00
+  %or.cond.i57.i.i = or i1 %271, %270
   br i1 %or.cond.i57.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i
-  %281 = bitcast double %231 to i64
-  %282 = bitcast double %251 to i64
-  %283 = xor i64 %281, %282
-  %284 = icmp slt i64 %283, 0
-  br i1 %284, label %285, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i
+  %272 = bitcast double %224 to i64
+  %273 = bitcast double %242 to i64
+  %274 = xor i64 %272, %273
+  %275 = icmp slt i64 %274, 0
+  br i1 %275, label %276, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i
 
-285:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i
-  %286 = fsub double %231, %251
-  %287 = fdiv double %231, %286
-  %288 = fsub double %255, %235
-  %289 = call double @llvm.fmuladd.f64(double %287, double %288, double %235)
-  %290 = fcmp ult double %289, 0.000000e+00
-  %291 = fcmp ugt double %289, 1.000000e+00
-  %or.cond5.not.i.i = or i1 %290, %291
+276:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i
+  %277 = fsub double %224, %242
+  %278 = fdiv double %224, %277
+  %279 = fsub double %246, %228
+  %280 = call double @llvm.fmuladd.f64(double %278, double %279, double %228)
+  %281 = fcmp ult double %280, 0.000000e+00
+  %282 = fcmp ugt double %280, 1.000000e+00
+  %or.cond5.not.i.i = or i1 %281, %282
   br i1 %or.cond5.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %285, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i
-  %292 = fadd double %231, %235
-  %293 = fadd double %292, -1.000000e+00
-  %294 = fadd double %251, %255
-  %295 = fadd double %294, -1.000000e+00
-  %296 = fcmp oeq double %293, 0.000000e+00
-  %297 = fcmp oeq double %295, 0.000000e+00
-  %or.cond.i60.i.i = or i1 %297, %296
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %276, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i
+  %283 = fadd double %224, %228
+  %284 = fadd double %283, -1.000000e+00
+  %285 = fadd double %242, %246
+  %286 = fadd double %285, -1.000000e+00
+  %287 = fcmp oeq double %284, 0.000000e+00
+  %288 = fcmp oeq double %286, 0.000000e+00
+  %or.cond.i60.i.i = or i1 %288, %287
   br i1 %or.cond.i60.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i
-  %298 = bitcast double %293 to i64
-  %299 = bitcast double %295 to i64
-  %300 = xor i64 %298, %299
-  %301 = icmp slt i64 %300, 0
-  br i1 %301, label %302, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
+  %289 = bitcast double %284 to i64
+  %290 = bitcast double %286 to i64
+  %291 = xor i64 %289, %290
+  %292 = icmp slt i64 %291, 0
+  br i1 %292, label %293, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
 
-302:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i
-  %303 = fsub double 1.000000e+00, %231
-  %304 = fsub double %303, %235
-  %305 = fsub double %251, %231
-  %306 = fadd double %255, %305
-  %307 = fsub double %306, %235
-  %308 = fdiv double %304, %307
-  %309 = fsub double %255, %235
-  %310 = call double @llvm.fmuladd.f64(double %308, double %309, double %235)
-  %311 = fcmp ult double %310, 0.000000e+00
-  %312 = fcmp ugt double %310, 1.000000e+00
-  %or.cond7.not.i.i = or i1 %311, %312
+293:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i
+  %294 = fsub double 1.000000e+00, %224
+  %295 = fsub double %294, %228
+  %296 = fsub double %242, %224
+  %297 = fadd double %246, %296
+  %298 = fsub double %297, %228
+  %299 = fdiv double %295, %298
+  %300 = fsub double %246, %228
+  %301 = call double @llvm.fmuladd.f64(double %299, double %300, double %228)
+  %302 = fcmp ult double %301, 0.000000e+00
+  %303 = fcmp ugt double %301, 1.000000e+00
+  %or.cond7.not.i.i = or i1 %302, %303
   br i1 %or.cond7.not.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit: ; preds = %108
-  %313 = load double, ptr %17, align 8, !tbaa !20
-  %314 = fcmp ogt double %313, 0.000000e+00
-  %315 = fadd double %8, 1.000000e+00
-  %316 = fcmp olt double %313, %315
-  %317 = and i1 %314, %316
-  br i1 %317, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
+  %304 = load double, ptr %17, align 8, !tbaa !20
+  %305 = fcmp ogt double %304, 0.000000e+00
+  %306 = fadd double %8, 1.000000e+00
+  %307 = fcmp olt double %304, %306
+  %308 = and i1 %305, %307
+  br i1 %308, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i, %302, %114, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i, %293, %114, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %318 = sext i32 %2 to i64
-  %319 = load ptr, ptr %1, align 8, !tbaa !4
-  %320 = getelementptr i32, ptr %319, i64 %318
-  %321 = load i32, ptr %320, align 4, !tbaa !11
-  %322 = sext i32 %321 to i64
-  %323 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !81
-  %324 = getelementptr inbounds double, ptr %323, i64 %322
-  %325 = load i64, ptr %32, align 8, !tbaa !19
-  %326 = load double, ptr %324, align 8, !tbaa !20
-  store double %326, ptr %21, align 16, !tbaa !20
-  %327 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %328 = getelementptr inbounds double, ptr %324, i64 %325
-  %329 = load double, ptr %328, align 8, !tbaa !20
-  store double %329, ptr %327, align 8, !tbaa !20
-  %330 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i49 = shl nsw i64 %325, 4
-  %331 = getelementptr inbounds i8, ptr %324, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
-  %332 = load double, ptr %331, align 8, !tbaa !20
-  store double %332, ptr %330, align 16, !tbaa !20
-  %333 = load i64, ptr %26, align 8, !tbaa !22
-  %334 = getelementptr i32, ptr %320, i64 %333
-  %335 = load i32, ptr %334, align 4, !tbaa !11
-  %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds double, ptr %323, i64 %336
-  %338 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %339 = load double, ptr %337, align 8, !tbaa !20
-  store double %339, ptr %338, align 8, !tbaa !20
-  %340 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %341 = getelementptr inbounds double, ptr %337, i64 %325
-  %342 = load double, ptr %341, align 8, !tbaa !20
-  store double %342, ptr %340, align 16, !tbaa !20
-  %343 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %344 = getelementptr inbounds i8, ptr %337, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %309 = sext i32 %2 to i64
+  %310 = load ptr, ptr %1, align 8, !tbaa !4
+  %311 = getelementptr i32, ptr %310, i64 %309
+  %312 = load i32, ptr %311, align 4, !tbaa !11
+  %313 = sext i32 %312 to i64
+  %314 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !81
+  %315 = getelementptr inbounds double, ptr %314, i64 %313
+  %316 = load i64, ptr %32, align 8, !tbaa !19
+  %317 = load double, ptr %315, align 8, !tbaa !20
+  store double %317, ptr %21, align 16, !tbaa !20
+  %318 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %319 = getelementptr inbounds double, ptr %315, i64 %316
+  %320 = load double, ptr %319, align 8, !tbaa !20
+  store double %320, ptr %318, align 8, !tbaa !20
+  %321 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i49 = shl nsw i64 %316, 4
+  %322 = getelementptr inbounds i8, ptr %315, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %323 = load double, ptr %322, align 8, !tbaa !20
+  store double %323, ptr %321, align 16, !tbaa !20
+  %324 = load i64, ptr %26, align 8, !tbaa !22
+  %325 = getelementptr i32, ptr %311, i64 %324
+  %326 = load i32, ptr %325, align 4, !tbaa !11
+  %327 = sext i32 %326 to i64
+  %328 = getelementptr inbounds double, ptr %314, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %330 = load double, ptr %328, align 8, !tbaa !20
+  store double %330, ptr %329, align 8, !tbaa !20
+  %331 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %332 = getelementptr inbounds double, ptr %328, i64 %316
+  %333 = load double, ptr %332, align 8, !tbaa !20
+  store double %333, ptr %331, align 16, !tbaa !20
+  %334 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %335 = getelementptr inbounds i8, ptr %328, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %336 = load double, ptr %335, align 8, !tbaa !20
+  store double %336, ptr %334, align 8, !tbaa !20
+  %.idx208 = shl i64 %324, 3
+  %337 = getelementptr i8, ptr %311, i64 %.idx208
+  %338 = load i32, ptr %337, align 4, !tbaa !11
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds double, ptr %314, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %342 = load double, ptr %340, align 8, !tbaa !20
+  store double %342, ptr %341, align 16, !tbaa !20
+  %343 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %344 = getelementptr inbounds double, ptr %340, i64 %316
   %345 = load double, ptr %344, align 8, !tbaa !20
   store double %345, ptr %343, align 8, !tbaa !20
-  %.idx208 = shl i64 %333, 3
-  %346 = getelementptr i8, ptr %320, i64 %.idx208
-  %347 = load i32, ptr %346, align 4, !tbaa !11
-  %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds double, ptr %323, i64 %348
-  %350 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %351 = load double, ptr %349, align 8, !tbaa !20
-  store double %351, ptr %350, align 16, !tbaa !20
-  %352 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %353 = getelementptr inbounds double, ptr %349, i64 %325
-  %354 = load double, ptr %353, align 8, !tbaa !20
-  store double %354, ptr %352, align 8, !tbaa !20
-  %355 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %356 = getelementptr inbounds i8, ptr %349, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
-  %357 = load double, ptr %356, align 8, !tbaa !20
-  store double %357, ptr %355, align 16, !tbaa !20
-  %358 = sext i32 %4 to i64
-  %359 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %358
-  %360 = load ptr, ptr %5, align 8, !tbaa !67
-  %361 = load <2 x double>, ptr %360, align 16, !tbaa !30
-  store <2 x double> %361, ptr %359, align 8, !tbaa !30
-  %362 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  %363 = getelementptr i8, ptr %360, i64 16
-  %364 = load double, ptr %363, align 16, !tbaa !20
-  store double %364, ptr %362, align 8, !tbaa !20
+  %346 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %347 = getelementptr inbounds i8, ptr %340, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %348 = load double, ptr %347, align 8, !tbaa !20
+  store double %348, ptr %346, align 16, !tbaa !20
+  %349 = sext i32 %4 to i64
+  %350 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %349
+  %351 = load ptr, ptr %5, align 8, !tbaa !67
+  %352 = load <2 x double>, ptr %351, align 16, !tbaa !30
+  store <2 x double> %352, ptr %350, align 8, !tbaa !30
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 16
+  %354 = getelementptr i8, ptr %351, i64 16
+  %355 = load double, ptr %354, align 16, !tbaa !20
+  store double %355, ptr %353, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %365 = add nsw i32 %7, 1
-  %366 = srem i32 %365, 3
-  %367 = sext i32 %366 to i64
-  %368 = mul nsw i64 %333, %367
-  %369 = getelementptr i32, ptr %319, i64 %24
-  %370 = getelementptr i32, ptr %369, i64 %368
-  %371 = load i32, ptr %370, align 4, !tbaa !11
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds double, ptr %323, i64 %372
-  %374 = load double, ptr %373, align 8, !tbaa !20
-  store double %374, ptr %22, align 16, !tbaa !20
-  %375 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %376 = getelementptr inbounds double, ptr %373, i64 %325
-  %377 = load double, ptr %376, align 8, !tbaa !20
-  store double %377, ptr %375, align 8, !tbaa !20
-  %378 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %379 = getelementptr inbounds i8, ptr %373, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %356 = add nsw i32 %7, 1
+  %357 = srem i32 %356, 3
+  %358 = sext i32 %357 to i64
+  %359 = mul nsw i64 %324, %358
+  %360 = getelementptr i32, ptr %310, i64 %24
+  %361 = getelementptr i32, ptr %360, i64 %359
+  %362 = load i32, ptr %361, align 4, !tbaa !11
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds double, ptr %314, i64 %363
+  %365 = load double, ptr %364, align 8, !tbaa !20
+  store double %365, ptr %22, align 16, !tbaa !20
+  %366 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %367 = getelementptr inbounds double, ptr %364, i64 %316
+  %368 = load double, ptr %367, align 8, !tbaa !20
+  store double %368, ptr %366, align 8, !tbaa !20
+  %369 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %370 = getelementptr inbounds i8, ptr %364, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %371 = load double, ptr %370, align 8, !tbaa !20
+  store double %371, ptr %369, align 16, !tbaa !20
+  %372 = add nsw i32 %7, 2
+  %373 = srem i32 %372, 3
+  %374 = sext i32 %373 to i64
+  %375 = mul nsw i64 %324, %374
+  %376 = getelementptr i32, ptr %360, i64 %375
+  %377 = load i32, ptr %376, align 4, !tbaa !11
+  %378 = sext i32 %377 to i64
+  %379 = getelementptr inbounds double, ptr %314, i64 %378
   %380 = load double, ptr %379, align 8, !tbaa !20
-  store double %380, ptr %378, align 16, !tbaa !20
-  %381 = add nsw i32 %7, 2
-  %382 = srem i32 %381, 3
-  %383 = sext i32 %382 to i64
-  %384 = mul nsw i64 %333, %383
-  %385 = getelementptr i32, ptr %369, i64 %384
-  %386 = load i32, ptr %385, align 4, !tbaa !11
-  %387 = sext i32 %386 to i64
-  %388 = getelementptr inbounds double, ptr %323, i64 %387
-  %389 = load double, ptr %388, align 8, !tbaa !20
-  %.sroa.0198.0.vec.insert = insertelement <2 x double> poison, double %389, i64 0
-  %390 = getelementptr inbounds double, ptr %388, i64 %325
-  %391 = load double, ptr %390, align 8, !tbaa !20
-  %.sroa.0198.8.vec.insert = insertelement <2 x double> %.sroa.0198.0.vec.insert, double %391, i64 1
-  %392 = getelementptr inbounds i8, ptr %388, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
-  %393 = load double, ptr %392, align 8, !tbaa !20
+  %.sroa.0198.0.vec.insert = insertelement <2 x double> poison, double %380, i64 0
+  %381 = getelementptr inbounds double, ptr %379, i64 %316
+  %382 = load double, ptr %381, align 8, !tbaa !20
+  %.sroa.0198.8.vec.insert = insertelement <2 x double> %.sroa.0198.0.vec.insert, double %382, i64 1
+  %383 = getelementptr inbounds i8, ptr %379, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i49
+  %384 = load double, ptr %383, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %394 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %395 = fsub <2 x double> %.sroa.0198.8.vec.insert, %394
-  store <2 x double> %395, ptr %23, align 16, !tbaa !30
-  %396 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %397 = fsub double %393, %380
-  store double %397, ptr %396, align 16, !tbaa !20
-  %398 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %338, ptr noundef nonnull align 1 dereferenceable(1) %350, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
-  br i1 %398, label %399, label %405
+  %385 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %386 = fsub <2 x double> %.sroa.0198.8.vec.insert, %385
+  store <2 x double> %386, ptr %23, align 16, !tbaa !30
+  %387 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %388 = fsub double %384, %371
+  store double %388, ptr %387, align 16, !tbaa !20
+  %389 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %329, ptr noundef nonnull align 1 dereferenceable(1) %341, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  br i1 %389, label %390, label %396
 
-399:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
-  %400 = load double, ptr %17, align 8, !tbaa !20
-  %401 = fcmp ogt double %400, 0.000000e+00
-  %402 = fadd double %8, 1.000000e+00
-  %403 = fcmp olt double %400, %402
-  %404 = and i1 %401, %403
+390:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
+  %391 = load double, ptr %17, align 8, !tbaa !20
+  %392 = fcmp ogt double %391, 0.000000e+00
+  %393 = fadd double %8, 1.000000e+00
+  %394 = fcmp olt double %391, %393
+  %395 = and i1 %392, %394
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-405:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
-  %406 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
-  %407 = trunc nuw i8 %406 to i1
-  br i1 %407, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i82, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
+396:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
+  %397 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
+  %398 = trunc nuw i8 %397 to i1
+  br i1 %398, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i82, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-.lr.ph85.i.i.i.i.i.preheader.i.i.i82:             ; preds = %405
+.lr.ph85.i.i.i.i.i.preheader.i.i.i82:             ; preds = %396
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %408 = load double, ptr %340, align 16, !tbaa !20, !noalias !84
-  %409 = load double, ptr %327, align 8, !tbaa !20, !noalias !84
-  %410 = fsub double %408, %409
-  %411 = load double, ptr %355, align 16, !tbaa !20, !noalias !84
-  %412 = load double, ptr %330, align 16, !tbaa !20, !noalias !84
-  %413 = fsub double %411, %412
-  %414 = load double, ptr %343, align 8, !tbaa !20, !noalias !84
-  %415 = fsub double %414, %412
-  %416 = load double, ptr %352, align 8, !tbaa !20, !noalias !84
-  %417 = fsub double %416, %409
-  %418 = fneg double %417
-  %419 = fmul double %415, %418
-  %420 = call double @llvm.fmuladd.f64(double %410, double %413, double %419)
-  %421 = load double, ptr %350, align 16, !tbaa !20, !noalias !84
-  %422 = load double, ptr %21, align 16, !tbaa !20, !noalias !84
-  %423 = fsub double %421, %422
-  %424 = load double, ptr %338, align 8, !tbaa !20, !noalias !84
-  %425 = fsub double %424, %422
-  %426 = fneg double %413
-  %427 = fmul double %425, %426
-  %428 = call double @llvm.fmuladd.f64(double %415, double %423, double %427)
-  %429 = fneg double %423
-  %430 = fmul double %410, %429
-  %431 = call double @llvm.fmuladd.f64(double %425, double %417, double %430)
-  store double %420, ptr %10, align 16, !tbaa !20, !alias.scope !84
-  %432 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %428, ptr %432, align 8, !tbaa !20, !alias.scope !84
-  %433 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %431, ptr %433, align 16, !tbaa !20, !alias.scope !84
-  %434 = load <2 x double>, ptr %10, align 16
-  %435 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %436 = load <2 x double>, ptr %21, align 16, !tbaa !30
-  %437 = load double, ptr %378, align 16, !tbaa !20
-  %438 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %434)
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83 = extractelement <2 x double> %438, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84 = extractelement <2 x double> %438, i64 1
-  %439 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84
-  %440 = select i1 %439, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83
-  %441 = call noundef double @llvm.fabs.f64(double %431)
-  %442 = fcmp olt double %440, %441
-  %443 = select i1 %442, double %441, double %440
-  %444 = fcmp ogt double %443, 0.000000e+00
-  br i1 %444, label %445, label %454
+  %399 = load double, ptr %331, align 16, !tbaa !20, !noalias !84
+  %400 = load double, ptr %318, align 8, !tbaa !20, !noalias !84
+  %401 = fsub double %399, %400
+  %402 = load double, ptr %346, align 16, !tbaa !20, !noalias !84
+  %403 = load double, ptr %321, align 16, !tbaa !20, !noalias !84
+  %404 = fsub double %402, %403
+  %405 = load double, ptr %334, align 8, !tbaa !20, !noalias !84
+  %406 = fsub double %405, %403
+  %407 = load double, ptr %343, align 8, !tbaa !20, !noalias !84
+  %408 = fsub double %407, %400
+  %409 = fneg double %408
+  %410 = fmul double %406, %409
+  %411 = call double @llvm.fmuladd.f64(double %401, double %404, double %410)
+  %412 = load double, ptr %341, align 16, !tbaa !20, !noalias !84
+  %413 = load double, ptr %21, align 16, !tbaa !20, !noalias !84
+  %414 = fsub double %412, %413
+  %415 = load double, ptr %329, align 8, !tbaa !20, !noalias !84
+  %416 = fsub double %415, %413
+  %417 = fneg double %404
+  %418 = fmul double %416, %417
+  %419 = call double @llvm.fmuladd.f64(double %406, double %414, double %418)
+  %420 = fneg double %414
+  %421 = fmul double %401, %420
+  %422 = call double @llvm.fmuladd.f64(double %416, double %408, double %421)
+  store double %411, ptr %10, align 16, !tbaa !20, !alias.scope !84
+  %423 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %419, ptr %423, align 8, !tbaa !20, !alias.scope !84
+  %424 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %422, ptr %424, align 16, !tbaa !20, !alias.scope !84
+  %425 = load <2 x double>, ptr %10, align 16
+  %426 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %427 = load <2 x double>, ptr %21, align 16, !tbaa !30
+  %428 = load double, ptr %369, align 16, !tbaa !20
+  %429 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %425)
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83 = extractelement <2 x double> %429, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84 = extractelement <2 x double> %429, i64 1
+  %430 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84
+  %431 = select i1 %430, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i84, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i83
+  %432 = call noundef double @llvm.fabs.f64(double %422)
+  %433 = fcmp olt double %431, %432
+  %434 = select i1 %433, double %432, double %431
+  %435 = fcmp ogt double %434, 0.000000e+00
+  br i1 %435, label %436, label %445
+
+436:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i82
+  %437 = fdiv double 0.000000e+00, %434
+  %438 = fmul double %437, %437
+  %439 = fmul double %438, 0.000000e+00
+  %440 = fdiv double 1.000000e+00, %434
+  %441 = fcmp ogt double %440, 0x7FEFFFFFFFFFFFFF
+  br i1 %441, label %448, label %442
+
+442:                                              ; preds = %436
+  %443 = fcmp ogt double %434, 0x7FEFFFFFFFFFFFFF
+  br i1 %443, label %448, label %444
+
+444:                                              ; preds = %442
+  br label %448
 
 445:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i82
-  %446 = fdiv double 0.000000e+00, %443
-  %447 = fmul double %446, %446
-  %448 = fmul double %447, 0.000000e+00
-  %449 = fdiv double 1.000000e+00, %443
-  %450 = fcmp ogt double %449, 0x7FEFFFFFFFFFFFFF
-  br i1 %450, label %457, label %451
+  %446 = fcmp uno double %434, 0.000000e+00
+  br i1 %446, label %447, label %448
 
-451:                                              ; preds = %445
-  %452 = fcmp ogt double %443, 0x7FEFFFFFFFFFFFFF
-  br i1 %452, label %457, label %453
+447:                                              ; preds = %445
+  br label %448
 
-453:                                              ; preds = %451
-  br label %457
+448:                                              ; preds = %447, %445, %444, %442, %436
+  %.158.i.i.i70 = phi double [ %434, %444 ], [ %434, %447 ], [ 0.000000e+00, %445 ], [ 0x4000000000000, %436 ], [ %434, %442 ]
+  %.155.i.i.i71 = phi double [ %440, %444 ], [ 1.000000e+00, %447 ], [ 1.000000e+00, %445 ], [ 0x7FEFFFFFFFFFFFFF, %436 ], [ 1.000000e+00, %442 ]
+  %.1.i.i.i72 = phi double [ %439, %444 ], [ 0.000000e+00, %447 ], [ 0.000000e+00, %445 ], [ %439, %436 ], [ %439, %442 ]
+  %449 = fcmp ogt double %.158.i.i.i70, 0.000000e+00
+  br i1 %449, label %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
 
-454:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i82
-  %455 = fcmp uno double %443, 0.000000e+00
-  br i1 %455, label %456, label %457
-
-456:                                              ; preds = %454
-  br label %457
-
-457:                                              ; preds = %456, %454, %453, %451, %445
-  %.158.i.i.i70 = phi double [ %443, %453 ], [ %443, %456 ], [ 0.000000e+00, %454 ], [ 0x4000000000000, %445 ], [ %443, %451 ]
-  %.155.i.i.i71 = phi double [ %449, %453 ], [ 1.000000e+00, %456 ], [ 1.000000e+00, %454 ], [ 0x7FEFFFFFFFFFFFFF, %445 ], [ 1.000000e+00, %451 ]
-  %.1.i.i.i72 = phi double [ %448, %453 ], [ 0.000000e+00, %456 ], [ 0.000000e+00, %454 ], [ %448, %445 ], [ %448, %451 ]
-  %458 = fcmp ogt double %.158.i.i.i70, 0.000000e+00
-  br i1 %458, label %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
-
-.lr.ph85.i.i.i.i32.i.i.i.i77.preheader:           ; preds = %457
+.lr.ph85.i.i.i.i32.i.i.i.i77.preheader:           ; preds = %448
   %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74 = insertelement <2 x double> poison, double %.155.i.i.i71, i64 0
-  %459 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74, <2 x double> poison, <2 x i32> zeroinitializer
-  %460 = fmul <2 x double> %434, %459
-  %461 = fmul <2 x double> %460, %460
-  %shift221 = shufflevector <2 x double> %461, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %462 = fadd <2 x double> %461, %shift221
-  %463 = extractelement <2 x double> %462, i64 0
+  %450 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74, <2 x double> poison, <2 x i32> zeroinitializer
+  %451 = fmul <2 x double> %425, %450
+  %452 = fmul <2 x double> %451, %451
+  %shift238 = shufflevector <2 x double> %452, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop239 = fadd <2 x double> %452, %shift238
+  %453 = extractelement <2 x double> %foldExtExtBinop239, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i77
 
 .lr.ph85.i.i.i.i32.i.i.i.i77:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i77
-  %.05283.i.i.i.i33.i.i.i.i78 = phi i64 [ %469, %.lr.ph85.i.i.i.i32.i.i.i.i77 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader ]
-  %.182.i.i.i.i34.i.i.i.i79 = phi double [ %468, %.lr.ph85.i.i.i.i32.i.i.i.i77 ], [ %463, %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader ]
-  %464 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i78
-  %465 = load double, ptr %464, align 8, !tbaa !20
-  %466 = fmul double %.155.i.i.i71, %465
-  %467 = fmul double %466, %466
-  %468 = fadd double %.182.i.i.i.i34.i.i.i.i79, %467
-  %469 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i78, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i80 = icmp eq i64 %469, 3
+  %.05283.i.i.i.i33.i.i.i.i78 = phi i64 [ %459, %.lr.ph85.i.i.i.i32.i.i.i.i77 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader ]
+  %.182.i.i.i.i34.i.i.i.i79 = phi double [ %458, %.lr.ph85.i.i.i.i32.i.i.i.i77 ], [ %453, %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader ]
+  %454 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i78
+  %455 = load double, ptr %454, align 8, !tbaa !20
+  %456 = fmul double %.155.i.i.i71, %455
+  %457 = fmul double %456, %456
+  %458 = fadd double %.182.i.i.i.i34.i.i.i.i79, %457
+  %459 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i78, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i80 = icmp eq i64 %459, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i80, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75, label %.lr.ph85.i.i.i.i32.i.i.i.i77, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i77
-  %470 = fadd double %.1.i.i.i72, %468
+  %460 = fadd double %.1.i.i.i72, %458
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85: ; preds = %457, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75
-  %.2.i.i.i73 = phi double [ %470, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75 ], [ %.1.i.i.i72, %457 ]
-  %471 = fsub <2 x double> %435, %436
-  %472 = fmul <2 x double> %434, %471
-  %shift222 = shufflevector <2 x double> %472, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %473 = fadd <2 x double> %472, %shift222
-  %474 = extractelement <2 x double> %473, i64 0
-  %475 = fsub double %437, %412
-  %476 = fmul double %431, %475
-  %477 = fadd double %476, %474
-  %478 = call noundef double @llvm.fabs.f64(double %477)
-  %479 = call double @sqrt(double noundef %.2.i.i.i73) #7, !tbaa !11
-  %480 = fmul double %.158.i.i.i70, %479
-  %481 = fmul double %8, %480
-  %482 = fcmp olt double %478, %481
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85: ; preds = %448, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75
+  %.2.i.i.i73 = phi double [ %460, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i75 ], [ %.1.i.i.i72, %448 ]
+  %461 = fsub <2 x double> %426, %427
+  %462 = fmul <2 x double> %425, %461
+  %shift241 = shufflevector <2 x double> %462, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop242 = fadd <2 x double> %462, %shift241
+  %463 = extractelement <2 x double> %foldExtExtBinop242, i64 0
+  %464 = fsub double %428, %403
+  %465 = fmul double %422, %464
+  %466 = fadd double %465, %463
+  %467 = call noundef double @llvm.fabs.f64(double %466)
+  %468 = call double @sqrt(double noundef %.2.i.i.i73) #7, !tbaa !11
+  %469 = fmul double %.158.i.i.i70, %468
+  %470 = fmul double %8, %469
+  %471 = fcmp olt double %467, %470
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %482, label %483, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
+  br i1 %471, label %472, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-483:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
-  %484 = load <2 x double>, ptr %338, align 8, !tbaa !30, !noalias !87
-  %485 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !87
-  %486 = fsub <2 x double> %484, %485
-  %487 = load <2 x double>, ptr %350, align 16, !tbaa !30, !noalias !90
-  %488 = fsub <2 x double> %487, %485
-  %489 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !93
-  %490 = fsub <2 x double> %489, %485
-  %491 = fmul <2 x double> %486, %486
-  %shift223 = shufflevector <2 x double> %491, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %492 = fadd <2 x double> %491, %shift223
-  %493 = extractelement <2 x double> %492, i64 0
-  %494 = fmul double %415, %415
+472:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
+  %473 = load <2 x double>, ptr %329, align 8, !tbaa !30, !noalias !87
+  %474 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !87
+  %475 = fsub <2 x double> %473, %474
+  %476 = load <2 x double>, ptr %341, align 16, !tbaa !30, !noalias !90
+  %477 = fsub <2 x double> %476, %474
+  %478 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !93
+  %479 = fsub <2 x double> %478, %474
+  %480 = fmul <2 x double> %475, %475
+  %shift244 = shufflevector <2 x double> %480, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop245 = fadd <2 x double> %480, %shift244
+  %481 = extractelement <2 x double> %foldExtExtBinop245, i64 0
+  %482 = fmul double %406, %406
+  %483 = fadd double %482, %481
+  %484 = fmul <2 x double> %475, %477
+  %shift247 = shufflevector <2 x double> %484, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop248 = fadd <2 x double> %484, %shift247
+  %485 = extractelement <2 x double> %foldExtExtBinop248, i64 0
+  %486 = fmul double %404, %406
+  %487 = fadd double %486, %485
+  %488 = fmul <2 x double> %477, %477
+  %shift250 = shufflevector <2 x double> %488, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop251 = fadd <2 x double> %488, %shift250
+  %489 = extractelement <2 x double> %foldExtExtBinop251, i64 0
+  %490 = fmul double %404, %404
+  %491 = fadd double %490, %489
+  %492 = fmul <2 x double> %475, %479
+  %shift253 = shufflevector <2 x double> %492, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop254 = fadd <2 x double> %492, %shift253
+  %493 = extractelement <2 x double> %foldExtExtBinop254, i64 0
+  %494 = fmul double %406, %464
   %495 = fadd double %494, %493
-  %496 = fmul <2 x double> %486, %488
-  %shift224 = shufflevector <2 x double> %496, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %497 = fadd <2 x double> %496, %shift224
-  %498 = extractelement <2 x double> %497, i64 0
-  %499 = fmul double %413, %415
-  %500 = fadd double %499, %498
-  %501 = fmul <2 x double> %488, %488
-  %shift225 = shufflevector <2 x double> %501, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %502 = fadd <2 x double> %501, %shift225
-  %503 = extractelement <2 x double> %502, i64 0
-  %504 = fmul double %413, %413
-  %505 = fadd double %504, %503
-  %506 = fmul <2 x double> %486, %490
-  %shift226 = shufflevector <2 x double> %506, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %507 = fadd <2 x double> %506, %shift226
-  %508 = extractelement <2 x double> %507, i64 0
-  %509 = fmul double %415, %475
-  %510 = fadd double %509, %508
-  %511 = fmul <2 x double> %488, %490
-  %shift227 = shufflevector <2 x double> %511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %512 = fadd <2 x double> %511, %shift227
-  %513 = extractelement <2 x double> %512, i64 0
-  %514 = fmul double %413, %475
-  %515 = fadd double %514, %513
-  %516 = fneg double %500
-  %517 = fmul double %500, %516
-  %518 = call double @llvm.fmuladd.f64(double %495, double %505, double %517)
-  %519 = fneg double %515
-  %520 = fmul double %500, %519
-  %521 = call double @llvm.fmuladd.f64(double %505, double %510, double %520)
-  %522 = fdiv double %521, %518
-  %523 = fneg double %510
-  %524 = fmul double %500, %523
-  %525 = call double @llvm.fmuladd.f64(double %495, double %515, double %524)
-  %526 = fdiv double %525, %518
-  %527 = fsub <2 x double> %.sroa.0198.8.vec.insert, %485
-  %528 = fsub double %393, %412
-  %529 = fmul <2 x double> %486, %527
-  %shift228 = shufflevector <2 x double> %529, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %530 = fadd <2 x double> %529, %shift228
-  %531 = extractelement <2 x double> %530, i64 0
-  %532 = fmul double %528, %415
-  %533 = fadd double %532, %531
-  %534 = fmul <2 x double> %527, %488
-  %shift229 = shufflevector <2 x double> %534, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %535 = fadd <2 x double> %534, %shift229
-  %536 = extractelement <2 x double> %535, i64 0
-  %537 = fmul double %413, %528
-  %538 = fadd double %537, %536
-  %539 = fneg double %538
-  %540 = fmul double %500, %539
-  %541 = call double @llvm.fmuladd.f64(double %505, double %533, double %540)
-  %542 = fdiv double %541, %518
-  %543 = fneg double %533
-  %544 = fmul double %500, %543
-  %545 = call double @llvm.fmuladd.f64(double %495, double %538, double %544)
-  %546 = fdiv double %545, %518
-  %547 = fcmp ult double %522, 0.000000e+00
-  br i1 %547, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87, label %548
+  %496 = fmul <2 x double> %477, %479
+  %shift256 = shufflevector <2 x double> %496, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop257 = fadd <2 x double> %496, %shift256
+  %497 = extractelement <2 x double> %foldExtExtBinop257, i64 0
+  %498 = fmul double %404, %464
+  %499 = fadd double %498, %497
+  %500 = fneg double %487
+  %501 = fmul double %487, %500
+  %502 = call double @llvm.fmuladd.f64(double %483, double %491, double %501)
+  %503 = fneg double %499
+  %504 = fmul double %487, %503
+  %505 = call double @llvm.fmuladd.f64(double %491, double %495, double %504)
+  %506 = fdiv double %505, %502
+  %507 = fneg double %495
+  %508 = fmul double %487, %507
+  %509 = call double @llvm.fmuladd.f64(double %483, double %499, double %508)
+  %510 = fdiv double %509, %502
+  %511 = fsub <2 x double> %.sroa.0198.8.vec.insert, %474
+  %512 = fsub double %384, %403
+  %513 = fmul <2 x double> %475, %511
+  %shift259 = shufflevector <2 x double> %513, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop260 = fadd <2 x double> %513, %shift259
+  %514 = extractelement <2 x double> %foldExtExtBinop260, i64 0
+  %515 = fmul double %512, %406
+  %516 = fadd double %515, %514
+  %517 = fmul <2 x double> %511, %477
+  %shift262 = shufflevector <2 x double> %517, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop263 = fadd <2 x double> %517, %shift262
+  %518 = extractelement <2 x double> %foldExtExtBinop263, i64 0
+  %519 = fmul double %404, %512
+  %520 = fadd double %519, %518
+  %521 = fneg double %520
+  %522 = fmul double %487, %521
+  %523 = call double @llvm.fmuladd.f64(double %491, double %516, double %522)
+  %524 = fdiv double %523, %502
+  %525 = fneg double %516
+  %526 = fmul double %487, %525
+  %527 = call double @llvm.fmuladd.f64(double %483, double %520, double %526)
+  %528 = fdiv double %527, %502
+  %529 = fcmp ult double %506, 0.000000e+00
+  br i1 %529, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87, label %530
 
-548:                                              ; preds = %483
-  %549 = fcmp oge double %526, 0.000000e+00
-  %550 = fadd double %522, %526
-  %551 = fcmp ole double %550, 1.000000e+00
-  %or.cond.i.i86 = and i1 %549, %551
+530:                                              ; preds = %472
+  %531 = fcmp oge double %510, 0.000000e+00
+  %532 = fadd double %506, %510
+  %533 = fcmp ole double %532, 1.000000e+00
+  %or.cond.i.i86 = and i1 %531, %533
   br i1 %or.cond.i.i86, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87: ; preds = %548, %483
-  %552 = fcmp ult double %542, 0.000000e+00
-  br i1 %552, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91, label %553
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87: ; preds = %530, %472
+  %534 = fcmp ult double %524, 0.000000e+00
+  br i1 %534, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91, label %535
 
-553:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87
-  %554 = fcmp oge double %546, 0.000000e+00
-  %555 = fadd double %542, %546
-  %556 = fcmp ole double %555, 1.000000e+00
-  %or.cond69.i.i90 = and i1 %554, %556
+535:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87
+  %536 = fcmp oge double %528, 0.000000e+00
+  %537 = fadd double %524, %528
+  %538 = fcmp ole double %537, 1.000000e+00
+  %or.cond69.i.i90 = and i1 %536, %538
   br i1 %or.cond69.i.i90, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91: ; preds = %553, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87
-  %557 = fcmp oeq double %526, 0.000000e+00
-  %558 = fcmp oeq double %546, 0.000000e+00
-  %or.cond.i.i.i92 = or i1 %558, %557
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91: ; preds = %535, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit.thread.i.i87
+  %539 = fcmp oeq double %510, 0.000000e+00
+  %540 = fcmp oeq double %528, 0.000000e+00
+  %or.cond.i.i.i92 = or i1 %540, %539
   br i1 %or.cond.i.i.i92, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91
-  %559 = bitcast double %526 to i64
-  %560 = bitcast double %546 to i64
-  %561 = xor i64 %559, %560
-  %562 = icmp slt i64 %561, 0
-  br i1 %562, label %563, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94
+  %541 = bitcast double %510 to i64
+  %542 = bitcast double %528 to i64
+  %543 = xor i64 %541, %542
+  %544 = icmp slt i64 %543, 0
+  br i1 %544, label %545, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94
 
-563:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93
-  %564 = fsub double %526, %546
-  %565 = fdiv double %526, %564
-  %566 = fsub double %542, %522
-  %567 = call double @llvm.fmuladd.f64(double %565, double %566, double %522)
-  %568 = fcmp ult double %567, 0.000000e+00
-  %569 = fcmp ugt double %567, 1.000000e+00
-  %or.cond.not.i.i104 = or i1 %568, %569
+545:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93
+  %546 = fsub double %510, %528
+  %547 = fdiv double %510, %546
+  %548 = fsub double %524, %506
+  %549 = call double @llvm.fmuladd.f64(double %547, double %548, double %506)
+  %550 = fcmp ult double %549, 0.000000e+00
+  %551 = fcmp ugt double %549, 1.000000e+00
+  %or.cond.not.i.i104 = or i1 %550, %551
   br i1 %or.cond.not.i.i104, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94: ; preds = %563, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91
-  %570 = fcmp oeq double %522, 0.000000e+00
-  %571 = fcmp oeq double %542, 0.000000e+00
-  %or.cond.i57.i.i95 = or i1 %571, %570
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94: ; preds = %545, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.i.i93, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlSM_E_clESM_.exit56.thread.i.i91
+  %552 = fcmp oeq double %506, 0.000000e+00
+  %553 = fcmp oeq double %524, 0.000000e+00
+  %or.cond.i57.i.i95 = or i1 %553, %552
   br i1 %or.cond.i57.i.i95, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94
-  %572 = bitcast double %522 to i64
-  %573 = bitcast double %542 to i64
-  %574 = xor i64 %572, %573
-  %575 = icmp slt i64 %574, 0
-  br i1 %575, label %576, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97
+  %554 = bitcast double %506 to i64
+  %555 = bitcast double %524 to i64
+  %556 = xor i64 %554, %555
+  %557 = icmp slt i64 %556, 0
+  br i1 %557, label %558, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97
 
-576:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96
-  %577 = fsub double %522, %542
-  %578 = fdiv double %522, %577
-  %579 = fsub double %546, %526
-  %580 = call double @llvm.fmuladd.f64(double %578, double %579, double %526)
-  %581 = fcmp ult double %580, 0.000000e+00
-  %582 = fcmp ugt double %580, 1.000000e+00
-  %or.cond5.not.i.i103 = or i1 %581, %582
+558:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96
+  %559 = fsub double %506, %524
+  %560 = fdiv double %506, %559
+  %561 = fsub double %528, %510
+  %562 = call double @llvm.fmuladd.f64(double %560, double %561, double %510)
+  %563 = fcmp ult double %562, 0.000000e+00
+  %564 = fcmp ugt double %562, 1.000000e+00
+  %or.cond5.not.i.i103 = or i1 %563, %564
   br i1 %or.cond5.not.i.i103, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97: ; preds = %576, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94
-  %583 = fadd double %522, %526
-  %584 = fadd double %583, -1.000000e+00
-  %585 = fadd double %542, %546
-  %586 = fadd double %585, -1.000000e+00
-  %587 = fcmp oeq double %584, 0.000000e+00
-  %588 = fcmp oeq double %586, 0.000000e+00
-  %or.cond.i60.i.i98 = or i1 %588, %587
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97: ; preds = %558, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit.thread.i.i94
+  %565 = fadd double %506, %510
+  %566 = fadd double %565, -1.000000e+00
+  %567 = fadd double %524, %528
+  %568 = fadd double %567, -1.000000e+00
+  %569 = fcmp oeq double %566, 0.000000e+00
+  %570 = fcmp oeq double %568, 0.000000e+00
+  %or.cond.i60.i.i98 = or i1 %570, %569
   br i1 %or.cond.i60.i.i98, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97
-  %589 = bitcast double %584 to i64
-  %590 = bitcast double %586 to i64
-  %591 = xor i64 %589, %590
-  %592 = icmp slt i64 %591, 0
-  br i1 %592, label %593, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100
+  %571 = bitcast double %566 to i64
+  %572 = bitcast double %568 to i64
+  %573 = xor i64 %571, %572
+  %574 = icmp slt i64 %573, 0
+  br i1 %574, label %575, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100
 
-593:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99
-  %594 = fsub double 1.000000e+00, %522
-  %595 = fsub double %594, %526
-  %596 = fsub double %542, %522
-  %597 = fadd double %546, %596
-  %598 = fsub double %597, %526
-  %599 = fdiv double %595, %598
-  %600 = fsub double %546, %526
-  %601 = call double @llvm.fmuladd.f64(double %599, double %600, double %526)
-  %602 = fcmp ult double %601, 0.000000e+00
-  %603 = fcmp ugt double %601, 1.000000e+00
-  %or.cond7.not.i.i102 = or i1 %602, %603
+575:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99
+  %576 = fsub double 1.000000e+00, %506
+  %577 = fsub double %576, %510
+  %578 = fsub double %524, %506
+  %579 = fadd double %528, %578
+  %580 = fsub double %579, %510
+  %581 = fdiv double %577, %580
+  %582 = fsub double %528, %510
+  %583 = call double @llvm.fmuladd.f64(double %581, double %582, double %510)
+  %584 = fcmp ult double %583, 0.000000e+00
+  %585 = fcmp ugt double %583, 1.000000e+00
+  %or.cond7.not.i.i102 = or i1 %584, %585
   br i1 %or.cond7.not.i.i102, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100: ; preds = %593, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100: ; preds = %575, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit59.thread.i.i97
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100, %593, %576, %563, %553, %548, %405, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85, %399
-  %.2 = phi i1 [ %404, %399 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85 ], [ false, %405 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100 ], [ true, %593 ], [ true, %576 ], [ true, %563 ], [ true, %548 ], [ true, %553 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100, %575, %558, %545, %535, %530, %396, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85, %390
+  %.2 = phi i1 [ %395, %390 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85 ], [ false, %396 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E_clESM_SM_ENKUlddE_clEdd.exit62.thread.i.i100 ], [ true, %575 ], [ true, %558 ], [ true, %545 ], [ true, %530 ], [ true, %535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread: ; preds = %262, %257, %272, %285, %302, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit
-  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105 ], [ true, %302 ], [ true, %285 ], [ true, %272 ], [ true, %257 ], [ true, %262 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread: ; preds = %253, %248, %263, %276, %293, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit
+  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105 ], [ true, %293 ], [ true, %276 ], [ true, %263 ], [ true, %248 ], [ true, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2081,651 +2081,651 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %182 = fmul <2 x double> %156, %181
   %183 = fmul <2 x double> %182, %182
   %shift = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %184 = fadd <2 x double> %183, %shift
-  %185 = extractelement <2 x double> %184, i64 0
+  %foldExtExtBinop = fadd <2 x double> %183, %shift
+  %184 = extractelement <2 x double> %foldExtExtBinop, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i
 
 .lr.ph85.i.i.i.i32.i.i.i.i:                       ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i
-  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %191, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %.182.i.i.i.i34.i.i.i.i = phi double [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %185, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
-  %186 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
-  %187 = load double, ptr %186, align 8, !tbaa !20
-  %188 = fmul double %.155.i.i.i, %187
-  %189 = fmul double %188, %188
-  %190 = fadd double %.182.i.i.i.i34.i.i.i.i, %189
-  %191 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %191, 3
+  %.05283.i.i.i.i33.i.i.i.i = phi i64 [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %.182.i.i.i.i34.i.i.i.i = phi double [ %189, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %184, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
+  %185 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
+  %186 = load double, ptr %185, align 8, !tbaa !20
+  %187 = fmul double %.155.i.i.i, %186
+  %188 = fmul double %187, %187
+  %189 = fadd double %.182.i.i.i.i34.i.i.i.i, %188
+  %190 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i = icmp eq i64 %190, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i, label %.lr.ph85.i.i.i.i32.i.i.i.i, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i
-  %192 = fadd double %.1.i.i.i, %190
+  %191 = fadd double %.1.i.i.i, %189
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit: ; preds = %179, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i
-  %.2.i.i.i = phi double [ %192, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %179 ]
-  %193 = fsub <2 x double> %157, %158
-  %194 = fmul <2 x double> %156, %193
-  %shift220 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %195 = fadd <2 x double> %194, %shift220
-  %196 = extractelement <2 x double> %195, i64 0
-  %197 = fsub double %159, %134
-  %198 = fmul double %153, %197
-  %199 = fadd double %198, %196
-  %200 = call noundef double @llvm.fabs.f64(double %199)
-  %201 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %202 = fmul double %.158.i.i.i, %201
-  %203 = fmul double %8, %202
-  %204 = fcmp olt double %200, %203
+  %.2.i.i.i = phi double [ %191, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i ], [ %.1.i.i.i, %179 ]
+  %192 = fsub <2 x double> %157, %158
+  %193 = fmul <2 x double> %156, %192
+  %shift221 = shufflevector <2 x double> %193, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop222 = fadd <2 x double> %193, %shift221
+  %194 = extractelement <2 x double> %foldExtExtBinop222, i64 0
+  %195 = fsub double %159, %134
+  %196 = fmul double %153, %195
+  %197 = fadd double %196, %194
+  %198 = call noundef double @llvm.fabs.f64(double %197)
+  %199 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
+  %200 = fmul double %.158.i.i.i, %199
+  %201 = fmul double %8, %200
+  %202 = fcmp olt double %198, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %204, label %205, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
+  br i1 %202, label %203, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
 
-205:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit
-  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !107
-  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !107
-  %208 = fsub <2 x double> %206, %207
-  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !110
-  %210 = fsub <2 x double> %209, %207
-  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !113
-  %212 = fsub <2 x double> %211, %207
-  %213 = fmul <2 x double> %208, %208
-  %shift221 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %214 = fadd <2 x double> %213, %shift221
-  %215 = extractelement <2 x double> %214, i64 0
-  %216 = fmul double %137, %137
-  %217 = fadd double %216, %215
-  %218 = fmul <2 x double> %208, %210
-  %shift222 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %219 = fadd <2 x double> %218, %shift222
-  %220 = extractelement <2 x double> %219, i64 0
-  %221 = fmul double %135, %137
+203:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit
+  %204 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !107
+  %205 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !107
+  %206 = fsub <2 x double> %204, %205
+  %207 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !110
+  %208 = fsub <2 x double> %207, %205
+  %209 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !113
+  %210 = fsub <2 x double> %209, %205
+  %211 = fmul <2 x double> %206, %206
+  %shift224 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop225 = fadd <2 x double> %211, %shift224
+  %212 = extractelement <2 x double> %foldExtExtBinop225, i64 0
+  %213 = fmul double %137, %137
+  %214 = fadd double %213, %212
+  %215 = fmul <2 x double> %206, %208
+  %shift227 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop228 = fadd <2 x double> %215, %shift227
+  %216 = extractelement <2 x double> %foldExtExtBinop228, i64 0
+  %217 = fmul double %135, %137
+  %218 = fadd double %217, %216
+  %219 = fmul <2 x double> %208, %208
+  %shift230 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop231 = fadd <2 x double> %219, %shift230
+  %220 = extractelement <2 x double> %foldExtExtBinop231, i64 0
+  %221 = fmul double %135, %135
   %222 = fadd double %221, %220
-  %223 = fmul <2 x double> %210, %210
-  %shift223 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %224 = fadd <2 x double> %223, %shift223
-  %225 = extractelement <2 x double> %224, i64 0
-  %226 = fmul double %135, %135
-  %227 = fadd double %226, %225
-  %228 = fmul <2 x double> %208, %212
-  %shift224 = shufflevector <2 x double> %228, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %229 = fadd <2 x double> %228, %shift224
-  %230 = extractelement <2 x double> %229, i64 0
-  %231 = fmul double %137, %197
-  %232 = fadd double %231, %230
-  %233 = fmul <2 x double> %210, %212
-  %shift225 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %234 = fadd <2 x double> %233, %shift225
-  %235 = extractelement <2 x double> %234, i64 0
-  %236 = fmul double %135, %197
-  %237 = fadd double %236, %235
-  %238 = fneg double %222
-  %239 = fmul double %222, %238
-  %240 = call double @llvm.fmuladd.f64(double %217, double %227, double %239)
-  %241 = fneg double %237
-  %242 = fmul double %222, %241
-  %243 = call double @llvm.fmuladd.f64(double %227, double %232, double %242)
-  %244 = fdiv double %243, %240
-  %245 = fneg double %232
-  %246 = fmul double %222, %245
-  %247 = call double @llvm.fmuladd.f64(double %217, double %237, double %246)
-  %248 = fdiv double %247, %240
-  %249 = fsub <2 x double> %.sroa.0.0, %207
-  %250 = fsub double %.sroa.8.0, %134
-  %251 = fmul <2 x double> %208, %249
-  %shift226 = shufflevector <2 x double> %251, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %252 = fadd <2 x double> %251, %shift226
-  %253 = extractelement <2 x double> %252, i64 0
-  %254 = fmul double %250, %137
-  %255 = fadd double %254, %253
-  %256 = fmul <2 x double> %249, %210
-  %shift227 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %257 = fadd <2 x double> %256, %shift227
-  %258 = extractelement <2 x double> %257, i64 0
-  %259 = fmul double %135, %250
-  %260 = fadd double %259, %258
-  %261 = fneg double %260
-  %262 = fmul double %222, %261
-  %263 = call double @llvm.fmuladd.f64(double %227, double %255, double %262)
-  %264 = fdiv double %263, %240
-  %265 = fneg double %255
-  %266 = fmul double %222, %265
-  %267 = call double @llvm.fmuladd.f64(double %217, double %260, double %266)
-  %268 = fdiv double %267, %240
-  %269 = fcmp ult double %244, 0.000000e+00
-  br i1 %269, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i, label %270
+  %223 = fmul <2 x double> %206, %210
+  %shift233 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop234 = fadd <2 x double> %223, %shift233
+  %224 = extractelement <2 x double> %foldExtExtBinop234, i64 0
+  %225 = fmul double %137, %195
+  %226 = fadd double %225, %224
+  %227 = fmul <2 x double> %208, %210
+  %shift236 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop237 = fadd <2 x double> %227, %shift236
+  %228 = extractelement <2 x double> %foldExtExtBinop237, i64 0
+  %229 = fmul double %135, %195
+  %230 = fadd double %229, %228
+  %231 = fneg double %218
+  %232 = fmul double %218, %231
+  %233 = call double @llvm.fmuladd.f64(double %214, double %222, double %232)
+  %234 = fneg double %230
+  %235 = fmul double %218, %234
+  %236 = call double @llvm.fmuladd.f64(double %222, double %226, double %235)
+  %237 = fdiv double %236, %233
+  %238 = fneg double %226
+  %239 = fmul double %218, %238
+  %240 = call double @llvm.fmuladd.f64(double %214, double %230, double %239)
+  %241 = fdiv double %240, %233
+  %242 = fsub <2 x double> %.sroa.0.0, %205
+  %243 = fsub double %.sroa.8.0, %134
+  %244 = fmul <2 x double> %206, %242
+  %shift239 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop240 = fadd <2 x double> %244, %shift239
+  %245 = extractelement <2 x double> %foldExtExtBinop240, i64 0
+  %246 = fmul double %243, %137
+  %247 = fadd double %246, %245
+  %248 = fmul <2 x double> %242, %208
+  %shift242 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop243 = fadd <2 x double> %248, %shift242
+  %249 = extractelement <2 x double> %foldExtExtBinop243, i64 0
+  %250 = fmul double %135, %243
+  %251 = fadd double %250, %249
+  %252 = fneg double %251
+  %253 = fmul double %218, %252
+  %254 = call double @llvm.fmuladd.f64(double %222, double %247, double %253)
+  %255 = fdiv double %254, %233
+  %256 = fneg double %247
+  %257 = fmul double %218, %256
+  %258 = call double @llvm.fmuladd.f64(double %214, double %251, double %257)
+  %259 = fdiv double %258, %233
+  %260 = fcmp ult double %237, 0.000000e+00
+  br i1 %260, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i, label %261
 
-270:                                              ; preds = %205
-  %271 = fcmp oge double %248, 0.000000e+00
-  %272 = fadd double %244, %248
-  %273 = fcmp ole double %272, 1.000000e+00
-  %or.cond.i.i = and i1 %271, %273
+261:                                              ; preds = %203
+  %262 = fcmp oge double %241, 0.000000e+00
+  %263 = fadd double %237, %241
+  %264 = fcmp ole double %263, 1.000000e+00
+  %or.cond.i.i = and i1 %262, %264
   br i1 %or.cond.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i: ; preds = %270, %205
-  %274 = fcmp ult double %264, 0.000000e+00
-  br i1 %274, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i, label %275
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i: ; preds = %261, %203
+  %265 = fcmp ult double %255, 0.000000e+00
+  br i1 %265, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i, label %266
 
-275:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i
-  %276 = fcmp oge double %268, 0.000000e+00
-  %277 = fadd double %264, %268
-  %278 = fcmp ole double %277, 1.000000e+00
-  %or.cond69.i.i = and i1 %276, %278
+266:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i
+  %267 = fcmp oge double %259, 0.000000e+00
+  %268 = fadd double %255, %259
+  %269 = fcmp ole double %268, 1.000000e+00
+  %or.cond69.i.i = and i1 %267, %269
   br i1 %or.cond69.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i: ; preds = %275, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i
-  %279 = fcmp oeq double %248, 0.000000e+00
-  %280 = fcmp oeq double %268, 0.000000e+00
-  %or.cond.i.i.i = or i1 %280, %279
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i: ; preds = %266, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i
+  %270 = fcmp oeq double %241, 0.000000e+00
+  %271 = fcmp oeq double %259, 0.000000e+00
+  %or.cond.i.i.i = or i1 %271, %270
   br i1 %or.cond.i.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i
-  %281 = bitcast double %248 to i64
-  %282 = bitcast double %268 to i64
-  %283 = xor i64 %281, %282
-  %284 = icmp slt i64 %283, 0
-  br i1 %284, label %285, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i
+  %272 = bitcast double %241 to i64
+  %273 = bitcast double %259 to i64
+  %274 = xor i64 %272, %273
+  %275 = icmp slt i64 %274, 0
+  br i1 %275, label %276, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i
 
-285:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i
-  %286 = fsub double %248, %268
-  %287 = fdiv double %248, %286
-  %288 = fsub double %264, %244
-  %289 = call double @llvm.fmuladd.f64(double %287, double %288, double %244)
-  %290 = fcmp ult double %289, 0.000000e+00
-  %291 = fcmp ugt double %289, 1.000000e+00
-  %or.cond.not.i.i = or i1 %290, %291
+276:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i
+  %277 = fsub double %241, %259
+  %278 = fdiv double %241, %277
+  %279 = fsub double %255, %237
+  %280 = call double @llvm.fmuladd.f64(double %278, double %279, double %237)
+  %281 = fcmp ult double %280, 0.000000e+00
+  %282 = fcmp ugt double %280, 1.000000e+00
+  %or.cond.not.i.i = or i1 %281, %282
   br i1 %or.cond.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %285, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i
-  %292 = fcmp oeq double %244, 0.000000e+00
-  %293 = fcmp oeq double %264, 0.000000e+00
-  %or.cond.i57.i.i = or i1 %293, %292
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i: ; preds = %276, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i
+  %283 = fcmp oeq double %237, 0.000000e+00
+  %284 = fcmp oeq double %255, 0.000000e+00
+  %or.cond.i57.i.i = or i1 %284, %283
   br i1 %or.cond.i57.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i
-  %294 = bitcast double %244 to i64
-  %295 = bitcast double %264 to i64
-  %296 = xor i64 %294, %295
-  %297 = icmp slt i64 %296, 0
-  br i1 %297, label %298, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i
+  %285 = bitcast double %237 to i64
+  %286 = bitcast double %255 to i64
+  %287 = xor i64 %285, %286
+  %288 = icmp slt i64 %287, 0
+  br i1 %288, label %289, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i
 
-298:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i
-  %299 = fsub double %244, %264
-  %300 = fdiv double %244, %299
-  %301 = fsub double %268, %248
-  %302 = call double @llvm.fmuladd.f64(double %300, double %301, double %248)
-  %303 = fcmp ult double %302, 0.000000e+00
-  %304 = fcmp ugt double %302, 1.000000e+00
-  %or.cond5.not.i.i = or i1 %303, %304
+289:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i
+  %290 = fsub double %237, %255
+  %291 = fdiv double %237, %290
+  %292 = fsub double %259, %241
+  %293 = call double @llvm.fmuladd.f64(double %291, double %292, double %241)
+  %294 = fcmp ult double %293, 0.000000e+00
+  %295 = fcmp ugt double %293, 1.000000e+00
+  %or.cond5.not.i.i = or i1 %294, %295
   br i1 %or.cond5.not.i.i, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %298, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i
-  %305 = fadd double %244, %248
-  %306 = fadd double %305, -1.000000e+00
-  %307 = fadd double %264, %268
-  %308 = fadd double %307, -1.000000e+00
-  %309 = fcmp oeq double %306, 0.000000e+00
-  %310 = fcmp oeq double %308, 0.000000e+00
-  %or.cond.i60.i.i = or i1 %310, %309
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i: ; preds = %289, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i
+  %296 = fadd double %237, %241
+  %297 = fadd double %296, -1.000000e+00
+  %298 = fadd double %255, %259
+  %299 = fadd double %298, -1.000000e+00
+  %300 = fcmp oeq double %297, 0.000000e+00
+  %301 = fcmp oeq double %299, 0.000000e+00
+  %or.cond.i60.i.i = or i1 %301, %300
   br i1 %or.cond.i60.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i
-  %311 = bitcast double %306 to i64
-  %312 = bitcast double %308 to i64
-  %313 = xor i64 %311, %312
-  %314 = icmp slt i64 %313, 0
-  br i1 %314, label %315, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
+  %302 = bitcast double %297 to i64
+  %303 = bitcast double %299 to i64
+  %304 = xor i64 %302, %303
+  %305 = icmp slt i64 %304, 0
+  br i1 %305, label %306, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
 
-315:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i
-  %316 = fsub double 1.000000e+00, %244
-  %317 = fsub double %316, %248
-  %318 = fsub double %264, %244
-  %319 = fadd double %268, %318
-  %320 = fsub double %319, %248
-  %321 = fdiv double %317, %320
-  %322 = fsub double %268, %248
-  %323 = call double @llvm.fmuladd.f64(double %321, double %322, double %248)
-  %324 = fcmp ult double %323, 0.000000e+00
-  %325 = fcmp ugt double %323, 1.000000e+00
-  %or.cond7.not.i.i = or i1 %324, %325
+306:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i
+  %307 = fsub double 1.000000e+00, %237
+  %308 = fsub double %307, %241
+  %309 = fsub double %255, %237
+  %310 = fadd double %259, %309
+  %311 = fsub double %310, %241
+  %312 = fdiv double %308, %311
+  %313 = fsub double %259, %241
+  %314 = call double @llvm.fmuladd.f64(double %312, double %313, double %241)
+  %315 = fcmp ult double %314, 0.000000e+00
+  %316 = fcmp ugt double %314, 1.000000e+00
+  %or.cond7.not.i.i = or i1 %315, %316
   br i1 %or.cond7.not.i.i, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread
 
 _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit: ; preds = %121
-  %326 = load double, ptr %17, align 8, !tbaa !20
-  %327 = fcmp ogt double %326, 0.000000e+00
-  %328 = fadd double %8, 1.000000e+00
-  %329 = fcmp olt double %326, %328
-  %330 = and i1 %327, %329
-  br i1 %330, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
+  %317 = load double, ptr %17, align 8, !tbaa !20
+  %318 = fcmp ogt double %317, 0.000000e+00
+  %319 = fadd double %8, 1.000000e+00
+  %320 = fcmp olt double %317, %319
+  %321 = and i1 %318, %320
+  br i1 %321, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i, %315, %127, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i, %306, %127, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %331 = sext i32 %2 to i64
-  %332 = load ptr, ptr %1, align 8, !tbaa !4
-  %333 = getelementptr i32, ptr %332, i64 %331
-  %334 = load i32, ptr %333, align 4, !tbaa !11
-  %335 = sext i32 %334 to i64
-  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !116
-  %337 = getelementptr inbounds double, ptr %336, i64 %335
-  %338 = load i64, ptr %32, align 8, !tbaa !19
-  %339 = load double, ptr %337, align 8, !tbaa !20
-  store double %339, ptr %21, align 16, !tbaa !20
-  %340 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %341 = getelementptr inbounds double, ptr %337, i64 %338
-  %342 = load double, ptr %341, align 8, !tbaa !20
-  store double %342, ptr %340, align 8, !tbaa !20
-  %343 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i51 = shl nsw i64 %338, 4
-  %344 = getelementptr inbounds i8, ptr %337, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %345 = load double, ptr %344, align 8, !tbaa !20
-  store double %345, ptr %343, align 16, !tbaa !20
-  %346 = load i64, ptr %26, align 8, !tbaa !22
-  %347 = getelementptr i32, ptr %333, i64 %346
-  %348 = load i32, ptr %347, align 4, !tbaa !11
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds double, ptr %336, i64 %349
-  %351 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %352 = load double, ptr %350, align 8, !tbaa !20
-  store double %352, ptr %351, align 8, !tbaa !20
-  %353 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %354 = getelementptr inbounds double, ptr %350, i64 %338
-  %355 = load double, ptr %354, align 8, !tbaa !20
-  store double %355, ptr %353, align 16, !tbaa !20
-  %356 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %357 = getelementptr inbounds i8, ptr %350, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %322 = sext i32 %2 to i64
+  %323 = load ptr, ptr %1, align 8, !tbaa !4
+  %324 = getelementptr i32, ptr %323, i64 %322
+  %325 = load i32, ptr %324, align 4, !tbaa !11
+  %326 = sext i32 %325 to i64
+  %327 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !116
+  %328 = getelementptr inbounds double, ptr %327, i64 %326
+  %329 = load i64, ptr %32, align 8, !tbaa !19
+  %330 = load double, ptr %328, align 8, !tbaa !20
+  store double %330, ptr %21, align 16, !tbaa !20
+  %331 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %332 = getelementptr inbounds double, ptr %328, i64 %329
+  %333 = load double, ptr %332, align 8, !tbaa !20
+  store double %333, ptr %331, align 8, !tbaa !20
+  %334 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i51 = shl nsw i64 %329, 4
+  %335 = getelementptr inbounds i8, ptr %328, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %336 = load double, ptr %335, align 8, !tbaa !20
+  store double %336, ptr %334, align 16, !tbaa !20
+  %337 = load i64, ptr %26, align 8, !tbaa !22
+  %338 = getelementptr i32, ptr %324, i64 %337
+  %339 = load i32, ptr %338, align 4, !tbaa !11
+  %340 = sext i32 %339 to i64
+  %341 = getelementptr inbounds double, ptr %327, i64 %340
+  %342 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %343 = load double, ptr %341, align 8, !tbaa !20
+  store double %343, ptr %342, align 8, !tbaa !20
+  %344 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %345 = getelementptr inbounds double, ptr %341, i64 %329
+  %346 = load double, ptr %345, align 8, !tbaa !20
+  store double %346, ptr %344, align 16, !tbaa !20
+  %347 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %348 = getelementptr inbounds i8, ptr %341, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %349 = load double, ptr %348, align 8, !tbaa !20
+  store double %349, ptr %347, align 8, !tbaa !20
+  %.idx215 = shl i64 %337, 3
+  %350 = getelementptr i8, ptr %324, i64 %.idx215
+  %351 = load i32, ptr %350, align 4, !tbaa !11
+  %352 = sext i32 %351 to i64
+  %353 = getelementptr inbounds double, ptr %327, i64 %352
+  %354 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %355 = load double, ptr %353, align 8, !tbaa !20
+  store double %355, ptr %354, align 16, !tbaa !20
+  %356 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %357 = getelementptr inbounds double, ptr %353, i64 %329
   %358 = load double, ptr %357, align 8, !tbaa !20
   store double %358, ptr %356, align 8, !tbaa !20
-  %.idx215 = shl i64 %346, 3
-  %359 = getelementptr i8, ptr %333, i64 %.idx215
-  %360 = load i32, ptr %359, align 4, !tbaa !11
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds double, ptr %336, i64 %361
-  %363 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %364 = load double, ptr %362, align 8, !tbaa !20
-  store double %364, ptr %363, align 16, !tbaa !20
-  %365 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %366 = getelementptr inbounds double, ptr %362, i64 %338
-  %367 = load double, ptr %366, align 8, !tbaa !20
-  store double %367, ptr %365, align 8, !tbaa !20
-  %368 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %369 = getelementptr inbounds i8, ptr %362, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %370 = load double, ptr %369, align 8, !tbaa !20
-  store double %370, ptr %368, align 16, !tbaa !20
-  %371 = sext i32 %4 to i64
-  %372 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %371
-  %373 = load ptr, ptr %5, align 8, !tbaa !99
-  %374 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %375 = load ptr, ptr %374, align 8, !tbaa !101
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  %377 = load i64, ptr %376, align 8, !tbaa !19
-  %378 = load double, ptr %373, align 8, !tbaa !20
-  store double %378, ptr %372, align 8, !tbaa !20
-  %379 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  %380 = getelementptr inbounds double, ptr %373, i64 %377
-  %381 = load double, ptr %380, align 8, !tbaa !20
-  store double %381, ptr %379, align 8, !tbaa !20
-  %382 = getelementptr inbounds nuw i8, ptr %372, i64 16
-  %.idx.i.i.i.i.i.i.i.i.i.i.i54 = shl nsw i64 %377, 4
-  %383 = getelementptr inbounds i8, ptr %373, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i54
-  %384 = load double, ptr %383, align 8, !tbaa !20
-  store double %384, ptr %382, align 8, !tbaa !20
+  %359 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %360 = getelementptr inbounds i8, ptr %353, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %361 = load double, ptr %360, align 8, !tbaa !20
+  store double %361, ptr %359, align 16, !tbaa !20
+  %362 = sext i32 %4 to i64
+  %363 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %362
+  %364 = load ptr, ptr %5, align 8, !tbaa !99
+  %365 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %366 = load ptr, ptr %365, align 8, !tbaa !101
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
+  %368 = load i64, ptr %367, align 8, !tbaa !19
+  %369 = load double, ptr %364, align 8, !tbaa !20
+  store double %369, ptr %363, align 8, !tbaa !20
+  %370 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %371 = getelementptr inbounds double, ptr %364, i64 %368
+  %372 = load double, ptr %371, align 8, !tbaa !20
+  store double %372, ptr %370, align 8, !tbaa !20
+  %373 = getelementptr inbounds nuw i8, ptr %363, i64 16
+  %.idx.i.i.i.i.i.i.i.i.i.i.i54 = shl nsw i64 %368, 4
+  %374 = getelementptr inbounds i8, ptr %364, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i54
+  %375 = load double, ptr %374, align 8, !tbaa !20
+  store double %375, ptr %373, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %385 = add nsw i32 %7, 1
-  %386 = srem i32 %385, 3
-  %387 = sext i32 %386 to i64
-  %388 = mul nsw i64 %346, %387
-  %389 = getelementptr i32, ptr %332, i64 %24
-  %390 = getelementptr i32, ptr %389, i64 %388
-  %391 = load i32, ptr %390, align 4, !tbaa !11
-  %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds double, ptr %336, i64 %392
-  %394 = load double, ptr %393, align 8, !tbaa !20
-  store double %394, ptr %22, align 16, !tbaa !20
-  %395 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %396 = getelementptr inbounds double, ptr %393, i64 %338
-  %397 = load double, ptr %396, align 8, !tbaa !20
-  store double %397, ptr %395, align 8, !tbaa !20
-  %398 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %399 = getelementptr inbounds i8, ptr %393, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %376 = add nsw i32 %7, 1
+  %377 = srem i32 %376, 3
+  %378 = sext i32 %377 to i64
+  %379 = mul nsw i64 %337, %378
+  %380 = getelementptr i32, ptr %323, i64 %24
+  %381 = getelementptr i32, ptr %380, i64 %379
+  %382 = load i32, ptr %381, align 4, !tbaa !11
+  %383 = sext i32 %382 to i64
+  %384 = getelementptr inbounds double, ptr %327, i64 %383
+  %385 = load double, ptr %384, align 8, !tbaa !20
+  store double %385, ptr %22, align 16, !tbaa !20
+  %386 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %387 = getelementptr inbounds double, ptr %384, i64 %329
+  %388 = load double, ptr %387, align 8, !tbaa !20
+  store double %388, ptr %386, align 8, !tbaa !20
+  %389 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %390 = getelementptr inbounds i8, ptr %384, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %391 = load double, ptr %390, align 8, !tbaa !20
+  store double %391, ptr %389, align 16, !tbaa !20
+  %392 = add nsw i32 %7, 2
+  %393 = srem i32 %392, 3
+  %394 = sext i32 %393 to i64
+  %395 = mul nsw i64 %337, %394
+  %396 = getelementptr i32, ptr %380, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !11
+  %398 = sext i32 %397 to i64
+  %399 = getelementptr inbounds double, ptr %327, i64 %398
   %400 = load double, ptr %399, align 8, !tbaa !20
-  store double %400, ptr %398, align 16, !tbaa !20
-  %401 = add nsw i32 %7, 2
-  %402 = srem i32 %401, 3
-  %403 = sext i32 %402 to i64
-  %404 = mul nsw i64 %346, %403
-  %405 = getelementptr i32, ptr %389, i64 %404
-  %406 = load i32, ptr %405, align 4, !tbaa !11
-  %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds double, ptr %336, i64 %407
-  %409 = load double, ptr %408, align 8, !tbaa !20
-  %.sroa.0205.0.vec.insert = insertelement <2 x double> poison, double %409, i64 0
-  %410 = getelementptr inbounds double, ptr %408, i64 %338
-  %411 = load double, ptr %410, align 8, !tbaa !20
-  %.sroa.0205.8.vec.insert = insertelement <2 x double> %.sroa.0205.0.vec.insert, double %411, i64 1
-  %412 = getelementptr inbounds i8, ptr %408, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
-  %413 = load double, ptr %412, align 8, !tbaa !20
+  %.sroa.0205.0.vec.insert = insertelement <2 x double> poison, double %400, i64 0
+  %401 = getelementptr inbounds double, ptr %399, i64 %329
+  %402 = load double, ptr %401, align 8, !tbaa !20
+  %.sroa.0205.8.vec.insert = insertelement <2 x double> %.sroa.0205.0.vec.insert, double %402, i64 1
+  %403 = getelementptr inbounds i8, ptr %399, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i51
+  %404 = load double, ptr %403, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %414 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %415 = fsub <2 x double> %.sroa.0205.8.vec.insert, %414
-  store <2 x double> %415, ptr %23, align 16, !tbaa !30
-  %416 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %417 = fsub double %413, %400
-  store double %417, ptr %416, align 16, !tbaa !20
-  %418 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %351, ptr noundef nonnull align 1 dereferenceable(1) %363, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
-  br i1 %418, label %419, label %425
+  %405 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %406 = fsub <2 x double> %.sroa.0205.8.vec.insert, %405
+  store <2 x double> %406, ptr %23, align 16, !tbaa !30
+  %407 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %408 = fsub double %404, %391
+  store double %408, ptr %407, align 16, !tbaa !20
+  %409 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EENS5_6ScalarERSP_SQ_SQ_Rb(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %342, ptr noundef nonnull align 1 dereferenceable(1) %354, double noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  br i1 %409, label %410, label %416
 
-419:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
-  %420 = load double, ptr %17, align 8, !tbaa !20
-  %421 = fcmp ogt double %420, 0.000000e+00
-  %422 = fadd double %8, 1.000000e+00
-  %423 = fcmp olt double %420, %422
-  %424 = and i1 %421, %423
+410:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
+  %411 = load double, ptr %17, align 8, !tbaa !20
+  %412 = fcmp ogt double %411, 0.000000e+00
+  %413 = fadd double %8, 1.000000e+00
+  %414 = fcmp olt double %411, %413
+  %415 = and i1 %412, %414
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-425:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
-  %426 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
-  %427 = trunc nuw i8 %426 to i1
-  br i1 %427, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i85, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
+416:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
+  %417 = load i8, ptr %20, align 1, !tbaa !31, !range !33, !noundef !34
+  %418 = trunc nuw i8 %417 to i1
+  br i1 %418, label %.lr.ph85.i.i.i.i.i.preheader.i.i.i85, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-.lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %425
+.lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !119
-  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !119
-  %430 = fsub double %428, %429
-  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !119
-  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !119
-  %433 = fsub double %431, %432
-  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !119
-  %435 = fsub double %434, %432
-  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !119
-  %437 = fsub double %436, %429
-  %438 = fneg double %437
-  %439 = fmul double %435, %438
-  %440 = call double @llvm.fmuladd.f64(double %430, double %433, double %439)
-  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !119
-  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !119
-  %443 = fsub double %441, %442
-  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !119
-  %445 = fsub double %444, %442
-  %446 = fneg double %433
-  %447 = fmul double %445, %446
-  %448 = call double @llvm.fmuladd.f64(double %435, double %443, double %447)
-  %449 = fneg double %443
-  %450 = fmul double %430, %449
-  %451 = call double @llvm.fmuladd.f64(double %445, double %437, double %450)
-  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !119
-  %452 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !119
-  %453 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !119
-  %454 = load <2 x double>, ptr %10, align 16
-  %455 = load <2 x double>, ptr %22, align 16, !tbaa !30
-  %456 = load <2 x double>, ptr %21, align 16, !tbaa !30
-  %457 = load double, ptr %398, align 16, !tbaa !20
-  %458 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %454)
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86 = extractelement <2 x double> %458, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87 = extractelement <2 x double> %458, i64 1
-  %459 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87
-  %460 = select i1 %459, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86
-  %461 = call noundef double @llvm.fabs.f64(double %451)
-  %462 = fcmp olt double %460, %461
-  %463 = select i1 %462, double %461, double %460
-  %464 = fcmp ogt double %463, 0.000000e+00
-  br i1 %464, label %465, label %474
+  %419 = load double, ptr %344, align 16, !tbaa !20, !noalias !119
+  %420 = load double, ptr %331, align 8, !tbaa !20, !noalias !119
+  %421 = fsub double %419, %420
+  %422 = load double, ptr %359, align 16, !tbaa !20, !noalias !119
+  %423 = load double, ptr %334, align 16, !tbaa !20, !noalias !119
+  %424 = fsub double %422, %423
+  %425 = load double, ptr %347, align 8, !tbaa !20, !noalias !119
+  %426 = fsub double %425, %423
+  %427 = load double, ptr %356, align 8, !tbaa !20, !noalias !119
+  %428 = fsub double %427, %420
+  %429 = fneg double %428
+  %430 = fmul double %426, %429
+  %431 = call double @llvm.fmuladd.f64(double %421, double %424, double %430)
+  %432 = load double, ptr %354, align 16, !tbaa !20, !noalias !119
+  %433 = load double, ptr %21, align 16, !tbaa !20, !noalias !119
+  %434 = fsub double %432, %433
+  %435 = load double, ptr %342, align 8, !tbaa !20, !noalias !119
+  %436 = fsub double %435, %433
+  %437 = fneg double %424
+  %438 = fmul double %436, %437
+  %439 = call double @llvm.fmuladd.f64(double %426, double %434, double %438)
+  %440 = fneg double %434
+  %441 = fmul double %421, %440
+  %442 = call double @llvm.fmuladd.f64(double %436, double %428, double %441)
+  store double %431, ptr %10, align 16, !tbaa !20, !alias.scope !119
+  %443 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %439, ptr %443, align 8, !tbaa !20, !alias.scope !119
+  %444 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %442, ptr %444, align 16, !tbaa !20, !alias.scope !119
+  %445 = load <2 x double>, ptr %10, align 16
+  %446 = load <2 x double>, ptr %22, align 16, !tbaa !30
+  %447 = load <2 x double>, ptr %21, align 16, !tbaa !30
+  %448 = load double, ptr %389, align 16, !tbaa !20
+  %449 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %445)
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86 = extractelement <2 x double> %449, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87 = extractelement <2 x double> %449, i64 1
+  %450 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87
+  %451 = select i1 %450, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i.i87, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i86
+  %452 = call noundef double @llvm.fabs.f64(double %442)
+  %453 = fcmp olt double %451, %452
+  %454 = select i1 %453, double %452, double %451
+  %455 = fcmp ogt double %454, 0.000000e+00
+  br i1 %455, label %456, label %465
+
+456:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
+  %457 = fdiv double 0.000000e+00, %454
+  %458 = fmul double %457, %457
+  %459 = fmul double %458, 0.000000e+00
+  %460 = fdiv double 1.000000e+00, %454
+  %461 = fcmp ogt double %460, 0x7FEFFFFFFFFFFFFF
+  br i1 %461, label %468, label %462
+
+462:                                              ; preds = %456
+  %463 = fcmp ogt double %454, 0x7FEFFFFFFFFFFFFF
+  br i1 %463, label %468, label %464
+
+464:                                              ; preds = %462
+  br label %468
 
 465:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
-  %466 = fdiv double 0.000000e+00, %463
-  %467 = fmul double %466, %466
-  %468 = fmul double %467, 0.000000e+00
-  %469 = fdiv double 1.000000e+00, %463
-  %470 = fcmp ogt double %469, 0x7FEFFFFFFFFFFFFF
-  br i1 %470, label %477, label %471
+  %466 = fcmp uno double %454, 0.000000e+00
+  br i1 %466, label %467, label %468
 
-471:                                              ; preds = %465
-  %472 = fcmp ogt double %463, 0x7FEFFFFFFFFFFFFF
-  br i1 %472, label %477, label %473
+467:                                              ; preds = %465
+  br label %468
 
-473:                                              ; preds = %471
-  br label %477
+468:                                              ; preds = %467, %465, %464, %462, %456
+  %.158.i.i.i73 = phi double [ %454, %464 ], [ %454, %467 ], [ 0.000000e+00, %465 ], [ 0x4000000000000, %456 ], [ %454, %462 ]
+  %.155.i.i.i74 = phi double [ %460, %464 ], [ 1.000000e+00, %467 ], [ 1.000000e+00, %465 ], [ 0x7FEFFFFFFFFFFFFF, %456 ], [ 1.000000e+00, %462 ]
+  %.1.i.i.i75 = phi double [ %459, %464 ], [ 0.000000e+00, %467 ], [ 0.000000e+00, %465 ], [ %459, %456 ], [ %459, %462 ]
+  %469 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
+  br i1 %469, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
 
-474:                                              ; preds = %.lr.ph85.i.i.i.i.i.preheader.i.i.i85
-  %475 = fcmp uno double %463, 0.000000e+00
-  br i1 %475, label %476, label %477
-
-476:                                              ; preds = %474
-  br label %477
-
-477:                                              ; preds = %476, %474, %473, %471, %465
-  %.158.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
-  %.155.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
-  %.1.i.i.i75 = phi double [ %468, %473 ], [ 0.000000e+00, %476 ], [ 0.000000e+00, %474 ], [ %468, %465 ], [ %468, %471 ]
-  %478 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
-  br i1 %478, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
-
-.lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %477
+.lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %468
   %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.155.i.i.i74, i64 0
-  %479 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
-  %480 = fmul <2 x double> %454, %479
-  %481 = fmul <2 x double> %480, %480
-  %shift228 = shufflevector <2 x double> %481, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %482 = fadd <2 x double> %481, %shift228
-  %483 = extractelement <2 x double> %482, i64 0
+  %470 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
+  %471 = fmul <2 x double> %445, %470
+  %472 = fmul <2 x double> %471, %471
+  %shift245 = shufflevector <2 x double> %472, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop246 = fadd <2 x double> %472, %shift245
+  %473 = extractelement <2 x double> %foldExtExtBinop246, i64 0
   br label %.lr.ph85.i.i.i.i32.i.i.i.i80
 
 .lr.ph85.i.i.i.i32.i.i.i.i80:                     ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, %.lr.ph85.i.i.i.i32.i.i.i.i80
-  %.05283.i.i.i.i33.i.i.i.i81 = phi i64 [ %489, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
-  %.182.i.i.i.i34.i.i.i.i82 = phi double [ %488, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %483, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
-  %484 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
-  %485 = load double, ptr %484, align 8, !tbaa !20
-  %486 = fmul double %.155.i.i.i74, %485
-  %487 = fmul double %486, %486
-  %488 = fadd double %.182.i.i.i.i34.i.i.i.i82, %487
-  %489 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
-  %exitcond.not.i.i.i.i35.i.i.i.i83 = icmp eq i64 %489, 3
+  %.05283.i.i.i.i33.i.i.i.i81 = phi i64 [ %479, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ 2, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
+  %.182.i.i.i.i34.i.i.i.i82 = phi double [ %478, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %473, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
+  %474 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
+  %475 = load double, ptr %474, align 8, !tbaa !20
+  %476 = fmul double %.155.i.i.i74, %475
+  %477 = fmul double %476, %476
+  %478 = fadd double %.182.i.i.i.i34.i.i.i.i82, %477
+  %479 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
+  %exitcond.not.i.i.i.i35.i.i.i.i83 = icmp eq i64 %479, 3
   br i1 %exitcond.not.i.i.i.i35.i.i.i.i83, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78, label %.lr.ph85.i.i.i.i32.i.i.i.i80, !llvm.loop !38
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78: ; preds = %.lr.ph85.i.i.i.i32.i.i.i.i80
-  %490 = fadd double %.1.i.i.i75, %488
+  %480 = fadd double %.1.i.i.i75, %478
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88: ; preds = %477, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78
-  %.2.i.i.i76 = phi double [ %490, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78 ], [ %.1.i.i.i75, %477 ]
-  %491 = fsub <2 x double> %455, %456
-  %492 = fmul <2 x double> %454, %491
-  %shift229 = shufflevector <2 x double> %492, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %493 = fadd <2 x double> %492, %shift229
-  %494 = extractelement <2 x double> %493, i64 0
-  %495 = fsub double %457, %432
-  %496 = fmul double %451, %495
-  %497 = fadd double %496, %494
-  %498 = call noundef double @llvm.fabs.f64(double %497)
-  %499 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
-  %500 = fmul double %.158.i.i.i73, %499
-  %501 = fmul double %8, %500
-  %502 = fcmp olt double %498, %501
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88: ; preds = %468, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78
+  %.2.i.i.i76 = phi double [ %480, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_3RefIKNS_6MatrixIdLin1ELi1ELi0ELi4096ELi1EEELi0ENS_11InnerStrideILi1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES8_EEEEE11squaredNormEv.exit.i.i.i.i78 ], [ %.1.i.i.i75, %468 ]
+  %481 = fsub <2 x double> %446, %447
+  %482 = fmul <2 x double> %445, %481
+  %shift248 = shufflevector <2 x double> %482, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop249 = fadd <2 x double> %482, %shift248
+  %483 = extractelement <2 x double> %foldExtExtBinop249, i64 0
+  %484 = fsub double %448, %423
+  %485 = fmul double %442, %484
+  %486 = fadd double %485, %483
+  %487 = call noundef double @llvm.fabs.f64(double %486)
+  %488 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
+  %489 = fmul double %.158.i.i.i73, %488
+  %490 = fmul double %8, %489
+  %491 = fcmp olt double %487, %490
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %502, label %503, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
+  br i1 %491, label %492, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-503:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
-  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !122
-  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !122
-  %506 = fsub <2 x double> %504, %505
-  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !125
-  %508 = fsub <2 x double> %507, %505
-  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !128
-  %510 = fsub <2 x double> %509, %505
-  %511 = fmul <2 x double> %506, %506
-  %shift230 = shufflevector <2 x double> %511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %512 = fadd <2 x double> %511, %shift230
-  %513 = extractelement <2 x double> %512, i64 0
-  %514 = fmul double %435, %435
+492:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
+  %493 = load <2 x double>, ptr %342, align 8, !tbaa !30, !noalias !122
+  %494 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !122
+  %495 = fsub <2 x double> %493, %494
+  %496 = load <2 x double>, ptr %354, align 16, !tbaa !30, !noalias !125
+  %497 = fsub <2 x double> %496, %494
+  %498 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !128
+  %499 = fsub <2 x double> %498, %494
+  %500 = fmul <2 x double> %495, %495
+  %shift251 = shufflevector <2 x double> %500, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop252 = fadd <2 x double> %500, %shift251
+  %501 = extractelement <2 x double> %foldExtExtBinop252, i64 0
+  %502 = fmul double %426, %426
+  %503 = fadd double %502, %501
+  %504 = fmul <2 x double> %495, %497
+  %shift254 = shufflevector <2 x double> %504, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop255 = fadd <2 x double> %504, %shift254
+  %505 = extractelement <2 x double> %foldExtExtBinop255, i64 0
+  %506 = fmul double %424, %426
+  %507 = fadd double %506, %505
+  %508 = fmul <2 x double> %497, %497
+  %shift257 = shufflevector <2 x double> %508, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop258 = fadd <2 x double> %508, %shift257
+  %509 = extractelement <2 x double> %foldExtExtBinop258, i64 0
+  %510 = fmul double %424, %424
+  %511 = fadd double %510, %509
+  %512 = fmul <2 x double> %495, %499
+  %shift260 = shufflevector <2 x double> %512, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop261 = fadd <2 x double> %512, %shift260
+  %513 = extractelement <2 x double> %foldExtExtBinop261, i64 0
+  %514 = fmul double %426, %484
   %515 = fadd double %514, %513
-  %516 = fmul <2 x double> %506, %508
-  %shift231 = shufflevector <2 x double> %516, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %517 = fadd <2 x double> %516, %shift231
-  %518 = extractelement <2 x double> %517, i64 0
-  %519 = fmul double %433, %435
-  %520 = fadd double %519, %518
-  %521 = fmul <2 x double> %508, %508
-  %shift232 = shufflevector <2 x double> %521, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %522 = fadd <2 x double> %521, %shift232
-  %523 = extractelement <2 x double> %522, i64 0
-  %524 = fmul double %433, %433
-  %525 = fadd double %524, %523
-  %526 = fmul <2 x double> %506, %510
-  %shift233 = shufflevector <2 x double> %526, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %527 = fadd <2 x double> %526, %shift233
-  %528 = extractelement <2 x double> %527, i64 0
-  %529 = fmul double %435, %495
-  %530 = fadd double %529, %528
-  %531 = fmul <2 x double> %508, %510
-  %shift234 = shufflevector <2 x double> %531, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %532 = fadd <2 x double> %531, %shift234
-  %533 = extractelement <2 x double> %532, i64 0
-  %534 = fmul double %433, %495
-  %535 = fadd double %534, %533
-  %536 = fneg double %520
-  %537 = fmul double %520, %536
-  %538 = call double @llvm.fmuladd.f64(double %515, double %525, double %537)
-  %539 = fneg double %535
-  %540 = fmul double %520, %539
-  %541 = call double @llvm.fmuladd.f64(double %525, double %530, double %540)
-  %542 = fdiv double %541, %538
-  %543 = fneg double %530
-  %544 = fmul double %520, %543
-  %545 = call double @llvm.fmuladd.f64(double %515, double %535, double %544)
-  %546 = fdiv double %545, %538
-  %547 = fsub <2 x double> %.sroa.0205.8.vec.insert, %505
-  %548 = fsub double %413, %432
-  %549 = fmul <2 x double> %506, %547
-  %shift235 = shufflevector <2 x double> %549, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %550 = fadd <2 x double> %549, %shift235
-  %551 = extractelement <2 x double> %550, i64 0
-  %552 = fmul double %548, %435
-  %553 = fadd double %552, %551
-  %554 = fmul <2 x double> %547, %508
-  %shift236 = shufflevector <2 x double> %554, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %555 = fadd <2 x double> %554, %shift236
-  %556 = extractelement <2 x double> %555, i64 0
-  %557 = fmul double %433, %548
-  %558 = fadd double %557, %556
-  %559 = fneg double %558
-  %560 = fmul double %520, %559
-  %561 = call double @llvm.fmuladd.f64(double %525, double %553, double %560)
-  %562 = fdiv double %561, %538
-  %563 = fneg double %553
-  %564 = fmul double %520, %563
-  %565 = call double @llvm.fmuladd.f64(double %515, double %558, double %564)
-  %566 = fdiv double %565, %538
-  %567 = fcmp ult double %542, 0.000000e+00
-  br i1 %567, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90, label %568
+  %516 = fmul <2 x double> %497, %499
+  %shift263 = shufflevector <2 x double> %516, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop264 = fadd <2 x double> %516, %shift263
+  %517 = extractelement <2 x double> %foldExtExtBinop264, i64 0
+  %518 = fmul double %424, %484
+  %519 = fadd double %518, %517
+  %520 = fneg double %507
+  %521 = fmul double %507, %520
+  %522 = call double @llvm.fmuladd.f64(double %503, double %511, double %521)
+  %523 = fneg double %519
+  %524 = fmul double %507, %523
+  %525 = call double @llvm.fmuladd.f64(double %511, double %515, double %524)
+  %526 = fdiv double %525, %522
+  %527 = fneg double %515
+  %528 = fmul double %507, %527
+  %529 = call double @llvm.fmuladd.f64(double %503, double %519, double %528)
+  %530 = fdiv double %529, %522
+  %531 = fsub <2 x double> %.sroa.0205.8.vec.insert, %494
+  %532 = fsub double %404, %423
+  %533 = fmul <2 x double> %495, %531
+  %shift266 = shufflevector <2 x double> %533, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop267 = fadd <2 x double> %533, %shift266
+  %534 = extractelement <2 x double> %foldExtExtBinop267, i64 0
+  %535 = fmul double %532, %426
+  %536 = fadd double %535, %534
+  %537 = fmul <2 x double> %531, %497
+  %shift269 = shufflevector <2 x double> %537, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop270 = fadd <2 x double> %537, %shift269
+  %538 = extractelement <2 x double> %foldExtExtBinop270, i64 0
+  %539 = fmul double %424, %532
+  %540 = fadd double %539, %538
+  %541 = fneg double %540
+  %542 = fmul double %507, %541
+  %543 = call double @llvm.fmuladd.f64(double %511, double %536, double %542)
+  %544 = fdiv double %543, %522
+  %545 = fneg double %536
+  %546 = fmul double %507, %545
+  %547 = call double @llvm.fmuladd.f64(double %503, double %540, double %546)
+  %548 = fdiv double %547, %522
+  %549 = fcmp ult double %526, 0.000000e+00
+  br i1 %549, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90, label %550
 
-568:                                              ; preds = %503
-  %569 = fcmp oge double %546, 0.000000e+00
-  %570 = fadd double %542, %546
-  %571 = fcmp ole double %570, 1.000000e+00
-  %or.cond.i.i89 = and i1 %569, %571
+550:                                              ; preds = %492
+  %551 = fcmp oge double %530, 0.000000e+00
+  %552 = fadd double %526, %530
+  %553 = fcmp ole double %552, 1.000000e+00
+  %or.cond.i.i89 = and i1 %551, %553
   br i1 %or.cond.i.i89, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90: ; preds = %568, %503
-  %572 = fcmp ult double %562, 0.000000e+00
-  br i1 %572, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94, label %573
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90: ; preds = %550, %492
+  %554 = fcmp ult double %544, 0.000000e+00
+  br i1 %554, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94, label %555
 
-573:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90
-  %574 = fcmp oge double %566, 0.000000e+00
-  %575 = fadd double %562, %566
-  %576 = fcmp ole double %575, 1.000000e+00
-  %or.cond69.i.i93 = and i1 %574, %576
+555:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90
+  %556 = fcmp oge double %548, 0.000000e+00
+  %557 = fadd double %544, %548
+  %558 = fcmp ole double %557, 1.000000e+00
+  %or.cond69.i.i93 = and i1 %556, %558
   br i1 %or.cond69.i.i93, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94: ; preds = %573, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90
-  %577 = fcmp oeq double %546, 0.000000e+00
-  %578 = fcmp oeq double %566, 0.000000e+00
-  %or.cond.i.i.i95 = or i1 %578, %577
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94: ; preds = %555, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit.thread.i.i90
+  %559 = fcmp oeq double %530, 0.000000e+00
+  %560 = fcmp oeq double %548, 0.000000e+00
+  %or.cond.i.i.i95 = or i1 %560, %559
   br i1 %or.cond.i.i.i95, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94
-  %579 = bitcast double %546 to i64
-  %580 = bitcast double %566 to i64
-  %581 = xor i64 %579, %580
-  %582 = icmp slt i64 %581, 0
-  br i1 %582, label %583, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97
+  %561 = bitcast double %530 to i64
+  %562 = bitcast double %548 to i64
+  %563 = xor i64 %561, %562
+  %564 = icmp slt i64 %563, 0
+  br i1 %564, label %565, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97
 
-583:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96
-  %584 = fsub double %546, %566
-  %585 = fdiv double %546, %584
-  %586 = fsub double %562, %542
-  %587 = call double @llvm.fmuladd.f64(double %585, double %586, double %542)
-  %588 = fcmp ult double %587, 0.000000e+00
-  %589 = fcmp ugt double %587, 1.000000e+00
-  %or.cond.not.i.i107 = or i1 %588, %589
+565:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96
+  %566 = fsub double %530, %548
+  %567 = fdiv double %530, %566
+  %568 = fsub double %544, %526
+  %569 = call double @llvm.fmuladd.f64(double %567, double %568, double %526)
+  %570 = fcmp ult double %569, 0.000000e+00
+  %571 = fcmp ugt double %569, 1.000000e+00
+  %or.cond.not.i.i107 = or i1 %570, %571
   br i1 %or.cond.not.i.i107, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97: ; preds = %583, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94
-  %590 = fcmp oeq double %542, 0.000000e+00
-  %591 = fcmp oeq double %562, 0.000000e+00
-  %or.cond.i57.i.i98 = or i1 %591, %590
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97: ; preds = %565, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.i.i96, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlSN_E_clESN_.exit56.thread.i.i94
+  %572 = fcmp oeq double %526, 0.000000e+00
+  %573 = fcmp oeq double %544, 0.000000e+00
+  %or.cond.i57.i.i98 = or i1 %573, %572
   br i1 %or.cond.i57.i.i98, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97
-  %592 = bitcast double %542 to i64
-  %593 = bitcast double %562 to i64
-  %594 = xor i64 %592, %593
-  %595 = icmp slt i64 %594, 0
-  br i1 %595, label %596, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100
+  %574 = bitcast double %526 to i64
+  %575 = bitcast double %544 to i64
+  %576 = xor i64 %574, %575
+  %577 = icmp slt i64 %576, 0
+  br i1 %577, label %578, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100
 
-596:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99
-  %597 = fsub double %542, %562
-  %598 = fdiv double %542, %597
-  %599 = fsub double %566, %546
-  %600 = call double @llvm.fmuladd.f64(double %598, double %599, double %546)
-  %601 = fcmp ult double %600, 0.000000e+00
-  %602 = fcmp ugt double %600, 1.000000e+00
-  %or.cond5.not.i.i106 = or i1 %601, %602
+578:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99
+  %579 = fsub double %526, %544
+  %580 = fdiv double %526, %579
+  %581 = fsub double %548, %530
+  %582 = call double @llvm.fmuladd.f64(double %580, double %581, double %530)
+  %583 = fcmp ult double %582, 0.000000e+00
+  %584 = fcmp ugt double %582, 1.000000e+00
+  %or.cond5.not.i.i106 = or i1 %583, %584
   br i1 %or.cond5.not.i.i106, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100: ; preds = %596, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97
-  %603 = fadd double %542, %546
-  %604 = fadd double %603, -1.000000e+00
-  %605 = fadd double %562, %566
-  %606 = fadd double %605, -1.000000e+00
-  %607 = fcmp oeq double %604, 0.000000e+00
-  %608 = fcmp oeq double %606, 0.000000e+00
-  %or.cond.i60.i.i101 = or i1 %608, %607
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100: ; preds = %578, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.i.i99, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit.thread.i.i97
+  %585 = fadd double %526, %530
+  %586 = fadd double %585, -1.000000e+00
+  %587 = fadd double %544, %548
+  %588 = fadd double %587, -1.000000e+00
+  %589 = fcmp oeq double %586, 0.000000e+00
+  %590 = fcmp oeq double %588, 0.000000e+00
+  %or.cond.i60.i.i101 = or i1 %590, %589
   br i1 %or.cond.i60.i.i101, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102
 
 _ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100
-  %609 = bitcast double %604 to i64
-  %610 = bitcast double %606 to i64
-  %611 = xor i64 %609, %610
-  %612 = icmp slt i64 %611, 0
-  br i1 %612, label %613, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103
+  %591 = bitcast double %586 to i64
+  %592 = bitcast double %588 to i64
+  %593 = xor i64 %591, %592
+  %594 = icmp slt i64 %593, 0
+  br i1 %594, label %595, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103
 
-613:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102
-  %614 = fsub double 1.000000e+00, %542
-  %615 = fsub double %614, %546
-  %616 = fsub double %562, %542
-  %617 = fadd double %566, %616
-  %618 = fsub double %617, %546
-  %619 = fdiv double %615, %618
-  %620 = fsub double %566, %546
-  %621 = call double @llvm.fmuladd.f64(double %619, double %620, double %546)
-  %622 = fcmp ult double %621, 0.000000e+00
-  %623 = fcmp ugt double %621, 1.000000e+00
-  %or.cond7.not.i.i105 = or i1 %622, %623
+595:                                              ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102
+  %596 = fsub double 1.000000e+00, %526
+  %597 = fsub double %596, %530
+  %598 = fsub double %544, %526
+  %599 = fadd double %548, %598
+  %600 = fsub double %599, %530
+  %601 = fdiv double %597, %600
+  %602 = fsub double %548, %530
+  %603 = call double @llvm.fmuladd.f64(double %601, double %602, double %530)
+  %604 = fcmp ult double %603, 0.000000e+00
+  %605 = fcmp ugt double %603, 1.000000e+00
+  %or.cond7.not.i.i105 = or i1 %604, %605
   br i1 %or.cond7.not.i.i105, label %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103: ; preds = %613, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100
+_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103: ; preds = %595, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.i.i102, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit59.thread.i.i100
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103, %613, %596, %583, %573, %568, %425, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88, %419
-  %.2 = phi i1 [ %424, %419 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88 ], [ false, %425 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103 ], [ true, %613 ], [ true, %596 ], [ true, %583 ], [ true, %568 ], [ true, %573 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108: ; preds = %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103, %595, %578, %565, %555, %550, %416, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88, %410
+  %.2 = phi i1 [ %415, %410 ], [ false, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88 ], [ false, %416 ], [ false, %_ZZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E_clESN_SN_ENKUlddE_clEdd.exit62.thread.i.i103 ], [ true, %595 ], [ true, %578 ], [ true, %565 ], [ true, %550 ], [ true, %555 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread
 
-_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread: ; preds = %275, %270, %285, %298, %315, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit
-  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108 ], [ true, %315 ], [ true, %298 ], [ true, %285 ], [ true, %270 ], [ true, %275 ]
+_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread: ; preds = %266, %261, %276, %289, %306, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit
+  %.1 = phi i1 [ true, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit ], [ %.2, %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108 ], [ true, %306 ], [ true, %289 ], [ true, %276 ], [ true, %261 ], [ true, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

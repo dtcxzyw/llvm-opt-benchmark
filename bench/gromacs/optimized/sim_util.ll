@@ -7626,73 +7626,73 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %127
 
-._crit_edge.i:                                    ; preds = %152
+._crit_edge.i:                                    ; preds = %151
   %.not.i = icmp eq i64 %spec.select.i, 0
-  br i1 %.not.i, label %_ZN3gmxL18print_large_forcesEP8_IO_FILEPK9t_mdatomsPK9t_commreclfNS_8ArrayRefIKNS_11BasicVectorIfEEEESC_.exit, label %157
+  br i1 %.not.i, label %_ZN3gmxL18print_large_forcesEP8_IO_FILEPK9t_mdatomsPK9t_commreclfNS_8ArrayRefIKNS_11BasicVectorIfEEEESC_.exit, label %156
 
-127:                                              ; preds = %152, %.lr.ph.i
-  %128 = phi i32 [ %124, %.lr.ph.i ], [ %153, %152 ]
-  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i26, %152 ]
-  %.04.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %152 ]
+127:                                              ; preds = %151, %.lr.ph.i
+  %128 = phi i32 [ %124, %.lr.ph.i ], [ %152, %151 ]
+  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i26, %151 ]
+  %.04.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %151 ]
   %129 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %18, i64 %indvars.iv.i25
   %.sroa.04.0.copyload.i = load <2 x float>, ptr %129, align 4
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %129, i64 8
   %.sroa.25.0.copyload.i = load float, ptr %.sroa.25.0..sroa_idx.i, align 4, !tbaa !13
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.04.0.copyload.i, i64 0
-  %130 = fmul <2 x float> %.sroa.04.0.copyload.i, %.sroa.04.0.copyload.i
-  %131 = extractelement <2 x float> %130, i64 1
-  %132 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.i, float %.sroa.0.0.vec.extract.i.i, float %131)
-  %133 = call noundef float @llvm.fmuladd.f32(float %.sroa.25.0.copyload.i, float %.sroa.25.0.copyload.i, float %132)
-  %134 = call float @llvm.fabs.f32(float %133)
-  %135 = fcmp one float %134, 0x7FF0000000000000
-  %136 = fcmp ult float %133, %122
-  %or.cond.not.i = and i1 %136, %135
-  br i1 %or.cond.not.i, label %152, label %137
+  %foldExtExtBinop = fmul <2 x float> %.sroa.04.0.copyload.i, %.sroa.04.0.copyload.i
+  %130 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %131 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.i, float %.sroa.0.0.vec.extract.i.i, float %130)
+  %132 = call noundef float @llvm.fmuladd.f32(float %.sroa.25.0.copyload.i, float %.sroa.25.0.copyload.i, float %131)
+  %133 = call float @llvm.fabs.f32(float %132)
+  %134 = fcmp one float %133, 0x7FF0000000000000
+  %135 = fcmp ult float %132, %122
+  %or.cond.not.i = and i1 %135, %134
+  br i1 %or.cond.not.i, label %151, label %136
 
-137:                                              ; preds = %127
-  %138 = load ptr, ptr %126, align 8, !tbaa !179
-  %139 = trunc nuw nsw i64 %indvars.iv.i25 to i32
-  %140 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %138, i32 noundef %139)
-  %141 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %.0.val, i64 %indvars.iv.i25
-  %142 = load float, ptr %141, align 4, !tbaa !146
-  %143 = fpext float %142 to double
-  %144 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %145 = load float, ptr %144, align 4, !tbaa !146
-  %146 = fpext float %145 to double
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %148 = load float, ptr %147, align 4, !tbaa !146
-  %149 = fpext float %148 to double
-  %sqrt.i = call float @llvm.sqrt.f32(float %133)
-  %150 = fpext float %sqrt.i to double
-  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.75, i64 noundef %1, i32 noundef %140, double noundef %143, double noundef %146, double noundef %149, double noundef %150) #30
+136:                                              ; preds = %127
+  %137 = load ptr, ptr %126, align 8, !tbaa !179
+  %138 = trunc nuw nsw i64 %indvars.iv.i25 to i32
+  %139 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %137, i32 noundef %138)
+  %140 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %.0.val, i64 %indvars.iv.i25
+  %141 = load float, ptr %140, align 4, !tbaa !146
+  %142 = fpext float %141 to double
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %144 = load float, ptr %143, align 4, !tbaa !146
+  %145 = fpext float %144 to double
+  %146 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %147 = load float, ptr %146, align 4, !tbaa !146
+  %148 = fpext float %147 to double
+  %sqrt.i = call float @llvm.sqrt.f32(float %132)
+  %149 = fpext float %sqrt.i to double
+  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.75, i64 noundef %1, i32 noundef %139, double noundef %142, double noundef %145, double noundef %148, double noundef %149) #30
   %.pre.i = load i32, ptr %123, align 8, !tbaa !154
-  br label %152
+  br label %151
 
-152:                                              ; preds = %137, %127
-  %153 = phi i32 [ %128, %127 ], [ %.pre.i, %137 ]
-  %not..i = xor i1 %135, true
-  %154 = zext i1 %not..i to i64
-  %spec.select.i = add nuw nsw i64 %.04.i, %154
+151:                                              ; preds = %136, %127
+  %152 = phi i32 [ %128, %127 ], [ %.pre.i, %136 ]
+  %not..i = xor i1 %134, true
+  %153 = zext i1 %not..i to i64
+  %spec.select.i = add nuw nsw i64 %.04.i, %153
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
-  %155 = sext i32 %153 to i64
-  %156 = icmp slt i64 %indvars.iv.next.i26, %155
-  br i1 %156, label %127, label %._crit_edge.i, !llvm.loop !536
+  %154 = sext i32 %152 to i64
+  %155 = icmp slt i64 %indvars.iv.next.i26, %154
+  br i1 %155, label %127, label %._crit_edge.i, !llvm.loop !536
 
-157:                                              ; preds = %._crit_edge.i
+156:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(124) @.str.76, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 314, ptr noundef nonnull @.str.77, i64 noundef %1, i64 noundef %spec.select.i) #29
-          to label %158 unwind label %159
+          to label %157 unwind label %158
 
-158:                                              ; preds = %157
+157:                                              ; preds = %156
   unreachable
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  resume { ptr, i32 } %160
+  resume { ptr, i32 } %159
 
 _ZN3gmxL18print_large_forcesEP8_IO_FILEPK9t_mdatomsPK9t_commreclfNS_8ArrayRefIKNS_11BasicVectorIfEEEESC_.exit: ; preds = %._crit_edge.i, %120, %116
   ret void

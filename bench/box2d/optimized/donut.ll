@@ -133,15 +133,15 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %53, i64 1
   %56 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.0.vec.extract.i
   %57 = fsub float %55, %56
-  %58 = fmul <2 x float> %53, %54
-  %59 = extractelement <2 x float> %58, i64 0
-  %60 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.4.vec.extract.i
-  %61 = fadd float %59, %60
-  %62 = call noundef float @b2Atan2(float noundef %57, float noundef %61)
-  store float %62, ptr %34, align 8, !tbaa !38
-  %63 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
-  %64 = getelementptr inbounds nuw [7 x %struct.b2JointId], ptr %35, i64 0, i64 %indvars.iv60
-  store i64 %63, ptr %64, align 4
+  %foldExtExtBinop = fmul <2 x float> %53, %54
+  %58 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %59 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.4.vec.extract.i
+  %60 = fadd float %58, %59
+  %61 = call noundef float @b2Atan2(float noundef %57, float noundef %60)
+  store float %61, ptr %34, align 8, !tbaa !38
+  %62 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
+  %63 = getelementptr inbounds nuw [7 x %struct.b2JointId], ptr %35, i64 0, i64 %indvars.iv60
+  store i64 %62, ptr %63, align 4
   %.sroa.012.0.copyload14 = load i64, ptr %33, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 7

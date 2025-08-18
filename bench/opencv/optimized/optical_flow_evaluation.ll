@@ -5234,21 +5234,21 @@ define internal fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(p
   br i1 %or.cond44.us, label %54, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
 54:                                               ; preds = %49
-  %55 = fsub <2 x float> %38, %40
-  %56 = extractelement <2 x float> %55, i64 0
-  %57 = fsub float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i29.us
+  %foldExtExtBinop = fsub <2 x float> %38, %40
+  %55 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %56 = fsub float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i29.us
+  %57 = fpext float %55 to double
   %58 = fpext float %56 to double
-  %59 = fpext float %57 to double
-  %60 = fmul double %59, %59
-  %61 = tail call noundef double @llvm.fmuladd.f64(double %58, double %58, double %60)
-  %62 = fptrunc double %61 to float
-  %sqrt.us = tail call float @llvm.sqrt.f32(float %62)
+  %59 = fmul double %58, %58
+  %60 = tail call noundef double @llvm.fmuladd.f64(double %57, double %57, double %59)
+  %61 = fptrunc double %60 to float
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %61)
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
 _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %42, %47, %49, %54
   %sqrt.us.sink = phi float [ %sqrt.us, %54 ], [ 0x7FF8000000000000, %49 ], [ 0x7FF8000000000000, %47 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF8000000000000, %36 ]
-  %63 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
-  store float %sqrt.us.sink, ptr %63, align 4, !tbaa !113
+  %62 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  store float %sqrt.us.sink, ptr %62, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !115

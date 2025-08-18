@@ -123,40 +123,40 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   %43 = fsub <2 x double> %26, %42
   %44 = fmul <2 x double> %43, %43
   %shift = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %45 = fadd <2 x double> %44, %shift
-  %46 = extractelement <2 x double> %45, i64 0
-  %47 = getelementptr i8, ptr %41, i64 16
-  %48 = load double, ptr %47, align 8, !tbaa !14
-  %49 = fsub double %28, %48
-  %50 = fmul double %49, %49
-  %51 = fadd double %46, %50
-  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %51)
-  %52 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !11
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %17, i64 %54
-  %56 = load <2 x double>, ptr %55, align 1, !tbaa !13
-  %57 = fsub <2 x double> %33, %56
-  %58 = fmul <2 x double> %57, %57
-  %shift53 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = fadd <2 x double> %58, %shift53
-  %60 = extractelement <2 x double> %59, i64 0
-  %61 = getelementptr i8, ptr %55, i64 16
-  %62 = load double, ptr %61, align 8, !tbaa !14
-  %63 = fsub double %35, %62
-  %64 = fmul double %63, %63
-  %65 = fadd double %60, %64
-  %.scalar.i38 = tail call noundef double @llvm.sqrt.f64(double %65)
-  %66 = fmul double %19, %.scalar.i38
-  %67 = fcmp olt double %.scalar.i, %66
-  %68 = fmul double %.scalar.i, %19
-  %69 = fcmp olt double %.scalar.i38, %68
-  %or.cond = or i1 %69, %67
+  %foldExtExtBinop = fadd <2 x double> %44, %shift
+  %45 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %46 = getelementptr i8, ptr %41, i64 16
+  %47 = load double, ptr %46, align 8, !tbaa !14
+  %48 = fsub double %28, %47
+  %49 = fmul double %48, %48
+  %50 = fadd double %45, %49
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %50)
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !11
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %17, i64 %53
+  %55 = load <2 x double>, ptr %54, align 1, !tbaa !13
+  %56 = fsub <2 x double> %33, %55
+  %57 = fmul <2 x double> %56, %56
+  %shift54 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop55 = fadd <2 x double> %57, %shift54
+  %58 = extractelement <2 x double> %foldExtExtBinop55, i64 0
+  %59 = getelementptr i8, ptr %54, i64 16
+  %60 = load double, ptr %59, align 8, !tbaa !14
+  %61 = fsub double %35, %60
+  %62 = fmul double %61, %61
+  %63 = fadd double %58, %62
+  %.scalar.i38 = tail call noundef double @llvm.sqrt.f64(double %63)
+  %64 = fmul double %19, %.scalar.i38
+  %65 = fcmp olt double %.scalar.i, %64
+  %66 = fmul double %.scalar.i, %19
+  %67 = fcmp olt double %.scalar.i38, %66
+  %or.cond = or i1 %67, %65
   br i1 %or.cond, label %.thread, label %36
 
 .thread:                                          ; preds = %.loopexit, %.critedge, %5
-  %70 = phi i1 [ true, %5 ], [ false, %.critedge ], [ true, %.loopexit ]
-  ret i1 %70
+  %68 = phi i1 [ true, %5 ], [ false, %.critedge ], [ true, %.loopexit ]
+  ret i1 %68
 }
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
@@ -196,8 +196,8 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load double, ptr %28, align 8, !tbaa !22
-  %.sroa.0.8..sroa_idx42 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.16..sroa_idx43 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
+  %.sroa.0.8..sroa_idx57 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.16..sroa_idx58 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
@@ -208,7 +208,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   br label %34
 
 34:                                               ; preds = %34, %.lr.ph
-  %.sroa.024.028 = phi ptr [ %6, %.lr.ph ], [ %80, %34 ]
+  %.sroa.024.028 = phi ptr [ %6, %.lr.ph ], [ %79, %34 ]
   %35 = load i32, ptr %.sroa.024.028, align 4, !tbaa !11
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %10, i64 %36
@@ -218,9 +218,9 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %40 = load double, ptr %37, align 8, !tbaa !14
   store double %40, ptr %.sroa.0, align 16, !tbaa !14
   %41 = load double, ptr %38, align 8, !tbaa !14
-  store double %41, ptr %.sroa.0.8..sroa_idx42, align 8, !tbaa !14
+  store double %41, ptr %.sroa.0.8..sroa_idx57, align 8, !tbaa !14
   %42 = load double, ptr %39, align 8, !tbaa !14
-  store double %42, ptr %.sroa.0.16..sroa_idx43, align 16, !tbaa !14
+  store double %42, ptr %.sroa.0.16..sroa_idx58, align 16, !tbaa !14
   store double 1.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8, !tbaa !14
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <2 x double>, ptr %.sroa.0, align 16
   %43 = shufflevector <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., <2 x double> poison, <2 x i32> zeroinitializer
@@ -255,23 +255,23 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %69 = load <2 x double>, ptr %68, align 1, !tbaa !13
   %70 = fsub <2 x double> %69, %53
   %71 = fmul <2 x double> %70, %70
-  %shift41 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %72 = fadd <2 x double> %71, %shift41
-  %73 = extractelement <2 x double> %72, i64 0
-  %74 = getelementptr i8, ptr %68, i64 16
-  %75 = load double, ptr %74, align 8, !tbaa !14
-  %76 = fsub double %75, %64
-  %77 = fmul double %76, %76
-  %78 = fadd double %77, %73
-  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %78)
-  %79 = fcmp ule double %.scalar.i, %29
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.024.028, i64 8
-  %.not = icmp ne ptr %80, %8
-  %or.cond.not = select i1 %79, i1 %.not, i1 false
+  %shift54 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop55 = fadd <2 x double> %71, %shift54
+  %72 = extractelement <2 x double> %foldExtExtBinop55, i64 0
+  %73 = getelementptr i8, ptr %68, i64 16
+  %74 = load double, ptr %73, align 8, !tbaa !14
+  %75 = fsub double %74, %64
+  %76 = fmul double %75, %75
+  %77 = fadd double %76, %72
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %77)
+  %78 = fcmp ule double %.scalar.i, %29
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.024.028, i64 8
+  %.not = icmp ne ptr %79, %8
+  %or.cond.not = select i1 %78, i1 %.not, i1 false
   br i1 %or.cond.not, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %5
-  %.not.lcssa = phi i1 [ true, %5 ], [ %79, %34 ]
+  %.not.lcssa = phi i1 [ true, %5 ], [ %78, %34 ]
   ret i1 %.not.lcssa
 }
 
@@ -362,8 +362,8 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %58 = load <2 x double>, ptr %57, align 16, !tbaa !13
-  %.sroa.0.8..sroa_idx47 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.16..sroa_idx48 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
+  %.sroa.0.8..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.16..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
@@ -374,7 +374,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph
-  %.sroa.029.033 = phi ptr [ %41, %.lr.ph ], [ %107, %63 ]
+  %.sroa.029.033 = phi ptr [ %41, %.lr.ph ], [ %106, %63 ]
   %64 = load i32, ptr %.sroa.029.033, align 4, !tbaa !11
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %16, i64 %65
@@ -384,9 +384,9 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %69 = load double, ptr %66, align 8, !tbaa !14
   store double %69, ptr %.sroa.0, align 16, !tbaa !14
   %70 = load double, ptr %67, align 8, !tbaa !14
-  store double %70, ptr %.sroa.0.8..sroa_idx47, align 8, !tbaa !14
+  store double %70, ptr %.sroa.0.8..sroa_idx62, align 8, !tbaa !14
   %71 = load double, ptr %68, align 8, !tbaa !14
-  store double %71, ptr %.sroa.0.16..sroa_idx48, align 16, !tbaa !14
+  store double %71, ptr %.sroa.0.16..sroa_idx63, align 16, !tbaa !14
   store double 0.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8, !tbaa !14
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <2 x double>, ptr %.sroa.0, align 16
   %72 = shufflevector <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., <2 x double> poison, <2 x i32> zeroinitializer
@@ -420,21 +420,21 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %97 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %32, i64 %96
   %98 = load <2 x double>, ptr %97, align 1, !tbaa !13
   %99 = fmul <2 x double> %82, %98
-  %shift46 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %100 = fadd <2 x double> %99, %shift46
-  %101 = extractelement <2 x double> %100, i64 0
-  %102 = getelementptr i8, ptr %97, i64 16
-  %103 = load double, ptr %102, align 8, !tbaa !14
-  %104 = fmul double %93, %103
-  %105 = fadd double %104, %101
-  %106 = fcmp uge double %105, %40
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 8
-  %.not = icmp ne ptr %107, %43
-  %or.cond.not = select i1 %106, i1 %.not, i1 false
+  %shift59 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop60 = fadd <2 x double> %99, %shift59
+  %100 = extractelement <2 x double> %foldExtExtBinop60, i64 0
+  %101 = getelementptr i8, ptr %97, i64 16
+  %102 = load double, ptr %101, align 8, !tbaa !14
+  %103 = fmul double %93, %102
+  %104 = fadd double %103, %100
+  %105 = fcmp uge double %104, %40
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 8
+  %.not = icmp ne ptr %106, %43
+  %or.cond.not = select i1 %105, i1 %.not, i1 false
   br i1 %or.cond.not, label %63, label %.critedge
 
 .critedge:                                        ; preds = %63, %37, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread ], [ true, %37 ], [ %106, %63 ]
+  %.0 = phi i1 [ true, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread ], [ true, %37 ], [ %105, %63 ]
   ret i1 %.0
 }
 

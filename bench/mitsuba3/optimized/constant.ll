@@ -505,7 +505,7 @@ define weak_odr void @_ZN7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS_
   %9 = bitcast <8 x i1> %8 to i8
   %10 = and i8 %9, 7
   %11 = icmp eq i8 %10, 7
-  br i1 %11, label %12, label %27
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %2
   %13 = tail call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr noundef nonnull align 16 dereferenceable(345) %1)
@@ -517,27 +517,27 @@ define weak_odr void @_ZN7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS_
   %19 = fsub contract <4 x float> %18, %15
   %20 = fmul contract <4 x float> %19, %19
   %shift = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %21 = fadd contract <4 x float> %20, %shift
-  %shift13 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %22 = fadd contract <4 x float> %shift13, %21
-  %23 = extractelement <4 x float> %22, i64 0
-  %24 = tail call contract noundef float @llvm.sqrt.f32(float %23)
-  %25 = fmul contract float %24, 0x3FF0005DC0000000
-  %26 = fcmp contract ogt float %25, 0x3F17700000000000
-  %..i = select contract i1 %26, float %25, float 0x3F17700000000000
-  br label %27
+  %foldExtExtBinop = fadd contract <4 x float> %20, %shift
+  %shift14 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop15 = fadd contract <4 x float> %shift14, %foldExtExtBinop
+  %21 = extractelement <4 x float> %foldExtExtBinop15, i64 0
+  %22 = tail call contract noundef float @llvm.sqrt.f32(float %21)
+  %23 = fmul contract float %22, 0x3FF0005DC0000000
+  %24 = fcmp contract ogt float %23, 0x3F17700000000000
+  %..i = select contract i1 %24, float %23, float 0x3F17700000000000
+  br label %25
 
-27:                                               ; preds = %2, %12
+25:                                               ; preds = %2, %12
   %.sink12 = phi <4 x float> [ %18, %12 ], [ zeroinitializer, %2 ]
   %.sink = phi float [ %..i, %12 ], [ 1.000000e+00, %2 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store <4 x float> %.sink12, ptr %28, align 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store float %.sink, ptr %29, align 16
-  %30 = fmul contract float %.sink, %.sink
-  %31 = fmul contract float %30, 0x402921FB60000000
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store float %31, ptr %32, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store <4 x float> %.sink12, ptr %26, align 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store float %.sink, ptr %27, align 16
+  %28 = fmul contract float %.sink, %.sink
+  %29 = fmul contract float %28, 0x402921FB60000000
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store float %29, ptr %30, align 16
   ret void
 }
 
@@ -1217,19 +1217,19 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %126 = fsub contract <4 x float> %20, %21
   %127 = fmul contract <4 x float> %126, %126
   %shift = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %128 = fadd contract <4 x float> %127, %shift
-  %shift294 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %129 = fadd contract <4 x float> %shift294, %128
-  %130 = extractelement <4 x float> %129, i64 0
-  %131 = call contract noundef float @llvm.sqrt.f32(float %130)
-  %132 = fcmp contract olt float %22, %131
-  %..i = select contract i1 %132, float %131, float %22
-  %133 = fmul contract float %..i, 2.000000e+00
-  %134 = insertelement <4 x float> poison, float %133, i64 0
-  %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> zeroinitializer
-  %136 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %124, <4 x float> %135, <4 x float> %20)
+  %foldExtExtBinop = fadd contract <4 x float> %127, %shift
+  %shift295 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop296 = fadd contract <4 x float> %shift295, %foldExtExtBinop
+  %128 = extractelement <4 x float> %foldExtExtBinop296, i64 0
+  %129 = call contract noundef float @llvm.sqrt.f32(float %128)
+  %130 = fcmp contract olt float %22, %129
+  %..i = select contract i1 %130, float %129, float %22
+  %131 = fmul contract float %..i, 2.000000e+00
+  %132 = insertelement <4 x float> poison, float %131, i64 0
+  %133 = shufflevector <4 x float> %132, <4 x float> poison, <4 x i32> zeroinitializer
+  %134 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %124, <4 x float> %133, <4 x float> %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store <4 x float> %136, ptr %0, align 16
+  store <4 x float> %134, ptr %0, align 16
   %.sroa.2.0..sroa_idx263 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x float> %125, ptr %.sroa.2.0..sroa_idx263, align 16
   %.sroa.3.0..sroa_idx264 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1243,11 +1243,11 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %.sroa.8265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store <4 x float> %124, ptr %.sroa.8265.0..sroa_idx, align 16
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store float %133, ptr %.sroa.9.0..sroa_idx, align 16
+  store float %131, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %.sroa.10266.0..sroa_idx, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %137, ptr noundef nonnull align 16 dereferenceable(256) %8, i64 256, i1 false)
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %135, ptr noundef nonnull align 16 dereferenceable(256) %8, i64 256, i1 false)
   ret void
 }
 

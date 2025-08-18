@@ -5651,45 +5651,45 @@ define linkonce_odr dso_local void @_ZN14BreakableJoint4StepER8Settings(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %6
 
-5:                                                ; preds = %24
+5:                                                ; preds = %23
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   ret void
 
-6:                                                ; preds = %2, %24
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %24 ]
+6:                                                ; preds = %2, %23
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %7 = getelementptr inbounds nuw [6 x %struct.b2JointId], ptr %3, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !182
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %24, label %10
+  br i1 %9, label %23, label %10
 
 10:                                               ; preds = %6
   %.sroa.05.0.copyload = load i64, ptr %7, align 8
   %11 = tail call <2 x float> @b2Joint_GetConstraintForce(i64 %.sroa.05.0.copyload)
-  %12 = fmul <2 x float> %11, %11
-  %13 = extractelement <2 x float> %12, i64 0
+  %foldExtExtBinop = fmul <2 x float> %11, %11
+  %12 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %11, i64 1
-  %14 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %15 = fadd float %13, %14
-  %16 = load float, ptr %4, align 8, !tbaa !192
-  %17 = fmul float %16, %16
-  %18 = fcmp ogt float %15, %17
+  %13 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i
+  %14 = fadd float %12, %13
+  %15 = load float, ptr %4, align 8, !tbaa !192
+  %16 = fmul float %15, %15
+  %17 = fcmp ogt float %14, %16
   %.sroa.03.0.copyload = load i64, ptr %7, align 8
-  br i1 %18, label %19, label %20
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %10
+18:                                               ; preds = %10
   tail call void @b2DestroyJoint(i64 %.sroa.03.0.copyload)
   store i64 0, ptr %7, align 8
-  br label %24
+  br label %23
 
-20:                                               ; preds = %10
+19:                                               ; preds = %10
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %11, i64 0
-  %21 = tail call <2 x float> @b2Joint_GetLocalAnchorA(i64 %.sroa.03.0.copyload)
-  %22 = fpext float %.sroa.0.0.vec.extract.i to double
-  %23 = fpext float %.sroa.0.4.vec.extract.i to double
-  tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %21, ptr noundef nonnull @.str.76, double noundef %22, double noundef %23)
-  br label %24
+  %20 = tail call <2 x float> @b2Joint_GetLocalAnchorA(i64 %.sroa.03.0.copyload)
+  %21 = fpext float %.sroa.0.0.vec.extract.i to double
+  %22 = fpext float %.sroa.0.4.vec.extract.i to double
+  tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %20, ptr noundef nonnull @.str.76, double noundef %21, double noundef %22)
+  br label %23
 
-24:                                               ; preds = %19, %20, %6
+23:                                               ; preds = %18, %19, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %5, label %6, !llvm.loop !194
@@ -5869,7 +5869,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !tbaa !196, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %110, label %6
+  br i1 %5, label %106, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5878,7 +5878,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %10 = fdiv float 1.000000e+00, %8
   %11 = select i1 %9, float %10, float 0.000000e+00
   %12 = fcmp oeq float %11, 0.000000e+00
-  br i1 %12, label %110, label %13
+  br i1 %12, label %106, label %13
 
 13:                                               ; preds = %6
   %14 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE5hertz, align 4, !tbaa !15
@@ -5912,7 +5912,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %52
 
-38:                                               ; preds = %108
+38:                                               ; preds = %104
   %.sroa.03.0.copyload = load i64, ptr %23, align 8
   tail call void @b2Body_SetLinearVelocity(i64 %.sroa.03.0.copyload, <2 x float> %.sroa.063.1)
   %.sroa.0.0.copyload = load i64, ptr %23, align 8
@@ -5932,13 +5932,13 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %50 = load i32, ptr %39, align 8, !tbaa !89
   %51 = add nsw i32 %50, %49
   store i32 %51, ptr %39, align 8, !tbaa !89
-  br label %110
+  br label %106
 
-52:                                               ; preds = %13, %108
-  %53 = phi i1 [ true, %13 ], [ false, %108 ]
-  %indvars.iv = phi i64 [ 0, %13 ], [ 1, %108 ]
-  %.sroa.063.0121 = phi <2 x float> [ %32, %13 ], [ %.sroa.063.1, %108 ]
-  %.0120 = phi float [ %33, %13 ], [ %.1, %108 ]
+52:                                               ; preds = %13, %104
+  %53 = phi i1 [ true, %13 ], [ false, %104 ]
+  %indvars.iv = phi i64 [ 0, %13 ], [ 1, %104 ]
+  %.sroa.063.0121 = phi <2 x float> [ %32, %13 ], [ %.sroa.063.1, %104 ]
+  %.0120 = phi float [ %33, %13 ], [ %.1, %104 ]
   %.sroa.044.0.copyload = load i64, ptr %23, align 8
   %54 = getelementptr inbounds nuw [2 x %struct.b2Vec2], ptr @__const._ZN14UserConstraint4StepER8Settings.localAnchors, i64 0, i64 %indvars.iv
   %.sroa.043.0.copyload = load <2 x float>, ptr %54, align 8
@@ -5958,7 +5958,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
 
 63:                                               ; preds = %52
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 3.000000e+00, float 0.000000e+00>, <2 x float> %55, i32 noundef 14745599)
-  br label %108
+  br label %104
 
 64:                                               ; preds = %52
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 3.000000e+00, float 0.000000e+00>, <2 x float> %55, i32 noundef 15631086)
@@ -5975,62 +5975,62 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
 
 _Z11b2Normalize6b2Vec2.exit:                      ; preds = %64, %66
   %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %66 ], [ zeroinitializer, %64 ]
-  %70 = fsub <2 x float> %55, %34
-  %71 = extractelement <2 x float> %70, i64 0
-  %72 = fsub <2 x float> %55, %34
+  %foldExtExtBinop = fsub <2 x float> %55, %34
+  %70 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop125 = fsub <2 x float> %55, %34
   %.sroa.0.4.vec.extract.i110 = extractelement <2 x float> %.sroa.012.0.i, i64 1
-  %73 = fmul float %71, %.sroa.0.4.vec.extract.i110
+  %71 = fmul float %70, %.sroa.0.4.vec.extract.i110
   %.sroa.0.0.vec.extract.i112 = extractelement <2 x float> %.sroa.012.0.i, i64 0
-  %shift = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %74 = fmul <2 x float> %shift, %.sroa.012.0.i
-  %75 = extractelement <2 x float> %74, i64 0
-  %76 = fsub float %73, %75
-  %77 = fmul float %31, %76
-  %78 = fmul float %76, %77
-  %79 = fadd float %27, %78
-  %80 = fcmp olt float %79, 0x3F1A36E2E0000000
-  %81 = fdiv float 1.000000e+00, %79
-  %82 = select i1 %80, float 0.000000e+00, float %81
+  %shift = shufflevector <2 x float> %foldExtExtBinop125, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop127 = fmul <2 x float> %shift, %.sroa.012.0.i
+  %72 = extractelement <2 x float> %foldExtExtBinop127, i64 0
+  %73 = fsub float %71, %72
+  %74 = fmul float %31, %73
+  %75 = fmul float %73, %74
+  %76 = fadd float %27, %75
+  %77 = fcmp olt float %76, 0x3F1A36E2E0000000
+  %78 = fdiv float 1.000000e+00, %76
+  %79 = select i1 %77, float 0.000000e+00, float %78
   %.sroa.01.0.vec.extract.i113 = extractelement <2 x float> %.sroa.063.0121, i64 0
-  %83 = fmul <2 x float> %.sroa.063.0121, %.sroa.012.0.i
-  %84 = extractelement <2 x float> %83, i64 0
+  %foldExtExtBinop129 = fmul <2 x float> %.sroa.063.0121, %.sroa.012.0.i
+  %80 = extractelement <2 x float> %foldExtExtBinop129, i64 0
   %.sroa.01.4.vec.extract.i115 = extractelement <2 x float> %.sroa.063.0121, i64 1
-  %85 = fmul float %.sroa.01.4.vec.extract.i115, %.sroa.0.4.vec.extract.i110
-  %86 = fadd float %84, %85
-  %87 = fmul float %.0120, %76
-  %88 = fadd float %86, %87
-  %89 = fmul float %36, %82
-  %90 = fmul float %22, %60
-  %91 = fadd float %90, %88
-  %92 = fmul float %91, %89
-  %93 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE8maxForce, align 4, !tbaa !15
-  %94 = fneg float %93
-  %95 = fmul float %11, %94
-  %96 = fcmp olt float %92, %95
-  %97 = fcmp ogt float %92, 0.000000e+00
-  %98 = select i1 %97, float 0.000000e+00, float %92
-  %99 = select i1 %96, float %95, float %98
-  %100 = fmul float %27, %99
-  %101 = fmul float %.sroa.0.0.vec.extract.i112, %100
-  %102 = fadd float %.sroa.01.0.vec.extract.i113, %101
-  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %102, i64 0
-  %103 = fmul float %.sroa.0.4.vec.extract.i110, %100
-  %104 = fadd float %.sroa.01.4.vec.extract.i115, %103
-  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %104, i64 1
-  %105 = fmul float %31, %99
-  %106 = fmul float %76, %105
-  %107 = fadd float %.0120, %106
-  br label %108
+  %81 = fmul float %.sroa.01.4.vec.extract.i115, %.sroa.0.4.vec.extract.i110
+  %82 = fadd float %80, %81
+  %83 = fmul float %.0120, %73
+  %84 = fadd float %82, %83
+  %85 = fmul float %36, %79
+  %86 = fmul float %22, %60
+  %87 = fadd float %86, %84
+  %88 = fmul float %87, %85
+  %89 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE8maxForce, align 4, !tbaa !15
+  %90 = fneg float %89
+  %91 = fmul float %11, %90
+  %92 = fcmp olt float %88, %91
+  %93 = fcmp ogt float %88, 0.000000e+00
+  %94 = select i1 %93, float 0.000000e+00, float %88
+  %95 = select i1 %92, float %91, float %94
+  %96 = fmul float %27, %95
+  %97 = fmul float %.sroa.0.0.vec.extract.i112, %96
+  %98 = fadd float %.sroa.01.0.vec.extract.i113, %97
+  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %98, i64 0
+  %99 = fmul float %.sroa.0.4.vec.extract.i110, %96
+  %100 = fadd float %.sroa.01.4.vec.extract.i115, %99
+  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %100, i64 1
+  %101 = fmul float %31, %95
+  %102 = fmul float %73, %101
+  %103 = fadd float %.0120, %102
+  br label %104
 
-108:                                              ; preds = %_Z11b2Normalize6b2Vec2.exit, %63
-  %.sink = phi float [ %99, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %63 ]
-  %.1 = phi float [ %107, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
+104:                                              ; preds = %_Z11b2Normalize6b2Vec2.exit, %63
+  %.sink = phi float [ %95, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %63 ]
+  %.1 = phi float [ %103, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
   %.sroa.063.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %_Z11b2Normalize6b2Vec2.exit ], [ %.sroa.063.0121, %63 ]
-  %109 = getelementptr inbounds nuw [2 x float], ptr %37, i64 0, i64 %indvars.iv
-  store float %.sink, ptr %109, align 4, !tbaa !15
+  %105 = getelementptr inbounds nuw [2 x float], ptr %37, i64 0, i64 %indvars.iv
+  store float %.sink, ptr %105, align 4, !tbaa !15
   br i1 %53, label %52, label %38, !llvm.loop !197
 
-110:                                              ; preds = %38, %6, %2
+106:                                              ; preds = %38, %6, %2
   ret void
 }
 

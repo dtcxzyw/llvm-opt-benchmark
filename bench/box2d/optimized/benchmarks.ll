@@ -752,7 +752,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   store float 2.500000e-01, ptr %39, align 4, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %52
+  br label %51
 
 41:                                               ; preds = %1, %41
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %41 ]
@@ -764,20 +764,20 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   store float %.sroa.031.0.vec.extract, ptr %42, align 8, !tbaa !20
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 4
   store float %43, ptr %.sroa.227.0..sroa_idx, align 4, !tbaa !20
-  %44 = fmul <2 x float> %16, %.sroa.031.047
-  %45 = extractelement <2 x float> %44, i64 0
-  %46 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.031.4.vec.extract
-  %47 = fsub float %45, %46
-  %.sroa.010.0.vec.insert.i = insertelement <2 x float> poison, float %47, i64 0
-  %48 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.031.0.vec.extract
-  %49 = fmul float %.sroa.05.0.vec.extract.i, %.sroa.031.4.vec.extract
-  %50 = fadd float %48, %49
-  %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %50, i64 1
+  %foldExtExtBinop = fmul <2 x float> %16, %.sroa.031.047
+  %44 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %45 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.031.4.vec.extract
+  %46 = fsub float %44, %45
+  %.sroa.010.0.vec.insert.i = insertelement <2 x float> poison, float %46, i64 0
+  %47 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.031.0.vec.extract
+  %48 = fmul float %.sroa.05.0.vec.extract.i, %.sroa.031.4.vec.extract
+  %49 = fadd float %47, %48
+  %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %49, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 360
   br i1 %exitcond.not, label %17, label %41, !llvm.loop !66
 
-51:                                               ; preds = %61
+50:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -785,45 +785,45 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-52:                                               ; preds = %17, %61
-  %.04050 = phi float [ -2.400000e+01, %17 ], [ %.1, %61 ]
-  %.04149 = phi float [ 2.000000e+00, %17 ], [ %.142, %61 ]
-  %.04348 = phi i32 [ 0, %17 ], [ %65, %61 ]
+51:                                               ; preds = %17, %60
+  %.04050 = phi float [ -2.400000e+01, %17 ], [ %.1, %60 ]
+  %.04149 = phi float [ 2.000000e+00, %17 ], [ %.142, %60 ]
+  %.04348 = phi i32 [ 0, %17 ], [ %64, %60 ]
   store float %.04050, ptr %40, align 4, !tbaa !20
   store float %.04149, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
-  %53 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %13) #8
+  %52 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %13) #8
   %.lhs.trunc = trunc nuw nsw i32 %.04348 to i16
-  %54 = urem i16 %.lhs.trunc, 3
-  switch i16 %54, label %default.unreachable [
-    i16 0, label %55
-    i16 1, label %57
-    i16 2, label %59
+  %53 = urem i16 %.lhs.trunc, 3
+  switch i16 %53, label %default.unreachable [
+    i16 0, label %54
+    i16 1, label %56
+    i16 2, label %58
   ]
 
-55:                                               ; preds = %52
-  %56 = call i64 @b2CreateCapsuleShape(i64 %53, ptr noundef nonnull %14, ptr noundef nonnull %10) #8
-  br label %61
+54:                                               ; preds = %51
+  %55 = call i64 @b2CreateCapsuleShape(i64 %52, ptr noundef nonnull %14, ptr noundef nonnull %10) #8
+  br label %60
 
-57:                                               ; preds = %52
-  %58 = call i64 @b2CreateCircleShape(i64 %53, ptr noundef nonnull %14, ptr noundef nonnull %11) #8
-  br label %61
+56:                                               ; preds = %51
+  %57 = call i64 @b2CreateCircleShape(i64 %52, ptr noundef nonnull %14, ptr noundef nonnull %11) #8
+  br label %60
 
-59:                                               ; preds = %52
-  %60 = call i64 @b2CreatePolygonShape(i64 %53, ptr noundef nonnull %14, ptr noundef nonnull %12) #8
-  br label %61
+58:                                               ; preds = %51
+  %59 = call i64 @b2CreatePolygonShape(i64 %52, ptr noundef nonnull %14, ptr noundef nonnull %12) #8
+  br label %60
 
-default.unreachable:                              ; preds = %52
+default.unreachable:                              ; preds = %51
   unreachable
 
-61:                                               ; preds = %57, %59, %55
-  %62 = fadd float %.04050, 1.000000e+00
-  %63 = fcmp ogt float %62, 2.400000e+01
-  %64 = fadd float %.04149, 1.000000e+00
-  %.142 = select i1 %63, float %64, float %.04149
-  %.1 = select i1 %63, float -2.400000e+01, float %62
-  %65 = add nuw nsw i32 %.04348, 1
-  %exitcond52.not = icmp eq i32 %65, 3038
-  br i1 %exitcond52.not, label %51, label %52, !llvm.loop !67
+60:                                               ; preds = %56, %58, %54
+  %61 = fadd float %.04050, 1.000000e+00
+  %62 = fcmp ogt float %61, 2.400000e+01
+  %63 = fadd float %.04149, 1.000000e+00
+  %.142 = select i1 %62, float %63, float %.04149
+  %.1 = select i1 %62, float -2.400000e+01, float %61
+  %64 = add nuw nsw i32 %.04348, 1
+  %exitcond52.not = icmp eq i32 %64, 3038
+  br i1 %exitcond52.not, label %50, label %51, !llvm.loop !67
 }
 
 declare void @b2DefaultChainDef(ptr dead_on_unwind writable sret(%struct.b2ChainDef) align 8) local_unnamed_addr #1

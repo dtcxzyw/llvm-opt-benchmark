@@ -92,15 +92,15 @@ define dso_local void @_ZN17b3FixedConstraintC2EiiRK11b3TransformS2_(ptr noundef
   %25 = call float @llvm.fmuladd.f32(float %.sroa.629.12.vec.extract, float %15, float %24)
   %26 = call float @llvm.fmuladd.f32(float %.sroa.028.0.vec.extract, float %14, float %25)
   %27 = call float @llvm.fmuladd.f32(float %.sroa.028.4.vec.extract, float %.sroa.0.0.vec.extract, float %26)
-  %28 = fmul <2 x float> %.fca.0.load.i, %.fca.0.load.i12
-  %29 = extractelement <2 x float> %28, i64 0
-  %30 = call float @llvm.fmuladd.f32(float %.sroa.629.12.vec.extract, float %.sroa.6.12.vec.extract, float %29)
-  %31 = call float @llvm.fmuladd.f32(float %.sroa.028.4.vec.extract, float %.sroa.0.4.vec.extract, float %30)
-  %32 = call float @llvm.fmuladd.f32(float %.sroa.629.8.vec.extract, float %.sroa.6.8.vec.extract, float %31)
+  %foldExtExtBinop = fmul <2 x float> %.fca.0.load.i, %.fca.0.load.i12
+  %28 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %29 = call float @llvm.fmuladd.f32(float %.sroa.629.12.vec.extract, float %.sroa.6.12.vec.extract, float %28)
+  %30 = call float @llvm.fmuladd.f32(float %.sroa.028.4.vec.extract, float %.sroa.0.4.vec.extract, float %29)
+  %31 = call float @llvm.fmuladd.f32(float %.sroa.629.8.vec.extract, float %.sroa.6.8.vec.extract, float %30)
   %.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %19, i64 0
   %.sroa.0.4.vec.insert.i21 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20, float %23, i64 1
   %.sroa.3.8.vec.insert.i22 = insertelement <2 x float> poison, float %27, i64 0
-  %.sroa.3.12.vec.insert.i23 = insertelement <2 x float> %.sroa.3.8.vec.insert.i22, float %32, i64 1
+  %.sroa.3.12.vec.insert.i23 = insertelement <2 x float> %.sroa.3.8.vec.insert.i22, float %31, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i21, ptr %8, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store <2 x float> %.sroa.3.12.vec.insert.i23, ptr %.sroa.5.0..sroa_idx, align 8

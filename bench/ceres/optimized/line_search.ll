@@ -772,7 +772,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
-  br i1 %47, label %48, label %132
+  br i1 %47, label %48, label %131
 
 48:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERS1_RKNS_9DenseBaseIT_EE.exit
   store i8 1, ptr %6, align 8, !tbaa !52
@@ -797,17 +797,17 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 1 dereferenceable(2) %5, ptr noundef %55, ptr noundef nonnull %56, ptr noundef null, ptr noundef %.0, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %60, label %61, label %132
+  br i1 %60, label %61, label %131
 
 61:                                               ; preds = %53
   %62 = load double, ptr %56, align 8, !tbaa !58
   %63 = call double @llvm.fabs.f64(double %62)
   %64 = fcmp ueq double %63, 0x7FF0000000000000
-  br i1 %64, label %132, label %65
+  br i1 %64, label %131, label %65
 
 65:                                               ; preds = %61
   store i8 1, ptr %7, align 8, !tbaa !53
-  br i1 %2, label %66, label %132
+  br i1 %2, label %66, label %131
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -825,7 +825,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %77 = shl nsw i64 %76, 1
   %.off.i.i.i.i.i = add i64 %68, 1
   %.not.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 3
-  br i1 %.not.i.i.i.i.i, label %124, label %78
+  br i1 %.not.i.i.i.i.i, label %123, label %78
 
 78:                                               ; preds = %70
   %79 = load <2 x double>, ptr %72, align 16, !tbaa !12
@@ -884,44 +884,44 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
 113:                                              ; preds = %106, %._crit_edge.i.i.i.i.i, %78
   %.072.i.i.i.i.i = phi <2 x double> [ %81, %78 ], [ %112, %106 ], [ %90, %._crit_edge.i.i.i.i.i ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %114 = fadd <2 x double> %.072.i.i.i.i.i, %shift
-  %115 = extractelement <2 x double> %114, i64 0
-  %116 = icmp slt i64 %77, %68
-  br i1 %116, label %.lr.ph85.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
+  %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.i, %shift
+  %114 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %115 = icmp slt i64 %77, %68
+  br i1 %115, label %.lr.ph85.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
 
 .lr.ph85.i.i.i.i.i:                               ; preds = %113, %.lr.ph85.i.i.i.i.i
-  %.05283.i.i.i.i.i = phi i64 [ %123, %.lr.ph85.i.i.i.i.i ], [ %77, %113 ]
-  %.182.i.i.i.i.i = phi double [ %122, %.lr.ph85.i.i.i.i.i ], [ %115, %113 ]
-  %117 = getelementptr inbounds double, ptr %72, i64 %.05283.i.i.i.i.i
-  %118 = getelementptr inbounds double, ptr %73, i64 %.05283.i.i.i.i.i
+  %.05283.i.i.i.i.i = phi i64 [ %122, %.lr.ph85.i.i.i.i.i ], [ %77, %113 ]
+  %.182.i.i.i.i.i = phi double [ %121, %.lr.ph85.i.i.i.i.i ], [ %114, %113 ]
+  %116 = getelementptr inbounds double, ptr %72, i64 %.05283.i.i.i.i.i
+  %117 = getelementptr inbounds double, ptr %73, i64 %.05283.i.i.i.i.i
+  %118 = load double, ptr %116, align 8, !tbaa !18
   %119 = load double, ptr %117, align 8, !tbaa !18
-  %120 = load double, ptr %118, align 8, !tbaa !18
-  %121 = fmul double %119, %120
-  %122 = fadd double %.182.i.i.i.i.i, %121
-  %123 = add nsw i64 %.05283.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %123, %68
+  %120 = fmul double %118, %119
+  %121 = fadd double %.182.i.i.i.i.i, %120
+  %122 = add nsw i64 %.05283.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %122, %68
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit, label %.lr.ph85.i.i.i.i.i, !llvm.loop !60
 
-124:                                              ; preds = %70
-  %125 = load double, ptr %72, align 8, !tbaa !18
-  %126 = load double, ptr %73, align 8, !tbaa !18
-  %127 = fmul double %125, %126
+123:                                              ; preds = %70
+  %124 = load double, ptr %72, align 8, !tbaa !18
+  %125 = load double, ptr %73, align 8, !tbaa !18
+  %126 = fmul double %124, %125
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
 
-_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i, %66, %113, %124
-  %.0.i.i.i = phi double [ 0.000000e+00, %66 ], [ %127, %124 ], [ %115, %113 ], [ %122, %.lr.ph85.i.i.i.i.i ]
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store double %.0.i.i.i, ptr %128, align 8, !tbaa !61
-  %129 = call double @llvm.fabs.f64(double %.0.i.i.i)
-  %130 = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %130, label %132, label %131
+_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i, %66, %113, %123
+  %.0.i.i.i = phi double [ 0.000000e+00, %66 ], [ %126, %123 ], [ %114, %113 ], [ %121, %.lr.ph85.i.i.i.i.i ]
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store double %.0.i.i.i, ptr %127, align 8, !tbaa !61
+  %128 = call double @llvm.fabs.f64(double %.0.i.i.i)
+  %129 = fcmp ueq double %128, 0x7FF0000000000000
+  br i1 %129, label %131, label %130
 
-131:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
+130:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
   store i8 1, ptr %8, align 8, !tbaa !54
   store i8 1, ptr %9, align 8, !tbaa !55
-  br label %132
+  br label %131
 
-132:                                              ; preds = %131, %61, %53, %65, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERS1_RKNS_9DenseBaseIT_EE.exit
+131:                                              ; preds = %130, %61, %53, %65, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERS1_RKNS_9DenseBaseIT_EE.exit
   ret void
 }
 

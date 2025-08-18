@@ -14083,13 +14083,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp3FBX12FBXConverter31NeedsComplexTran
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %9
 
-9:                                                ; preds = %2, %64
-  %.03063 = phi i64 [ 0, %2 ], [ %65, %64 ]
+9:                                                ; preds = %2, %63
+  %.03063 = phi i64 [ 0, %2 ], [ %64, %63 ]
   %10 = icmp eq i64 %.03063, 12
   %11 = and i64 %.03063, 27
   %12 = icmp eq i64 %11, 3
   %or.cond3 = or i1 %10, %12
-  br i1 %or.cond3, label %64, label %switch.lookup
+  br i1 %or.cond3, label %63, label %switch.lookup
 
 switch.lookup:                                    ; preds = %9
   %13 = icmp eq i64 %.03063, 16
@@ -14217,24 +14217,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   resume { ptr, i32 } %50
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 %.0, label %58, label %64
+  br i1 %.0, label %58, label %63
 
 58:                                               ; preds = %57
   %.sroa.047.0.vec.extract49 = extractelement <2 x float> %.sroa.0.0.i, i64 0
-  %59 = fmul <2 x float> %.sroa.0.0.i, %.sroa.0.0.i
-  %60 = extractelement <2 x float> %59, i64 1
-  %61 = call float @llvm.fmuladd.f32(float %.sroa.047.0.vec.extract49, float %.sroa.047.0.vec.extract49, float %60)
-  %62 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i, float %.sroa.10.0.i, float %61)
-  %63 = fcmp ogt float %62, 0x3E80000000000000
-  br i1 %63, label %.critedge, label %64
+  %foldExtExtBinop = fmul <2 x float> %.sroa.0.0.i, %.sroa.0.0.i
+  %59 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %60 = call float @llvm.fmuladd.f32(float %.sroa.047.0.vec.extract49, float %.sroa.047.0.vec.extract49, float %59)
+  %61 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i, float %.sroa.10.0.i, float %60)
+  %62 = fcmp ogt float %61, 0x3E80000000000000
+  br i1 %62, label %.critedge, label %63
 
-64:                                               ; preds = %58, %57, %9
-  %65 = add nuw nsw i64 %.03063, 1
-  %exitcond.not = icmp eq i64 %65, 17
+63:                                               ; preds = %58, %57, %9
+  %64 = add nuw nsw i64 %.03063, 1
+  %exitcond.not = icmp eq i64 %64, 17
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !57
 
-.critedge:                                        ; preds = %58, %64, %.thread, %41
-  %.lcssa60 = phi i1 [ true, %41 ], [ false, %.thread ], [ false, %64 ], [ true, %58 ]
+.critedge:                                        ; preds = %58, %63, %.thread, %41
+  %.lcssa60 = phi i1 [ true, %41 ], [ false, %.thread ], [ false, %63 ], [ true, %58 ]
   ret i1 %.lcssa60
 }
 

@@ -24,19 +24,19 @@ define noundef float @_ZN3gmx29nbnxn_get_rlist_effective_incEiRKNS_11BasicVector
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load float, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
-  %3 = fmul <2 x float> %.sroa.01.0.copyload, %.sroa.01.0.copyload
-  %4 = extractelement <2 x float> %3, i64 1
-  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float %.sroa.0.0.vec.extract.i, float %4)
-  %6 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.22.0.copyload, float %.sroa.22.0.copyload, float %5)
-  %sqrt = tail call float @llvm.sqrt.f32(float %6)
-  %7 = sitofp i32 %0 to float
-  %8 = fadd float %7, -1.000000e+00
-  %9 = fdiv float %8, %7
-  %10 = fmul float %9, %9
-  %11 = fmul float %10, 0x3FE3333340000000
-  %12 = fmul float %11, 5.000000e-01
-  %13 = fmul float %12, %sqrt
-  ret float %13
+  %foldExtExtBinop = fmul <2 x float> %.sroa.01.0.copyload, %.sroa.01.0.copyload
+  %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float %.sroa.0.0.vec.extract.i, float %3)
+  %5 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.22.0.copyload, float %.sroa.22.0.copyload, float %4)
+  %sqrt = tail call float @llvm.sqrt.f32(float %5)
+  %6 = sitofp i32 %0 to float
+  %7 = fadd float %6, -1.000000e+00
+  %8 = fdiv float %7, %6
+  %9 = fmul float %8, %8
+  %10 = fmul float %9, 0x3FE3333340000000
+  %11 = fmul float %10, 5.000000e-01
+  %12 = fmul float %11, %sqrt
+  ret float %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

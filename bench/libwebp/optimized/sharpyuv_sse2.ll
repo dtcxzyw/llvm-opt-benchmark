@@ -60,50 +60,50 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr noundef readonly captures(none) %0
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %.lcssa = phi <4 x i32> [ zeroinitializer, %5 ], [ %24, %._crit_edge.loopexit ]
   %.047.lcssa = phi i32 [ 0, %5 ], [ %25, %._crit_edge.loopexit ]
-  %26 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %27 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %28 = add <4 x i32> %26, %27
-  %29 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift77 = add <4 x i32> %28, %29
-  %30 = add <4 x i32> %shift77, %.lcssa
-  %31 = extractelement <4 x i32> %30, i64 0
-  %32 = zext i32 %31 to i64
-  %33 = icmp slt i32 %.047.lcssa, %3
-  br i1 %33, label %.lr.ph58.preheader, label %._crit_edge59
+  %shift = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %foldExtExtBinop = add <4 x i32> %shift, %.lcssa
+  %shift77 = shufflevector <4 x i32> %foldExtExtBinop, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %foldExtExtBinop78 = add <4 x i32> %shift77, %.lcssa
+  %shift80 = shufflevector <4 x i32> %foldExtExtBinop78, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop81 = add <4 x i32> %shift80, %.lcssa
+  %26 = extractelement <4 x i32> %foldExtExtBinop81, i64 0
+  %27 = zext i32 %26 to i64
+  %28 = icmp slt i32 %.047.lcssa, %3
+  br i1 %28, label %.lr.ph58.preheader, label %._crit_edge59
 
 .lr.ph58.preheader:                               ; preds = %._crit_edge
-  %34 = zext nneg i32 %.047.lcssa to i64
+  %29 = zext nneg i32 %.047.lcssa to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
-  %indvars.iv69 = phi i64 [ %34, %.lr.ph58.preheader ], [ %indvars.iv.next70, %.lr.ph58 ]
-  %.056 = phi i64 [ %32, %.lr.ph58.preheader ], [ %52, %.lr.ph58 ]
-  %35 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv69
-  %36 = load i16, ptr %35, align 2, !tbaa !10
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv69
-  %39 = load i16, ptr %38, align 2, !tbaa !10
-  %40 = zext i16 %39 to i32
-  %41 = sub nsw i32 %37, %40
-  %42 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv69
-  %43 = load i16, ptr %42, align 2, !tbaa !10
-  %44 = zext i16 %43 to i32
-  %45 = add nsw i32 %41, %44
-  %46 = icmp slt i32 %45, 0
-  %47 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %45, i32 range(i32 -2147483648, 2147483647) %6)
-  %48 = trunc i32 %47 to i16
-  %49 = select i1 %46, i16 0, i16 %48
-  store i16 %49, ptr %42, align 2, !tbaa !10
-  %50 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %51 = zext nneg i32 %50 to i64
-  %52 = add i64 %.056, %51
+  %indvars.iv69 = phi i64 [ %29, %.lr.ph58.preheader ], [ %indvars.iv.next70, %.lr.ph58 ]
+  %.056 = phi i64 [ %27, %.lr.ph58.preheader ], [ %47, %.lr.ph58 ]
+  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv69
+  %31 = load i16, ptr %30, align 2, !tbaa !10
+  %32 = zext i16 %31 to i32
+  %33 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv69
+  %34 = load i16, ptr %33, align 2, !tbaa !10
+  %35 = zext i16 %34 to i32
+  %36 = sub nsw i32 %32, %35
+  %37 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv69
+  %38 = load i16, ptr %37, align 2, !tbaa !10
+  %39 = zext i16 %38 to i32
+  %40 = add nsw i32 %36, %39
+  %41 = icmp slt i32 %40, 0
+  %42 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %40, i32 range(i32 -2147483648, 2147483647) %6)
+  %43 = trunc i32 %42 to i16
+  %44 = select i1 %41, i16 0, i16 %43
+  store i16 %44, ptr %37, align 2, !tbaa !10
+  %45 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
+  %46 = zext nneg i32 %45 to i64
+  %47 = add i64 %.056, %46
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !12
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
-  %.0.lcssa = phi i64 [ %32, %._crit_edge ], [ %52, %.lr.ph58 ]
+  %.0.lcssa = phi i64 [ %27, %._crit_edge ], [ %47, %.lr.ph58 ]
   ret i64 %.0.lcssa
 }
 

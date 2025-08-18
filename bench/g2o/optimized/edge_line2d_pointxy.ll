@@ -319,16 +319,16 @@ define linkonce_odr void @_ZN3g2o17EdgeLine2DPointXY12computeErrorEv(ptr noundef
   %12 = load <2 x double>, ptr %11, align 16, !tbaa !80
   %13 = fmul <2 x double> %.sroa.0.8.vec.insert, %12
   %shift = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %14 = fadd <2 x double> %13, %shift
-  %15 = extractelement <2 x double> %14, i64 0
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %17 = load double, ptr %16, align 8, !tbaa !49
-  %18 = fsub double %15, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %20 = load double, ptr %19, align 8, !tbaa !81
-  %21 = fsub double %18, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store double %21, ptr %22, align 8, !tbaa !49
+  %foldExtExtBinop = fadd <2 x double> %13, %shift
+  %14 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %16 = load double, ptr %15, align 8, !tbaa !49
+  %17 = fsub double %14, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %19 = load double, ptr %18, align 8, !tbaa !81
+  %20 = fsub double %17, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store double %20, ptr %21, align 8, !tbaa !49
   ret void
 }
 
@@ -370,13 +370,13 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o17EdgeLine2DPointXY23setMeasureme
   %12 = load <2 x double>, ptr %11, align 16, !tbaa !80
   %13 = fmul <2 x double> %.sroa.0.8.vec.insert, %12
   %shift = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %14 = fadd <2 x double> %13, %shift
-  %15 = extractelement <2 x double> %14, i64 0
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %17 = load double, ptr %16, align 8, !tbaa !49
-  %18 = fsub double %15, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double %18, ptr %19, align 8, !tbaa !81
+  %foldExtExtBinop = fadd <2 x double> %13, %shift
+  %14 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %16 = load double, ptr %15, align 8, !tbaa !49
+  %17 = fsub double %14, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store double %17, ptr %18, align 8, !tbaa !81
   ret i1 true
 }
 

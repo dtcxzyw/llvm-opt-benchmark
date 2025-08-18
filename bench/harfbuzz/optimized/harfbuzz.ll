@@ -157076,7 +157076,7 @@ _ZNK2OT4COLR8get_clipEjP18hb_glyph_extents_tNS_21ItemVarStoreInstancerE.exit: ; 
 
 38:                                               ; preds = %_ZNK2OT4COLR8get_clipEjP18hb_glyph_extents_tNS_21ItemVarStoreInstancerE.exit
   call void @_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %3)
-  br label %92
+  br label %90
 
 39:                                               ; preds = %_ZNK2OT4COLR8get_clipEjP18hb_glyph_extents_tNS_21ItemVarStoreInstancerE.exit
   %40 = load atomic i64, ptr @_ZL26static_paint_extents_funcs acquire, align 8
@@ -157149,78 +157149,78 @@ _ZN26hb_paint_extents_context_t11get_extentsEv.exit: ; preds = %55, %56
   %.sroa.0.0.vec.extract34 = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.7.8.vec.extract36 = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 0
   %62 = fcmp ogt float %.sroa.0.0.vec.extract34, %.sroa.7.8.vec.extract36
-  br i1 %62, label %72, label %63
+  br i1 %62, label %70, label %63
 
 63:                                               ; preds = %_ZN26hb_paint_extents_context_t11get_extentsEv.exit
   %64 = fptosi float %.sroa.0.0.vec.extract34 to i32
   %.sroa.7.12.vec.extract38 = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 1
   %65 = fptosi float %.sroa.7.12.vec.extract38 to i32
-  %66 = fsub <2 x float> %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
-  %67 = extractelement <2 x float> %66, i64 0
-  %68 = fptosi float %67 to i32
-  %69 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %70 = extractelement <2 x float> %69, i64 1
-  %71 = fptosi float %70 to i32
-  br label %72
+  %foldExtExtBinop = fsub <2 x float> %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
+  %66 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %67 = fptosi float %66 to i32
+  %foldExtExtBinop56 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %68 = extractelement <2 x float> %foldExtExtBinop56, i64 1
+  %69 = fptosi float %68 to i32
+  br label %70
 
-72:                                               ; preds = %_ZN26hb_paint_extents_context_t11get_extentsEv.exit, %63
+70:                                               ; preds = %_ZN26hb_paint_extents_context_t11get_extentsEv.exit, %63
   %.sink54 = phi i32 [ %64, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
   %.sink53 = phi i32 [ %65, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
-  %.sink52 = phi i32 [ %68, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
-  %.sink = phi i32 [ %71, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
+  %.sink52 = phi i32 [ %67, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
+  %.sink = phi i32 [ %69, %63 ], [ 0, %_ZN26hb_paint_extents_context_t11get_extentsEv.exit ]
   store i32 %.sink54, ptr %3, align 4, !tbaa !275
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink53, ptr %73, align 4, !tbaa !277
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink52, ptr %74, align 4, !tbaa !278
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.sink, ptr %75, align 4, !tbaa !279
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %77 = load i32, ptr %76, align 8, !tbaa !2791
-  %.not.i.i.i30 = icmp eq i32 %77, 0
-  br i1 %.not.i.i.i30, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i, label %78
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sink53, ptr %71, align 4, !tbaa !277
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sink52, ptr %72, align 4, !tbaa !278
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %.sink, ptr %73, align 4, !tbaa !279
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %75 = load i32, ptr %74, align 8, !tbaa !2791
+  %.not.i.i.i30 = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i30, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i, label %76
 
-78:                                               ; preds = %72
+76:                                               ; preds = %70
   store i32 0, ptr %53, align 4, !tbaa !2783
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !2786
-  call void @free(ptr noundef %80) #61
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %78 = load ptr, ptr %77, align 8, !tbaa !2786
+  call void @free(ptr noundef %78) #61
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
 
-_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i:   ; preds = %78, %72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %82 = load i32, ptr %81, align 8, !tbaa !2791
-  %.not.i.i1.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i1.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, label %83
+_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i:   ; preds = %76, %70
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %80 = load i32, ptr %79, align 8, !tbaa !2791
+  %.not.i.i1.i = icmp eq i32 %80, 0
+  br i1 %.not.i.i1.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, label %81
 
-83:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %84, align 4, !tbaa !2783
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !2786
-  call void @free(ptr noundef %86) #61
+81:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %82, align 4, !tbaa !2783
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !2786
+  call void @free(ptr noundef %84) #61
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
 
-_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i:  ; preds = %83, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
-  %87 = load i32, ptr %6, align 8, !tbaa !2792
-  %.not.i.i3.i = icmp eq i32 %87, 0
-  br i1 %.not.i.i3.i, label %_ZN26hb_paint_extents_context_tD2Ev.exit, label %88
+_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i:  ; preds = %81, %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
+  %85 = load i32, ptr %6, align 8, !tbaa !2792
+  %.not.i.i3.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i3.i, label %_ZN26hb_paint_extents_context_tD2Ev.exit, label %86
 
-88:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %89, align 4, !tbaa !2795
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !2796
-  call void @free(ptr noundef %91) #61
+86:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %87, align 4, !tbaa !2795
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !2796
+  call void @free(ptr noundef %89) #61
   br label %_ZN26hb_paint_extents_context_tD2Ev.exit
 
-_ZN26hb_paint_extents_context_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, %88
+_ZN26hb_paint_extents_context_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EED2Ev.exit2.i, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %92
+  br label %90
 
-92:                                               ; preds = %_ZN26hb_paint_extents_context_tD2Ev.exit, %38
+90:                                               ; preds = %_ZN26hb_paint_extents_context_tD2Ev.exit, %38
   %.0 = phi i1 [ true, %38 ], [ %52, %_ZN26hb_paint_extents_context_tD2Ev.exit ]
   ret i1 %.0
 }

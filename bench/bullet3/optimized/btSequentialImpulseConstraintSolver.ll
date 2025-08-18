@@ -3420,129 +3420,129 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit269: ; preds = %396
   %.sroa.7.0 = phi float [ %.sroa.7.0.copyload, %472 ], [ 0.000000e+00, %470 ]
   %.sroa.5299.0 = phi float [ %.sroa.5299.0.copyload, %472 ], [ 0.000000e+00, %470 ]
   %.sroa.0298.0 = phi float [ %.sroa.0298.0.copyload, %472 ], [ 0.000000e+00, %470 ]
-  %476 = fsub <2 x float> %.sroa.6339.0, %.sroa.6.0
-  %477 = extractelement <2 x float> %476, i64 0
-  %478 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
-  %479 = extractelement <2 x float> %478, i64 0
-  %480 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
-  %481 = extractelement <2 x float> %480, i64 1
-  %482 = fmul float %481, %311
-  %483 = tail call float @llvm.fmuladd.f32(float %310, float %479, float %482)
-  %484 = tail call noundef float @llvm.fmuladd.f32(float %312, float %477, float %483)
-  %485 = tail call noundef float @llvm.fabs.f32(float %484)
-  %486 = fcmp olt float %485, %319
-  %487 = fneg float %484
-  %488 = fmul float %317, %487
-  %.0.i = select i1 %486, float 0.000000e+00, float %488
+  %foldExtExtBinop = fsub <2 x float> %.sroa.6339.0, %.sroa.6.0
+  %476 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop407 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
+  %477 = extractelement <2 x float> %foldExtExtBinop407, i64 0
+  %foldExtExtBinop409 = fsub <2 x float> %.sroa.0338.0, %.sroa.0334.0
+  %478 = extractelement <2 x float> %foldExtExtBinop409, i64 1
+  %479 = fmul float %478, %311
+  %480 = tail call float @llvm.fmuladd.f32(float %310, float %477, float %479)
+  %481 = tail call noundef float @llvm.fmuladd.f32(float %312, float %476, float %480)
+  %482 = tail call noundef float @llvm.fabs.f32(float %481)
+  %483 = fcmp olt float %482, %319
+  %484 = fneg float %481
+  %485 = fmul float %317, %484
+  %.0.i = select i1 %483, float 0.000000e+00, float %485
   %.inv = fcmp ole float %.0.i, 0.000000e+00
   %.0158 = select i1 %.inv, float 0.000000e+00, float %.0.i
-  %489 = fadd float %249, %251
-  %490 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %491 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %486 = fadd float %249, %251
+  %487 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %489 = load float, ptr %488, align 4, !tbaa !59
+  %490 = fadd float %.sroa.0317.0382, %489
+  %491 = getelementptr inbounds nuw i8, ptr %13, i64 180
   %492 = load float, ptr %491, align 4, !tbaa !59
-  %493 = fadd float %.sroa.0317.0382, %492
-  %494 = getelementptr inbounds nuw i8, ptr %13, i64 180
+  %493 = fadd float %.sroa.5318.0384, %492
+  %494 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %495 = load float, ptr %494, align 4, !tbaa !59
-  %496 = fadd float %.sroa.5318.0384, %495
-  %497 = getelementptr inbounds nuw i8, ptr %13, i64 184
-  %498 = load float, ptr %497, align 4, !tbaa !59
-  %499 = fadd float %.sroa.7319.0386, %498
-  %500 = load float, ptr %490, align 8, !tbaa !59
-  %501 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %502 = load float, ptr %501, align 4, !tbaa !59
-  %503 = fmul float %496, %502
-  %504 = tail call float @llvm.fmuladd.f32(float %500, float %493, float %503)
-  %505 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %506 = load float, ptr %505, align 8, !tbaa !59
-  %507 = tail call noundef float @llvm.fmuladd.f32(float %506, float %499, float %504)
-  %508 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %496 = fadd float %.sroa.7319.0386, %495
+  %497 = load float, ptr %487, align 8, !tbaa !59
+  %498 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %499 = load float, ptr %498, align 4, !tbaa !59
+  %500 = fmul float %493, %499
+  %501 = tail call float @llvm.fmuladd.f32(float %497, float %490, float %500)
+  %502 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %503 = load float, ptr %502, align 8, !tbaa !59
+  %504 = tail call noundef float @llvm.fmuladd.f32(float %503, float %496, float %501)
+  %505 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %506 = load float, ptr %505, align 4, !tbaa !59
+  %507 = fadd float %.sroa.0310.0, %506
+  %508 = getelementptr inbounds nuw i8, ptr %13, i64 196
   %509 = load float, ptr %508, align 4, !tbaa !59
-  %510 = fadd float %.sroa.0310.0, %509
-  %511 = getelementptr inbounds nuw i8, ptr %13, i64 196
+  %510 = fadd float %.sroa.5311.0, %509
+  %511 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %512 = load float, ptr %511, align 4, !tbaa !59
-  %513 = fadd float %.sroa.5311.0, %512
-  %514 = getelementptr inbounds nuw i8, ptr %13, i64 200
-  %515 = load float, ptr %514, align 4, !tbaa !59
-  %516 = fadd float %.sroa.7312.0, %515
-  %517 = load float, ptr %1, align 8, !tbaa !59
-  %518 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %519 = load float, ptr %518, align 4, !tbaa !59
-  %520 = fmul float %513, %519
-  %521 = tail call float @llvm.fmuladd.f32(float %517, float %510, float %520)
-  %522 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %523 = load float, ptr %522, align 8, !tbaa !59
-  %524 = tail call noundef float @llvm.fmuladd.f32(float %523, float %516, float %521)
-  %525 = fadd float %507, %524
-  %526 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %527 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %513 = fadd float %.sroa.7312.0, %512
+  %514 = load float, ptr %1, align 8, !tbaa !59
+  %515 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %516 = load float, ptr %515, align 4, !tbaa !59
+  %517 = fmul float %510, %516
+  %518 = tail call float @llvm.fmuladd.f32(float %514, float %507, float %517)
+  %519 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %520 = load float, ptr %519, align 8, !tbaa !59
+  %521 = tail call noundef float @llvm.fmuladd.f32(float %520, float %513, float %518)
+  %522 = fadd float %504, %521
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %524 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %525 = load float, ptr %524, align 4, !tbaa !59
+  %526 = fadd float %.sroa.0303.0396, %525
+  %527 = getelementptr inbounds nuw i8, ptr %15, i64 180
   %528 = load float, ptr %527, align 4, !tbaa !59
-  %529 = fadd float %.sroa.0303.0396, %528
-  %530 = getelementptr inbounds nuw i8, ptr %15, i64 180
+  %529 = fadd float %.sroa.5304.0394, %528
+  %530 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %531 = load float, ptr %530, align 4, !tbaa !59
-  %532 = fadd float %.sroa.5304.0394, %531
-  %533 = getelementptr inbounds nuw i8, ptr %15, i64 184
-  %534 = load float, ptr %533, align 4, !tbaa !59
-  %535 = fadd float %.sroa.7305.0392, %534
-  %536 = load float, ptr %526, align 8, !tbaa !59
-  %537 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %538 = load float, ptr %537, align 4, !tbaa !59
-  %539 = fmul float %532, %538
-  %540 = tail call float @llvm.fmuladd.f32(float %536, float %529, float %539)
-  %541 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %542 = load float, ptr %541, align 8, !tbaa !59
-  %543 = tail call noundef float @llvm.fmuladd.f32(float %542, float %535, float %540)
-  %544 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %545 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  %532 = fadd float %.sroa.7305.0392, %531
+  %533 = load float, ptr %523, align 8, !tbaa !59
+  %534 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %535 = load float, ptr %534, align 4, !tbaa !59
+  %536 = fmul float %529, %535
+  %537 = tail call float @llvm.fmuladd.f32(float %533, float %526, float %536)
+  %538 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %539 = load float, ptr %538, align 8, !tbaa !59
+  %540 = tail call noundef float @llvm.fmuladd.f32(float %539, float %532, float %537)
+  %541 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %542 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  %543 = load float, ptr %542, align 4, !tbaa !59
+  %544 = fadd float %.sroa.0298.0, %543
+  %545 = getelementptr inbounds nuw i8, ptr %15, i64 196
   %546 = load float, ptr %545, align 4, !tbaa !59
-  %547 = fadd float %.sroa.0298.0, %546
-  %548 = getelementptr inbounds nuw i8, ptr %15, i64 196
+  %547 = fadd float %.sroa.5299.0, %546
+  %548 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %549 = load float, ptr %548, align 4, !tbaa !59
-  %550 = fadd float %.sroa.5299.0, %549
-  %551 = getelementptr inbounds nuw i8, ptr %15, i64 200
-  %552 = load float, ptr %551, align 4, !tbaa !59
-  %553 = fadd float %.sroa.7.0, %552
-  %554 = load float, ptr %544, align 8, !tbaa !59
-  %555 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %556 = load float, ptr %555, align 4, !tbaa !59
-  %557 = fmul float %550, %556
-  %558 = tail call float @llvm.fmuladd.f32(float %554, float %547, float %557)
-  %559 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %560 = load float, ptr %559, align 8, !tbaa !59
-  %561 = tail call noundef float @llvm.fmuladd.f32(float %560, float %553, float %558)
-  %562 = fadd float %543, %561
-  %563 = fadd float %525, %562
-  %564 = fsub float %.0158, %563
-  %565 = fcmp ogt float %489, 0.000000e+00
-  %566 = fneg float %489
-  %567 = tail call float @llvm.fmuladd.f32(float %566, float %24, float %564)
-  %568 = fmul float %.0152, %566
-  %569 = fmul float %24, %568
-  %.0154 = select i1 %565, float 0.000000e+00, float %569
-  %.0153 = select i1 %565, float %567, float %564
-  %570 = load float, ptr %228, align 4, !tbaa !60
-  %571 = fmul float %.0154, %570
-  %572 = fmul float %.0153, %570
-  %573 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %574 = load i32, ptr %573, align 4, !tbaa !115
-  %.not179 = icmp eq i32 %574, 0
-  %575 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %576 = load float, ptr %575, align 4
-  %577 = fcmp ogt float %489, %576
-  %or.cond182 = select i1 %.not179, i1 true, i1 %577
-  %578 = fadd float %571, %572
-  %.sink398 = select i1 %or.cond182, float %578, float %572
-  %.sink = select i1 %or.cond182, float 0.000000e+00, float %571
-  %579 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store float %.sink398, ptr %579, align 8, !tbaa !54
-  %580 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store float %.sink, ptr %580, align 8, !tbaa !68
-  %581 = fmul float %53, %570
-  %582 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  store float %581, ptr %582, align 4, !tbaa !58
-  %583 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store float 0.000000e+00, ptr %583, align 8, !tbaa !61
-  %584 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  store float 1.000000e+10, ptr %584, align 4, !tbaa !62
+  %550 = fadd float %.sroa.7.0, %549
+  %551 = load float, ptr %541, align 8, !tbaa !59
+  %552 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %553 = load float, ptr %552, align 4, !tbaa !59
+  %554 = fmul float %547, %553
+  %555 = tail call float @llvm.fmuladd.f32(float %551, float %544, float %554)
+  %556 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %557 = load float, ptr %556, align 8, !tbaa !59
+  %558 = tail call noundef float @llvm.fmuladd.f32(float %557, float %550, float %555)
+  %559 = fadd float %540, %558
+  %560 = fadd float %522, %559
+  %561 = fsub float %.0158, %560
+  %562 = fcmp ogt float %486, 0.000000e+00
+  %563 = fneg float %486
+  %564 = tail call float @llvm.fmuladd.f32(float %563, float %24, float %561)
+  %565 = fmul float %.0152, %563
+  %566 = fmul float %24, %565
+  %.0154 = select i1 %562, float 0.000000e+00, float %566
+  %.0153 = select i1 %562, float %564, float %561
+  %567 = load float, ptr %228, align 4, !tbaa !60
+  %568 = fmul float %.0154, %567
+  %569 = fmul float %.0153, %567
+  %570 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %571 = load i32, ptr %570, align 4, !tbaa !115
+  %.not179 = icmp eq i32 %571, 0
+  %572 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %573 = load float, ptr %572, align 4
+  %574 = fcmp ogt float %486, %573
+  %or.cond182 = select i1 %.not179, i1 true, i1 %574
+  %575 = fadd float %568, %569
+  %.sink398 = select i1 %or.cond182, float %575, float %569
+  %.sink = select i1 %or.cond182, float 0.000000e+00, float %568
+  %576 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store float %.sink398, ptr %576, align 8, !tbaa !54
+  %577 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store float %.sink, ptr %577, align 8, !tbaa !68
+  %578 = fmul float %53, %567
+  %579 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  store float %578, ptr %579, align 4, !tbaa !58
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store float 0.000000e+00, ptr %580, align 8, !tbaa !61
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  store float 1.000000e+10, ptr %581, align 4, !tbaa !62
   ret void
 }
 
@@ -3703,15 +3703,15 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14convertContactE
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %120
 
-120:                                              ; preds = %.lr.ph, %924
-  %121 = phi i32 [ %47, %.lr.ph ], [ %925, %924 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %924 ]
+120:                                              ; preds = %.lr.ph, %921
+  %121 = phi i32 [ %47, %.lr.ph ], [ %922, %921 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %921 ]
   %122 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %49, i64 0, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = load float, ptr %123, align 8, !tbaa !108
   %125 = load float, ptr %50, align 8, !tbaa !122
   %126 = fcmp ugt float %124, %125
-  br i1 %126, label %924, label %127
+  br i1 %126, label %921, label %127
 
 127:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3912,938 +3912,938 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit: ; pred
 _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190: ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, %215
   %.sroa.0297.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i187, %215 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
   %.sroa.6.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i188, %215 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %246 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
-  %247 = extractelement <2 x float> %246, i64 0
-  %248 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
-  %249 = extractelement <2 x float> %248, i64 1
-  %250 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
-  %251 = extractelement <2 x float> %250, i64 0
-  %252 = getelementptr inbounds nuw i8, ptr %122, i64 64
-  %253 = load float, ptr %252, align 4, !tbaa !59
-  %254 = getelementptr inbounds nuw i8, ptr %122, i64 68
-  %255 = load float, ptr %254, align 4, !tbaa !59
-  %256 = fmul float %249, %255
-  %257 = tail call float @llvm.fmuladd.f32(float %253, float %247, float %256)
-  %258 = getelementptr inbounds nuw i8, ptr %122, i64 72
-  %259 = load float, ptr %258, align 4, !tbaa !59
-  %260 = tail call noundef float @llvm.fmuladd.f32(float %259, float %251, float %257)
+  %foldExtExtBinop = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
+  %246 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %foldExtExtBinop317 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
+  %247 = extractelement <2 x float> %foldExtExtBinop317, i64 1
+  %foldExtExtBinop319 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
+  %248 = extractelement <2 x float> %foldExtExtBinop319, i64 0
+  %249 = getelementptr inbounds nuw i8, ptr %122, i64 64
+  %250 = load float, ptr %249, align 4, !tbaa !59
+  %251 = getelementptr inbounds nuw i8, ptr %122, i64 68
+  %252 = load float, ptr %251, align 4, !tbaa !59
+  %253 = fmul float %247, %252
+  %254 = tail call float @llvm.fmuladd.f32(float %250, float %246, float %253)
+  %255 = getelementptr inbounds nuw i8, ptr %122, i64 72
+  %256 = load float, ptr %255, align 4, !tbaa !59
+  %257 = tail call noundef float @llvm.fmuladd.f32(float %256, float %248, float %254)
   call void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %154, i32 noundef %15, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(128) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  %261 = load i32, ptr %89, align 4, !tbaa !37
-  %262 = getelementptr inbounds nuw i8, ptr %154, i64 148
-  store i32 %261, ptr %262, align 4, !tbaa !100
-  %263 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  %264 = load float, ptr %263, align 8, !tbaa !123
-  %265 = fcmp ogt float %264, 0.000000e+00
-  br i1 %265, label %266, label %489
+  %258 = load i32, ptr %89, align 4, !tbaa !37
+  %259 = getelementptr inbounds nuw i8, ptr %154, i64 148
+  store i32 %258, ptr %259, align 4, !tbaa !100
+  %260 = getelementptr inbounds nuw i8, ptr %122, i64 88
+  %261 = load float, ptr %260, align 8, !tbaa !123
+  %262 = fcmp ogt float %261, 0.000000e+00
+  br i1 %262, label %263, label %486
 
-266:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
-  %267 = getelementptr inbounds nuw i8, ptr %122, i64 92
-  %268 = load float, ptr %267, align 4, !tbaa !124
-  %269 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %252, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %268, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+263:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
+  %264 = getelementptr inbounds nuw i8, ptr %122, i64 92
+  %265 = load float, ptr %264, align 4, !tbaa !124
+  %266 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %249, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %265, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %270 = load float, ptr %258, align 4, !tbaa !59
-  %271 = tail call noundef float @llvm.fabs.f32(float %270)
-  %272 = fcmp ogt float %271, 0x3FE6A09E60000000
-  br i1 %272, label %273, label %286
+  %267 = load float, ptr %255, align 4, !tbaa !59
+  %268 = tail call noundef float @llvm.fabs.f32(float %267)
+  %269 = fcmp ogt float %268, 0x3FE6A09E60000000
+  br i1 %269, label %270, label %283
 
-273:                                              ; preds = %266
-  %274 = load float, ptr %254, align 4, !tbaa !59
-  %275 = fmul float %270, %270
-  %276 = tail call float @llvm.fmuladd.f32(float %274, float %274, float %275)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %276)
-  %277 = fdiv float 1.000000e+00, %sqrt.i
-  %278 = fneg float %270
-  %279 = fmul float %277, %278
-  %280 = fmul float %274, %277
-  %281 = fmul float %276, %277
-  %282 = load float, ptr %252, align 4, !tbaa !59
-  %283 = fneg float %282
-  %284 = fmul float %280, %283
-  %285 = fmul float %279, %282
-  br label %299
+270:                                              ; preds = %263
+  %271 = load float, ptr %251, align 4, !tbaa !59
+  %272 = fmul float %267, %267
+  %273 = tail call float @llvm.fmuladd.f32(float %271, float %271, float %272)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %273)
+  %274 = fdiv float 1.000000e+00, %sqrt.i
+  %275 = fneg float %267
+  %276 = fmul float %274, %275
+  %277 = fmul float %271, %274
+  %278 = fmul float %273, %274
+  %279 = load float, ptr %249, align 4, !tbaa !59
+  %280 = fneg float %279
+  %281 = fmul float %277, %280
+  %282 = fmul float %276, %279
+  br label %296
 
-286:                                              ; preds = %266
-  %287 = load float, ptr %252, align 4, !tbaa !59
-  %288 = load float, ptr %254, align 4, !tbaa !59
-  %289 = fmul float %288, %288
-  %290 = tail call float @llvm.fmuladd.f32(float %287, float %287, float %289)
-  %sqrt43.i = tail call float @llvm.sqrt.f32(float %290)
-  %291 = fdiv float 1.000000e+00, %sqrt43.i
-  %292 = fneg float %288
+283:                                              ; preds = %263
+  %284 = load float, ptr %249, align 4, !tbaa !59
+  %285 = load float, ptr %251, align 4, !tbaa !59
+  %286 = fmul float %285, %285
+  %287 = tail call float @llvm.fmuladd.f32(float %284, float %284, float %286)
+  %sqrt43.i = tail call float @llvm.sqrt.f32(float %287)
+  %288 = fdiv float 1.000000e+00, %sqrt43.i
+  %289 = fneg float %285
+  %290 = fmul float %288, %289
+  %291 = fmul float %284, %288
+  %292 = fneg float %267
   %293 = fmul float %291, %292
-  %294 = fmul float %287, %291
-  %295 = fneg float %270
-  %296 = fmul float %294, %295
-  %297 = fmul float %270, %293
-  %298 = fmul float %290, %291
-  br label %299
+  %294 = fmul float %267, %290
+  %295 = fmul float %287, %288
+  br label %296
 
-299:                                              ; preds = %286, %273
-  %300 = phi float [ %284, %273 ], [ %297, %286 ]
-  %301 = phi float [ %281, %273 ], [ %296, %286 ]
-  %302 = phi float [ %280, %273 ], [ 0.000000e+00, %286 ]
-  %303 = phi float [ %279, %273 ], [ %294, %286 ]
-  %304 = phi float [ 0.000000e+00, %273 ], [ %293, %286 ]
-  %.sink.i = phi float [ %285, %273 ], [ %298, %286 ]
-  %305 = fmul float %303, %303
-  %306 = tail call float @llvm.fmuladd.f32(float %304, float %304, float %305)
-  %307 = tail call noundef float @llvm.fmuladd.f32(float %302, float %302, float %306)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %307)
-  %308 = fdiv float 1.000000e+00, %sqrt.i.i
-  %309 = fmul float %304, %308
-  store float %309, ptr %7, align 8, !tbaa !59
-  %310 = fmul float %303, %308
-  store float %310, ptr %91, align 4, !tbaa !59
-  %311 = fmul float %302, %308
-  store float %311, ptr %90, align 8, !tbaa !59
-  %312 = fmul float %300, %300
-  %313 = tail call float @llvm.fmuladd.f32(float %301, float %301, float %312)
-  %314 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %313)
-  %sqrt.i.i196 = tail call noundef float @llvm.sqrt.f32(float %314)
-  %315 = fdiv float 1.000000e+00, %sqrt.i.i196
-  %316 = fmul float %301, %315
-  store float %316, ptr %8, align 8, !tbaa !59
-  %317 = fmul float %300, %315
-  store float %317, ptr %92, align 4, !tbaa !59
-  %318 = fmul float %.sink.i, %315
-  store float %318, ptr %93, align 8, !tbaa !59
-  %319 = load i32, ptr %94, align 8, !tbaa !87
-  %320 = and i32 %319, 2
-  %.not22.i = icmp eq i32 %320, 0
-  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit, label %321
+296:                                              ; preds = %283, %270
+  %297 = phi float [ %281, %270 ], [ %294, %283 ]
+  %298 = phi float [ %278, %270 ], [ %293, %283 ]
+  %299 = phi float [ %277, %270 ], [ 0.000000e+00, %283 ]
+  %300 = phi float [ %276, %270 ], [ %291, %283 ]
+  %301 = phi float [ 0.000000e+00, %270 ], [ %290, %283 ]
+  %.sink.i = phi float [ %282, %270 ], [ %295, %283 ]
+  %302 = fmul float %300, %300
+  %303 = tail call float @llvm.fmuladd.f32(float %301, float %301, float %302)
+  %304 = tail call noundef float @llvm.fmuladd.f32(float %299, float %299, float %303)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %304)
+  %305 = fdiv float 1.000000e+00, %sqrt.i.i
+  %306 = fmul float %301, %305
+  store float %306, ptr %7, align 8, !tbaa !59
+  %307 = fmul float %300, %305
+  store float %307, ptr %91, align 4, !tbaa !59
+  %308 = fmul float %299, %305
+  store float %308, ptr %90, align 8, !tbaa !59
+  %309 = fmul float %297, %297
+  %310 = tail call float @llvm.fmuladd.f32(float %298, float %298, float %309)
+  %311 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %310)
+  %sqrt.i.i196 = tail call noundef float @llvm.sqrt.f32(float %311)
+  %312 = fdiv float 1.000000e+00, %sqrt.i.i196
+  %313 = fmul float %298, %312
+  store float %313, ptr %8, align 8, !tbaa !59
+  %314 = fmul float %297, %312
+  store float %314, ptr %92, align 4, !tbaa !59
+  %315 = fmul float %.sink.i, %312
+  store float %315, ptr %93, align 8, !tbaa !59
+  %316 = load i32, ptr %94, align 8, !tbaa !87
+  %317 = and i32 %316, 2
+  %.not22.i = icmp eq i32 %317, 0
+  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit, label %318
 
-321:                                              ; preds = %299
-  %322 = load float, ptr %55, align 4, !tbaa !59
-  %323 = load float, ptr %95, align 4, !tbaa !59
-  %324 = fmul float %310, %323
-  %325 = tail call float @llvm.fmuladd.f32(float %322, float %309, float %324)
-  %326 = load float, ptr %96, align 4, !tbaa !59
-  %327 = tail call noundef float @llvm.fmuladd.f32(float %326, float %311, float %325)
-  %328 = load float, ptr %97, align 4, !tbaa !59
-  %329 = load float, ptr %98, align 4, !tbaa !59
-  %330 = fmul float %310, %329
-  %331 = tail call float @llvm.fmuladd.f32(float %328, float %309, float %330)
-  %332 = load float, ptr %99, align 4, !tbaa !59
-  %333 = tail call noundef float @llvm.fmuladd.f32(float %332, float %311, float %331)
-  %334 = load float, ptr %100, align 4, !tbaa !59
-  %335 = load float, ptr %101, align 4, !tbaa !59
-  %336 = fmul float %310, %335
-  %337 = tail call float @llvm.fmuladd.f32(float %334, float %309, float %336)
-  %338 = load float, ptr %102, align 4, !tbaa !59
-  %339 = tail call noundef float @llvm.fmuladd.f32(float %338, float %311, float %337)
-  %340 = load float, ptr %103, align 4, !tbaa !59
-  %341 = fmul float %327, %340
-  %342 = load float, ptr %104, align 4, !tbaa !59
-  %343 = fmul float %333, %342
-  %344 = load float, ptr %105, align 4, !tbaa !59
-  %345 = fmul float %339, %344
-  %346 = fmul float %328, %343
-  %347 = tail call float @llvm.fmuladd.f32(float %322, float %341, float %346)
-  %348 = tail call noundef float @llvm.fmuladd.f32(float %334, float %345, float %347)
-  %349 = fmul float %329, %343
-  %350 = tail call float @llvm.fmuladd.f32(float %323, float %341, float %349)
-  %351 = tail call noundef float @llvm.fmuladd.f32(float %335, float %345, float %350)
-  %352 = fmul float %332, %343
-  %353 = tail call float @llvm.fmuladd.f32(float %326, float %341, float %352)
-  %354 = tail call noundef float @llvm.fmuladd.f32(float %338, float %345, float %353)
-  %.sroa.0.0.vec.insert.i8.i = insertelement <2 x float> poison, float %348, i64 0
-  %.sroa.0.4.vec.insert.i9.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i, float %351, i64 1
-  %.sroa.3.12.vec.insert.i10.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %354, i64 0
+318:                                              ; preds = %296
+  %319 = load float, ptr %55, align 4, !tbaa !59
+  %320 = load float, ptr %95, align 4, !tbaa !59
+  %321 = fmul float %307, %320
+  %322 = tail call float @llvm.fmuladd.f32(float %319, float %306, float %321)
+  %323 = load float, ptr %96, align 4, !tbaa !59
+  %324 = tail call noundef float @llvm.fmuladd.f32(float %323, float %308, float %322)
+  %325 = load float, ptr %97, align 4, !tbaa !59
+  %326 = load float, ptr %98, align 4, !tbaa !59
+  %327 = fmul float %307, %326
+  %328 = tail call float @llvm.fmuladd.f32(float %325, float %306, float %327)
+  %329 = load float, ptr %99, align 4, !tbaa !59
+  %330 = tail call noundef float @llvm.fmuladd.f32(float %329, float %308, float %328)
+  %331 = load float, ptr %100, align 4, !tbaa !59
+  %332 = load float, ptr %101, align 4, !tbaa !59
+  %333 = fmul float %307, %332
+  %334 = tail call float @llvm.fmuladd.f32(float %331, float %306, float %333)
+  %335 = load float, ptr %102, align 4, !tbaa !59
+  %336 = tail call noundef float @llvm.fmuladd.f32(float %335, float %308, float %334)
+  %337 = load float, ptr %103, align 4, !tbaa !59
+  %338 = fmul float %324, %337
+  %339 = load float, ptr %104, align 4, !tbaa !59
+  %340 = fmul float %330, %339
+  %341 = load float, ptr %105, align 4, !tbaa !59
+  %342 = fmul float %336, %341
+  %343 = fmul float %325, %340
+  %344 = tail call float @llvm.fmuladd.f32(float %319, float %338, float %343)
+  %345 = tail call noundef float @llvm.fmuladd.f32(float %331, float %342, float %344)
+  %346 = fmul float %326, %340
+  %347 = tail call float @llvm.fmuladd.f32(float %320, float %338, float %346)
+  %348 = tail call noundef float @llvm.fmuladd.f32(float %332, float %342, float %347)
+  %349 = fmul float %329, %340
+  %350 = tail call float @llvm.fmuladd.f32(float %323, float %338, float %349)
+  %351 = tail call noundef float @llvm.fmuladd.f32(float %335, float %342, float %350)
+  %.sroa.0.0.vec.insert.i8.i = insertelement <2 x float> poison, float %345, i64 0
+  %.sroa.0.4.vec.insert.i9.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i, float %348, i64 1
+  %.sroa.3.12.vec.insert.i10.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %351, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i10.i, ptr %90, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit: ; preds = %321, %299
-  %355 = phi float [ %354, %321 ], [ %311, %299 ]
-  %356 = phi float [ %351, %321 ], [ %310, %299 ]
-  %357 = phi float [ %348, %321 ], [ %309, %299 ]
-  %358 = load i32, ptr %106, align 8, !tbaa !87
-  %359 = and i32 %358, 2
-  %.not22.i199 = icmp eq i32 %359, 0
-  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203, label %360
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit: ; preds = %318, %296
+  %352 = phi float [ %351, %318 ], [ %308, %296 ]
+  %353 = phi float [ %348, %318 ], [ %307, %296 ]
+  %354 = phi float [ %345, %318 ], [ %306, %296 ]
+  %355 = load i32, ptr %106, align 8, !tbaa !87
+  %356 = and i32 %355, 2
+  %.not22.i199 = icmp eq i32 %356, 0
+  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203, label %357
 
-360:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
-  %361 = load float, ptr %59, align 4, !tbaa !59
-  %362 = load float, ptr %107, align 4, !tbaa !59
-  %363 = fmul float %362, %356
-  %364 = tail call float @llvm.fmuladd.f32(float %361, float %357, float %363)
-  %365 = load float, ptr %108, align 4, !tbaa !59
-  %366 = tail call noundef float @llvm.fmuladd.f32(float %365, float %355, float %364)
-  %367 = load float, ptr %109, align 4, !tbaa !59
-  %368 = load float, ptr %110, align 4, !tbaa !59
-  %369 = fmul float %356, %368
-  %370 = tail call float @llvm.fmuladd.f32(float %367, float %357, float %369)
-  %371 = load float, ptr %111, align 4, !tbaa !59
-  %372 = tail call noundef float @llvm.fmuladd.f32(float %371, float %355, float %370)
-  %373 = load float, ptr %112, align 4, !tbaa !59
-  %374 = load float, ptr %113, align 4, !tbaa !59
-  %375 = fmul float %356, %374
-  %376 = tail call float @llvm.fmuladd.f32(float %373, float %357, float %375)
-  %377 = load float, ptr %114, align 4, !tbaa !59
-  %378 = tail call noundef float @llvm.fmuladd.f32(float %377, float %355, float %376)
-  %379 = load float, ptr %115, align 4, !tbaa !59
-  %380 = fmul float %366, %379
-  %381 = load float, ptr %116, align 4, !tbaa !59
-  %382 = fmul float %372, %381
-  %383 = load float, ptr %117, align 4, !tbaa !59
-  %384 = fmul float %378, %383
-  %385 = fmul float %367, %382
-  %386 = tail call float @llvm.fmuladd.f32(float %361, float %380, float %385)
-  %387 = tail call noundef float @llvm.fmuladd.f32(float %373, float %384, float %386)
-  %388 = fmul float %368, %382
-  %389 = tail call float @llvm.fmuladd.f32(float %362, float %380, float %388)
-  %390 = tail call noundef float @llvm.fmuladd.f32(float %374, float %384, float %389)
-  %391 = fmul float %371, %382
-  %392 = tail call float @llvm.fmuladd.f32(float %365, float %380, float %391)
-  %393 = tail call noundef float @llvm.fmuladd.f32(float %377, float %384, float %392)
-  %.sroa.0.0.vec.insert.i8.i200 = insertelement <2 x float> poison, float %387, i64 0
-  %.sroa.0.4.vec.insert.i9.i201 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i200, float %390, i64 1
-  %.sroa.3.12.vec.insert.i10.i202 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %393, i64 0
+357:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
+  %358 = load float, ptr %59, align 4, !tbaa !59
+  %359 = load float, ptr %107, align 4, !tbaa !59
+  %360 = fmul float %359, %353
+  %361 = tail call float @llvm.fmuladd.f32(float %358, float %354, float %360)
+  %362 = load float, ptr %108, align 4, !tbaa !59
+  %363 = tail call noundef float @llvm.fmuladd.f32(float %362, float %352, float %361)
+  %364 = load float, ptr %109, align 4, !tbaa !59
+  %365 = load float, ptr %110, align 4, !tbaa !59
+  %366 = fmul float %353, %365
+  %367 = tail call float @llvm.fmuladd.f32(float %364, float %354, float %366)
+  %368 = load float, ptr %111, align 4, !tbaa !59
+  %369 = tail call noundef float @llvm.fmuladd.f32(float %368, float %352, float %367)
+  %370 = load float, ptr %112, align 4, !tbaa !59
+  %371 = load float, ptr %113, align 4, !tbaa !59
+  %372 = fmul float %353, %371
+  %373 = tail call float @llvm.fmuladd.f32(float %370, float %354, float %372)
+  %374 = load float, ptr %114, align 4, !tbaa !59
+  %375 = tail call noundef float @llvm.fmuladd.f32(float %374, float %352, float %373)
+  %376 = load float, ptr %115, align 4, !tbaa !59
+  %377 = fmul float %363, %376
+  %378 = load float, ptr %116, align 4, !tbaa !59
+  %379 = fmul float %369, %378
+  %380 = load float, ptr %117, align 4, !tbaa !59
+  %381 = fmul float %375, %380
+  %382 = fmul float %364, %379
+  %383 = tail call float @llvm.fmuladd.f32(float %358, float %377, float %382)
+  %384 = tail call noundef float @llvm.fmuladd.f32(float %370, float %381, float %383)
+  %385 = fmul float %365, %379
+  %386 = tail call float @llvm.fmuladd.f32(float %359, float %377, float %385)
+  %387 = tail call noundef float @llvm.fmuladd.f32(float %371, float %381, float %386)
+  %388 = fmul float %368, %379
+  %389 = tail call float @llvm.fmuladd.f32(float %362, float %377, float %388)
+  %390 = tail call noundef float @llvm.fmuladd.f32(float %374, float %381, float %389)
+  %.sroa.0.0.vec.insert.i8.i200 = insertelement <2 x float> poison, float %384, i64 0
+  %.sroa.0.4.vec.insert.i9.i201 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i200, float %387, i64 1
+  %.sroa.3.12.vec.insert.i10.i202 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %390, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i201, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i10.i202, ptr %90, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203: ; preds = %360, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
-  %394 = phi float [ %393, %360 ], [ %355, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  %395 = phi float [ %390, %360 ], [ %356, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  %396 = phi float [ %387, %360 ], [ %357, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, label %397
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203: ; preds = %357, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
+  %391 = phi float [ %390, %357 ], [ %352, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  %392 = phi float [ %387, %357 ], [ %353, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  %393 = phi float [ %384, %357 ], [ %354, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, label %394
 
-397:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
-  %398 = load float, ptr %55, align 4, !tbaa !59
-  %399 = load float, ptr %95, align 4, !tbaa !59
-  %400 = fmul float %317, %399
-  %401 = tail call float @llvm.fmuladd.f32(float %398, float %316, float %400)
-  %402 = load float, ptr %96, align 4, !tbaa !59
-  %403 = tail call noundef float @llvm.fmuladd.f32(float %402, float %318, float %401)
-  %404 = load float, ptr %97, align 4, !tbaa !59
-  %405 = load float, ptr %98, align 4, !tbaa !59
-  %406 = fmul float %317, %405
-  %407 = tail call float @llvm.fmuladd.f32(float %404, float %316, float %406)
-  %408 = load float, ptr %99, align 4, !tbaa !59
-  %409 = tail call noundef float @llvm.fmuladd.f32(float %408, float %318, float %407)
-  %410 = load float, ptr %100, align 4, !tbaa !59
-  %411 = load float, ptr %101, align 4, !tbaa !59
-  %412 = fmul float %317, %411
-  %413 = tail call float @llvm.fmuladd.f32(float %410, float %316, float %412)
-  %414 = load float, ptr %102, align 4, !tbaa !59
-  %415 = tail call noundef float @llvm.fmuladd.f32(float %414, float %318, float %413)
-  %416 = load float, ptr %103, align 4, !tbaa !59
-  %417 = fmul float %403, %416
-  %418 = load float, ptr %104, align 4, !tbaa !59
-  %419 = fmul float %409, %418
-  %420 = load float, ptr %105, align 4, !tbaa !59
-  %421 = fmul float %415, %420
-  %422 = fmul float %404, %419
-  %423 = tail call float @llvm.fmuladd.f32(float %398, float %417, float %422)
-  %424 = tail call noundef float @llvm.fmuladd.f32(float %410, float %421, float %423)
-  %425 = fmul float %405, %419
-  %426 = tail call float @llvm.fmuladd.f32(float %399, float %417, float %425)
-  %427 = tail call noundef float @llvm.fmuladd.f32(float %411, float %421, float %426)
-  %428 = fmul float %408, %419
-  %429 = tail call float @llvm.fmuladd.f32(float %402, float %417, float %428)
-  %430 = tail call noundef float @llvm.fmuladd.f32(float %414, float %421, float %429)
-  %.sroa.0.0.vec.insert.i8.i206 = insertelement <2 x float> poison, float %424, i64 0
-  %.sroa.0.4.vec.insert.i9.i207 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i206, float %427, i64 1
-  %.sroa.3.12.vec.insert.i10.i208 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %430, i64 0
+394:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
+  %395 = load float, ptr %55, align 4, !tbaa !59
+  %396 = load float, ptr %95, align 4, !tbaa !59
+  %397 = fmul float %314, %396
+  %398 = tail call float @llvm.fmuladd.f32(float %395, float %313, float %397)
+  %399 = load float, ptr %96, align 4, !tbaa !59
+  %400 = tail call noundef float @llvm.fmuladd.f32(float %399, float %315, float %398)
+  %401 = load float, ptr %97, align 4, !tbaa !59
+  %402 = load float, ptr %98, align 4, !tbaa !59
+  %403 = fmul float %314, %402
+  %404 = tail call float @llvm.fmuladd.f32(float %401, float %313, float %403)
+  %405 = load float, ptr %99, align 4, !tbaa !59
+  %406 = tail call noundef float @llvm.fmuladd.f32(float %405, float %315, float %404)
+  %407 = load float, ptr %100, align 4, !tbaa !59
+  %408 = load float, ptr %101, align 4, !tbaa !59
+  %409 = fmul float %314, %408
+  %410 = tail call float @llvm.fmuladd.f32(float %407, float %313, float %409)
+  %411 = load float, ptr %102, align 4, !tbaa !59
+  %412 = tail call noundef float @llvm.fmuladd.f32(float %411, float %315, float %410)
+  %413 = load float, ptr %103, align 4, !tbaa !59
+  %414 = fmul float %400, %413
+  %415 = load float, ptr %104, align 4, !tbaa !59
+  %416 = fmul float %406, %415
+  %417 = load float, ptr %105, align 4, !tbaa !59
+  %418 = fmul float %412, %417
+  %419 = fmul float %401, %416
+  %420 = tail call float @llvm.fmuladd.f32(float %395, float %414, float %419)
+  %421 = tail call noundef float @llvm.fmuladd.f32(float %407, float %418, float %420)
+  %422 = fmul float %402, %416
+  %423 = tail call float @llvm.fmuladd.f32(float %396, float %414, float %422)
+  %424 = tail call noundef float @llvm.fmuladd.f32(float %408, float %418, float %423)
+  %425 = fmul float %405, %416
+  %426 = tail call float @llvm.fmuladd.f32(float %399, float %414, float %425)
+  %427 = tail call noundef float @llvm.fmuladd.f32(float %411, float %418, float %426)
+  %.sroa.0.0.vec.insert.i8.i206 = insertelement <2 x float> poison, float %421, i64 0
+  %.sroa.0.4.vec.insert.i9.i207 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i206, float %424, i64 1
+  %.sroa.3.12.vec.insert.i10.i208 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %427, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i207, ptr %8, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i10.i208, ptr %93, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209: ; preds = %397, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
-  %431 = phi float [ %430, %397 ], [ %318, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  %432 = phi float [ %427, %397 ], [ %317, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  %433 = phi float [ %424, %397 ], [ %316, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215, label %434
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209: ; preds = %394, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
+  %428 = phi float [ %427, %394 ], [ %315, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  %429 = phi float [ %424, %394 ], [ %314, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  %430 = phi float [ %421, %394 ], [ %313, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215, label %431
 
-434:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
-  %435 = load float, ptr %59, align 4, !tbaa !59
-  %436 = load float, ptr %107, align 4, !tbaa !59
-  %437 = fmul float %436, %432
-  %438 = tail call float @llvm.fmuladd.f32(float %435, float %433, float %437)
-  %439 = load float, ptr %108, align 4, !tbaa !59
-  %440 = tail call noundef float @llvm.fmuladd.f32(float %439, float %431, float %438)
-  %441 = load float, ptr %109, align 4, !tbaa !59
-  %442 = load float, ptr %110, align 4, !tbaa !59
-  %443 = fmul float %432, %442
-  %444 = tail call float @llvm.fmuladd.f32(float %441, float %433, float %443)
-  %445 = load float, ptr %111, align 4, !tbaa !59
-  %446 = tail call noundef float @llvm.fmuladd.f32(float %445, float %431, float %444)
-  %447 = load float, ptr %112, align 4, !tbaa !59
-  %448 = load float, ptr %113, align 4, !tbaa !59
-  %449 = fmul float %432, %448
-  %450 = tail call float @llvm.fmuladd.f32(float %447, float %433, float %449)
-  %451 = load float, ptr %114, align 4, !tbaa !59
-  %452 = tail call noundef float @llvm.fmuladd.f32(float %451, float %431, float %450)
-  %453 = load float, ptr %115, align 4, !tbaa !59
-  %454 = fmul float %440, %453
-  %455 = load float, ptr %116, align 4, !tbaa !59
-  %456 = fmul float %446, %455
-  %457 = load float, ptr %117, align 4, !tbaa !59
-  %458 = fmul float %452, %457
-  %459 = fmul float %441, %456
-  %460 = tail call float @llvm.fmuladd.f32(float %435, float %454, float %459)
-  %461 = tail call noundef float @llvm.fmuladd.f32(float %447, float %458, float %460)
-  %462 = fmul float %442, %456
-  %463 = tail call float @llvm.fmuladd.f32(float %436, float %454, float %462)
-  %464 = tail call noundef float @llvm.fmuladd.f32(float %448, float %458, float %463)
-  %465 = fmul float %445, %456
-  %466 = tail call float @llvm.fmuladd.f32(float %439, float %454, float %465)
-  %467 = tail call noundef float @llvm.fmuladd.f32(float %451, float %458, float %466)
-  %.sroa.0.0.vec.insert.i8.i212 = insertelement <2 x float> poison, float %461, i64 0
-  %.sroa.0.4.vec.insert.i9.i213 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i212, float %464, i64 1
-  %.sroa.3.12.vec.insert.i10.i214 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %467, i64 0
+431:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
+  %432 = load float, ptr %59, align 4, !tbaa !59
+  %433 = load float, ptr %107, align 4, !tbaa !59
+  %434 = fmul float %433, %429
+  %435 = tail call float @llvm.fmuladd.f32(float %432, float %430, float %434)
+  %436 = load float, ptr %108, align 4, !tbaa !59
+  %437 = tail call noundef float @llvm.fmuladd.f32(float %436, float %428, float %435)
+  %438 = load float, ptr %109, align 4, !tbaa !59
+  %439 = load float, ptr %110, align 4, !tbaa !59
+  %440 = fmul float %429, %439
+  %441 = tail call float @llvm.fmuladd.f32(float %438, float %430, float %440)
+  %442 = load float, ptr %111, align 4, !tbaa !59
+  %443 = tail call noundef float @llvm.fmuladd.f32(float %442, float %428, float %441)
+  %444 = load float, ptr %112, align 4, !tbaa !59
+  %445 = load float, ptr %113, align 4, !tbaa !59
+  %446 = fmul float %429, %445
+  %447 = tail call float @llvm.fmuladd.f32(float %444, float %430, float %446)
+  %448 = load float, ptr %114, align 4, !tbaa !59
+  %449 = tail call noundef float @llvm.fmuladd.f32(float %448, float %428, float %447)
+  %450 = load float, ptr %115, align 4, !tbaa !59
+  %451 = fmul float %437, %450
+  %452 = load float, ptr %116, align 4, !tbaa !59
+  %453 = fmul float %443, %452
+  %454 = load float, ptr %117, align 4, !tbaa !59
+  %455 = fmul float %449, %454
+  %456 = fmul float %438, %453
+  %457 = tail call float @llvm.fmuladd.f32(float %432, float %451, float %456)
+  %458 = tail call noundef float @llvm.fmuladd.f32(float %444, float %455, float %457)
+  %459 = fmul float %439, %453
+  %460 = tail call float @llvm.fmuladd.f32(float %433, float %451, float %459)
+  %461 = tail call noundef float @llvm.fmuladd.f32(float %445, float %455, float %460)
+  %462 = fmul float %442, %453
+  %463 = tail call float @llvm.fmuladd.f32(float %436, float %451, float %462)
+  %464 = tail call noundef float @llvm.fmuladd.f32(float %448, float %455, float %463)
+  %.sroa.0.0.vec.insert.i8.i212 = insertelement <2 x float> poison, float %458, i64 0
+  %.sroa.0.4.vec.insert.i9.i213 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i212, float %461, i64 1
+  %.sroa.3.12.vec.insert.i10.i214 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %464, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i213, ptr %8, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i10.i214, ptr %93, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, %434
-  %468 = phi float [ %431, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %467, %434 ]
-  %469 = phi float [ %432, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %464, %434 ]
-  %470 = phi float [ %433, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %461, %434 ]
-  %471 = fmul float %395, %395
-  %472 = tail call float @llvm.fmuladd.f32(float %396, float %396, float %471)
-  %473 = tail call noundef float @llvm.fmuladd.f32(float %394, float %394, float %472)
-  %sqrt.i216 = tail call noundef float @llvm.sqrt.f32(float %473)
-  %474 = fpext float %sqrt.i216 to double
-  %475 = fcmp ogt double %474, 1.000000e-03
-  br i1 %475, label %476, label %479
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, %431
+  %465 = phi float [ %428, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %464, %431 ]
+  %466 = phi float [ %429, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %461, %431 ]
+  %467 = phi float [ %430, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %458, %431 ]
+  %468 = fmul float %392, %392
+  %469 = tail call float @llvm.fmuladd.f32(float %393, float %393, float %468)
+  %470 = tail call noundef float @llvm.fmuladd.f32(float %391, float %391, float %469)
+  %sqrt.i216 = tail call noundef float @llvm.sqrt.f32(float %470)
+  %471 = fpext float %sqrt.i216 to double
+  %472 = fcmp ogt double %471, 1.000000e-03
+  br i1 %472, label %473, label %476
 
-476:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
-  %477 = load float, ptr %263, align 8, !tbaa !123
-  %478 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %477, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %479
+473:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
+  %474 = load float, ptr %260, align 8, !tbaa !123
+  %475 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %474, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %476
 
-479:                                              ; preds = %476, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
-  %480 = fmul float %469, %469
-  %481 = tail call float @llvm.fmuladd.f32(float %470, float %470, float %480)
-  %482 = tail call noundef float @llvm.fmuladd.f32(float %468, float %468, float %481)
-  %sqrt.i217 = tail call noundef float @llvm.sqrt.f32(float %482)
-  %483 = fpext float %sqrt.i217 to double
-  %484 = fcmp ogt double %483, 1.000000e-03
-  br i1 %484, label %485, label %488
+476:                                              ; preds = %473, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
+  %477 = fmul float %466, %466
+  %478 = tail call float @llvm.fmuladd.f32(float %467, float %467, float %477)
+  %479 = tail call noundef float @llvm.fmuladd.f32(float %465, float %465, float %478)
+  %sqrt.i217 = tail call noundef float @llvm.sqrt.f32(float %479)
+  %480 = fpext float %sqrt.i217 to double
+  %481 = fcmp ogt double %480, 1.000000e-03
+  br i1 %481, label %482, label %485
 
-485:                                              ; preds = %479
-  %486 = load float, ptr %263, align 8, !tbaa !123
-  %487 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %486, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %488
+482:                                              ; preds = %476
+  %483 = load float, ptr %260, align 8, !tbaa !123
+  %484 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %483, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %485
 
-488:                                              ; preds = %485, %479
+485:                                              ; preds = %482, %476
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %489
+  br label %486
 
-489:                                              ; preds = %488, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
-  %490 = load i32, ptr %118, align 4, !tbaa !112
-  %491 = and i32 %490, 32
-  %.not = icmp eq i32 %491, 0
-  br i1 %.not, label %496, label %492
+486:                                              ; preds = %485, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
+  %487 = load i32, ptr %118, align 4, !tbaa !112
+  %488 = and i32 %487, 32
+  %.not = icmp eq i32 %488, 0
+  br i1 %.not, label %493, label %489
 
-492:                                              ; preds = %489
-  %493 = getelementptr inbounds nuw i8, ptr %122, i64 128
-  %494 = load i32, ptr %493, align 8, !tbaa !93
-  %495 = and i32 %494, 1
-  %.not174 = icmp eq i32 %495, 0
-  br i1 %.not174, label %496, label %898
+489:                                              ; preds = %486
+  %490 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %491 = load i32, ptr %490, align 8, !tbaa !93
+  %492 = and i32 %491, 1
+  %.not174 = icmp eq i32 %492, 0
+  br i1 %.not174, label %493, label %895
 
-496:                                              ; preds = %492, %489
-  %497 = load float, ptr %252, align 4, !tbaa !59
-  %498 = fmul float %260, %497
-  %499 = load float, ptr %254, align 4, !tbaa !59
-  %500 = fmul float %260, %499
-  %501 = load float, ptr %258, align 4, !tbaa !59
-  %502 = fmul float %260, %501
-  %503 = fsub float %247, %498
-  %504 = fsub float %249, %500
-  %505 = fsub float %251, %502
-  %.sroa.0.0.vec.insert.i223 = insertelement <2 x float> poison, float %503, i64 0
-  %.sroa.0.4.vec.insert.i224 = insertelement <2 x float> %.sroa.0.0.vec.insert.i223, float %504, i64 1
-  %.sroa.3.12.vec.insert.i225 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %505, i64 0
-  %506 = getelementptr inbounds nuw i8, ptr %122, i64 172
-  store <2 x float> %.sroa.0.4.vec.insert.i224, ptr %506, align 4
+493:                                              ; preds = %489, %486
+  %494 = load float, ptr %249, align 4, !tbaa !59
+  %495 = fmul float %257, %494
+  %496 = load float, ptr %251, align 4, !tbaa !59
+  %497 = fmul float %257, %496
+  %498 = load float, ptr %255, align 4, !tbaa !59
+  %499 = fmul float %257, %498
+  %500 = fsub float %246, %495
+  %501 = fsub float %247, %497
+  %502 = fsub float %248, %499
+  %.sroa.0.0.vec.insert.i223 = insertelement <2 x float> poison, float %500, i64 0
+  %.sroa.0.4.vec.insert.i224 = insertelement <2 x float> %.sroa.0.0.vec.insert.i223, float %501, i64 1
+  %.sroa.3.12.vec.insert.i225 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %502, i64 0
+  %503 = getelementptr inbounds nuw i8, ptr %122, i64 172
+  store <2 x float> %.sroa.0.4.vec.insert.i224, ptr %503, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 180
   store <2 x float> %.sroa.3.12.vec.insert.i225, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
-  %507 = getelementptr inbounds nuw i8, ptr %122, i64 176
-  %508 = fmul float %504, %504
-  %509 = tail call float @llvm.fmuladd.f32(float %503, float %503, float %508)
-  %510 = tail call noundef float @llvm.fmuladd.f32(float %505, float %505, float %509)
-  %511 = load i32, ptr %118, align 4, !tbaa !112
-  %512 = and i32 %511, 64
-  %513 = icmp eq i32 %512, 0
-  %514 = fcmp ogt float %510, 0x3E80000000000000
-  %or.cond3 = and i1 %513, %514
-  br i1 %or.cond3, label %515, label %700
+  %504 = getelementptr inbounds nuw i8, ptr %122, i64 176
+  %505 = fmul float %501, %501
+  %506 = tail call float @llvm.fmuladd.f32(float %500, float %500, float %505)
+  %507 = tail call noundef float @llvm.fmuladd.f32(float %502, float %502, float %506)
+  %508 = load i32, ptr %118, align 4, !tbaa !112
+  %509 = and i32 %508, 64
+  %510 = icmp eq i32 %509, 0
+  %511 = fcmp ogt float %507, 0x3E80000000000000
+  %or.cond3 = and i1 %510, %511
+  br i1 %or.cond3, label %512, label %697
 
-515:                                              ; preds = %496
-  %sqrt = tail call float @llvm.sqrt.f32(float %510)
-  %516 = fdiv float 1.000000e+00, %sqrt
-  %517 = fmul float %503, %516
-  store float %517, ptr %506, align 4, !tbaa !59
-  %518 = fmul float %504, %516
-  store float %518, ptr %507, align 4, !tbaa !59
-  %519 = fmul float %505, %516
-  store float %519, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  %520 = load i32, ptr %94, align 8, !tbaa !87
-  %521 = and i32 %520, 1
-  %.not22.i229 = icmp eq i32 %521, 0
-  br i1 %.not22.i229, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, label %522
+512:                                              ; preds = %493
+  %sqrt = tail call float @llvm.sqrt.f32(float %507)
+  %513 = fdiv float 1.000000e+00, %sqrt
+  %514 = fmul float %500, %513
+  store float %514, ptr %503, align 4, !tbaa !59
+  %515 = fmul float %501, %513
+  store float %515, ptr %504, align 4, !tbaa !59
+  %516 = fmul float %502, %513
+  store float %516, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  %517 = load i32, ptr %94, align 8, !tbaa !87
+  %518 = and i32 %517, 1
+  %.not22.i229 = icmp eq i32 %518, 0
+  br i1 %.not22.i229, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, label %519
 
-522:                                              ; preds = %515
-  %523 = load float, ptr %55, align 4, !tbaa !59
-  %524 = load float, ptr %95, align 4, !tbaa !59
-  %525 = fmul float %518, %524
-  %526 = tail call float @llvm.fmuladd.f32(float %523, float %517, float %525)
-  %527 = load float, ptr %96, align 4, !tbaa !59
-  %528 = tail call noundef float @llvm.fmuladd.f32(float %527, float %519, float %526)
-  %529 = load float, ptr %97, align 4, !tbaa !59
-  %530 = load float, ptr %98, align 4, !tbaa !59
-  %531 = fmul float %518, %530
-  %532 = tail call float @llvm.fmuladd.f32(float %529, float %517, float %531)
-  %533 = load float, ptr %99, align 4, !tbaa !59
-  %534 = tail call noundef float @llvm.fmuladd.f32(float %533, float %519, float %532)
-  %535 = load float, ptr %100, align 4, !tbaa !59
-  %536 = load float, ptr %101, align 4, !tbaa !59
-  %537 = fmul float %518, %536
-  %538 = tail call float @llvm.fmuladd.f32(float %535, float %517, float %537)
-  %539 = load float, ptr %102, align 4, !tbaa !59
-  %540 = tail call noundef float @llvm.fmuladd.f32(float %539, float %519, float %538)
-  %541 = load float, ptr %103, align 4, !tbaa !59
-  %542 = fmul float %528, %541
-  %543 = load float, ptr %104, align 4, !tbaa !59
-  %544 = fmul float %534, %543
-  %545 = load float, ptr %105, align 4, !tbaa !59
-  %546 = fmul float %540, %545
-  %547 = fmul float %529, %544
-  %548 = tail call float @llvm.fmuladd.f32(float %523, float %542, float %547)
-  %549 = tail call noundef float @llvm.fmuladd.f32(float %535, float %546, float %548)
-  %550 = fmul float %530, %544
-  %551 = tail call float @llvm.fmuladd.f32(float %524, float %542, float %550)
-  %552 = tail call noundef float @llvm.fmuladd.f32(float %536, float %546, float %551)
-  %553 = fmul float %533, %544
-  %554 = tail call float @llvm.fmuladd.f32(float %527, float %542, float %553)
-  %555 = tail call noundef float @llvm.fmuladd.f32(float %539, float %546, float %554)
-  %.sroa.0.0.vec.insert.i8.i230 = insertelement <2 x float> poison, float %549, i64 0
-  %.sroa.0.4.vec.insert.i9.i231 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i230, float %552, i64 1
-  %.sroa.3.12.vec.insert.i10.i232 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %555, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i231, ptr %506, align 4
+519:                                              ; preds = %512
+  %520 = load float, ptr %55, align 4, !tbaa !59
+  %521 = load float, ptr %95, align 4, !tbaa !59
+  %522 = fmul float %515, %521
+  %523 = tail call float @llvm.fmuladd.f32(float %520, float %514, float %522)
+  %524 = load float, ptr %96, align 4, !tbaa !59
+  %525 = tail call noundef float @llvm.fmuladd.f32(float %524, float %516, float %523)
+  %526 = load float, ptr %97, align 4, !tbaa !59
+  %527 = load float, ptr %98, align 4, !tbaa !59
+  %528 = fmul float %515, %527
+  %529 = tail call float @llvm.fmuladd.f32(float %526, float %514, float %528)
+  %530 = load float, ptr %99, align 4, !tbaa !59
+  %531 = tail call noundef float @llvm.fmuladd.f32(float %530, float %516, float %529)
+  %532 = load float, ptr %100, align 4, !tbaa !59
+  %533 = load float, ptr %101, align 4, !tbaa !59
+  %534 = fmul float %515, %533
+  %535 = tail call float @llvm.fmuladd.f32(float %532, float %514, float %534)
+  %536 = load float, ptr %102, align 4, !tbaa !59
+  %537 = tail call noundef float @llvm.fmuladd.f32(float %536, float %516, float %535)
+  %538 = load float, ptr %103, align 4, !tbaa !59
+  %539 = fmul float %525, %538
+  %540 = load float, ptr %104, align 4, !tbaa !59
+  %541 = fmul float %531, %540
+  %542 = load float, ptr %105, align 4, !tbaa !59
+  %543 = fmul float %537, %542
+  %544 = fmul float %526, %541
+  %545 = tail call float @llvm.fmuladd.f32(float %520, float %539, float %544)
+  %546 = tail call noundef float @llvm.fmuladd.f32(float %532, float %543, float %545)
+  %547 = fmul float %527, %541
+  %548 = tail call float @llvm.fmuladd.f32(float %521, float %539, float %547)
+  %549 = tail call noundef float @llvm.fmuladd.f32(float %533, float %543, float %548)
+  %550 = fmul float %530, %541
+  %551 = tail call float @llvm.fmuladd.f32(float %524, float %539, float %550)
+  %552 = tail call noundef float @llvm.fmuladd.f32(float %536, float %543, float %551)
+  %.sroa.0.0.vec.insert.i8.i230 = insertelement <2 x float> poison, float %546, i64 0
+  %.sroa.0.4.vec.insert.i9.i231 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i230, float %549, i64 1
+  %.sroa.3.12.vec.insert.i10.i232 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %552, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i231, ptr %503, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i232, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233: ; preds = %522, %515
-  %556 = phi float [ %519, %515 ], [ %555, %522 ]
-  %557 = phi float [ %518, %515 ], [ %552, %522 ]
-  %558 = phi float [ %517, %515 ], [ %549, %522 ]
-  %559 = load i32, ptr %106, align 8, !tbaa !87
-  %560 = and i32 %559, 1
-  %.not22.i235 = icmp eq i32 %560, 0
-  br i1 %.not22.i235, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, label %561
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233: ; preds = %519, %512
+  %553 = phi float [ %516, %512 ], [ %552, %519 ]
+  %554 = phi float [ %515, %512 ], [ %549, %519 ]
+  %555 = phi float [ %514, %512 ], [ %546, %519 ]
+  %556 = load i32, ptr %106, align 8, !tbaa !87
+  %557 = and i32 %556, 1
+  %.not22.i235 = icmp eq i32 %557, 0
+  br i1 %.not22.i235, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, label %558
 
-561:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
-  %562 = load float, ptr %59, align 4, !tbaa !59
-  %563 = load float, ptr %107, align 4, !tbaa !59
-  %564 = fmul float %563, %557
-  %565 = tail call float @llvm.fmuladd.f32(float %562, float %558, float %564)
-  %566 = load float, ptr %108, align 4, !tbaa !59
-  %567 = tail call noundef float @llvm.fmuladd.f32(float %566, float %556, float %565)
-  %568 = load float, ptr %109, align 4, !tbaa !59
-  %569 = load float, ptr %110, align 4, !tbaa !59
-  %570 = fmul float %557, %569
-  %571 = tail call float @llvm.fmuladd.f32(float %568, float %558, float %570)
-  %572 = load float, ptr %111, align 4, !tbaa !59
-  %573 = tail call noundef float @llvm.fmuladd.f32(float %572, float %556, float %571)
-  %574 = load float, ptr %112, align 4, !tbaa !59
-  %575 = load float, ptr %113, align 4, !tbaa !59
-  %576 = fmul float %557, %575
-  %577 = tail call float @llvm.fmuladd.f32(float %574, float %558, float %576)
-  %578 = load float, ptr %114, align 4, !tbaa !59
-  %579 = tail call noundef float @llvm.fmuladd.f32(float %578, float %556, float %577)
-  %580 = load float, ptr %115, align 4, !tbaa !59
-  %581 = fmul float %567, %580
-  %582 = load float, ptr %116, align 4, !tbaa !59
-  %583 = fmul float %573, %582
-  %584 = load float, ptr %117, align 4, !tbaa !59
-  %585 = fmul float %579, %584
-  %586 = fmul float %568, %583
-  %587 = tail call float @llvm.fmuladd.f32(float %562, float %581, float %586)
-  %588 = tail call noundef float @llvm.fmuladd.f32(float %574, float %585, float %587)
-  %589 = fmul float %569, %583
-  %590 = tail call float @llvm.fmuladd.f32(float %563, float %581, float %589)
-  %591 = tail call noundef float @llvm.fmuladd.f32(float %575, float %585, float %590)
-  %592 = fmul float %572, %583
-  %593 = tail call float @llvm.fmuladd.f32(float %566, float %581, float %592)
-  %594 = tail call noundef float @llvm.fmuladd.f32(float %578, float %585, float %593)
-  %.sroa.0.0.vec.insert.i8.i236 = insertelement <2 x float> poison, float %588, i64 0
-  %.sroa.0.4.vec.insert.i9.i237 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i236, float %591, i64 1
-  %.sroa.3.12.vec.insert.i10.i238 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %594, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i237, ptr %506, align 4
+558:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
+  %559 = load float, ptr %59, align 4, !tbaa !59
+  %560 = load float, ptr %107, align 4, !tbaa !59
+  %561 = fmul float %560, %554
+  %562 = tail call float @llvm.fmuladd.f32(float %559, float %555, float %561)
+  %563 = load float, ptr %108, align 4, !tbaa !59
+  %564 = tail call noundef float @llvm.fmuladd.f32(float %563, float %553, float %562)
+  %565 = load float, ptr %109, align 4, !tbaa !59
+  %566 = load float, ptr %110, align 4, !tbaa !59
+  %567 = fmul float %554, %566
+  %568 = tail call float @llvm.fmuladd.f32(float %565, float %555, float %567)
+  %569 = load float, ptr %111, align 4, !tbaa !59
+  %570 = tail call noundef float @llvm.fmuladd.f32(float %569, float %553, float %568)
+  %571 = load float, ptr %112, align 4, !tbaa !59
+  %572 = load float, ptr %113, align 4, !tbaa !59
+  %573 = fmul float %554, %572
+  %574 = tail call float @llvm.fmuladd.f32(float %571, float %555, float %573)
+  %575 = load float, ptr %114, align 4, !tbaa !59
+  %576 = tail call noundef float @llvm.fmuladd.f32(float %575, float %553, float %574)
+  %577 = load float, ptr %115, align 4, !tbaa !59
+  %578 = fmul float %564, %577
+  %579 = load float, ptr %116, align 4, !tbaa !59
+  %580 = fmul float %570, %579
+  %581 = load float, ptr %117, align 4, !tbaa !59
+  %582 = fmul float %576, %581
+  %583 = fmul float %565, %580
+  %584 = tail call float @llvm.fmuladd.f32(float %559, float %578, float %583)
+  %585 = tail call noundef float @llvm.fmuladd.f32(float %571, float %582, float %584)
+  %586 = fmul float %566, %580
+  %587 = tail call float @llvm.fmuladd.f32(float %560, float %578, float %586)
+  %588 = tail call noundef float @llvm.fmuladd.f32(float %572, float %582, float %587)
+  %589 = fmul float %569, %580
+  %590 = tail call float @llvm.fmuladd.f32(float %563, float %578, float %589)
+  %591 = tail call noundef float @llvm.fmuladd.f32(float %575, float %582, float %590)
+  %.sroa.0.0.vec.insert.i8.i236 = insertelement <2 x float> poison, float %585, i64 0
+  %.sroa.0.4.vec.insert.i9.i237 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i236, float %588, i64 1
+  %.sroa.3.12.vec.insert.i10.i238 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %591, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i237, ptr %503, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i238, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, %561
-  %595 = load float, ptr %6, align 4, !tbaa !59
-  %596 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %506, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %595, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %597 = load i32, ptr %118, align 4, !tbaa !112
-  %598 = and i32 %597, 16
-  %.not178 = icmp eq i32 %598, 0
-  br i1 %.not178, label %914, label %599
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, %558
+  %592 = load float, ptr %6, align 4, !tbaa !59
+  %593 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %503, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %592, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %594 = load i32, ptr %118, align 4, !tbaa !112
+  %595 = and i32 %594, 16
+  %.not178 = icmp eq i32 %595, 0
+  br i1 %.not178, label %911, label %596
 
-599:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
-  %600 = load float, ptr %507, align 4, !tbaa !59
-  %601 = load float, ptr %258, align 4, !tbaa !59
-  %602 = load float, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  %603 = load float, ptr %254, align 4, !tbaa !59
-  %604 = fneg float %603
-  %605 = fmul float %602, %604
-  %606 = tail call float @llvm.fmuladd.f32(float %600, float %601, float %605)
-  %607 = load float, ptr %252, align 4, !tbaa !59
-  %608 = load float, ptr %506, align 4, !tbaa !59
-  %609 = fneg float %601
-  %610 = fmul float %608, %609
-  %611 = tail call float @llvm.fmuladd.f32(float %602, float %607, float %610)
-  %612 = fneg float %607
-  %613 = fmul float %600, %612
-  %614 = tail call float @llvm.fmuladd.f32(float %608, float %603, float %613)
-  %.sroa.3.12.vec.insert.i242 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %614, i64 0
-  %615 = getelementptr inbounds nuw i8, ptr %122, i64 188
+596:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
+  %597 = load float, ptr %504, align 4, !tbaa !59
+  %598 = load float, ptr %255, align 4, !tbaa !59
+  %599 = load float, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  %600 = load float, ptr %251, align 4, !tbaa !59
+  %601 = fneg float %600
+  %602 = fmul float %599, %601
+  %603 = tail call float @llvm.fmuladd.f32(float %597, float %598, float %602)
+  %604 = load float, ptr %249, align 4, !tbaa !59
+  %605 = load float, ptr %503, align 4, !tbaa !59
+  %606 = fneg float %598
+  %607 = fmul float %605, %606
+  %608 = tail call float @llvm.fmuladd.f32(float %599, float %604, float %607)
+  %609 = fneg float %604
+  %610 = fmul float %597, %609
+  %611 = tail call float @llvm.fmuladd.f32(float %605, float %600, float %610)
+  %.sroa.3.12.vec.insert.i242 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %611, i64 0
+  %612 = getelementptr inbounds nuw i8, ptr %122, i64 188
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 196
   store <2 x float> %.sroa.3.12.vec.insert.i242, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
-  %616 = getelementptr inbounds nuw i8, ptr %122, i64 192
-  %617 = fmul float %611, %611
-  %618 = tail call float @llvm.fmuladd.f32(float %606, float %606, float %617)
-  %619 = tail call noundef float @llvm.fmuladd.f32(float %614, float %614, float %618)
-  %sqrt.i.i245 = tail call noundef float @llvm.sqrt.f32(float %619)
-  %620 = fdiv float 1.000000e+00, %sqrt.i.i245
-  %621 = fmul float %606, %620
-  store float %621, ptr %615, align 4, !tbaa !59
-  %622 = fmul float %611, %620
-  store float %622, ptr %616, align 4, !tbaa !59
-  %623 = fmul float %614, %620
-  store float %623, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
-  %624 = load i32, ptr %94, align 8, !tbaa !87
-  %625 = and i32 %624, 1
-  %.not22.i247 = icmp eq i32 %625, 0
-  br i1 %.not22.i247, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, label %626
+  %613 = getelementptr inbounds nuw i8, ptr %122, i64 192
+  %614 = fmul float %608, %608
+  %615 = tail call float @llvm.fmuladd.f32(float %603, float %603, float %614)
+  %616 = tail call noundef float @llvm.fmuladd.f32(float %611, float %611, float %615)
+  %sqrt.i.i245 = tail call noundef float @llvm.sqrt.f32(float %616)
+  %617 = fdiv float 1.000000e+00, %sqrt.i.i245
+  %618 = fmul float %603, %617
+  store float %618, ptr %612, align 4, !tbaa !59
+  %619 = fmul float %608, %617
+  store float %619, ptr %613, align 4, !tbaa !59
+  %620 = fmul float %611, %617
+  store float %620, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
+  %621 = load i32, ptr %94, align 8, !tbaa !87
+  %622 = and i32 %621, 1
+  %.not22.i247 = icmp eq i32 %622, 0
+  br i1 %.not22.i247, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, label %623
 
-626:                                              ; preds = %599
-  %627 = load float, ptr %55, align 4, !tbaa !59
-  %628 = load float, ptr %95, align 4, !tbaa !59
-  %629 = fmul float %622, %628
-  %630 = tail call float @llvm.fmuladd.f32(float %627, float %621, float %629)
-  %631 = load float, ptr %96, align 4, !tbaa !59
-  %632 = tail call noundef float @llvm.fmuladd.f32(float %631, float %623, float %630)
-  %633 = load float, ptr %97, align 4, !tbaa !59
-  %634 = load float, ptr %98, align 4, !tbaa !59
-  %635 = fmul float %622, %634
-  %636 = tail call float @llvm.fmuladd.f32(float %633, float %621, float %635)
-  %637 = load float, ptr %99, align 4, !tbaa !59
-  %638 = tail call noundef float @llvm.fmuladd.f32(float %637, float %623, float %636)
-  %639 = load float, ptr %100, align 4, !tbaa !59
-  %640 = load float, ptr %101, align 4, !tbaa !59
-  %641 = fmul float %622, %640
-  %642 = tail call float @llvm.fmuladd.f32(float %639, float %621, float %641)
-  %643 = load float, ptr %102, align 4, !tbaa !59
-  %644 = tail call noundef float @llvm.fmuladd.f32(float %643, float %623, float %642)
-  %645 = load float, ptr %103, align 4, !tbaa !59
-  %646 = fmul float %632, %645
-  %647 = load float, ptr %104, align 4, !tbaa !59
-  %648 = fmul float %638, %647
-  %649 = load float, ptr %105, align 4, !tbaa !59
-  %650 = fmul float %644, %649
-  %651 = fmul float %633, %648
-  %652 = tail call float @llvm.fmuladd.f32(float %627, float %646, float %651)
-  %653 = tail call noundef float @llvm.fmuladd.f32(float %639, float %650, float %652)
-  %654 = fmul float %634, %648
-  %655 = tail call float @llvm.fmuladd.f32(float %628, float %646, float %654)
-  %656 = tail call noundef float @llvm.fmuladd.f32(float %640, float %650, float %655)
-  %657 = fmul float %637, %648
-  %658 = tail call float @llvm.fmuladd.f32(float %631, float %646, float %657)
-  %659 = tail call noundef float @llvm.fmuladd.f32(float %643, float %650, float %658)
-  %.sroa.0.0.vec.insert.i8.i248 = insertelement <2 x float> poison, float %653, i64 0
-  %.sroa.0.4.vec.insert.i9.i249 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i248, float %656, i64 1
-  %.sroa.3.12.vec.insert.i10.i250 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %659, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i249, ptr %615, align 4
+623:                                              ; preds = %596
+  %624 = load float, ptr %55, align 4, !tbaa !59
+  %625 = load float, ptr %95, align 4, !tbaa !59
+  %626 = fmul float %619, %625
+  %627 = tail call float @llvm.fmuladd.f32(float %624, float %618, float %626)
+  %628 = load float, ptr %96, align 4, !tbaa !59
+  %629 = tail call noundef float @llvm.fmuladd.f32(float %628, float %620, float %627)
+  %630 = load float, ptr %97, align 4, !tbaa !59
+  %631 = load float, ptr %98, align 4, !tbaa !59
+  %632 = fmul float %619, %631
+  %633 = tail call float @llvm.fmuladd.f32(float %630, float %618, float %632)
+  %634 = load float, ptr %99, align 4, !tbaa !59
+  %635 = tail call noundef float @llvm.fmuladd.f32(float %634, float %620, float %633)
+  %636 = load float, ptr %100, align 4, !tbaa !59
+  %637 = load float, ptr %101, align 4, !tbaa !59
+  %638 = fmul float %619, %637
+  %639 = tail call float @llvm.fmuladd.f32(float %636, float %618, float %638)
+  %640 = load float, ptr %102, align 4, !tbaa !59
+  %641 = tail call noundef float @llvm.fmuladd.f32(float %640, float %620, float %639)
+  %642 = load float, ptr %103, align 4, !tbaa !59
+  %643 = fmul float %629, %642
+  %644 = load float, ptr %104, align 4, !tbaa !59
+  %645 = fmul float %635, %644
+  %646 = load float, ptr %105, align 4, !tbaa !59
+  %647 = fmul float %641, %646
+  %648 = fmul float %630, %645
+  %649 = tail call float @llvm.fmuladd.f32(float %624, float %643, float %648)
+  %650 = tail call noundef float @llvm.fmuladd.f32(float %636, float %647, float %649)
+  %651 = fmul float %631, %645
+  %652 = tail call float @llvm.fmuladd.f32(float %625, float %643, float %651)
+  %653 = tail call noundef float @llvm.fmuladd.f32(float %637, float %647, float %652)
+  %654 = fmul float %634, %645
+  %655 = tail call float @llvm.fmuladd.f32(float %628, float %643, float %654)
+  %656 = tail call noundef float @llvm.fmuladd.f32(float %640, float %647, float %655)
+  %.sroa.0.0.vec.insert.i8.i248 = insertelement <2 x float> poison, float %650, i64 0
+  %.sroa.0.4.vec.insert.i9.i249 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i248, float %653, i64 1
+  %.sroa.3.12.vec.insert.i10.i250 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %656, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i249, ptr %612, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i250, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251: ; preds = %626, %599
-  %660 = phi float [ %659, %626 ], [ %623, %599 ]
-  %661 = phi float [ %656, %626 ], [ %622, %599 ]
-  %662 = phi float [ %653, %626 ], [ %621, %599 ]
-  %663 = load i32, ptr %106, align 8, !tbaa !87
-  %664 = and i32 %663, 1
-  %.not22.i253 = icmp eq i32 %664, 0
-  br i1 %.not22.i253, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, label %665
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251: ; preds = %623, %596
+  %657 = phi float [ %656, %623 ], [ %620, %596 ]
+  %658 = phi float [ %653, %623 ], [ %619, %596 ]
+  %659 = phi float [ %650, %623 ], [ %618, %596 ]
+  %660 = load i32, ptr %106, align 8, !tbaa !87
+  %661 = and i32 %660, 1
+  %.not22.i253 = icmp eq i32 %661, 0
+  br i1 %.not22.i253, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, label %662
 
-665:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
-  %666 = load float, ptr %59, align 4, !tbaa !59
-  %667 = load float, ptr %107, align 4, !tbaa !59
-  %668 = fmul float %667, %661
-  %669 = tail call float @llvm.fmuladd.f32(float %666, float %662, float %668)
-  %670 = load float, ptr %108, align 4, !tbaa !59
-  %671 = tail call noundef float @llvm.fmuladd.f32(float %670, float %660, float %669)
-  %672 = load float, ptr %109, align 4, !tbaa !59
-  %673 = load float, ptr %110, align 4, !tbaa !59
-  %674 = fmul float %661, %673
-  %675 = tail call float @llvm.fmuladd.f32(float %672, float %662, float %674)
-  %676 = load float, ptr %111, align 4, !tbaa !59
-  %677 = tail call noundef float @llvm.fmuladd.f32(float %676, float %660, float %675)
-  %678 = load float, ptr %112, align 4, !tbaa !59
-  %679 = load float, ptr %113, align 4, !tbaa !59
-  %680 = fmul float %661, %679
-  %681 = tail call float @llvm.fmuladd.f32(float %678, float %662, float %680)
-  %682 = load float, ptr %114, align 4, !tbaa !59
-  %683 = tail call noundef float @llvm.fmuladd.f32(float %682, float %660, float %681)
-  %684 = load float, ptr %115, align 4, !tbaa !59
-  %685 = fmul float %671, %684
-  %686 = load float, ptr %116, align 4, !tbaa !59
-  %687 = fmul float %677, %686
-  %688 = load float, ptr %117, align 4, !tbaa !59
-  %689 = fmul float %683, %688
-  %690 = fmul float %672, %687
-  %691 = tail call float @llvm.fmuladd.f32(float %666, float %685, float %690)
-  %692 = tail call noundef float @llvm.fmuladd.f32(float %678, float %689, float %691)
-  %693 = fmul float %673, %687
-  %694 = tail call float @llvm.fmuladd.f32(float %667, float %685, float %693)
-  %695 = tail call noundef float @llvm.fmuladd.f32(float %679, float %689, float %694)
-  %696 = fmul float %676, %687
-  %697 = tail call float @llvm.fmuladd.f32(float %670, float %685, float %696)
-  %698 = tail call noundef float @llvm.fmuladd.f32(float %682, float %689, float %697)
-  %.sroa.0.0.vec.insert.i8.i254 = insertelement <2 x float> poison, float %692, i64 0
-  %.sroa.0.4.vec.insert.i9.i255 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i254, float %695, i64 1
-  %.sroa.3.12.vec.insert.i10.i256 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %698, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i255, ptr %615, align 4
+662:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
+  %663 = load float, ptr %59, align 4, !tbaa !59
+  %664 = load float, ptr %107, align 4, !tbaa !59
+  %665 = fmul float %664, %658
+  %666 = tail call float @llvm.fmuladd.f32(float %663, float %659, float %665)
+  %667 = load float, ptr %108, align 4, !tbaa !59
+  %668 = tail call noundef float @llvm.fmuladd.f32(float %667, float %657, float %666)
+  %669 = load float, ptr %109, align 4, !tbaa !59
+  %670 = load float, ptr %110, align 4, !tbaa !59
+  %671 = fmul float %658, %670
+  %672 = tail call float @llvm.fmuladd.f32(float %669, float %659, float %671)
+  %673 = load float, ptr %111, align 4, !tbaa !59
+  %674 = tail call noundef float @llvm.fmuladd.f32(float %673, float %657, float %672)
+  %675 = load float, ptr %112, align 4, !tbaa !59
+  %676 = load float, ptr %113, align 4, !tbaa !59
+  %677 = fmul float %658, %676
+  %678 = tail call float @llvm.fmuladd.f32(float %675, float %659, float %677)
+  %679 = load float, ptr %114, align 4, !tbaa !59
+  %680 = tail call noundef float @llvm.fmuladd.f32(float %679, float %657, float %678)
+  %681 = load float, ptr %115, align 4, !tbaa !59
+  %682 = fmul float %668, %681
+  %683 = load float, ptr %116, align 4, !tbaa !59
+  %684 = fmul float %674, %683
+  %685 = load float, ptr %117, align 4, !tbaa !59
+  %686 = fmul float %680, %685
+  %687 = fmul float %669, %684
+  %688 = tail call float @llvm.fmuladd.f32(float %663, float %682, float %687)
+  %689 = tail call noundef float @llvm.fmuladd.f32(float %675, float %686, float %688)
+  %690 = fmul float %670, %684
+  %691 = tail call float @llvm.fmuladd.f32(float %664, float %682, float %690)
+  %692 = tail call noundef float @llvm.fmuladd.f32(float %676, float %686, float %691)
+  %693 = fmul float %673, %684
+  %694 = tail call float @llvm.fmuladd.f32(float %667, float %682, float %693)
+  %695 = tail call noundef float @llvm.fmuladd.f32(float %679, float %686, float %694)
+  %.sroa.0.0.vec.insert.i8.i254 = insertelement <2 x float> poison, float %689, i64 0
+  %.sroa.0.4.vec.insert.i9.i255 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i254, float %692, i64 1
+  %.sroa.3.12.vec.insert.i10.i256 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %695, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i255, ptr %612, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i256, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, %665
-  %699 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %615, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %595, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %914
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, %662
+  %696 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %612, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %592, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %911
 
-700:                                              ; preds = %496
-  %701 = getelementptr inbounds nuw i8, ptr %122, i64 188
-  %702 = tail call noundef float @llvm.fabs.f32(float %501)
-  %703 = fcmp ogt float %702, 0x3FE6A09E60000000
-  br i1 %703, label %704, label %715
+697:                                              ; preds = %493
+  %698 = getelementptr inbounds nuw i8, ptr %122, i64 188
+  %699 = tail call noundef float @llvm.fabs.f32(float %498)
+  %700 = fcmp ogt float %699, 0x3FE6A09E60000000
+  br i1 %700, label %701, label %712
 
-704:                                              ; preds = %700
-  %705 = fmul float %501, %501
-  %706 = tail call float @llvm.fmuladd.f32(float %499, float %499, float %705)
-  %sqrt.i260 = tail call float @llvm.sqrt.f32(float %706)
-  %707 = fdiv float 1.000000e+00, %sqrt.i260
-  %708 = fneg float %501
-  %709 = fmul float %707, %708
-  %710 = fmul float %499, %707
-  %711 = fmul float %706, %707
-  %712 = fneg float %497
-  %713 = fmul float %710, %712
-  %714 = fmul float %497, %709
-  br label %726
+701:                                              ; preds = %697
+  %702 = fmul float %498, %498
+  %703 = tail call float @llvm.fmuladd.f32(float %496, float %496, float %702)
+  %sqrt.i260 = tail call float @llvm.sqrt.f32(float %703)
+  %704 = fdiv float 1.000000e+00, %sqrt.i260
+  %705 = fneg float %498
+  %706 = fmul float %704, %705
+  %707 = fmul float %496, %704
+  %708 = fmul float %703, %704
+  %709 = fneg float %494
+  %710 = fmul float %707, %709
+  %711 = fmul float %494, %706
+  br label %723
 
-715:                                              ; preds = %700
-  %716 = fmul float %499, %499
-  %717 = tail call float @llvm.fmuladd.f32(float %497, float %497, float %716)
-  %sqrt43.i258 = tail call float @llvm.sqrt.f32(float %717)
-  %718 = fdiv float 1.000000e+00, %sqrt43.i258
-  %719 = fneg float %499
+712:                                              ; preds = %697
+  %713 = fmul float %496, %496
+  %714 = tail call float @llvm.fmuladd.f32(float %494, float %494, float %713)
+  %sqrt43.i258 = tail call float @llvm.sqrt.f32(float %714)
+  %715 = fdiv float 1.000000e+00, %sqrt43.i258
+  %716 = fneg float %496
+  %717 = fmul float %715, %716
+  %718 = fmul float %494, %715
+  %719 = fneg float %498
   %720 = fmul float %718, %719
-  %721 = fmul float %497, %718
-  %722 = fneg float %501
-  %723 = fmul float %721, %722
-  %724 = fmul float %501, %720
-  %725 = fmul float %717, %718
-  br label %726
+  %721 = fmul float %498, %717
+  %722 = fmul float %714, %715
+  br label %723
 
-726:                                              ; preds = %715, %704
-  %727 = phi float [ 0.000000e+00, %704 ], [ %720, %715 ]
-  %728 = phi float [ %709, %704 ], [ %721, %715 ]
-  %729 = phi float [ %710, %704 ], [ 0.000000e+00, %715 ]
-  %.sink302 = phi float [ %711, %704 ], [ %723, %715 ]
-  %.sink = phi float [ %713, %704 ], [ %724, %715 ]
-  %.sink.i259 = phi float [ %714, %704 ], [ %725, %715 ]
-  store float %727, ptr %506, align 4, !tbaa !59
-  store float %728, ptr %507, align 4, !tbaa !59
-  store float %729, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  store float %.sink302, ptr %701, align 4, !tbaa !59
-  %730 = getelementptr inbounds nuw i8, ptr %122, i64 192
-  store float %.sink, ptr %730, align 4, !tbaa !59
-  %731 = getelementptr inbounds nuw i8, ptr %122, i64 196
-  store float %.sink.i259, ptr %731, align 4, !tbaa !59
-  %732 = load i32, ptr %94, align 8, !tbaa !87
-  %733 = and i32 %732, 1
-  %.not22.i263 = icmp eq i32 %733, 0
-  br i1 %.not22.i263, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, label %734
+723:                                              ; preds = %712, %701
+  %724 = phi float [ 0.000000e+00, %701 ], [ %717, %712 ]
+  %725 = phi float [ %706, %701 ], [ %718, %712 ]
+  %726 = phi float [ %707, %701 ], [ 0.000000e+00, %712 ]
+  %.sink302 = phi float [ %708, %701 ], [ %720, %712 ]
+  %.sink = phi float [ %710, %701 ], [ %721, %712 ]
+  %.sink.i259 = phi float [ %711, %701 ], [ %722, %712 ]
+  store float %724, ptr %503, align 4, !tbaa !59
+  store float %725, ptr %504, align 4, !tbaa !59
+  store float %726, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  store float %.sink302, ptr %698, align 4, !tbaa !59
+  %727 = getelementptr inbounds nuw i8, ptr %122, i64 192
+  store float %.sink, ptr %727, align 4, !tbaa !59
+  %728 = getelementptr inbounds nuw i8, ptr %122, i64 196
+  store float %.sink.i259, ptr %728, align 4, !tbaa !59
+  %729 = load i32, ptr %94, align 8, !tbaa !87
+  %730 = and i32 %729, 1
+  %.not22.i263 = icmp eq i32 %730, 0
+  br i1 %.not22.i263, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, label %731
 
-734:                                              ; preds = %726
-  %735 = load float, ptr %55, align 4, !tbaa !59
-  %736 = load float, ptr %95, align 4, !tbaa !59
-  %737 = fmul float %736, %728
-  %738 = tail call float @llvm.fmuladd.f32(float %735, float %727, float %737)
-  %739 = load float, ptr %96, align 4, !tbaa !59
-  %740 = tail call noundef float @llvm.fmuladd.f32(float %739, float %729, float %738)
-  %741 = load float, ptr %97, align 4, !tbaa !59
-  %742 = load float, ptr %98, align 4, !tbaa !59
-  %743 = fmul float %728, %742
-  %744 = tail call float @llvm.fmuladd.f32(float %741, float %727, float %743)
-  %745 = load float, ptr %99, align 4, !tbaa !59
-  %746 = tail call noundef float @llvm.fmuladd.f32(float %745, float %729, float %744)
-  %747 = load float, ptr %100, align 4, !tbaa !59
-  %748 = load float, ptr %101, align 4, !tbaa !59
-  %749 = fmul float %728, %748
-  %750 = tail call float @llvm.fmuladd.f32(float %747, float %727, float %749)
-  %751 = load float, ptr %102, align 4, !tbaa !59
-  %752 = tail call noundef float @llvm.fmuladd.f32(float %751, float %729, float %750)
-  %753 = load float, ptr %103, align 4, !tbaa !59
-  %754 = fmul float %740, %753
-  %755 = load float, ptr %104, align 4, !tbaa !59
-  %756 = fmul float %746, %755
-  %757 = load float, ptr %105, align 4, !tbaa !59
-  %758 = fmul float %752, %757
-  %759 = fmul float %741, %756
-  %760 = tail call float @llvm.fmuladd.f32(float %735, float %754, float %759)
-  %761 = tail call noundef float @llvm.fmuladd.f32(float %747, float %758, float %760)
-  %762 = fmul float %742, %756
-  %763 = tail call float @llvm.fmuladd.f32(float %736, float %754, float %762)
-  %764 = tail call noundef float @llvm.fmuladd.f32(float %748, float %758, float %763)
-  %765 = fmul float %745, %756
-  %766 = tail call float @llvm.fmuladd.f32(float %739, float %754, float %765)
-  %767 = tail call noundef float @llvm.fmuladd.f32(float %751, float %758, float %766)
-  %.sroa.0.0.vec.insert.i8.i264 = insertelement <2 x float> poison, float %761, i64 0
-  %.sroa.0.4.vec.insert.i9.i265 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i264, float %764, i64 1
-  %.sroa.3.12.vec.insert.i10.i266 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %767, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i265, ptr %506, align 4
+731:                                              ; preds = %723
+  %732 = load float, ptr %55, align 4, !tbaa !59
+  %733 = load float, ptr %95, align 4, !tbaa !59
+  %734 = fmul float %733, %725
+  %735 = tail call float @llvm.fmuladd.f32(float %732, float %724, float %734)
+  %736 = load float, ptr %96, align 4, !tbaa !59
+  %737 = tail call noundef float @llvm.fmuladd.f32(float %736, float %726, float %735)
+  %738 = load float, ptr %97, align 4, !tbaa !59
+  %739 = load float, ptr %98, align 4, !tbaa !59
+  %740 = fmul float %725, %739
+  %741 = tail call float @llvm.fmuladd.f32(float %738, float %724, float %740)
+  %742 = load float, ptr %99, align 4, !tbaa !59
+  %743 = tail call noundef float @llvm.fmuladd.f32(float %742, float %726, float %741)
+  %744 = load float, ptr %100, align 4, !tbaa !59
+  %745 = load float, ptr %101, align 4, !tbaa !59
+  %746 = fmul float %725, %745
+  %747 = tail call float @llvm.fmuladd.f32(float %744, float %724, float %746)
+  %748 = load float, ptr %102, align 4, !tbaa !59
+  %749 = tail call noundef float @llvm.fmuladd.f32(float %748, float %726, float %747)
+  %750 = load float, ptr %103, align 4, !tbaa !59
+  %751 = fmul float %737, %750
+  %752 = load float, ptr %104, align 4, !tbaa !59
+  %753 = fmul float %743, %752
+  %754 = load float, ptr %105, align 4, !tbaa !59
+  %755 = fmul float %749, %754
+  %756 = fmul float %738, %753
+  %757 = tail call float @llvm.fmuladd.f32(float %732, float %751, float %756)
+  %758 = tail call noundef float @llvm.fmuladd.f32(float %744, float %755, float %757)
+  %759 = fmul float %739, %753
+  %760 = tail call float @llvm.fmuladd.f32(float %733, float %751, float %759)
+  %761 = tail call noundef float @llvm.fmuladd.f32(float %745, float %755, float %760)
+  %762 = fmul float %742, %753
+  %763 = tail call float @llvm.fmuladd.f32(float %736, float %751, float %762)
+  %764 = tail call noundef float @llvm.fmuladd.f32(float %748, float %755, float %763)
+  %.sroa.0.0.vec.insert.i8.i264 = insertelement <2 x float> poison, float %758, i64 0
+  %.sroa.0.4.vec.insert.i9.i265 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i264, float %761, i64 1
+  %.sroa.3.12.vec.insert.i10.i266 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %764, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i265, ptr %503, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i266, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267: ; preds = %734, %726
-  %768 = phi float [ %729, %726 ], [ %767, %734 ]
-  %769 = phi float [ %728, %726 ], [ %764, %734 ]
-  %770 = phi float [ %727, %726 ], [ %761, %734 ]
-  %771 = load i32, ptr %106, align 8, !tbaa !87
-  %772 = and i32 %771, 1
-  %.not22.i269 = icmp eq i32 %772, 0
-  br i1 %.not22.i269, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273, label %773
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267: ; preds = %731, %723
+  %765 = phi float [ %726, %723 ], [ %764, %731 ]
+  %766 = phi float [ %725, %723 ], [ %761, %731 ]
+  %767 = phi float [ %724, %723 ], [ %758, %731 ]
+  %768 = load i32, ptr %106, align 8, !tbaa !87
+  %769 = and i32 %768, 1
+  %.not22.i269 = icmp eq i32 %769, 0
+  br i1 %.not22.i269, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273, label %770
 
-773:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
-  %774 = load float, ptr %59, align 4, !tbaa !59
-  %775 = load float, ptr %107, align 4, !tbaa !59
-  %776 = fmul float %775, %769
-  %777 = tail call float @llvm.fmuladd.f32(float %774, float %770, float %776)
-  %778 = load float, ptr %108, align 4, !tbaa !59
-  %779 = tail call noundef float @llvm.fmuladd.f32(float %778, float %768, float %777)
-  %780 = load float, ptr %109, align 4, !tbaa !59
-  %781 = load float, ptr %110, align 4, !tbaa !59
-  %782 = fmul float %769, %781
-  %783 = tail call float @llvm.fmuladd.f32(float %780, float %770, float %782)
-  %784 = load float, ptr %111, align 4, !tbaa !59
-  %785 = tail call noundef float @llvm.fmuladd.f32(float %784, float %768, float %783)
-  %786 = load float, ptr %112, align 4, !tbaa !59
-  %787 = load float, ptr %113, align 4, !tbaa !59
-  %788 = fmul float %769, %787
-  %789 = tail call float @llvm.fmuladd.f32(float %786, float %770, float %788)
-  %790 = load float, ptr %114, align 4, !tbaa !59
-  %791 = tail call noundef float @llvm.fmuladd.f32(float %790, float %768, float %789)
-  %792 = load float, ptr %115, align 4, !tbaa !59
-  %793 = fmul float %779, %792
-  %794 = load float, ptr %116, align 4, !tbaa !59
-  %795 = fmul float %785, %794
-  %796 = load float, ptr %117, align 4, !tbaa !59
-  %797 = fmul float %791, %796
-  %798 = fmul float %780, %795
-  %799 = tail call float @llvm.fmuladd.f32(float %774, float %793, float %798)
-  %800 = tail call noundef float @llvm.fmuladd.f32(float %786, float %797, float %799)
-  %801 = fmul float %781, %795
-  %802 = tail call float @llvm.fmuladd.f32(float %775, float %793, float %801)
-  %803 = tail call noundef float @llvm.fmuladd.f32(float %787, float %797, float %802)
-  %804 = fmul float %784, %795
-  %805 = tail call float @llvm.fmuladd.f32(float %778, float %793, float %804)
-  %806 = tail call noundef float @llvm.fmuladd.f32(float %790, float %797, float %805)
-  %.sroa.0.0.vec.insert.i8.i270 = insertelement <2 x float> poison, float %800, i64 0
-  %.sroa.0.4.vec.insert.i9.i271 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i270, float %803, i64 1
-  %.sroa.3.12.vec.insert.i10.i272 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %806, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i271, ptr %506, align 4
+770:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
+  %771 = load float, ptr %59, align 4, !tbaa !59
+  %772 = load float, ptr %107, align 4, !tbaa !59
+  %773 = fmul float %772, %766
+  %774 = tail call float @llvm.fmuladd.f32(float %771, float %767, float %773)
+  %775 = load float, ptr %108, align 4, !tbaa !59
+  %776 = tail call noundef float @llvm.fmuladd.f32(float %775, float %765, float %774)
+  %777 = load float, ptr %109, align 4, !tbaa !59
+  %778 = load float, ptr %110, align 4, !tbaa !59
+  %779 = fmul float %766, %778
+  %780 = tail call float @llvm.fmuladd.f32(float %777, float %767, float %779)
+  %781 = load float, ptr %111, align 4, !tbaa !59
+  %782 = tail call noundef float @llvm.fmuladd.f32(float %781, float %765, float %780)
+  %783 = load float, ptr %112, align 4, !tbaa !59
+  %784 = load float, ptr %113, align 4, !tbaa !59
+  %785 = fmul float %766, %784
+  %786 = tail call float @llvm.fmuladd.f32(float %783, float %767, float %785)
+  %787 = load float, ptr %114, align 4, !tbaa !59
+  %788 = tail call noundef float @llvm.fmuladd.f32(float %787, float %765, float %786)
+  %789 = load float, ptr %115, align 4, !tbaa !59
+  %790 = fmul float %776, %789
+  %791 = load float, ptr %116, align 4, !tbaa !59
+  %792 = fmul float %782, %791
+  %793 = load float, ptr %117, align 4, !tbaa !59
+  %794 = fmul float %788, %793
+  %795 = fmul float %777, %792
+  %796 = tail call float @llvm.fmuladd.f32(float %771, float %790, float %795)
+  %797 = tail call noundef float @llvm.fmuladd.f32(float %783, float %794, float %796)
+  %798 = fmul float %778, %792
+  %799 = tail call float @llvm.fmuladd.f32(float %772, float %790, float %798)
+  %800 = tail call noundef float @llvm.fmuladd.f32(float %784, float %794, float %799)
+  %801 = fmul float %781, %792
+  %802 = tail call float @llvm.fmuladd.f32(float %775, float %790, float %801)
+  %803 = tail call noundef float @llvm.fmuladd.f32(float %787, float %794, float %802)
+  %.sroa.0.0.vec.insert.i8.i270 = insertelement <2 x float> poison, float %797, i64 0
+  %.sroa.0.4.vec.insert.i9.i271 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i270, float %800, i64 1
+  %.sroa.3.12.vec.insert.i10.i272 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %803, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i271, ptr %503, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i10.i272, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, %773
-  %807 = load float, ptr %6, align 4, !tbaa !59
-  %808 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %506, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %807, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %809 = load i32, ptr %118, align 4, !tbaa !112
-  %810 = and i32 %809, 16
-  %.not175 = icmp eq i32 %810, 0
-  br i1 %.not175, label %891, label %811
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, %770
+  %804 = load float, ptr %6, align 4, !tbaa !59
+  %805 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %503, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %804, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %806 = load i32, ptr %118, align 4, !tbaa !112
+  %807 = and i32 %806, 16
+  %.not175 = icmp eq i32 %807, 0
+  br i1 %.not175, label %888, label %808
 
-811:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
-  %812 = load i32, ptr %94, align 8, !tbaa !87
-  %813 = and i32 %812, 1
-  %.not22.i275 = icmp eq i32 %813, 0
-  br i1 %.not22.i275, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, label %814
+808:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
+  %809 = load i32, ptr %94, align 8, !tbaa !87
+  %810 = and i32 %809, 1
+  %.not22.i275 = icmp eq i32 %810, 0
+  br i1 %.not22.i275, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, label %811
 
-814:                                              ; preds = %811
-  %815 = load float, ptr %55, align 4, !tbaa !59
-  %816 = load float, ptr %701, align 4, !tbaa !59
-  %817 = load float, ptr %95, align 4, !tbaa !59
-  %818 = load float, ptr %730, align 4, !tbaa !59
-  %819 = fmul float %817, %818
-  %820 = tail call float @llvm.fmuladd.f32(float %815, float %816, float %819)
-  %821 = load float, ptr %96, align 4, !tbaa !59
-  %822 = load float, ptr %731, align 4, !tbaa !59
-  %823 = tail call noundef float @llvm.fmuladd.f32(float %821, float %822, float %820)
-  %824 = load float, ptr %97, align 4, !tbaa !59
-  %825 = load float, ptr %98, align 4, !tbaa !59
-  %826 = fmul float %818, %825
-  %827 = tail call float @llvm.fmuladd.f32(float %824, float %816, float %826)
-  %828 = load float, ptr %99, align 4, !tbaa !59
-  %829 = tail call noundef float @llvm.fmuladd.f32(float %828, float %822, float %827)
-  %830 = load float, ptr %100, align 4, !tbaa !59
-  %831 = load float, ptr %101, align 4, !tbaa !59
-  %832 = fmul float %818, %831
-  %833 = tail call float @llvm.fmuladd.f32(float %830, float %816, float %832)
-  %834 = load float, ptr %102, align 4, !tbaa !59
-  %835 = tail call noundef float @llvm.fmuladd.f32(float %834, float %822, float %833)
-  %836 = load float, ptr %103, align 4, !tbaa !59
-  %837 = fmul float %823, %836
-  %838 = load float, ptr %104, align 4, !tbaa !59
-  %839 = fmul float %829, %838
-  %840 = load float, ptr %105, align 4, !tbaa !59
-  %841 = fmul float %835, %840
-  %842 = fmul float %824, %839
-  %843 = tail call float @llvm.fmuladd.f32(float %815, float %837, float %842)
-  %844 = tail call noundef float @llvm.fmuladd.f32(float %830, float %841, float %843)
-  %845 = fmul float %825, %839
-  %846 = tail call float @llvm.fmuladd.f32(float %817, float %837, float %845)
-  %847 = tail call noundef float @llvm.fmuladd.f32(float %831, float %841, float %846)
-  %848 = fmul float %828, %839
-  %849 = tail call float @llvm.fmuladd.f32(float %821, float %837, float %848)
-  %850 = tail call noundef float @llvm.fmuladd.f32(float %834, float %841, float %849)
-  %.sroa.0.0.vec.insert.i8.i276 = insertelement <2 x float> poison, float %844, i64 0
-  %.sroa.0.4.vec.insert.i9.i277 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i276, float %847, i64 1
-  %.sroa.3.12.vec.insert.i10.i278 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %850, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i277, ptr %701, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i278, ptr %731, align 4, !tbaa !80
+811:                                              ; preds = %808
+  %812 = load float, ptr %55, align 4, !tbaa !59
+  %813 = load float, ptr %698, align 4, !tbaa !59
+  %814 = load float, ptr %95, align 4, !tbaa !59
+  %815 = load float, ptr %727, align 4, !tbaa !59
+  %816 = fmul float %814, %815
+  %817 = tail call float @llvm.fmuladd.f32(float %812, float %813, float %816)
+  %818 = load float, ptr %96, align 4, !tbaa !59
+  %819 = load float, ptr %728, align 4, !tbaa !59
+  %820 = tail call noundef float @llvm.fmuladd.f32(float %818, float %819, float %817)
+  %821 = load float, ptr %97, align 4, !tbaa !59
+  %822 = load float, ptr %98, align 4, !tbaa !59
+  %823 = fmul float %815, %822
+  %824 = tail call float @llvm.fmuladd.f32(float %821, float %813, float %823)
+  %825 = load float, ptr %99, align 4, !tbaa !59
+  %826 = tail call noundef float @llvm.fmuladd.f32(float %825, float %819, float %824)
+  %827 = load float, ptr %100, align 4, !tbaa !59
+  %828 = load float, ptr %101, align 4, !tbaa !59
+  %829 = fmul float %815, %828
+  %830 = tail call float @llvm.fmuladd.f32(float %827, float %813, float %829)
+  %831 = load float, ptr %102, align 4, !tbaa !59
+  %832 = tail call noundef float @llvm.fmuladd.f32(float %831, float %819, float %830)
+  %833 = load float, ptr %103, align 4, !tbaa !59
+  %834 = fmul float %820, %833
+  %835 = load float, ptr %104, align 4, !tbaa !59
+  %836 = fmul float %826, %835
+  %837 = load float, ptr %105, align 4, !tbaa !59
+  %838 = fmul float %832, %837
+  %839 = fmul float %821, %836
+  %840 = tail call float @llvm.fmuladd.f32(float %812, float %834, float %839)
+  %841 = tail call noundef float @llvm.fmuladd.f32(float %827, float %838, float %840)
+  %842 = fmul float %822, %836
+  %843 = tail call float @llvm.fmuladd.f32(float %814, float %834, float %842)
+  %844 = tail call noundef float @llvm.fmuladd.f32(float %828, float %838, float %843)
+  %845 = fmul float %825, %836
+  %846 = tail call float @llvm.fmuladd.f32(float %818, float %834, float %845)
+  %847 = tail call noundef float @llvm.fmuladd.f32(float %831, float %838, float %846)
+  %.sroa.0.0.vec.insert.i8.i276 = insertelement <2 x float> poison, float %841, i64 0
+  %.sroa.0.4.vec.insert.i9.i277 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i276, float %844, i64 1
+  %.sroa.3.12.vec.insert.i10.i278 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %847, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i277, ptr %698, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i278, ptr %728, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279: ; preds = %814, %811
-  %851 = load i32, ptr %106, align 8, !tbaa !87
-  %852 = and i32 %851, 1
-  %.not22.i281 = icmp eq i32 %852, 0
-  br i1 %.not22.i281, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, label %853
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279: ; preds = %811, %808
+  %848 = load i32, ptr %106, align 8, !tbaa !87
+  %849 = and i32 %848, 1
+  %.not22.i281 = icmp eq i32 %849, 0
+  br i1 %.not22.i281, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, label %850
 
-853:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
-  %854 = load float, ptr %59, align 4, !tbaa !59
-  %855 = load float, ptr %701, align 4, !tbaa !59
-  %856 = load float, ptr %107, align 4, !tbaa !59
-  %857 = load float, ptr %730, align 4, !tbaa !59
-  %858 = fmul float %856, %857
-  %859 = tail call float @llvm.fmuladd.f32(float %854, float %855, float %858)
-  %860 = load float, ptr %108, align 4, !tbaa !59
-  %861 = load float, ptr %731, align 4, !tbaa !59
-  %862 = tail call noundef float @llvm.fmuladd.f32(float %860, float %861, float %859)
-  %863 = load float, ptr %109, align 4, !tbaa !59
-  %864 = load float, ptr %110, align 4, !tbaa !59
-  %865 = fmul float %857, %864
-  %866 = tail call float @llvm.fmuladd.f32(float %863, float %855, float %865)
-  %867 = load float, ptr %111, align 4, !tbaa !59
-  %868 = tail call noundef float @llvm.fmuladd.f32(float %867, float %861, float %866)
-  %869 = load float, ptr %112, align 4, !tbaa !59
-  %870 = load float, ptr %113, align 4, !tbaa !59
-  %871 = fmul float %857, %870
-  %872 = tail call float @llvm.fmuladd.f32(float %869, float %855, float %871)
-  %873 = load float, ptr %114, align 4, !tbaa !59
-  %874 = tail call noundef float @llvm.fmuladd.f32(float %873, float %861, float %872)
-  %875 = load float, ptr %115, align 4, !tbaa !59
-  %876 = fmul float %862, %875
-  %877 = load float, ptr %116, align 4, !tbaa !59
-  %878 = fmul float %868, %877
-  %879 = load float, ptr %117, align 4, !tbaa !59
-  %880 = fmul float %874, %879
-  %881 = fmul float %863, %878
-  %882 = tail call float @llvm.fmuladd.f32(float %854, float %876, float %881)
-  %883 = tail call noundef float @llvm.fmuladd.f32(float %869, float %880, float %882)
-  %884 = fmul float %864, %878
-  %885 = tail call float @llvm.fmuladd.f32(float %856, float %876, float %884)
-  %886 = tail call noundef float @llvm.fmuladd.f32(float %870, float %880, float %885)
-  %887 = fmul float %867, %878
-  %888 = tail call float @llvm.fmuladd.f32(float %860, float %876, float %887)
-  %889 = tail call noundef float @llvm.fmuladd.f32(float %873, float %880, float %888)
-  %.sroa.0.0.vec.insert.i8.i282 = insertelement <2 x float> poison, float %883, i64 0
-  %.sroa.0.4.vec.insert.i9.i283 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i282, float %886, i64 1
-  %.sroa.3.12.vec.insert.i10.i284 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %889, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i283, ptr %701, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i284, ptr %731, align 4, !tbaa !80
+850:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
+  %851 = load float, ptr %59, align 4, !tbaa !59
+  %852 = load float, ptr %698, align 4, !tbaa !59
+  %853 = load float, ptr %107, align 4, !tbaa !59
+  %854 = load float, ptr %727, align 4, !tbaa !59
+  %855 = fmul float %853, %854
+  %856 = tail call float @llvm.fmuladd.f32(float %851, float %852, float %855)
+  %857 = load float, ptr %108, align 4, !tbaa !59
+  %858 = load float, ptr %728, align 4, !tbaa !59
+  %859 = tail call noundef float @llvm.fmuladd.f32(float %857, float %858, float %856)
+  %860 = load float, ptr %109, align 4, !tbaa !59
+  %861 = load float, ptr %110, align 4, !tbaa !59
+  %862 = fmul float %854, %861
+  %863 = tail call float @llvm.fmuladd.f32(float %860, float %852, float %862)
+  %864 = load float, ptr %111, align 4, !tbaa !59
+  %865 = tail call noundef float @llvm.fmuladd.f32(float %864, float %858, float %863)
+  %866 = load float, ptr %112, align 4, !tbaa !59
+  %867 = load float, ptr %113, align 4, !tbaa !59
+  %868 = fmul float %854, %867
+  %869 = tail call float @llvm.fmuladd.f32(float %866, float %852, float %868)
+  %870 = load float, ptr %114, align 4, !tbaa !59
+  %871 = tail call noundef float @llvm.fmuladd.f32(float %870, float %858, float %869)
+  %872 = load float, ptr %115, align 4, !tbaa !59
+  %873 = fmul float %859, %872
+  %874 = load float, ptr %116, align 4, !tbaa !59
+  %875 = fmul float %865, %874
+  %876 = load float, ptr %117, align 4, !tbaa !59
+  %877 = fmul float %871, %876
+  %878 = fmul float %860, %875
+  %879 = tail call float @llvm.fmuladd.f32(float %851, float %873, float %878)
+  %880 = tail call noundef float @llvm.fmuladd.f32(float %866, float %877, float %879)
+  %881 = fmul float %861, %875
+  %882 = tail call float @llvm.fmuladd.f32(float %853, float %873, float %881)
+  %883 = tail call noundef float @llvm.fmuladd.f32(float %867, float %877, float %882)
+  %884 = fmul float %864, %875
+  %885 = tail call float @llvm.fmuladd.f32(float %857, float %873, float %884)
+  %886 = tail call noundef float @llvm.fmuladd.f32(float %870, float %877, float %885)
+  %.sroa.0.0.vec.insert.i8.i282 = insertelement <2 x float> poison, float %880, i64 0
+  %.sroa.0.4.vec.insert.i9.i283 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i282, float %883, i64 1
+  %.sroa.3.12.vec.insert.i10.i284 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %886, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i283, ptr %698, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i284, ptr %728, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, %853
-  %890 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %701, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %807, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, %850
+  %887 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %698, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %804, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.pre = load i32, ptr %118, align 4, !tbaa !112
-  br label %891
+  br label %888
 
-891:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
-  %892 = phi i32 [ %.pre, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285 ], [ %809, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273 ]
-  %893 = and i32 %892, 80
-  %or.cond.not = icmp eq i32 %893, 80
-  br i1 %or.cond.not, label %894, label %914
+888:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
+  %889 = phi i32 [ %.pre, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285 ], [ %806, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273 ]
+  %890 = and i32 %889, 80
+  %or.cond.not = icmp eq i32 %890, 80
+  br i1 %or.cond.not, label %891, label %911
 
-894:                                              ; preds = %891
-  %895 = getelementptr inbounds nuw i8, ptr %122, i64 128
-  %896 = load i32, ptr %895, align 8, !tbaa !93
-  %897 = or i32 %896, 1
-  store i32 %897, ptr %895, align 8, !tbaa !93
-  br label %914
+891:                                              ; preds = %888
+  %892 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %893 = load i32, ptr %892, align 8, !tbaa !93
+  %894 = or i32 %893, 1
+  store i32 %894, ptr %892, align 8, !tbaa !93
+  br label %911
 
-898:                                              ; preds = %492
-  %899 = getelementptr inbounds nuw i8, ptr %122, i64 172
-  %900 = load float, ptr %6, align 4, !tbaa !59
-  %901 = getelementptr inbounds nuw i8, ptr %122, i64 148
-  %902 = load float, ptr %901, align 4, !tbaa !125
-  %903 = getelementptr inbounds nuw i8, ptr %122, i64 164
-  %904 = load float, ptr %903, align 4, !tbaa !126
-  %905 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %899, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %900, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %902, float noundef %904)
-  %906 = load i32, ptr %118, align 4, !tbaa !112
-  %907 = and i32 %906, 16
-  %.not179 = icmp eq i32 %907, 0
-  br i1 %.not179, label %914, label %908
+895:                                              ; preds = %489
+  %896 = getelementptr inbounds nuw i8, ptr %122, i64 172
+  %897 = load float, ptr %6, align 4, !tbaa !59
+  %898 = getelementptr inbounds nuw i8, ptr %122, i64 148
+  %899 = load float, ptr %898, align 4, !tbaa !125
+  %900 = getelementptr inbounds nuw i8, ptr %122, i64 164
+  %901 = load float, ptr %900, align 4, !tbaa !126
+  %902 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %896, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %897, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %899, float noundef %901)
+  %903 = load i32, ptr %118, align 4, !tbaa !112
+  %904 = and i32 %903, 16
+  %.not179 = icmp eq i32 %904, 0
+  br i1 %.not179, label %911, label %905
 
-908:                                              ; preds = %898
-  %909 = getelementptr inbounds nuw i8, ptr %122, i64 188
-  %910 = getelementptr inbounds nuw i8, ptr %122, i64 152
-  %911 = load float, ptr %910, align 8, !tbaa !127
-  %912 = load float, ptr %903, align 4, !tbaa !126
-  %913 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %909, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %900, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %911, float noundef %912)
-  br label %914
+905:                                              ; preds = %895
+  %906 = getelementptr inbounds nuw i8, ptr %122, i64 188
+  %907 = getelementptr inbounds nuw i8, ptr %122, i64 152
+  %908 = load float, ptr %907, align 8, !tbaa !127
+  %909 = load float, ptr %900, align 4, !tbaa !126
+  %910 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %906, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %897, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %908, float noundef %909)
+  br label %911
 
-914:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, %894, %891, %898, %908
-  %915 = load i32, ptr %262, align 4, !tbaa !100
-  %916 = load ptr, ptr %119, align 8, !tbaa !36
-  %917 = sext i32 %915 to i64
-  %918 = getelementptr inbounds %struct.btSolverConstraint, ptr %916, i64 %917, i32 7
-  store float 0.000000e+00, ptr %918, align 4, !tbaa !57
-  %919 = load i32, ptr %118, align 4, !tbaa !112
-  %920 = and i32 %919, 16
-  %.not.i286 = icmp eq i32 %920, 0
-  br i1 %.not.i286, label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, label %921
+911:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, %891, %888, %895, %905
+  %912 = load i32, ptr %259, align 4, !tbaa !100
+  %913 = load ptr, ptr %119, align 8, !tbaa !36
+  %914 = sext i32 %912 to i64
+  %915 = getelementptr inbounds %struct.btSolverConstraint, ptr %913, i64 %914, i32 7
+  store float 0.000000e+00, ptr %915, align 4, !tbaa !57
+  %916 = load i32, ptr %118, align 4, !tbaa !112
+  %917 = and i32 %916, 16
+  %.not.i286 = icmp eq i32 %917, 0
+  br i1 %.not.i286, label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, label %918
 
-921:                                              ; preds = %914
-  %922 = getelementptr %struct.btSolverConstraint, ptr %916, i64 %917
-  %923 = getelementptr i8, ptr %922, i64 260
-  store float 0.000000e+00, ptr %923, align 4, !tbaa !57
+918:                                              ; preds = %911
+  %919 = getelementptr %struct.btSolverConstraint, ptr %913, i64 %914
+  %920 = getelementptr i8, ptr %919, i64 260
+  store float 0.000000e+00, ptr %920, align 4, !tbaa !57
   br label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit
 
-_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit: ; preds = %914, %921
+_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit: ; preds = %911, %918
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre306 = load i32, ptr %46, align 8, !tbaa !121
-  br label %924
+  br label %921
 
-924:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, %120
-  %925 = phi i32 [ %.pre306, %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit ], [ %121, %120 ]
+921:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, %120
+  %922 = phi i32 [ %.pre306, %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit ], [ %121, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %926 = sext i32 %925 to i64
-  %927 = icmp slt i64 %indvars.iv.next, %926
-  br i1 %927, label %120, label %.loopexit, !llvm.loop !128
+  %923 = sext i32 %922 to i64
+  %924 = icmp slt i64 %indvars.iv.next, %923
+  br i1 %924, label %120, label %.loopexit, !llvm.loop !128
 
-.loopexit:                                        ; preds = %924, %45, %34
+.loopexit:                                        ; preds = %921, %45, %34
   ret void
 }
 
