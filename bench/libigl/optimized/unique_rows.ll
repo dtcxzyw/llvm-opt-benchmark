@@ -7598,7 +7598,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 48:                                               ; preds = %.lr.ph.i.i
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %51 = load double, ptr %50, align 8
+  %51 = load double, ptr %50, align 8, !tbaa !41
   %52 = load <2 x double>, ptr %49, align 16
   %53 = extractelement <2 x double> %52, i64 0
   %54 = fneg double %53
@@ -7739,7 +7739,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 88:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %91 = load double, ptr %90, align 8
+  %91 = load double, ptr %90, align 8, !tbaa !41
   %92 = load <2 x double>, ptr %89, align 16
   %93 = extractelement <2 x double> %92, i64 0
   %94 = fneg double %93
@@ -7958,7 +7958,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load double, ptr %41, align 8
+  %42 = load double, ptr %41, align 8, !tbaa !41
   %43 = load <2 x double>, ptr %40, align 16
   %44 = extractelement <2 x double> %43, i64 0
   %45 = fneg double %44
@@ -8101,7 +8101,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 79:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %82 = load double, ptr %81, align 8
+  %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load <2 x double>, ptr %80, align 16
   %84 = extractelement <2 x double> %83, i64 0
   %85 = fneg double %84
@@ -8243,7 +8243,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALltIN5boost14multipreci
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !41
   %14 = load <2 x double>, ptr %11, align 16
   %15 = extractelement <2 x double> %14, i64 0
   %16 = fneg double %15
@@ -9188,7 +9188,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load double, ptr %41, align 8
+  %42 = load double, ptr %41, align 8, !tbaa !41
   %43 = load <2 x double>, ptr %40, align 16
   %44 = extractelement <2 x double> %43, i64 0
   %45 = fneg double %44
@@ -9329,7 +9329,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 79:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %82 = load double, ptr %81, align 8
+  %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load <2 x double>, ptr %80, align 16
   %84 = extractelement <2 x double> %83, i64 0
   %85 = fneg double %84
@@ -9492,7 +9492,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 126:                                              ; preds = %.lr.ph.i.i16
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %129 = load double, ptr %128, align 8
+  %129 = load double, ptr %128, align 8, !tbaa !41
   %130 = load <2 x double>, ptr %127, align 16
   %131 = extractelement <2 x double> %130, i64 0
   %132 = fneg double %131
@@ -9629,7 +9629,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 166:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %169 = load double, ptr %168, align 8
+  %169 = load double, ptr %168, align 8, !tbaa !41
   %170 = load <2 x double>, ptr %167, align 16
   %171 = extractelement <2 x double> %170, i64 0
   %172 = fneg double %171
@@ -9833,7 +9833,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 33:                                               ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !41
   %37 = load <2 x double>, ptr %34, align 16
   %38 = extractelement <2 x double> %37, i64 0
   %39 = fneg double %38
@@ -9974,7 +9974,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 73:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %76 = load double, ptr %75, align 8
+  %76 = load double, ptr %75, align 8, !tbaa !41
   %77 = load <2 x double>, ptr %74, align 16
   %78 = extractelement <2 x double> %77, i64 0
   %79 = fneg double %78
@@ -10188,7 +10188,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 29:                                               ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load double, ptr %31, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !41
   %33 = load <2 x double>, ptr %30, align 16
   %34 = extractelement <2 x double> %33, i64 0
   %35 = fneg double %34
@@ -10329,7 +10329,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 69:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %72 = load double, ptr %71, align 8
+  %72 = load double, ptr %71, align 8, !tbaa !41
   %73 = load <2 x double>, ptr %70, align 16
   %74 = extractelement <2 x double> %73, i64 0
   %75 = fneg double %74
@@ -10595,7 +10595,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 48:                                               ; preds = %.lr.ph.i.i
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %51 = load double, ptr %50, align 8
+  %51 = load double, ptr %50, align 8, !tbaa !41
   %52 = load <2 x double>, ptr %49, align 16
   %53 = extractelement <2 x double> %52, i64 0
   %54 = fneg double %53
@@ -10736,7 +10736,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 88:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %91 = load double, ptr %90, align 8
+  %91 = load double, ptr %90, align 8, !tbaa !41
   %92 = load <2 x double>, ptr %89, align 16
   %93 = extractelement <2 x double> %92, i64 0
   %94 = fneg double %93
@@ -10955,7 +10955,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load double, ptr %41, align 8
+  %42 = load double, ptr %41, align 8, !tbaa !41
   %43 = load <2 x double>, ptr %40, align 16
   %44 = extractelement <2 x double> %43, i64 0
   %45 = fneg double %44
@@ -11098,7 +11098,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 79:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %82 = load double, ptr %81, align 8
+  %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load <2 x double>, ptr %80, align 16
   %84 = extractelement <2 x double> %83, i64 0
   %85 = fneg double %84
@@ -11525,7 +11525,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load double, ptr %41, align 8
+  %42 = load double, ptr %41, align 8, !tbaa !41
   %43 = load <2 x double>, ptr %40, align 16
   %44 = extractelement <2 x double> %43, i64 0
   %45 = fneg double %44
@@ -11666,7 +11666,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 79:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %82 = load double, ptr %81, align 8
+  %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load <2 x double>, ptr %80, align 16
   %84 = extractelement <2 x double> %83, i64 0
   %85 = fneg double %84
@@ -11829,7 +11829,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 126:                                              ; preds = %.lr.ph.i.i16
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %129 = load double, ptr %128, align 8
+  %129 = load double, ptr %128, align 8, !tbaa !41
   %130 = load <2 x double>, ptr %127, align 16
   %131 = extractelement <2 x double> %130, i64 0
   %132 = fneg double %131
@@ -11966,7 +11966,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 166:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %169 = load double, ptr %168, align 8
+  %169 = load double, ptr %168, align 8, !tbaa !41
   %170 = load <2 x double>, ptr %167, align 16
   %171 = extractelement <2 x double> %170, i64 0
   %172 = fneg double %171
@@ -12170,7 +12170,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 33:                                               ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !41
   %37 = load <2 x double>, ptr %34, align 16
   %38 = extractelement <2 x double> %37, i64 0
   %39 = fneg double %38
@@ -12311,7 +12311,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 73:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %76 = load double, ptr %75, align 8
+  %76 = load double, ptr %75, align 8, !tbaa !41
   %77 = load <2 x double>, ptr %74, align 16
   %78 = extractelement <2 x double> %77, i64 0
   %79 = fneg double %78
@@ -12525,7 +12525,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 29:                                               ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load double, ptr %31, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !41
   %33 = load <2 x double>, ptr %30, align 16
   %34 = extractelement <2 x double> %33, i64 0
   %35 = fneg double %34
@@ -12666,7 +12666,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 69:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %72 = load double, ptr %71, align 8
+  %72 = load double, ptr %71, align 8, !tbaa !41
   %73 = load <2 x double>, ptr %70, align 16
   %74 = extractelement <2 x double> %73, i64 0
   %75 = fneg double %74
@@ -12811,7 +12811,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALeqIN5boost14multipreci
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !41
   %17 = fcmp olt double %16, %14
   %18 = extractelement <2 x double> %12, i64 1
   br i1 %17, label %_ZN5boost14multiprecisioneqINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1ES9_LSA_1EEEbRKNS0_6numberIT_XT0_EEERKNSB_IT1_XT2_EEE.exit, label %19
@@ -13789,7 +13789,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 47:                                               ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %50 = load double, ptr %49, align 8
+  %50 = load double, ptr %49, align 8, !tbaa !41
   %51 = load <2 x double>, ptr %48, align 16
   %52 = extractelement <2 x double> %51, i64 0
   %53 = fneg double %52
@@ -13932,7 +13932,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 85:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !41
   %89 = load <2 x double>, ptr %86, align 16
   %90 = extractelement <2 x double> %89, i64 0
   %91 = fneg double %90
@@ -14150,7 +14150,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -14295,7 +14295,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -14711,7 +14711,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -14854,7 +14854,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -15016,7 +15016,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.lr.ph.i.i16
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -15155,7 +15155,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -15358,7 +15358,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !41
   %36 = load <2 x double>, ptr %33, align 16
   %37 = extractelement <2 x double> %36, i64 0
   %38 = fneg double %37
@@ -15501,7 +15501,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 70:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %73 = load double, ptr %72, align 8
+  %73 = load double, ptr %72, align 8, !tbaa !41
   %74 = load <2 x double>, ptr %71, align 16
   %75 = extractelement <2 x double> %74, i64 0
   %76 = fneg double %75
@@ -15714,7 +15714,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !41
   %32 = load <2 x double>, ptr %29, align 16
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -15857,7 +15857,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 66:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %69 = load double, ptr %68, align 8
+  %69 = load double, ptr %68, align 8, !tbaa !41
   %70 = load <2 x double>, ptr %67, align 16
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71
@@ -16122,7 +16122,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 47:                                               ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %50 = load double, ptr %49, align 8
+  %50 = load double, ptr %49, align 8, !tbaa !41
   %51 = load <2 x double>, ptr %48, align 16
   %52 = extractelement <2 x double> %51, i64 0
   %53 = fneg double %52
@@ -16265,7 +16265,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 85:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !41
   %89 = load <2 x double>, ptr %86, align 16
   %90 = extractelement <2 x double> %89, i64 0
   %91 = fneg double %90
@@ -16483,7 +16483,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -16628,7 +16628,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -17044,7 +17044,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -17187,7 +17187,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -17349,7 +17349,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.lr.ph.i.i16
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -17488,7 +17488,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -17691,7 +17691,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !41
   %36 = load <2 x double>, ptr %33, align 16
   %37 = extractelement <2 x double> %36, i64 0
   %38 = fneg double %37
@@ -17834,7 +17834,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 70:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %73 = load double, ptr %72, align 8
+  %73 = load double, ptr %72, align 8, !tbaa !41
   %74 = load <2 x double>, ptr %71, align 16
   %75 = extractelement <2 x double> %74, i64 0
   %76 = fneg double %75
@@ -18047,7 +18047,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !41
   %32 = load <2 x double>, ptr %29, align 16
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -18190,7 +18190,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 66:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %69 = load double, ptr %68, align 8
+  %69 = load double, ptr %68, align 8, !tbaa !41
   %70 = load <2 x double>, ptr %67, align 16
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71
@@ -18627,7 +18627,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 44:                                               ; preds = %.backedge
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %47 = load double, ptr %46, align 8
+  %47 = load double, ptr %46, align 8, !tbaa !41
   %48 = load <2 x double>, ptr %45, align 16
   %49 = extractelement <2 x double> %48, i64 0
   %50 = fneg double %49
@@ -18767,7 +18767,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 82:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %85 = load double, ptr %84, align 8
+  %85 = load double, ptr %84, align 8, !tbaa !41
   %86 = load <2 x double>, ptr %83, align 16
   %87 = extractelement <2 x double> %86, i64 0
   %88 = fneg double %87
@@ -18987,7 +18987,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %39 = load double, ptr %38, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !41
   %40 = load <2 x double>, ptr %37, align 16
   %41 = extractelement <2 x double> %40, i64 0
   %42 = fneg double %41
@@ -19128,7 +19128,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 74:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %77 = load double, ptr %76, align 8
+  %77 = load double, ptr %76, align 8, !tbaa !41
   %78 = load <2 x double>, ptr %75, align 16
   %79 = extractelement <2 x double> %78, i64 0
   %80 = fneg double %79
@@ -19491,7 +19491,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -19631,7 +19631,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit38.thread
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -19793,7 +19793,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.backedge
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -19929,7 +19929,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit64.thread
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -20131,7 +20131,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 29:                                               ; preds = %.backedge
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load double, ptr %31, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !41
   %33 = load <2 x double>, ptr %30, align 16
   %34 = extractelement <2 x double> %33, i64 0
   %35 = fneg double %34
@@ -20271,7 +20271,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 67:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %70 = load double, ptr %69, align 8
+  %70 = load double, ptr %69, align 8, !tbaa !41
   %71 = load <2 x double>, ptr %68, align 16
   %72 = extractelement <2 x double> %71, i64 0
   %73 = fneg double %72
@@ -20483,7 +20483,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 26:                                               ; preds = %.backedge
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %29 = load double, ptr %28, align 8
+  %29 = load double, ptr %28, align 8, !tbaa !41
   %30 = load <2 x double>, ptr %27, align 16
   %31 = extractelement <2 x double> %30, i64 0
   %32 = fneg double %31
@@ -20623,7 +20623,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 64:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %67 = load double, ptr %66, align 8
+  %67 = load double, ptr %66, align 8, !tbaa !41
   %68 = load <2 x double>, ptr %65, align 16
   %69 = extractelement <2 x double> %68, i64 0
   %70 = fneg double %69
@@ -20887,7 +20887,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 44:                                               ; preds = %.backedge
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %47 = load double, ptr %46, align 8
+  %47 = load double, ptr %46, align 8, !tbaa !41
   %48 = load <2 x double>, ptr %45, align 16
   %49 = extractelement <2 x double> %48, i64 0
   %50 = fneg double %49
@@ -21027,7 +21027,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 82:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %85 = load double, ptr %84, align 8
+  %85 = load double, ptr %84, align 8, !tbaa !41
   %86 = load <2 x double>, ptr %83, align 16
   %87 = extractelement <2 x double> %86, i64 0
   %88 = fneg double %87
@@ -21247,7 +21247,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %39 = load double, ptr %38, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !41
   %40 = load <2 x double>, ptr %37, align 16
   %41 = extractelement <2 x double> %40, i64 0
   %42 = fneg double %41
@@ -21388,7 +21388,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 74:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %77 = load double, ptr %76, align 8
+  %77 = load double, ptr %76, align 8, !tbaa !41
   %78 = load <2 x double>, ptr %75, align 16
   %79 = extractelement <2 x double> %78, i64 0
   %80 = fneg double %79
@@ -21751,7 +21751,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -21891,7 +21891,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit38.thread
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -22053,7 +22053,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.backedge
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -22189,7 +22189,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit64.thread
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -22391,7 +22391,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 29:                                               ; preds = %.backedge
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load double, ptr %31, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !41
   %33 = load <2 x double>, ptr %30, align 16
   %34 = extractelement <2 x double> %33, i64 0
   %35 = fneg double %34
@@ -22531,7 +22531,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 67:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %70 = load double, ptr %69, align 8
+  %70 = load double, ptr %69, align 8, !tbaa !41
   %71 = load <2 x double>, ptr %68, align 16
   %72 = extractelement <2 x double> %71, i64 0
   %73 = fneg double %72
@@ -22743,7 +22743,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 26:                                               ; preds = %.backedge
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %29 = load double, ptr %28, align 8
+  %29 = load double, ptr %28, align 8, !tbaa !41
   %30 = load <2 x double>, ptr %27, align 16
   %31 = extractelement <2 x double> %30, i64 0
   %32 = fneg double %31
@@ -22883,7 +22883,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 64:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %67 = load double, ptr %66, align 8
+  %67 = load double, ptr %66, align 8, !tbaa !41
   %68 = load <2 x double>, ptr %65, align 16
   %69 = extractelement <2 x double> %68, i64 0
   %70 = fneg double %69
@@ -23319,7 +23319,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 47:                                               ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %50 = load double, ptr %49, align 8
+  %50 = load double, ptr %49, align 8, !tbaa !41
   %51 = load <2 x double>, ptr %48, align 16
   %52 = extractelement <2 x double> %51, i64 0
   %53 = fneg double %52
@@ -23462,7 +23462,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 85:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !41
   %89 = load <2 x double>, ptr %86, align 16
   %90 = extractelement <2 x double> %89, i64 0
   %91 = fneg double %90
@@ -23680,7 +23680,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -23825,7 +23825,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -24241,7 +24241,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -24384,7 +24384,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -24546,7 +24546,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.lr.ph.i.i16
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -24685,7 +24685,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -24888,7 +24888,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !41
   %36 = load <2 x double>, ptr %33, align 16
   %37 = extractelement <2 x double> %36, i64 0
   %38 = fneg double %37
@@ -25031,7 +25031,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 70:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %73 = load double, ptr %72, align 8
+  %73 = load double, ptr %72, align 8, !tbaa !41
   %74 = load <2 x double>, ptr %71, align 16
   %75 = extractelement <2 x double> %74, i64 0
   %76 = fneg double %75
@@ -25244,7 +25244,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !41
   %32 = load <2 x double>, ptr %29, align 16
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -25387,7 +25387,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 66:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %69 = load double, ptr %68, align 8
+  %69 = load double, ptr %68, align 8, !tbaa !41
   %70 = load <2 x double>, ptr %67, align 16
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71
@@ -25652,7 +25652,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 47:                                               ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %50 = load double, ptr %49, align 8
+  %50 = load double, ptr %49, align 8, !tbaa !41
   %51 = load <2 x double>, ptr %48, align 16
   %52 = extractelement <2 x double> %51, i64 0
   %53 = fneg double %52
@@ -25795,7 +25795,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 85:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41.thread
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !41
   %89 = load <2 x double>, ptr %86, align 16
   %90 = extractelement <2 x double> %89, i64 0
   %91 = fneg double %90
@@ -26013,7 +26013,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -26158,7 +26158,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -26574,7 +26574,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load double, ptr %40, align 8
+  %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load <2 x double>, ptr %39, align 16
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -26717,7 +26717,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 76:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36.thread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %79 = load double, ptr %78, align 8
+  %79 = load double, ptr %78, align 8, !tbaa !41
   %80 = load <2 x double>, ptr %77, align 16
   %81 = extractelement <2 x double> %80, i64 0
   %82 = fneg double %81
@@ -26879,7 +26879,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 122:                                              ; preds = %.lr.ph.i.i16
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %125 = load double, ptr %124, align 8
+  %125 = load double, ptr %124, align 8, !tbaa !41
   %126 = load <2 x double>, ptr %123, align 16
   %127 = extractelement <2 x double> %126, i64 0
   %128 = fneg double %127
@@ -27018,7 +27018,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 160:                                              ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62.thread
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load double, ptr %162, align 8
+  %163 = load double, ptr %162, align 8, !tbaa !41
   %164 = load <2 x double>, ptr %161, align 16
   %165 = extractelement <2 x double> %164, i64 0
   %166 = fneg double %165
@@ -27221,7 +27221,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !41
   %36 = load <2 x double>, ptr %33, align 16
   %37 = extractelement <2 x double> %36, i64 0
   %38 = fneg double %37
@@ -27364,7 +27364,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 70:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30.thread
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %73 = load double, ptr %72, align 8
+  %73 = load double, ptr %72, align 8, !tbaa !41
   %74 = load <2 x double>, ptr %71, align 16
   %75 = extractelement <2 x double> %74, i64 0
   %76 = fneg double %75
@@ -27577,7 +27577,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !41
   %32 = load <2 x double>, ptr %29, align 16
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -27720,7 +27720,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 66:                                               ; preds = %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %69 = load double, ptr %68, align 8
+  %69 = load double, ptr %68, align 8, !tbaa !41
   %70 = load <2 x double>, ptr %67, align 16
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71

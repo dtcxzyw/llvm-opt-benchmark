@@ -2193,7 +2193,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
   %.0.i.i.i.i.i.i.i = inttoptr i64 %424 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %425 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
-  %426 = load double, ptr %425, align 8, !noalias !93
+  %426 = load double, ptr %425, align 8, !tbaa !39, !noalias !93
   %427 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i, align 16, !tbaa !39, !noalias !93
   %428 = extractelement <2 x double> %427, i64 0
   %429 = fneg double %428
@@ -2203,7 +2203,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 431:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit157
   %432 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %433 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
-  %434 = load double, ptr %433, align 8, !noalias !93
+  %434 = load double, ptr %433, align 8, !tbaa !39, !noalias !93
   %435 = load <2 x double>, ptr %432, align 16, !tbaa !39, !noalias !93
   %436 = extractelement <2 x double> %435, i64 0
   %437 = fneg double %436
@@ -2213,7 +2213,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 439:                                              ; preds = %431
   %440 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
   %441 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 40
-  %442 = load double, ptr %441, align 8, !noalias !96
+  %442 = load double, ptr %441, align 8, !tbaa !39, !noalias !96
   %443 = load <2 x double>, ptr %440, align 16, !tbaa !39, !noalias !96
   %444 = extractelement <2 x double> %443, i64 0
   %445 = fneg double %444
@@ -2223,7 +2223,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 447:                                              ; preds = %439
   %448 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 48
   %449 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 56
-  %450 = load double, ptr %449, align 8, !noalias !96
+  %450 = load double, ptr %449, align 8, !tbaa !39, !noalias !96
   %451 = load <2 x double>, ptr %448, align 16, !tbaa !39, !noalias !96
   %452 = extractelement <2 x double> %451, i64 0
   %453 = fneg double %452
@@ -2247,7 +2247,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
   %.0.i.i.i.i.i8.i.i = inttoptr i64 %460 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %461 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 8
-  %462 = load double, ptr %461, align 8, !noalias !107
+  %462 = load double, ptr %461, align 8, !tbaa !39, !noalias !107
   %463 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i, align 16, !tbaa !39, !noalias !107
   %464 = extractelement <2 x double> %463, i64 0
   %465 = fneg double %464
@@ -2257,7 +2257,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 467:                                              ; preds = %457
   %468 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 16
   %469 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 24
-  %470 = load double, ptr %469, align 8, !noalias !107
+  %470 = load double, ptr %469, align 8, !tbaa !39, !noalias !107
   %471 = load <2 x double>, ptr %468, align 16, !tbaa !39, !noalias !107
   %472 = extractelement <2 x double> %471, i64 0
   %473 = fneg double %472
@@ -2267,7 +2267,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 475:                                              ; preds = %467
   %476 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 32
   %477 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 40
-  %478 = load double, ptr %477, align 8, !noalias !110
+  %478 = load double, ptr %477, align 8, !tbaa !39, !noalias !110
   %479 = load <2 x double>, ptr %476, align 16, !tbaa !39, !noalias !110
   %480 = extractelement <2 x double> %479, i64 0
   %481 = fneg double %480
@@ -2277,7 +2277,7 @@ _ZN4CGAL6HandleD2Ev.exit157:                      ; preds = %405, %409, %412, %4
 483:                                              ; preds = %475
   %484 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 48
   %485 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i, i64 56
-  %486 = load double, ptr %485, align 8, !noalias !110
+  %486 = load double, ptr %485, align 8, !tbaa !39, !noalias !110
   %487 = load <2 x double>, ptr %484, align 16, !tbaa !39, !noalias !110
   %488 = extractelement <2 x double> %487, i64 0
   %489 = fneg double %488
@@ -22688,7 +22688,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4CGAL13Intersections8internal22do
   %36 = extractelement <2 x double> %35, i64 0
   %37 = fneg double %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load double, ptr %38, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !39
   %40 = fcmp olt double %39, %37
   %41 = extractelement <2 x double> %35, i64 1
   br i1 %40, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i, label %42
@@ -22733,7 +22733,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %59 = extractelement <2 x double> %58, i64 0
   %60 = fneg double %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %62 = load double, ptr %61, align 8
+  %62 = load double, ptr %61, align 8, !tbaa !39
   %63 = fcmp olt double %62, %60
   %64 = extractelement <2 x double> %58, i64 1
   br i1 %63, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i.i, label %65
@@ -22786,7 +22786,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianINS_11Interval
   %85 = extractelement <2 x double> %84, i64 0
   %86 = fneg double %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !39
   %89 = fcmp olt double %88, %86
   %90 = extractelement <2 x double> %84, i64 1
   br i1 %89, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i124, label %91
@@ -22831,7 +22831,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %108 = extractelement <2 x double> %107, i64 0
   %109 = fneg double %108
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %111 = load double, ptr %110, align 8
+  %111 = load double, ptr %110, align 8, !tbaa !39
   %112 = fcmp olt double %111, %109
   %113 = extractelement <2 x double> %107, i64 1
   br i1 %112, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i.i140, label %114
@@ -22897,7 +22897,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianINS_11Interval
   %137 = extractelement <2 x double> %136, i64 0
   %138 = fneg double %137
   %139 = getelementptr inbounds nuw i8, ptr %spec.select.i.i149, i64 8
-  %140 = load double, ptr %139, align 8
+  %140 = load double, ptr %139, align 8, !tbaa !39
   %141 = fcmp olt double %140, %138
   %142 = extractelement <2 x double> %136, i64 1
   br i1 %141, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i153, label %143
@@ -22941,7 +22941,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %159 = extractelement <2 x double> %158, i64 0
   %160 = fneg double %159
   %161 = getelementptr inbounds nuw i8, ptr %spec.select.i.i149, i64 24
-  %162 = load double, ptr %161, align 8
+  %162 = load double, ptr %161, align 8, !tbaa !39
   %163 = fcmp olt double %162, %160
   %164 = extractelement <2 x double> %158, i64 1
   br i1 %163, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i.i169, label %165
@@ -22996,7 +22996,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianINS_11Interval
   %186 = extractelement <2 x double> %185, i64 0
   %187 = fneg double %186
   %188 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %189 = load double, ptr %188, align 8
+  %189 = load double, ptr %188, align 8, !tbaa !39
   %190 = fcmp olt double %189, %187
   %191 = extractelement <2 x double> %185, i64 1
   br i1 %190, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i176, label %192
@@ -23040,7 +23040,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %208 = extractelement <2 x double> %207, i64 0
   %209 = fneg double %208
   %210 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %211 = load double, ptr %210, align 8
+  %211 = load double, ptr %210, align 8, !tbaa !39
   %212 = fcmp olt double %211, %209
   %213 = extractelement <2 x double> %207, i64 1
   br i1 %212, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i.i192, label %214
@@ -23098,7 +23098,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianINS_11Interval
   %232 = load <2 x double>, ptr %spec.select.i.i, align 16
   %233 = extractelement <2 x double> %232, i64 0
   %234 = fneg double %233
-  %235 = load double, ptr %139, align 8
+  %235 = load double, ptr %139, align 8, !tbaa !39
   %236 = fcmp olt double %235, %234
   %237 = extractelement <2 x double> %232, i64 1
   br i1 %236, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i, label %238
@@ -23142,7 +23142,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %254 = extractelement <2 x double> %253, i64 0
   %255 = fneg double %254
   %256 = getelementptr inbounds nuw i8, ptr %spec.select.i.i149, i64 24
-  %257 = load double, ptr %256, align 8
+  %257 = load double, ptr %256, align 8, !tbaa !39
   %258 = fcmp olt double %257, %255
   %259 = extractelement <2 x double> %253, i64 1
   br i1 %258, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i, label %260
@@ -23189,7 +23189,7 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianINS_11Inte
   %273 = load <2 x double>, ptr %spec.select.i.i147, align 16
   %274 = extractelement <2 x double> %273, i64 0
   %275 = fneg double %274
-  %276 = load double, ptr %139, align 8
+  %276 = load double, ptr %139, align 8, !tbaa !39
   %277 = fcmp olt double %276, %275
   %278 = extractelement <2 x double> %273, i64 1
   br i1 %277, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i199, label %279
@@ -23233,7 +23233,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %295 = extractelement <2 x double> %294, i64 0
   %296 = fneg double %295
   %297 = getelementptr inbounds nuw i8, ptr %spec.select.i.i149, i64 24
-  %298 = load double, ptr %297, align 8
+  %298 = load double, ptr %297, align 8, !tbaa !39
   %299 = fcmp olt double %298, %296
   %300 = extractelement <2 x double> %294, i64 1
   br i1 %299, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i210, label %301
@@ -23284,7 +23284,7 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianINS_11Inte
   %316 = extractelement <2 x double> %315, i64 0
   %317 = fneg double %316
   %318 = getelementptr inbounds nuw i8, ptr %spec.select.i.i151, i64 8
-  %319 = load double, ptr %318, align 8
+  %319 = load double, ptr %318, align 8, !tbaa !39
   %320 = fcmp olt double %319, %317
   %321 = extractelement <2 x double> %315, i64 1
   br i1 %320, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i217, label %322
@@ -23328,7 +23328,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %338 = extractelement <2 x double> %337, i64 0
   %339 = fneg double %338
   %340 = getelementptr inbounds nuw i8, ptr %spec.select.i.i151, i64 24
-  %341 = load double, ptr %340, align 8
+  %341 = load double, ptr %340, align 8, !tbaa !39
   %342 = fcmp olt double %341, %339
   %343 = extractelement <2 x double> %337, i64 1
   br i1 %342, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i228, label %344
@@ -23436,7 +23436,7 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianINS_11Inte
   %384 = extractelement <2 x double> %383, i64 0
   %385 = fneg double %384
   %386 = getelementptr inbounds nuw i8, ptr %spec.select.i.i151, i64 8
-  %387 = load double, ptr %386, align 8
+  %387 = load double, ptr %386, align 8, !tbaa !39
   %388 = fcmp olt double %387, %385
   %389 = extractelement <2 x double> %383, i64 1
   br i1 %388, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i235, label %390
@@ -23480,7 +23480,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %406 = extractelement <2 x double> %405, i64 0
   %407 = fneg double %406
   %408 = getelementptr inbounds nuw i8, ptr %spec.select.i.i151, i64 24
-  %409 = load double, ptr %408, align 8
+  %409 = load double, ptr %408, align 8, !tbaa !39
   %410 = fcmp olt double %409, %407
   %411 = extractelement <2 x double> %405, i64 1
   br i1 %410, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i246, label %412
@@ -23558,7 +23558,7 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianINS_11Inte
   %436 = load <2 x double>, ptr %spec.select.i.i151, align 16
   %437 = extractelement <2 x double> %436, i64 0
   %438 = fneg double %437
-  %439 = load double, ptr %188, align 8
+  %439 = load double, ptr %188, align 8, !tbaa !39
   %440 = fcmp olt double %439, %438
   %441 = extractelement <2 x double> %436, i64 1
   br i1 %440, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i253, label %442
@@ -23602,7 +23602,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %458 = extractelement <2 x double> %457, i64 0
   %459 = fneg double %458
   %460 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %461 = load double, ptr %460, align 8
+  %461 = load double, ptr %460, align 8, !tbaa !39
   %462 = fcmp olt double %461, %459
   %463 = extractelement <2 x double> %457, i64 1
   br i1 %462, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i264, label %464
@@ -23653,7 +23653,7 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianINS_11Inte
   %479 = extractelement <2 x double> %478, i64 0
   %480 = fneg double %479
   %481 = getelementptr inbounds nuw i8, ptr %spec.select.i.i147, i64 8
-  %482 = load double, ptr %481, align 8
+  %482 = load double, ptr %481, align 8, !tbaa !39
   %483 = fcmp olt double %482, %480
   %484 = extractelement <2 x double> %478, i64 1
   br i1 %483, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i271, label %485
@@ -23697,7 +23697,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %501 = extractelement <2 x double> %500, i64 0
   %502 = fneg double %501
   %503 = getelementptr inbounds nuw i8, ptr %spec.select.i.i147, i64 24
-  %504 = load double, ptr %503, align 8
+  %504 = load double, ptr %503, align 8, !tbaa !39
   %505 = fcmp olt double %504, %502
   %506 = extractelement <2 x double> %500, i64 1
   br i1 %505, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit12.i.i282, label %507

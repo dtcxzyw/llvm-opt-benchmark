@@ -33334,7 +33334,7 @@ define linkonce_odr dso_local noundef double @_ZNK4CGAL19Robust_constructionINS_
   %9 = load ptr, ptr %5, align 8, !tbaa !824
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !21
   %13 = load <2 x double>, ptr %10, align 16, !tbaa !21
   %14 = extractelement <2 x double> %13, i64 0
   %15 = fneg double %14
@@ -33408,7 +33408,7 @@ _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backen
   %41 = load ptr, ptr %5, align 8, !tbaa !824
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %44 = load double, ptr %43, align 8
+  %44 = load double, ptr %43, align 8, !tbaa !21
   %45 = load <2 x double>, ptr %42, align 16, !tbaa !21
   %46 = extractelement <2 x double> %45, i64 0
   %47 = fsub double %44, %46
@@ -41494,7 +41494,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL19Cartesian_converterINS_5EpeckENS_
   %16 = load ptr, ptr %13, align 8, !tbaa !824
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !21
   %20 = load <2 x double>, ptr %17, align 16, !tbaa !21
   %21 = extractelement <2 x double> %20, i64 0
   %22 = fneg double %21
@@ -41567,7 +41567,7 @@ _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backen
   %49 = load ptr, ptr %13, align 8, !tbaa !824
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %52 = load double, ptr %51, align 8
+  %52 = load double, ptr %51, align 8, !tbaa !21
   %53 = load <2 x double>, ptr %50, align 16, !tbaa !21
   %54 = extractelement <2 x double> %53, i64 0
   %55 = fsub double %52, %54
@@ -41586,7 +41586,7 @@ _ZNK4CGAL12NT_converterINS_13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8b
   %58 = load ptr, ptr %14, align 8, !tbaa !824
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %61 = load double, ptr %60, align 8
+  %61 = load double, ptr %60, align 8, !tbaa !21
   %62 = load <2 x double>, ptr %59, align 16, !tbaa !21
   %63 = extractelement <2 x double> %62, i64 0
   %64 = fneg double %63
@@ -41659,7 +41659,7 @@ _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backen
   %91 = load ptr, ptr %14, align 8, !tbaa !824
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %94 = load double, ptr %93, align 8
+  %94 = load double, ptr %93, align 8, !tbaa !21
   %95 = load <2 x double>, ptr %92, align 16, !tbaa !21
   %96 = extractelement <2 x double> %95, i64 0
   %97 = fsub double %94, %96
@@ -41678,7 +41678,7 @@ _ZNK4CGAL12NT_converterINS_13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8b
   %100 = load ptr, ptr %15, align 8, !tbaa !824
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %103 = load double, ptr %102, align 8
+  %103 = load double, ptr %102, align 8, !tbaa !21
   %104 = load <2 x double>, ptr %101, align 16, !tbaa !21
   %105 = extractelement <2 x double> %104, i64 0
   %106 = fneg double %105
@@ -41752,7 +41752,7 @@ _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backen
   %132 = load ptr, ptr %15, align 8, !tbaa !824
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %135 = load double, ptr %134, align 8
+  %135 = load double, ptr %134, align 8, !tbaa !21
   %136 = load <2 x double>, ptr %133, align 16, !tbaa !21
   %137 = extractelement <2 x double> %136, i64 0
   %138 = fsub double %135, %137

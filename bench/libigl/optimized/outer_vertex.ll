@@ -381,7 +381,7 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %76 = load double, ptr %75, align 8
+  %76 = load double, ptr %75, align 8, !tbaa !14
   %77 = load <2 x double>, ptr %74, align 16
   %78 = extractelement <2 x double> %77, i64 0
   %79 = fneg double %78
@@ -1367,7 +1367,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALeqIN5boost14multipreci
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !14
   %17 = fcmp olt double %16, %14
   %18 = extractelement <2 x double> %12, i64 1
   br i1 %17, label %_ZN5boost14multiprecisioneqINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1ES9_LSA_1EEEbRKNS0_6numberIT_XT0_EEERKNSB_IT1_XT2_EEE.exit, label %19
@@ -1779,7 +1779,7 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %74 = load double, ptr %73, align 8
+  %74 = load double, ptr %73, align 8, !tbaa !14
   %75 = load <2 x double>, ptr %72, align 16
   %76 = extractelement <2 x double> %75, i64 0
   %77 = fneg double %76
@@ -2892,7 +2892,7 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %73 = load double, ptr %72, align 8
+  %73 = load double, ptr %72, align 8, !tbaa !14
   %74 = load <2 x double>, ptr %71, align 16
   %75 = extractelement <2 x double> %74, i64 0
   %76 = fneg double %75
@@ -9153,7 +9153,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALltIN5boost14multipreci
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !14
   %14 = load <2 x double>, ptr %11, align 16
   %15 = extractelement <2 x double> %14, i64 0
   %16 = fneg double %15

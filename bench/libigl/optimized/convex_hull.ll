@@ -50881,7 +50881,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
 85:                                               ; preds = %82, %75, %73
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %88 = load double, ptr %87, align 8
+  %88 = load double, ptr %87, align 8, !tbaa !103
   %89 = fcmp oeq double %88, 0x7FF0000000000000
   br i1 %89, label %90, label %._crit_edge
 

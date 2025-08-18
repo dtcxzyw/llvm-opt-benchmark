@@ -31735,7 +31735,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALltIN5boost14multipreci
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !62
   %14 = load <2 x double>, ptr %11, align 16
   %15 = extractelement <2 x double> %14, i64 0
   %16 = fneg double %15
@@ -32574,7 +32574,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19subtract_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE.exit: ; preds = %.noexc
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !62
   %37 = load <2 x double>, ptr %34, align 16, !tbaa !62
   %38 = extractelement <2 x double> %37, i64 0
   %39 = fneg double %38
@@ -37790,7 +37790,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALeqIN5boost14multipreci
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !62
   %17 = fcmp olt double %16, %14
   %18 = extractelement <2 x double> %12, i64 1
   br i1 %17, label %_ZN5boost14multiprecisioneqINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1ES9_LSA_1EEEbRKNS0_6numberIT_XT0_EEERKNSB_IT1_XT2_EEE.exit, label %19
@@ -38051,7 +38051,7 @@ define linkonce_odr dso_local void @_ZN4CGAL14Lazy_exact_DivIN5boost14multipreci
   %33 = fdiv double %31, %32
   %34 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %33) #22, !srcloc !741
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !62
   %37 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %36) #22, !srcloc !741
   %38 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.023.i) #22, !srcloc !741
   %39 = fdiv double %37, %38
@@ -38265,7 +38265,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail17divide_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE.exit: ; preds = %.noexc
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !62
   %37 = load <2 x double>, ptr %34, align 16, !tbaa !62
   %38 = extractelement <2 x double> %37, i64 0
   %39 = fneg double %38
@@ -38518,7 +38518,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail14add_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE.exit: ; preds = %.noexc
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !62
   %37 = load <2 x double>, ptr %34, align 16, !tbaa !62
   %38 = extractelement <2 x double> %37, i64 0
   %39 = fneg double %38
@@ -39913,7 +39913,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %9 = load ptr, ptr %4, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load double, ptr %11, align 8, !noalias !785
+  %12 = load double, ptr %11, align 8, !tbaa !62, !noalias !785
   %13 = load <2 x double>, ptr %10, align 16, !tbaa !62, !noalias !785
   %14 = extractelement <2 x double> %13, i64 0
   %15 = fneg double %14
@@ -39923,7 +39923,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %20 = load double, ptr %19, align 8, !noalias !785
+  %20 = load double, ptr %19, align 8, !tbaa !62, !noalias !785
   %21 = load <2 x double>, ptr %18, align 16, !tbaa !62, !noalias !785
   %22 = extractelement <2 x double> %21, i64 0
   %23 = fneg double %22
@@ -39933,7 +39933,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %28 = load double, ptr %27, align 8, !noalias !785
+  %28 = load double, ptr %27, align 8, !tbaa !62, !noalias !785
   %29 = load <2 x double>, ptr %26, align 16, !tbaa !62, !noalias !785
   %30 = extractelement <2 x double> %29, i64 0
   %31 = fneg double %30
@@ -39944,7 +39944,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %34 = load ptr, ptr %0, align 8, !tbaa !59
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %37 = load double, ptr %36, align 8, !noalias !788
+  %37 = load double, ptr %36, align 8, !tbaa !62, !noalias !788
   %38 = load <2 x double>, ptr %35, align 16, !tbaa !62, !noalias !788
   %39 = extractelement <2 x double> %38, i64 0
   %40 = fneg double %39
@@ -39954,7 +39954,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %45 = load double, ptr %44, align 8, !noalias !788
+  %45 = load double, ptr %44, align 8, !tbaa !62, !noalias !788
   %46 = load <2 x double>, ptr %43, align 16, !tbaa !62, !noalias !788
   %47 = extractelement <2 x double> %46, i64 0
   %48 = fneg double %47
@@ -39964,7 +39964,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %53 = load double, ptr %52, align 8, !noalias !788
+  %53 = load double, ptr %52, align 8, !tbaa !62, !noalias !788
   %54 = load <2 x double>, ptr %51, align 16, !tbaa !62, !noalias !788
   %55 = extractelement <2 x double> %54, i64 0
   %56 = fneg double %55
@@ -40644,7 +40644,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !802)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load double, ptr %10, align 8, !noalias !802
+  %11 = load double, ptr %10, align 8, !tbaa !62, !noalias !802
   %12 = load <2 x double>, ptr %9, align 16, !tbaa !62, !noalias !802
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
@@ -40654,7 +40654,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %19 = load double, ptr %18, align 8, !noalias !802
+  %19 = load double, ptr %18, align 8, !tbaa !62, !noalias !802
   %20 = load <2 x double>, ptr %17, align 16, !tbaa !62, !noalias !802
   %21 = extractelement <2 x double> %20, i64 0
   %22 = fneg double %21
@@ -40664,7 +40664,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %27 = load double, ptr %26, align 8, !noalias !802
+  %27 = load double, ptr %26, align 8, !tbaa !62, !noalias !802
   %28 = load <2 x double>, ptr %25, align 16, !tbaa !62, !noalias !802
   %29 = extractelement <2 x double> %28, i64 0
   %30 = fneg double %29
@@ -40688,7 +40688,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !815)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %39 = load double, ptr %38, align 8, !noalias !815
+  %39 = load double, ptr %38, align 8, !tbaa !62, !noalias !815
   %40 = load <2 x double>, ptr %37, align 16, !tbaa !62, !noalias !815
   %41 = extractelement <2 x double> %40, i64 0
   %42 = fneg double %41
@@ -40698,7 +40698,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %47 = load double, ptr %46, align 8, !noalias !815
+  %47 = load double, ptr %46, align 8, !tbaa !62, !noalias !815
   %48 = load <2 x double>, ptr %45, align 16, !tbaa !62, !noalias !815
   %49 = extractelement <2 x double> %48, i64 0
   %50 = fneg double %49
@@ -40708,7 +40708,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %55 = load double, ptr %54, align 8, !noalias !815
+  %55 = load double, ptr %54, align 8, !tbaa !62, !noalias !815
   %56 = load <2 x double>, ptr %53, align 16, !tbaa !62, !noalias !815
   %57 = extractelement <2 x double> %56, i64 0
   %58 = fneg double %57
@@ -40732,7 +40732,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !821)
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %67 = load double, ptr %66, align 8, !noalias !821
+  %67 = load double, ptr %66, align 8, !tbaa !62, !noalias !821
   %68 = load <2 x double>, ptr %65, align 16, !tbaa !62, !noalias !821
   %69 = extractelement <2 x double> %68, i64 0
   %70 = fneg double %69
@@ -40742,7 +40742,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 72:                                               ; preds = %62
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %75 = load double, ptr %74, align 8, !noalias !821
+  %75 = load double, ptr %74, align 8, !tbaa !62, !noalias !821
   %76 = load <2 x double>, ptr %73, align 16, !tbaa !62, !noalias !821
   %77 = extractelement <2 x double> %76, i64 0
   %78 = fneg double %77
@@ -40752,7 +40752,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 80:                                               ; preds = %72
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %83 = load double, ptr %82, align 8, !noalias !821
+  %83 = load double, ptr %82, align 8, !tbaa !62, !noalias !821
   %84 = load <2 x double>, ptr %81, align 16, !tbaa !62, !noalias !821
   %85 = extractelement <2 x double> %84, i64 0
   %86 = fneg double %85
@@ -41664,7 +41664,7 @@ define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_pr
   %14 = extractelement <2 x double> %13, i64 0
   %15 = fneg double %14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load double, ptr %16, align 8
+  %17 = load double, ptr %16, align 8, !tbaa !62
   %18 = fcmp olt double %17, %15
   %19 = extractelement <2 x double> %13, i64 1
   br i1 %18, label %_ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i.i, label %20
@@ -41699,7 +41699,7 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i.i: ; preds = %25, %20, %5
   %34 = extractelement <2 x double> %33, i64 0
   %35 = fneg double %34
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %37 = load double, ptr %36, align 8
+  %37 = load double, ptr %36, align 8, !tbaa !62
   %38 = fcmp olt double %37, %35
   %39 = extractelement <2 x double> %33, i64 1
   br i1 %38, label %_ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i.i.i.i, label %40
@@ -41735,7 +41735,7 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i.i.i.i: ; preds = %46, %40, %3
   %55 = extractelement <2 x double> %54, i64 0
   %56 = fneg double %55
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %58 = load double, ptr %57, align 8
+  %58 = load double, ptr %57, align 8, !tbaa !62
   %59 = fcmp olt double %58, %56
   %60 = extractelement <2 x double> %54, i64 1
   br i1 %59, label %_ZZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i.i.i, label %61
@@ -64105,7 +64105,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %22 = extractelement <2 x double> %21, i64 0
   %23 = fneg double %22
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %25 = load double, ptr %24, align 8
+  %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = fcmp olt double %25, %23
   %27 = extractelement <2 x double> %21, i64 1
   br i1 %26, label %_ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i, label %28
@@ -64141,7 +64141,7 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i:   ; preds = %34, %28, %3
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %46 = load double, ptr %45, align 8
+  %46 = load double, ptr %45, align 8, !tbaa !62
   %47 = fcmp olt double %46, %44
   %48 = extractelement <2 x double> %42, i64 1
   br i1 %47, label %_ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i, label %49
@@ -64177,7 +64177,7 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit.i.i.i: ; preds = %55, %49, %40
   %64 = extractelement <2 x double> %63, i64 0
   %65 = fneg double %64
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %67 = load double, ptr %66, align 8
+  %67 = load double, ptr %66, align 8, !tbaa !62
   %68 = fcmp olt double %67, %65
   %69 = extractelement <2 x double> %63, i64 1
   br i1 %68, label %_ZZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i, label %70
@@ -65245,7 +65245,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %12 = load ptr, ptr %9, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %15 = load double, ptr %14, align 8, !noalias !1597
+  %15 = load double, ptr %14, align 8, !tbaa !62, !noalias !1597
   %16 = load <2 x double>, ptr %13, align 16, !tbaa !62, !noalias !1597
   %17 = extractelement <2 x double> %16, i64 0
   %18 = fneg double %17
@@ -65255,7 +65255,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %23 = load double, ptr %22, align 8, !noalias !1597
+  %23 = load double, ptr %22, align 8, !tbaa !62, !noalias !1597
   %24 = load <2 x double>, ptr %21, align 16, !tbaa !62, !noalias !1597
   %25 = extractelement <2 x double> %24, i64 0
   %26 = fneg double %25
@@ -65265,7 +65265,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %31 = load double, ptr %30, align 8, !noalias !1597
+  %31 = load double, ptr %30, align 8, !tbaa !62, !noalias !1597
   %32 = load <2 x double>, ptr %29, align 16, !tbaa !62, !noalias !1597
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -65276,7 +65276,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %37 = load ptr, ptr %10, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load double, ptr %39, align 8, !noalias !1600
+  %40 = load double, ptr %39, align 8, !tbaa !62, !noalias !1600
   %41 = load <2 x double>, ptr %38, align 16, !tbaa !62, !noalias !1600
   %42 = extractelement <2 x double> %41, i64 0
   %43 = fneg double %42
@@ -65286,7 +65286,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %48 = load double, ptr %47, align 8, !noalias !1600
+  %48 = load double, ptr %47, align 8, !tbaa !62, !noalias !1600
   %49 = load <2 x double>, ptr %46, align 16, !tbaa !62, !noalias !1600
   %50 = extractelement <2 x double> %49, i64 0
   %51 = fneg double %50
@@ -65296,7 +65296,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %56 = load double, ptr %55, align 8, !noalias !1600
+  %56 = load double, ptr %55, align 8, !tbaa !62, !noalias !1600
   %57 = load <2 x double>, ptr %54, align 16, !tbaa !62, !noalias !1600
   %58 = extractelement <2 x double> %57, i64 0
   %59 = fneg double %58
@@ -65466,7 +65466,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %19 = load ptr, ptr %2, align 8, !tbaa !59
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !62
   %23 = load <2 x double>, ptr %20, align 16
   %24 = extractelement <2 x double> %23, i64 0
   %25 = fneg double %24
@@ -65994,7 +65994,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %12 = load ptr, ptr %9, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %15 = load double, ptr %14, align 8, !noalias !1629
+  %15 = load double, ptr %14, align 8, !tbaa !62, !noalias !1629
   %16 = load <2 x double>, ptr %13, align 16, !tbaa !62, !noalias !1629
   %17 = extractelement <2 x double> %16, i64 0
   %18 = fneg double %17
@@ -66004,7 +66004,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %23 = load double, ptr %22, align 8, !noalias !1629
+  %23 = load double, ptr %22, align 8, !tbaa !62, !noalias !1629
   %24 = load <2 x double>, ptr %21, align 16, !tbaa !62, !noalias !1629
   %25 = extractelement <2 x double> %24, i64 0
   %26 = fneg double %25
@@ -66014,7 +66014,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %31 = load double, ptr %30, align 8, !noalias !1629
+  %31 = load double, ptr %30, align 8, !tbaa !62, !noalias !1629
   %32 = load <2 x double>, ptr %29, align 16, !tbaa !62, !noalias !1629
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -66025,7 +66025,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %37 = load ptr, ptr %10, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load double, ptr %39, align 8, !noalias !1632
+  %40 = load double, ptr %39, align 8, !tbaa !62, !noalias !1632
   %41 = load <2 x double>, ptr %38, align 16, !tbaa !62, !noalias !1632
   %42 = extractelement <2 x double> %41, i64 0
   %43 = fneg double %42
@@ -66035,7 +66035,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %48 = load double, ptr %47, align 8, !noalias !1632
+  %48 = load double, ptr %47, align 8, !tbaa !62, !noalias !1632
   %49 = load <2 x double>, ptr %46, align 16, !tbaa !62, !noalias !1632
   %50 = extractelement <2 x double> %49, i64 0
   %51 = fneg double %50
@@ -66045,7 +66045,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %56 = load double, ptr %55, align 8, !noalias !1632
+  %56 = load double, ptr %55, align 8, !tbaa !62, !noalias !1632
   %57 = load <2 x double>, ptr %54, align 16, !tbaa !62, !noalias !1632
   %58 = extractelement <2 x double> %57, i64 0
   %59 = fneg double %58
@@ -66215,7 +66215,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %19 = load ptr, ptr %2, align 8, !tbaa !59
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !62
   %23 = load <2 x double>, ptr %20, align 16
   %24 = extractelement <2 x double> %23, i64 0
   %25 = fneg double %24
@@ -66745,7 +66745,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %12 = load ptr, ptr %9, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %15 = load double, ptr %14, align 8, !noalias !1661
+  %15 = load double, ptr %14, align 8, !tbaa !62, !noalias !1661
   %16 = load <2 x double>, ptr %13, align 16, !tbaa !62, !noalias !1661
   %17 = extractelement <2 x double> %16, i64 0
   %18 = fneg double %17
@@ -66755,7 +66755,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %23 = load double, ptr %22, align 8, !noalias !1661
+  %23 = load double, ptr %22, align 8, !tbaa !62, !noalias !1661
   %24 = load <2 x double>, ptr %21, align 16, !tbaa !62, !noalias !1661
   %25 = extractelement <2 x double> %24, i64 0
   %26 = fneg double %25
@@ -66765,7 +66765,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %31 = load double, ptr %30, align 8, !noalias !1661
+  %31 = load double, ptr %30, align 8, !tbaa !62, !noalias !1661
   %32 = load <2 x double>, ptr %29, align 16, !tbaa !62, !noalias !1661
   %33 = extractelement <2 x double> %32, i64 0
   %34 = fneg double %33
@@ -66776,7 +66776,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
   %37 = load ptr, ptr %10, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load double, ptr %39, align 8, !noalias !1664
+  %40 = load double, ptr %39, align 8, !tbaa !62, !noalias !1664
   %41 = load <2 x double>, ptr %38, align 16, !tbaa !62, !noalias !1664
   %42 = extractelement <2 x double> %41, i64 0
   %43 = fneg double %42
@@ -66786,7 +66786,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %48 = load double, ptr %47, align 8, !noalias !1664
+  %48 = load double, ptr %47, align 8, !tbaa !62, !noalias !1664
   %49 = load <2 x double>, ptr %46, align 16, !tbaa !62, !noalias !1664
   %50 = extractelement <2 x double> %49, i64 0
   %51 = fneg double %50
@@ -66796,7 +66796,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13AABB_traits_3INS_5Ep
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %56 = load double, ptr %55, align 8, !noalias !1664
+  %56 = load double, ptr %55, align 8, !tbaa !62, !noalias !1664
   %57 = load <2 x double>, ptr %54, align 16, !tbaa !62, !noalias !1664
   %58 = extractelement <2 x double> %57, i64 0
   %59 = fneg double %58
@@ -66966,7 +66966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %19 = load ptr, ptr %2, align 8, !tbaa !59
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !62
   %23 = load <2 x double>, ptr %20, align 16
   %24 = extractelement <2 x double> %23, i64 0
   %25 = fneg double %24
@@ -67302,7 +67302,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL13AABB_traits_3INS_5EpeckENS
   %.0.i.i.i.i.i.i = inttoptr i64 %16 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !1678)
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %18 = load double, ptr %17, align 8, !noalias !1681
+  %18 = load double, ptr %17, align 8, !tbaa !62, !noalias !1681
   %19 = load <2 x double>, ptr %.0.i.i.i.i.i.i, align 16, !tbaa !62, !noalias !1681
   %20 = extractelement <2 x double> %19, i64 0
   %21 = fneg double %20
@@ -67312,7 +67312,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL13AABB_traits_3INS_5EpeckENS
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
-  %26 = load double, ptr %25, align 8, !noalias !1681
+  %26 = load double, ptr %25, align 8, !tbaa !62, !noalias !1681
   %27 = load <2 x double>, ptr %24, align 16, !tbaa !62, !noalias !1681
   %28 = extractelement <2 x double> %27, i64 0
   %29 = fneg double %28
@@ -67322,7 +67322,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL13AABB_traits_3INS_5EpeckENS
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 40
-  %34 = load double, ptr %33, align 8, !noalias !1681
+  %34 = load double, ptr %33, align 8, !tbaa !62, !noalias !1681
   %35 = load <2 x double>, ptr %32, align 16, !tbaa !62, !noalias !1681
   %36 = extractelement <2 x double> %35, i64 0
   %37 = fneg double %36
@@ -85312,7 +85312,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE.exit: ; preds = %37, %.noexc.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load double, ptr %42, align 8
+  %43 = load double, ptr %42, align 8, !tbaa !62
   %44 = load <2 x double>, ptr %41, align 16, !tbaa !62
   %45 = extractelement <2 x double> %44, i64 0
   %46 = fneg double %45
@@ -90472,7 +90472,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
 _ZN4CGAL6squareIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEENS_26Algebraic_structure_traitsIT_E6Square11result_typeERKSF_.exit: ; preds = %.noexc.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load double, ptr %24, align 8
+  %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = load <2 x double>, ptr %23, align 16, !tbaa !62
   %27 = extractelement <2 x double> %26, i64 0
   %28 = fneg double %27
@@ -93983,7 +93983,7 @@ define linkonce_odr dso_local ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__no
   %.sroa.027.197 = phi ptr [ %56, %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit.thread31 ], [ %.sroa.027.0, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %27 = load double, ptr %26, align 8
+  %27 = load double, ptr %26, align 8, !tbaa !62
   %28 = load <2 x double>, ptr %25, align 16
   %29 = extractelement <2 x double> %28, i64 0
   %30 = fneg double %29
@@ -94132,7 +94132,7 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
   %.sroa.024.0.pn107 = phi ptr [ %.sroa.024.1108, %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22.thread34 ], [ %.sroa.024.0, %_ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit.thread ]
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %72 = load double, ptr %71, align 8
+  %72 = load double, ptr %71, align 8, !tbaa !62
   %73 = load <2 x double>, ptr %70, align 16
   %74 = extractelement <2 x double> %73, i64 0
   %75 = fneg double %74

@@ -3617,7 +3617,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %472 = load double, ptr %471, align 8, !noalias !111
+  %472 = load double, ptr %471, align 8, !tbaa !20, !noalias !111
   %473 = load <2 x double>, ptr %470, align 16, !tbaa !20, !noalias !111
   %474 = extractelement <2 x double> %473, i64 0
   %475 = fneg double %474
@@ -3627,7 +3627,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 477:                                              ; preds = %468
   %478 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %479 = getelementptr inbounds nuw i8, ptr %469, i64 40
-  %480 = load double, ptr %479, align 8, !noalias !111
+  %480 = load double, ptr %479, align 8, !tbaa !20, !noalias !111
   %481 = load <2 x double>, ptr %478, align 16, !tbaa !20, !noalias !111
   %482 = extractelement <2 x double> %481, i64 0
   %483 = fneg double %482
@@ -3637,7 +3637,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 485:                                              ; preds = %477
   %486 = getelementptr inbounds nuw i8, ptr %469, i64 48
   %487 = getelementptr inbounds nuw i8, ptr %469, i64 56
-  %488 = load double, ptr %487, align 8, !noalias !111
+  %488 = load double, ptr %487, align 8, !tbaa !20, !noalias !111
   %489 = load <2 x double>, ptr %486, align 16, !tbaa !20, !noalias !111
   %490 = extractelement <2 x double> %489, i64 0
   %491 = fneg double %490
@@ -5116,7 +5116,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %1047 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %1048 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %1049 = load double, ptr %1048, align 8, !noalias !157
+  %1049 = load double, ptr %1048, align 8, !tbaa !20, !noalias !157
   %1050 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i.i, align 16, !tbaa !20, !noalias !157
   %1051 = extractelement <2 x double> %1050, i64 0
   %1052 = fneg double %1051
@@ -5126,7 +5126,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1054:                                             ; preds = %1044
   %1055 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 16
   %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  %1057 = load double, ptr %1056, align 8, !noalias !157
+  %1057 = load double, ptr %1056, align 8, !tbaa !20, !noalias !157
   %1058 = load <2 x double>, ptr %1055, align 16, !tbaa !20, !noalias !157
   %1059 = extractelement <2 x double> %1058, i64 0
   %1060 = fneg double %1059
@@ -5136,7 +5136,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1062:                                             ; preds = %1054
   %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
   %1064 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  %1065 = load double, ptr %1064, align 8, !noalias !157
+  %1065 = load double, ptr %1064, align 8, !tbaa !20, !noalias !157
   %1066 = load <2 x double>, ptr %1063, align 16, !tbaa !20, !noalias !157
   %1067 = extractelement <2 x double> %1066, i64 0
   %1068 = fneg double %1067
@@ -5159,7 +5159,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i8.i.i.i = inttoptr i64 %1075 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %1076 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 8
-  %1077 = load double, ptr %1076, align 8, !noalias !164
+  %1077 = load double, ptr %1076, align 8, !tbaa !20, !noalias !164
   %1078 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i.i, align 16, !tbaa !20, !noalias !164
   %1079 = extractelement <2 x double> %1078, i64 0
   %1080 = fneg double %1079
@@ -5169,7 +5169,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1082:                                             ; preds = %1072
   %1083 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 16
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 24
-  %1085 = load double, ptr %1084, align 8, !noalias !164
+  %1085 = load double, ptr %1084, align 8, !tbaa !20, !noalias !164
   %1086 = load <2 x double>, ptr %1083, align 16, !tbaa !20, !noalias !164
   %1087 = extractelement <2 x double> %1086, i64 0
   %1088 = fneg double %1087
@@ -5179,7 +5179,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1090:                                             ; preds = %1082
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 32
   %1092 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 40
-  %1093 = load double, ptr %1092, align 8, !noalias !164
+  %1093 = load double, ptr %1092, align 8, !tbaa !20, !noalias !164
   %1094 = load <2 x double>, ptr %1091, align 16, !tbaa !20, !noalias !164
   %1095 = extractelement <2 x double> %1094, i64 0
   %1096 = fneg double %1095
@@ -11045,7 +11045,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 24
-  %480 = load double, ptr %479, align 8, !noalias !299
+  %480 = load double, ptr %479, align 8, !tbaa !20, !noalias !299
   %481 = load <2 x double>, ptr %478, align 16, !tbaa !20, !noalias !299
   %482 = extractelement <2 x double> %481, i64 0
   %483 = fneg double %482
@@ -11055,7 +11055,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 485:                                              ; preds = %476
   %486 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %487 = getelementptr inbounds nuw i8, ptr %477, i64 40
-  %488 = load double, ptr %487, align 8, !noalias !299
+  %488 = load double, ptr %487, align 8, !tbaa !20, !noalias !299
   %489 = load <2 x double>, ptr %486, align 16, !tbaa !20, !noalias !299
   %490 = extractelement <2 x double> %489, i64 0
   %491 = fneg double %490
@@ -11065,7 +11065,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 493:                                              ; preds = %485
   %494 = getelementptr inbounds nuw i8, ptr %477, i64 48
   %495 = getelementptr inbounds nuw i8, ptr %477, i64 56
-  %496 = load double, ptr %495, align 8, !noalias !299
+  %496 = load double, ptr %495, align 8, !tbaa !20, !noalias !299
   %497 = load <2 x double>, ptr %494, align 16, !tbaa !20, !noalias !299
   %498 = extractelement <2 x double> %497, i64 0
   %499 = fneg double %498
@@ -12544,7 +12544,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %1055 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %1057 = load double, ptr %1056, align 8, !noalias !317
+  %1057 = load double, ptr %1056, align 8, !tbaa !20, !noalias !317
   %1058 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i.i, align 16, !tbaa !20, !noalias !317
   %1059 = extractelement <2 x double> %1058, i64 0
   %1060 = fneg double %1059
@@ -12554,7 +12554,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1062:                                             ; preds = %1052
   %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 16
   %1064 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  %1065 = load double, ptr %1064, align 8, !noalias !317
+  %1065 = load double, ptr %1064, align 8, !tbaa !20, !noalias !317
   %1066 = load <2 x double>, ptr %1063, align 16, !tbaa !20, !noalias !317
   %1067 = extractelement <2 x double> %1066, i64 0
   %1068 = fneg double %1067
@@ -12564,7 +12564,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1070:                                             ; preds = %1062
   %1071 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
   %1072 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  %1073 = load double, ptr %1072, align 8, !noalias !317
+  %1073 = load double, ptr %1072, align 8, !tbaa !20, !noalias !317
   %1074 = load <2 x double>, ptr %1071, align 16, !tbaa !20, !noalias !317
   %1075 = extractelement <2 x double> %1074, i64 0
   %1076 = fneg double %1075
@@ -12587,7 +12587,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i8.i.i.i = inttoptr i64 %1083 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !320)
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 8
-  %1085 = load double, ptr %1084, align 8, !noalias !320
+  %1085 = load double, ptr %1084, align 8, !tbaa !20, !noalias !320
   %1086 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i.i, align 16, !tbaa !20, !noalias !320
   %1087 = extractelement <2 x double> %1086, i64 0
   %1088 = fneg double %1087
@@ -12597,7 +12597,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1090:                                             ; preds = %1080
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 16
   %1092 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 24
-  %1093 = load double, ptr %1092, align 8, !noalias !320
+  %1093 = load double, ptr %1092, align 8, !tbaa !20, !noalias !320
   %1094 = load <2 x double>, ptr %1091, align 16, !tbaa !20, !noalias !320
   %1095 = extractelement <2 x double> %1094, i64 0
   %1096 = fneg double %1095
@@ -12607,7 +12607,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1098:                                             ; preds = %1090
   %1099 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 32
   %1100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 40
-  %1101 = load double, ptr %1100, align 8, !noalias !320
+  %1101 = load double, ptr %1100, align 8, !tbaa !20, !noalias !320
   %1102 = load <2 x double>, ptr %1099, align 16, !tbaa !20, !noalias !320
   %1103 = extractelement <2 x double> %1102, i64 0
   %1104 = fneg double %1103
@@ -17897,7 +17897,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %472 = load double, ptr %471, align 8, !noalias !444
+  %472 = load double, ptr %471, align 8, !tbaa !20, !noalias !444
   %473 = load <2 x double>, ptr %470, align 16, !tbaa !20, !noalias !444
   %474 = extractelement <2 x double> %473, i64 0
   %475 = fneg double %474
@@ -17907,7 +17907,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 477:                                              ; preds = %468
   %478 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %479 = getelementptr inbounds nuw i8, ptr %469, i64 40
-  %480 = load double, ptr %479, align 8, !noalias !444
+  %480 = load double, ptr %479, align 8, !tbaa !20, !noalias !444
   %481 = load <2 x double>, ptr %478, align 16, !tbaa !20, !noalias !444
   %482 = extractelement <2 x double> %481, i64 0
   %483 = fneg double %482
@@ -17917,7 +17917,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKNS0_13Lazy_ex
 485:                                              ; preds = %477
   %486 = getelementptr inbounds nuw i8, ptr %469, i64 48
   %487 = getelementptr inbounds nuw i8, ptr %469, i64 56
-  %488 = load double, ptr %487, align 8, !noalias !444
+  %488 = load double, ptr %487, align 8, !tbaa !20, !noalias !444
   %489 = load <2 x double>, ptr %486, align 16, !tbaa !20, !noalias !444
   %490 = extractelement <2 x double> %489, i64 0
   %491 = fneg double %490
@@ -19396,7 +19396,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %1047 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
   %1048 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %1049 = load double, ptr %1048, align 8, !noalias !462
+  %1049 = load double, ptr %1048, align 8, !tbaa !20, !noalias !462
   %1050 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i.i, align 16, !tbaa !20, !noalias !462
   %1051 = extractelement <2 x double> %1050, i64 0
   %1052 = fneg double %1051
@@ -19406,7 +19406,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1054:                                             ; preds = %1044
   %1055 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 16
   %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  %1057 = load double, ptr %1056, align 8, !noalias !462
+  %1057 = load double, ptr %1056, align 8, !tbaa !20, !noalias !462
   %1058 = load <2 x double>, ptr %1055, align 16, !tbaa !20, !noalias !462
   %1059 = extractelement <2 x double> %1058, i64 0
   %1060 = fneg double %1059
@@ -19416,7 +19416,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1062:                                             ; preds = %1054
   %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
   %1064 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  %1065 = load double, ptr %1064, align 8, !noalias !462
+  %1065 = load double, ptr %1064, align 8, !tbaa !20, !noalias !462
   %1066 = load <2 x double>, ptr %1063, align 16, !tbaa !20, !noalias !462
   %1067 = extractelement <2 x double> %1066, i64 0
   %1068 = fneg double %1067
@@ -19439,7 +19439,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
   %.0.i.i.i.i.i8.i.i.i = inttoptr i64 %1075 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
   %1076 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 8
-  %1077 = load double, ptr %1076, align 8, !noalias !465
+  %1077 = load double, ptr %1076, align 8, !tbaa !20, !noalias !465
   %1078 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i.i, align 16, !tbaa !20, !noalias !465
   %1079 = extractelement <2 x double> %1078, i64 0
   %1080 = fneg double %1079
@@ -19449,7 +19449,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1082:                                             ; preds = %1072
   %1083 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 16
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 24
-  %1085 = load double, ptr %1084, align 8, !noalias !465
+  %1085 = load double, ptr %1084, align 8, !tbaa !20, !noalias !465
   %1086 = load <2 x double>, ptr %1083, align 16, !tbaa !20, !noalias !465
   %1087 = extractelement <2 x double> %1086, i64 0
   %1088 = fneg double %1087
@@ -19459,7 +19459,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exa
 1090:                                             ; preds = %1082
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 32
   %1092 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 40
-  %1093 = load double, ptr %1092, align 8, !noalias !465
+  %1093 = load double, ptr %1092, align 8, !tbaa !20, !noalias !465
   %1094 = load <2 x double>, ptr %1091, align 16, !tbaa !20, !noalias !465
   %1095 = extractelement <2 x double> %1094, i64 0
   %1096 = fneg double %1095
@@ -23449,7 +23449,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !529)
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %472 = load double, ptr %471, align 8, !noalias !529
+  %472 = load double, ptr %471, align 8, !tbaa !20, !noalias !529
   %473 = load <2 x double>, ptr %470, align 16, !tbaa !20, !noalias !529
   %474 = extractelement <2 x double> %473, i64 0
   %475 = fneg double %474
@@ -23459,7 +23459,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
 477:                                              ; preds = %468
   %478 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %479 = getelementptr inbounds nuw i8, ptr %469, i64 40
-  %480 = load double, ptr %479, align 8, !noalias !529
+  %480 = load double, ptr %479, align 8, !tbaa !20, !noalias !529
   %481 = load <2 x double>, ptr %478, align 16, !tbaa !20, !noalias !529
   %482 = extractelement <2 x double> %481, i64 0
   %483 = fneg double %482
@@ -23469,7 +23469,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
 485:                                              ; preds = %477
   %486 = getelementptr inbounds nuw i8, ptr %469, i64 48
   %487 = getelementptr inbounds nuw i8, ptr %469, i64 56
-  %488 = load double, ptr %487, align 8, !noalias !529
+  %488 = load double, ptr %487, align 8, !tbaa !20, !noalias !529
   %489 = load <2 x double>, ptr %486, align 16, !tbaa !20, !noalias !529
   %490 = extractelement <2 x double> %489, i64 0
   %491 = fneg double %490
@@ -24948,7 +24948,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %1047 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %1048 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %1049 = load double, ptr %1048, align 8, !noalias !547
+  %1049 = load double, ptr %1048, align 8, !tbaa !20, !noalias !547
   %1050 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i.i, align 16, !tbaa !20, !noalias !547
   %1051 = extractelement <2 x double> %1050, i64 0
   %1052 = fneg double %1051
@@ -24958,7 +24958,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
 1054:                                             ; preds = %1044
   %1055 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 16
   %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  %1057 = load double, ptr %1056, align 8, !noalias !547
+  %1057 = load double, ptr %1056, align 8, !tbaa !20, !noalias !547
   %1058 = load <2 x double>, ptr %1055, align 16, !tbaa !20, !noalias !547
   %1059 = extractelement <2 x double> %1058, i64 0
   %1060 = fneg double %1059
@@ -24968,7 +24968,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
 1062:                                             ; preds = %1054
   %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
   %1064 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  %1065 = load double, ptr %1064, align 8, !noalias !547
+  %1065 = load double, ptr %1064, align 8, !tbaa !20, !noalias !547
   %1066 = load <2 x double>, ptr %1063, align 16, !tbaa !20, !noalias !547
   %1067 = extractelement <2 x double> %1066, i64 0
   %1068 = fneg double %1067
@@ -24991,7 +24991,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.0.i.i.i.i.i8.i.i.i = inttoptr i64 %1075 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !550)
   %1076 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 8
-  %1077 = load double, ptr %1076, align 8, !noalias !550
+  %1077 = load double, ptr %1076, align 8, !tbaa !20, !noalias !550
   %1078 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i.i, align 16, !tbaa !20, !noalias !550
   %1079 = extractelement <2 x double> %1078, i64 0
   %1080 = fneg double %1079
@@ -25001,7 +25001,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
 1082:                                             ; preds = %1072
   %1083 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 16
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 24
-  %1085 = load double, ptr %1084, align 8, !noalias !550
+  %1085 = load double, ptr %1084, align 8, !tbaa !20, !noalias !550
   %1086 = load <2 x double>, ptr %1083, align 16, !tbaa !20, !noalias !550
   %1087 = extractelement <2 x double> %1086, i64 0
   %1088 = fneg double %1087
@@ -25011,7 +25011,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELin1ELi0EL
 1090:                                             ; preds = %1082
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 32
   %1092 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 40
-  %1093 = load double, ptr %1092, align 8, !noalias !550
+  %1093 = load double, ptr %1092, align 8, !tbaa !20, !noalias !550
   %1094 = load <2 x double>, ptr %1091, align 16, !tbaa !20, !noalias !550
   %1095 = extractelement <2 x double> %1094, i64 0
   %1096 = fneg double %1095
@@ -28644,7 +28644,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !598)
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %472 = load double, ptr %471, align 8, !noalias !598
+  %472 = load double, ptr %471, align 8, !tbaa !20, !noalias !598
   %473 = load <2 x double>, ptr %470, align 16, !tbaa !20, !noalias !598
   %474 = extractelement <2 x double> %473, i64 0
   %475 = fneg double %474
@@ -28654,7 +28654,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
 477:                                              ; preds = %468
   %478 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %479 = getelementptr inbounds nuw i8, ptr %469, i64 40
-  %480 = load double, ptr %479, align 8, !noalias !598
+  %480 = load double, ptr %479, align 8, !tbaa !20, !noalias !598
   %481 = load <2 x double>, ptr %478, align 16, !tbaa !20, !noalias !598
   %482 = extractelement <2 x double> %481, i64 0
   %483 = fneg double %482
@@ -28664,7 +28664,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpeckEEESaIS3_EE12emplace_backIJRKdS8_S8_EEERS3
 485:                                              ; preds = %477
   %486 = getelementptr inbounds nuw i8, ptr %469, i64 48
   %487 = getelementptr inbounds nuw i8, ptr %469, i64 56
-  %488 = load double, ptr %487, align 8, !noalias !598
+  %488 = load double, ptr %487, align 8, !tbaa !20, !noalias !598
   %489 = load <2 x double>, ptr %486, align 16, !tbaa !20, !noalias !598
   %490 = extractelement <2 x double> %489, i64 0
   %491 = fneg double %490
@@ -30143,7 +30143,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %1047 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !616)
   %1048 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %1049 = load double, ptr %1048, align 8, !noalias !616
+  %1049 = load double, ptr %1048, align 8, !tbaa !20, !noalias !616
   %1050 = load <2 x double>, ptr %.0.i.i.i.i.i.i.i.i, align 16, !tbaa !20, !noalias !616
   %1051 = extractelement <2 x double> %1050, i64 0
   %1052 = fneg double %1051
@@ -30153,7 +30153,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
 1054:                                             ; preds = %1044
   %1055 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 16
   %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 24
-  %1057 = load double, ptr %1056, align 8, !noalias !616
+  %1057 = load double, ptr %1056, align 8, !tbaa !20, !noalias !616
   %1058 = load <2 x double>, ptr %1055, align 16, !tbaa !20, !noalias !616
   %1059 = extractelement <2 x double> %1058, i64 0
   %1060 = fneg double %1059
@@ -30163,7 +30163,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
 1062:                                             ; preds = %1054
   %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 32
   %1064 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  %1065 = load double, ptr %1064, align 8, !noalias !616
+  %1065 = load double, ptr %1064, align 8, !tbaa !20, !noalias !616
   %1066 = load <2 x double>, ptr %1063, align 16, !tbaa !20, !noalias !616
   %1067 = extractelement <2 x double> %1066, i64 0
   %1068 = fneg double %1067
@@ -30186,7 +30186,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
   %.0.i.i.i.i.i8.i.i.i = inttoptr i64 %1075 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !619)
   %1076 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 8
-  %1077 = load double, ptr %1076, align 8, !noalias !619
+  %1077 = load double, ptr %1076, align 8, !tbaa !20, !noalias !619
   %1078 = load <2 x double>, ptr %.0.i.i.i.i.i8.i.i.i, align 16, !tbaa !20, !noalias !619
   %1079 = extractelement <2 x double> %1078, i64 0
   %1080 = fneg double %1079
@@ -30196,7 +30196,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
 1082:                                             ; preds = %1072
   %1083 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 16
   %1084 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 24
-  %1085 = load double, ptr %1084, align 8, !noalias !619
+  %1085 = load double, ptr %1084, align 8, !tbaa !20, !noalias !619
   %1086 = load <2 x double>, ptr %1083, align 16, !tbaa !20, !noalias !619
   %1087 = extractelement <2 x double> %1086, i64 0
   %1088 = fneg double %1087
@@ -30206,7 +30206,7 @@ _ZZN3igl8copyleft4cgal24order_facets_around_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELi
 1090:                                             ; preds = %1082
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 32
   %1092 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8.i.i.i, i64 40
-  %1093 = load double, ptr %1092, align 8, !noalias !619
+  %1093 = load double, ptr %1092, align 8, !tbaa !20, !noalias !619
   %1094 = load <2 x double>, ptr %1091, align 16, !tbaa !20, !noalias !619
   %1095 = extractelement <2 x double> %1094, i64 0
   %1096 = fneg double %1095
@@ -53274,7 +53274,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !837)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load double, ptr %10, align 8, !noalias !837
+  %11 = load double, ptr %10, align 8, !tbaa !20, !noalias !837
   %12 = load <2 x double>, ptr %9, align 16, !tbaa !20, !noalias !837
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
@@ -53284,7 +53284,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %19 = load double, ptr %18, align 8, !noalias !837
+  %19 = load double, ptr %18, align 8, !tbaa !20, !noalias !837
   %20 = load <2 x double>, ptr %17, align 16, !tbaa !20, !noalias !837
   %21 = extractelement <2 x double> %20, i64 0
   %22 = fneg double %21
@@ -53294,7 +53294,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %27 = load double, ptr %26, align 8, !noalias !837
+  %27 = load double, ptr %26, align 8, !tbaa !20, !noalias !837
   %28 = load <2 x double>, ptr %25, align 16, !tbaa !20, !noalias !837
   %29 = extractelement <2 x double> %28, i64 0
   %30 = fneg double %29
@@ -53318,7 +53318,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !843)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %39 = load double, ptr %38, align 8, !noalias !843
+  %39 = load double, ptr %38, align 8, !tbaa !20, !noalias !843
   %40 = load <2 x double>, ptr %37, align 16, !tbaa !20, !noalias !843
   %41 = extractelement <2 x double> %40, i64 0
   %42 = fneg double %41
@@ -53328,7 +53328,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %47 = load double, ptr %46, align 8, !noalias !843
+  %47 = load double, ptr %46, align 8, !tbaa !20, !noalias !843
   %48 = load <2 x double>, ptr %45, align 16, !tbaa !20, !noalias !843
   %49 = extractelement <2 x double> %48, i64 0
   %50 = fneg double %49
@@ -53338,7 +53338,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %55 = load double, ptr %54, align 8, !noalias !843
+  %55 = load double, ptr %54, align 8, !tbaa !20, !noalias !843
   %56 = load <2 x double>, ptr %53, align 16, !tbaa !20, !noalias !843
   %57 = extractelement <2 x double> %56, i64 0
   %58 = fneg double %57
@@ -53362,7 +53362,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %67 = load double, ptr %66, align 8, !noalias !849
+  %67 = load double, ptr %66, align 8, !tbaa !20, !noalias !849
   %68 = load <2 x double>, ptr %65, align 16, !tbaa !20, !noalias !849
   %69 = extractelement <2 x double> %68, i64 0
   %70 = fneg double %69
@@ -53372,7 +53372,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 72:                                               ; preds = %62
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %75 = load double, ptr %74, align 8, !noalias !849
+  %75 = load double, ptr %74, align 8, !tbaa !20, !noalias !849
   %76 = load <2 x double>, ptr %73, align 16, !tbaa !20, !noalias !849
   %77 = extractelement <2 x double> %76, i64 0
   %78 = fneg double %77
@@ -53382,7 +53382,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
 80:                                               ; preds = %72
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %83 = load double, ptr %82, align 8, !noalias !849
+  %83 = load double, ptr %82, align 8, !tbaa !20, !noalias !849
   %84 = load <2 x double>, ptr %81, align 16, !tbaa !20, !noalias !849
   %85 = extractelement <2 x double> %84, i64 0
   %86 = fneg double %85
@@ -63306,7 +63306,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1050)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %13 = load double, ptr %12, align 8, !noalias !1050
+  %13 = load double, ptr %12, align 8, !tbaa !20, !noalias !1050
   %14 = load <2 x double>, ptr %11, align 16, !tbaa !20, !noalias !1050
   %15 = extractelement <2 x double> %14, i64 0
   %16 = fneg double %15
@@ -63316,7 +63316,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %21 = load double, ptr %20, align 8, !noalias !1050
+  %21 = load double, ptr %20, align 8, !tbaa !20, !noalias !1050
   %22 = load <2 x double>, ptr %19, align 16, !tbaa !20, !noalias !1050
   %23 = extractelement <2 x double> %22, i64 0
   %24 = fneg double %23
@@ -63326,7 +63326,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %29 = load double, ptr %28, align 8, !noalias !1050
+  %29 = load double, ptr %28, align 8, !tbaa !20, !noalias !1050
   %30 = load <2 x double>, ptr %27, align 16, !tbaa !20, !noalias !1050
   %31 = extractelement <2 x double> %30, i64 0
   %32 = fneg double %31
@@ -63350,7 +63350,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load double, ptr %40, align 8, !noalias !1056
+  %41 = load double, ptr %40, align 8, !tbaa !20, !noalias !1056
   %42 = load <2 x double>, ptr %39, align 16, !tbaa !20, !noalias !1056
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -63360,7 +63360,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 46:                                               ; preds = %36
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %49 = load double, ptr %48, align 8, !noalias !1056
+  %49 = load double, ptr %48, align 8, !tbaa !20, !noalias !1056
   %50 = load <2 x double>, ptr %47, align 16, !tbaa !20, !noalias !1056
   %51 = extractelement <2 x double> %50, i64 0
   %52 = fneg double %51
@@ -63370,7 +63370,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 54:                                               ; preds = %46
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %57 = load double, ptr %56, align 8, !noalias !1056
+  %57 = load double, ptr %56, align 8, !tbaa !20, !noalias !1056
   %58 = load <2 x double>, ptr %55, align 16, !tbaa !20, !noalias !1056
   %59 = extractelement <2 x double> %58, i64 0
   %60 = fneg double %59
@@ -63394,7 +63394,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1062)
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %69 = load double, ptr %68, align 8, !noalias !1062
+  %69 = load double, ptr %68, align 8, !tbaa !20, !noalias !1062
   %70 = load <2 x double>, ptr %67, align 16, !tbaa !20, !noalias !1062
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71
@@ -63404,7 +63404,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %77 = load double, ptr %76, align 8, !noalias !1062
+  %77 = load double, ptr %76, align 8, !tbaa !20, !noalias !1062
   %78 = load <2 x double>, ptr %75, align 16, !tbaa !20, !noalias !1062
   %79 = extractelement <2 x double> %78, i64 0
   %80 = fneg double %79
@@ -63414,7 +63414,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %85 = load double, ptr %84, align 8, !noalias !1062
+  %85 = load double, ptr %84, align 8, !tbaa !20, !noalias !1062
   %86 = load <2 x double>, ptr %83, align 16, !tbaa !20, !noalias !1062
   %87 = extractelement <2 x double> %86, i64 0
   %88 = fneg double %87
@@ -63438,7 +63438,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1068)
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %97 = load double, ptr %96, align 8, !noalias !1068
+  %97 = load double, ptr %96, align 8, !tbaa !20, !noalias !1068
   %98 = load <2 x double>, ptr %95, align 16, !tbaa !20, !noalias !1068
   %99 = extractelement <2 x double> %98, i64 0
   %100 = fneg double %99
@@ -63448,7 +63448,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 102:                                              ; preds = %92
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %105 = load double, ptr %104, align 8, !noalias !1068
+  %105 = load double, ptr %104, align 8, !tbaa !20, !noalias !1068
   %106 = load <2 x double>, ptr %103, align 16, !tbaa !20, !noalias !1068
   %107 = extractelement <2 x double> %106, i64 0
   %108 = fneg double %107
@@ -63458,7 +63458,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 110:                                              ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  %113 = load double, ptr %112, align 8, !noalias !1068
+  %113 = load double, ptr %112, align 8, !tbaa !20, !noalias !1068
   %114 = load <2 x double>, ptr %111, align 16, !tbaa !20, !noalias !1068
   %115 = extractelement <2 x double> %114, i64 0
   %116 = fneg double %115
@@ -68106,7 +68106,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %13 = load double, ptr %12, align 8, !noalias !1207
+  %13 = load double, ptr %12, align 8, !tbaa !20, !noalias !1207
   %14 = load <2 x double>, ptr %11, align 16, !tbaa !20, !noalias !1207
   %15 = extractelement <2 x double> %14, i64 0
   %16 = fneg double %15
@@ -68116,7 +68116,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %21 = load double, ptr %20, align 8, !noalias !1207
+  %21 = load double, ptr %20, align 8, !tbaa !20, !noalias !1207
   %22 = load <2 x double>, ptr %19, align 16, !tbaa !20, !noalias !1207
   %23 = extractelement <2 x double> %22, i64 0
   %24 = fneg double %23
@@ -68126,7 +68126,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %29 = load double, ptr %28, align 8, !noalias !1207
+  %29 = load double, ptr %28, align 8, !tbaa !20, !noalias !1207
   %30 = load <2 x double>, ptr %27, align 16, !tbaa !20, !noalias !1207
   %31 = extractelement <2 x double> %30, i64 0
   %32 = fneg double %31
@@ -68150,7 +68150,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1213)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load double, ptr %40, align 8, !noalias !1213
+  %41 = load double, ptr %40, align 8, !tbaa !20, !noalias !1213
   %42 = load <2 x double>, ptr %39, align 16, !tbaa !20, !noalias !1213
   %43 = extractelement <2 x double> %42, i64 0
   %44 = fneg double %43
@@ -68160,7 +68160,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 46:                                               ; preds = %36
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %49 = load double, ptr %48, align 8, !noalias !1213
+  %49 = load double, ptr %48, align 8, !tbaa !20, !noalias !1213
   %50 = load <2 x double>, ptr %47, align 16, !tbaa !20, !noalias !1213
   %51 = extractelement <2 x double> %50, i64 0
   %52 = fneg double %51
@@ -68170,7 +68170,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 54:                                               ; preds = %46
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %57 = load double, ptr %56, align 8, !noalias !1213
+  %57 = load double, ptr %56, align 8, !tbaa !20, !noalias !1213
   %58 = load <2 x double>, ptr %55, align 16, !tbaa !20, !noalias !1213
   %59 = extractelement <2 x double> %58, i64 0
   %60 = fneg double %59
@@ -68194,7 +68194,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1219)
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %69 = load double, ptr %68, align 8, !noalias !1219
+  %69 = load double, ptr %68, align 8, !tbaa !20, !noalias !1219
   %70 = load <2 x double>, ptr %67, align 16, !tbaa !20, !noalias !1219
   %71 = extractelement <2 x double> %70, i64 0
   %72 = fneg double %71
@@ -68204,7 +68204,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %77 = load double, ptr %76, align 8, !noalias !1219
+  %77 = load double, ptr %76, align 8, !tbaa !20, !noalias !1219
   %78 = load <2 x double>, ptr %75, align 16, !tbaa !20, !noalias !1219
   %79 = extractelement <2 x double> %78, i64 0
   %80 = fneg double %79
@@ -68214,7 +68214,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %85 = load double, ptr %84, align 8, !noalias !1219
+  %85 = load double, ptr %84, align 8, !tbaa !20, !noalias !1219
   %86 = load <2 x double>, ptr %83, align 16, !tbaa !20, !noalias !1219
   %87 = extractelement <2 x double> %86, i64 0
   %88 = fneg double %87
@@ -68238,7 +68238,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %97 = load double, ptr %96, align 8, !noalias !1225
+  %97 = load double, ptr %96, align 8, !tbaa !20, !noalias !1225
   %98 = load <2 x double>, ptr %95, align 16, !tbaa !20, !noalias !1225
   %99 = extractelement <2 x double> %98, i64 0
   %100 = fneg double %99
@@ -68248,7 +68248,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 102:                                              ; preds = %92
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %105 = load double, ptr %104, align 8, !noalias !1225
+  %105 = load double, ptr %104, align 8, !tbaa !20, !noalias !1225
   %106 = load <2 x double>, ptr %103, align 16, !tbaa !20, !noalias !1225
   %107 = extractelement <2 x double> %106, i64 0
   %108 = fneg double %107
@@ -68258,7 +68258,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL25Static_filtered_predicateI
 110:                                              ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  %113 = load double, ptr %112, align 8, !noalias !1225
+  %113 = load double, ptr %112, align 8, !tbaa !20, !noalias !1225
   %114 = load <2 x double>, ptr %111, align 16, !tbaa !20, !noalias !1225
   %115 = extractelement <2 x double> %114, i64 0
   %116 = fneg double %115
