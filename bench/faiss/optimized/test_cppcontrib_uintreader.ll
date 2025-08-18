@@ -1824,53 +1824,53 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl8EEvv() local_unnam
   store i64 256, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %.critedge
+  br label %8
 
 7:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.critedge:                                        ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01130 = phi i64 [ 0, %0 ], [ %15, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
-  %8 = call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #17
-  store i8 0, ptr %8, align 1
-  %9 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZN5faiss15BitstringWriter5writeEmi.exit unwind label %13
+8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
+  %.01129 = phi i64 [ 0, %0 ], [ %16, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %9 = call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #17
+  store i8 0, ptr %9, align 1
+  %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZN5faiss15BitstringWriter5writeEmi.exit unwind label %14
 
-_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.critedge
-  %10 = load i8, ptr %8, align 1, !tbaa !26
-  %11 = trunc i64 %9 to i8
-  %12 = or i8 %10, %11
-  store i8 %12, ptr %8, align 1, !tbaa !26
+_ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %8
+  %11 = load i8, ptr %9, align 1, !tbaa !26
+  %12 = trunc i64 %10 to i8
+  %13 = or i8 %11, %12
+  store i8 %13, ptr %9, align 1, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %8, ptr %3, align 8, !tbaa !27
+  store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 1, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
-  invoke void @_ZN8TestLoopILl1ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %16
+  invoke void @_ZN8TestLoopILl1ELl8ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %17
 
-13:                                               ; preds = %.critedge
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18
+  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
-  %15 = add nuw nsw i64 %.01130, 1
-  %exitcond.not = icmp eq i64 %15, 10
-  br i1 %exitcond.not, label %7, label %.critedge, !llvm.loop !32
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
+  %16 = add nuw nsw i64 %.01129, 1
+  %exitcond.not = icmp eq i64 %16, 10
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !32
 
-16:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18
+  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18: ; preds = %16, %13
-  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %17, %16 ]
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %17, %14
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %18, %17 ]
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
@@ -50331,70 +50331,70 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl10EEvv() local_unna
   store i64 1024, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %.critedge
+  br label %8
 
 7:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.critedge:                                        ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01129 = phi i64 [ 0, %0 ], [ %19, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
-  %8 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
-  store i16 0, ptr %8, align 1
-  %9 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %17
+8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
+  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
+  store i16 0, ptr %9, align 1
+  %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %.critedge
-  %10 = load i8, ptr %8, align 1, !tbaa !26
-  %11 = trunc i64 %9 to i8
-  %12 = or i8 %10, %11
-  store i8 %12, ptr %8, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %9, 256
+_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
+  %11 = load i8, ptr %9, align 1, !tbaa !26
+  %12 = trunc i64 %10 to i8
+  %13 = or i8 %11, %12
+  store i8 %13, ptr %9, align 1, !tbaa !26
+  %.not1617.i = icmp ult i64 %10, 256
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %9, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
+  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.01318.i = lshr i64 %.01318.i.in, 8
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.i
-  %14 = load i8, ptr %13, align 1, !tbaa !26
-  %15 = trunc i64 %.01318.i to i8
-  %16 = or i8 %14, %15
-  store i8 %16, ptr %13, align 1, !tbaa !26
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %15 = load i8, ptr %14, align 1, !tbaa !26
+  %16 = trunc i64 %.01318.i to i8
+  %17 = or i8 %15, %16
+  store i8 %17, ptr %14, align 1, !tbaa !26
   %.not16.i = icmp ult i64 %.01318.i.in, 65536
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %8, ptr %3, align 8, !tbaa !27
+  store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
-  invoke void @_ZN8TestLoopILl1ELl10ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %20
+  invoke void @_ZN8TestLoopILl1ELl10ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
 
-17:                                               ; preds = %.critedge
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
-  %19 = add nuw nsw i64 %.01129, 1
-  %exitcond.not = icmp eq i64 %19, 10
-  br i1 %exitcond.not, label %7, label %.critedge, !llvm.loop !103
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
+  %20 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %20, 10
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !103
 
-20:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %20, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ]
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
@@ -99771,70 +99771,70 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl12EEvv() local_unna
   store i64 4096, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %.critedge
+  br label %8
 
 7:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.critedge:                                        ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01129 = phi i64 [ 0, %0 ], [ %19, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
-  %8 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
-  store i16 0, ptr %8, align 1
-  %9 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %17
+8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
+  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
+  store i16 0, ptr %9, align 1
+  %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %.critedge
-  %10 = load i8, ptr %8, align 1, !tbaa !26
-  %11 = trunc i64 %9 to i8
-  %12 = or i8 %10, %11
-  store i8 %12, ptr %8, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %9, 256
+_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
+  %11 = load i8, ptr %9, align 1, !tbaa !26
+  %12 = trunc i64 %10 to i8
+  %13 = or i8 %11, %12
+  store i8 %13, ptr %9, align 1, !tbaa !26
+  %.not1617.i = icmp ult i64 %10, 256
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %9, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
+  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.01318.i = lshr i64 %.01318.i.in, 8
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.i
-  %14 = load i8, ptr %13, align 1, !tbaa !26
-  %15 = trunc i64 %.01318.i to i8
-  %16 = or i8 %14, %15
-  store i8 %16, ptr %13, align 1, !tbaa !26
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %15 = load i8, ptr %14, align 1, !tbaa !26
+  %16 = trunc i64 %.01318.i to i8
+  %17 = or i8 %15, %16
+  store i8 %17, ptr %14, align 1, !tbaa !26
   %.not16.i = icmp ult i64 %.01318.i.in, 65536
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %8, ptr %3, align 8, !tbaa !27
+  store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
-  invoke void @_ZN8TestLoopILl1ELl12ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %20
+  invoke void @_ZN8TestLoopILl1ELl12ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
 
-17:                                               ; preds = %.critedge
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
-  %19 = add nuw nsw i64 %.01129, 1
-  %exitcond.not = icmp eq i64 %19, 10
-  br i1 %exitcond.not, label %7, label %.critedge, !llvm.loop !138
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
+  %20 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %20, 10
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !138
 
-20:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %20, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ]
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
@@ -149529,70 +149529,70 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl16EEvv() local_unna
   store i64 65536, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %.critedge
+  br label %8
 
 7:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.critedge:                                        ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01129 = phi i64 [ 0, %0 ], [ %19, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
-  %8 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
-  store i16 0, ptr %8, align 1
-  %9 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %17
+8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
+  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #17
+  store i16 0, ptr %9, align 1
+  %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
 
-_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %.critedge
-  %10 = load i8, ptr %8, align 1, !tbaa !26
-  %11 = trunc i64 %9 to i8
-  %12 = or i8 %10, %11
-  store i8 %12, ptr %8, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %9, 256
+_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
+  %11 = load i8, ptr %9, align 1, !tbaa !26
+  %12 = trunc i64 %10 to i8
+  %13 = or i8 %11, %12
+  store i8 %13, ptr %9, align 1, !tbaa !26
+  %.not1617.i = icmp ult i64 %10, 256
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %9, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
+  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.01318.i = lshr i64 %.01318.i.in, 8
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.i
-  %14 = load i8, ptr %13, align 1, !tbaa !26
-  %15 = trunc i64 %.01318.i to i8
-  %16 = or i8 %14, %15
-  store i8 %16, ptr %13, align 1, !tbaa !26
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %15 = load i8, ptr %14, align 1, !tbaa !26
+  %16 = trunc i64 %.01318.i to i8
+  %17 = or i8 %15, %16
+  store i8 %17, ptr %14, align 1, !tbaa !26
   %.not16.i = icmp ult i64 %.01318.i.in, 65536
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %8, ptr %3, align 8, !tbaa !27
+  store ptr %9, ptr %3, align 8, !tbaa !27
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
-  invoke void @_ZN8TestLoopILl1ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %20
+  invoke void @_ZN8TestLoopILl1ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
 
-17:                                               ; preds = %.critedge
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
-  %19 = add nuw nsw i64 %.01129, 1
-  %exitcond.not = icmp eq i64 %19, 10
-  br i1 %exitcond.not, label %7, label %.critedge, !llvm.loop !171
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
+  %20 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %20, 10
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !171
 
-20:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %20, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ]
-  call void @_ZdaPv(ptr noundef nonnull %8) #16
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+  call void @_ZdaPv(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn

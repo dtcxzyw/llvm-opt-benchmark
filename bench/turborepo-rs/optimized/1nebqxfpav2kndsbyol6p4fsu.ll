@@ -99,7 +99,7 @@ define void @_RNvMs2_NtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5innerINtB5_4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !5
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %35, label %36
+  br i1 %17, label %35, label %44
 
 18:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -139,205 +139,205 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIng
   store i8 0, ptr %34, align 8
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %99, %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, %73, %_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEECsff1zCjKRl2o_13turborepo_env.exit
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %107, %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, %81, %_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEECsff1zCjKRl2o_13turborepo_env.exit
   ret void
 
-common.resume:                                    ; preds = %114, %29, %95
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %96, %95 ], [ %115, %114 ]
+common.resume:                                    ; preds = %37, %29, %103
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %104, %103 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14
   tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17hbe61e8e3d1c5b499E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.458d915caea2e53d49fa0ef03c1118fc.21) #11
   unreachable
 
-36:                                               ; preds = %14
-  %37 = urem i64 %2, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %39, i64 0, i64 %37
-  call void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBT_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEE8try_lockCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %40)
-  %41 = load i64, ptr %7, align 8, !range !4, !noundef !5
-  %trunc = trunc nuw i64 %41 to i1
-  br i1 %trunc, label %103, label %42
+36:                                               ; preds = %111
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17haae8a1acffa1c90cE(i64 noundef 8, i64 noundef 1400) #11
+          to label %.noexc29 unwind label %37
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load ptr, ptr %43, align 8, !nonnull !5, !align !23, !noundef !5
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %46 = load i8, ptr %45, align 8, !range !29, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %48 = load i64, ptr %47, align 8, !noundef !5
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit, label %50
+.noexc29:                                         ; preds = %36
+  unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %52 = add i64 %48, -1
-  store i64 %52, ptr %47, align 8
-  %53 = load i64, ptr %51, align 8, !noundef !5
-  %54 = icmp ult i64 %52, %53
-  tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %56 = load ptr, ptr %55, align 8, !nonnull !5, !noundef !5
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %52
-  %58 = load ptr, ptr %57, align 8, !nonnull !5, !align !23, !noundef !5
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %59, align 8
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(1400) %5) #12
+          to label %common.resume unwind label %39
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #13
+  unreachable
+
+_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22: ; preds = %111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %119, ptr noundef nonnull align 8 dereferenceable(1400) %5, i64 1400, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %41, align 8
   store i64 0, ptr %0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %63 = trunc nuw i8 %46 to i1
-  br i1 %63, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %119, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %43, align 8
+  br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
 
-64:                                               ; preds = %50
-  %65 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h61f2e2713c991336E monotonic, align 8
-  %66 = and i64 %65, 9223372036854775807
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %68
+44:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %45 = urem i64 %2, %16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
+  %48 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %47, i64 0, i64 %45
+  call void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBT_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEE8try_lockCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %48)
+  %49 = load i64, ptr %7, align 8, !range !4, !noundef !5
+  %trunc = trunc nuw i64 %49 to i1
+  br i1 %trunc, label %111, label %50
 
-68:                                               ; preds = %64
-  %69 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h6a9f75f10e5219e5E()
-  br i1 %69, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %70
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %52 = load ptr, ptr %51, align 8, !nonnull !5, !align !23, !noundef !5
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %54 = load i8, ptr %53, align 8, !range !29, !noundef !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %56 = load i64, ptr %55, align 8, !noundef !5
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit, label %58
 
-70:                                               ; preds = %68
-  store atomic i8 1, ptr %62 monotonic, align 4
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %60 = add i64 %56, -1
+  store i64 %60, ptr %55, align 8
+  %61 = load i64, ptr %59, align 8, !noundef !5
+  %62 = icmp ult i64 %60, %61
+  tail call void @llvm.assume(i1 %62)
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %64 = load ptr, ptr %63, align 8, !nonnull !5, !noundef !5
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %60
+  %66 = load ptr, ptr %65, align 8, !nonnull !5, !align !23, !noundef !5
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %67, align 8
+  store i64 0, ptr %0, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %66, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %71 = trunc nuw i8 %54 to i1
+  br i1 %71, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %72
+
+72:                                               ; preds = %58
+  %73 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h61f2e2713c991336E monotonic, align 8
+  %74 = and i64 %73, 9223372036854775807
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %76
+
+76:                                               ; preds = %72
+  %77 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h6a9f75f10e5219e5E()
+  br i1 %77, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i, label %78
+
+78:                                               ; preds = %76
+  store atomic i8 1, ptr %70 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i
 
-_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i: ; preds = %70, %68, %64, %50
-  %71 = atomicrmw xchg ptr %44, i32 0 release, align 4
-  %72 = icmp eq i32 %71, 2
-  br i1 %72, label %73, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
+_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i: ; preds = %78, %76, %72, %58
+  %79 = atomicrmw xchg ptr %52, i32 0 release, align 4
+  %80 = icmp eq i32 %79, 2
+  br i1 %80, label %81, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
 
-73:                                               ; preds = %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i
-  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h8c60655997115495E(ptr noundef nonnull align 4 %44)
+81:                                               ; preds = %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i
+  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h8c60655997115495E(ptr noundef nonnull align 4 %52)
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %42
-  %74 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %75 = trunc nuw i8 %46 to i1
-  br i1 %75, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32, label %76
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %50
+  %82 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %83 = trunc nuw i8 %54 to i1
+  br i1 %83, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33, label %84
 
-76:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit
-  %77 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h61f2e2713c991336E monotonic, align 8
-  %78 = and i64 %77, 9223372036854775807
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32, label %.noexc33
+84:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit
+  %85 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h61f2e2713c991336E monotonic, align 8
+  %86 = and i64 %85, 9223372036854775807
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33, label %.noexc34
 
-.noexc33:                                         ; preds = %76
-  %80 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h6a9f75f10e5219e5E()
-  br i1 %80, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32, label %81
+.noexc34:                                         ; preds = %84
+  %88 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h6a9f75f10e5219e5E()
+  br i1 %88, label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33, label %89
 
-81:                                               ; preds = %.noexc33
-  store atomic i8 1, ptr %74 monotonic, align 4
-  br label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32
+89:                                               ; preds = %.noexc34
+  store atomic i8 1, ptr %82 monotonic, align 4
+  br label %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33
 
-_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32: ; preds = %81, %.noexc33, %76, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit
-  %82 = atomicrmw xchg ptr %44, i32 0 release, align 4
-  %83 = icmp eq i32 %82, 2
-  br i1 %83, label %84, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit35
+_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33: ; preds = %89, %.noexc34, %84, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEECsff1zCjKRl2o_13turborepo_env.exit
+  %90 = atomicrmw xchg ptr %52, i32 0 release, align 4
+  %91 = icmp eq i32 %90, 2
+  br i1 %91, label %92, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit36
 
-84:                                               ; preds = %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32
-  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h8c60655997115495E(ptr noundef nonnull align 4 %44)
-  br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit35
+92:                                               ; preds = %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33
+  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h8c60655997115495E(ptr noundef nonnull align 4 %52)
+  br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit36
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit35: ; preds = %84, %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i32
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit36: ; preds = %92, %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %86 = load ptr, ptr %85, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !align !22, !noundef !5
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %88 = load ptr, ptr %87, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !align !23, !noundef !5
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %90 = load ptr, ptr %89, align 8, !invariant.load !5, !noalias !35, !nonnull !5
-  call void %90(ptr noalias noundef nonnull sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %6, ptr noundef nonnull align 1 %86)
-  %91 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !36
-  %92 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #12, !noalias !36
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %99
+  %94 = load ptr, ptr %93, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !align !22, !noundef !5
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %96 = load ptr, ptr %95, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !align !23, !noundef !5
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %98 = load ptr, ptr %97, align 8, !invariant.load !5, !noalias !35, !nonnull !5
+  call void %98(ptr noalias noundef nonnull sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %6, ptr noundef nonnull align 1 %94)
+  %99 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !36
+  %100 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #14, !noalias !36
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %107
 
-94:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit35
+102:                                              ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit36
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haae8a1acffa1c90cE(i64 noundef 8, i64 noundef 1400) #11
-          to label %.noexc37 unwind label %95
+          to label %.noexc38 unwind label %103
 
-.noexc37:                                         ; preds = %94
+.noexc38:                                         ; preds = %102
   unreachable
 
-95:                                               ; preds = %94
-  %96 = landingpad { ptr, i32 }
+103:                                              ; preds = %102
+  %104 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(1400) %6) #13
-          to label %common.resume unwind label %97
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(1400) %6) #12
+          to label %common.resume unwind label %105
 
-97:                                               ; preds = %95
-  %98 = landingpad { ptr, i32 }
+105:                                              ; preds = %103
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #13
   unreachable
 
-99:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %92, ptr noundef nonnull align 8 dereferenceable(1400) %6, i64 1400, i1 false)
+107:                                              ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %100, ptr noundef nonnull align 8 dereferenceable(1400) %6, i64 1400, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %100, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %108, align 8
   store i64 0, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %92, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %102, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %100, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %110, align 8
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
 
-103:                                              ; preds = %36
+111:                                              ; preds = %44
   call fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1T_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEINtNtB17_6poison12TryLockErrorB12_EEECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %105 = load ptr, ptr %104, align 8, !alias.scope !39, !noalias !42, !nonnull !5, !align !22, !noundef !5
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %107 = load ptr, ptr %106, align 8, !alias.scope !39, !noalias !42, !nonnull !5, !align !23, !noundef !5
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load ptr, ptr %108, align 8, !invariant.load !5, !noalias !44, !nonnull !5
-  call void %109(ptr noalias noundef nonnull sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %5, ptr noundef nonnull align 1 %105), !noalias !39
-  %110 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !45
-  %111 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #12, !noalias !45
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22
-
-113:                                              ; preds = %103
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17haae8a1acffa1c90cE(i64 noundef 8, i64 noundef 1400) #11
-          to label %.noexc38 unwind label %114
-
-.noexc38:                                         ; preds = %113
-  unreachable
-
-114:                                              ; preds = %113
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(1400) %5) #13
-          to label %common.resume unwind label %116
-
-116:                                              ; preds = %114
-  %117 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #14
-  unreachable
-
-_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22: ; preds = %103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %111, ptr noundef nonnull align 8 dereferenceable(1400) %5, i64 1400, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %118, align 8
-  store i64 0, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %111, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %120, align 8
-  br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mutex10MutexGuardINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB1x_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEEECsff1zCjKRl2o_13turborepo_env.exit
+  %113 = load ptr, ptr %112, align 8, !alias.scope !39, !noalias !42, !nonnull !5, !align !22, !noundef !5
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %115 = load ptr, ptr %114, align 8, !alias.scope !39, !noalias !42, !nonnull !5, !align !23, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
+  %117 = load ptr, ptr %116, align 8, !invariant.load !5, !noalias !44, !nonnull !5
+  call void %117(ptr noalias noundef nonnull sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %5, ptr noundef nonnull align 1 %113), !noalias !39
+  %118 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !45
+  %119 = tail call noalias noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #14, !noalias !45
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %36, label %_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheE3newCsff1zCjKRl2o_13turborepo_env.exit22
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -400,9 +400,9 @@ attributes #8 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { noreturn }
-attributes #12 = { nounwind }
-attributes #13 = { cold }
-attributes #14 = { cold noreturn nounwind }
+attributes #12 = { cold }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

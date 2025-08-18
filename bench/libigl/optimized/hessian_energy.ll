@@ -235,25 +235,25 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %._crit_edge82
   %.pr.i.i.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !31
   %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !29
   %56 = icmp sgt i64 %.pr.i.i.i.i.i.i.i, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit
+  br i1 %56, label %.split.us.i.i.i.i.i.i.i.i, label %_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %55, %.lr.ph.i.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i = phi i64 [ %61, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %55 ]
-  %57 = getelementptr double, ptr %.pre.i.i, i64 %.09.i.i.i.i.i.i.i.i
-  %58 = srem i64 %.09.i.i.i.i.i.i.i.i, %29
+.split.us.i.i.i.i.i.i.i.i:                        ; preds = %55, %.split.us.i.i.i.i.i.i.i.i
+  %.09.us.i.i.i.i.i.i.i.i = phi i64 [ %61, %.split.us.i.i.i.i.i.i.i.i ], [ 0, %55 ]
+  %57 = getelementptr double, ptr %.pre.i.i, i64 %.09.us.i.i.i.i.i.i.i.i
+  %58 = srem i64 %.09.us.i.i.i.i.i.i.i.i, %29
   %59 = getelementptr double, ptr %.pre84.pre85, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !35
   store double %60, ptr %57, align 8, !tbaa !35
-  %61 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i, 1
+  %61 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %61, %.pr.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit, label %.split.us.i.i.i.i.i.i.i.i, !llvm.loop !39
 
 62:                                               ; preds = %thread-pre-split.i.i.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %55, %._crit_edge82
+_ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_9ReplicateINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1EEEEEEERKNS_12DiagonalBaseIT_EE.exit: ; preds = %.split.us.i.i.i.i.i.i.i.i, %55, %._crit_edge82
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 8, !tbaa !11
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8

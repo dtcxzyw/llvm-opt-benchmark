@@ -1093,9 +1093,9 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %3) #18
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4185), align 1, !range !11, !noundef !12
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %22, label %.critedge
+  br i1 %6, label %21, label %.preheader2.preheader.critedge
 
-.critedge:                                        ; preds = %0
+.preheader2.preheader.critedge:                   ; preds = %0
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4184), align 4
   %8 = and i8 %7, 3
   %9 = icmp eq i8 %8, 3
@@ -1104,85 +1104,85 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
   tail call fastcc void @print_fixed(i32 noundef 0, i32 noundef 65536, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4096)) #21
   tail call fastcc void @print_fixed(i32 noundef 524288, i32 noundef 16384, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4104)) #21
   tail call fastcc void @print_fixed(i32 noundef 655360, i32 noundef 16384, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4112)) #21
-  br label %12
+  br label %.preheader2
 
-12:                                               ; preds = %.critedge, %12
-  %13 = phi i64 [ %19, %12 ], [ 0, %.critedge ]
-  %14 = shl nuw nsw i64 %13, 3
-  %15 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4120), i64 %14
-  %16 = trunc i64 %13 to i32
-  %17 = shl i32 %16, 15
-  %18 = add i32 %17, 786432
-  tail call fastcc void @print_fixed(i32 noundef %18, i32 noundef 4096, ptr noundef %15) #21
-  %19 = add nuw nsw i64 %13, 1
-  %20 = icmp eq i64 %19, 8
-  br i1 %20, label %21, label %12, !llvm.loop !30
+.preheader2:                                      ; preds = %.preheader2.preheader.critedge, %.preheader2
+  %12 = phi i64 [ %18, %.preheader2 ], [ 0, %.preheader2.preheader.critedge ]
+  %13 = shl nuw nsw i64 %12, 3
+  %14 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4120), i64 %13
+  %15 = trunc i64 %12 to i32
+  %16 = shl i32 %15, 15
+  %17 = add i32 %16, 786432
+  tail call fastcc void @print_fixed(i32 noundef %17, i32 noundef 4096, ptr noundef %14) #21
+  %18 = add nuw nsw i64 %12, 1
+  %19 = icmp eq i64 %18, 8
+  br i1 %19, label %20, label %.preheader2, !llvm.loop !30
 
-21:                                               ; preds = %12
+20:                                               ; preds = %.preheader2
   tail call fastcc void @print_fixed_last() #21
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %0
-  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4184), align 4
-  %24 = and i8 %23, 2
-  %25 = icmp eq i8 %24, 0
-  %26 = select i1 %25, ptr @.str.22, ptr @.str.21
-  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %26) #18
-  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 29), align 1
-  %29 = zext i8 %28 to i16
-  %.lhs.trunc = add nsw i16 %29, -17
-  %30 = sdiv i16 %.lhs.trunc, 4
-  %.sext = sext i16 %30 to i32
-  %31 = load i32, ptr @num_var_ranges, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.loopexit, label %.preheader
+21:                                               ; preds = %20, %0
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4184), align 4
+  %23 = and i8 %22, 2
+  %24 = icmp eq i8 %23, 0
+  %25 = select i1 %24, ptr @.str.22, ptr @.str.21
+  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %25) #18
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 29), align 1
+  %28 = zext i8 %27 to i16
+  %.lhs.trunc = add nsw i16 %28, -17
+  %29 = sdiv i16 %.lhs.trunc, 4
+  %.sext = sext i16 %29 to i32
+  %30 = load i32, ptr @num_var_ranges, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %22, %54
-  %33 = phi i64 [ %55, %54 ], [ 0, %22 ]
-  %34 = getelementptr [256 x %struct.mtrr_var_range], ptr @mtrr_state, i64 0, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 2048
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %51, label %39
+.preheader:                                       ; preds = %21, %53
+  %32 = phi i64 [ %54, %53 ], [ 0, %21 ]
+  %33 = getelementptr [256 x %struct.mtrr_var_range], ptr @mtrr_state, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 2048
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %.preheader
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = load i32, ptr %34, align 4
-  %43 = lshr i32 %42, 12
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %45 = load i32, ptr %44, align 4
-  %46 = lshr i32 %36, 12
-  %47 = and i32 %42, 255
-  %48 = tail call ptr @mtrr_attrib_to_str(i32 noundef %47) #17
-  %49 = trunc nuw i64 %33 to i32
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %49, i32 noundef %.sext, i32 noundef %41, i32 noundef %43, i32 noundef %.sext, i32 noundef %45, i32 noundef %46, ptr noundef %48) #18
-  br label %54
+38:                                               ; preds = %.preheader
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr %33, align 4
+  %42 = lshr i32 %41, 12
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %44 = load i32, ptr %43, align 4
+  %45 = lshr i32 %35, 12
+  %46 = and i32 %41, 255
+  %47 = tail call ptr @mtrr_attrib_to_str(i32 noundef %46) #17
+  %48 = trunc nuw i64 %32 to i32
+  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %48, i32 noundef %.sext, i32 noundef %40, i32 noundef %42, i32 noundef %.sext, i32 noundef %44, i32 noundef %45, ptr noundef %47) #18
+  br label %53
 
-51:                                               ; preds = %.preheader
-  %52 = trunc nuw i64 %33 to i32
-  %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %52) #18
-  br label %54
+50:                                               ; preds = %.preheader
+  %51 = trunc nuw i64 %32 to i32
+  %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %51) #18
+  br label %53
 
-54:                                               ; preds = %51, %39
-  %55 = add nuw nsw i64 %33, 1
-  %56 = load i32, ptr @num_var_ranges, align 4
-  %57 = zext i32 %56 to i64
-  %58 = icmp samesign ult i64 %55, %57
-  br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !31
+53:                                               ; preds = %50, %38
+  %54 = add nuw nsw i64 %32, 1
+  %55 = load i32, ptr @num_var_ranges, align 4
+  %56 = zext i32 %55 to i64
+  %57 = icmp samesign ult i64 %54, %56
+  br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %54, %22
-  %59 = load i64, ptr @mtrr_tom2, align 8
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %64, label %61
+.loopexit:                                        ; preds = %53, %21
+  %58 = load i64, ptr @mtrr_tom2, align 8
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %63, label %60
 
-61:                                               ; preds = %.loopexit
-  %62 = lshr i64 %59, 20
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i64 noundef %59, i64 noundef %62) #18
-  br label %64
+60:                                               ; preds = %.loopexit
+  %61 = lshr i64 %58, 20
+  %62 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i64 noundef %58, i64 noundef %61) #18
+  br label %63
 
-64:                                               ; preds = %61, %.loopexit
+63:                                               ; preds = %60, %.loopexit
   ret void
 }
 

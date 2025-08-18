@@ -13737,7 +13737,7 @@ _ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17hde8161a4ad677802E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-.critedge:
+_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit:
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !alias.scope !3504, !nonnull !15, !noundef !15
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !3504

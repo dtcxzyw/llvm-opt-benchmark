@@ -1976,28 +1976,27 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop.
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$alloc..string..String$u3b$$u20$1$u5d$$GT$17h32846af824443e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !557
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4f242a27d6d0fe5cE.llvm.16532663377229269005"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i64, ptr %2, align 8, !range !566, !noalias !557, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit", label %4
+  %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !557
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4f242a27d6d0fe5cE.llvm.16532663377229269005"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  %4 = load i64, ptr %3, align 8, !range !566, !noalias !557, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %4, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit", label %5
 
-4:                                                ; preds = %.critedge
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !noalias !557, !noundef !4
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit", label %8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %7 = load i64, ptr %6, align 8, !noalias !557, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit", label %9
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %1, align 8, !noalias !557, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %6, i64 noundef %3) #50
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %2, align 8, !noalias !557, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %7, i64 noundef %4) #50
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit": ; preds = %.critedge, %4, %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !557
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hefd60bec2a3c01f9E.exit": ; preds = %1, %5, %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !557
   ret void
 }
 

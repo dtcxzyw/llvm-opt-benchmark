@@ -103543,29 +103543,31 @@ _ZNSt11_Tuple_implILm4EJN4entt13basic_storageIfNS0_6entityESaIfEvEEEEC2Ev.exit: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS7_EEENS_9exclude_tIJKNS4_IdS5_SaIdEvEENS4_IfS5_SaIfEvEEEEEvEENS2_INS3_IJS7_EEENSA_IJSD_EEEvEENS2_INS3_IJS8_EEENSA_IJSF_EEEvEEJLm0EEJLm0EEJLm0EEJLm0EEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEESV_ImJXspT3_EEESV_ImJXspT4_EEESV_ImJXspT5_EEE(ptr dead_on_unwind noalias writable sret(%"class.entt::basic_view.457") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
-  %4 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit, !prof !20
+  %6 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, !prof !20
 
-6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  %.not.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i, label %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit, label %8
+8:                                                ; preds = %3
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
+  %.not.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, label %10
 
-8:                                                ; preds = %6
+10:                                               ; preds = %8
   tail call void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder)
-  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
+  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  br label %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit
+  br label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i
 
-_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit: ; preds = %3, %6, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %10, align 8, !tbaa !2186
+_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i: ; preds = %10, %8, %3
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %5, align 8, !tbaa !2186
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2, ptr %12, align 8, !tbaa !2192
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %4, align 8, !tbaa !170
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %13, align 8, !tbaa !170
   %14 = load ptr, ptr %1, align 8, !tbaa !170
   %15 = load ptr, ptr %2, align 8, !tbaa !170
   store ptr %14, ptr %0, align 8
@@ -103583,14 +103585,15 @@ _ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS
   %24 = load ptr, ptr %23, align 8, !tbaa !787
   %25 = icmp eq ptr %22, %24
   %spec.select.i.i6 = select i1 %25, ptr null, ptr %22
-  store ptr %spec.select.i.i, ptr %11, align 8
-  store ptr %spec.select.i.i6, ptr %13, align 8, !tbaa !41
+  store ptr %spec.select.i.i, ptr %4, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %spec.select.i.i6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !41
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit, %select.unfold.i
-  %26 = phi i1 [ false, %select.unfold.i ], [ true, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit ]
-  %27 = phi i1 [ true, %select.unfold.i ], [ false, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit ]
-  %.06.i = phi i64 [ 1, %select.unfold.i ], [ 0, %_ZN4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS5_EEENS_9exclude_tIJKNS2_IdS3_SaIdEvEENS2_IfS3_SaIfEvEEEEEvEC2Ev.exit ]
+.lr.ph.i:                                         ; preds = %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, %select.unfold.i
+  %26 = phi i1 [ false, %select.unfold.i ], [ true, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i ]
+  %27 = phi i1 [ true, %select.unfold.i ], [ false, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i ]
+  %.06.i = phi i64 [ 1, %select.unfold.i ], [ 0, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i ]
   %28 = getelementptr inbounds nuw [2 x ptr], ptr %0, i64 0, i64 %.06.i
   %29 = load ptr, ptr %28, align 8, !tbaa !170
   %.not4.i = icmp eq ptr %29, null
@@ -103693,29 +103696,31 @@ _ZN4entt10type_indexIvvE5valueEv.exit:            ; preds = %1, %4, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKS7_NS4_IN4test5emptyES5_SaISA_EvEEEEENS_9exclude_tIJKNS4_IdS5_SaIdEvEENS4_IfS5_SaIfEvEEEEEvEENS2_INS3_IJS7_S8_EEESK_vEENS2_INS3_IJSC_EEENSE_IJEEEvEEJLm0ELm1EEJLm0ELm1EEJLm0EETpTnmJEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEESY_ImJXspT3_EEESY_ImJXspT4_EEESY_ImJXspT5_EEE(ptr dead_on_unwind noalias writable sret(%"class.entt::basic_view.459") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
-  %4 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %.lr.ph.preheader.i, !prof !20
+  %6 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, !prof !20
 
-6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  %.not.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i, label %.lr.ph.preheader.i, label %8
+8:                                                ; preds = %3
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
+  %.not.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, label %10
 
-8:                                                ; preds = %6
+10:                                               ; preds = %8
   tail call void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder)
-  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
+  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  br label %.lr.ph.preheader.i
+  br label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i
 
-.lr.ph.preheader.i:                               ; preds = %8, %6, %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %10, align 8, !tbaa !2577
+_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i: ; preds = %10, %8, %3
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %5, align 8, !tbaa !2577
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 3, ptr %12, align 8, !tbaa !2506
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %4, align 8, !tbaa !170
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %13, align 8, !tbaa !170
   %14 = load ptr, ptr %1, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !170
@@ -103735,12 +103740,13 @@ define linkonce_odr hidden void @_ZN4entt8internal9view_packINS_10basic_viewINS_
   %24 = load ptr, ptr %23, align 8, !tbaa !170
   %25 = icmp eq ptr %24, %21
   %spec.select.i.i7 = select i1 %25, ptr null, ptr %24
-  store ptr %spec.select.i.i, ptr %11, align 8
-  store ptr %spec.select.i.i7, ptr %13, align 8, !tbaa !41
+  store ptr %spec.select.i.i, ptr %4, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %spec.select.i.i7, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !41
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.07.i = phi i64 [ %28, %select.unfold.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %select.unfold.i, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i
+  %.07.i = phi i64 [ %28, %select.unfold.i ], [ 0, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i ]
   %26 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %.07.i
   %27 = load ptr, ptr %26, align 8, !tbaa !170
   %.not4.i = icmp eq ptr %27, null
@@ -103790,29 +103796,31 @@ _ZN4entt17basic_common_viewINS_16basic_sparse_setINS_6entityESaIS2_EEELb0ELm3ELm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt8internal9view_packINS_10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEKNS4_IN4test14pointer_stableES5_SaIS9_EvEEKS7_EEENS_9exclude_tIJKNS4_IdS5_SaIdEvEENS4_IfS5_SaIfEvEEEEEvEENS2_INS3_IJS7_SC_EEENSF_IJSI_EEEvEENS2_INS3_IJSD_EEENSF_IJSK_EEEvEEJLm0ELm1EEJLm0EEJLm0EEJLm0EEEET_RKT0_RKT1_St16integer_sequenceImJXspT2_EEES10_ImJXspT3_EEES10_ImJXspT4_EEES10_ImJXspT5_EEE(ptr dead_on_unwind noalias writable sret(%"class.entt::basic_view.461") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
-  %4 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %.lr.ph.preheader.i, !prof !20
+  %6 = load atomic i8, ptr @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder acquire, align 8
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, !prof !20
 
-6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  %.not.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i, label %.lr.ph.preheader.i, label %8
+8:                                                ; preds = %3
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
+  %.not.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i, label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i, label %10
 
-8:                                                ; preds = %6
+10:                                               ; preds = %8
   tail call void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder)
-  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
+  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev, ptr nonnull @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr nonnull @__dso_handle) #25
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder) #25
-  br label %.lr.ph.preheader.i
+  br label %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i
 
-.lr.ph.preheader.i:                               ; preds = %8, %6, %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %10, align 8, !tbaa !2577
+_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i: ; preds = %10, %8, %3
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %5, align 8, !tbaa !2577
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 3, ptr %12, align 8, !tbaa !2506
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %4, align 8, !tbaa !170
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr @_ZZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_vE11placeholder, ptr %13, align 8, !tbaa !170
   %14 = load ptr, ptr %1, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !170
@@ -103834,12 +103842,13 @@ define linkonce_odr hidden void @_ZN4entt8internal9view_packINS_10basic_viewINS_
   %26 = load ptr, ptr %25, align 8, !tbaa !787
   %27 = icmp eq ptr %24, %26
   %spec.select.i.i7 = select i1 %27, ptr null, ptr %24
-  store ptr %spec.select.i.i, ptr %11, align 8
-  store ptr %spec.select.i.i7, ptr %13, align 8, !tbaa !41
+  store ptr %spec.select.i.i, ptr %4, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %spec.select.i.i7, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !41
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.07.i = phi i64 [ %30, %select.unfold.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %select.unfold.i, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i
+  %.07.i = phi i64 [ %30, %select.unfold.i ], [ 0, %_ZN4entt8internal16view_placeholderINS_16basic_sparse_setINS_6entityESaIS3_EEEEEPKT_v.exit.i.i ]
   %28 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %.07.i
   %29 = load ptr, ptr %28, align 8, !tbaa !170
   %.not4.i = icmp eq ptr %29, null

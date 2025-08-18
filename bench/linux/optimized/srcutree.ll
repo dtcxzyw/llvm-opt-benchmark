@@ -2775,6 +2775,7 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %5 = sext i32 %4 to i64
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 96)
   %7 = extractvalue { i64, i1 } %6, 1
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %7, label %12, label %8, !prof !21
 
 8:                                                ; preds = %2
@@ -2798,11 +2799,13 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   store ptr %17, ptr %20, align 8
   %21 = load i32, ptr @rcu_num_lvls, align 4
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %.preheader14, label %.critedge
+  br i1 %22, label %.preheader14, label %.loopexit15
 
-.critedge:                                        ; preds = %.preheader14, %19
+.loopexit15:                                      ; preds = %.preheader14, %19
   %23 = phi i32 [ %21, %19 ], [ %38, %.preheader14 ]
-  store i64 -9223372034707292160, ptr %3, align 8, !annotation !43
+  store i64 0, ptr %3, align 8, !annotation !43
+  store i32 -2147483648, ptr %3, align 8
+  store i32 -2147483648, ptr %.sroa.gep, align 4
   %24 = add i32 %23, -1
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %41, label %.loopexit13
@@ -2824,9 +2827,9 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %38 = load i32, ptr @rcu_num_lvls, align 4
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %37, %39
-  br i1 %40, label %.preheader14, label %.critedge, !llvm.loop !116
+  br i1 %40, label %.preheader14, label %.loopexit15, !llvm.loop !116
 
-41:                                               ; preds = %.critedge
+41:                                               ; preds = %.loopexit15
   %42 = load i32, ptr @nr_cpu_ids, align 4
   %43 = zext nneg i32 %24 to i64
   br label %44
@@ -2845,7 +2848,7 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %.not = icmp eq i64 %45, 0
   br i1 %.not, label %.loopexit13, label %44, !llvm.loop !117
 
-.loopexit13:                                      ; preds = %44, %.critedge
+.loopexit13:                                      ; preds = %44, %.loopexit15
   %54 = load ptr, ptr %14, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr @rcu_num_nodes, align 4
@@ -2926,11 +2929,11 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
 
 .loopexit12.loopexit:                             ; preds = %101
   %.pre = load i32, ptr @rcu_num_lvls, align 4
-  %.pre18 = add i32 %.pre, -1
+  %.pre20 = add i32 %.pre, -1
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %.loopexit12.loopexit, %.loopexit13
-  %.pre-phi = phi i32 [ %.pre18, %.loopexit12.loopexit ], [ %24, %.loopexit13 ]
+  %.pre-phi = phi i32 [ %.pre20, %.loopexit12.loopexit ], [ %24, %.loopexit13 ]
   %112 = phi ptr [ %106, %.loopexit12.loopexit ], [ %54, %.loopexit13 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = sext i32 %.pre-phi to i64
@@ -2991,11 +2994,11 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   br i1 %152, label %.loopexit.loopexit, label %.preheader, !llvm.loop !120
 
 .loopexit.loopexit:                               ; preds = %148
-  %.pre17 = load ptr, ptr %141, align 16
+  %.pre19 = load ptr, ptr %141, align 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %129
-  %153 = phi ptr [ %.pre17, %.loopexit.loopexit ], [ null, %129 ]
+  %153 = phi ptr [ %.pre19, %.loopexit.loopexit ], [ null, %129 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %155 = load i32, ptr %154, align 8
   %156 = sub i32 %127, %155

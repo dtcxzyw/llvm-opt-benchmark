@@ -460,63 +460,63 @@ compute_channel_noise.exit.i:                     ; preds = %.split.us30.i.i, %.
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %163 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %.not354.i = icmp eq i32 %147, 0
-  %.not355.i = icmp eq i32 %149, 0
-  %165 = add nsw i32 %149, -1
-  %166 = sext i32 %165 to i64
-  %167 = mul nsw i64 %166, %150
-  %168 = getelementptr float, ptr %160, i64 %167
-  %169 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %170 = sub nsw i32 0, %147
-  %171 = sub i32 1, %147
-  %172 = sext i32 %171 to i64
-  %173 = sext i32 %170 to i64
-  %174 = add i32 %147, -1
-  %175 = sext i32 %174 to i64
-  %176 = add nsw i64 %151, -1
-  %177 = add nsw i32 %147, 599
-  %178 = add nsw i32 %147, -2
-  %179 = add nsw i32 %147, 598
+  %.not359.i = icmp eq i32 %147, 0
+  %.not360.i = icmp eq i32 %149, 0
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %166 = sub nsw i32 0, %147
+  %167 = sub i32 1, %147
+  %168 = sext i32 %167 to i64
+  %169 = sext i32 %166 to i64
+  %170 = add i32 %147, -1
+  %171 = sext i32 %170 to i64
+  %172 = add nsw i64 %151, -1
+  %173 = add nsw i32 %147, 599
+  %174 = add nsw i32 %147, -2
+  %175 = add nsw i32 %147, 598
+  %176 = add nsw i32 %149, -1
+  %177 = sext i32 %176 to i64
+  %178 = mul nsw i64 %177, %150
+  %179 = getelementptr float, ptr %160, i64 %178
   %180 = icmp slt i32 %149, 1
   %181 = icmp slt i32 %147, 1
-  %wide.trip.count374.i = zext nneg i32 %149 to i64
+  %wide.trip.count379.i = zext nneg i32 %149 to i64
   %wide.trip.count.i20 = zext nneg i32 %147 to i64
-  %brmerge385.i = or i1 %181, %180
+  %brmerge.i = or i1 %181, %180
   br label %183
 
-182:                                              ; preds = %._crit_edge347.i
+182:                                              ; preds = %._crit_edge350.i
   call void @free(ptr noundef %156) #21, !noalias !75
   br label %wavelet_denoise.exit
 
-183:                                              ; preds = %._crit_edge347.i, %159
-  %.0261352.i = phi i32 [ 0, %159 ], [ %407, %._crit_edge347.i ]
+183:                                              ; preds = %._crit_edge350.i, %159
+  %.0261357.i = phi i32 [ 0, %159 ], [ %407, %._crit_edge350.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !75
   %184 = load float, ptr %10, align 8, !tbaa !33, !noalias !75
   %185 = fmul reassoc nsz arcp contract afn float %184, 2.560000e+02
-  switch i32 %.0261352.i, label %.split.i.i39 [
-    i32 0, label %.split.us.i.i34
+  switch i32 %.0261357.i, label %.split.i.i38 [
+    i32 0, label %.split.us.i.i33
     i32 2, label %.split.us30.i.i21
   ]
 
-.split.us.i.i34:                                  ; preds = %183, %.split.us.i.i34
-  %indvars.iv37.i.i35 = phi i64 [ %indvars.iv.next38.i.i37, %.split.us.i.i34 ], [ 0, %183 ]
-  %186 = sub nuw nsw i64 4, %indvars.iv37.i.i35
+.split.us.i.i33:                                  ; preds = %183, %.split.us.i.i33
+  %indvars.iv37.i.i34 = phi i64 [ %indvars.iv.next38.i.i36, %.split.us.i.i33 ], [ 0, %183 ]
+  %186 = sub nuw nsw i64 4, %indvars.iv37.i.i34
   %187 = getelementptr inbounds nuw [5 x float], ptr %163, i64 0, i64 %186
-  %.026.us.i.i36 = load float, ptr %187, align 4, !tbaa !17, !noalias !75
+  %.026.us.i.i35 = load float, ptr %187, align 4, !tbaa !17, !noalias !75
   %188 = getelementptr inbounds nuw [5 x float], ptr %161, i64 0, i64 %186
   %189 = load float, ptr %188, align 4, !tbaa !17, !noalias !75
-  %190 = getelementptr inbounds nuw [8 x float], ptr @compute_channel_noise.noise_all, i64 0, i64 %indvars.iv37.i.i35
+  %190 = getelementptr inbounds nuw [8 x float], ptr @compute_channel_noise.noise_all, i64 0, i64 %indvars.iv37.i.i34
   %191 = load float, ptr %190, align 4, !tbaa !17, !noalias !75
-  %192 = fmul reassoc nsz arcp contract afn float %189, %.026.us.i.i36
+  %192 = fmul reassoc nsz arcp contract afn float %189, %.026.us.i.i35
   %193 = fmul reassoc nsz arcp contract afn float %192, %192
-  %194 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv37.i.i35
+  %194 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv37.i.i34
   %195 = fmul reassoc nsz arcp contract afn float %185, %191
   %196 = fmul reassoc nsz arcp contract afn float %193, %193
   %197 = fmul reassoc nsz arcp contract afn float %196, %195
   store float %197, ptr %194, align 4, !tbaa !17, !noalias !75
-  %indvars.iv.next38.i.i37 = add nuw nsw i64 %indvars.iv37.i.i35, 1
-  %exitcond40.not.i.i38 = icmp eq i64 %indvars.iv.next38.i.i37, 5
-  br i1 %exitcond40.not.i.i38, label %compute_channel_noise.exit.i26, label %.split.us.i.i34, !llvm.loop !62
+  %indvars.iv.next38.i.i36 = add nuw nsw i64 %indvars.iv37.i.i34, 1
+  %exitcond40.not.i.i37 = icmp eq i64 %indvars.iv.next38.i.i36, 5
+  br i1 %exitcond40.not.i.i37, label %compute_channel_noise.exit.i26, label %.split.us.i.i33, !llvm.loop !62
 
 .split.us30.i.i21:                                ; preds = %183, %.split.us30.i.i21
   %indvars.iv.i.i22 = phi i64 [ %indvars.iv.next.i.i24, %.split.us30.i.i21 ], [ 0, %183 ]
@@ -538,387 +538,387 @@ compute_channel_noise.exit.i:                     ; preds = %.split.us30.i.i, %.
   %exitcond.not.i.i25 = icmp eq i64 %indvars.iv.next.i.i24, 5
   br i1 %exitcond.not.i.i25, label %compute_channel_noise.exit.i26, label %.split.us30.i.i21, !llvm.loop !64
 
-.split.i.i39:                                     ; preds = %183, %.split.i.i39
-  %indvars.iv41.i.i40 = phi i64 [ %indvars.iv.next42.i.i42, %.split.i.i39 ], [ 0, %183 ]
-  %210 = sub nuw nsw i64 4, %indvars.iv41.i.i40
+.split.i.i38:                                     ; preds = %183, %.split.i.i38
+  %indvars.iv41.i.i39 = phi i64 [ %indvars.iv.next42.i.i41, %.split.i.i38 ], [ 0, %183 ]
+  %210 = sub nuw nsw i64 4, %indvars.iv41.i.i39
   %211 = getelementptr inbounds nuw [5 x float], ptr %164, i64 0, i64 %210
-  %.026.i.i41 = load float, ptr %211, align 4, !tbaa !17, !noalias !75
+  %.026.i.i40 = load float, ptr %211, align 4, !tbaa !17, !noalias !75
   %212 = getelementptr inbounds nuw [5 x float], ptr %161, i64 0, i64 %210
   %213 = load float, ptr %212, align 4, !tbaa !17, !noalias !75
-  %214 = getelementptr inbounds nuw [8 x float], ptr @compute_channel_noise.noise_all, i64 0, i64 %indvars.iv41.i.i40
+  %214 = getelementptr inbounds nuw [8 x float], ptr @compute_channel_noise.noise_all, i64 0, i64 %indvars.iv41.i.i39
   %215 = load float, ptr %214, align 4, !tbaa !17, !noalias !75
-  %216 = fmul reassoc nsz arcp contract afn float %213, %.026.i.i41
+  %216 = fmul reassoc nsz arcp contract afn float %213, %.026.i.i40
   %217 = fmul reassoc nsz arcp contract afn float %216, %216
-  %218 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv41.i.i40
+  %218 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv41.i.i39
   %219 = fmul reassoc nsz arcp contract afn float %185, %215
   %220 = fmul reassoc nsz arcp contract afn float %217, %217
   %221 = fmul reassoc nsz arcp contract afn float %220, %219
   store float %221, ptr %218, align 4, !tbaa !17, !noalias !75
-  %indvars.iv.next42.i.i42 = add nuw nsw i64 %indvars.iv41.i.i40, 1
-  %exitcond44.not.i.i43 = icmp eq i64 %indvars.iv.next42.i.i42, 5
-  br i1 %exitcond44.not.i.i43, label %compute_channel_noise.exit.i26, label %.split.i.i39
+  %indvars.iv.next42.i.i41 = add nuw nsw i64 %indvars.iv41.i.i39, 1
+  %exitcond44.not.i.i42 = icmp eq i64 %indvars.iv.next42.i.i41, 5
+  br i1 %exitcond44.not.i.i42, label %compute_channel_noise.exit.i26, label %.split.i.i38
 
-compute_channel_noise.exit.i26:                   ; preds = %.split.us30.i.i21, %.split.us.i.i34, %.split.i.i39
-  br i1 %.not354.i, label %.critedge.preheader.i, label %.lr.ph.i27
+compute_channel_noise.exit.i26:                   ; preds = %.split.us30.i.i21, %.split.us.i.i33, %.split.i.i38
+  br i1 %.not359.i, label %.preheader328.i, label %.lr.ph.i27
 
-.critedge.preheader.i:                            ; preds = %.lr.ph.i27, %compute_channel_noise.exit.i26
-  br i1 %.not355.i, label %.critedge._crit_edge.thread.i, label %.lr.ph339.i
-
-.critedge._crit_edge.thread.i:                    ; preds = %.critedge.preheader.i
-  call void @dwt_denoise(ptr noundef nonnull %160, i32 noundef %147, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %7) #21, !noalias !75
-  br label %._crit_edge347.i
-
-.lr.ph339.i:                                      ; preds = %.critedge.preheader.i
-  %222 = icmp ne i32 %.0261352.i, 1
+.preheader328.i:                                  ; preds = %.lr.ph.i27, %compute_channel_noise.exit.i26
+  %222 = icmp ne i32 %.0261357.i, 1
   %223 = zext i1 %222 to i64
-  %224 = icmp ult i64 %223, %175
-  %225 = icmp eq i32 %.0261352.i, 1
-  %226 = load i32, ptr %169, align 4, !tbaa !76, !alias.scope !72, !noalias !74
+  %224 = icmp ult i64 %223, %171
+  %225 = icmp eq i32 %.0261357.i, 1
+  br i1 %.not360.i, label %.split.us.thread.i, label %.preheader.us.i.preheader
+
+.preheader.us.i.preheader:                        ; preds = %.preheader328.i
+  %226 = load i32, ptr %165, align 4, !tbaa !76, !alias.scope !72, !noalias !74
   %227 = load i32, ptr %4, align 4, !tbaa !77, !alias.scope !72, !noalias !74
   %228 = add i32 %227, 600
   %229 = srem i32 %228, 6
   %230 = sext i32 %229 to i64
-  %invariant.op52 = add i32 %226, 599
+  %invariant.op51 = add i32 %226, 599
   %invariant.gep = getelementptr [6 x i8], ptr %145, i64 0, i64 %230
   %231 = add nsw i32 %227, 601
   %232 = srem i32 %231, 6
   %233 = sext i32 %232 to i64
-  %invariant.gep58 = getelementptr [6 x i8], ptr %145, i64 0, i64 %233
-  %234 = add nsw i32 %227, %177
+  %invariant.gep57 = getelementptr [6 x i8], ptr %145, i64 0, i64 %233
+  %234 = add nsw i32 %227, %173
   %235 = srem i32 %234, 6
   %236 = sext i32 %235 to i64
-  %237 = add nsw i32 %179, %227
+  %237 = add nsw i32 %175, %227
   %238 = srem i32 %237, 6
   %239 = sext i32 %238 to i64
   %240 = add nsw i32 %227, 600
   %241 = srem i32 %240, 6
   %242 = sext i32 %241 to i64
-  %invariant.gep79 = getelementptr [6 x i8], ptr %145, i64 0, i64 %242
+  %invariant.gep78 = getelementptr [6 x i8], ptr %145, i64 0, i64 %242
   %invariant.op = add i32 %227, 600
-  br label %246
+  br label %.preheader.us.i
+
+.split.us.thread.i:                               ; preds = %.preheader328.i
+  call void @dwt_denoise(ptr noundef nonnull %160, i32 noundef %147, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %7) #21, !noalias !75
+  br label %._crit_edge350.i
+
+.preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %333
+  %.0265337.us.i = phi i64 [ %334, %333 ], [ 0, %.preheader.us.i.preheader ]
+  %243 = mul i64 %.0265337.us.i, %150
+  %244 = getelementptr inbounds nuw float, ptr %2, i64 %243
+  %245 = getelementptr inbounds nuw float, ptr %160, i64 %243
+  %246 = trunc i64 %.0265337.us.i to i32
+  %247 = add nsw i32 %246, 600
+  br i1 %222, label %FCxtrans.exit.us.i, label %.preheader.us.i._crit_edge
+
+FCxtrans.exit.us.i:                               ; preds = %.preheader.us.i
+  %248 = add nsw i32 %247, %226
+  %249 = srem i32 %248, 6
+  %250 = sext i32 %249 to i64
+  %gep79 = getelementptr [6 x i8], ptr %invariant.gep78, i64 %250
+  %251 = load i8, ptr %gep79, align 1, !tbaa !78, !noalias !75
+  %252 = zext i8 %251 to i32
+  %253 = icmp eq i32 %.0261357.i, %252
+  br i1 %253, label %254, label %.preheader.us.i._crit_edge
+
+254:                                              ; preds = %FCxtrans.exit.us.i
+  %255 = load float, ptr %244, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %256 = fcmp reassoc nsz arcp contract afn olt float %255, 0.000000e+00
+  %257 = select reassoc nsz arcp contract afn i1 %256, float 0.000000e+00, float %255
+  %258 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %257)
+  %259 = getelementptr inbounds float, ptr %245, i64 %168
+  store float %258, ptr %259, align 4, !tbaa !17, !noalias !75
+  %260 = getelementptr inbounds float, ptr %245, i64 %169
+  store float %258, ptr %260, align 4, !tbaa !17, !noalias !75
+  store float %258, ptr %245, align 4, !tbaa !17, !noalias !75
+  br label %.preheader.us.i._crit_edge
+
+.preheader.us.i._crit_edge:                       ; preds = %.preheader.us.i, %254, %FCxtrans.exit.us.i
+  %invariant.gep.us.i = getelementptr float, ptr %245, i64 %150
+  br i1 %224, label %.lr.ph334.us.i, label %._crit_edge.us.i29
+
+._crit_edge.us.i29:                               ; preds = %358, %380, %.preheader.us.i._crit_edge
+  %261 = add nsw i32 %226, %247
+  %262 = srem i32 %261, 6
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds [6 x i8], ptr %145, i64 %263
+  %265 = getelementptr inbounds [6 x i8], ptr %264, i64 0, i64 %230
+  %266 = load i8, ptr %265, align 1, !tbaa !78, !noalias !75
+  %267 = zext i8 %266 to i32
+  %.not277.us.i = icmp eq i32 %.0261357.i, %267
+  br i1 %.not277.us.i, label %295, label %268
+
+268:                                              ; preds = %._crit_edge.us.i29
+  %269 = icmp ult i64 %.0265337.us.i, 2
+  br i1 %269, label %FCxtrans.exit299.us.i.thread, label %FCxtrans.exit295.us.i
+
+FCxtrans.exit299.us.i.thread:                     ; preds = %268
+  %270 = getelementptr inbounds [6 x i8], ptr %264, i64 0, i64 %233
+  %271 = load i8, ptr %270, align 1, !tbaa !78, !noalias !75
+  %272 = zext i8 %271 to i32
+  %273 = icmp eq i32 %.0261357.i, %272
+  %.mux.us.i71 = zext i1 %273 to i32
+  br label %288
+
+FCxtrans.exit295.us.i:                            ; preds = %268
+  %.reass52 = add i32 %invariant.op51, %246
+  %274 = srem i32 %.reass52, 6
+  %275 = sext i32 %274 to i64
+  %gep = getelementptr [6 x i8], ptr %invariant.gep, i64 %275
+  %276 = load i8, ptr %gep, align 1, !tbaa !78, !noalias !75
+  %277 = zext i8 %276 to i32
+  %278 = icmp eq i32 %.0261357.i, %277
+  br i1 %278, label %288, label %FCxtrans.exit299.us.i
+
+FCxtrans.exit299.us.i:                            ; preds = %FCxtrans.exit295.us.i
+  %279 = getelementptr inbounds [6 x i8], ptr %264, i64 0, i64 %233
+  %280 = load i8, ptr %279, align 1, !tbaa !78, !noalias !75
+  %281 = zext i8 %280 to i32
+  %282 = icmp eq i32 %.0261357.i, %281
+  %.mux.us.i = zext i1 %282 to i32
+  br i1 %282, label %288, label %FCxtrans.exit303.us.i
+
+FCxtrans.exit303.us.i:                            ; preds = %FCxtrans.exit299.us.i
+  %.reass54 = add i32 %invariant.op51, %246
+  %283 = srem i32 %.reass54, 6
+  %284 = sext i32 %283 to i64
+  %gep58 = getelementptr [6 x i8], ptr %invariant.gep57, i64 %284
+  %285 = load i8, ptr %gep58, align 1, !tbaa !78, !noalias !75
+  %286 = zext i8 %285 to i32
+  %287 = icmp eq i32 %.0261357.i, %286
+  %spec.select.us.i = select i1 %287, i32 %167, i32 0
+  br label %288
+
+288:                                              ; preds = %FCxtrans.exit299.us.i.thread, %FCxtrans.exit303.us.i, %FCxtrans.exit299.us.i, %FCxtrans.exit295.us.i
+  %.0268.us.i = phi i32 [ %.mux.us.i, %FCxtrans.exit299.us.i ], [ %spec.select.us.i, %FCxtrans.exit303.us.i ], [ %166, %FCxtrans.exit295.us.i ], [ %.mux.us.i71, %FCxtrans.exit299.us.i.thread ]
+  %289 = sext i32 %.0268.us.i to i64
+  %290 = getelementptr inbounds float, ptr %244, i64 %289
+  %291 = load float, ptr %290, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %292 = fcmp reassoc nsz arcp contract afn olt float %291, 0.000000e+00
+  %293 = select reassoc nsz arcp contract afn i1 %292, float 0.000000e+00, float %291
+  %294 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %293)
+  store float %294, ptr %245, align 4, !tbaa !17, !noalias !75
+  br label %295
+
+295:                                              ; preds = %288, %._crit_edge.us.i29
+  %296 = getelementptr inbounds [6 x i8], ptr %264, i64 0, i64 %236
+  %297 = load i8, ptr %296, align 1, !tbaa !78, !noalias !75
+  %298 = zext i8 %297 to i32
+  %299 = icmp eq i32 %.0261357.i, %298
+  br i1 %222, label %FCxtrans.exit307.us.i, label %FCxtrans.exit311.us.i
+
+FCxtrans.exit307.us.i:                            ; preds = %295
+  br i1 %299, label %324, label %FCxtrans.exit315.us.i
+
+FCxtrans.exit311.us.i:                            ; preds = %295
+  br i1 %299, label %333, label %FCxtrans.exit315.us.i
+
+FCxtrans.exit315.us.i:                            ; preds = %FCxtrans.exit307.us.i, %FCxtrans.exit311.us.i
+  %300 = getelementptr inbounds [6 x i8], ptr %264, i64 0, i64 %239
+  %301 = load i8, ptr %300, align 1, !tbaa !78, !noalias !75
+  %302 = zext i8 %301 to i32
+  %303 = icmp eq i32 %.0261357.i, %302
+  br i1 %303, label %.critedge.us.i, label %304
+
+304:                                              ; preds = %FCxtrans.exit315.us.i
+  %305 = icmp ugt i64 %.0265337.us.i, 1
+  br i1 %305, label %FCxtrans.exit319.us.i, label %.critedge.us.i
+
+FCxtrans.exit319.us.i:                            ; preds = %304
+  %.reass56 = add i32 %invariant.op51, %246
+  %306 = srem i32 %.reass56, 6
+  %307 = sext i32 %306 to i64
+  %308 = getelementptr inbounds [6 x i8], ptr %145, i64 %307
+  %309 = getelementptr inbounds [6 x i8], ptr %308, i64 0, i64 %236
+  %310 = load i8, ptr %309, align 1, !tbaa !78, !noalias !75
+  %311 = zext i8 %310 to i32
+  %312 = icmp eq i32 %.0261357.i, %311
+  br i1 %312, label %.critedge.us.i, label %FCxtrans.exit323.us.i
+
+FCxtrans.exit323.us.i:                            ; preds = %FCxtrans.exit319.us.i
+  %313 = getelementptr inbounds [6 x i8], ptr %308, i64 0, i64 %239
+  %314 = load i8, ptr %313, align 1, !tbaa !78, !noalias !75
+  %315 = zext i8 %314 to i32
+  %316 = icmp eq i32 %.0261357.i, %315
+  %spec.select283.us.i = select i1 %316, i32 -2, i32 %170
+  br label %.critedge.us.i
+
+.critedge.us.i:                                   ; preds = %FCxtrans.exit323.us.i, %FCxtrans.exit319.us.i, %304, %FCxtrans.exit315.us.i
+  %.0269.us.i = phi i32 [ %174, %FCxtrans.exit315.us.i ], [ -1, %FCxtrans.exit319.us.i ], [ %spec.select283.us.i, %FCxtrans.exit323.us.i ], [ %170, %304 ]
+  %317 = sext i32 %.0269.us.i to i64
+  %318 = getelementptr inbounds float, ptr %244, i64 %317
+  %319 = load float, ptr %318, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %320 = fcmp reassoc nsz arcp contract afn olt float %319, 0.000000e+00
+  %321 = select reassoc nsz arcp contract afn i1 %320, float 0.000000e+00, float %319
+  %322 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %321)
+  %323 = getelementptr inbounds float, ptr %245, i64 %171
+  store float %322, ptr %323, align 4, !tbaa !17, !noalias !75
+  br label %333
+
+324:                                              ; preds = %FCxtrans.exit307.us.i
+  %325 = getelementptr inbounds float, ptr %244, i64 %171
+  %326 = load float, ptr %325, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %327 = fcmp reassoc nsz arcp contract afn olt float %326, 0.000000e+00
+  %328 = select reassoc nsz arcp contract afn i1 %327, float 0.000000e+00, float %326
+  %329 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %328)
+  %330 = getelementptr inbounds i8, ptr %245, i64 -4
+  store float %329, ptr %330, align 4, !tbaa !17, !noalias !75
+  %331 = getelementptr inbounds float, ptr %245, i64 %171
+  store float %329, ptr %331, align 4, !tbaa !17, !noalias !75
+  %332 = getelementptr i8, ptr %invariant.gep.us.i, i64 -8
+  store float %329, ptr %332, align 4, !tbaa !17, !noalias !75
+  br label %333
+
+333:                                              ; preds = %324, %.critedge.us.i, %FCxtrans.exit311.us.i
+  %334 = add nuw i64 %.0265337.us.i, 1
+  %exitcond368.not.i = icmp eq i64 %334, %151
+  br i1 %exitcond368.not.i, label %.split.us.i, label %.preheader.us.i
+
+.lr.ph334.split.us344.i:                          ; preds = %.lr.ph334.us.i, %358
+  %.0267333.us339.i = phi i64 [ %359, %358 ], [ %223, %.lr.ph334.us.i ]
+  %335 = trunc i64 %.0267333.us339.i to i32
+  %.reass = add i32 %invariant.op, %335
+  %336 = srem i32 %.reass, 6
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds [6 x i8], ptr %364, i64 0, i64 %337
+  %339 = load i8, ptr %338, align 1, !tbaa !78, !noalias !75
+  %340 = zext i8 %339 to i32
+  %341 = icmp eq i32 %.0261357.i, %340
+  br i1 %341, label %342, label %358
+
+342:                                              ; preds = %.lr.ph334.split.us344.i
+  %343 = getelementptr inbounds nuw float, ptr %244, i64 %.0267333.us339.i
+  %344 = load float, ptr %343, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %345 = fcmp reassoc nsz arcp contract afn olt float %344, 0.000000e+00
+  %346 = select reassoc nsz arcp contract afn i1 %345, float 0.000000e+00, float %344
+  %347 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %346)
+  %348 = getelementptr inbounds nuw float, ptr %245, i64 %.0267333.us339.i
+  store float %347, ptr %348, align 4, !tbaa !17, !noalias !75
+  %349 = sub i64 %.0267333.us339.i, %150
+  %350 = getelementptr float, ptr %245, i64 %349
+  %351 = getelementptr i8, ptr %350, i64 4
+  store float %347, ptr %351, align 4, !tbaa !17, !noalias !75
+  store float %347, ptr %350, align 4, !tbaa !17, !noalias !75
+  %352 = getelementptr i8, ptr %350, i64 -4
+  store float %347, ptr %352, align 4, !tbaa !17, !noalias !75
+  %353 = getelementptr inbounds nuw i8, ptr %348, i64 4
+  store float %347, ptr %353, align 4, !tbaa !17, !noalias !75
+  %354 = getelementptr i8, ptr %348, i64 -4
+  store float %347, ptr %354, align 4, !tbaa !17, !noalias !75
+  br i1 %360, label %355, label %358
+
+355:                                              ; preds = %342
+  %gep.us.i32 = getelementptr float, ptr %invariant.gep.us.i, i64 %.0267333.us339.i
+  %356 = getelementptr i8, ptr %gep.us.i32, i64 4
+  store float %347, ptr %356, align 4, !tbaa !17, !noalias !75
+  store float %347, ptr %gep.us.i32, align 4, !tbaa !17, !noalias !75
+  %357 = getelementptr i8, ptr %gep.us.i32, i64 -4
+  store float %347, ptr %357, align 4, !tbaa !17, !noalias !75
+  br label %358
+
+358:                                              ; preds = %355, %342, %.lr.ph334.split.us344.i
+  %359 = add nuw i64 %.0267333.us339.i, 1
+  %exitcond366.not.i = icmp eq i64 %359, %171
+  br i1 %exitcond366.not.i, label %._crit_edge.us.i29, label %.lr.ph334.split.us344.i
+
+.lr.ph334.us.i:                                   ; preds = %.preheader.us.i._crit_edge
+  %360 = icmp ult i64 %.0265337.us.i, %172
+  %361 = add nsw i32 %226, %247
+  %362 = srem i32 %361, 6
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds [6 x i8], ptr %145, i64 %363
+  br i1 %225, label %.lr.ph334.split.us.us.i, label %.lr.ph334.split.us344.i
+
+.lr.ph334.split.us.us.i:                          ; preds = %.lr.ph334.us.i, %380
+  %.0267333.us.us.i = phi i64 [ %381, %380 ], [ %223, %.lr.ph334.us.i ]
+  %365 = trunc i64 %.0267333.us.us.i to i32
+  %.reass50 = add i32 %228, %365
+  %366 = srem i32 %.reass50, 6
+  %367 = sext i32 %366 to i64
+  %368 = getelementptr inbounds [6 x i8], ptr %364, i64 0, i64 %367
+  %369 = load i8, ptr %368, align 1, !tbaa !78, !noalias !75
+  %370 = icmp eq i8 %369, 1
+  br i1 %370, label %371, label %380
+
+371:                                              ; preds = %.lr.ph334.split.us.us.i
+  %372 = getelementptr inbounds nuw float, ptr %244, i64 %.0267333.us.us.i
+  %373 = load float, ptr %372, align 4, !tbaa !17, !alias.scope !67, !noalias !79
+  %374 = fcmp reassoc nsz arcp contract afn olt float %373, 0.000000e+00
+  %375 = select reassoc nsz arcp contract afn i1 %374, float 0.000000e+00, float %373
+  %376 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %375)
+  %377 = getelementptr inbounds nuw float, ptr %245, i64 %.0267333.us.us.i
+  store float %376, ptr %377, align 4, !tbaa !17, !noalias !75
+  %378 = getelementptr float, ptr %377, i64 %150
+  store float %376, ptr %378, align 4, !tbaa !17, !noalias !75
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 4
+  store float %376, ptr %379, align 4, !tbaa !17, !noalias !75
+  br label %380
+
+380:                                              ; preds = %371, %.lr.ph334.split.us.us.i
+  %381 = add nuw i64 %.0267333.us.us.i, 1
+  %exitcond367.not.i = icmp eq i64 %381, %171
+  br i1 %exitcond367.not.i, label %._crit_edge.us.i29, label %.lr.ph334.split.us.us.i, !llvm.loop !80
 
 .lr.ph.i27:                                       ; preds = %compute_channel_noise.exit.i26, %.lr.ph.i27
-  %.0262333.i = phi i64 [ %245, %.lr.ph.i27 ], [ 0, %compute_channel_noise.exit.i26 ]
-  %243 = getelementptr inbounds nuw float, ptr %160, i64 %.0262333.i
-  store float 5.000000e-01, ptr %243, align 4, !tbaa !17, !noalias !75
-  %244 = getelementptr float, ptr %168, i64 %.0262333.i
-  store float 5.000000e-01, ptr %244, align 4, !tbaa !17, !noalias !75
-  %245 = add nuw i64 %.0262333.i, 1
-  %exitcond.not.i28 = icmp eq i64 %245, %150
-  br i1 %exitcond.not.i28, label %.critedge.preheader.i, label %.lr.ph.i27
+  %.0262332.i = phi i64 [ %384, %.lr.ph.i27 ], [ 0, %compute_channel_noise.exit.i26 ]
+  %382 = getelementptr inbounds nuw float, ptr %160, i64 %.0262332.i
+  store float 5.000000e-01, ptr %382, align 4, !tbaa !17, !noalias !75
+  %383 = getelementptr float, ptr %179, i64 %.0262332.i
+  store float 5.000000e-01, ptr %383, align 4, !tbaa !17, !noalias !75
+  %384 = add nuw i64 %.0262332.i, 1
+  %exitcond.not.i28 = icmp eq i64 %384, %150
+  br i1 %exitcond.not.i28, label %.preheader328.i, label %.lr.ph.i27
 
-246:                                              ; preds = %.critedge.i, %.lr.ph339.i
-  %.0265338.i = phi i64 [ 0, %.lr.ph339.i ], [ %384, %.critedge.i ]
-  %247 = mul i64 %.0265338.i, %150
-  %248 = getelementptr inbounds nuw float, ptr %2, i64 %247
-  %249 = getelementptr inbounds nuw float, ptr %160, i64 %247
-  %250 = trunc i64 %.0265338.i to i32
-  %251 = add nsw i32 %250, 600
-  br i1 %222, label %FCxtrans.exit.i, label %._crit_edge
-
-FCxtrans.exit.i:                                  ; preds = %246
-  %252 = add nsw i32 %251, %226
-  %253 = srem i32 %252, 6
-  %254 = sext i32 %253 to i64
-  %gep80 = getelementptr [6 x i8], ptr %invariant.gep79, i64 %254
-  %255 = load i8, ptr %gep80, align 1, !tbaa !78, !noalias !75
-  %256 = zext i8 %255 to i32
-  %257 = icmp eq i32 %.0261352.i, %256
-  br i1 %257, label %258, label %._crit_edge
-
-258:                                              ; preds = %FCxtrans.exit.i
-  %259 = load float, ptr %248, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %260 = fcmp reassoc nsz arcp contract afn olt float %259, 0.000000e+00
-  %261 = select reassoc nsz arcp contract afn i1 %260, float 0.000000e+00, float %259
-  %262 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %261)
-  %263 = getelementptr inbounds float, ptr %249, i64 %172
-  store float %262, ptr %263, align 4, !tbaa !17, !noalias !75
-  %264 = getelementptr inbounds float, ptr %249, i64 %173
-  store float %262, ptr %264, align 4, !tbaa !17, !noalias !75
-  store float %262, ptr %249, align 4, !tbaa !17, !noalias !75
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %246, %258, %FCxtrans.exit.i
-  %invariant.gep.i29 = getelementptr float, ptr %249, i64 %150
-  br i1 %224, label %.lr.ph335.i, label %._crit_edge.i30
-
-.lr.ph335.i:                                      ; preds = %._crit_edge
-  %265 = icmp ult i64 %.0265338.i, %176
-  %266 = add nsw i32 %226, %251
-  %267 = srem i32 %266, 6
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [6 x i8], ptr %145, i64 %268
-  br i1 %225, label %.lr.ph335.split.us.i, label %.lr.ph335.split.i
-
-.lr.ph335.split.us.i:                             ; preds = %.lr.ph335.i, %285
-  %.0267334.us.i = phi i64 [ %286, %285 ], [ %223, %.lr.ph335.i ]
-  %270 = trunc i64 %.0267334.us.i to i32
-  %.reass51 = add i32 %228, %270
-  %271 = srem i32 %.reass51, 6
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds [6 x i8], ptr %269, i64 0, i64 %272
-  %274 = load i8, ptr %273, align 1, !tbaa !78, !noalias !75
-  %275 = icmp eq i8 %274, 1
-  br i1 %275, label %276, label %285
-
-276:                                              ; preds = %.lr.ph335.split.us.i
-  %277 = getelementptr inbounds nuw float, ptr %248, i64 %.0267334.us.i
-  %278 = load float, ptr %277, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %279 = fcmp reassoc nsz arcp contract afn olt float %278, 0.000000e+00
-  %280 = select reassoc nsz arcp contract afn i1 %279, float 0.000000e+00, float %278
-  %281 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %280)
-  %282 = getelementptr inbounds nuw float, ptr %249, i64 %.0267334.us.i
-  store float %281, ptr %282, align 4, !tbaa !17, !noalias !75
-  %283 = getelementptr float, ptr %282, i64 %150
-  store float %281, ptr %283, align 4, !tbaa !17, !noalias !75
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  store float %281, ptr %284, align 4, !tbaa !17, !noalias !75
-  br label %285
-
-285:                                              ; preds = %276, %.lr.ph335.split.us.i
-  %286 = add nuw i64 %.0267334.us.i, 1
-  %exitcond362.not.i = icmp eq i64 %286, %175
-  br i1 %exitcond362.not.i, label %._crit_edge.i30, label %.lr.ph335.split.us.i, !llvm.loop !80
-
-._crit_edge.i30:                                  ; preds = %317, %285, %._crit_edge
-  %287 = add nsw i32 %226, %251
-  %288 = srem i32 %287, 6
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds [6 x i8], ptr %145, i64 %289
-  %291 = getelementptr inbounds [6 x i8], ptr %290, i64 0, i64 %230
-  %292 = load i8, ptr %291, align 1, !tbaa !78, !noalias !75
-  %293 = zext i8 %292 to i32
-  %.not277.i = icmp eq i32 %.0261352.i, %293
-  br i1 %.not277.i, label %346, label %319
-
-.lr.ph335.split.i:                                ; preds = %.lr.ph335.i, %317
-  %.0267334.i = phi i64 [ %318, %317 ], [ %223, %.lr.ph335.i ]
-  %294 = trunc i64 %.0267334.i to i32
-  %.reass = add i32 %invariant.op, %294
-  %295 = srem i32 %.reass, 6
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds [6 x i8], ptr %269, i64 0, i64 %296
-  %298 = load i8, ptr %297, align 1, !tbaa !78, !noalias !75
-  %299 = zext i8 %298 to i32
-  %300 = icmp eq i32 %.0261352.i, %299
-  br i1 %300, label %301, label %317
-
-301:                                              ; preds = %.lr.ph335.split.i
-  %302 = getelementptr inbounds nuw float, ptr %248, i64 %.0267334.i
-  %303 = load float, ptr %302, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %304 = fcmp reassoc nsz arcp contract afn olt float %303, 0.000000e+00
-  %305 = select reassoc nsz arcp contract afn i1 %304, float 0.000000e+00, float %303
-  %306 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %305)
-  %307 = getelementptr inbounds nuw float, ptr %249, i64 %.0267334.i
-  store float %306, ptr %307, align 4, !tbaa !17, !noalias !75
-  %308 = sub i64 %.0267334.i, %150
-  %309 = getelementptr float, ptr %249, i64 %308
-  %310 = getelementptr i8, ptr %309, i64 4
-  store float %306, ptr %310, align 4, !tbaa !17, !noalias !75
-  store float %306, ptr %309, align 4, !tbaa !17, !noalias !75
-  %311 = getelementptr i8, ptr %309, i64 -4
-  store float %306, ptr %311, align 4, !tbaa !17, !noalias !75
-  %312 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  store float %306, ptr %312, align 4, !tbaa !17, !noalias !75
-  %313 = getelementptr i8, ptr %307, i64 -4
-  store float %306, ptr %313, align 4, !tbaa !17, !noalias !75
-  br i1 %265, label %314, label %317
-
-314:                                              ; preds = %301
-  %gep.i33 = getelementptr float, ptr %invariant.gep.i29, i64 %.0267334.i
-  %315 = getelementptr i8, ptr %gep.i33, i64 4
-  store float %306, ptr %315, align 4, !tbaa !17, !noalias !75
-  store float %306, ptr %gep.i33, align 4, !tbaa !17, !noalias !75
-  %316 = getelementptr i8, ptr %gep.i33, i64 -4
-  store float %306, ptr %316, align 4, !tbaa !17, !noalias !75
-  br label %317
-
-317:                                              ; preds = %314, %301, %.lr.ph335.split.i
-  %318 = add nuw i64 %.0267334.i, 1
-  %exitcond361.not.i = icmp eq i64 %318, %175
-  br i1 %exitcond361.not.i, label %._crit_edge.i30, label %.lr.ph335.split.i
-
-319:                                              ; preds = %._crit_edge.i30
-  %320 = icmp ult i64 %.0265338.i, 2
-  br i1 %320, label %FCxtrans.exit301.i.thread, label %FCxtrans.exit297.i
-
-FCxtrans.exit301.i.thread:                        ; preds = %319
-  %321 = getelementptr inbounds [6 x i8], ptr %290, i64 0, i64 %233
-  %322 = load i8, ptr %321, align 1, !tbaa !78, !noalias !75
-  %323 = zext i8 %322 to i32
-  %324 = icmp eq i32 %.0261352.i, %323
-  %.mux.i72 = zext i1 %324 to i32
-  br label %339
-
-FCxtrans.exit297.i:                               ; preds = %319
-  %.reass53 = add i32 %invariant.op52, %250
-  %325 = srem i32 %.reass53, 6
-  %326 = sext i32 %325 to i64
-  %gep = getelementptr [6 x i8], ptr %invariant.gep, i64 %326
-  %327 = load i8, ptr %gep, align 1, !tbaa !78, !noalias !75
-  %328 = zext i8 %327 to i32
-  %329 = icmp eq i32 %.0261352.i, %328
-  br i1 %329, label %339, label %FCxtrans.exit301.i
-
-FCxtrans.exit301.i:                               ; preds = %FCxtrans.exit297.i
-  %330 = getelementptr inbounds [6 x i8], ptr %290, i64 0, i64 %233
-  %331 = load i8, ptr %330, align 1, !tbaa !78, !noalias !75
-  %332 = zext i8 %331 to i32
-  %333 = icmp eq i32 %.0261352.i, %332
-  %.mux.i = zext i1 %333 to i32
-  br i1 %333, label %339, label %FCxtrans.exit305.i
-
-FCxtrans.exit305.i:                               ; preds = %FCxtrans.exit301.i
-  %.reass55 = add i32 %invariant.op52, %250
-  %334 = srem i32 %.reass55, 6
-  %335 = sext i32 %334 to i64
-  %gep59 = getelementptr [6 x i8], ptr %invariant.gep58, i64 %335
-  %336 = load i8, ptr %gep59, align 1, !tbaa !78, !noalias !75
-  %337 = zext i8 %336 to i32
-  %338 = icmp eq i32 %.0261352.i, %337
-  %spec.select.i = select i1 %338, i32 %171, i32 0
-  br label %339
-
-339:                                              ; preds = %FCxtrans.exit301.i.thread, %FCxtrans.exit305.i, %FCxtrans.exit301.i, %FCxtrans.exit297.i
-  %.0268.i = phi i32 [ %.mux.i, %FCxtrans.exit301.i ], [ %spec.select.i, %FCxtrans.exit305.i ], [ %170, %FCxtrans.exit297.i ], [ %.mux.i72, %FCxtrans.exit301.i.thread ]
-  %340 = sext i32 %.0268.i to i64
-  %341 = getelementptr inbounds float, ptr %248, i64 %340
-  %342 = load float, ptr %341, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %343 = fcmp reassoc nsz arcp contract afn olt float %342, 0.000000e+00
-  %344 = select reassoc nsz arcp contract afn i1 %343, float 0.000000e+00, float %342
-  %345 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %344)
-  store float %345, ptr %249, align 4, !tbaa !17, !noalias !75
-  br label %346
-
-346:                                              ; preds = %339, %._crit_edge.i30
-  %347 = getelementptr inbounds [6 x i8], ptr %290, i64 0, i64 %236
-  %348 = load i8, ptr %347, align 1, !tbaa !78, !noalias !75
-  %349 = zext i8 %348 to i32
-  %350 = icmp eq i32 %.0261352.i, %349
-  br i1 %222, label %FCxtrans.exit309.i, label %FCxtrans.exit313.i
-
-FCxtrans.exit309.i:                               ; preds = %346
-  br i1 %350, label %351, label %FCxtrans.exit317.i
-
-351:                                              ; preds = %FCxtrans.exit309.i
-  %352 = getelementptr inbounds float, ptr %248, i64 %175
-  %353 = load float, ptr %352, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %354 = fcmp reassoc nsz arcp contract afn olt float %353, 0.000000e+00
-  %355 = select reassoc nsz arcp contract afn i1 %354, float 0.000000e+00, float %353
-  %356 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %355)
-  %357 = getelementptr inbounds i8, ptr %249, i64 -4
-  store float %356, ptr %357, align 4, !tbaa !17, !noalias !75
-  %358 = getelementptr inbounds float, ptr %249, i64 %175
-  store float %356, ptr %358, align 4, !tbaa !17, !noalias !75
-  %359 = getelementptr i8, ptr %invariant.gep.i29, i64 -8
-  store float %356, ptr %359, align 4, !tbaa !17, !noalias !75
-  br label %.critedge.i
-
-FCxtrans.exit313.i:                               ; preds = %346
-  br i1 %350, label %.critedge.i, label %FCxtrans.exit317.i
-
-FCxtrans.exit317.i:                               ; preds = %FCxtrans.exit309.i, %FCxtrans.exit313.i
-  %360 = getelementptr inbounds [6 x i8], ptr %290, i64 0, i64 %239
-  %361 = load i8, ptr %360, align 1, !tbaa !78, !noalias !75
-  %362 = zext i8 %361 to i32
-  %363 = icmp eq i32 %.0261352.i, %362
-  br i1 %363, label %.critedge281.i, label %364
-
-364:                                              ; preds = %FCxtrans.exit317.i
-  %365 = icmp ugt i64 %.0265338.i, 1
-  br i1 %365, label %FCxtrans.exit321.i, label %.critedge281.i
-
-FCxtrans.exit321.i:                               ; preds = %364
-  %.reass57 = add i32 %invariant.op52, %250
-  %366 = srem i32 %.reass57, 6
-  %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds [6 x i8], ptr %145, i64 %367
-  %369 = getelementptr inbounds [6 x i8], ptr %368, i64 0, i64 %236
-  %370 = load i8, ptr %369, align 1, !tbaa !78, !noalias !75
-  %371 = zext i8 %370 to i32
-  %372 = icmp eq i32 %.0261352.i, %371
-  br i1 %372, label %.critedge281.i, label %FCxtrans.exit325.i
-
-FCxtrans.exit325.i:                               ; preds = %FCxtrans.exit321.i
-  %373 = getelementptr inbounds [6 x i8], ptr %368, i64 0, i64 %239
-  %374 = load i8, ptr %373, align 1, !tbaa !78, !noalias !75
-  %375 = zext i8 %374 to i32
-  %376 = icmp eq i32 %.0261352.i, %375
-  %spec.select285.i = select i1 %376, i32 -2, i32 %174
-  br label %.critedge281.i
-
-.critedge281.i:                                   ; preds = %FCxtrans.exit325.i, %FCxtrans.exit321.i, %364, %FCxtrans.exit317.i
-  %.0269.i = phi i32 [ %178, %FCxtrans.exit317.i ], [ -1, %FCxtrans.exit321.i ], [ %spec.select285.i, %FCxtrans.exit325.i ], [ %174, %364 ]
-  %377 = sext i32 %.0269.i to i64
-  %378 = getelementptr inbounds float, ptr %248, i64 %377
-  %379 = load float, ptr %378, align 4, !tbaa !17, !alias.scope !67, !noalias !79
-  %380 = fcmp reassoc nsz arcp contract afn olt float %379, 0.000000e+00
-  %381 = select reassoc nsz arcp contract afn i1 %380, float 0.000000e+00, float %379
-  %382 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %381)
-  %383 = getelementptr inbounds float, ptr %249, i64 %175
-  store float %382, ptr %383, align 4, !tbaa !17, !noalias !75
-  br label %.critedge.i
-
-.critedge.i:                                      ; preds = %.critedge281.i, %FCxtrans.exit313.i, %351
-  %384 = add nuw i64 %.0265338.i, 1
-  %exitcond363.not.i = icmp eq i64 %384, %151
-  br i1 %exitcond363.not.i, label %.critedge._crit_edge.i, label %246
-
-.critedge._crit_edge.i:                           ; preds = %.critedge.i
+.split.us.i:                                      ; preds = %333
   call void @dwt_denoise(ptr noundef nonnull %160, i32 noundef %147, i32 noundef %149, i32 noundef 5, ptr noundef nonnull %7) #21, !noalias !75
-  br i1 %brmerge385.i, label %._crit_edge347.i, label %.lr.ph342.us.i.preheader
+  br i1 %brmerge.i, label %._crit_edge350.i, label %.lr.ph346.us.i.preheader
 
-.lr.ph342.us.i.preheader:                         ; preds = %.critedge._crit_edge.i
+.lr.ph346.us.i.preheader:                         ; preds = %.split.us.i
   %385 = add i32 %226, 600
-  br label %.lr.ph342.us.i
+  br label %.lr.ph346.us.i
 
-.lr.ph342.us.i:                                   ; preds = %.lr.ph342.us.i.preheader, %._crit_edge343.us.i
-  %indvars.iv371.i = phi i64 [ %indvars.iv.next372.i, %._crit_edge343.us.i ], [ 0, %.lr.ph342.us.i.preheader ]
-  %386 = mul nuw nsw i64 %indvars.iv371.i, %150
+.lr.ph346.us.i:                                   ; preds = %.lr.ph346.us.i.preheader, %._crit_edge.us355.i
+  %indvars.iv376.i = phi i64 [ %indvars.iv.next377.i, %._crit_edge.us355.i ], [ 0, %.lr.ph346.us.i.preheader ]
+  %386 = mul nuw nsw i64 %indvars.iv376.i, %150
   %387 = getelementptr inbounds nuw float, ptr %160, i64 %386
   %388 = getelementptr inbounds nuw float, ptr %3, i64 %386
-  %389 = trunc i64 %indvars.iv371.i to i32
+  %389 = trunc i64 %indvars.iv376.i to i32
   %390 = add i32 %385, %389
   %391 = srem i32 %390, 6
   %392 = sext i32 %391 to i64
   %393 = getelementptr inbounds [6 x i8], ptr %145, i64 %392
-  br label %FCxtrans.exit329.us348.i
+  br label %FCxtrans.exit327.us351.i
 
-FCxtrans.exit329.us348.i:                         ; preds = %406, %.lr.ph342.us.i
-  %indvars.iv.i31 = phi i64 [ 0, %.lr.ph342.us.i ], [ %indvars.iv.next.i32, %406 ]
-  %394 = trunc nuw nsw i64 %indvars.iv.i31 to i32
+FCxtrans.exit327.us351.i:                         ; preds = %406, %.lr.ph346.us.i
+  %indvars.iv.i30 = phi i64 [ 0, %.lr.ph346.us.i ], [ %indvars.iv.next.i31, %406 ]
+  %394 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %.reass.us.i = add i32 %228, %394
   %395 = srem i32 %.reass.us.i, 6
   %396 = sext i32 %395 to i64
   %397 = getelementptr inbounds [6 x i8], ptr %393, i64 0, i64 %396
   %398 = load i8, ptr %397, align 1, !tbaa !78, !noalias !75
   %399 = zext i8 %398 to i32
-  %400 = icmp eq i32 %.0261352.i, %399
+  %400 = icmp eq i32 %.0261357.i, %399
   br i1 %400, label %401, label %406
 
-401:                                              ; preds = %FCxtrans.exit329.us348.i
-  %402 = getelementptr inbounds nuw float, ptr %387, i64 %indvars.iv.i31
+401:                                              ; preds = %FCxtrans.exit327.us351.i
+  %402 = getelementptr inbounds nuw float, ptr %387, i64 %indvars.iv.i30
   %403 = load float, ptr %402, align 4, !tbaa !17, !noalias !75
   %404 = fmul reassoc nsz arcp contract afn float %403, %403
-  %405 = getelementptr inbounds nuw float, ptr %388, i64 %indvars.iv.i31
+  %405 = getelementptr inbounds nuw float, ptr %388, i64 %indvars.iv.i30
   store float %404, ptr %405, align 4, !tbaa !17, !alias.scope !70, !noalias !81
   br label %406
 
-406:                                              ; preds = %401, %FCxtrans.exit329.us348.i
-  %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
-  %exitcond365.not.i = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i20
-  br i1 %exitcond365.not.i, label %._crit_edge343.us.i, label %FCxtrans.exit329.us348.i
+406:                                              ; preds = %401, %FCxtrans.exit327.us351.i
+  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
+  %exitcond370.not.i = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i20
+  br i1 %exitcond370.not.i, label %._crit_edge.us355.i, label %FCxtrans.exit327.us351.i
 
-._crit_edge343.us.i:                              ; preds = %406
-  %indvars.iv.next372.i = add nuw nsw i64 %indvars.iv371.i, 1
-  %exitcond375.not.i = icmp eq i64 %indvars.iv.next372.i, %wide.trip.count374.i
-  br i1 %exitcond375.not.i, label %._crit_edge347.i, label %.lr.ph342.us.i, !llvm.loop !82
+._crit_edge.us355.i:                              ; preds = %406
+  %indvars.iv.next377.i = add nuw nsw i64 %indvars.iv376.i, 1
+  %exitcond380.not.i = icmp eq i64 %indvars.iv.next377.i, %wide.trip.count379.i
+  br i1 %exitcond380.not.i, label %._crit_edge350.i, label %.lr.ph346.us.i, !llvm.loop !82
 
-._crit_edge347.i:                                 ; preds = %._crit_edge343.us.i, %.critedge._crit_edge.i, %.critedge._crit_edge.thread.i
+._crit_edge350.i:                                 ; preds = %._crit_edge.us355.i, %.split.us.i, %.split.us.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !75
-  %407 = add nuw nsw i32 %.0261352.i, 1
-  %exitcond376.not.i = icmp eq i32 %407, 3
-  br i1 %exitcond376.not.i, label %182, label %183
+  %407 = add nuw nsw i32 %.0261357.i, 1
+  %exitcond381.not.i = icmp eq i32 %407, 3
+  br i1 %exitcond381.not.i, label %182, label %183
 
 wavelet_denoise.exit:                             ; preds = %182, %157, %48, %30, %13
   ret void

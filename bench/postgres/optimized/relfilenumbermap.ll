@@ -41,12 +41,11 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 
 12:                                               ; preds = %9
   tail call void @CreateCacheMemoryContext() #7
-  %.pre = load ptr, ptr @CacheMemoryContext, align 8
   br label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %12, %9
-  %13 = phi ptr [ %.pre, %12 ], [ %10, %9 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i8 0, i64 144, i1 false)
+  %13 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #7
   store i16 3, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 6), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 8), align 8
@@ -110,8 +109,8 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %41 = call ptr @systable_beginscan(ptr noundef %36, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #7
   store i8 0, ptr %5, align 1
   %42 = call ptr @systable_getnext(ptr noundef %41) #7
-  %.not40 = icmp eq ptr %42, null
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq ptr %42, null
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %49
   %43 = phi ptr [ %56, %49 ], [ %42, %35 ]

@@ -1341,12 +1341,12 @@ define internal fastcc i32 @tok_get_normal_mode(ptr noundef initializes((56, 64)
   %.pre2244 = load ptr, ptr %7, align 8, !tbaa !4
   br label %.thread1463
 
-.critedge2663:                                    ; preds = %586
+.critedge2990:                                    ; preds = %586
   store ptr null, ptr %4, align 8, !tbaa !19
   store i32 -1, ptr %5, align 8, !tbaa !25
   br label %27
 
-27:                                               ; preds = %.critedge2663, %3
+27:                                               ; preds = %.critedge2990, %3
   store i32 0, ptr %6, align 8, !tbaa !46
   br label %.outer
 
@@ -1748,11 +1748,11 @@ tok_backup.exit1242:                              ; preds = %tok_backup.exit1242
 
 .critedge15.outer:                                ; preds = %tok_backup.exit1242, %206
   %.pre39.i12442246.ph = phi ptr [ %.pre39.i1244.pre, %tok_backup.exit1242 ], [ %208, %206 ]
-  %.ph3074 = phi ptr [ %.pre.i1243.pre, %tok_backup.exit1242 ], [ %207, %206 ]
+  %.ph3146 = phi ptr [ %.pre.i1243.pre, %tok_backup.exit1242 ], [ %207, %206 ]
   br label %.critedge15
 
 .critedge15:                                      ; preds = %.critedge15.backedge, %.critedge15.outer
-  %194 = phi ptr [ %.ph3074, %.critedge15.outer ], [ %217, %.critedge15.backedge ]
+  %194 = phi ptr [ %.ph3146, %.critedge15.outer ], [ %217, %.critedge15.backedge ]
   %.not.i1245 = icmp eq ptr %194, %.pre39.i12442246.ph
   br i1 %.not.i1245, label %199, label %195
 
@@ -1835,19 +1835,19 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %.pre39.i1252 = phi ptr [ %.pre39.i1252.be, %.preheader1581.backedge ], [ %.pre39.i12632249, %tok_nextc.exit1250.thread ]
   %.pre.i1251 = phi ptr [ %.pre.i1251.be, %.preheader1581.backedge ], [ %220, %tok_nextc.exit1250.thread ]
   %.11002 = phi i32 [ %.11002.be, %.preheader1581.backedge ], [ 35, %tok_nextc.exit1250.thread ]
-  switch i32 %.11002, label %.preheader2678 [
+  switch i32 %.11002, label %.preheader2676 [
     i32 -1, label %.critedge19
     i32 13, label %.critedge19
     i32 10, label %.critedge19
   ]
 
-.preheader2678:                                   ; preds = %.preheader1581, %242
+.preheader2676:                                   ; preds = %.preheader1581, %242
   %.pre39.i12522336 = phi ptr [ %244, %242 ], [ %.pre39.i1252, %.preheader1581 ]
   %.pre.i12512333 = phi ptr [ %243, %242 ], [ %.pre.i1251, %.preheader1581 ]
   %.not.i1253 = icmp eq ptr %.pre.i12512333, %.pre39.i12522336
   br i1 %.not.i1253, label %235, label %226
 
-226:                                              ; preds = %.preheader2678
+226:                                              ; preds = %.preheader2676
   %227 = load i32, ptr %12, align 4, !tbaa !24
   %228 = icmp ugt i32 %227, 2147483646
   br i1 %228, label %229, label %230
@@ -1871,7 +1871,7 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %234 = zext i8 %233 to i32
   br label %.preheader1581.backedge
 
-235:                                              ; preds = %.preheader2678
+235:                                              ; preds = %.preheader2676
   %236 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1255 = icmp eq i32 %236, 10
   br i1 %.not21.i1255, label %237, label %.preheader1581.backedge, !llvm.loop !55
@@ -1896,7 +1896,7 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %247 = sub i64 %245, %246
   %248 = tail call ptr @memchr(ptr noundef readonly %243, i32 noundef 0, i64 noundef %247) #8
   %.not24.i1257 = icmp eq ptr %248, null
-  br i1 %.not24.i1257, label %.preheader2678, label %249
+  br i1 %.not24.i1257, label %.preheader2676, label %249
 
 249:                                              ; preds = %242
   %250 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2029,15 +2029,15 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   br i1 %303, label %.critedge1217, label %.critedge1215
 
 .critedge1217:                                    ; preds = %293, %298
-  br i1 %.not1162, label %330, label %.preheader2677
+  br i1 %.not1162, label %330, label %.preheader2675
 
-.preheader2677:                                   ; preds = %.critedge1217, %320
+.preheader2675:                                   ; preds = %.critedge1217, %320
   %304 = phi ptr [ %322, %320 ], [ %.pre39.i1252, %.critedge1217 ]
   %305 = phi ptr [ %321, %320 ], [ %290, %.critedge1217 ]
   %.not.i1264 = icmp eq ptr %305, %304
   br i1 %.not.i1264, label %313, label %306
 
-306:                                              ; preds = %.preheader2677
+306:                                              ; preds = %.preheader2675
   %307 = load i32, ptr %12, align 4, !tbaa !24
   %308 = icmp ugt i32 %307, 2147483646
   br i1 %308, label %309, label %310
@@ -2053,7 +2053,7 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   store ptr %312, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1269
 
-313:                                              ; preds = %.preheader2677
+313:                                              ; preds = %.preheader2675
   %314 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1266 = icmp eq i32 %314, 10
   br i1 %.not21.i1266, label %315, label %tok_nextc.exit1269
@@ -2078,7 +2078,7 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   %325 = sub i64 %323, %324
   %326 = tail call ptr @memchr(ptr noundef readonly %321, i32 noundef 0, i64 noundef %325) #8
   %.not24.i1268 = icmp eq ptr %326, null
-  br i1 %.not24.i1268, label %.preheader2677, label %327
+  br i1 %.not24.i1268, label %.preheader2675, label %327
 
 327:                                              ; preds = %320
   %328 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2176,7 +2176,7 @@ tok_backup.exit1272:                              ; preds = %335, %345
 366:                                              ; preds = %356
   %367 = add nsw i32 %.01001, -97
   %or.cond25 = icmp ult i32 %367, 26
-  br i1 %or.cond25, label %.preheader3073, label %368
+  br i1 %or.cond25, label %.preheader3145, label %368
 
 368:                                              ; preds = %366
   %369 = add nsw i32 %.01001, -65
@@ -2185,19 +2185,19 @@ tok_backup.exit1272:                              ; preds = %335, %345
   %or.cond29 = or i1 %370, %or.cond27
   %371 = icmp sgt i32 %.01001, 127
   %or.cond31 = or i1 %371, %or.cond29
-  br i1 %or.cond31, label %.preheader3073, label %551
+  br i1 %or.cond31, label %.preheader3145, label %551
 
-.preheader3073:                                   ; preds = %368, %366
+.preheader3145:                                   ; preds = %368, %366
   br label %372
 
-372:                                              ; preds = %.preheader3073, %tok_nextc.exit1280
-  %.pre39.i1274 = phi ptr [ %.pre39.i12742282, %tok_nextc.exit1280 ], [ %.pre39.i1295, %.preheader3073 ]
-  %.pre.i1273 = phi ptr [ %.pre.i12732279, %tok_nextc.exit1280 ], [ %.pre.i1294, %.preheader3073 ]
-  %.01098 = phi i32 [ %.11099, %tok_nextc.exit1280 ], [ 0, %.preheader3073 ]
-  %.01096 = phi i32 [ %.11097, %tok_nextc.exit1280 ], [ 0, %.preheader3073 ]
-  %.01092 = phi i32 [ %.11093, %tok_nextc.exit1280 ], [ 0, %.preheader3073 ]
-  %.01090 = phi i32 [ %.11091, %tok_nextc.exit1280 ], [ 0, %.preheader3073 ]
-  %.21003 = phi i32 [ %.0.i1276, %tok_nextc.exit1280 ], [ %.01001, %.preheader3073 ]
+372:                                              ; preds = %.preheader3145, %tok_nextc.exit1280
+  %.pre39.i1274 = phi ptr [ %.pre39.i12742282, %tok_nextc.exit1280 ], [ %.pre39.i1295, %.preheader3145 ]
+  %.pre.i1273 = phi ptr [ %.pre.i12732279, %tok_nextc.exit1280 ], [ %.pre.i1294, %.preheader3145 ]
+  %.01098 = phi i32 [ %.11099, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
+  %.01096 = phi i32 [ %.11097, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
+  %.01092 = phi i32 [ %.11093, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
+  %.01090 = phi i32 [ %.11091, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
+  %.21003 = phi i32 [ %.0.i1276, %tok_nextc.exit1280 ], [ %.01001, %.preheader3145 ]
   %373 = or i32 %.01090, %.01096
   %or.cond33 = icmp ne i32 %373, 0
   %374 = icmp ne i32 %.01098, 0
@@ -2660,15 +2660,15 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
 
 551:                                              ; preds = %368
   %552 = icmp eq i32 %.01001, 13
-  br i1 %552, label %.preheader2679, label %tok_nextc.exit1301
+  br i1 %552, label %.preheader2677, label %tok_nextc.exit1301
 
-.preheader2679:                                   ; preds = %551, %571
+.preheader2677:                                   ; preds = %551, %571
   %553 = phi ptr [ %573, %571 ], [ %.pre39.i1295, %551 ]
   %554 = phi ptr [ %572, %571 ], [ %.pre.i1294, %551 ]
   %.not.i1296 = icmp eq ptr %554, %553
   br i1 %.not.i1296, label %564, label %555
 
-555:                                              ; preds = %.preheader2679
+555:                                              ; preds = %.preheader2677
   %556 = load i32, ptr %12, align 4, !tbaa !24
   %557 = icmp ugt i32 %556, 2147483646
   br i1 %557, label %558, label %559
@@ -2686,7 +2686,7 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
   %563 = zext i8 %562 to i32
   br label %tok_nextc.exit1301
 
-564:                                              ; preds = %.preheader2679
+564:                                              ; preds = %.preheader2677
   %565 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1298 = icmp eq i32 %565, 10
   br i1 %.not21.i1298, label %566, label %.thread1494
@@ -2711,7 +2711,7 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
   %576 = sub i64 %574, %575
   %577 = tail call ptr @memchr(ptr noundef readonly %572, i32 noundef 0, i64 noundef %576) #8
   %.not24.i1300 = icmp eq ptr %577, null
-  br i1 %.not24.i1300, label %.preheader2679, label %578
+  br i1 %.not24.i1300, label %.preheader2677, label %578
 
 578:                                              ; preds = %571
   %579 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2725,7 +2725,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %.71008 = phi i32 [ %.01001, %551 ], [ %563, %559 ]
   switch i32 %.71008, label %653 [
     i32 10, label %582
-    i32 46, label %.preheader2676
+    i32 46, label %.preheader2674
   ]
 
 582:                                              ; preds = %tok_nextc.exit1301
@@ -2740,7 +2740,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
 586:                                              ; preds = %583, %582
   %587 = load i32, ptr %21, align 4, !tbaa !54
   %.not1190 = icmp eq i32 %587, 0
-  br i1 %.not1190, label %.critedge2663, label %588
+  br i1 %.not1190, label %.critedge2990, label %588
 
 588:                                              ; preds = %586
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 17264
@@ -2785,13 +2785,13 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %605 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef %603, ptr noundef %604) #9
   br label %.thread1472
 
-.preheader2676:                                   ; preds = %tok_nextc.exit1301, %624
+.preheader2674:                                   ; preds = %tok_nextc.exit1301, %624
   %606 = phi ptr [ %626, %624 ], [ %.pre39.i1303, %tok_nextc.exit1301 ]
   %607 = phi ptr [ %625, %624 ], [ %581, %tok_nextc.exit1301 ]
   %.not.i1304 = icmp eq ptr %607, %606
   br i1 %.not.i1304, label %617, label %608
 
-608:                                              ; preds = %.preheader2676
+608:                                              ; preds = %.preheader2674
   %609 = load i32, ptr %12, align 4, !tbaa !24
   %610 = icmp ugt i32 %609, 2147483646
   br i1 %610, label %611, label %612
@@ -2809,7 +2809,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %616 = zext i8 %615 to i32
   br label %tok_nextc.exit1309
 
-617:                                              ; preds = %.preheader2676
+617:                                              ; preds = %.preheader2674
   %618 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1306 = icmp eq i32 %618, 10
   br i1 %.not21.i1306, label %619, label %tok_nextc.exit1309
@@ -2834,7 +2834,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %629 = sub i64 %627, %628
   %630 = tail call ptr @memchr(ptr noundef readonly %625, i32 noundef 0, i64 noundef %629) #8
   %.not24.i1308 = icmp eq ptr %630, null
-  br i1 %.not24.i1308, label %.preheader2676, label %631
+  br i1 %.not24.i1308, label %.preheader2674, label %631
 
 631:                                              ; preds = %624
   %632 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -3189,7 +3189,7 @@ tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333,
   br label %.thread1472
 
 .preheader1574:                                   ; preds = %.preheader1574.outer, %tok_nextc.exit1341
-  %789 = phi ptr [ %812, %tok_nextc.exit1341 ], [ %.ph3009, %.preheader1574.outer ]
+  %789 = phi ptr [ %812, %tok_nextc.exit1341 ], [ %.ph3081, %.preheader1574.outer ]
   %.not.i1336 = icmp eq ptr %789, %.pre39.i13352261.ph
   br i1 %.not.i1336, label %794, label %790
 
@@ -3231,7 +3231,7 @@ tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333,
 
 .preheader1574.outer:                             ; preds = %.preheader1574.preheader, %801
   %.pre39.i13352261.ph = phi ptr [ %.pre39.i1335.pre, %.preheader1574.preheader ], [ %803, %801 ]
-  %.ph3009 = phi ptr [ %.pre.i1334.pre, %.preheader1574.preheader ], [ %802, %801 ]
+  %.ph3081 = phi ptr [ %.pre.i1334.pre, %.preheader1574.preheader ], [ %802, %801 ]
   br label %.preheader1574
 
 808:                                              ; preds = %801
@@ -3324,7 +3324,7 @@ tok_nextc.exit1341:                               ; preds = %790
   br label %.thread1472
 
 .preheader1577:                                   ; preds = %.preheader1577.outer, %tok_nextc.exit1349
-  %851 = phi ptr [ %874, %tok_nextc.exit1349 ], [ %.ph3023, %.preheader1577.outer ]
+  %851 = phi ptr [ %874, %tok_nextc.exit1349 ], [ %.ph3095, %.preheader1577.outer ]
   %.not.i1344 = icmp eq ptr %851, %.pre39.i13432258.ph
   br i1 %.not.i1344, label %856, label %852
 
@@ -3366,7 +3366,7 @@ tok_nextc.exit1341:                               ; preds = %790
 
 .preheader1577.outer:                             ; preds = %.preheader1577.preheader, %863
   %.pre39.i13432258.ph = phi ptr [ %.pre39.i1343.pre, %.preheader1577.preheader ], [ %865, %863 ]
-  %.ph3023 = phi ptr [ %.pre.i1342.pre, %.preheader1577.preheader ], [ %864, %863 ]
+  %.ph3095 = phi ptr [ %.pre.i1342.pre, %.preheader1577.preheader ], [ %864, %863 ]
   br label %.preheader1577
 
 870:                                              ; preds = %863
@@ -3796,15 +3796,15 @@ tok_nextc.exit1365:                               ; preds = %1053, %1047, %1048,
   %.pre.i1366 = phi ptr [ %1043, %1047 ], [ %1050, %1048 ], [ %1069, %1067 ], [ %1059, %1058 ], [ %1043, %1053 ]
   %.0.i1361 = phi i32 [ -1, %1047 ], [ %1052, %1048 ], [ -1, %1067 ], [ -1, %1058 ], [ -1, %1053 ]
   %1070 = icmp eq i32 %.0.i1361, %.51006
-  br i1 %1070, label %.preheader2672, label %tok_backup.exit1379.thread
+  br i1 %1070, label %.preheader2670, label %tok_backup.exit1379.thread
 
-.preheader2672:                                   ; preds = %tok_nextc.exit1365, %1089
+.preheader2670:                                   ; preds = %tok_nextc.exit1365, %1089
   %1071 = phi ptr [ %1091, %1089 ], [ %.pre39.i1367, %tok_nextc.exit1365 ]
   %1072 = phi ptr [ %1090, %1089 ], [ %.pre.i1366, %tok_nextc.exit1365 ]
   %.not.i1368 = icmp eq ptr %1072, %1071
   br i1 %.not.i1368, label %1082, label %1073
 
-1073:                                             ; preds = %.preheader2672
+1073:                                             ; preds = %.preheader2670
   %1074 = load i32, ptr %12, align 4, !tbaa !24
   %1075 = icmp ugt i32 %1074, 2147483646
   br i1 %1075, label %1076, label %1077
@@ -3822,7 +3822,7 @@ tok_nextc.exit1365:                               ; preds = %1053, %1047, %1048,
   %1081 = zext i8 %1080 to i32
   br label %tok_nextc.exit1373
 
-1082:                                             ; preds = %.preheader2672
+1082:                                             ; preds = %.preheader2670
   %1083 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1370 = icmp eq i32 %1083, 10
   br i1 %.not21.i1370, label %1084, label %tok_nextc.exit1373
@@ -3847,7 +3847,7 @@ tok_nextc.exit1365:                               ; preds = %1053, %1047, %1048,
   %1094 = sub i64 %1092, %1093
   %1095 = tail call ptr @memchr(ptr noundef readonly %1090, i32 noundef 0, i64 noundef %1094) #8
   %.not24.i1372 = icmp eq ptr %1095, null
-  br i1 %.not24.i1372, label %.preheader2672, label %1096
+  br i1 %.not24.i1372, label %.preheader2670, label %1096
 
 1096:                                             ; preds = %1089
   %1097 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -3944,14 +3944,14 @@ tok_backup.exit1379.thread:                       ; preds = %tok_nextc.exit1365
   unreachable
 
 tok_backup.exit1382.sink.split:                   ; preds = %1129, %1120
-  %.ph2664 = phi ptr [ %1116, %1120 ], [ %1125, %1129 ]
+  %.ph2662 = phi ptr [ %1116, %1120 ], [ %1125, %1129 ]
   %1133 = load i32, ptr %12, align 4, !tbaa !24
   %1134 = add i32 %1133, -1
   store i32 %1134, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1382
 
 tok_backup.exit1382:                              ; preds = %tok_backup.exit1382.sink.split, %tok_nextc.exit1373, %tok_backup.exit1376, %tok_backup.exit1379.thread
-  %1135 = phi ptr [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1099, %tok_nextc.exit1373 ], [ %1114, %tok_backup.exit1376 ], [ %.ph2664, %tok_backup.exit1382.sink.split ]
+  %1135 = phi ptr [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1099, %tok_nextc.exit1373 ], [ %1114, %tok_backup.exit1376 ], [ %.ph2662, %tok_backup.exit1382.sink.split ]
   %.010941532 = phi i32 [ 1, %tok_backup.exit1379.thread ], [ 3, %tok_nextc.exit1373 ], [ 1, %tok_backup.exit1376 ], [ 1, %tok_backup.exit1382.sink.split ]
   %1136 = load ptr, ptr %4, align 8, !tbaa !19
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 17256
@@ -4018,9 +4018,9 @@ tok_backup.exit1382:                              ; preds = %tok_backup.exit1382
   unreachable
 
 1172:                                             ; preds = %1144, %1144, %1163
-  %.sink2667 = phi i32 [ %1170, %1163 ], [ 1, %1144 ], [ 1, %1144 ]
+  %.sink2665 = phi i32 [ %1170, %1163 ], [ 1, %1144 ], [ 1, %1144 ]
   %1173 = getelementptr inbounds nuw i8, ptr %1147, i64 20
-  store i32 %.sink2667, ptr %1173, align 4, !tbaa !44
+  store i32 %.sink2665, ptr %1173, align 4, !tbaa !44
   %1174 = getelementptr inbounds nuw i8, ptr %1147, i64 4
   store i32 0, ptr %1174, align 4, !tbaa !43
   %1175 = getelementptr inbounds nuw i8, ptr %1147, i64 8
@@ -4109,15 +4109,15 @@ tok_nextc.exit1390:                               ; preds = %1195, %1189, %1190,
   %.pre.i1391 = phi ptr [ %1185, %1189 ], [ %1192, %1190 ], [ %1211, %1209 ], [ %1201, %1200 ], [ %1185, %1195 ]
   %.0.i1386 = phi i32 [ -1, %1189 ], [ %1194, %1190 ], [ -1, %1209 ], [ -1, %1200 ], [ -1, %1195 ]
   %1212 = icmp eq i32 %.0.i1386, %.61007
-  br i1 %1212, label %.preheader2671, label %1243
+  br i1 %1212, label %.preheader2669, label %1243
 
-.preheader2671:                                   ; preds = %tok_nextc.exit1390, %1231
+.preheader2669:                                   ; preds = %tok_nextc.exit1390, %1231
   %1213 = phi ptr [ %1233, %1231 ], [ %.pre39.i1392, %tok_nextc.exit1390 ]
   %1214 = phi ptr [ %1232, %1231 ], [ %.pre.i1391, %tok_nextc.exit1390 ]
   %.not.i1393 = icmp eq ptr %1214, %1213
   br i1 %.not.i1393, label %1224, label %1215
 
-1215:                                             ; preds = %.preheader2671
+1215:                                             ; preds = %.preheader2669
   %1216 = load i32, ptr %12, align 4, !tbaa !24
   %1217 = icmp ugt i32 %1216, 2147483646
   br i1 %1217, label %1218, label %1219
@@ -4135,7 +4135,7 @@ tok_nextc.exit1390:                               ; preds = %1195, %1189, %1190,
   %1223 = zext i8 %1222 to i32
   br label %tok_nextc.exit1398
 
-1224:                                             ; preds = %.preheader2671
+1224:                                             ; preds = %.preheader2669
   %1225 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1395 = icmp eq i32 %1225, 10
   br i1 %.not21.i1395, label %1226, label %tok_nextc.exit1398
@@ -4160,7 +4160,7 @@ tok_nextc.exit1390:                               ; preds = %1195, %1189, %1190,
   %1236 = sub i64 %1234, %1235
   %1237 = tail call ptr @memchr(ptr noundef readonly %1232, i32 noundef 0, i64 noundef %1236) #8
   %.not24.i1397 = icmp eq ptr %1237, null
-  br i1 %.not24.i1397, label %.preheader2671, label %1238
+  br i1 %.not24.i1397, label %.preheader2669, label %1238
 
 1238:                                             ; preds = %1231
   %1239 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -4405,16 +4405,16 @@ tok_nextc.exit1409:                               ; preds = %1270, %tok_nextc.ex
 
 1331:                                             ; preds = %1327
   %1332 = icmp eq i32 %.0.i1405, 92
-  br i1 %1332, label %.preheader2670, label %tok_nextc.exit1425
+  br i1 %1332, label %.preheader2668, label %tok_nextc.exit1425
 
-.preheader2670:                                   ; preds = %1331, %1344
+.preheader2668:                                   ; preds = %1331, %1344
   %.pre39.i1419 = phi ptr [ %1346, %1344 ], [ %.pre39.i14192320, %1331 ]
   %.pre39.i14112316 = phi ptr [ %1346, %1344 ], [ %.pre39.i1411, %1331 ]
   %.pre.i14102310 = phi ptr [ %1345, %1344 ], [ %.pre.i1410, %1331 ]
   %.not.i1412 = icmp eq ptr %.pre.i14102310, %.pre39.i14112316
   br i1 %.not.i1412, label %1337, label %1333
 
-1333:                                             ; preds = %.preheader2670
+1333:                                             ; preds = %.preheader2668
   %1334 = load i32, ptr %12, align 4, !tbaa !24
   %1335 = icmp ugt i32 %1334, 2147483646
   br i1 %1335, label %1336, label %tok_nextc.exit1417
@@ -4423,7 +4423,7 @@ tok_nextc.exit1409:                               ; preds = %1270, %tok_nextc.ex
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1417.thread
 
-1337:                                             ; preds = %.preheader2670
+1337:                                             ; preds = %.preheader2668
   %1338 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1414 = icmp eq i32 %1338, 10
   br i1 %.not21.i1414, label %1339, label %tok_nextc.exit1417.thread
@@ -4448,7 +4448,7 @@ tok_nextc.exit1409:                               ; preds = %1270, %tok_nextc.ex
   %1349 = sub i64 %1347, %1348
   %1350 = tail call ptr @memchr(ptr noundef readonly %1345, i32 noundef 0, i64 noundef %1349) #8
   %.not24.i1416 = icmp eq ptr %1350, null
-  br i1 %.not24.i1416, label %.preheader2670, label %1351
+  br i1 %.not24.i1416, label %.preheader2668, label %1351
 
 1351:                                             ; preds = %1344
   %1352 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -4473,15 +4473,15 @@ tok_nextc.exit1417:                               ; preds = %1333
   %1358 = icmp eq i32 %.61007, %1357
   %spec.select1228 = select i1 %1358, i32 1, i32 %.010802014
   %1359 = icmp eq i8 %1356, 13
-  br i1 %1359, label %.preheader2669, label %tok_nextc.exit1425
+  br i1 %1359, label %.preheader2667, label %tok_nextc.exit1425
 
-.preheader2669:                                   ; preds = %tok_nextc.exit1417, %1375
+.preheader2667:                                   ; preds = %tok_nextc.exit1417, %1375
   %.pre39.i14192325 = phi ptr [ %1377, %1375 ], [ %.pre39.i1419, %tok_nextc.exit1417 ]
   %1360 = phi ptr [ %1376, %1375 ], [ %1355, %tok_nextc.exit1417 ]
   %.not.i1420 = icmp eq ptr %1360, %.pre39.i14192325
   br i1 %.not.i1420, label %1368, label %1361
 
-1361:                                             ; preds = %.preheader2669
+1361:                                             ; preds = %.preheader2667
   %1362 = load i32, ptr %12, align 4, !tbaa !24
   %1363 = icmp ugt i32 %1362, 2147483646
   br i1 %1363, label %1364, label %1365
@@ -4497,7 +4497,7 @@ tok_nextc.exit1417:                               ; preds = %1333
   store ptr %1367, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1425
 
-1368:                                             ; preds = %.preheader2669
+1368:                                             ; preds = %.preheader2667
   %1369 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1422 = icmp eq i32 %1369, 10
   br i1 %.not21.i1422, label %1370, label %tok_nextc.exit1425
@@ -4522,7 +4522,7 @@ tok_nextc.exit1417:                               ; preds = %1333
   %1380 = sub i64 %1378, %1379
   %1381 = tail call ptr @memchr(ptr noundef readonly %1376, i32 noundef 0, i64 noundef %1380) #8
   %.not24.i1424 = icmp eq ptr %1381, null
-  br i1 %.not24.i1424, label %.preheader2669, label %1382
+  br i1 %.not24.i1424, label %.preheader2667, label %1382
 
 1382:                                             ; preds = %1375
   %1383 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9

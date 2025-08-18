@@ -29307,13 +29307,13 @@ define hidden void @_ZN5x11rb8protocol3xkb13use_extension17h641ce426c5e4bc76E(pt
 28:                                               ; preds = %15
   %29 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %28
-  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %28
   call void @llvm.assume(i1 %30)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7189
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -29326,21 +29326,21 @@ define hidden void @_ZN5x11rb8protocol3xkb13use_extension17h641ce426c5e4bc76E(pt
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !7182, !noalias !7188
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i23" [
+  %33 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i23 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit24"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit24"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i23": ; preds = %31
-  %33 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i23:                                       ; preds = %31
   call void @llvm.assume(i1 %33)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7196
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit24"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit24": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i23", %31, %31, %26
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit24": ; preds = %.split.i23, %31, %31, %26
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %28, %28
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %28, %28
   resume { ptr, i32 } %29
 }
 
@@ -29447,13 +29447,13 @@ define hidden void @_ZN5x11rb8protocol4sync10initialize17hf52df9fe6fa527edE(ptr 
 28:                                               ; preds = %16
   %29 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %28
-  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %28
   call void @llvm.assume(i1 %30)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7227
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -29469,21 +29469,21 @@ define hidden void @_ZN5x11rb8protocol4sync10initialize17hf52df9fe6fa527edE(ptr 
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !7215, !noalias !7234
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24" [
+  %34 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i24 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24": ; preds = %31
-  %34 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i24:                                       ; preds = %31
   call void @llvm.assume(i1 %34)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7235
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24", %31, %31, %26
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %.split.i24, %31, %31, %26
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %28, %28
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %28, %28
   resume { ptr, i32 } %29
 }
 
@@ -29592,13 +29592,13 @@ define hidden void @_ZN5x11rb8protocol4sync11set_counter17h606ca66d70c97ff5E(ptr
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %36 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %34
-  %36 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %34
   call void @llvm.assume(i1 %36)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7256
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -29609,21 +29609,21 @@ define hidden void @_ZN5x11rb8protocol4sync11set_counter17h606ca66d70c97ff5E(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7251
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25" [
+  %38 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i25 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25": ; preds = %37
-  %38 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i25:                                       ; preds = %37
   call void @llvm.assume(i1 %38)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7263
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25", %37, %37, %32
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26": ; preds = %.split.i25, %37, %37, %32
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %34, %34
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %34, %34
   resume { ptr, i32 } %35
 }
 
@@ -29732,13 +29732,13 @@ define hidden void @_ZN5x11rb8protocol4sync14create_counter17hf751bb858a41979cE(
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %36 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %34
-  %36 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %34
   call void @llvm.assume(i1 %36)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7284
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -29749,21 +29749,21 @@ define hidden void @_ZN5x11rb8protocol4sync14create_counter17hf751bb858a41979cE(
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7279
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25" [
+  %38 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i25 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25": ; preds = %37
-  %38 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i25:                                       ; preds = %37
   call void @llvm.assume(i1 %38)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7291
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i25", %37, %37, %32
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit26": ; preds = %.split.i25, %37, %37, %32
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %34, %34
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %34, %34
   resume { ptr, i32 } %35
 }
 
@@ -29870,13 +29870,13 @@ define hidden void @_ZN5x11rb8protocol5randr13get_crtc_info17h00c9db47c16bcc2aE(
 28:                                               ; preds = %16
   %29 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %28
-  %30 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %28
   call void @llvm.assume(i1 %30)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7322
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -29892,21 +29892,21 @@ define hidden void @_ZN5x11rb8protocol5randr13get_crtc_info17h00c9db47c16bcc2aE(
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !7310, !noalias !7329
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24" [
+  %34 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i24 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24": ; preds = %31
-  %34 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i24:                                       ; preds = %31
   call void @llvm.assume(i1 %34)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7330
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24", %31, %31, %26
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %.split.i24, %31, %31, %26
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %28, %28
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %28, %28
   resume { ptr, i32 } %29
 }
 
@@ -30013,13 +30013,13 @@ define hidden void @_ZN5x11rb8protocol5randr20get_screen_resources17hdb0c3fb17be
 27:                                               ; preds = %15
   %28 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i" [
+  %29 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i": ; preds = %27
-  %29 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i:                                         ; preds = %27
   call void @llvm.assume(i1 %29)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7355
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit"
@@ -30035,21 +30035,21 @@ define hidden void @_ZN5x11rb8protocol5randr20get_screen_resources17hdb0c3fb17be
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !7343, !noalias !7362
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24" [
+  %33 = icmp ne ptr %.sroa.6.0.copyload, null
+  switch i64 %.sroa.0.0.copyload, label %.split.i24 [
     i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24": ; preds = %30
-  %33 = icmp ne ptr %.sroa.6.0.copyload, null
+.split.i24:                                       ; preds = %30
   call void @llvm.assume(i1 %33)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #50, !noalias !7363
   br label %"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25"
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i24", %30, %30, %25
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit25": ; preds = %.split.i24, %30, %30, %25
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %27, %27
+"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$u3b$$u20$1$u5d$$GT$17h947c9c72703dade1E.exit": ; preds = %.split.i, %27, %27
   resume { ptr, i32 } %28
 }
 

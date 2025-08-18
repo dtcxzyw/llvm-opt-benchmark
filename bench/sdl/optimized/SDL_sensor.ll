@@ -173,7 +173,7 @@ define hidden void @SDL_QuitSensors() local_unnamed_addr #1 {
   store i32 %5, ptr @SDL_sensors_locked, align 4
   %6 = load ptr, ptr @SDL_sensors, align 8
   %.not6 = icmp eq ptr %6, null
-  br i1 %.not6, label %.critedge, label %.lr.ph
+  br i1 %.not6, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %0 ]
@@ -182,9 +182,9 @@ define hidden void @SDL_QuitSensors() local_unnamed_addr #1 {
   tail call void @SDL_CloseSensor_REAL(ptr noundef nonnull %7)
   %9 = load ptr, ptr @SDL_sensors, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !3
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !3
 
-.critedge:                                        ; preds = %.lr.ph, %0
+.preheader:                                       ; preds = %.lr.ph, %0
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 80), align 8
   tail call void %10() #9
   tail call void @SDL_QuitSubSystem_REAL(i32 noundef 16384) #9
@@ -195,7 +195,7 @@ define hidden void @SDL_QuitSensors() local_unnamed_addr #1 {
   %.not5 = icmp eq i32 %12, 0
   br i1 %.not5, label %13, label %.critedge.i
 
-13:                                               ; preds = %.critedge
+13:                                               ; preds = %.preheader
   %14 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.critedge.i
@@ -210,7 +210,7 @@ define hidden void @SDL_QuitSensors() local_unnamed_addr #1 {
   tail call void @SDL_DestroyMutex_REAL(ptr noundef %17) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i:                                      ; preds = %13, %.critedge
+.critedge.i:                                      ; preds = %13, %.preheader
   %19 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %19) #9
   br label %SDL_UnlockSensors.exit
@@ -366,67 +366,67 @@ define hidden ptr @SDL_GetSensorNameForID_REAL(i32 noundef %0) local_unnamed_add
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @SDL_sensors_locked, align 4
   %.not.i = icmp eq i32 %0, 0
-  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %7
+  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.preheader.i
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
-  %9 = tail call i32 %8() #9
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
+.preheader.i:                                     ; preds = %1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
+  %8 = tail call i32 %7() #9
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
 
-.lr.ph.i:                                         ; preds = %7, %.critedge24.i
-  %.01826.i = phi i32 [ %13, %.critedge24.i ], [ 0, %7 ]
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
-  %12 = tail call i32 %11(i32 noundef %.01826.i) #9
-  %.not22.i = icmp eq i32 %12, %0
-  br i1 %.not22.i, label %15, label %.critedge24.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.critedge.i
+  %.01825.i = phi i32 [ %12, %.critedge.i ], [ 0, %.preheader.i ]
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
+  %11 = tail call i32 %10(i32 noundef %.01825.i) #9
+  %.not22.i = icmp eq i32 %11, %0
+  br i1 %.not22.i, label %14, label %.critedge.i
 
-.critedge24.i:                                    ; preds = %.lr.ph.i
-  %13 = add nuw nsw i32 %.01826.i, 1
-  %exitcond.not.i = icmp eq i32 %13, %9
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %12 = add nuw nsw i32 %.01825.i, 1
+  %exitcond.not.i = icmp eq i32 %12, %8
   br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
 
-SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
-  br label %19
+SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.preheader.i
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
+  br label %18
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 24), align 8
-  %17 = tail call ptr %16(i32 noundef %.01826.i) #9
-  %18 = tail call ptr @SDL_GetPersistentString(ptr noundef %17) #9
-  br label %19
+14:                                               ; preds = %.lr.ph.i
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 24), align 8
+  %16 = tail call ptr %15(i32 noundef %.01825.i) #9
+  %17 = tail call ptr @SDL_GetPersistentString(ptr noundef %16) #9
+  br label %18
 
-19:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %15
-  %.0 = phi ptr [ %18, %15 ], [ null, %SDL_GetDriverAndSensorIndex.exit ]
-  %20 = load i32, ptr @SDL_sensors_locked, align 4
-  %21 = add nsw i32 %20, -1
-  store i32 %21, ptr @SDL_sensors_locked, align 4
+18:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %14
+  %.0 = phi ptr [ %17, %14 ], [ null, %SDL_GetDriverAndSensorIndex.exit ]
+  %19 = load i32, ptr @SDL_sensors_locked, align 4
+  %20 = add nsw i32 %19, -1
+  store i32 %20, ptr @SDL_sensors_locked, align 4
   %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
-  %22 = icmp ne i32 %21, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %22
-  br i1 %or.cond.i, label %.critedge.i1, label %23
+  %21 = icmp ne i32 %20, 0
+  %or.cond.i = select i1 %.b4.i, i1 true, i1 %21
+  br i1 %or.cond.i, label %.critedge.i1, label %22
 
-23:                                               ; preds = %19
-  %24 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.critedge.i1
+22:                                               ; preds = %18
+  %23 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %.critedge.i1
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %26) #9
   %27 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %27) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %27) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %26) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i1:                                     ; preds = %22, %18
   %28 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %28) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %27) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %27) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i1:                                     ; preds = %23, %19
-  %29 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %29) #9
-  br label %SDL_UnlockSensors.exit
-
-SDL_UnlockSensors.exit:                           ; preds = %26, %.critedge.i1
+SDL_UnlockSensors.exit:                           ; preds = %25, %.critedge.i1
   ret ptr %.0
 }
 
@@ -442,66 +442,66 @@ define hidden i32 @SDL_GetSensorTypeForID_REAL(i32 noundef %0) local_unnamed_add
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @SDL_sensors_locked, align 4
   %.not.i = icmp eq i32 %0, 0
-  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %7
+  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.preheader.i
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
-  %9 = tail call i32 %8() #9
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
+.preheader.i:                                     ; preds = %1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
+  %8 = tail call i32 %7() #9
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
 
-.lr.ph.i:                                         ; preds = %7, %.critedge24.i
-  %.01826.i = phi i32 [ %13, %.critedge24.i ], [ 0, %7 ]
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
-  %12 = tail call i32 %11(i32 noundef %.01826.i) #9
-  %.not22.i = icmp eq i32 %12, %0
-  br i1 %.not22.i, label %15, label %.critedge24.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.critedge.i
+  %.01825.i = phi i32 [ %12, %.critedge.i ], [ 0, %.preheader.i ]
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
+  %11 = tail call i32 %10(i32 noundef %.01825.i) #9
+  %.not22.i = icmp eq i32 %11, %0
+  br i1 %.not22.i, label %14, label %.critedge.i
 
-.critedge24.i:                                    ; preds = %.lr.ph.i
-  %13 = add nuw nsw i32 %.01826.i, 1
-  %exitcond.not.i = icmp eq i32 %13, %9
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %12 = add nuw nsw i32 %.01825.i, 1
+  %exitcond.not.i = icmp eq i32 %12, %8
   br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
 
-SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
-  br label %18
+SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.preheader.i
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
+  br label %17
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 32), align 8
-  %17 = tail call i32 %16(i32 noundef %.01826.i) #9
-  br label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 32), align 8
+  %16 = tail call i32 %15(i32 noundef %.01825.i) #9
+  br label %17
 
-18:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %15
-  %.0 = phi i32 [ %17, %15 ], [ -1, %SDL_GetDriverAndSensorIndex.exit ]
-  %19 = load i32, ptr @SDL_sensors_locked, align 4
-  %20 = add nsw i32 %19, -1
-  store i32 %20, ptr @SDL_sensors_locked, align 4
+17:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %14
+  %.0 = phi i32 [ %16, %14 ], [ -1, %SDL_GetDriverAndSensorIndex.exit ]
+  %18 = load i32, ptr @SDL_sensors_locked, align 4
+  %19 = add nsw i32 %18, -1
+  store i32 %19, ptr @SDL_sensors_locked, align 4
   %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
-  %21 = icmp ne i32 %20, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %21
-  br i1 %or.cond.i, label %.critedge.i2, label %22
+  %20 = icmp ne i32 %19, 0
+  %or.cond.i = select i1 %.b4.i, i1 true, i1 %20
+  br i1 %or.cond.i, label %.critedge.i2, label %21
 
-22:                                               ; preds = %18
-  %23 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.critedge.i2
+21:                                               ; preds = %17
+  %22 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.critedge.i2
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %25) #9
   %26 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %26) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %25) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %25) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i2:                                     ; preds = %21, %17
   %27 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %27) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %26) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i2:                                     ; preds = %22, %18
-  %28 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %28) #9
-  br label %SDL_UnlockSensors.exit
-
-SDL_UnlockSensors.exit:                           ; preds = %25, %.critedge.i2
+SDL_UnlockSensors.exit:                           ; preds = %24, %.critedge.i2
   ret i32 %.0
 }
 
@@ -515,66 +515,66 @@ define hidden i32 @SDL_GetSensorNonPortableTypeForID_REAL(i32 noundef %0) local_
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @SDL_sensors_locked, align 4
   %.not.i = icmp eq i32 %0, 0
-  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %7
+  br i1 %.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.preheader.i
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
-  %9 = tail call i32 %8() #9
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
+.preheader.i:                                     ; preds = %1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
+  %8 = tail call i32 %7() #9
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.i, label %SDL_GetDriverAndSensorIndex.exit
 
-.lr.ph.i:                                         ; preds = %7, %.critedge24.i
-  %.01826.i = phi i32 [ %13, %.critedge24.i ], [ 0, %7 ]
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
-  %12 = tail call i32 %11(i32 noundef %.01826.i) #9
-  %.not22.i = icmp eq i32 %12, %0
-  br i1 %.not22.i, label %15, label %.critedge24.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.critedge.i
+  %.01825.i = phi i32 [ %12, %.critedge.i ], [ 0, %.preheader.i ]
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
+  %11 = tail call i32 %10(i32 noundef %.01825.i) #9
+  %.not22.i = icmp eq i32 %11, %0
+  br i1 %.not22.i, label %14, label %.critedge.i
 
-.critedge24.i:                                    ; preds = %.lr.ph.i
-  %13 = add nuw nsw i32 %.01826.i, 1
-  %exitcond.not.i = icmp eq i32 %13, %9
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %12 = add nuw nsw i32 %.01825.i, 1
+  %exitcond.not.i = icmp eq i32 %12, %8
   br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
 
-SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
-  br label %18
+SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.preheader.i
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
+  br label %17
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 40), align 8
-  %17 = tail call i32 %16(i32 noundef %.01826.i) #9
-  br label %18
+14:                                               ; preds = %.lr.ph.i
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 40), align 8
+  %16 = tail call i32 %15(i32 noundef %.01825.i) #9
+  br label %17
 
-18:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %15
-  %.0 = phi i32 [ %17, %15 ], [ -1, %SDL_GetDriverAndSensorIndex.exit ]
-  %19 = load i32, ptr @SDL_sensors_locked, align 4
-  %20 = add nsw i32 %19, -1
-  store i32 %20, ptr @SDL_sensors_locked, align 4
+17:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit, %14
+  %.0 = phi i32 [ %16, %14 ], [ -1, %SDL_GetDriverAndSensorIndex.exit ]
+  %18 = load i32, ptr @SDL_sensors_locked, align 4
+  %19 = add nsw i32 %18, -1
+  store i32 %19, ptr @SDL_sensors_locked, align 4
   %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
-  %21 = icmp ne i32 %20, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %21
-  br i1 %or.cond.i, label %.critedge.i2, label %22
+  %20 = icmp ne i32 %19, 0
+  %or.cond.i = select i1 %.b4.i, i1 true, i1 %20
+  br i1 %or.cond.i, label %.critedge.i2, label %21
 
-22:                                               ; preds = %18
-  %23 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.critedge.i2
+21:                                               ; preds = %17
+  %22 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.critedge.i2
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %25) #9
   %26 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %26) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %25) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %25) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i2:                                     ; preds = %21, %17
   %27 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %27) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %26) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i2:                                     ; preds = %22, %18
-  %28 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %28) #9
-  br label %SDL_UnlockSensors.exit
-
-SDL_UnlockSensors.exit:                           ; preds = %25, %.critedge.i2
+SDL_UnlockSensors.exit:                           ; preds = %24, %.critedge.i2
   ret i32 %.0
 }
 
@@ -588,242 +588,242 @@ define hidden noundef ptr @SDL_OpenSensor_REAL(i32 noundef %0) local_unnamed_add
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @SDL_sensors_locked, align 4
   %.not.i = icmp eq i32 %0, 0
-  br i1 %.not.i, label %.loopexit, label %7
+  br i1 %.not.i, label %.loopexit, label %.preheader.i
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
-  %9 = tail call i32 %8() #9
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.i, label %.loopexit
+.preheader.i:                                     ; preds = %1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 8), align 8
+  %8 = tail call i32 %7() #9
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %7, %.critedge24.i
-  %.01826.i = phi i32 [ %13, %.critedge24.i ], [ 0, %7 ]
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
-  %12 = tail call i32 %11(i32 noundef %.01826.i) #9
-  %.not22.i = icmp eq i32 %12, %0
-  br i1 %.not22.i, label %SDL_GetDriverAndSensorIndex.exit.preheader, label %.critedge24.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.critedge.i
+  %.01825.i = phi i32 [ %12, %.critedge.i ], [ 0, %.preheader.i ]
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
+  %11 = tail call i32 %10(i32 noundef %.01825.i) #9
+  %.not22.i = icmp eq i32 %11, %0
+  br i1 %.not22.i, label %SDL_GetDriverAndSensorIndex.exit.preheader, label %.critedge.i
 
 SDL_GetDriverAndSensorIndex.exit.preheader:       ; preds = %.lr.ph.i
   %.061 = load ptr, ptr @SDL_sensors, align 8
   %.not62 = icmp eq ptr %.061, null
   br i1 %.not62, label %SDL_GetDriverAndSensorIndex.exit._crit_edge, label %.lr.ph
 
-.critedge24.i:                                    ; preds = %.lr.ph.i
-  %13 = add nuw nsw i32 %.01826.i, 1
-  %exitcond.not.i = icmp eq i32 %13, %9
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %12 = add nuw nsw i32 %.01825.i, 1
+  %exitcond.not.i = icmp eq i32 %12, %8
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.critedge24.i, %1, %7
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
-  %15 = load i32, ptr @SDL_sensors_locked, align 4
-  %16 = add nsw i32 %15, -1
-  store i32 %16, ptr @SDL_sensors_locked, align 4
+.loopexit:                                        ; preds = %.critedge.i, %1, %.preheader.i
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
+  %14 = load i32, ptr @SDL_sensors_locked, align 4
+  %15 = add nsw i32 %14, -1
+  store i32 %15, ptr @SDL_sensors_locked, align 4
   %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
-  %17 = icmp ne i32 %16, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %17
-  br i1 %or.cond.i, label %.critedge.i32, label %18
+  %16 = icmp ne i32 %15, 0
+  %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
+  br i1 %or.cond.i, label %.critedge.i32, label %17
 
-18:                                               ; preds = %.loopexit
-  %19 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.critedge.i32
+17:                                               ; preds = %.loopexit
+  %18 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.critedge.i32
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %21) #9
   %22 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %22) #9
-  %23 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %23) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %22) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %22) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %21) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %21) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i32:                                    ; preds = %18, %.loopexit
-  %24 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %24) #9
+.critedge.i32:                                    ; preds = %17, %.loopexit
+  %23 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %23) #9
   br label %SDL_UnlockSensors.exit
 
 .lr.ph:                                           ; preds = %SDL_GetDriverAndSensorIndex.exit.preheader, %SDL_GetDriverAndSensorIndex.exit
   %.063 = phi ptr [ %.0, %SDL_GetDriverAndSensorIndex.exit ], [ %.061, %SDL_GetDriverAndSensorIndex.exit.preheader ]
-  %25 = load i32, ptr %.063, align 8
-  %26 = icmp eq i32 %0, %25
-  br i1 %26, label %27, label %SDL_GetDriverAndSensorIndex.exit
+  %24 = load i32, ptr %.063, align 8
+  %25 = icmp eq i32 %0, %24
+  br i1 %25, label %26, label %SDL_GetDriverAndSensorIndex.exit
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.063, i64 108
-  %29 = load i32, ptr %28, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %28, align 4
-  %31 = load i32, ptr @SDL_sensors_locked, align 4
-  %32 = add nsw i32 %31, -1
-  store i32 %32, ptr @SDL_sensors_locked, align 4
+26:                                               ; preds = %.lr.ph
+  %27 = getelementptr inbounds nuw i8, ptr %.063, i64 108
+  %28 = load i32, ptr %27, align 4
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %27, align 4
+  %30 = load i32, ptr @SDL_sensors_locked, align 4
+  %31 = add nsw i32 %30, -1
+  store i32 %31, ptr @SDL_sensors_locked, align 4
   %.b4.i33 = load i1, ptr @SDL_sensors_initialized, align 1
-  %33 = icmp ne i32 %32, 0
-  %or.cond.i34 = select i1 %.b4.i33, i1 true, i1 %33
-  br i1 %or.cond.i34, label %.critedge.i35, label %34
+  %32 = icmp ne i32 %31, 0
+  %or.cond.i34 = select i1 %.b4.i33, i1 true, i1 %32
+  br i1 %or.cond.i34, label %.critedge.i35, label %33
 
-34:                                               ; preds = %27
-  %35 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.critedge.i35
+33:                                               ; preds = %26
+  %34 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.critedge.i35
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %37) #9
   %38 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %38) #9
-  %39 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %39) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %38) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %38) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %37) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %37) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i35:                                    ; preds = %34, %27
-  %40 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %40) #9
+.critedge.i35:                                    ; preds = %33, %26
+  %39 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %39) #9
   br label %SDL_UnlockSensors.exit
 
 SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.lr.ph
-  %41 = getelementptr inbounds nuw i8, ptr %.063, i64 112
-  %.0 = load ptr, ptr %41, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.063, i64 112
+  %.0 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %SDL_GetDriverAndSensorIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !7
 
 SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSensorIndex.exit, %SDL_GetDriverAndSensorIndex.exit.preheader
-  %42 = tail call noalias dereferenceable_or_null(120) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 120) #10
-  %.not30 = icmp eq ptr %42, null
-  br i1 %.not30, label %43, label %54
+  %41 = tail call noalias dereferenceable_or_null(120) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 120) #10
+  %.not30 = icmp eq ptr %41, null
+  br i1 %.not30, label %42, label %53
 
-43:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit._crit_edge
-  %44 = load i32, ptr @SDL_sensors_locked, align 4
-  %45 = add nsw i32 %44, -1
-  store i32 %45, ptr @SDL_sensors_locked, align 4
+42:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit._crit_edge
+  %43 = load i32, ptr @SDL_sensors_locked, align 4
+  %44 = add nsw i32 %43, -1
+  store i32 %44, ptr @SDL_sensors_locked, align 4
   %.b4.i37 = load i1, ptr @SDL_sensors_initialized, align 1
-  %46 = icmp ne i32 %45, 0
-  %or.cond.i38 = select i1 %.b4.i37, i1 true, i1 %46
-  br i1 %or.cond.i38, label %.critedge.i39, label %47
+  %45 = icmp ne i32 %44, 0
+  %or.cond.i38 = select i1 %.b4.i37, i1 true, i1 %45
+  br i1 %or.cond.i38, label %.critedge.i39, label %46
 
-47:                                               ; preds = %43
-  %48 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.critedge.i39
+46:                                               ; preds = %42
+  %47 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %.critedge.i39
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
+  %50 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %50) #9
   %51 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %51) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %51) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %50) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %50) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i39:                                    ; preds = %46, %42
   %52 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %52) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %51) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %51) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i39:                                    ; preds = %47, %43
-  %53 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %53) #9
-  br label %SDL_UnlockSensors.exit
+53:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit._crit_edge
+  tail call void @SDL_SetObjectValid(ptr noundef nonnull %41, i32 noundef 7, i1 noundef zeroext true) #9
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 88
+  store ptr @SDL_DUMMY_SensorDriver, ptr %54, align 8
+  store i32 %0, ptr %41, align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 32), align 8
+  %56 = tail call i32 %55(i32 noundef %.01825.i) #9
+  %57 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i32 %56, ptr %57, align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 40), align 8
+  %59 = tail call i32 %58(i32 noundef %.01825.i) #9
+  %60 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  store i32 %59, ptr %60, align 4
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 56), align 8
+  %62 = tail call zeroext i1 %61(ptr noundef nonnull %41, i32 noundef %.01825.i) #9
+  br i1 %62, label %74, label %63
 
-54:                                               ; preds = %SDL_GetDriverAndSensorIndex.exit._crit_edge
-  tail call void @SDL_SetObjectValid(ptr noundef nonnull %42, i32 noundef 7, i1 noundef zeroext true) #9
-  %55 = getelementptr inbounds nuw i8, ptr %42, i64 88
-  store ptr @SDL_DUMMY_SensorDriver, ptr %55, align 8
-  store i32 %0, ptr %42, align 8
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 32), align 8
-  %57 = tail call i32 %56(i32 noundef %.01826.i) #9
-  %58 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i32 %57, ptr %58, align 8
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 40), align 8
-  %60 = tail call i32 %59(i32 noundef %.01826.i) #9
-  %61 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  store i32 %60, ptr %61, align 4
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 56), align 8
-  %63 = tail call zeroext i1 %62(ptr noundef nonnull %42, i32 noundef %.01826.i) #9
-  br i1 %63, label %75, label %64
-
-64:                                               ; preds = %54
-  tail call void @SDL_SetObjectValid(ptr noundef nonnull %42, i32 noundef 7, i1 noundef zeroext false) #9
-  tail call void @SDL_free_REAL(ptr noundef nonnull %42) #9
-  %65 = load i32, ptr @SDL_sensors_locked, align 4
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr @SDL_sensors_locked, align 4
+63:                                               ; preds = %53
+  tail call void @SDL_SetObjectValid(ptr noundef nonnull %41, i32 noundef 7, i1 noundef zeroext false) #9
+  tail call void @SDL_free_REAL(ptr noundef nonnull %41) #9
+  %64 = load i32, ptr @SDL_sensors_locked, align 4
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr @SDL_sensors_locked, align 4
   %.b4.i41 = load i1, ptr @SDL_sensors_initialized, align 1
-  %67 = icmp ne i32 %66, 0
-  %or.cond.i42 = select i1 %.b4.i41, i1 true, i1 %67
-  br i1 %or.cond.i42, label %.critedge.i43, label %68
+  %66 = icmp ne i32 %65, 0
+  %or.cond.i42 = select i1 %.b4.i41, i1 true, i1 %66
+  br i1 %or.cond.i42, label %.critedge.i43, label %67
 
-68:                                               ; preds = %64
-  %69 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.critedge.i43
+67:                                               ; preds = %63
+  %68 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %.critedge.i43
 
-71:                                               ; preds = %68
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %71) #9
   %72 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %72) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %72) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %71) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %71) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i43:                                    ; preds = %67, %63
   %73 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %73) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %72) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %72) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i43:                                    ; preds = %68, %64
-  %74 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %74) #9
-  br label %SDL_UnlockSensors.exit
+74:                                               ; preds = %53
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 24), align 8
+  %76 = tail call ptr %75(i32 noundef %.01825.i) #9
+  %.not31 = icmp eq ptr %76, null
+  br i1 %.not31, label %79, label %77
 
-75:                                               ; preds = %54
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 24), align 8
-  %77 = tail call ptr %76(i32 noundef %.01826.i) #9
-  %.not31 = icmp eq ptr %77, null
-  br i1 %.not31, label %80, label %78
+77:                                               ; preds = %74
+  %78 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %76) #9
+  br label %79
 
-78:                                               ; preds = %75
-  %79 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %77) #9
-  br label %80
-
-80:                                               ; preds = %75, %78
-  %.sink = phi ptr [ %79, %78 ], [ null, %75 ]
-  %81 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %.sink, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %42, i64 108
-  %83 = load i32, ptr %82, align 4
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  %85 = load ptr, ptr @SDL_sensors, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %42, i64 112
-  store ptr %85, ptr %86, align 8
-  store ptr %42, ptr @SDL_sensors, align 8
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 64), align 8
-  tail call void %87(ptr noundef nonnull %42) #9
-  %88 = load i32, ptr @SDL_sensors_locked, align 4
-  %89 = add nsw i32 %88, -1
-  store i32 %89, ptr @SDL_sensors_locked, align 4
+79:                                               ; preds = %74, %77
+  %.sink = phi ptr [ %78, %77 ], [ null, %74 ]
+  %80 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %.sink, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %41, i64 108
+  %82 = load i32, ptr %81, align 4
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %81, align 4
+  %84 = load ptr, ptr @SDL_sensors, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %41, i64 112
+  store ptr %84, ptr %85, align 8
+  store ptr %41, ptr @SDL_sensors, align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 64), align 8
+  tail call void %86(ptr noundef nonnull %41) #9
+  %87 = load i32, ptr @SDL_sensors_locked, align 4
+  %88 = add nsw i32 %87, -1
+  store i32 %88, ptr @SDL_sensors_locked, align 4
   %.b4.i45 = load i1, ptr @SDL_sensors_initialized, align 1
-  %90 = icmp ne i32 %89, 0
-  %or.cond.i46 = select i1 %.b4.i45, i1 true, i1 %90
-  br i1 %or.cond.i46, label %.critedge.i47, label %91
+  %89 = icmp ne i32 %88, 0
+  %or.cond.i46 = select i1 %.b4.i45, i1 true, i1 %89
+  br i1 %or.cond.i46, label %.critedge.i47, label %90
 
-91:                                               ; preds = %80
-  %92 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %.critedge.i47
+90:                                               ; preds = %79
+  %91 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %.critedge.i47
 
-94:                                               ; preds = %91
+93:                                               ; preds = %90
+  %94 = load ptr, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %94) #9
   %95 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %95) #9
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %95) #9
+  store ptr null, ptr @SDL_sensor_lock, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %94) #9
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %94) #9
+  br label %SDL_UnlockSensors.exit
+
+.critedge.i47:                                    ; preds = %90, %79
   %96 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %96) #9
-  store ptr null, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %95) #9
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %95) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i47:                                    ; preds = %91, %80
-  %97 = load ptr, ptr @SDL_sensor_lock, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %97) #9
-  br label %SDL_UnlockSensors.exit
-
-SDL_UnlockSensors.exit:                           ; preds = %.critedge.i47, %94, %.critedge.i43, %71, %.critedge.i39, %50, %.critedge.i35, %37, %.critedge.i32, %21
-  %.027 = phi ptr [ null, %21 ], [ null, %.critedge.i32 ], [ %.063, %37 ], [ %.063, %.critedge.i35 ], [ null, %50 ], [ null, %.critedge.i39 ], [ null, %71 ], [ null, %.critedge.i43 ], [ %42, %94 ], [ %42, %.critedge.i47 ]
+SDL_UnlockSensors.exit:                           ; preds = %.critedge.i47, %93, %.critedge.i43, %70, %.critedge.i39, %49, %.critedge.i35, %36, %.critedge.i32, %20
+  %.027 = phi ptr [ null, %20 ], [ null, %.critedge.i32 ], [ %.063, %36 ], [ %.063, %.critedge.i35 ], [ null, %49 ], [ null, %.critedge.i39 ], [ null, %70 ], [ null, %.critedge.i43 ], [ %41, %93 ], [ %41, %.critedge.i47 ]
   ret ptr %.027
 }
 
@@ -1695,7 +1695,7 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   store i32 %7, ptr @SDL_sensors_locked, align 4
   %.09 = load ptr, ptr @SDL_sensors, align 8
   %.not810 = icmp eq ptr %.09, null
-  br i1 %.not810, label %.critedge, label %.lr.ph
+  br i1 %.not810, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.011 = phi ptr [ %.0, %.lr.ph ], [ %.09, %2 ]
@@ -1707,9 +1707,9 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   %12 = getelementptr inbounds nuw i8, ptr %.011, i64 112
   %.0 = load ptr, ptr %12, align 8
   %.not8 = icmp eq ptr %.0, null
-  br i1 %.not8, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not8, label %.preheader, label %.lr.ph, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph, %2
+.preheader:                                       ; preds = %.lr.ph, %2
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 16), align 8
   tail call void %13() #9
   %14 = load i32, ptr @SDL_sensors_locked, align 4
@@ -1720,7 +1720,7 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
   br i1 %or.cond.i, label %.critedge.i, label %17
 
-17:                                               ; preds = %.critedge
+17:                                               ; preds = %.preheader
   %18 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending) #9
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.critedge.i
@@ -1735,7 +1735,7 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   tail call void @SDL_DestroyMutex_REAL(ptr noundef %21) #9
   br label %SDL_UnlockSensors.exit
 
-.critedge.i:                                      ; preds = %17, %.critedge
+.critedge.i:                                      ; preds = %17, %.preheader
   %23 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %23) #9
   br label %SDL_UnlockSensors.exit

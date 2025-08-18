@@ -1774,71 +1774,71 @@ define void @_ZN9callbacks22CountIntersectionsFuncEPK27RTCFilterFunctionNArgumen
   %wide.trip.count = zext i32 %10 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
+21:                                               ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %.not = icmp eq i32 %23, -1
-  br i1 %.not, label %24, label %57
+  br i1 %.not, label %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit, label %56
 
-24:                                               ; preds = %21
-  %25 = trunc nuw i64 %indvars.iv to i32
-  %26 = add i32 %17, %25
-  %27 = zext i32 %26 to i64
-  %28 = add i32 %18, %25
-  %29 = zext i32 %28 to i64
-  %30 = add i32 %19, %25
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw float, ptr %6, i64 %31
-  %33 = load float, ptr %32, align 4, !tbaa !53, !noalias !54
-  %34 = add i32 %20, %25
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %6, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !28, !noalias !54
-  %38 = getelementptr inbounds nuw i32, ptr %8, i64 %27
-  %39 = load i32, ptr %38, align 4, !tbaa !28, !noalias !57
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %29
-  %41 = load i32, ptr %40, align 4, !tbaa !28, !noalias !57
-  %42 = zext i32 %37 to i64
-  %43 = getelementptr inbounds nuw %"struct.callbacks::GeomPrimID", ptr %14, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !60
-  %.not34 = icmp eq i32 %44, %41
-  br i1 %.not34, label %45, label %52
+_Z17rtcGetHitFromHitNP7RTCHitNjj.exit:            ; preds = %21
+  %24 = trunc nuw i64 %indvars.iv to i32
+  %25 = add i32 %17, %24
+  %26 = zext i32 %25 to i64
+  %27 = add i32 %18, %24
+  %28 = zext i32 %27 to i64
+  %29 = add i32 %19, %24
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw float, ptr %6, i64 %30
+  %32 = load float, ptr %31, align 4, !tbaa !53, !noalias !54
+  %33 = add i32 %20, %24
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !28, !noalias !54
+  %37 = getelementptr inbounds nuw i32, ptr %8, i64 %26
+  %38 = load i32, ptr %37, align 4, !tbaa !28, !noalias !57
+  %39 = getelementptr inbounds nuw i32, ptr %8, i64 %28
+  %40 = load i32, ptr %39, align 4, !tbaa !28, !noalias !57
+  %41 = zext i32 %36 to i64
+  %42 = getelementptr inbounds nuw %"struct.callbacks::GeomPrimID", ptr %14, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !60
+  %.not34 = icmp eq i32 %43, %40
+  br i1 %.not34, label %44, label %51
 
-45:                                               ; preds = %24
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !62
-  %.not35 = icmp eq i32 %47, %39
-  br i1 %.not35, label %56, label %48
+44:                                               ; preds = %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !62
+  %.not35 = icmp eq i32 %46, %38
+  br i1 %.not35, label %55, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load float, ptr %49, align 4, !tbaa !63
-  %51 = fcmp une float %50, %33
-  br i1 %51, label %52, label %56
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %49 = load float, ptr %48, align 4, !tbaa !63
+  %50 = fcmp une float %49, %32
+  br i1 %50, label %51, label %55
 
-52:                                               ; preds = %48, %24
-  %53 = getelementptr inbounds nuw i32, ptr %16, i64 %42
-  %54 = load i32, ptr %53, align 4, !tbaa !28
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %53, align 4, !tbaa !28
-  store i32 %41, ptr %43, align 4, !tbaa !28
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 %39, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store float %33, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !53
+51:                                               ; preds = %47, %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit
+  %52 = getelementptr inbounds nuw i32, ptr %16, i64 %41
+  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 4, !tbaa !28
+  store i32 %40, ptr %42, align 4, !tbaa !28
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 %38, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store float %32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !53
+  br label %55
+
+55:                                               ; preds = %51, %47, %44
+  store i32 0, ptr %22, align 4, !tbaa !28
   br label %56
 
-56:                                               ; preds = %52, %48, %45
-  store i32 0, ptr %22, align 4, !tbaa !28
-  br label %57
-
-57:                                               ; preds = %21, %56
+56:                                               ; preds = %21, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !64
 
-.loopexit:                                        ; preds = %57, %12, %1
+.loopexit:                                        ; preds = %56, %12, %1
   ret void
 }
 
@@ -1886,97 +1886,97 @@ define void @_ZN9callbacks21ListIntersectionsFuncEPK27RTCFilterFunctionNArgument
   %wide.trip.count = zext i32 %10 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph, %90
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
+35:                                               ; preds = %.lr.ph, %89
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !28
   %.not = icmp eq i32 %37, -1
-  br i1 %.not, label %38, label %90
+  br i1 %.not, label %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit, label %89
 
-38:                                               ; preds = %35
-  %39 = trunc nuw i64 %indvars.iv to i32
-  %40 = add i32 %29, %39
-  %41 = zext i32 %40 to i64
-  %42 = add i32 %30, %39
-  %43 = zext i32 %42 to i64
-  %44 = add i32 %31, %39
-  %45 = zext i32 %44 to i64
-  %46 = add i32 %32, %39
-  %47 = zext i32 %46 to i64
-  %48 = add i32 %33, %39
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw float, ptr %6, i64 %49
-  %51 = load float, ptr %50, align 4, !tbaa !53, !noalias !75
-  %52 = add i32 %34, %39
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !28, !noalias !75
-  %56 = getelementptr inbounds nuw float, ptr %8, i64 %41
-  %57 = load float, ptr %56, align 4, !tbaa !53, !noalias !78
-  %58 = getelementptr inbounds nuw float, ptr %8, i64 %43
-  %59 = load float, ptr %58, align 4, !tbaa !53, !noalias !78
-  %60 = getelementptr inbounds nuw i32, ptr %8, i64 %45
-  %61 = load i32, ptr %60, align 4, !tbaa !28, !noalias !78
-  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %47
-  %63 = load i32, ptr %62, align 4, !tbaa !28, !noalias !78
-  %64 = zext i32 %55 to i64
-  %65 = getelementptr inbounds nuw %"struct.callbacks::GeomPrimID", ptr %14, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !60
-  %.not57 = icmp eq i32 %66, %63
-  br i1 %.not57, label %67, label %74
+_Z17rtcGetHitFromHitNP7RTCHitNjj.exit:            ; preds = %35
+  %38 = trunc nuw i64 %indvars.iv to i32
+  %39 = add i32 %29, %38
+  %40 = zext i32 %39 to i64
+  %41 = add i32 %30, %38
+  %42 = zext i32 %41 to i64
+  %43 = add i32 %31, %38
+  %44 = zext i32 %43 to i64
+  %45 = add i32 %32, %38
+  %46 = zext i32 %45 to i64
+  %47 = add i32 %33, %38
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw float, ptr %6, i64 %48
+  %50 = load float, ptr %49, align 4, !tbaa !53, !noalias !75
+  %51 = add i32 %34, %38
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !28, !noalias !75
+  %55 = getelementptr inbounds nuw float, ptr %8, i64 %40
+  %56 = load float, ptr %55, align 4, !tbaa !53, !noalias !78
+  %57 = getelementptr inbounds nuw float, ptr %8, i64 %42
+  %58 = load float, ptr %57, align 4, !tbaa !53, !noalias !78
+  %59 = getelementptr inbounds nuw i32, ptr %8, i64 %44
+  %60 = load i32, ptr %59, align 4, !tbaa !28, !noalias !78
+  %61 = getelementptr inbounds nuw i32, ptr %8, i64 %46
+  %62 = load i32, ptr %61, align 4, !tbaa !28, !noalias !78
+  %63 = zext i32 %54 to i64
+  %64 = getelementptr inbounds nuw %"struct.callbacks::GeomPrimID", ptr %14, i64 %63
+  %65 = load i32, ptr %64, align 4, !tbaa !60
+  %.not57 = icmp eq i32 %65, %62
+  br i1 %.not57, label %66, label %73
 
-67:                                               ; preds = %38
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !62
-  %.not58 = icmp eq i32 %69, %61
-  br i1 %.not58, label %89, label %70
+66:                                               ; preds = %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !62
+  %.not58 = icmp eq i32 %68, %60
+  br i1 %.not58, label %88, label %69
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %72 = load float, ptr %71, align 4, !tbaa !63
-  %73 = fcmp une float %72, %51
-  br i1 %73, label %74, label %89
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %71 = load float, ptr %70, align 4, !tbaa !63
+  %72 = fcmp une float %71, %50
+  br i1 %72, label %73, label %88
 
-74:                                               ; preds = %70, %38
-  %75 = getelementptr inbounds nuw i32, ptr %26, i64 %64
-  %76 = load i32, ptr %75, align 4, !tbaa !28
-  %77 = getelementptr inbounds nuw i32, ptr %28, i64 %64
-  %78 = load i32, ptr %77, align 4, !tbaa !28
-  %79 = add i32 %78, %76
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %16, i64 %80
-  store i32 %55, ptr %81, align 4, !tbaa !28
-  %82 = getelementptr inbounds nuw i32, ptr %18, i64 %80
-  store i32 %63, ptr %82, align 4, !tbaa !28
-  %83 = getelementptr inbounds nuw i32, ptr %20, i64 %80
-  store i32 %61, ptr %83, align 4, !tbaa !28
-  %.idx = shl nuw nsw i64 %80, 3
-  %84 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
-  store float %57, ptr %84, align 4, !tbaa !53
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store float %59, ptr %85, align 4, !tbaa !53
-  %86 = getelementptr inbounds nuw float, ptr %24, i64 %80
-  store float %51, ptr %86, align 4, !tbaa !53
-  store i32 %63, ptr %65, align 4, !tbaa !28
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %61, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store float %51, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !53
-  %87 = load i32, ptr %77, align 4, !tbaa !28
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %77, align 4, !tbaa !28
+73:                                               ; preds = %69, %_Z17rtcGetHitFromHitNP7RTCHitNjj.exit
+  %74 = getelementptr inbounds nuw i32, ptr %26, i64 %63
+  %75 = load i32, ptr %74, align 4, !tbaa !28
+  %76 = getelementptr inbounds nuw i32, ptr %28, i64 %63
+  %77 = load i32, ptr %76, align 4, !tbaa !28
+  %78 = add i32 %77, %75
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw i32, ptr %16, i64 %79
+  store i32 %54, ptr %80, align 4, !tbaa !28
+  %81 = getelementptr inbounds nuw i32, ptr %18, i64 %79
+  store i32 %62, ptr %81, align 4, !tbaa !28
+  %82 = getelementptr inbounds nuw i32, ptr %20, i64 %79
+  store i32 %60, ptr %82, align 4, !tbaa !28
+  %.idx = shl nuw nsw i64 %79, 3
+  %83 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  store float %56, ptr %83, align 4, !tbaa !53
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store float %58, ptr %84, align 4, !tbaa !53
+  %85 = getelementptr inbounds nuw float, ptr %24, i64 %79
+  store float %50, ptr %85, align 4, !tbaa !53
+  store i32 %62, ptr %64, align 4, !tbaa !28
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store i32 %60, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store float %50, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !53
+  %86 = load i32, ptr %76, align 4, !tbaa !28
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %76, align 4, !tbaa !28
+  br label %88
+
+88:                                               ; preds = %73, %69, %66
+  store i32 0, ptr %36, align 4, !tbaa !28
   br label %89
 
-89:                                               ; preds = %74, %70, %67
-  store i32 0, ptr %36, align 4, !tbaa !28
-  br label %90
-
-90:                                               ; preds = %35, %89
+89:                                               ; preds = %35, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !81
 
-.loopexit:                                        ; preds = %90, %12, %1
+.loopexit:                                        ; preds = %89, %12, %1
   ret void
 }
 
@@ -2649,9 +2649,9 @@ define linkonce_odr void @_ZN6open3d1t8geometry15RaycastingScene7CPUImpl14TestOc
 
 _ZN6open3d1t8geometry15RaycastingScene4Impl11CommitSceneEv.exit: ; preds = %7, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 -1, ptr %15, align 4, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 -1, ptr %33, align 4, !tbaa !28
+  store i32 -1, ptr %15, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 8, !tbaa !168
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -7847,28 +7847,28 @@ define linkonce_odr void @_ZZN6open3d1t8geometry15RaycastingScene7CPUImpl20Compu
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  br label %36
+  br label %_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit
 
-._crit_edge:                                      ; preds = %36, %2
+._crit_edge:                                      ; preds = %_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit, %2
   ret void
 
-36:                                               ; preds = %.lr.ph, %36
-  %.017 = phi i64 [ %7, %.lr.ph ], [ %80, %36 ]
+_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit: ; preds = %.lr.ph, %_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit
+  %.017 = phi i64 [ %7, %.lr.ph ], [ %79, %_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %37 = load ptr, ptr %0, align 8, !tbaa !358
-  %38 = load ptr, ptr %37, align 8, !tbaa !124
-  %39 = mul i64 %.017, 3
-  %40 = getelementptr inbounds nuw float, ptr %38, i64 %39
-  %41 = load float, ptr %40, align 4, !tbaa !53
-  store float %41, ptr %3, align 16, !tbaa !359
-  %42 = add i64 %39, 1
-  %43 = getelementptr inbounds nuw float, ptr %38, i64 %42
-  %44 = load float, ptr %43, align 4, !tbaa !53
-  store float %44, ptr %12, align 4, !tbaa !361
-  %45 = add i64 %39, 2
-  %46 = getelementptr inbounds nuw float, ptr %38, i64 %45
-  %47 = load float, ptr %46, align 4, !tbaa !53
-  store float %47, ptr %13, align 8, !tbaa !362
+  %36 = load ptr, ptr %0, align 8, !tbaa !358
+  %37 = load ptr, ptr %36, align 8, !tbaa !124
+  %38 = mul i64 %.017, 3
+  %39 = getelementptr inbounds nuw float, ptr %37, i64 %38
+  %40 = load float, ptr %39, align 4, !tbaa !53
+  store float %40, ptr %3, align 16, !tbaa !359
+  %41 = add i64 %38, 1
+  %42 = getelementptr inbounds nuw float, ptr %37, i64 %41
+  %43 = load float, ptr %42, align 4, !tbaa !53
+  store float %43, ptr %12, align 4, !tbaa !361
+  %44 = add i64 %38, 2
+  %45 = getelementptr inbounds nuw float, ptr %37, i64 %44
+  %46 = load float, ptr %45, align 4, !tbaa !53
+  store float %46, ptr %13, align 8, !tbaa !362
   store float 0x7FF0000000000000, ptr %14, align 16, !tbaa !363
   store float 0.000000e+00, ptr %15, align 4, !tbaa !364
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7880,56 +7880,56 @@ define linkonce_odr void @_ZZN6open3d1t8geometry15RaycastingScene7CPUImpl20Compu
   store i32 0, ptr %20, align 8, !tbaa !378
   store i32 -1, ptr %21, align 16, !tbaa !28
   store i32 -1, ptr %22, align 4, !tbaa !28
-  %48 = load ptr, ptr %23, align 8, !tbaa !120
-  %49 = call zeroext i1 @rtcPointQuery(ptr noundef %48, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS1_14AlignedVector3IfEENS2_IfLi2ELi1ELi2ELi2ELi1EEEEEbP30RTCPointQueryFunctionArguments, ptr noundef nonnull %4)
-  %50 = load float, ptr %4, align 8, !tbaa !53
-  %51 = load ptr, ptr %24, align 8, !tbaa !380
-  %52 = load ptr, ptr %51, align 8, !tbaa !124
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %39
-  store float %50, ptr %53, align 4, !tbaa !53
-  %54 = load float, ptr %25, align 4, !tbaa !53
-  %55 = getelementptr inbounds nuw float, ptr %52, i64 %42
-  store float %54, ptr %55, align 4, !tbaa !53
-  %56 = load float, ptr %26, align 8, !tbaa !53
-  %57 = getelementptr inbounds nuw float, ptr %52, i64 %45
-  store float %56, ptr %57, align 4, !tbaa !53
-  %58 = load i32, ptr %17, align 8, !tbaa !375
-  %59 = load ptr, ptr %27, align 8, !tbaa !381
-  %60 = load ptr, ptr %59, align 8, !tbaa !126
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %.017
-  store i32 %58, ptr %61, align 4, !tbaa !28
-  %62 = load i32, ptr %16, align 4, !tbaa !365
-  %63 = load ptr, ptr %28, align 8, !tbaa !382
-  %64 = load ptr, ptr %63, align 8, !tbaa !126
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %.017
-  store i32 %62, ptr %65, align 4, !tbaa !28
-  %66 = load float, ptr %29, align 4, !tbaa !53
-  %67 = load ptr, ptr %30, align 8, !tbaa !383
-  %68 = load ptr, ptr %67, align 8, !tbaa !124
+  %47 = load ptr, ptr %23, align 8, !tbaa !120
+  %48 = call zeroext i1 @rtcPointQuery(ptr noundef %47, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS1_14AlignedVector3IfEENS2_IfLi2ELi1ELi2ELi2ELi1EEEEEbP30RTCPointQueryFunctionArguments, ptr noundef nonnull %4)
+  %49 = load float, ptr %4, align 8, !tbaa !53
+  %50 = load ptr, ptr %24, align 8, !tbaa !380
+  %51 = load ptr, ptr %50, align 8, !tbaa !124
+  %52 = getelementptr inbounds nuw float, ptr %51, i64 %38
+  store float %49, ptr %52, align 4, !tbaa !53
+  %53 = load float, ptr %25, align 4, !tbaa !53
+  %54 = getelementptr inbounds nuw float, ptr %51, i64 %41
+  store float %53, ptr %54, align 4, !tbaa !53
+  %55 = load float, ptr %26, align 8, !tbaa !53
+  %56 = getelementptr inbounds nuw float, ptr %51, i64 %44
+  store float %55, ptr %56, align 4, !tbaa !53
+  %57 = load i32, ptr %17, align 8, !tbaa !375
+  %58 = load ptr, ptr %27, align 8, !tbaa !381
+  %59 = load ptr, ptr %58, align 8, !tbaa !126
+  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %.017
+  store i32 %57, ptr %60, align 4, !tbaa !28
+  %61 = load i32, ptr %16, align 4, !tbaa !365
+  %62 = load ptr, ptr %28, align 8, !tbaa !382
+  %63 = load ptr, ptr %62, align 8, !tbaa !126
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %.017
+  store i32 %61, ptr %64, align 4, !tbaa !28
+  %65 = load float, ptr %29, align 4, !tbaa !53
+  %66 = load ptr, ptr %30, align 8, !tbaa !383
+  %67 = load ptr, ptr %66, align 8, !tbaa !124
   %.idx = shl i64 %.017, 3
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
-  store float %66, ptr %69, align 4, !tbaa !53
-  %70 = load float, ptr %31, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store float %70, ptr %71, align 4, !tbaa !53
-  %72 = load float, ptr %32, align 4, !tbaa !53
-  %73 = load ptr, ptr %33, align 8, !tbaa !384
-  %74 = load ptr, ptr %73, align 8, !tbaa !124
-  %75 = getelementptr inbounds nuw float, ptr %74, i64 %39
-  store float %72, ptr %75, align 4, !tbaa !53
-  %76 = load float, ptr %34, align 8, !tbaa !53
-  %77 = getelementptr inbounds nuw float, ptr %74, i64 %42
-  store float %76, ptr %77, align 4, !tbaa !53
-  %78 = load float, ptr %35, align 4, !tbaa !53
-  %79 = getelementptr inbounds nuw float, ptr %74, i64 %45
-  store float %78, ptr %79, align 4, !tbaa !53
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
+  store float %65, ptr %68, align 4, !tbaa !53
+  %69 = load float, ptr %31, align 8, !tbaa !53
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store float %69, ptr %70, align 4, !tbaa !53
+  %71 = load float, ptr %32, align 4, !tbaa !53
+  %72 = load ptr, ptr %33, align 8, !tbaa !384
+  %73 = load ptr, ptr %72, align 8, !tbaa !124
+  %74 = getelementptr inbounds nuw float, ptr %73, i64 %38
+  store float %71, ptr %74, align 4, !tbaa !53
+  %75 = load float, ptr %34, align 8, !tbaa !53
+  %76 = getelementptr inbounds nuw float, ptr %73, i64 %41
+  store float %75, ptr %76, align 4, !tbaa !53
+  %77 = load float, ptr %35, align 4, !tbaa !53
+  %78 = getelementptr inbounds nuw float, ptr %73, i64 %44
+  store float %77, ptr %78, align 4, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %80 = add nuw i64 %.017, 1
-  %81 = load i64, ptr %1, align 8, !tbaa !164
-  %82 = icmp ult i64 %80, %81
-  br i1 %82, label %36, label %._crit_edge, !llvm.loop !385
+  %79 = add nuw i64 %.017, 1
+  %80 = load i64, ptr %1, align 8, !tbaa !164
+  %81 = icmp ult i64 %79, %80
+  br i1 %81, label %_Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit, label %._crit_edge, !llvm.loop !385
 }
 
 declare zeroext i1 @rtcPointQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5

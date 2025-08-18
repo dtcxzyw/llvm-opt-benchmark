@@ -12461,7 +12461,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %1064, %1062
   store ptr %1078, ptr %258, align 8, !tbaa !763
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit90.i
 
-_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.critedge.i: ; preds = %._crit_edge.i221
+_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.i.critedge: ; preds = %._crit_edge.i221
   %1079 = load ptr, ptr %257, align 8, !tbaa !767
   %1080 = load ptr, ptr %258, align 8, !tbaa !763
   %1081 = ptrtoint ptr %1079 to i64
@@ -12470,25 +12470,24 @@ _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.critedge.i: ; preds = %._crit_edg
   %1084 = icmp ult i64 %1083, 2
   br i1 %1084, label %1085, label %1087
 
-1085:                                             ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.critedge.i
+1085:                                             ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.i.critedge
   %1086 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull @.str.140, i64 noundef 2) #34
-  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i
+  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i.backedge
 
-1087:                                             ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.critedge.i
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i.backedge: ; preds = %1085, %1087
+  %.0.i95.i.be = phi ptr [ %1086, %1085 ], [ %26, %1087 ]
+  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i
+
+1087:                                             ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.i.critedge
   store i16 8236, ptr %1080, align 1
   %1088 = load ptr, ptr %258, align 8, !tbaa !763
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 2
   store ptr %1089, ptr %258, align 8, !tbaa !763
-  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i
+  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i.backedge
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i: ; preds = %1087, %1085
-  %.0.i95.be.i = phi ptr [ %1086, %1085 ], [ %26, %1087 ]
-  %.pre212.i = load ptr, ptr %27, align 8, !tbaa !1181
-  br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i
-
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i:  ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i
-  %1090 = phi ptr [ %.pre212.i, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i ], [ %1066, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
-  %.0.i95.i = phi ptr [ %.0.i95.be.i, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.backedge.i ], [ %26, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i:  ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i.backedge
+  %.0.i95.i = phi ptr [ %.0.i95.i.be, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96.i.backedge ], [ %26, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
+  %1090 = load ptr, ptr %27, align 8, !tbaa !1181
   %1091 = load i64, ptr %1090, align 8, !tbaa !47
   %1092 = trunc i64 %1091 to i32
   %1093 = call { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 noundef %1092) #34
@@ -12531,7 +12530,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit99.i:  ; preds = %1107, %1106, %1104
   %1114 = getelementptr inbounds nuw i64, ptr %1111, i64 %1113
   store ptr %1114, ptr %27, align 8
   %.not197.i = icmp eq ptr %1114, %1067
-  br i1 %.not197.i, label %._crit_edge203.i, label %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.critedge.i
+  br i1 %.not197.i, label %._crit_edge203.i, label %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.i.critedge
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit99.i, %_ZN4llvm11raw_ostreamlsEc.exit102.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEc.exit102.i ], [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit99.i ]

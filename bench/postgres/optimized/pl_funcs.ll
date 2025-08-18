@@ -651,134 +651,134 @@ define internal fastcc void @mark_stmt(ptr noundef readonly captures(address_is_
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %63
+  br i1 %6, label %7, label %65
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %49, label %10
+  br i1 %.not, label %51, label %.preheader85
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.not46.i = icmp eq ptr %12, null
-  br i1 %.not46.i, label %.critedge.i.thread, label %.lr.ph
+.preheader85:                                     ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = load i32, ptr %13, align 4
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph87, label %.critedge.i.thread
-
-.lr.ph87:                                         ; preds = %.lr.ph, %.lr.ph87
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph87 ], [ 0, %.lr.ph ]
-  %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %19, ptr noundef null)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %13, align 4
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph87, label %.critedge.i
-
-.critedge.i:                                      ; preds = %.lr.ph87
+.split.us:                                        ; preds = %.lr.ph89
   %.pre = load ptr, ptr %8, align 8
   %.not41.i = icmp eq ptr %.pre, null
-  br i1 %.not41.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %.critedge.i.thread
+  br i1 %.not41.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %.preheader
 
-.critedge.i.thread:                               ; preds = %10, %.lr.ph, %.critedge.i
-  %23 = phi ptr [ %.pre, %.critedge.i ], [ %9, %.lr.ph ], [ %9, %10 ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.not43.i = icmp eq ptr %25, null
-  br i1 %.not43.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %.lr.ph94
+.preheader:                                       ; preds = %.preheader85, %.lr.ph, %.split.us
+  %13 = phi ptr [ %.pre, %.split.us ], [ %9, %.lr.ph ], [ %9, %.preheader85 ]
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %.lr.ph99
 
-.lr.ph94:                                         ; preds = %.critedge.i.thread
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i32, ptr %26, align 4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.critedge52.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit
+.lr.ph:                                           ; preds = %.preheader85
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %19 = load i32, ptr %17, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph89, label %.preheader
 
-.critedge52.i:                                    ; preds = %.lr.ph94, %.critedge4.i
-  %30 = phi i32 [ %46, %.critedge4.i ], [ %28, %.lr.ph94 ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.critedge4.i ], [ 0, %.lr.ph94 ]
-  %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv106
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %.not45.i = icmp eq ptr %35, null
-  br i1 %.not45.i, label %.critedge4.i, label %.lr.ph89
+.lr.ph89:                                         ; preds = %.lr.ph, %.lr.ph89
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph89 ], [ 0, %.lr.ph ]
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %23, ptr noundef null)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %24 = load i32, ptr %17, align 4
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next, %25
+  br i1 %26, label %.lr.ph89, label %.split.us
 
-.lr.ph89:                                         ; preds = %.critedge52.i
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %38 = load i32, ptr %36, align 4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph92, label %.critedge4.i
+.lr.ph99:                                         ; preds = %.preheader
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %29 = load i32, ptr %27, align 4
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph107, label %plpgsql_statement_tree_walker_impl.specialized.1.exit
 
-.lr.ph92:                                         ; preds = %.lr.ph89, %.lr.ph92
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph92 ], [ 0, %.lr.ph89 ]
-  %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv103
-  %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %42, ptr noundef null)
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %43 = load i32, ptr %36, align 4
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next104, %44
-  br i1 %45, label %.lr.ph92, label %.critedge4.i.loopexit
+.lr.ph107:                                        ; preds = %.lr.ph99, %.split97.us
+  %31 = phi i32 [ %38, %.split97.us ], [ %29, %.lr.ph99 ]
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.split97.us ], [ 0, %.lr.ph99 ]
+  %32 = load ptr, ptr %28, align 8
+  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv115
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.split97.us, label %.lr.ph91
 
-.critedge4.i.loopexit:                            ; preds = %.lr.ph92
-  %.pre112 = load i32, ptr %26, align 4
-  br label %.critedge4.i
+.split97.us.loopexit:                             ; preds = %.lr.ph94
+  %.pre121 = load i32, ptr %27, align 4
+  br label %.split97.us
 
-.critedge4.i:                                     ; preds = %.critedge4.i.loopexit, %.lr.ph89, %.critedge52.i
-  %46 = phi i32 [ %.pre112, %.critedge4.i.loopexit ], [ %30, %.lr.ph89 ], [ %30, %.critedge52.i ]
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next107, %47
-  br i1 %48, label %.critedge52.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit
+.split97.us:                                      ; preds = %.split97.us.loopexit, %.lr.ph91, %.lr.ph107
+  %38 = phi i32 [ %.pre121, %.split97.us.loopexit ], [ %31, %.lr.ph91 ], [ %31, %.lr.ph107 ]
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next116, %39
+  br i1 %40, label %.lr.ph107, label %plpgsql_statement_tree_walker_impl.specialized.1.exit
 
-49:                                               ; preds = %7
-  %50 = tail call ptr @bms_copy(ptr noundef %1) #16
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph101, label %._crit_edge
+.lr.ph91:                                         ; preds = %.lr.ph107
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %43 = load i32, ptr %41, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph94, label %.split97.us
 
-.lr.ph101:                                        ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %55
+.lr.ph94:                                         ; preds = %.lr.ph91, %.lr.ph94
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph94 ], [ 0, %.lr.ph91 ]
+  %45 = load ptr, ptr %42, align 8
+  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv112
+  %47 = load ptr, ptr %46, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %47, ptr noundef null)
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %48 = load i32, ptr %41, align 4
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next113, %49
+  br i1 %50, label %.lr.ph94, label %.split97.us.loopexit
 
-._crit_edge:                                      ; preds = %55, %49
-  %.016.lcssa = phi ptr [ %50, %49 ], [ %59, %55 ]
+51:                                               ; preds = %7
+  %52 = tail call ptr @bms_copy(ptr noundef %1) #16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph110, label %._crit_edge
+
+.lr.ph110:                                        ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %57
+
+._crit_edge:                                      ; preds = %57, %51
+  %.016.lcssa = phi ptr [ %52, %51 ], [ %61, %57 ]
   tail call fastcc void @plpgsql_statement_tree_walker_impl.specialized.2(ptr noundef %0, ptr noundef %.016.lcssa)
   tail call void @bms_free(ptr noundef %.016.lcssa) #16
   br label %plpgsql_statement_tree_walker_impl.specialized.1.exit
 
-55:                                               ; preds = %.lr.ph101, %55
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next110, %55 ]
-  %.01699 = phi ptr [ %50, %.lr.ph101 ], [ %59, %55 ]
-  %56 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv109
-  %58 = load i32, ptr %57, align 4
-  %59 = tail call ptr @bms_add_member(ptr noundef %.01699, i32 noundef %58) #16
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %60 = load i32, ptr %51, align 8
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next110, %61
-  br i1 %62, label %55, label %._crit_edge, !llvm.loop !17
+57:                                               ; preds = %.lr.ph110, %57
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next119, %57 ]
+  %.016108 = phi ptr [ %52, %.lr.ph110 ], [ %61, %57 ]
+  %58 = load ptr, ptr %56, align 8
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv118
+  %60 = load i32, ptr %59, align 4
+  %61 = tail call ptr @bms_add_member(ptr noundef %.016108, i32 noundef %60) #16
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %62 = load i32, ptr %53, align 8
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next119, %63
+  br i1 %64, label %57, label %._crit_edge, !llvm.loop !17
 
-63:                                               ; preds = %4
+65:                                               ; preds = %4
   tail call fastcc void @plpgsql_statement_tree_walker_impl.specialized.2(ptr noundef %0, ptr noundef %1)
   br label %plpgsql_statement_tree_walker_impl.specialized.1.exit
 
-plpgsql_statement_tree_walker_impl.specialized.1.exit: ; preds = %.critedge4.i, %.critedge.i.thread, %.lr.ph94, %.critedge.i, %._crit_edge, %2, %63
+plpgsql_statement_tree_walker_impl.specialized.1.exit: ; preds = %.split97.us, %.preheader, %.lr.ph99, %.split.us, %._crit_edge, %2, %65
   ret void
 }
 
@@ -909,1202 +909,1202 @@ define internal fastcc void @free_stmt(ptr noundef readonly captures(address_is_
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 4
-  switch i32 %4, label %534 [
-    i32 0, label %5
-    i32 1, label %46
-    i32 2, label %.critedge54.i
-    i32 3, label %.critedge62.i
-    i32 4, label %166
-    i32 5, label %.critedge70.i
-    i32 6, label %.critedge72.i
-    i32 7, label %231
-    i32 8, label %251
-    i32 9, label %.critedge78.i
-    i32 10, label %290
-    i32 11, label %298
-    i32 12, label %306
-    i32 13, label %.critedge80.i
-    i32 14, label %346
-    i32 15, label %385
-    i32 16, label %400
-    i32 17, label %.critedge86.i
-    i32 18, label %433
+  switch i32 %4, label %544 [
+    i32 0, label %.preheader1
+    i32 1, label %60
+    i32 2, label %68
+    i32 3, label %132
+    i32 4, label %.preheader7
+    i32 5, label %193
+    i32 6, label %213
+    i32 7, label %.preheader11
+    i32 8, label %.preheader12
+    i32 9, label %279
+    i32 10, label %299
+    i32 11, label %307
+    i32 12, label %315
+    i32 13, label %323
+    i32 14, label %.preheader17
+    i32 15, label %393
+    i32 16, label %408
+    i32 17, label %416
+    i32 18, label %.preheader20
     i32 19, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
-    i32 20, label %.critedge92.i
-    i32 21, label %510
+    i32 20, label %479
+    i32 21, label %520
     i32 22, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
-    i32 23, label %518
-    i32 24, label %526
+    i32 23, label %528
+    i32 24, label %536
     i32 25, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
     i32 26, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
   ]
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.not46.i = icmp eq ptr %7, null
-  br i1 %.not46.i, label %.critedge.i, label %.lr.ph114
+.preheader20:                                     ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.split.us, label %.lr.ph27
 
-.lr.ph114:                                        ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph117, label %.critedge.i
+.preheader17:                                     ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %.preheader15, label %.lr.ph42
 
-.lr.ph117:                                        ; preds = %.lr.ph114, %.lr.ph117
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.lr.ph117 ], [ 0, %.lr.ph114 ]
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv198
-  %14 = load ptr, ptr %13, align 8
-  tail call fastcc void @free_stmt(ptr noundef %14)
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %15 = load i32, ptr %8, align 4
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next199, %16
-  br i1 %17, label %.lr.ph117, label %.critedge.i
+.preheader12:                                     ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.not17.i = icmp eq ptr %12, null
+  br i1 %.not17.i, label %.critedge28.i, label %.lr.ph63
 
-.critedge.i:                                      ; preds = %.lr.ph117, %.lr.ph114, %5
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %.not41.i = icmp eq ptr %19, null
-  br i1 %.not41.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %20
+.preheader11:                                     ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %.not19.i = icmp eq ptr %15, null
+  br i1 %.not19.i, label %.critedge26.i, label %.lr.ph68
 
-20:                                               ; preds = %.critedge.i
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %.not43.i = icmp eq ptr %22, null
-  br i1 %.not43.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph124
+.preheader7:                                      ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %.not25.i = icmp eq ptr %18, null
+  br i1 %.not25.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph83
 
-.lr.ph124:                                        ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %25 = load i32, ptr %23, align 4
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.critedge52.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.preheader1:                                      ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.not46.i = icmp eq ptr %21, null
+  br i1 %.not46.i, label %.critedge.i, label %.lr.ph123
 
-.critedge52.i:                                    ; preds = %.lr.ph124, %.critedge4.i
-  %27 = phi i32 [ %43, %.critedge4.i ], [ %25, %.lr.ph124 ]
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.critedge4.i ], [ 0, %.lr.ph124 ]
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv204
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %.not45.i = icmp eq ptr %32, null
-  br i1 %.not45.i, label %.critedge4.i, label %.lr.ph119
+.lr.ph123:                                        ; preds = %.preheader1
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %24 = load i32, ptr %22, align 4
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph126, label %.critedge.i
 
-.lr.ph119:                                        ; preds = %.critedge52.i
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %35 = load i32, ptr %33, align 4
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph122, label %.critedge4.i
+.lr.ph126:                                        ; preds = %.lr.ph123, %.lr.ph126
+  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %.lr.ph126 ], [ 0, %.lr.ph123 ]
+  %26 = load ptr, ptr %23, align 8
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv214
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @free_stmt(ptr noundef %28)
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %29 = load i32, ptr %22, align 4
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next215, %30
+  br i1 %31, label %.lr.ph126, label %.critedge.i
 
-.lr.ph122:                                        ; preds = %.lr.ph119, %.lr.ph122
-  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.lr.ph122 ], [ 0, %.lr.ph119 ]
-  %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv201
-  %39 = load ptr, ptr %38, align 8
-  tail call fastcc void @free_stmt(ptr noundef %39)
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %40 = load i32, ptr %33, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next202, %41
-  br i1 %42, label %.lr.ph122, label %.critedge4.i.loopexit
+.critedge.i:                                      ; preds = %.lr.ph126, %.lr.ph123, %.preheader1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %.not41.i = icmp eq ptr %33, null
+  br i1 %.not41.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.preheader
 
-.critedge4.i.loopexit:                            ; preds = %.lr.ph122
-  %.pre212 = load i32, ptr %23, align 4
-  br label %.critedge4.i
+.preheader:                                       ; preds = %.critedge.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %.not43.i = icmp eq ptr %35, null
+  br i1 %.not43.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph136
 
-.critedge4.i:                                     ; preds = %.critedge4.i.loopexit, %.lr.ph119, %.critedge52.i
-  %43 = phi i32 [ %.pre212, %.critedge4.i.loopexit ], [ %27, %.lr.ph119 ], [ %27, %.critedge52.i ]
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next205, %44
-  br i1 %45, label %.critedge52.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.lr.ph136:                                        ; preds = %.preheader
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %38 = load i32, ptr %36, align 4
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph144, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-46:                                               ; preds = %3
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %.not.i99 = icmp eq ptr %48, null
-  br i1 %.not.i99, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %49
+.lr.ph144:                                        ; preds = %.lr.ph136, %.split134.us
+  %40 = phi i32 [ %47, %.split134.us ], [ %38, %.lr.ph136 ]
+  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.split134.us ], [ 0, %.lr.ph136 ]
+  %41 = load ptr, ptr %37, align 8
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv220
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.split134.us, label %.lr.ph128
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %.not5.i100 = icmp eq ptr %51, null
-  br i1 %.not5.i100, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %52
+.split134.us.loopexit:                            ; preds = %.lr.ph131
+  %.pre228 = load i32, ptr %36, align 4
+  br label %.split134.us
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @SPI_freeplan(ptr noundef nonnull %51) #16
-  store ptr null, ptr %50, align 8
+.split134.us:                                     ; preds = %.split134.us.loopexit, %.lr.ph128, %.lr.ph144
+  %47 = phi i32 [ %.pre228, %.split134.us.loopexit ], [ %40, %.lr.ph128 ], [ %40, %.lr.ph144 ]
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next221, %48
+  br i1 %49, label %.lr.ph144, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+
+.lr.ph128:                                        ; preds = %.lr.ph144
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %52 = load i32, ptr %50, align 4
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph131, label %.split134.us
+
+.lr.ph131:                                        ; preds = %.lr.ph128, %.lr.ph131
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph131 ], [ 0, %.lr.ph128 ]
+  %54 = load ptr, ptr %51, align 8
+  %55 = getelementptr inbounds nuw %union.ListCell, ptr %54, i64 %indvars.iv217
+  %56 = load ptr, ptr %55, align 8
+  tail call fastcc void @free_stmt(ptr noundef %56)
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %57 = load i32, ptr %50, align 4
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next218, %58
+  br i1 %59, label %.lr.ph131, label %.split134.us.loopexit
+
+60:                                               ; preds = %3
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %.not.i100 = icmp eq ptr %62, null
+  br i1 %.not.i100, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %63
+
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %.not5.i101 = icmp eq ptr %65, null
+  br i1 %.not5.i101, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %66
+
+66:                                               ; preds = %63
+  %67 = tail call i32 @SPI_freeplan(ptr noundef nonnull %65) #16
+  store ptr null, ptr %64, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge54.i:                                    ; preds = %3
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %.not.i96 = icmp eq ptr %55, null
-  br i1 %.not.i96, label %free_expr.exit98, label %56
+68:                                               ; preds = %3
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %.not.i97 = icmp eq ptr %70, null
+  br i1 %.not.i97, label %free_expr.exit99, label %71
 
-56:                                               ; preds = %.critedge54.i
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %58 = load ptr, ptr %57, align 8
-  %.not5.i97 = icmp eq ptr %58, null
-  br i1 %.not5.i97, label %free_expr.exit98, label %59
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %73 = load ptr, ptr %72, align 8
+  %.not5.i98 = icmp eq ptr %73, null
+  br i1 %.not5.i98, label %free_expr.exit99, label %74
 
-59:                                               ; preds = %56
-  %60 = tail call i32 @SPI_freeplan(ptr noundef nonnull %58) #16
-  store ptr null, ptr %57, align 8
-  br label %free_expr.exit98
+74:                                               ; preds = %71
+  %75 = tail call i32 @SPI_freeplan(ptr noundef nonnull %73) #16
+  store ptr null, ptr %72, align 8
+  br label %free_expr.exit99
 
-free_expr.exit98:                                 ; preds = %.critedge54.i, %56, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %.not39.i = icmp eq ptr %62, null
-  br i1 %.not39.i, label %.critedge6.i, label %.lr.ph93
+free_expr.exit99:                                 ; preds = %68, %71, %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %.not39.i = icmp eq ptr %77, null
+  br i1 %.not39.i, label %.critedge6.i, label %.lr.ph103
 
-.lr.ph93:                                         ; preds = %free_expr.exit98
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %65 = load i32, ptr %63, align 4
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph96, label %.critedge6.i
+.lr.ph103:                                        ; preds = %free_expr.exit99
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %80 = load i32, ptr %78, align 4
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %.lr.ph106, label %.critedge6.i
 
-.lr.ph96:                                         ; preds = %.lr.ph93, %.lr.ph96
-  %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph96 ], [ 0, %.lr.ph93 ]
-  %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv186
-  %69 = load ptr, ptr %68, align 8
-  tail call fastcc void @free_stmt(ptr noundef %69)
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %70 = load i32, ptr %63, align 4
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next187, %71
-  br i1 %72, label %.lr.ph96, label %.critedge6.i
+.lr.ph106:                                        ; preds = %.lr.ph103, %.lr.ph106
+  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.lr.ph106 ], [ 0, %.lr.ph103 ]
+  %82 = load ptr, ptr %79, align 8
+  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv202
+  %84 = load ptr, ptr %83, align 8
+  tail call fastcc void @free_stmt(ptr noundef %84)
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %85 = load i32, ptr %78, align 4
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next203, %86
+  br i1 %87, label %.lr.ph106, label %.critedge6.i
 
-.critedge6.i:                                     ; preds = %.lr.ph96, %.lr.ph93, %free_expr.exit98
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %.not36.i = icmp eq ptr %74, null
-  br i1 %.not36.i, label %.critedge8.i, label %.lr.ph103
+.critedge6.i:                                     ; preds = %.lr.ph106, %.lr.ph103, %free_expr.exit99
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  %.not36.i = icmp eq ptr %89, null
+  br i1 %.not36.i, label %.critedge8.i, label %.lr.ph115
 
-.lr.ph103:                                        ; preds = %.critedge6.i
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %77 = load i32, ptr %75, align 4
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.critedge58.i, label %.critedge8.i
+.lr.ph115:                                        ; preds = %.critedge6.i
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = load i32, ptr %90, align 4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph254, label %.critedge8.i
 
-.critedge58.i:                                    ; preds = %.lr.ph103, %.critedge10.i
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.critedge10.i ], [ 0, %.lr.ph103 ]
-  %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %79, i64 %indvars.iv192
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %.not.i93 = icmp eq ptr %83, null
-  br i1 %.not.i93, label %free_expr.exit95, label %84
-
-84:                                               ; preds = %.critedge58.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %86 = load ptr, ptr %85, align 8
-  %.not5.i94 = icmp eq ptr %86, null
-  br i1 %.not5.i94, label %free_expr.exit95, label %87
-
-87:                                               ; preds = %84
-  %88 = tail call i32 @SPI_freeplan(ptr noundef nonnull %86) #16
-  store ptr null, ptr %85, align 8
-  br label %free_expr.exit95
-
-free_expr.exit95:                                 ; preds = %.critedge58.i, %84, %87
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %.not38.i = icmp eq ptr %90, null
-  br i1 %.not38.i, label %.critedge10.i, label %.lr.ph98
-
-.lr.ph98:                                         ; preds = %free_expr.exit95
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load i32, ptr %91, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph101, label %.critedge10.i
-
-.critedge8.i:                                     ; preds = %.critedge10.i, %.lr.ph103, %.critedge6.i
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
+.lr.ph254:                                        ; preds = %.lr.ph115, %.split113.us
+  %indvars.iv208253 = phi i64 [ %indvars.iv.next209, %.split113.us ], [ 0, %.lr.ph115 ]
+  %94 = load ptr, ptr %91, align 8
+  %95 = getelementptr inbounds nuw %union.ListCell, ptr %94, i64 %indvars.iv208253
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %.not35.i = icmp eq ptr %96, null
-  br i1 %.not35.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph109
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %.not.i94 = icmp eq ptr %98, null
+  br i1 %.not.i94, label %free_expr.exit96, label %99
 
-.lr.ph109:                                        ; preds = %.critedge8.i
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %99 = load i32, ptr %97, align 4
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %.lr.ph112, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+99:                                               ; preds = %.lr.ph254
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %101 = load ptr, ptr %100, align 8
+  %.not5.i95 = icmp eq ptr %101, null
+  br i1 %.not5.i95, label %free_expr.exit96, label %102
 
-.lr.ph101:                                        ; preds = %.lr.ph98, %.lr.ph101
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph101 ], [ 0, %.lr.ph98 ]
-  %101 = load ptr, ptr %92, align 8
-  %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv189
-  %103 = load ptr, ptr %102, align 8
-  tail call fastcc void @free_stmt(ptr noundef %103)
-  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %104 = load i32, ptr %91, align 4
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next190, %105
-  br i1 %106, label %.lr.ph101, label %.critedge10.i
+102:                                              ; preds = %99
+  %103 = tail call i32 @SPI_freeplan(ptr noundef nonnull %101) #16
+  store ptr null, ptr %100, align 8
+  br label %free_expr.exit96
 
-.critedge10.i:                                    ; preds = %.lr.ph101, %.lr.ph98, %free_expr.exit95
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %107 = load i32, ptr %75, align 4
-  %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next193, %108
-  br i1 %109, label %.critedge58.i, label %.critedge8.i
+free_expr.exit96:                                 ; preds = %.lr.ph254, %99, %102
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.split113.us, label %.lr.ph108
 
-.lr.ph112:                                        ; preds = %.lr.ph109, %.lr.ph112
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %.lr.ph112 ], [ 0, %.lr.ph109 ]
-  %110 = load ptr, ptr %98, align 8
-  %111 = getelementptr inbounds nuw %union.ListCell, ptr %110, i64 %indvars.iv195
-  %112 = load ptr, ptr %111, align 8
-  tail call fastcc void @free_stmt(ptr noundef %112)
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %113 = load i32, ptr %97, align 4
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next196, %114
-  br i1 %115, label %.lr.ph112, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.critedge8.i:                                     ; preds = %.split113.us, %.lr.ph115, %.critedge6.i
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %.not35.i = icmp eq ptr %108, null
+  br i1 %.not35.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph118
 
-.critedge62.i:                                    ; preds = %3
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %.not.i90 = icmp eq ptr %117, null
-  br i1 %.not.i90, label %free_expr.exit92, label %118
+.split113.us:                                     ; preds = %.lr.ph111, %.lr.ph108, %free_expr.exit96
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208253, 1
+  %110 = load i32, ptr %90, align 4
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next209, %111
+  br i1 %112, label %.lr.ph254, label %.critedge8.i
 
-118:                                              ; preds = %.critedge62.i
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %120 = load ptr, ptr %119, align 8
-  %.not5.i91 = icmp eq ptr %120, null
-  br i1 %.not5.i91, label %free_expr.exit92, label %121
+.lr.ph108:                                        ; preds = %free_expr.exit96
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %115 = load i32, ptr %113, align 4
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %.lr.ph111, label %.split113.us
 
-121:                                              ; preds = %118
-  %122 = tail call i32 @SPI_freeplan(ptr noundef nonnull %120) #16
-  store ptr null, ptr %119, align 8
-  br label %free_expr.exit92
+.lr.ph111:                                        ; preds = %.lr.ph108, %.lr.ph111
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %.lr.ph111 ], [ 0, %.lr.ph108 ]
+  %117 = load ptr, ptr %114, align 8
+  %118 = getelementptr inbounds nuw %union.ListCell, ptr %117, i64 %indvars.iv205
+  %119 = load ptr, ptr %118, align 8
+  tail call fastcc void @free_stmt(ptr noundef %119)
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %120 = load i32, ptr %113, align 4
+  %121 = sext i32 %120 to i64
+  %122 = icmp slt i64 %indvars.iv.next206, %121
+  br i1 %122, label %.lr.ph111, label %.split113.us
 
-free_expr.exit92:                                 ; preds = %.critedge62.i, %118, %121
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %.not29.i = icmp eq ptr %124, null
-  br i1 %.not29.i, label %.critedge14.i, label %.lr.ph82
+.lr.ph118:                                        ; preds = %.critedge8.i
+  %123 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %124 = load i32, ptr %109, align 4
+  %125 = icmp sgt i32 %124, 0
+  br i1 %125, label %.lr.ph121, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.lr.ph82:                                         ; preds = %free_expr.exit92
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %127 = load i32, ptr %125, align 4
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %.critedge64.i, label %.critedge14.i
+.lr.ph121:                                        ; preds = %.lr.ph118, %.lr.ph121
+  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.lr.ph121 ], [ 0, %.lr.ph118 ]
+  %126 = load ptr, ptr %123, align 8
+  %127 = getelementptr inbounds nuw %union.ListCell, ptr %126, i64 %indvars.iv211
+  %128 = load ptr, ptr %127, align 8
+  tail call fastcc void @free_stmt(ptr noundef %128)
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %129 = load i32, ptr %109, align 4
+  %130 = sext i32 %129 to i64
+  %131 = icmp slt i64 %indvars.iv.next212, %130
+  br i1 %131, label %.lr.ph121, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge64.i:                                    ; preds = %.lr.ph82, %.critedge16.i
-  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.critedge16.i ], [ 0, %.lr.ph82 ]
-  %129 = load ptr, ptr %126, align 8
-  %130 = getelementptr inbounds nuw %union.ListCell, ptr %129, i64 %indvars.iv180
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %.not.i87 = icmp eq ptr %133, null
-  br i1 %.not.i87, label %free_expr.exit89, label %134
+132:                                              ; preds = %3
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %.not.i91 = icmp eq ptr %134, null
+  br i1 %.not.i91, label %free_expr.exit93, label %135
 
-134:                                              ; preds = %.critedge64.i
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %.not5.i88 = icmp eq ptr %136, null
-  br i1 %.not5.i88, label %free_expr.exit89, label %137
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  %137 = load ptr, ptr %136, align 8
+  %.not5.i92 = icmp eq ptr %137, null
+  br i1 %.not5.i92, label %free_expr.exit93, label %138
 
-137:                                              ; preds = %134
-  %138 = tail call i32 @SPI_freeplan(ptr noundef nonnull %136) #16
-  store ptr null, ptr %135, align 8
-  br label %free_expr.exit89
+138:                                              ; preds = %135
+  %139 = tail call i32 @SPI_freeplan(ptr noundef nonnull %137) #16
+  store ptr null, ptr %136, align 8
+  br label %free_expr.exit93
 
-free_expr.exit89:                                 ; preds = %.critedge64.i, %134, %137
-  %139 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  %.not31.i = icmp eq ptr %140, null
-  br i1 %.not31.i, label %.critedge16.i, label %.lr.ph77
+free_expr.exit93:                                 ; preds = %132, %135, %138
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  %.not29.i = icmp eq ptr %141, null
+  br i1 %.not29.i, label %.critedge14.i, label %.lr.ph95
 
-.lr.ph77:                                         ; preds = %free_expr.exit89
-  %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %143 = load i32, ptr %141, align 4
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph80, label %.critedge16.i
+.lr.ph95:                                         ; preds = %free_expr.exit93
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %144 = load i32, ptr %142, align 4
+  %145 = icmp sgt i32 %144, 0
+  br i1 %145, label %.lr.ph252, label %.critedge14.i
 
-.critedge14.i:                                    ; preds = %.critedge16.i, %.lr.ph82, %free_expr.exit92
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %.not28.i = icmp eq ptr %146, null
-  br i1 %.not28.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph88
+.lr.ph252:                                        ; preds = %.lr.ph95, %.split93.us
+  %indvars.iv196251 = phi i64 [ %indvars.iv.next197, %.split93.us ], [ 0, %.lr.ph95 ]
+  %146 = load ptr, ptr %143, align 8
+  %147 = getelementptr inbounds nuw %union.ListCell, ptr %146, i64 %indvars.iv196251
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8
+  %.not.i88 = icmp eq ptr %150, null
+  br i1 %.not.i88, label %free_expr.exit90, label %151
 
-.lr.ph88:                                         ; preds = %.critedge14.i
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %149 = load i32, ptr %147, align 4
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.lr.ph91, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
-
-.lr.ph80:                                         ; preds = %.lr.ph77, %.lr.ph80
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph80 ], [ 0, %.lr.ph77 ]
-  %151 = load ptr, ptr %142, align 8
-  %152 = getelementptr inbounds nuw %union.ListCell, ptr %151, i64 %indvars.iv177
+151:                                              ; preds = %.lr.ph252
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %153 = load ptr, ptr %152, align 8
-  tail call fastcc void @free_stmt(ptr noundef %153)
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %154 = load i32, ptr %141, align 4
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next178, %155
-  br i1 %156, label %.lr.ph80, label %.critedge16.i
+  %.not5.i89 = icmp eq ptr %153, null
+  br i1 %.not5.i89, label %free_expr.exit90, label %154
 
-.critedge16.i:                                    ; preds = %.lr.ph80, %.lr.ph77, %free_expr.exit89
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %157 = load i32, ptr %125, align 4
-  %158 = sext i32 %157 to i64
-  %159 = icmp slt i64 %indvars.iv.next181, %158
-  br i1 %159, label %.critedge64.i, label %.critedge14.i
+154:                                              ; preds = %151
+  %155 = tail call i32 @SPI_freeplan(ptr noundef nonnull %153) #16
+  store ptr null, ptr %152, align 8
+  br label %free_expr.exit90
+
+free_expr.exit90:                                 ; preds = %.lr.ph252, %151, %154
+  %156 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %.split93.us, label %.lr.ph88
+
+.critedge14.i:                                    ; preds = %.split93.us, %.lr.ph95, %free_expr.exit93
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %.not28.i = icmp eq ptr %160, null
+  br i1 %.not28.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph98
+
+.split93.us:                                      ; preds = %.lr.ph91, %.lr.ph88, %free_expr.exit90
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196251, 1
+  %162 = load i32, ptr %142, align 4
+  %163 = sext i32 %162 to i64
+  %164 = icmp slt i64 %indvars.iv.next197, %163
+  br i1 %164, label %.lr.ph252, label %.critedge14.i
+
+.lr.ph88:                                         ; preds = %free_expr.exit90
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %167 = load i32, ptr %165, align 4
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %.lr.ph91, label %.split93.us
 
 .lr.ph91:                                         ; preds = %.lr.ph88, %.lr.ph91
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.lr.ph91 ], [ 0, %.lr.ph88 ]
-  %160 = load ptr, ptr %148, align 8
-  %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv183
-  %162 = load ptr, ptr %161, align 8
-  tail call fastcc void @free_stmt(ptr noundef %162)
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %163 = load i32, ptr %147, align 4
-  %164 = sext i32 %163 to i64
-  %165 = icmp slt i64 %indvars.iv.next184, %164
-  br i1 %165, label %.lr.ph91, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph91 ], [ 0, %.lr.ph88 ]
+  %169 = load ptr, ptr %166, align 8
+  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv193
+  %171 = load ptr, ptr %170, align 8
+  tail call fastcc void @free_stmt(ptr noundef %171)
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %172 = load i32, ptr %165, align 4
+  %173 = sext i32 %172 to i64
+  %174 = icmp slt i64 %indvars.iv.next194, %173
+  br i1 %174, label %.lr.ph91, label %.split93.us
 
-166:                                              ; preds = %3
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %.not25.i = icmp eq ptr %168, null
-  br i1 %.not25.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph72
+.lr.ph98:                                         ; preds = %.critedge14.i
+  %175 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %176 = load i32, ptr %161, align 4
+  %177 = icmp sgt i32 %176, 0
+  br i1 %177, label %.lr.ph101, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.lr.ph72:                                         ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %171 = load i32, ptr %169, align 4
-  %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph75, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
-
-.lr.ph75:                                         ; preds = %.lr.ph72, %.lr.ph75
-  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph75 ], [ 0, %.lr.ph72 ]
-  %173 = load ptr, ptr %170, align 8
-  %174 = getelementptr inbounds nuw %union.ListCell, ptr %173, i64 %indvars.iv174
-  %175 = load ptr, ptr %174, align 8
-  tail call fastcc void @free_stmt(ptr noundef %175)
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %176 = load i32, ptr %169, align 4
-  %177 = sext i32 %176 to i64
-  %178 = icmp slt i64 %indvars.iv.next175, %177
-  br i1 %178, label %.lr.ph75, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
-
-.critedge70.i:                                    ; preds = %3
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
+.lr.ph101:                                        ; preds = %.lr.ph98, %.lr.ph101
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph101 ], [ 0, %.lr.ph98 ]
+  %178 = load ptr, ptr %175, align 8
+  %179 = getelementptr inbounds nuw %union.ListCell, ptr %178, i64 %indvars.iv199
   %180 = load ptr, ptr %179, align 8
-  %.not.i84 = icmp eq ptr %180, null
-  br i1 %.not.i84, label %free_expr.exit86, label %181
+  tail call fastcc void @free_stmt(ptr noundef %180)
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %181 = load i32, ptr %161, align 4
+  %182 = sext i32 %181 to i64
+  %183 = icmp slt i64 %indvars.iv.next200, %182
+  br i1 %183, label %.lr.ph101, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-181:                                              ; preds = %.critedge70.i
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %183 = load ptr, ptr %182, align 8
-  %.not5.i85 = icmp eq ptr %183, null
-  br i1 %.not5.i85, label %free_expr.exit86, label %184
+.lr.ph83:                                         ; preds = %.preheader7
+  %184 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %185 = load i32, ptr %19, align 4
+  %186 = icmp sgt i32 %185, 0
+  br i1 %186, label %.lr.ph86, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-184:                                              ; preds = %181
-  %185 = tail call i32 @SPI_freeplan(ptr noundef nonnull %183) #16
-  store ptr null, ptr %182, align 8
-  br label %free_expr.exit86
+.lr.ph86:                                         ; preds = %.lr.ph83, %.lr.ph86
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.lr.ph86 ], [ 0, %.lr.ph83 ]
+  %187 = load ptr, ptr %184, align 8
+  %188 = getelementptr inbounds nuw %union.ListCell, ptr %187, i64 %indvars.iv190
+  %189 = load ptr, ptr %188, align 8
+  tail call fastcc void @free_stmt(ptr noundef %189)
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %190 = load i32, ptr %19, align 4
+  %191 = sext i32 %190 to i64
+  %192 = icmp slt i64 %indvars.iv.next191, %191
+  br i1 %192, label %.lr.ph86, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit86:                                 ; preds = %.critedge70.i, %181, %184
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
-  %.not23.i = icmp eq ptr %187, null
-  br i1 %.not23.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph67
+193:                                              ; preds = %3
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %195 = load ptr, ptr %194, align 8
+  %.not.i85 = icmp eq ptr %195, null
+  br i1 %.not.i85, label %free_expr.exit87, label %196
 
-.lr.ph67:                                         ; preds = %free_expr.exit86
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %190 = load i32, ptr %188, align 4
-  %191 = icmp sgt i32 %190, 0
-  br i1 %191, label %.lr.ph70, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %198 = load ptr, ptr %197, align 8
+  %.not5.i86 = icmp eq ptr %198, null
+  br i1 %.not5.i86, label %free_expr.exit87, label %199
 
-.lr.ph70:                                         ; preds = %.lr.ph67, %.lr.ph70
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph70 ], [ 0, %.lr.ph67 ]
-  %192 = load ptr, ptr %189, align 8
-  %193 = getelementptr inbounds nuw %union.ListCell, ptr %192, i64 %indvars.iv171
-  %194 = load ptr, ptr %193, align 8
-  tail call fastcc void @free_stmt(ptr noundef %194)
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %195 = load i32, ptr %188, align 4
-  %196 = sext i32 %195 to i64
-  %197 = icmp slt i64 %indvars.iv.next172, %196
-  br i1 %197, label %.lr.ph70, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+199:                                              ; preds = %196
+  %200 = tail call i32 @SPI_freeplan(ptr noundef nonnull %198) #16
+  store ptr null, ptr %197, align 8
+  br label %free_expr.exit87
 
-.critedge72.i:                                    ; preds = %3
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %199 = load ptr, ptr %198, align 8
-  %.not.i81 = icmp eq ptr %199, null
-  br i1 %.not.i81, label %free_expr.exit83, label %200
-
-200:                                              ; preds = %.critedge72.i
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 40
+free_expr.exit87:                                 ; preds = %193, %196, %199
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %202 = load ptr, ptr %201, align 8
-  %.not5.i82 = icmp eq ptr %202, null
-  br i1 %.not5.i82, label %free_expr.exit83, label %203
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
+  %.not23.i = icmp eq ptr %202, null
+  br i1 %.not23.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph78
 
-203:                                              ; preds = %200
-  %204 = tail call i32 @SPI_freeplan(ptr noundef nonnull %202) #16
-  store ptr null, ptr %201, align 8
-  br label %free_expr.exit83
+.lr.ph78:                                         ; preds = %free_expr.exit87
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  %205 = load i32, ptr %203, align 4
+  %206 = icmp sgt i32 %205, 0
+  br i1 %206, label %.lr.ph81, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit83:                                 ; preds = %.critedge72.i, %200, %203
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %206 = load ptr, ptr %205, align 8
-  %.not.i78 = icmp eq ptr %206, null
-  br i1 %.not.i78, label %free_expr.exit80, label %207
-
-207:                                              ; preds = %free_expr.exit83
-  %208 = getelementptr inbounds nuw i8, ptr %206, i64 40
+.lr.ph81:                                         ; preds = %.lr.ph78, %.lr.ph81
+  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph81 ], [ 0, %.lr.ph78 ]
+  %207 = load ptr, ptr %204, align 8
+  %208 = getelementptr inbounds nuw %union.ListCell, ptr %207, i64 %indvars.iv187
   %209 = load ptr, ptr %208, align 8
-  %.not5.i79 = icmp eq ptr %209, null
-  br i1 %.not5.i79, label %free_expr.exit80, label %210
+  tail call fastcc void @free_stmt(ptr noundef %209)
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %210 = load i32, ptr %203, align 4
+  %211 = sext i32 %210 to i64
+  %212 = icmp slt i64 %indvars.iv.next188, %211
+  br i1 %212, label %.lr.ph81, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-210:                                              ; preds = %207
-  %211 = tail call i32 @SPI_freeplan(ptr noundef nonnull %209) #16
-  store ptr null, ptr %208, align 8
-  br label %free_expr.exit80
+213:                                              ; preds = %3
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %215 = load ptr, ptr %214, align 8
+  %.not.i82 = icmp eq ptr %215, null
+  br i1 %.not.i82, label %free_expr.exit84, label %216
 
-free_expr.exit80:                                 ; preds = %free_expr.exit83, %207, %210
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %213 = load ptr, ptr %212, align 8
-  %.not.i75 = icmp eq ptr %213, null
-  br i1 %.not.i75, label %free_expr.exit77, label %214
+216:                                              ; preds = %213
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 40
+  %218 = load ptr, ptr %217, align 8
+  %.not5.i83 = icmp eq ptr %218, null
+  br i1 %.not5.i83, label %free_expr.exit84, label %219
 
-214:                                              ; preds = %free_expr.exit80
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %216 = load ptr, ptr %215, align 8
-  %.not5.i76 = icmp eq ptr %216, null
-  br i1 %.not5.i76, label %free_expr.exit77, label %217
+219:                                              ; preds = %216
+  %220 = tail call i32 @SPI_freeplan(ptr noundef nonnull %218) #16
+  store ptr null, ptr %217, align 8
+  br label %free_expr.exit84
 
-217:                                              ; preds = %214
-  %218 = tail call i32 @SPI_freeplan(ptr noundef nonnull %216) #16
-  store ptr null, ptr %215, align 8
-  br label %free_expr.exit77
+free_expr.exit84:                                 ; preds = %213, %216, %219
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %222 = load ptr, ptr %221, align 8
+  %.not.i79 = icmp eq ptr %222, null
+  br i1 %.not.i79, label %free_expr.exit81, label %223
 
-free_expr.exit77:                                 ; preds = %free_expr.exit80, %214, %217
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %.not21.i = icmp eq ptr %220, null
-  br i1 %.not21.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph62
+223:                                              ; preds = %free_expr.exit84
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 40
+  %225 = load ptr, ptr %224, align 8
+  %.not5.i80 = icmp eq ptr %225, null
+  br i1 %.not5.i80, label %free_expr.exit81, label %226
 
-.lr.ph62:                                         ; preds = %free_expr.exit77
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  %223 = load i32, ptr %221, align 4
-  %224 = icmp sgt i32 %223, 0
-  br i1 %224, label %.lr.ph65, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+226:                                              ; preds = %223
+  %227 = tail call i32 @SPI_freeplan(ptr noundef nonnull %225) #16
+  store ptr null, ptr %224, align 8
+  br label %free_expr.exit81
 
-.lr.ph65:                                         ; preds = %.lr.ph62, %.lr.ph65
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.lr.ph65 ], [ 0, %.lr.ph62 ]
-  %225 = load ptr, ptr %222, align 8
-  %226 = getelementptr inbounds nuw %union.ListCell, ptr %225, i64 %indvars.iv168
-  %227 = load ptr, ptr %226, align 8
-  tail call fastcc void @free_stmt(ptr noundef %227)
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %228 = load i32, ptr %221, align 4
-  %229 = sext i32 %228 to i64
-  %230 = icmp slt i64 %indvars.iv.next169, %229
-  br i1 %230, label %.lr.ph65, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+free_expr.exit81:                                 ; preds = %free_expr.exit84, %223, %226
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %229 = load ptr, ptr %228, align 8
+  %.not.i76 = icmp eq ptr %229, null
+  br i1 %.not.i76, label %free_expr.exit78, label %230
 
-231:                                              ; preds = %3
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %.not19.i = icmp eq ptr %233, null
-  br i1 %.not19.i, label %.critedge26.i, label %.lr.ph57
+230:                                              ; preds = %free_expr.exit81
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 40
+  %232 = load ptr, ptr %231, align 8
+  %.not5.i77 = icmp eq ptr %232, null
+  br i1 %.not5.i77, label %free_expr.exit78, label %233
 
-.lr.ph57:                                         ; preds = %231
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %236 = load i32, ptr %234, align 4
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %.lr.ph60, label %.critedge26.i
+233:                                              ; preds = %230
+  %234 = tail call i32 @SPI_freeplan(ptr noundef nonnull %232) #16
+  store ptr null, ptr %231, align 8
+  br label %free_expr.exit78
 
-.lr.ph60:                                         ; preds = %.lr.ph57, %.lr.ph60
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph60 ], [ 0, %.lr.ph57 ]
-  %238 = load ptr, ptr %235, align 8
-  %239 = getelementptr inbounds nuw %union.ListCell, ptr %238, i64 %indvars.iv165
-  %240 = load ptr, ptr %239, align 8
-  tail call fastcc void @free_stmt(ptr noundef %240)
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %241 = load i32, ptr %234, align 4
-  %242 = sext i32 %241 to i64
-  %243 = icmp slt i64 %indvars.iv.next166, %242
-  br i1 %243, label %.lr.ph60, label %.critedge26.i
+free_expr.exit78:                                 ; preds = %free_expr.exit81, %230, %233
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %.not21.i = icmp eq ptr %236, null
+  br i1 %.not21.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph73
 
-.critedge26.i:                                    ; preds = %.lr.ph60, %.lr.ph57, %231
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %245 = load ptr, ptr %244, align 8
-  %.not.i72 = icmp eq ptr %245, null
-  br i1 %.not.i72, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %246
+.lr.ph73:                                         ; preds = %free_expr.exit78
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %239 = load i32, ptr %237, align 4
+  %240 = icmp sgt i32 %239, 0
+  br i1 %240, label %.lr.ph76, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-246:                                              ; preds = %.critedge26.i
-  %247 = getelementptr inbounds nuw i8, ptr %245, i64 40
-  %248 = load ptr, ptr %247, align 8
-  %.not5.i73 = icmp eq ptr %248, null
-  br i1 %.not5.i73, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %249
+.lr.ph76:                                         ; preds = %.lr.ph73, %.lr.ph76
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph76 ], [ 0, %.lr.ph73 ]
+  %241 = load ptr, ptr %238, align 8
+  %242 = getelementptr inbounds nuw %union.ListCell, ptr %241, i64 %indvars.iv184
+  %243 = load ptr, ptr %242, align 8
+  tail call fastcc void @free_stmt(ptr noundef %243)
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %244 = load i32, ptr %237, align 4
+  %245 = sext i32 %244 to i64
+  %246 = icmp slt i64 %indvars.iv.next185, %245
+  br i1 %246, label %.lr.ph76, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-249:                                              ; preds = %246
-  %250 = tail call i32 @SPI_freeplan(ptr noundef nonnull %248) #16
-  store ptr null, ptr %247, align 8
+247:                                              ; preds = %.critedge26.i
+  %248 = getelementptr inbounds nuw i8, ptr %262, i64 40
+  %249 = load ptr, ptr %248, align 8
+  %.not5.i74 = icmp eq ptr %249, null
+  br i1 %.not5.i74, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %250
+
+250:                                              ; preds = %247
+  %251 = tail call i32 @SPI_freeplan(ptr noundef nonnull %249) #16
+  store ptr null, ptr %248, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-251:                                              ; preds = %3
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 4
-  %.not17.i = icmp eq ptr %253, null
-  br i1 %.not17.i, label %.critedge28.i, label %.lr.ph52
+.lr.ph68:                                         ; preds = %.preheader11
+  %252 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %253 = load i32, ptr %16, align 4
+  %254 = icmp sgt i32 %253, 0
+  br i1 %254, label %.lr.ph71, label %.critedge26.i
 
-.lr.ph52:                                         ; preds = %251
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %256 = load i32, ptr %254, align 4
-  %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %.lr.ph55, label %.critedge28.i
+.lr.ph71:                                         ; preds = %.lr.ph68, %.lr.ph71
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph71 ], [ 0, %.lr.ph68 ]
+  %255 = load ptr, ptr %252, align 8
+  %256 = getelementptr inbounds nuw %union.ListCell, ptr %255, i64 %indvars.iv181
+  %257 = load ptr, ptr %256, align 8
+  tail call fastcc void @free_stmt(ptr noundef %257)
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %258 = load i32, ptr %16, align 4
+  %259 = sext i32 %258 to i64
+  %260 = icmp slt i64 %indvars.iv.next182, %259
+  br i1 %260, label %.lr.ph71, label %.critedge26.i
 
-.lr.ph55:                                         ; preds = %.lr.ph52, %.lr.ph55
-  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %.lr.ph55 ], [ 0, %.lr.ph52 ]
-  %258 = load ptr, ptr %255, align 8
-  %259 = getelementptr inbounds nuw %union.ListCell, ptr %258, i64 %indvars.iv162
-  %260 = load ptr, ptr %259, align 8
-  tail call fastcc void @free_stmt(ptr noundef %260)
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %261 = load i32, ptr %254, align 4
-  %262 = sext i32 %261 to i64
-  %263 = icmp slt i64 %indvars.iv.next163, %262
-  br i1 %263, label %.lr.ph55, label %.critedge28.i
+.critedge26.i:                                    ; preds = %.lr.ph71, %.lr.ph68, %.preheader11
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %262 = load ptr, ptr %261, align 8
+  %.not.i73 = icmp eq ptr %262, null
+  br i1 %.not.i73, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %247
 
-.critedge28.i:                                    ; preds = %.lr.ph55, %.lr.ph52, %251
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 48
+263:                                              ; preds = %.critedge28.i
+  %264 = getelementptr inbounds nuw i8, ptr %278, i64 40
   %265 = load ptr, ptr %264, align 8
-  %.not.i69 = icmp eq ptr %265, null
-  br i1 %.not.i69, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %266
+  %.not5.i71 = icmp eq ptr %265, null
+  br i1 %.not5.i71, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %266
 
-266:                                              ; preds = %.critedge28.i
-  %267 = getelementptr inbounds nuw i8, ptr %265, i64 40
-  %268 = load ptr, ptr %267, align 8
-  %.not5.i70 = icmp eq ptr %268, null
-  br i1 %.not5.i70, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %269
-
-269:                                              ; preds = %266
-  %270 = tail call i32 @SPI_freeplan(ptr noundef nonnull %268) #16
-  store ptr null, ptr %267, align 8
+266:                                              ; preds = %263
+  %267 = tail call i32 @SPI_freeplan(ptr noundef nonnull %265) #16
+  store ptr null, ptr %264, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge78.i:                                    ; preds = %3
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %272 = load ptr, ptr %271, align 8
-  %.not.i66 = icmp eq ptr %272, null
-  br i1 %.not.i66, label %free_expr.exit68, label %273
+.lr.ph63:                                         ; preds = %.preheader12
+  %268 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %269 = load i32, ptr %13, align 4
+  %270 = icmp sgt i32 %269, 0
+  br i1 %270, label %.lr.ph66, label %.critedge28.i
 
-273:                                              ; preds = %.critedge78.i
-  %274 = getelementptr inbounds nuw i8, ptr %272, i64 40
-  %275 = load ptr, ptr %274, align 8
-  %.not5.i67 = icmp eq ptr %275, null
-  br i1 %.not5.i67, label %free_expr.exit68, label %276
+.lr.ph66:                                         ; preds = %.lr.ph63, %.lr.ph66
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.lr.ph66 ], [ 0, %.lr.ph63 ]
+  %271 = load ptr, ptr %268, align 8
+  %272 = getelementptr inbounds nuw %union.ListCell, ptr %271, i64 %indvars.iv178
+  %273 = load ptr, ptr %272, align 8
+  tail call fastcc void @free_stmt(ptr noundef %273)
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %274 = load i32, ptr %13, align 4
+  %275 = sext i32 %274 to i64
+  %276 = icmp slt i64 %indvars.iv.next179, %275
+  br i1 %276, label %.lr.ph66, label %.critedge28.i
 
-276:                                              ; preds = %273
-  %277 = tail call i32 @SPI_freeplan(ptr noundef nonnull %275) #16
-  store ptr null, ptr %274, align 8
-  br label %free_expr.exit68
+.critedge28.i:                                    ; preds = %.lr.ph66, %.lr.ph63, %.preheader12
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %278 = load ptr, ptr %277, align 8
+  %.not.i70 = icmp eq ptr %278, null
+  br i1 %.not.i70, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %263
 
-free_expr.exit68:                                 ; preds = %.critedge78.i, %273, %276
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 4
-  %.not15.i = icmp eq ptr %279, null
-  br i1 %.not15.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph47
+279:                                              ; preds = %3
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %281 = load ptr, ptr %280, align 8
+  %.not.i67 = icmp eq ptr %281, null
+  br i1 %.not.i67, label %free_expr.exit69, label %282
 
-.lr.ph47:                                         ; preds = %free_expr.exit68
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %282 = load i32, ptr %280, align 4
-  %283 = icmp sgt i32 %282, 0
-  br i1 %283, label %.lr.ph50, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+282:                                              ; preds = %279
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 40
+  %284 = load ptr, ptr %283, align 8
+  %.not5.i68 = icmp eq ptr %284, null
+  br i1 %.not5.i68, label %free_expr.exit69, label %285
 
-.lr.ph50:                                         ; preds = %.lr.ph47, %.lr.ph50
-  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.lr.ph50 ], [ 0, %.lr.ph47 ]
-  %284 = load ptr, ptr %281, align 8
-  %285 = getelementptr inbounds nuw %union.ListCell, ptr %284, i64 %indvars.iv159
-  %286 = load ptr, ptr %285, align 8
-  tail call fastcc void @free_stmt(ptr noundef %286)
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %287 = load i32, ptr %280, align 4
-  %288 = sext i32 %287 to i64
-  %289 = icmp slt i64 %indvars.iv.next160, %288
-  br i1 %289, label %.lr.ph50, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+285:                                              ; preds = %282
+  %286 = tail call i32 @SPI_freeplan(ptr noundef nonnull %284) #16
+  store ptr null, ptr %283, align 8
+  br label %free_expr.exit69
 
-290:                                              ; preds = %3
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %292 = load ptr, ptr %291, align 8
-  %.not.i63 = icmp eq ptr %292, null
-  br i1 %.not.i63, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %293
+free_expr.exit69:                                 ; preds = %279, %282, %285
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %288 = load ptr, ptr %287, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 4
+  %.not15.i = icmp eq ptr %288, null
+  br i1 %.not15.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph58
 
-293:                                              ; preds = %290
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 40
+.lr.ph58:                                         ; preds = %free_expr.exit69
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  %291 = load i32, ptr %289, align 4
+  %292 = icmp sgt i32 %291, 0
+  br i1 %292, label %.lr.ph61, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+
+.lr.ph61:                                         ; preds = %.lr.ph58, %.lr.ph61
+  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.lr.ph61 ], [ 0, %.lr.ph58 ]
+  %293 = load ptr, ptr %290, align 8
+  %294 = getelementptr inbounds nuw %union.ListCell, ptr %293, i64 %indvars.iv175
   %295 = load ptr, ptr %294, align 8
-  %.not5.i64 = icmp eq ptr %295, null
-  br i1 %.not5.i64, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %296
+  tail call fastcc void @free_stmt(ptr noundef %295)
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %296 = load i32, ptr %289, align 4
+  %297 = sext i32 %296 to i64
+  %298 = icmp slt i64 %indvars.iv.next176, %297
+  br i1 %298, label %.lr.ph61, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-296:                                              ; preds = %293
-  %297 = tail call i32 @SPI_freeplan(ptr noundef nonnull %295) #16
-  store ptr null, ptr %294, align 8
+299:                                              ; preds = %3
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %301 = load ptr, ptr %300, align 8
+  %.not.i64 = icmp eq ptr %301, null
+  br i1 %.not.i64, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %302
+
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds nuw i8, ptr %301, i64 40
+  %304 = load ptr, ptr %303, align 8
+  %.not5.i65 = icmp eq ptr %304, null
+  br i1 %.not5.i65, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %305
+
+305:                                              ; preds = %302
+  %306 = tail call i32 @SPI_freeplan(ptr noundef nonnull %304) #16
+  store ptr null, ptr %303, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-298:                                              ; preds = %3
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %300 = load ptr, ptr %299, align 8
-  %.not.i60 = icmp eq ptr %300, null
-  br i1 %.not.i60, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %301
+307:                                              ; preds = %3
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %309 = load ptr, ptr %308, align 8
+  %.not.i61 = icmp eq ptr %309, null
+  br i1 %.not.i61, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %310
 
-301:                                              ; preds = %298
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 40
-  %303 = load ptr, ptr %302, align 8
-  %.not5.i61 = icmp eq ptr %303, null
-  br i1 %.not5.i61, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %304
+310:                                              ; preds = %307
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 40
+  %312 = load ptr, ptr %311, align 8
+  %.not5.i62 = icmp eq ptr %312, null
+  br i1 %.not5.i62, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %313
 
-304:                                              ; preds = %301
-  %305 = tail call i32 @SPI_freeplan(ptr noundef nonnull %303) #16
-  store ptr null, ptr %302, align 8
+313:                                              ; preds = %310
+  %314 = tail call i32 @SPI_freeplan(ptr noundef nonnull %312) #16
+  store ptr null, ptr %311, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-306:                                              ; preds = %3
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %308 = load ptr, ptr %307, align 8
-  %.not.i57 = icmp eq ptr %308, null
-  br i1 %.not.i57, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %309
+315:                                              ; preds = %3
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %317 = load ptr, ptr %316, align 8
+  %.not.i58 = icmp eq ptr %317, null
+  br i1 %.not.i58, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %318
 
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds nuw i8, ptr %308, i64 40
-  %311 = load ptr, ptr %310, align 8
-  %.not5.i58 = icmp eq ptr %311, null
-  br i1 %.not5.i58, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %312
+318:                                              ; preds = %315
+  %319 = getelementptr inbounds nuw i8, ptr %317, i64 40
+  %320 = load ptr, ptr %319, align 8
+  %.not5.i59 = icmp eq ptr %320, null
+  br i1 %.not5.i59, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %321
 
-312:                                              ; preds = %309
-  %313 = tail call i32 @SPI_freeplan(ptr noundef nonnull %311) #16
-  store ptr null, ptr %310, align 8
+321:                                              ; preds = %318
+  %322 = tail call i32 @SPI_freeplan(ptr noundef nonnull %320) #16
+  store ptr null, ptr %319, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge80.i:                                    ; preds = %3
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %315 = load ptr, ptr %314, align 8
-  %.not.i54 = icmp eq ptr %315, null
-  br i1 %.not.i54, label %free_expr.exit56, label %316
-
-316:                                              ; preds = %.critedge80.i
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 40
-  %318 = load ptr, ptr %317, align 8
-  %.not5.i55 = icmp eq ptr %318, null
-  br i1 %.not5.i55, label %free_expr.exit56, label %319
-
-319:                                              ; preds = %316
-  %320 = tail call i32 @SPI_freeplan(ptr noundef nonnull %318) #16
-  store ptr null, ptr %317, align 8
-  br label %free_expr.exit56
-
-free_expr.exit56:                                 ; preds = %.critedge80.i, %316, %319
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %322 = load ptr, ptr %321, align 8
-  %.not.i51 = icmp eq ptr %322, null
-  br i1 %.not.i51, label %free_expr.exit53, label %323
-
-323:                                              ; preds = %free_expr.exit56
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 40
+323:                                              ; preds = %3
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %325 = load ptr, ptr %324, align 8
-  %.not5.i52 = icmp eq ptr %325, null
-  br i1 %.not5.i52, label %free_expr.exit53, label %326
+  %.not.i55 = icmp eq ptr %325, null
+  br i1 %.not.i55, label %free_expr.exit57, label %326
 
 326:                                              ; preds = %323
-  %327 = tail call i32 @SPI_freeplan(ptr noundef nonnull %325) #16
-  store ptr null, ptr %324, align 8
-  br label %free_expr.exit53
+  %327 = getelementptr inbounds nuw i8, ptr %325, i64 40
+  %328 = load ptr, ptr %327, align 8
+  %.not5.i56 = icmp eq ptr %328, null
+  br i1 %.not5.i56, label %free_expr.exit57, label %329
 
-free_expr.exit53:                                 ; preds = %free_expr.exit56, %323, %326
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 4
-  %.not13.i = icmp eq ptr %329, null
-  br i1 %.not13.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph42
+329:                                              ; preds = %326
+  %330 = tail call i32 @SPI_freeplan(ptr noundef nonnull %328) #16
+  store ptr null, ptr %327, align 8
+  br label %free_expr.exit57
 
-.lr.ph42:                                         ; preds = %free_expr.exit53
-  %331 = getelementptr inbounds nuw i8, ptr %329, i64 16
-  %332 = load i32, ptr %330, align 4
-  %333 = icmp sgt i32 %332, 0
-  br i1 %333, label %.lr.ph45, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+free_expr.exit57:                                 ; preds = %323, %326, %329
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %332 = load ptr, ptr %331, align 8
+  %.not.i52 = icmp eq ptr %332, null
+  br i1 %.not.i52, label %free_expr.exit54, label %333
 
-.lr.ph45:                                         ; preds = %.lr.ph42, %free_expr.exit50
-  %334 = phi i32 [ %343, %free_expr.exit50 ], [ %332, %.lr.ph42 ]
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %free_expr.exit50 ], [ 0, %.lr.ph42 ]
-  %335 = load ptr, ptr %331, align 8
-  %336 = getelementptr inbounds nuw %union.ListCell, ptr %335, i64 %indvars.iv156
-  %337 = load ptr, ptr %336, align 8
-  %.not.i48 = icmp eq ptr %337, null
-  br i1 %.not.i48, label %free_expr.exit50, label %338
+333:                                              ; preds = %free_expr.exit57
+  %334 = getelementptr inbounds nuw i8, ptr %332, i64 40
+  %335 = load ptr, ptr %334, align 8
+  %.not5.i53 = icmp eq ptr %335, null
+  br i1 %.not5.i53, label %free_expr.exit54, label %336
 
-338:                                              ; preds = %.lr.ph45
-  %339 = getelementptr inbounds nuw i8, ptr %337, i64 40
-  %340 = load ptr, ptr %339, align 8
-  %.not5.i49 = icmp eq ptr %340, null
-  br i1 %.not5.i49, label %free_expr.exit50, label %341
+336:                                              ; preds = %333
+  %337 = tail call i32 @SPI_freeplan(ptr noundef nonnull %335) #16
+  store ptr null, ptr %334, align 8
+  br label %free_expr.exit54
 
-341:                                              ; preds = %338
-  %342 = tail call i32 @SPI_freeplan(ptr noundef nonnull %340) #16
-  store ptr null, ptr %339, align 8
-  %.pre211 = load i32, ptr %330, align 4
-  br label %free_expr.exit50
+free_expr.exit54:                                 ; preds = %free_expr.exit57, %333, %336
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
+  %.not13.i = icmp eq ptr %339, null
+  br i1 %.not13.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph53
 
-free_expr.exit50:                                 ; preds = %.lr.ph45, %338, %341
-  %343 = phi i32 [ %334, %.lr.ph45 ], [ %334, %338 ], [ %.pre211, %341 ]
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %344 = sext i32 %343 to i64
-  %345 = icmp slt i64 %indvars.iv.next157, %344
-  br i1 %345, label %.lr.ph45, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.lr.ph53:                                         ; preds = %free_expr.exit54
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 16
+  %342 = load i32, ptr %340, align 4
+  %343 = icmp sgt i32 %342, 0
+  br i1 %343, label %.lr.ph56, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-346:                                              ; preds = %3
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 4
-  %.not11.i = icmp eq ptr %348, null
-  br i1 %.not11.i, label %.critedge34.i, label %.lr.ph32
+.lr.ph56:                                         ; preds = %.lr.ph53, %free_expr.exit51
+  %344 = phi i32 [ %353, %free_expr.exit51 ], [ %342, %.lr.ph53 ]
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %free_expr.exit51 ], [ 0, %.lr.ph53 ]
+  %345 = load ptr, ptr %341, align 8
+  %346 = getelementptr inbounds nuw %union.ListCell, ptr %345, i64 %indvars.iv172
+  %347 = load ptr, ptr %346, align 8
+  %.not.i49 = icmp eq ptr %347, null
+  br i1 %.not.i49, label %free_expr.exit51, label %348
 
-.lr.ph32:                                         ; preds = %346
-  %350 = getelementptr inbounds nuw i8, ptr %348, i64 16
-  %351 = load i32, ptr %349, align 4
-  %352 = icmp sgt i32 %351, 0
-  br i1 %352, label %.lr.ph35, label %.critedge34.i
+348:                                              ; preds = %.lr.ph56
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 40
+  %350 = load ptr, ptr %349, align 8
+  %.not5.i50 = icmp eq ptr %350, null
+  br i1 %.not5.i50, label %free_expr.exit51, label %351
 
-.lr.ph35:                                         ; preds = %.lr.ph32, %free_expr.exit47
-  %353 = phi i32 [ %362, %free_expr.exit47 ], [ %351, %.lr.ph32 ]
-  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %free_expr.exit47 ], [ 0, %.lr.ph32 ]
-  %354 = load ptr, ptr %350, align 8
-  %355 = getelementptr inbounds nuw %union.ListCell, ptr %354, i64 %indvars.iv150
-  %356 = load ptr, ptr %355, align 8
-  %.not.i45 = icmp eq ptr %356, null
-  br i1 %.not.i45, label %free_expr.exit47, label %357
+351:                                              ; preds = %348
+  %352 = tail call i32 @SPI_freeplan(ptr noundef nonnull %350) #16
+  store ptr null, ptr %349, align 8
+  %.pre227 = load i32, ptr %340, align 4
+  br label %free_expr.exit51
 
-357:                                              ; preds = %.lr.ph35
-  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
-  %359 = load ptr, ptr %358, align 8
-  %.not5.i46 = icmp eq ptr %359, null
-  br i1 %.not5.i46, label %free_expr.exit47, label %360
+free_expr.exit51:                                 ; preds = %.lr.ph56, %348, %351
+  %353 = phi i32 [ %344, %.lr.ph56 ], [ %344, %348 ], [ %.pre227, %351 ]
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %354 = sext i32 %353 to i64
+  %355 = icmp slt i64 %indvars.iv.next173, %354
+  br i1 %355, label %.lr.ph56, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-360:                                              ; preds = %357
-  %361 = tail call i32 @SPI_freeplan(ptr noundef nonnull %359) #16
-  store ptr null, ptr %358, align 8
-  %.pre209 = load i32, ptr %349, align 4
-  br label %free_expr.exit47
+.preheader15:                                     ; preds = %free_expr.exit48, %.lr.ph42, %.preheader17
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %357 = load ptr, ptr %356, align 8
+  %358 = icmp eq ptr %357, null
+  br i1 %358, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph47
 
-free_expr.exit47:                                 ; preds = %.lr.ph35, %357, %360
-  %362 = phi i32 [ %353, %.lr.ph35 ], [ %353, %357 ], [ %.pre209, %360 ]
-  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %363 = sext i32 %362 to i64
-  %364 = icmp slt i64 %indvars.iv.next151, %363
-  br i1 %364, label %.lr.ph35, label %.critedge34.i
+.lr.ph42:                                         ; preds = %.preheader17
+  %359 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %361 = load i32, ptr %359, align 4
+  %362 = icmp sgt i32 %361, 0
+  br i1 %362, label %.lr.ph45, label %.preheader15
 
-.critedge34.i:                                    ; preds = %free_expr.exit47, %.lr.ph32, %346
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 40
+.lr.ph45:                                         ; preds = %.lr.ph42, %free_expr.exit48
+  %363 = phi i32 [ %372, %free_expr.exit48 ], [ %361, %.lr.ph42 ]
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %free_expr.exit48 ], [ 0, %.lr.ph42 ]
+  %364 = load ptr, ptr %360, align 8
+  %365 = getelementptr inbounds nuw %union.ListCell, ptr %364, i64 %indvars.iv166
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
-  %.not10.i = icmp eq ptr %366, null
-  br i1 %.not10.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph37
+  %.not.i46 = icmp eq ptr %366, null
+  br i1 %.not.i46, label %free_expr.exit48, label %367
 
-.lr.ph37:                                         ; preds = %.critedge34.i
-  %368 = getelementptr inbounds nuw i8, ptr %366, i64 16
-  %369 = load i32, ptr %367, align 4
-  %370 = icmp sgt i32 %369, 0
-  br i1 %370, label %.lr.ph40, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+367:                                              ; preds = %.lr.ph45
+  %368 = getelementptr inbounds nuw i8, ptr %366, i64 40
+  %369 = load ptr, ptr %368, align 8
+  %.not5.i47 = icmp eq ptr %369, null
+  br i1 %.not5.i47, label %free_expr.exit48, label %370
 
-.lr.ph40:                                         ; preds = %.lr.ph37, %free_expr.exit44
-  %371 = phi i32 [ %382, %free_expr.exit44 ], [ %369, %.lr.ph37 ]
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %free_expr.exit44 ], [ 0, %.lr.ph37 ]
-  %372 = load ptr, ptr %368, align 8
-  %373 = getelementptr inbounds nuw %union.ListCell, ptr %372, i64 %indvars.iv153
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  %376 = load ptr, ptr %375, align 8
-  %.not.i42 = icmp eq ptr %376, null
-  br i1 %.not.i42, label %free_expr.exit44, label %377
+370:                                              ; preds = %367
+  %371 = tail call i32 @SPI_freeplan(ptr noundef nonnull %369) #16
+  store ptr null, ptr %368, align 8
+  %.pre225 = load i32, ptr %359, align 4
+  br label %free_expr.exit48
 
-377:                                              ; preds = %.lr.ph40
-  %378 = getelementptr inbounds nuw i8, ptr %376, i64 40
-  %379 = load ptr, ptr %378, align 8
-  %.not5.i43 = icmp eq ptr %379, null
-  br i1 %.not5.i43, label %free_expr.exit44, label %380
+free_expr.exit48:                                 ; preds = %.lr.ph45, %367, %370
+  %372 = phi i32 [ %363, %.lr.ph45 ], [ %363, %367 ], [ %.pre225, %370 ]
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %373 = sext i32 %372 to i64
+  %374 = icmp slt i64 %indvars.iv.next167, %373
+  br i1 %374, label %.lr.ph45, label %.preheader15
 
-380:                                              ; preds = %377
-  %381 = tail call i32 @SPI_freeplan(ptr noundef nonnull %379) #16
-  store ptr null, ptr %378, align 8
-  %.pre210 = load i32, ptr %367, align 4
-  br label %free_expr.exit44
+.lr.ph47:                                         ; preds = %.preheader15
+  %375 = getelementptr inbounds nuw i8, ptr %357, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %357, i64 16
+  %377 = load i32, ptr %375, align 4
+  %378 = icmp sgt i32 %377, 0
+  br i1 %378, label %.lr.ph50, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit44:                                 ; preds = %.lr.ph40, %377, %380
-  %382 = phi i32 [ %371, %.lr.ph40 ], [ %371, %377 ], [ %.pre210, %380 ]
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %383 = sext i32 %382 to i64
-  %384 = icmp slt i64 %indvars.iv.next154, %383
-  br i1 %384, label %.lr.ph40, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.lr.ph50:                                         ; preds = %.lr.ph47, %free_expr.exit45
+  %379 = phi i32 [ %390, %free_expr.exit45 ], [ %377, %.lr.ph47 ]
+  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %free_expr.exit45 ], [ 0, %.lr.ph47 ]
+  %380 = load ptr, ptr %376, align 8
+  %381 = getelementptr inbounds nuw %union.ListCell, ptr %380, i64 %indvars.iv169
+  %382 = load ptr, ptr %381, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
+  %384 = load ptr, ptr %383, align 8
+  %.not.i43 = icmp eq ptr %384, null
+  br i1 %.not.i43, label %free_expr.exit45, label %385
 
-385:                                              ; preds = %3
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
+385:                                              ; preds = %.lr.ph50
+  %386 = getelementptr inbounds nuw i8, ptr %384, i64 40
   %387 = load ptr, ptr %386, align 8
-  %.not.i39 = icmp eq ptr %387, null
-  br i1 %.not.i39, label %free_expr.exit41, label %388
+  %.not5.i44 = icmp eq ptr %387, null
+  br i1 %.not5.i44, label %free_expr.exit45, label %388
 
 388:                                              ; preds = %385
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 40
-  %390 = load ptr, ptr %389, align 8
-  %.not5.i40 = icmp eq ptr %390, null
-  br i1 %.not5.i40, label %free_expr.exit41, label %391
+  %389 = tail call i32 @SPI_freeplan(ptr noundef nonnull %387) #16
+  store ptr null, ptr %386, align 8
+  %.pre226 = load i32, ptr %375, align 4
+  br label %free_expr.exit45
 
-391:                                              ; preds = %388
-  %392 = tail call i32 @SPI_freeplan(ptr noundef nonnull %390) #16
-  store ptr null, ptr %389, align 8
-  br label %free_expr.exit41
+free_expr.exit45:                                 ; preds = %.lr.ph50, %385, %388
+  %390 = phi i32 [ %379, %.lr.ph50 ], [ %379, %385 ], [ %.pre226, %388 ]
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %391 = sext i32 %390 to i64
+  %392 = icmp slt i64 %indvars.iv.next170, %391
+  br i1 %392, label %.lr.ph50, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit41:                                 ; preds = %385, %388, %391
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %394 = load ptr, ptr %393, align 8
-  %.not.i36 = icmp eq ptr %394, null
-  br i1 %.not.i36, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %395
+393:                                              ; preds = %3
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %395 = load ptr, ptr %394, align 8
+  %.not.i40 = icmp eq ptr %395, null
+  br i1 %.not.i40, label %free_expr.exit42, label %396
 
-395:                                              ; preds = %free_expr.exit41
-  %396 = getelementptr inbounds nuw i8, ptr %394, i64 40
-  %397 = load ptr, ptr %396, align 8
-  %.not5.i37 = icmp eq ptr %397, null
-  br i1 %.not5.i37, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %398
+396:                                              ; preds = %393
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 40
+  %398 = load ptr, ptr %397, align 8
+  %.not5.i41 = icmp eq ptr %398, null
+  br i1 %.not5.i41, label %free_expr.exit42, label %399
 
-398:                                              ; preds = %395
-  %399 = tail call i32 @SPI_freeplan(ptr noundef nonnull %397) #16
-  store ptr null, ptr %396, align 8
-  br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+399:                                              ; preds = %396
+  %400 = tail call i32 @SPI_freeplan(ptr noundef nonnull %398) #16
+  store ptr null, ptr %397, align 8
+  br label %free_expr.exit42
 
-400:                                              ; preds = %3
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
+free_expr.exit42:                                 ; preds = %393, %396, %399
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %402 = load ptr, ptr %401, align 8
-  %.not.i33 = icmp eq ptr %402, null
-  br i1 %.not.i33, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %403
+  %.not.i37 = icmp eq ptr %402, null
+  br i1 %.not.i37, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %403
 
-403:                                              ; preds = %400
+403:                                              ; preds = %free_expr.exit42
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %405 = load ptr, ptr %404, align 8
-  %.not5.i34 = icmp eq ptr %405, null
-  br i1 %.not5.i34, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %406
+  %.not5.i38 = icmp eq ptr %405, null
+  br i1 %.not5.i38, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %406
 
 406:                                              ; preds = %403
   %407 = tail call i32 @SPI_freeplan(ptr noundef nonnull %405) #16
   store ptr null, ptr %404, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge86.i:                                    ; preds = %3
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %409 = load ptr, ptr %408, align 8
-  %.not.i30 = icmp eq ptr %409, null
-  br i1 %.not.i30, label %free_expr.exit32, label %410
+408:                                              ; preds = %3
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %410 = load ptr, ptr %409, align 8
+  %.not.i34 = icmp eq ptr %410, null
+  br i1 %.not.i34, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %411
 
-410:                                              ; preds = %.critedge86.i
-  %411 = getelementptr inbounds nuw i8, ptr %409, i64 40
-  %412 = load ptr, ptr %411, align 8
-  %.not5.i31 = icmp eq ptr %412, null
-  br i1 %.not5.i31, label %free_expr.exit32, label %413
+411:                                              ; preds = %408
+  %412 = getelementptr inbounds nuw i8, ptr %410, i64 40
+  %413 = load ptr, ptr %412, align 8
+  %.not5.i35 = icmp eq ptr %413, null
+  br i1 %.not5.i35, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %414
 
-413:                                              ; preds = %410
-  %414 = tail call i32 @SPI_freeplan(ptr noundef nonnull %412) #16
-  store ptr null, ptr %411, align 8
-  br label %free_expr.exit32
+414:                                              ; preds = %411
+  %415 = tail call i32 @SPI_freeplan(ptr noundef nonnull %413) #16
+  store ptr null, ptr %412, align 8
+  br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit32:                                 ; preds = %.critedge86.i, %410, %413
-  %415 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 4
-  %.not7.i = icmp eq ptr %416, null
-  br i1 %.not7.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph27
+416:                                              ; preds = %3
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %418 = load ptr, ptr %417, align 8
+  %.not.i31 = icmp eq ptr %418, null
+  br i1 %.not.i31, label %free_expr.exit33, label %419
 
-.lr.ph27:                                         ; preds = %free_expr.exit32
-  %418 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  %419 = load i32, ptr %417, align 4
-  %420 = icmp sgt i32 %419, 0
-  br i1 %420, label %.lr.ph30, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+419:                                              ; preds = %416
+  %420 = getelementptr inbounds nuw i8, ptr %418, i64 40
+  %421 = load ptr, ptr %420, align 8
+  %.not5.i32 = icmp eq ptr %421, null
+  br i1 %.not5.i32, label %free_expr.exit33, label %422
 
-.lr.ph30:                                         ; preds = %.lr.ph27, %free_expr.exit29
-  %421 = phi i32 [ %430, %free_expr.exit29 ], [ %419, %.lr.ph27 ]
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %free_expr.exit29 ], [ 0, %.lr.ph27 ]
-  %422 = load ptr, ptr %418, align 8
-  %423 = getelementptr inbounds nuw %union.ListCell, ptr %422, i64 %indvars.iv147
-  %424 = load ptr, ptr %423, align 8
-  %.not.i27 = icmp eq ptr %424, null
-  br i1 %.not.i27, label %free_expr.exit29, label %425
+422:                                              ; preds = %419
+  %423 = tail call i32 @SPI_freeplan(ptr noundef nonnull %421) #16
+  store ptr null, ptr %420, align 8
+  br label %free_expr.exit33
 
-425:                                              ; preds = %.lr.ph30
-  %426 = getelementptr inbounds nuw i8, ptr %424, i64 40
-  %427 = load ptr, ptr %426, align 8
-  %.not5.i28 = icmp eq ptr %427, null
-  br i1 %.not5.i28, label %free_expr.exit29, label %428
+free_expr.exit33:                                 ; preds = %416, %419, %422
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %425 = load ptr, ptr %424, align 8
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph37
 
-428:                                              ; preds = %425
-  %429 = tail call i32 @SPI_freeplan(ptr noundef nonnull %427) #16
-  store ptr null, ptr %426, align 8
-  %.pre208 = load i32, ptr %417, align 4
-  br label %free_expr.exit29
+.lr.ph37:                                         ; preds = %free_expr.exit33
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 4
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 16
+  %429 = load i32, ptr %427, align 4
+  %430 = icmp sgt i32 %429, 0
+  br i1 %430, label %.lr.ph40, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-free_expr.exit29:                                 ; preds = %.lr.ph30, %425, %428
-  %430 = phi i32 [ %421, %.lr.ph30 ], [ %421, %425 ], [ %.pre208, %428 ]
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %431 = sext i32 %430 to i64
-  %432 = icmp slt i64 %indvars.iv.next148, %431
-  br i1 %432, label %.lr.ph30, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.lr.ph40:                                         ; preds = %.lr.ph37, %free_expr.exit30
+  %431 = phi i32 [ %440, %free_expr.exit30 ], [ %429, %.lr.ph37 ]
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %free_expr.exit30 ], [ 0, %.lr.ph37 ]
+  %432 = load ptr, ptr %428, align 8
+  %433 = getelementptr inbounds nuw %union.ListCell, ptr %432, i64 %indvars.iv163
+  %434 = load ptr, ptr %433, align 8
+  %.not.i28 = icmp eq ptr %434, null
+  br i1 %.not.i28, label %free_expr.exit30, label %435
 
-433:                                              ; preds = %3
-  %434 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds nuw i8, ptr %435, i64 4
-  %.not5.i = icmp eq ptr %435, null
-  br i1 %.not5.i, label %.critedge40.i, label %.lr.ph17
+435:                                              ; preds = %.lr.ph40
+  %436 = getelementptr inbounds nuw i8, ptr %434, i64 40
+  %437 = load ptr, ptr %436, align 8
+  %.not5.i29 = icmp eq ptr %437, null
+  br i1 %.not5.i29, label %free_expr.exit30, label %438
 
-.lr.ph17:                                         ; preds = %433
-  %437 = getelementptr inbounds nuw i8, ptr %435, i64 16
-  %438 = load i32, ptr %436, align 4
-  %439 = icmp sgt i32 %438, 0
-  br i1 %439, label %.lr.ph20, label %.critedge40.i
+438:                                              ; preds = %435
+  %439 = tail call i32 @SPI_freeplan(ptr noundef nonnull %437) #16
+  store ptr null, ptr %436, align 8
+  %.pre224 = load i32, ptr %427, align 4
+  br label %free_expr.exit30
 
-.lr.ph20:                                         ; preds = %.lr.ph17, %.lr.ph20
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph20 ], [ 0, %.lr.ph17 ]
-  %440 = load ptr, ptr %437, align 8
-  %441 = getelementptr inbounds nuw %union.ListCell, ptr %440, i64 %indvars.iv141
-  %442 = load ptr, ptr %441, align 8
-  tail call fastcc void @free_stmt(ptr noundef %442)
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %443 = load i32, ptr %436, align 4
-  %444 = sext i32 %443 to i64
-  %445 = icmp slt i64 %indvars.iv.next142, %444
-  br i1 %445, label %.lr.ph20, label %.critedge40.i
+free_expr.exit30:                                 ; preds = %.lr.ph40, %435, %438
+  %440 = phi i32 [ %431, %.lr.ph40 ], [ %431, %435 ], [ %.pre224, %438 ]
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %441 = sext i32 %440 to i64
+  %442 = icmp slt i64 %indvars.iv.next164, %441
+  br i1 %442, label %.lr.ph40, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-.critedge40.i:                                    ; preds = %.lr.ph20, %.lr.ph17, %433
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 40
+.split.us:                                        ; preds = %.lr.ph30, %.lr.ph27, %.preheader20
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %444 = load ptr, ptr %443, align 8
+  %.not.i25 = icmp eq ptr %444, null
+  br i1 %.not.i25, label %free_expr.exit27, label %445
+
+445:                                              ; preds = %.split.us
+  %446 = getelementptr inbounds nuw i8, ptr %444, i64 40
   %447 = load ptr, ptr %446, align 8
-  %.not.i24 = icmp eq ptr %447, null
-  br i1 %.not.i24, label %free_expr.exit26, label %448
+  %.not5.i26 = icmp eq ptr %447, null
+  br i1 %.not5.i26, label %free_expr.exit27, label %448
 
-448:                                              ; preds = %.critedge40.i
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 40
-  %450 = load ptr, ptr %449, align 8
-  %.not5.i25 = icmp eq ptr %450, null
-  br i1 %.not5.i25, label %free_expr.exit26, label %451
+448:                                              ; preds = %445
+  %449 = tail call i32 @SPI_freeplan(ptr noundef nonnull %447) #16
+  store ptr null, ptr %446, align 8
+  br label %free_expr.exit27
 
-451:                                              ; preds = %448
-  %452 = tail call i32 @SPI_freeplan(ptr noundef nonnull %450) #16
-  store ptr null, ptr %449, align 8
-  br label %free_expr.exit26
+free_expr.exit27:                                 ; preds = %.split.us, %445, %448
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %451 = load ptr, ptr %450, align 8
+  %452 = icmp eq ptr %451, null
+  br i1 %452, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph32
 
-free_expr.exit26:                                 ; preds = %.critedge40.i, %448, %451
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 4
-  %.not4.i = icmp eq ptr %454, null
-  br i1 %.not4.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph22
+.lr.ph27:                                         ; preds = %.preheader20
+  %453 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %454 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %455 = load i32, ptr %453, align 4
+  %456 = icmp sgt i32 %455, 0
+  br i1 %456, label %.lr.ph30, label %.split.us
 
-.lr.ph22:                                         ; preds = %free_expr.exit26
-  %456 = getelementptr inbounds nuw i8, ptr %454, i64 16
-  %457 = load i32, ptr %455, align 4
-  %458 = icmp sgt i32 %457, 0
-  br i1 %458, label %.lr.ph25, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+.lr.ph30:                                         ; preds = %.lr.ph27, %.lr.ph30
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph30 ], [ 0, %.lr.ph27 ]
+  %457 = load ptr, ptr %454, align 8
+  %458 = getelementptr inbounds nuw %union.ListCell, ptr %457, i64 %indvars.iv157
+  %459 = load ptr, ptr %458, align 8
+  tail call fastcc void @free_stmt(ptr noundef %459)
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %460 = load i32, ptr %453, align 4
+  %461 = sext i32 %460 to i64
+  %462 = icmp slt i64 %indvars.iv.next158, %461
+  br i1 %462, label %.lr.ph30, label %.split.us
 
-.lr.ph25:                                         ; preds = %.lr.ph22, %free_expr.exit23
-  %459 = phi i32 [ %468, %free_expr.exit23 ], [ %457, %.lr.ph22 ]
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %free_expr.exit23 ], [ 0, %.lr.ph22 ]
-  %460 = load ptr, ptr %456, align 8
-  %461 = getelementptr inbounds nuw %union.ListCell, ptr %460, i64 %indvars.iv144
-  %462 = load ptr, ptr %461, align 8
-  %.not.i21 = icmp eq ptr %462, null
-  br i1 %.not.i21, label %free_expr.exit23, label %463
+.lr.ph32:                                         ; preds = %free_expr.exit27
+  %463 = getelementptr inbounds nuw i8, ptr %451, i64 4
+  %464 = getelementptr inbounds nuw i8, ptr %451, i64 16
+  %465 = load i32, ptr %463, align 4
+  %466 = icmp sgt i32 %465, 0
+  br i1 %466, label %.lr.ph35, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-463:                                              ; preds = %.lr.ph25
-  %464 = getelementptr inbounds nuw i8, ptr %462, i64 40
-  %465 = load ptr, ptr %464, align 8
-  %.not5.i22 = icmp eq ptr %465, null
-  br i1 %.not5.i22, label %free_expr.exit23, label %466
+.lr.ph35:                                         ; preds = %.lr.ph32, %free_expr.exit24
+  %467 = phi i32 [ %476, %free_expr.exit24 ], [ %465, %.lr.ph32 ]
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %free_expr.exit24 ], [ 0, %.lr.ph32 ]
+  %468 = load ptr, ptr %464, align 8
+  %469 = getelementptr inbounds nuw %union.ListCell, ptr %468, i64 %indvars.iv160
+  %470 = load ptr, ptr %469, align 8
+  %.not.i22 = icmp eq ptr %470, null
+  br i1 %.not.i22, label %free_expr.exit24, label %471
 
-466:                                              ; preds = %463
-  %467 = tail call i32 @SPI_freeplan(ptr noundef nonnull %465) #16
-  store ptr null, ptr %464, align 8
-  %.pre207 = load i32, ptr %455, align 4
-  br label %free_expr.exit23
+471:                                              ; preds = %.lr.ph35
+  %472 = getelementptr inbounds nuw i8, ptr %470, i64 40
+  %473 = load ptr, ptr %472, align 8
+  %.not5.i23 = icmp eq ptr %473, null
+  br i1 %.not5.i23, label %free_expr.exit24, label %474
 
-free_expr.exit23:                                 ; preds = %.lr.ph25, %463, %466
-  %468 = phi i32 [ %459, %.lr.ph25 ], [ %459, %463 ], [ %.pre207, %466 ]
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %469 = sext i32 %468 to i64
-  %470 = icmp slt i64 %indvars.iv.next145, %469
-  br i1 %470, label %.lr.ph25, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+474:                                              ; preds = %471
+  %475 = tail call i32 @SPI_freeplan(ptr noundef nonnull %473) #16
+  store ptr null, ptr %472, align 8
+  %.pre223 = load i32, ptr %463, align 4
+  br label %free_expr.exit24
 
-.critedge92.i:                                    ; preds = %3
-  %471 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %472 = load ptr, ptr %471, align 8
-  %.not.i18 = icmp eq ptr %472, null
-  br i1 %.not.i18, label %free_expr.exit20, label %473
+free_expr.exit24:                                 ; preds = %.lr.ph35, %471, %474
+  %476 = phi i32 [ %467, %.lr.ph35 ], [ %467, %471 ], [ %.pre223, %474 ]
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %477 = sext i32 %476 to i64
+  %478 = icmp slt i64 %indvars.iv.next161, %477
+  br i1 %478, label %.lr.ph35, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-473:                                              ; preds = %.critedge92.i
-  %474 = getelementptr inbounds nuw i8, ptr %472, i64 40
-  %475 = load ptr, ptr %474, align 8
-  %.not5.i19 = icmp eq ptr %475, null
-  br i1 %.not5.i19, label %free_expr.exit20, label %476
+479:                                              ; preds = %3
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %481 = load ptr, ptr %480, align 8
+  %.not.i19 = icmp eq ptr %481, null
+  br i1 %.not.i19, label %free_expr.exit21, label %482
 
-476:                                              ; preds = %473
-  %477 = tail call i32 @SPI_freeplan(ptr noundef nonnull %475) #16
-  store ptr null, ptr %474, align 8
-  br label %free_expr.exit20
+482:                                              ; preds = %479
+  %483 = getelementptr inbounds nuw i8, ptr %481, i64 40
+  %484 = load ptr, ptr %483, align 8
+  %.not5.i20 = icmp eq ptr %484, null
+  br i1 %.not5.i20, label %free_expr.exit21, label %485
 
-free_expr.exit20:                                 ; preds = %.critedge92.i, %473, %476
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %479 = load ptr, ptr %478, align 8
-  %.not.i15 = icmp eq ptr %479, null
-  br i1 %.not.i15, label %free_expr.exit17, label %480
+485:                                              ; preds = %482
+  %486 = tail call i32 @SPI_freeplan(ptr noundef nonnull %484) #16
+  store ptr null, ptr %483, align 8
+  br label %free_expr.exit21
 
-480:                                              ; preds = %free_expr.exit20
-  %481 = getelementptr inbounds nuw i8, ptr %479, i64 40
-  %482 = load ptr, ptr %481, align 8
-  %.not5.i16 = icmp eq ptr %482, null
-  br i1 %.not5.i16, label %free_expr.exit17, label %483
+free_expr.exit21:                                 ; preds = %479, %482, %485
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %488 = load ptr, ptr %487, align 8
+  %.not.i16 = icmp eq ptr %488, null
+  br i1 %.not.i16, label %free_expr.exit18, label %489
 
-483:                                              ; preds = %480
-  %484 = tail call i32 @SPI_freeplan(ptr noundef nonnull %482) #16
-  store ptr null, ptr %481, align 8
-  br label %free_expr.exit17
+489:                                              ; preds = %free_expr.exit21
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 40
+  %491 = load ptr, ptr %490, align 8
+  %.not5.i17 = icmp eq ptr %491, null
+  br i1 %.not5.i17, label %free_expr.exit18, label %492
 
-free_expr.exit17:                                 ; preds = %free_expr.exit20, %480, %483
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %486 = load ptr, ptr %485, align 8
-  %.not.i12 = icmp eq ptr %486, null
-  br i1 %.not.i12, label %free_expr.exit14, label %487
+492:                                              ; preds = %489
+  %493 = tail call i32 @SPI_freeplan(ptr noundef nonnull %491) #16
+  store ptr null, ptr %490, align 8
+  br label %free_expr.exit18
 
-487:                                              ; preds = %free_expr.exit17
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 40
-  %489 = load ptr, ptr %488, align 8
-  %.not5.i13 = icmp eq ptr %489, null
-  br i1 %.not5.i13, label %free_expr.exit14, label %490
+free_expr.exit18:                                 ; preds = %free_expr.exit21, %489, %492
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %495 = load ptr, ptr %494, align 8
+  %.not.i13 = icmp eq ptr %495, null
+  br i1 %.not.i13, label %free_expr.exit15, label %496
 
-490:                                              ; preds = %487
-  %491 = tail call i32 @SPI_freeplan(ptr noundef nonnull %489) #16
-  store ptr null, ptr %488, align 8
-  br label %free_expr.exit14
+496:                                              ; preds = %free_expr.exit18
+  %497 = getelementptr inbounds nuw i8, ptr %495, i64 40
+  %498 = load ptr, ptr %497, align 8
+  %.not5.i14 = icmp eq ptr %498, null
+  br i1 %.not5.i14, label %free_expr.exit15, label %499
 
-free_expr.exit14:                                 ; preds = %free_expr.exit17, %487, %490
-  %492 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds nuw i8, ptr %493, i64 4
-  %.not1.i = icmp eq ptr %493, null
-  br i1 %.not1.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph
+499:                                              ; preds = %496
+  %500 = tail call i32 @SPI_freeplan(ptr noundef nonnull %498) #16
+  store ptr null, ptr %497, align 8
+  br label %free_expr.exit15
 
-.lr.ph:                                           ; preds = %free_expr.exit14
-  %495 = getelementptr inbounds nuw i8, ptr %493, i64 16
-  %496 = load i32, ptr %494, align 4
-  %497 = icmp sgt i32 %496, 0
-  br i1 %497, label %.lr.ph15, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+free_expr.exit15:                                 ; preds = %free_expr.exit18, %496, %499
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %502 = load ptr, ptr %501, align 8
+  %503 = icmp eq ptr %502, null
+  br i1 %503, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %.lr.ph
 
-.lr.ph15:                                         ; preds = %.lr.ph, %free_expr.exit11
-  %498 = phi i32 [ %507, %free_expr.exit11 ], [ %496, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %free_expr.exit11 ], [ 0, %.lr.ph ]
-  %499 = load ptr, ptr %495, align 8
-  %500 = getelementptr inbounds nuw %union.ListCell, ptr %499, i64 %indvars.iv
-  %501 = load ptr, ptr %500, align 8
-  %.not.i9 = icmp eq ptr %501, null
-  br i1 %.not.i9, label %free_expr.exit11, label %502
+.lr.ph:                                           ; preds = %free_expr.exit15
+  %504 = getelementptr inbounds nuw i8, ptr %502, i64 4
+  %505 = getelementptr inbounds nuw i8, ptr %502, i64 16
+  %506 = load i32, ptr %504, align 4
+  %507 = icmp sgt i32 %506, 0
+  br i1 %507, label %.lr.ph25, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-502:                                              ; preds = %.lr.ph15
-  %503 = getelementptr inbounds nuw i8, ptr %501, i64 40
-  %504 = load ptr, ptr %503, align 8
-  %.not5.i10 = icmp eq ptr %504, null
-  br i1 %.not5.i10, label %free_expr.exit11, label %505
+.lr.ph25:                                         ; preds = %.lr.ph, %free_expr.exit12
+  %508 = phi i32 [ %517, %free_expr.exit12 ], [ %506, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %free_expr.exit12 ], [ 0, %.lr.ph ]
+  %509 = load ptr, ptr %505, align 8
+  %510 = getelementptr inbounds nuw %union.ListCell, ptr %509, i64 %indvars.iv
+  %511 = load ptr, ptr %510, align 8
+  %.not.i10 = icmp eq ptr %511, null
+  br i1 %.not.i10, label %free_expr.exit12, label %512
 
-505:                                              ; preds = %502
-  %506 = tail call i32 @SPI_freeplan(ptr noundef nonnull %504) #16
-  store ptr null, ptr %503, align 8
-  %.pre = load i32, ptr %494, align 4
-  br label %free_expr.exit11
+512:                                              ; preds = %.lr.ph25
+  %513 = getelementptr inbounds nuw i8, ptr %511, i64 40
+  %514 = load ptr, ptr %513, align 8
+  %.not5.i11 = icmp eq ptr %514, null
+  br i1 %.not5.i11, label %free_expr.exit12, label %515
 
-free_expr.exit11:                                 ; preds = %.lr.ph15, %502, %505
-  %507 = phi i32 [ %498, %.lr.ph15 ], [ %498, %502 ], [ %.pre, %505 ]
+515:                                              ; preds = %512
+  %516 = tail call i32 @SPI_freeplan(ptr noundef nonnull %514) #16
+  store ptr null, ptr %513, align 8
+  %.pre = load i32, ptr %504, align 4
+  br label %free_expr.exit12
+
+free_expr.exit12:                                 ; preds = %.lr.ph25, %512, %515
+  %517 = phi i32 [ %508, %.lr.ph25 ], [ %508, %512 ], [ %.pre, %515 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %508 = sext i32 %507 to i64
-  %509 = icmp slt i64 %indvars.iv.next, %508
-  br i1 %509, label %.lr.ph15, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
+  %518 = sext i32 %517 to i64
+  %519 = icmp slt i64 %indvars.iv.next, %518
+  br i1 %519, label %.lr.ph25, label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-510:                                              ; preds = %3
-  %511 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %512 = load ptr, ptr %511, align 8
-  %.not.i6 = icmp eq ptr %512, null
-  br i1 %.not.i6, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %513
+520:                                              ; preds = %3
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %522 = load ptr, ptr %521, align 8
+  %.not.i7 = icmp eq ptr %522, null
+  br i1 %.not.i7, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %523
 
-513:                                              ; preds = %510
-  %514 = getelementptr inbounds nuw i8, ptr %512, i64 40
-  %515 = load ptr, ptr %514, align 8
-  %.not5.i7 = icmp eq ptr %515, null
-  br i1 %.not5.i7, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %516
+523:                                              ; preds = %520
+  %524 = getelementptr inbounds nuw i8, ptr %522, i64 40
+  %525 = load ptr, ptr %524, align 8
+  %.not5.i8 = icmp eq ptr %525, null
+  br i1 %.not5.i8, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %526
 
-516:                                              ; preds = %513
-  %517 = tail call i32 @SPI_freeplan(ptr noundef nonnull %515) #16
-  store ptr null, ptr %514, align 8
+526:                                              ; preds = %523
+  %527 = tail call i32 @SPI_freeplan(ptr noundef nonnull %525) #16
+  store ptr null, ptr %524, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-518:                                              ; preds = %3
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %520 = load ptr, ptr %519, align 8
-  %.not.i3 = icmp eq ptr %520, null
-  br i1 %.not.i3, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %521
+528:                                              ; preds = %3
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %530 = load ptr, ptr %529, align 8
+  %.not.i4 = icmp eq ptr %530, null
+  br i1 %.not.i4, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %531
 
-521:                                              ; preds = %518
-  %522 = getelementptr inbounds nuw i8, ptr %520, i64 40
-  %523 = load ptr, ptr %522, align 8
-  %.not5.i4 = icmp eq ptr %523, null
-  br i1 %.not5.i4, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %524
+531:                                              ; preds = %528
+  %532 = getelementptr inbounds nuw i8, ptr %530, i64 40
+  %533 = load ptr, ptr %532, align 8
+  %.not5.i5 = icmp eq ptr %533, null
+  br i1 %.not5.i5, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %534
 
-524:                                              ; preds = %521
-  %525 = tail call i32 @SPI_freeplan(ptr noundef nonnull %523) #16
-  store ptr null, ptr %522, align 8
+534:                                              ; preds = %531
+  %535 = tail call i32 @SPI_freeplan(ptr noundef nonnull %533) #16
+  store ptr null, ptr %532, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-526:                                              ; preds = %3
-  %527 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %528 = load ptr, ptr %527, align 8
-  %.not.i = icmp eq ptr %528, null
-  br i1 %.not.i, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %529
+536:                                              ; preds = %3
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %538 = load ptr, ptr %537, align 8
+  %.not.i2 = icmp eq ptr %538, null
+  br i1 %.not.i2, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %539
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds nuw i8, ptr %528, i64 40
-  %531 = load ptr, ptr %530, align 8
-  %.not5.i2 = icmp eq ptr %531, null
-  br i1 %.not5.i2, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %532
+539:                                              ; preds = %536
+  %540 = getelementptr inbounds nuw i8, ptr %538, i64 40
+  %541 = load ptr, ptr %540, align 8
+  %.not5.i3 = icmp eq ptr %541, null
+  br i1 %.not5.i3, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %542
 
-532:                                              ; preds = %529
-  %533 = tail call i32 @SPI_freeplan(ptr noundef nonnull %531) #16
-  store ptr null, ptr %530, align 8
+542:                                              ; preds = %539
+  %543 = tail call i32 @SPI_freeplan(ptr noundef nonnull %541) #16
+  store ptr null, ptr %540, align 8
   br label %plpgsql_statement_tree_walker_impl.specialized.3.exit
 
-534:                                              ; preds = %3
-  %535 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
-  tail call void @llvm.assume(i1 %535)
-  %536 = load i32, ptr %0, align 4
-  %537 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %536) #16
+544:                                              ; preds = %3
+  %545 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
+  tail call void @llvm.assume(i1 %545)
+  %546 = load i32, ptr %0, align 4
+  %547 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %546) #16
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 595, ptr noundef nonnull @__func__.plpgsql_statement_tree_walker_impl) #16
   unreachable
 
-plpgsql_statement_tree_walker_impl.specialized.3.exit: ; preds = %free_expr.exit11, %free_expr.exit23, %free_expr.exit29, %free_expr.exit44, %free_expr.exit50, %.lr.ph50, %.lr.ph65, %.lr.ph70, %.lr.ph75, %.lr.ph91, %.lr.ph112, %.critedge4.i, %free_expr.exit14, %.lr.ph, %free_expr.exit26, %.lr.ph22, %free_expr.exit32, %.lr.ph27, %.critedge34.i, %.lr.ph37, %free_expr.exit53, %.lr.ph42, %free_expr.exit68, %.lr.ph47, %free_expr.exit77, %.lr.ph62, %free_expr.exit86, %.lr.ph67, %166, %.lr.ph72, %.critedge14.i, %.lr.ph88, %.critedge8.i, %.lr.ph109, %20, %.lr.ph124, %.critedge.i, %3, %3, %3, %3, %46, %49, %52, %.critedge26.i, %246, %249, %.critedge28.i, %266, %269, %290, %293, %296, %298, %301, %304, %306, %309, %312, %free_expr.exit41, %395, %398, %400, %403, %406, %510, %513, %516, %518, %521, %524, %526, %529, %532, %1
+plpgsql_statement_tree_walker_impl.specialized.3.exit: ; preds = %free_expr.exit12, %free_expr.exit24, %free_expr.exit30, %free_expr.exit45, %free_expr.exit51, %.lr.ph61, %.lr.ph76, %.lr.ph81, %.lr.ph86, %.lr.ph101, %.lr.ph121, %.split134.us, %free_expr.exit15, %.lr.ph, %free_expr.exit27, %.lr.ph32, %free_expr.exit33, %.lr.ph37, %.preheader15, %.lr.ph47, %.lr.ph53, %free_expr.exit54, %.lr.ph58, %free_expr.exit69, %.lr.ph73, %free_expr.exit78, %.lr.ph78, %free_expr.exit87, %.lr.ph83, %.preheader7, %.lr.ph98, %.critedge14.i, %.lr.ph118, %.critedge8.i, %.lr.ph136, %.preheader, %.critedge.i, %3, %3, %3, %3, %60, %63, %66, %.critedge26.i, %247, %250, %.critedge28.i, %263, %266, %299, %302, %305, %307, %310, %313, %315, %318, %321, %free_expr.exit42, %403, %406, %408, %411, %414, %520, %523, %526, %528, %531, %534, %536, %539, %542, %1
   ret void
 }
 
@@ -5372,1202 +5372,1202 @@ declare void @llvm.assume(i1 noundef) #14
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plpgsql_statement_tree_walker_impl.specialized.2(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4
-  switch i32 %3, label %591 [
-    i32 0, label %4
-    i32 1, label %45
-    i32 2, label %.critedge54
-    i32 3, label %.critedge62
-    i32 4, label %176
-    i32 5, label %.critedge70
-    i32 6, label %.critedge72
-    i32 7, label %253
-    i32 8, label %272
-    i32 9, label %.critedge78
-    i32 10, label %313
-    i32 11, label %320
-    i32 12, label %327
-    i32 13, label %.critedge80
-    i32 14, label %375
-    i32 15, label %420
-    i32 16, label %437
-    i32 17, label %.critedge86
-    i32 18, label %475
-    i32 19, label %.critedge2
-    i32 20, label %.critedge92
-    i32 21, label %570
-    i32 22, label %.critedge2
-    i32 23, label %577
-    i32 24, label %584
-    i32 25, label %.critedge2
-    i32 26, label %.critedge2
+  switch i32 %3, label %601 [
+    i32 0, label %.preheader1
+    i32 1, label %59
+    i32 2, label %66
+    i32 3, label %136
+    i32 4, label %.preheader7
+    i32 5, label %203
+    i32 6, label %226
+    i32 7, label %.preheader11
+    i32 8, label %.preheader12
+    i32 9, label %299
+    i32 10, label %322
+    i32 11, label %329
+    i32 12, label %336
+    i32 13, label %343
+    i32 14, label %.preheader17
+    i32 15, label %428
+    i32 16, label %445
+    i32 17, label %452
+    i32 18, label %.preheader20
+    i32 19, label %mark_expr.exit
+    i32 20, label %527
+    i32 21, label %580
+    i32 22, label %mark_expr.exit
+    i32 23, label %587
+    i32 24, label %594
+    i32 25, label %mark_expr.exit
+    i32 26, label %mark_expr.exit
   ]
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not46 = icmp eq ptr %6, null
-  br i1 %.not46, label %.critedge, label %.lr.ph108
+.preheader20:                                     ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %.split.us, label %.lr.ph27
 
-.lr.ph108:                                        ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load i32, ptr %7, align 4
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph111, label %.critedge
+.preheader17:                                     ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %.preheader15, label %.lr.ph42
 
-.lr.ph111:                                        ; preds = %.lr.ph108, %.lr.ph111
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.lr.ph111 ], [ 0, %.lr.ph108 ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv192
-  %13 = load ptr, ptr %12, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %13, ptr noundef %1)
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %14 = load i32, ptr %7, align 4
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next193, %15
-  br i1 %16, label %.lr.ph111, label %.critedge
+.preheader12:                                     ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %.not17 = icmp eq ptr %11, null
+  br i1 %.not17, label %.critedge28, label %.lr.ph63
 
-.critedge:                                        ; preds = %.lr.ph111, %.lr.ph108, %4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8
-  %.not41 = icmp eq ptr %18, null
-  br i1 %.not41, label %.critedge2, label %19
+.preheader11:                                     ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.not19 = icmp eq ptr %14, null
+  br i1 %.not19, label %.critedge26, label %.lr.ph68
 
-19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.not43 = icmp eq ptr %21, null
-  br i1 %.not43, label %.critedge2, label %.lr.ph118
+.preheader7:                                      ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.not25 = icmp eq ptr %17, null
+  br i1 %.not25, label %mark_expr.exit, label %.lr.ph83
 
-.lr.ph118:                                        ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %24 = load i32, ptr %22, align 4
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.critedge52, label %.critedge2
+.preheader1:                                      ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %.not46 = icmp eq ptr %20, null
+  br i1 %.not46, label %.critedge, label %.lr.ph123
 
-.critedge52:                                      ; preds = %.lr.ph118, %.critedge4
-  %26 = phi i32 [ %42, %.critedge4 ], [ %24, %.lr.ph118 ]
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.critedge4 ], [ 0, %.lr.ph118 ]
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv198
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %.not45 = icmp eq ptr %31, null
-  br i1 %.not45, label %.critedge4, label %.lr.ph113
+.lr.ph123:                                        ; preds = %.preheader1
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %23 = load i32, ptr %21, align 4
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph126, label %.critedge
 
-.lr.ph113:                                        ; preds = %.critedge52
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load i32, ptr %32, align 4
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph116, label %.critedge4
+.lr.ph126:                                        ; preds = %.lr.ph123, %.lr.ph126
+  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %.lr.ph126 ], [ 0, %.lr.ph123 ]
+  %25 = load ptr, ptr %22, align 8
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv214
+  %27 = load ptr, ptr %26, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %27, ptr noundef %1)
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %28 = load i32, ptr %21, align 4
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next215, %29
+  br i1 %30, label %.lr.ph126, label %.critedge
 
-.lr.ph116:                                        ; preds = %.lr.ph113, %.lr.ph116
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %.lr.ph116 ], [ 0, %.lr.ph113 ]
-  %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv195
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %38, ptr noundef %1)
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %39 = load i32, ptr %32, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next196, %40
-  br i1 %41, label %.lr.ph116, label %.critedge4.loopexit
+.critedge:                                        ; preds = %.lr.ph126, %.lr.ph123, %.preheader1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %.not41 = icmp eq ptr %32, null
+  br i1 %.not41, label %mark_expr.exit, label %.preheader
 
-.critedge4.loopexit:                              ; preds = %.lr.ph116
-  %.pre206 = load i32, ptr %22, align 4
-  br label %.critedge4
+.preheader:                                       ; preds = %.critedge
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %.not43 = icmp eq ptr %34, null
+  br i1 %.not43, label %mark_expr.exit, label %.lr.ph136
 
-.critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph113, %.critedge52
-  %42 = phi i32 [ %.pre206, %.critedge4.loopexit ], [ %26, %.lr.ph113 ], [ %26, %.critedge52 ]
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next199, %43
-  br i1 %44, label %.critedge52, label %.critedge2
+.lr.ph136:                                        ; preds = %.preheader
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %37 = load i32, ptr %35, align 4
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph144, label %mark_expr.exit
 
-45:                                               ; preds = %2
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %.critedge2, label %48
+.lr.ph144:                                        ; preds = %.lr.ph136, %.split134.us
+  %39 = phi i32 [ %46, %.split134.us ], [ %37, %.lr.ph136 ]
+  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.split134.us ], [ 0, %.lr.ph136 ]
+  %40 = load ptr, ptr %36, align 8
+  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv220
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.split134.us, label %.lr.ph128
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.critedge2.sink.split, label %.critedge2
+.split134.us.loopexit:                            ; preds = %.lr.ph131
+  %.pre228 = load i32, ptr %35, align 4
+  br label %.split134.us
 
-.critedge54:                                      ; preds = %2
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %.not.i93 = icmp eq ptr %53, null
-  br i1 %.not.i93, label %mark_expr.exit94, label %54
+.split134.us:                                     ; preds = %.split134.us.loopexit, %.lr.ph128, %.lr.ph144
+  %46 = phi i32 [ %.pre228, %.split134.us.loopexit ], [ %39, %.lr.ph128 ], [ %39, %.lr.ph144 ]
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next221, %47
+  br i1 %48, label %.lr.ph144, label %mark_expr.exit
 
-54:                                               ; preds = %.critedge54
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %mark_expr.exit94
+.lr.ph128:                                        ; preds = %.lr.ph144
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %51 = load i32, ptr %49, align 4
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph131, label %.split134.us
 
-58:                                               ; preds = %54
-  %59 = tail call zeroext i1 @bms_is_member(i32 noundef %56, ptr noundef %1) #16
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 36
-  %61 = zext i1 %59 to i8
-  store i8 %61, ptr %60, align 4
-  br label %mark_expr.exit94
+.lr.ph131:                                        ; preds = %.lr.ph128, %.lr.ph131
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph131 ], [ 0, %.lr.ph128 ]
+  %53 = load ptr, ptr %50, align 8
+  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv217
+  %55 = load ptr, ptr %54, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %55, ptr noundef %1)
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %56 = load i32, ptr %49, align 4
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next218, %57
+  br i1 %58, label %.lr.ph131, label %.split134.us.loopexit
 
-mark_expr.exit94:                                 ; preds = %.critedge54, %54, %58
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %.not39 = icmp eq ptr %63, null
-  br i1 %.not39, label %.critedge6, label %.lr.ph90
+59:                                               ; preds = %2
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %.not.i = icmp eq ptr %61, null
+  br i1 %.not.i, label %mark_expr.exit, label %62
 
-.lr.ph90:                                         ; preds = %mark_expr.exit94
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = load i32, ptr %64, align 4
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph93, label %.critedge6
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp sgt i32 %64, -1
+  br i1 %65, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-.lr.ph93:                                         ; preds = %.lr.ph90, %.lr.ph93
-  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.lr.ph93 ], [ 0, %.lr.ph90 ]
-  %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv180
-  %70 = load ptr, ptr %69, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %70, ptr noundef %1)
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %71 = load i32, ptr %64, align 4
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next181, %72
-  br i1 %73, label %.lr.ph93, label %.critedge6
+66:                                               ; preds = %2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %.not.i47 = icmp eq ptr %68, null
+  br i1 %.not.i47, label %mark_expr.exit48, label %69
 
-.critedge6:                                       ; preds = %.lr.ph93, %.lr.ph90, %mark_expr.exit94
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %.not36 = icmp eq ptr %75, null
-  br i1 %.not36, label %.critedge8, label %.lr.ph100
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %73, label %mark_expr.exit48
 
-.lr.ph100:                                        ; preds = %.critedge6
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %78 = load i32, ptr %76, align 4
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.critedge58, label %.critedge8
+73:                                               ; preds = %69
+  %74 = tail call zeroext i1 @bms_is_member(i32 noundef %71, ptr noundef %1) #16
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 36
+  %76 = zext i1 %74 to i8
+  store i8 %76, ptr %75, align 4
+  br label %mark_expr.exit48
 
-.critedge58:                                      ; preds = %.lr.ph100, %.critedge10
-  %indvars.iv186233 = phi i64 [ %indvars.iv.next187, %.critedge10 ], [ 0, %.lr.ph100 ]
-  %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds nuw %union.ListCell, ptr %80, i64 %indvars.iv186233
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %.not.i95 = icmp eq ptr %84, null
-  br i1 %.not.i95, label %mark_expr.exit96, label %85
+mark_expr.exit48:                                 ; preds = %66, %69, %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %.not39 = icmp eq ptr %78, null
+  br i1 %.not39, label %.critedge6, label %.lr.ph103
 
-85:                                               ; preds = %.critedge58
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %89, label %mark_expr.exit96
-
-89:                                               ; preds = %85
-  %90 = tail call zeroext i1 @bms_is_member(i32 noundef %87, ptr noundef %1) #16
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 36
-  %92 = zext i1 %90 to i8
-  store i8 %92, ptr %91, align 4
-  br label %mark_expr.exit96
-
-mark_expr.exit96:                                 ; preds = %.critedge58, %85, %89
-  %93 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %.not38 = icmp eq ptr %94, null
-  br i1 %.not38, label %.critedge10, label %.lr.ph95
-
-.lr.ph95:                                         ; preds = %mark_expr.exit96
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %97 = load i32, ptr %95, align 4
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph98, label %.critedge10
-
-.critedge8:                                       ; preds = %.critedge10, %.lr.ph100, %.critedge6
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %.not35 = icmp eq ptr %100, null
-  br i1 %.not35, label %.critedge2, label %.lr.ph103
-
-.lr.ph103:                                        ; preds = %.critedge8
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %103 = load i32, ptr %101, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph106, label %.critedge2
-
-.lr.ph98:                                         ; preds = %.lr.ph95, %.lr.ph98
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.lr.ph98 ], [ 0, %.lr.ph95 ]
-  %105 = load ptr, ptr %96, align 8
-  %106 = getelementptr inbounds nuw %union.ListCell, ptr %105, i64 %indvars.iv183
-  %107 = load ptr, ptr %106, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %107, ptr noundef %1)
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %108 = load i32, ptr %95, align 4
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next184, %109
-  br i1 %110, label %.lr.ph98, label %.critedge10
-
-.critedge10:                                      ; preds = %.lr.ph98, %.lr.ph95, %mark_expr.exit96
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186233, 1
-  %111 = load i32, ptr %76, align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next187, %112
-  br i1 %113, label %.critedge58, label %.critedge8
+.lr.ph103:                                        ; preds = %mark_expr.exit48
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %81 = load i32, ptr %79, align 4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %.lr.ph106, label %.critedge6
 
 .lr.ph106:                                        ; preds = %.lr.ph103, %.lr.ph106
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph106 ], [ 0, %.lr.ph103 ]
-  %114 = load ptr, ptr %102, align 8
-  %115 = getelementptr inbounds nuw %union.ListCell, ptr %114, i64 %indvars.iv189
-  %116 = load ptr, ptr %115, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %116, ptr noundef %1)
-  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %117 = load i32, ptr %101, align 4
-  %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv.next190, %118
-  br i1 %119, label %.lr.ph106, label %.critedge2
+  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.lr.ph106 ], [ 0, %.lr.ph103 ]
+  %83 = load ptr, ptr %80, align 8
+  %84 = getelementptr inbounds nuw %union.ListCell, ptr %83, i64 %indvars.iv202
+  %85 = load ptr, ptr %84, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %85, ptr noundef %1)
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %86 = load i32, ptr %79, align 4
+  %87 = sext i32 %86 to i64
+  %88 = icmp slt i64 %indvars.iv.next203, %87
+  br i1 %88, label %.lr.ph106, label %.critedge6
 
-.critedge62:                                      ; preds = %2
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %121 = load ptr, ptr %120, align 8
-  %.not.i97 = icmp eq ptr %121, null
-  br i1 %.not.i97, label %mark_expr.exit98, label %122
+.critedge6:                                       ; preds = %.lr.ph106, %.lr.ph103, %mark_expr.exit48
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %.not36 = icmp eq ptr %90, null
+  br i1 %.not36, label %.critedge8, label %.lr.ph115
 
-122:                                              ; preds = %.critedge62
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp sgt i32 %124, -1
-  br i1 %125, label %126, label %mark_expr.exit98
+.lr.ph115:                                        ; preds = %.critedge6
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %93 = load i32, ptr %91, align 4
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph257, label %.critedge8
 
-126:                                              ; preds = %122
-  %127 = tail call zeroext i1 @bms_is_member(i32 noundef %124, ptr noundef %1) #16
-  %128 = getelementptr inbounds nuw i8, ptr %121, i64 36
-  %129 = zext i1 %127 to i8
-  store i8 %129, ptr %128, align 4
-  br label %mark_expr.exit98
+.lr.ph257:                                        ; preds = %.lr.ph115, %.split113.us
+  %indvars.iv208256 = phi i64 [ %indvars.iv.next209, %.split113.us ], [ 0, %.lr.ph115 ]
+  %95 = load ptr, ptr %92, align 8
+  %96 = getelementptr inbounds nuw %union.ListCell, ptr %95, i64 %indvars.iv208256
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %.not.i49 = icmp eq ptr %99, null
+  br i1 %.not.i49, label %mark_expr.exit50, label %100
 
-mark_expr.exit98:                                 ; preds = %.critedge62, %122, %126
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  %.not29 = icmp eq ptr %131, null
-  br i1 %.not29, label %.critedge14, label %.lr.ph82
+100:                                              ; preds = %.lr.ph257
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp sgt i32 %102, -1
+  br i1 %103, label %104, label %mark_expr.exit50
 
-.lr.ph82:                                         ; preds = %mark_expr.exit98
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %134 = load i32, ptr %132, align 4
-  %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %.critedge64, label %.critedge14
+104:                                              ; preds = %100
+  %105 = tail call zeroext i1 @bms_is_member(i32 noundef %102, ptr noundef %1) #16
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 36
+  %107 = zext i1 %105 to i8
+  store i8 %107, ptr %106, align 4
+  br label %mark_expr.exit50
 
-.critedge64:                                      ; preds = %.lr.ph82, %.critedge16
-  %indvars.iv174232 = phi i64 [ %indvars.iv.next175, %.critedge16 ], [ 0, %.lr.ph82 ]
-  %136 = load ptr, ptr %133, align 8
-  %137 = getelementptr inbounds nuw %union.ListCell, ptr %136, i64 %indvars.iv174232
+mark_expr.exit50:                                 ; preds = %.lr.ph257, %100, %104
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.split113.us, label %.lr.ph108
+
+.critedge8:                                       ; preds = %.split113.us, %.lr.ph115, %.critedge6
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %.not35 = icmp eq ptr %112, null
+  br i1 %.not35, label %mark_expr.exit, label %.lr.ph118
+
+.split113.us:                                     ; preds = %.lr.ph111, %.lr.ph108, %mark_expr.exit50
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208256, 1
+  %114 = load i32, ptr %91, align 4
+  %115 = sext i32 %114 to i64
+  %116 = icmp slt i64 %indvars.iv.next209, %115
+  br i1 %116, label %.lr.ph257, label %.critedge8
+
+.lr.ph108:                                        ; preds = %mark_expr.exit50
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %119 = load i32, ptr %117, align 4
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %.lr.ph111, label %.split113.us
+
+.lr.ph111:                                        ; preds = %.lr.ph108, %.lr.ph111
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %.lr.ph111 ], [ 0, %.lr.ph108 ]
+  %121 = load ptr, ptr %118, align 8
+  %122 = getelementptr inbounds nuw %union.ListCell, ptr %121, i64 %indvars.iv205
+  %123 = load ptr, ptr %122, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %123, ptr noundef %1)
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %124 = load i32, ptr %117, align 4
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv.next206, %125
+  br i1 %126, label %.lr.ph111, label %.split113.us
+
+.lr.ph118:                                        ; preds = %.critedge8
+  %127 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %128 = load i32, ptr %113, align 4
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %.lr.ph121, label %mark_expr.exit
+
+.lr.ph121:                                        ; preds = %.lr.ph118, %.lr.ph121
+  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.lr.ph121 ], [ 0, %.lr.ph118 ]
+  %130 = load ptr, ptr %127, align 8
+  %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv211
+  %132 = load ptr, ptr %131, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %132, ptr noundef %1)
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %133 = load i32, ptr %113, align 4
+  %134 = sext i32 %133 to i64
+  %135 = icmp slt i64 %indvars.iv.next212, %134
+  br i1 %135, label %.lr.ph121, label %mark_expr.exit
+
+136:                                              ; preds = %2
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %.not.i99 = icmp eq ptr %140, null
-  br i1 %.not.i99, label %mark_expr.exit100, label %141
+  %.not.i51 = icmp eq ptr %138, null
+  br i1 %.not.i51, label %mark_expr.exit52, label %139
 
-141:                                              ; preds = %.critedge64
-  %142 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp sgt i32 %143, -1
-  br i1 %144, label %145, label %mark_expr.exit100
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
+  %141 = load i32, ptr %140, align 8
+  %142 = icmp sgt i32 %141, -1
+  br i1 %142, label %143, label %mark_expr.exit52
 
-145:                                              ; preds = %141
-  %146 = tail call zeroext i1 @bms_is_member(i32 noundef %143, ptr noundef %1) #16
-  %147 = getelementptr inbounds nuw i8, ptr %140, i64 36
-  %148 = zext i1 %146 to i8
-  store i8 %148, ptr %147, align 4
-  br label %mark_expr.exit100
+143:                                              ; preds = %139
+  %144 = tail call zeroext i1 @bms_is_member(i32 noundef %141, ptr noundef %1) #16
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 36
+  %146 = zext i1 %144 to i8
+  store i8 %146, ptr %145, align 4
+  br label %mark_expr.exit52
 
-mark_expr.exit100:                                ; preds = %.critedge64, %141, %145
-  %149 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
-  %.not31 = icmp eq ptr %150, null
-  br i1 %.not31, label %.critedge16, label %.lr.ph77
+mark_expr.exit52:                                 ; preds = %136, %139, %143
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %.not29 = icmp eq ptr %148, null
+  br i1 %.not29, label %.critedge14, label %.lr.ph95
 
-.lr.ph77:                                         ; preds = %mark_expr.exit100
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %153 = load i32, ptr %151, align 4
-  %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %.lr.ph80, label %.critedge16
+.lr.ph95:                                         ; preds = %mark_expr.exit52
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %151 = load i32, ptr %149, align 4
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %.lr.ph255, label %.critedge14
 
-.critedge14:                                      ; preds = %.critedge16, %.lr.ph82, %mark_expr.exit98
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  %.not28 = icmp eq ptr %156, null
-  br i1 %.not28, label %.critedge2, label %.lr.ph85
+.lr.ph255:                                        ; preds = %.lr.ph95, %.split93.us
+  %indvars.iv196254 = phi i64 [ %indvars.iv.next197, %.split93.us ], [ 0, %.lr.ph95 ]
+  %153 = load ptr, ptr %150, align 8
+  %154 = getelementptr inbounds nuw %union.ListCell, ptr %153, i64 %indvars.iv196254
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %.not.i53 = icmp eq ptr %157, null
+  br i1 %.not.i53, label %mark_expr.exit54, label %158
 
-.lr.ph85:                                         ; preds = %.critedge14
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %159 = load i32, ptr %157, align 4
-  %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph88, label %.critedge2
+158:                                              ; preds = %.lr.ph255
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 32
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp sgt i32 %160, -1
+  br i1 %161, label %162, label %mark_expr.exit54
 
-.lr.ph80:                                         ; preds = %.lr.ph77, %.lr.ph80
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph80 ], [ 0, %.lr.ph77 ]
-  %161 = load ptr, ptr %152, align 8
-  %162 = getelementptr inbounds nuw %union.ListCell, ptr %161, i64 %indvars.iv171
-  %163 = load ptr, ptr %162, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %163, ptr noundef %1)
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %164 = load i32, ptr %151, align 4
-  %165 = sext i32 %164 to i64
-  %166 = icmp slt i64 %indvars.iv.next172, %165
-  br i1 %166, label %.lr.ph80, label %.critedge16
+162:                                              ; preds = %158
+  %163 = tail call zeroext i1 @bms_is_member(i32 noundef %160, ptr noundef %1) #16
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 36
+  %165 = zext i1 %163 to i8
+  store i8 %165, ptr %164, align 4
+  br label %mark_expr.exit54
 
-.critedge16:                                      ; preds = %.lr.ph80, %.lr.ph77, %mark_expr.exit100
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174232, 1
-  %167 = load i32, ptr %132, align 4
-  %168 = sext i32 %167 to i64
-  %169 = icmp slt i64 %indvars.iv.next175, %168
-  br i1 %169, label %.critedge64, label %.critedge14
+mark_expr.exit54:                                 ; preds = %.lr.ph255, %158, %162
+  %166 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %167 = load ptr, ptr %166, align 8
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %.split93.us, label %.lr.ph88
 
-.lr.ph88:                                         ; preds = %.lr.ph85, %.lr.ph88
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph88 ], [ 0, %.lr.ph85 ]
-  %170 = load ptr, ptr %158, align 8
-  %171 = getelementptr inbounds nuw %union.ListCell, ptr %170, i64 %indvars.iv177
-  %172 = load ptr, ptr %171, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %172, ptr noundef %1)
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %173 = load i32, ptr %157, align 4
-  %174 = sext i32 %173 to i64
-  %175 = icmp slt i64 %indvars.iv.next178, %174
-  br i1 %175, label %.lr.ph88, label %.critedge2
+.critedge14:                                      ; preds = %.split93.us, %.lr.ph95, %mark_expr.exit52
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %.not28 = icmp eq ptr %170, null
+  br i1 %.not28, label %mark_expr.exit, label %.lr.ph98
 
-176:                                              ; preds = %2
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  %.not25 = icmp eq ptr %178, null
-  br i1 %.not25, label %.critedge2, label %.lr.ph72
+.split93.us:                                      ; preds = %.lr.ph91, %.lr.ph88, %mark_expr.exit54
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196254, 1
+  %172 = load i32, ptr %149, align 4
+  %173 = sext i32 %172 to i64
+  %174 = icmp slt i64 %indvars.iv.next197, %173
+  br i1 %174, label %.lr.ph255, label %.critedge14
 
-.lr.ph72:                                         ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %181 = load i32, ptr %179, align 4
-  %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph75, label %.critedge2
+.lr.ph88:                                         ; preds = %mark_expr.exit54
+  %175 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %177 = load i32, ptr %175, align 4
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %.lr.ph91, label %.split93.us
 
-.lr.ph75:                                         ; preds = %.lr.ph72, %.lr.ph75
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.lr.ph75 ], [ 0, %.lr.ph72 ]
-  %183 = load ptr, ptr %180, align 8
-  %184 = getelementptr inbounds nuw %union.ListCell, ptr %183, i64 %indvars.iv168
-  %185 = load ptr, ptr %184, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %185, ptr noundef %1)
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %186 = load i32, ptr %179, align 4
-  %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next169, %187
-  br i1 %188, label %.lr.ph75, label %.critedge2
+.lr.ph91:                                         ; preds = %.lr.ph88, %.lr.ph91
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph91 ], [ 0, %.lr.ph88 ]
+  %179 = load ptr, ptr %176, align 8
+  %180 = getelementptr inbounds nuw %union.ListCell, ptr %179, i64 %indvars.iv193
+  %181 = load ptr, ptr %180, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %181, ptr noundef %1)
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %182 = load i32, ptr %175, align 4
+  %183 = sext i32 %182 to i64
+  %184 = icmp slt i64 %indvars.iv.next194, %183
+  br i1 %184, label %.lr.ph91, label %.split93.us
 
-.critedge70:                                      ; preds = %2
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
+.lr.ph98:                                         ; preds = %.critedge14
+  %185 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %186 = load i32, ptr %171, align 4
+  %187 = icmp sgt i32 %186, 0
+  br i1 %187, label %.lr.ph101, label %mark_expr.exit
+
+.lr.ph101:                                        ; preds = %.lr.ph98, %.lr.ph101
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph101 ], [ 0, %.lr.ph98 ]
+  %188 = load ptr, ptr %185, align 8
+  %189 = getelementptr inbounds nuw %union.ListCell, ptr %188, i64 %indvars.iv199
   %190 = load ptr, ptr %189, align 8
-  %.not.i101 = icmp eq ptr %190, null
-  br i1 %.not.i101, label %mark_expr.exit102, label %191
+  tail call fastcc void @mark_stmt(ptr noundef %190, ptr noundef %1)
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %191 = load i32, ptr %171, align 4
+  %192 = sext i32 %191 to i64
+  %193 = icmp slt i64 %indvars.iv.next200, %192
+  br i1 %193, label %.lr.ph101, label %mark_expr.exit
 
-191:                                              ; preds = %.critedge70
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp sgt i32 %193, -1
-  br i1 %194, label %195, label %mark_expr.exit102
+.lr.ph83:                                         ; preds = %.preheader7
+  %194 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %195 = load i32, ptr %18, align 4
+  %196 = icmp sgt i32 %195, 0
+  br i1 %196, label %.lr.ph86, label %mark_expr.exit
 
-195:                                              ; preds = %191
-  %196 = tail call zeroext i1 @bms_is_member(i32 noundef %193, ptr noundef %1) #16
-  %197 = getelementptr inbounds nuw i8, ptr %190, i64 36
-  %198 = zext i1 %196 to i8
-  store i8 %198, ptr %197, align 4
-  br label %mark_expr.exit102
+.lr.ph86:                                         ; preds = %.lr.ph83, %.lr.ph86
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.lr.ph86 ], [ 0, %.lr.ph83 ]
+  %197 = load ptr, ptr %194, align 8
+  %198 = getelementptr inbounds nuw %union.ListCell, ptr %197, i64 %indvars.iv190
+  %199 = load ptr, ptr %198, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %199, ptr noundef %1)
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %200 = load i32, ptr %18, align 4
+  %201 = sext i32 %200 to i64
+  %202 = icmp slt i64 %indvars.iv.next191, %201
+  br i1 %202, label %.lr.ph86, label %mark_expr.exit
 
-mark_expr.exit102:                                ; preds = %.critedge70, %191, %195
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  %.not23 = icmp eq ptr %200, null
-  br i1 %.not23, label %.critedge2, label %.lr.ph67
+203:                                              ; preds = %2
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %205 = load ptr, ptr %204, align 8
+  %.not.i55 = icmp eq ptr %205, null
+  br i1 %.not.i55, label %mark_expr.exit56, label %206
 
-.lr.ph67:                                         ; preds = %mark_expr.exit102
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %203 = load i32, ptr %201, align 4
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %.lr.ph70, label %.critedge2
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 32
+  %208 = load i32, ptr %207, align 8
+  %209 = icmp sgt i32 %208, -1
+  br i1 %209, label %210, label %mark_expr.exit56
 
-.lr.ph70:                                         ; preds = %.lr.ph67, %.lr.ph70
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph70 ], [ 0, %.lr.ph67 ]
-  %205 = load ptr, ptr %202, align 8
-  %206 = getelementptr inbounds nuw %union.ListCell, ptr %205, i64 %indvars.iv165
-  %207 = load ptr, ptr %206, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %207, ptr noundef %1)
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %208 = load i32, ptr %201, align 4
-  %209 = sext i32 %208 to i64
-  %210 = icmp slt i64 %indvars.iv.next166, %209
-  br i1 %210, label %.lr.ph70, label %.critedge2
+210:                                              ; preds = %206
+  %211 = tail call zeroext i1 @bms_is_member(i32 noundef %208, ptr noundef %1) #16
+  %212 = getelementptr inbounds nuw i8, ptr %205, i64 36
+  %213 = zext i1 %211 to i8
+  store i8 %213, ptr %212, align 4
+  br label %mark_expr.exit56
 
-.critedge72:                                      ; preds = %2
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %212 = load ptr, ptr %211, align 8
-  %.not.i103 = icmp eq ptr %212, null
-  br i1 %.not.i103, label %mark_expr.exit104, label %213
+mark_expr.exit56:                                 ; preds = %203, %206, %210
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
+  %.not23 = icmp eq ptr %215, null
+  br i1 %.not23, label %mark_expr.exit, label %.lr.ph78
 
-213:                                              ; preds = %.critedge72
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %215 = load i32, ptr %214, align 8
-  %216 = icmp sgt i32 %215, -1
-  br i1 %216, label %217, label %mark_expr.exit104
+.lr.ph78:                                         ; preds = %mark_expr.exit56
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %218 = load i32, ptr %216, align 4
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %.lr.ph81, label %mark_expr.exit
 
-217:                                              ; preds = %213
-  %218 = tail call zeroext i1 @bms_is_member(i32 noundef %215, ptr noundef %1) #16
-  %219 = getelementptr inbounds nuw i8, ptr %212, i64 36
-  %220 = zext i1 %218 to i8
-  store i8 %220, ptr %219, align 4
-  br label %mark_expr.exit104
-
-mark_expr.exit104:                                ; preds = %.critedge72, %213, %217
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
+.lr.ph81:                                         ; preds = %.lr.ph78, %.lr.ph81
+  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph81 ], [ 0, %.lr.ph78 ]
+  %220 = load ptr, ptr %217, align 8
+  %221 = getelementptr inbounds nuw %union.ListCell, ptr %220, i64 %indvars.iv187
   %222 = load ptr, ptr %221, align 8
-  %.not.i105 = icmp eq ptr %222, null
-  br i1 %.not.i105, label %mark_expr.exit106, label %223
+  tail call fastcc void @mark_stmt(ptr noundef %222, ptr noundef %1)
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %223 = load i32, ptr %216, align 4
+  %224 = sext i32 %223 to i64
+  %225 = icmp slt i64 %indvars.iv.next188, %224
+  br i1 %225, label %.lr.ph81, label %mark_expr.exit
 
-223:                                              ; preds = %mark_expr.exit104
-  %224 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %225 = load i32, ptr %224, align 8
-  %226 = icmp sgt i32 %225, -1
-  br i1 %226, label %227, label %mark_expr.exit106
+226:                                              ; preds = %2
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %228 = load ptr, ptr %227, align 8
+  %.not.i57 = icmp eq ptr %228, null
+  br i1 %.not.i57, label %mark_expr.exit58, label %229
 
-227:                                              ; preds = %223
-  %228 = tail call zeroext i1 @bms_is_member(i32 noundef %225, ptr noundef %1) #16
-  %229 = getelementptr inbounds nuw i8, ptr %222, i64 36
-  %230 = zext i1 %228 to i8
-  store i8 %230, ptr %229, align 4
-  br label %mark_expr.exit106
+229:                                              ; preds = %226
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  %231 = load i32, ptr %230, align 8
+  %232 = icmp sgt i32 %231, -1
+  br i1 %232, label %233, label %mark_expr.exit58
 
-mark_expr.exit106:                                ; preds = %mark_expr.exit104, %223, %227
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %232 = load ptr, ptr %231, align 8
-  %.not.i107 = icmp eq ptr %232, null
-  br i1 %.not.i107, label %mark_expr.exit108, label %233
+233:                                              ; preds = %229
+  %234 = tail call zeroext i1 @bms_is_member(i32 noundef %231, ptr noundef %1) #16
+  %235 = getelementptr inbounds nuw i8, ptr %228, i64 36
+  %236 = zext i1 %234 to i8
+  store i8 %236, ptr %235, align 4
+  br label %mark_expr.exit58
 
-233:                                              ; preds = %mark_expr.exit106
-  %234 = getelementptr inbounds nuw i8, ptr %232, i64 32
-  %235 = load i32, ptr %234, align 8
-  %236 = icmp sgt i32 %235, -1
-  br i1 %236, label %237, label %mark_expr.exit108
+mark_expr.exit58:                                 ; preds = %226, %229, %233
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %238 = load ptr, ptr %237, align 8
+  %.not.i59 = icmp eq ptr %238, null
+  br i1 %.not.i59, label %mark_expr.exit60, label %239
 
-237:                                              ; preds = %233
-  %238 = tail call zeroext i1 @bms_is_member(i32 noundef %235, ptr noundef %1) #16
-  %239 = getelementptr inbounds nuw i8, ptr %232, i64 36
-  %240 = zext i1 %238 to i8
-  store i8 %240, ptr %239, align 4
-  br label %mark_expr.exit108
+239:                                              ; preds = %mark_expr.exit58
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 32
+  %241 = load i32, ptr %240, align 8
+  %242 = icmp sgt i32 %241, -1
+  br i1 %242, label %243, label %mark_expr.exit60
 
-mark_expr.exit108:                                ; preds = %mark_expr.exit106, %233, %237
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
-  %.not21 = icmp eq ptr %242, null
-  br i1 %.not21, label %.critedge2, label %.lr.ph62
+243:                                              ; preds = %239
+  %244 = tail call zeroext i1 @bms_is_member(i32 noundef %241, ptr noundef %1) #16
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 36
+  %246 = zext i1 %244 to i8
+  store i8 %246, ptr %245, align 4
+  br label %mark_expr.exit60
 
-.lr.ph62:                                         ; preds = %mark_expr.exit108
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %245 = load i32, ptr %243, align 4
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph65, label %.critedge2
+mark_expr.exit60:                                 ; preds = %mark_expr.exit58, %239, %243
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %248 = load ptr, ptr %247, align 8
+  %.not.i61 = icmp eq ptr %248, null
+  br i1 %.not.i61, label %mark_expr.exit62, label %249
 
-.lr.ph65:                                         ; preds = %.lr.ph62, %.lr.ph65
-  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %.lr.ph65 ], [ 0, %.lr.ph62 ]
-  %247 = load ptr, ptr %244, align 8
-  %248 = getelementptr inbounds nuw %union.ListCell, ptr %247, i64 %indvars.iv162
-  %249 = load ptr, ptr %248, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %249, ptr noundef %1)
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %250 = load i32, ptr %243, align 4
-  %251 = sext i32 %250 to i64
-  %252 = icmp slt i64 %indvars.iv.next163, %251
-  br i1 %252, label %.lr.ph65, label %.critedge2
+249:                                              ; preds = %mark_expr.exit60
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 32
+  %251 = load i32, ptr %250, align 8
+  %252 = icmp sgt i32 %251, -1
+  br i1 %252, label %253, label %mark_expr.exit62
 
-253:                                              ; preds = %2
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
-  %.not19 = icmp eq ptr %255, null
-  br i1 %.not19, label %.critedge26, label %.lr.ph57
+253:                                              ; preds = %249
+  %254 = tail call zeroext i1 @bms_is_member(i32 noundef %251, ptr noundef %1) #16
+  %255 = getelementptr inbounds nuw i8, ptr %248, i64 36
+  %256 = zext i1 %254 to i8
+  store i8 %256, ptr %255, align 4
+  br label %mark_expr.exit62
 
-.lr.ph57:                                         ; preds = %253
-  %257 = getelementptr inbounds nuw i8, ptr %255, i64 16
-  %258 = load i32, ptr %256, align 4
-  %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %.lr.ph60, label %.critedge26
+mark_expr.exit62:                                 ; preds = %mark_expr.exit60, %249, %253
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %.not21 = icmp eq ptr %258, null
+  br i1 %.not21, label %mark_expr.exit, label %.lr.ph73
 
-.lr.ph60:                                         ; preds = %.lr.ph57, %.lr.ph60
-  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.lr.ph60 ], [ 0, %.lr.ph57 ]
-  %260 = load ptr, ptr %257, align 8
-  %261 = getelementptr inbounds nuw %union.ListCell, ptr %260, i64 %indvars.iv159
-  %262 = load ptr, ptr %261, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %262, ptr noundef %1)
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %263 = load i32, ptr %256, align 4
-  %264 = sext i32 %263 to i64
-  %265 = icmp slt i64 %indvars.iv.next160, %264
-  br i1 %265, label %.lr.ph60, label %.critedge26
+.lr.ph73:                                         ; preds = %mark_expr.exit62
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  %261 = load i32, ptr %259, align 4
+  %262 = icmp sgt i32 %261, 0
+  br i1 %262, label %.lr.ph76, label %mark_expr.exit
 
-.critedge26:                                      ; preds = %.lr.ph60, %.lr.ph57, %253
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %267 = load ptr, ptr %266, align 8
-  %.not.i109 = icmp eq ptr %267, null
-  br i1 %.not.i109, label %.critedge2, label %268
+.lr.ph76:                                         ; preds = %.lr.ph73, %.lr.ph76
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph76 ], [ 0, %.lr.ph73 ]
+  %263 = load ptr, ptr %260, align 8
+  %264 = getelementptr inbounds nuw %union.ListCell, ptr %263, i64 %indvars.iv184
+  %265 = load ptr, ptr %264, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %265, ptr noundef %1)
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %266 = load i32, ptr %259, align 4
+  %267 = sext i32 %266 to i64
+  %268 = icmp slt i64 %indvars.iv.next185, %267
+  br i1 %268, label %.lr.ph76, label %mark_expr.exit
 
-268:                                              ; preds = %.critedge26
-  %269 = getelementptr inbounds nuw i8, ptr %267, i64 32
-  %270 = load i32, ptr %269, align 8
-  %271 = icmp sgt i32 %270, -1
-  br i1 %271, label %.critedge2.sink.split, label %.critedge2
+269:                                              ; preds = %.critedge26
+  %270 = getelementptr inbounds nuw i8, ptr %283, i64 32
+  %271 = load i32, ptr %270, align 8
+  %272 = icmp sgt i32 %271, -1
+  br i1 %272, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-272:                                              ; preds = %2
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  %.not17 = icmp eq ptr %274, null
-  br i1 %.not17, label %.critedge28, label %.lr.ph52
+.lr.ph68:                                         ; preds = %.preheader11
+  %273 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %274 = load i32, ptr %15, align 4
+  %275 = icmp sgt i32 %274, 0
+  br i1 %275, label %.lr.ph71, label %.critedge26
 
-.lr.ph52:                                         ; preds = %272
-  %276 = getelementptr inbounds nuw i8, ptr %274, i64 16
-  %277 = load i32, ptr %275, align 4
-  %278 = icmp sgt i32 %277, 0
-  br i1 %278, label %.lr.ph55, label %.critedge28
+.lr.ph71:                                         ; preds = %.lr.ph68, %.lr.ph71
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph71 ], [ 0, %.lr.ph68 ]
+  %276 = load ptr, ptr %273, align 8
+  %277 = getelementptr inbounds nuw %union.ListCell, ptr %276, i64 %indvars.iv181
+  %278 = load ptr, ptr %277, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %278, ptr noundef %1)
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %279 = load i32, ptr %15, align 4
+  %280 = sext i32 %279 to i64
+  %281 = icmp slt i64 %indvars.iv.next182, %280
+  br i1 %281, label %.lr.ph71, label %.critedge26
 
-.lr.ph55:                                         ; preds = %.lr.ph52, %.lr.ph55
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph55 ], [ 0, %.lr.ph52 ]
-  %279 = load ptr, ptr %276, align 8
-  %280 = getelementptr inbounds nuw %union.ListCell, ptr %279, i64 %indvars.iv156
-  %281 = load ptr, ptr %280, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %281, ptr noundef %1)
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %282 = load i32, ptr %275, align 4
-  %283 = sext i32 %282 to i64
-  %284 = icmp slt i64 %indvars.iv.next157, %283
-  br i1 %284, label %.lr.ph55, label %.critedge28
+.critedge26:                                      ; preds = %.lr.ph71, %.lr.ph68, %.preheader11
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %283 = load ptr, ptr %282, align 8
+  %.not.i63 = icmp eq ptr %283, null
+  br i1 %.not.i63, label %mark_expr.exit, label %269
 
-.critedge28:                                      ; preds = %.lr.ph55, %.lr.ph52, %272
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %286 = load ptr, ptr %285, align 8
-  %.not.i111 = icmp eq ptr %286, null
-  br i1 %.not.i111, label %.critedge2, label %287
+284:                                              ; preds = %.critedge28
+  %285 = getelementptr inbounds nuw i8, ptr %298, i64 32
+  %286 = load i32, ptr %285, align 8
+  %287 = icmp sgt i32 %286, -1
+  br i1 %287, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-287:                                              ; preds = %.critedge28
-  %288 = getelementptr inbounds nuw i8, ptr %286, i64 32
-  %289 = load i32, ptr %288, align 8
-  %290 = icmp sgt i32 %289, -1
-  br i1 %290, label %.critedge2.sink.split, label %.critedge2
+.lr.ph63:                                         ; preds = %.preheader12
+  %288 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %289 = load i32, ptr %12, align 4
+  %290 = icmp sgt i32 %289, 0
+  br i1 %290, label %.lr.ph66, label %.critedge28
 
-.critedge78:                                      ; preds = %2
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %292 = load ptr, ptr %291, align 8
-  %.not.i113 = icmp eq ptr %292, null
-  br i1 %.not.i113, label %mark_expr.exit114, label %293
+.lr.ph66:                                         ; preds = %.lr.ph63, %.lr.ph66
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.lr.ph66 ], [ 0, %.lr.ph63 ]
+  %291 = load ptr, ptr %288, align 8
+  %292 = getelementptr inbounds nuw %union.ListCell, ptr %291, i64 %indvars.iv178
+  %293 = load ptr, ptr %292, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %293, ptr noundef %1)
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %294 = load i32, ptr %12, align 4
+  %295 = sext i32 %294 to i64
+  %296 = icmp slt i64 %indvars.iv.next179, %295
+  br i1 %296, label %.lr.ph66, label %.critedge28
 
-293:                                              ; preds = %.critedge78
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 32
-  %295 = load i32, ptr %294, align 8
-  %296 = icmp sgt i32 %295, -1
-  br i1 %296, label %297, label %mark_expr.exit114
+.critedge28:                                      ; preds = %.lr.ph66, %.lr.ph63, %.preheader12
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %298 = load ptr, ptr %297, align 8
+  %.not.i65 = icmp eq ptr %298, null
+  br i1 %.not.i65, label %mark_expr.exit, label %284
 
-297:                                              ; preds = %293
-  %298 = tail call zeroext i1 @bms_is_member(i32 noundef %295, ptr noundef %1) #16
-  %299 = getelementptr inbounds nuw i8, ptr %292, i64 36
-  %300 = zext i1 %298 to i8
-  store i8 %300, ptr %299, align 4
-  br label %mark_expr.exit114
+299:                                              ; preds = %2
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %301 = load ptr, ptr %300, align 8
+  %.not.i67 = icmp eq ptr %301, null
+  br i1 %.not.i67, label %mark_expr.exit68, label %302
 
-mark_expr.exit114:                                ; preds = %.critedge78, %293, %297
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
-  %.not15 = icmp eq ptr %302, null
-  br i1 %.not15, label %.critedge2, label %.lr.ph47
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds nuw i8, ptr %301, i64 32
+  %304 = load i32, ptr %303, align 8
+  %305 = icmp sgt i32 %304, -1
+  br i1 %305, label %306, label %mark_expr.exit68
 
-.lr.ph47:                                         ; preds = %mark_expr.exit114
-  %304 = getelementptr inbounds nuw i8, ptr %302, i64 16
-  %305 = load i32, ptr %303, align 4
-  %306 = icmp sgt i32 %305, 0
-  br i1 %306, label %.lr.ph50, label %.critedge2
+306:                                              ; preds = %302
+  %307 = tail call zeroext i1 @bms_is_member(i32 noundef %304, ptr noundef %1) #16
+  %308 = getelementptr inbounds nuw i8, ptr %301, i64 36
+  %309 = zext i1 %307 to i8
+  store i8 %309, ptr %308, align 4
+  br label %mark_expr.exit68
 
-.lr.ph50:                                         ; preds = %.lr.ph47, %.lr.ph50
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph50 ], [ 0, %.lr.ph47 ]
-  %307 = load ptr, ptr %304, align 8
-  %308 = getelementptr inbounds nuw %union.ListCell, ptr %307, i64 %indvars.iv153
-  %309 = load ptr, ptr %308, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %309, ptr noundef %1)
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %310 = load i32, ptr %303, align 4
-  %311 = sext i32 %310 to i64
-  %312 = icmp slt i64 %indvars.iv.next154, %311
-  br i1 %312, label %.lr.ph50, label %.critedge2
+mark_expr.exit68:                                 ; preds = %299, %302, %306
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
+  %.not15 = icmp eq ptr %311, null
+  br i1 %.not15, label %mark_expr.exit, label %.lr.ph58
 
-313:                                              ; preds = %2
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %315 = load ptr, ptr %314, align 8
-  %.not.i115 = icmp eq ptr %315, null
-  br i1 %.not.i115, label %.critedge2, label %316
+.lr.ph58:                                         ; preds = %mark_expr.exit68
+  %313 = getelementptr inbounds nuw i8, ptr %311, i64 16
+  %314 = load i32, ptr %312, align 4
+  %315 = icmp sgt i32 %314, 0
+  br i1 %315, label %.lr.ph61, label %mark_expr.exit
 
-316:                                              ; preds = %313
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  %318 = load i32, ptr %317, align 8
-  %319 = icmp sgt i32 %318, -1
-  br i1 %319, label %.critedge2.sink.split, label %.critedge2
+.lr.ph61:                                         ; preds = %.lr.ph58, %.lr.ph61
+  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.lr.ph61 ], [ 0, %.lr.ph58 ]
+  %316 = load ptr, ptr %313, align 8
+  %317 = getelementptr inbounds nuw %union.ListCell, ptr %316, i64 %indvars.iv175
+  %318 = load ptr, ptr %317, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %318, ptr noundef %1)
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %319 = load i32, ptr %312, align 4
+  %320 = sext i32 %319 to i64
+  %321 = icmp slt i64 %indvars.iv.next176, %320
+  br i1 %321, label %.lr.ph61, label %mark_expr.exit
 
-320:                                              ; preds = %2
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %322 = load ptr, ptr %321, align 8
-  %.not.i117 = icmp eq ptr %322, null
-  br i1 %.not.i117, label %.critedge2, label %323
+322:                                              ; preds = %2
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %324 = load ptr, ptr %323, align 8
+  %.not.i69 = icmp eq ptr %324, null
+  br i1 %.not.i69, label %mark_expr.exit, label %325
 
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 32
-  %325 = load i32, ptr %324, align 8
-  %326 = icmp sgt i32 %325, -1
-  br i1 %326, label %.critedge2.sink.split, label %.critedge2
+325:                                              ; preds = %322
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 32
+  %327 = load i32, ptr %326, align 8
+  %328 = icmp sgt i32 %327, -1
+  br i1 %328, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-327:                                              ; preds = %2
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %329 = load ptr, ptr %328, align 8
-  %.not.i119 = icmp eq ptr %329, null
-  br i1 %.not.i119, label %.critedge2, label %330
+329:                                              ; preds = %2
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %331 = load ptr, ptr %330, align 8
+  %.not.i71 = icmp eq ptr %331, null
+  br i1 %.not.i71, label %mark_expr.exit, label %332
 
-330:                                              ; preds = %327
-  %331 = getelementptr inbounds nuw i8, ptr %329, i64 32
-  %332 = load i32, ptr %331, align 8
-  %333 = icmp sgt i32 %332, -1
-  br i1 %333, label %.critedge2.sink.split, label %.critedge2
+332:                                              ; preds = %329
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 32
+  %334 = load i32, ptr %333, align 8
+  %335 = icmp sgt i32 %334, -1
+  br i1 %335, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-.critedge80:                                      ; preds = %2
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %335 = load ptr, ptr %334, align 8
-  %.not.i121 = icmp eq ptr %335, null
-  br i1 %.not.i121, label %mark_expr.exit122, label %336
+336:                                              ; preds = %2
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %338 = load ptr, ptr %337, align 8
+  %.not.i73 = icmp eq ptr %338, null
+  br i1 %.not.i73, label %mark_expr.exit, label %339
 
-336:                                              ; preds = %.critedge80
-  %337 = getelementptr inbounds nuw i8, ptr %335, i64 32
-  %338 = load i32, ptr %337, align 8
-  %339 = icmp sgt i32 %338, -1
-  br i1 %339, label %340, label %mark_expr.exit122
+339:                                              ; preds = %336
+  %340 = getelementptr inbounds nuw i8, ptr %338, i64 32
+  %341 = load i32, ptr %340, align 8
+  %342 = icmp sgt i32 %341, -1
+  br i1 %342, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-340:                                              ; preds = %336
-  %341 = tail call zeroext i1 @bms_is_member(i32 noundef %338, ptr noundef %1) #16
-  %342 = getelementptr inbounds nuw i8, ptr %335, i64 36
-  %343 = zext i1 %341 to i8
-  store i8 %343, ptr %342, align 4
-  br label %mark_expr.exit122
-
-mark_expr.exit122:                                ; preds = %.critedge80, %336, %340
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 24
+343:                                              ; preds = %2
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %345 = load ptr, ptr %344, align 8
-  %.not.i123 = icmp eq ptr %345, null
-  br i1 %.not.i123, label %mark_expr.exit124, label %346
+  %.not.i75 = icmp eq ptr %345, null
+  br i1 %.not.i75, label %mark_expr.exit76, label %346
 
-346:                                              ; preds = %mark_expr.exit122
+346:                                              ; preds = %343
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %348 = load i32, ptr %347, align 8
   %349 = icmp sgt i32 %348, -1
-  br i1 %349, label %350, label %mark_expr.exit124
+  br i1 %349, label %350, label %mark_expr.exit76
 
 350:                                              ; preds = %346
   %351 = tail call zeroext i1 @bms_is_member(i32 noundef %348, ptr noundef %1) #16
   %352 = getelementptr inbounds nuw i8, ptr %345, i64 36
   %353 = zext i1 %351 to i8
   store i8 %353, ptr %352, align 4
-  br label %mark_expr.exit124
+  br label %mark_expr.exit76
 
-mark_expr.exit124:                                ; preds = %mark_expr.exit122, %346, %350
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 32
+mark_expr.exit76:                                 ; preds = %343, %346, %350
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
-  %.not13 = icmp eq ptr %355, null
-  br i1 %.not13, label %.critedge2, label %.lr.ph42
+  %.not.i77 = icmp eq ptr %355, null
+  br i1 %.not.i77, label %mark_expr.exit78, label %356
 
-.lr.ph42:                                         ; preds = %mark_expr.exit124
-  %357 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %358 = load i32, ptr %356, align 4
-  %359 = icmp sgt i32 %358, 0
-  br i1 %359, label %.lr.ph45, label %.critedge2
+356:                                              ; preds = %mark_expr.exit76
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 32
+  %358 = load i32, ptr %357, align 8
+  %359 = icmp sgt i32 %358, -1
+  br i1 %359, label %360, label %mark_expr.exit78
 
-.lr.ph45:                                         ; preds = %.lr.ph42, %mark_expr.exit126
-  %360 = phi i32 [ %372, %mark_expr.exit126 ], [ %358, %.lr.ph42 ]
-  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %mark_expr.exit126 ], [ 0, %.lr.ph42 ]
-  %361 = load ptr, ptr %357, align 8
-  %362 = getelementptr inbounds nuw %union.ListCell, ptr %361, i64 %indvars.iv150
-  %363 = load ptr, ptr %362, align 8
-  %.not.i125 = icmp eq ptr %363, null
-  br i1 %.not.i125, label %mark_expr.exit126, label %364
+360:                                              ; preds = %356
+  %361 = tail call zeroext i1 @bms_is_member(i32 noundef %358, ptr noundef %1) #16
+  %362 = getelementptr inbounds nuw i8, ptr %355, i64 36
+  %363 = zext i1 %361 to i8
+  store i8 %363, ptr %362, align 4
+  br label %mark_expr.exit78
 
-364:                                              ; preds = %.lr.ph45
-  %365 = getelementptr inbounds nuw i8, ptr %363, i64 32
-  %366 = load i32, ptr %365, align 8
-  %367 = icmp sgt i32 %366, -1
-  br i1 %367, label %368, label %mark_expr.exit126
+mark_expr.exit78:                                 ; preds = %mark_expr.exit76, %356, %360
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
+  %.not13 = icmp eq ptr %365, null
+  br i1 %.not13, label %mark_expr.exit, label %.lr.ph53
 
-368:                                              ; preds = %364
-  %369 = tail call zeroext i1 @bms_is_member(i32 noundef %366, ptr noundef %1) #16
-  %370 = getelementptr inbounds nuw i8, ptr %363, i64 36
-  %371 = zext i1 %369 to i8
-  store i8 %371, ptr %370, align 4
-  %.pre205 = load i32, ptr %356, align 4
-  br label %mark_expr.exit126
+.lr.ph53:                                         ; preds = %mark_expr.exit78
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 16
+  %368 = load i32, ptr %366, align 4
+  %369 = icmp sgt i32 %368, 0
+  br i1 %369, label %.lr.ph56, label %mark_expr.exit
 
-mark_expr.exit126:                                ; preds = %.lr.ph45, %364, %368
-  %372 = phi i32 [ %360, %.lr.ph45 ], [ %360, %364 ], [ %.pre205, %368 ]
-  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %373 = sext i32 %372 to i64
-  %374 = icmp slt i64 %indvars.iv.next151, %373
-  br i1 %374, label %.lr.ph45, label %.critedge2
+.lr.ph56:                                         ; preds = %.lr.ph53, %mark_expr.exit80
+  %370 = phi i32 [ %382, %mark_expr.exit80 ], [ %368, %.lr.ph53 ]
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %mark_expr.exit80 ], [ 0, %.lr.ph53 ]
+  %371 = load ptr, ptr %367, align 8
+  %372 = getelementptr inbounds nuw %union.ListCell, ptr %371, i64 %indvars.iv172
+  %373 = load ptr, ptr %372, align 8
+  %.not.i79 = icmp eq ptr %373, null
+  br i1 %.not.i79, label %mark_expr.exit80, label %374
 
-375:                                              ; preds = %2
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 4
-  %.not11 = icmp eq ptr %377, null
-  br i1 %.not11, label %.critedge34, label %.lr.ph32
+374:                                              ; preds = %.lr.ph56
+  %375 = getelementptr inbounds nuw i8, ptr %373, i64 32
+  %376 = load i32, ptr %375, align 8
+  %377 = icmp sgt i32 %376, -1
+  br i1 %377, label %378, label %mark_expr.exit80
 
-.lr.ph32:                                         ; preds = %375
-  %379 = getelementptr inbounds nuw i8, ptr %377, i64 16
-  %380 = load i32, ptr %378, align 4
-  %381 = icmp sgt i32 %380, 0
-  br i1 %381, label %.lr.ph35, label %.critedge34
+378:                                              ; preds = %374
+  %379 = tail call zeroext i1 @bms_is_member(i32 noundef %376, ptr noundef %1) #16
+  %380 = getelementptr inbounds nuw i8, ptr %373, i64 36
+  %381 = zext i1 %379 to i8
+  store i8 %381, ptr %380, align 4
+  %.pre227 = load i32, ptr %366, align 4
+  br label %mark_expr.exit80
 
-.lr.ph35:                                         ; preds = %.lr.ph32, %mark_expr.exit128
-  %382 = phi i32 [ %394, %mark_expr.exit128 ], [ %380, %.lr.ph32 ]
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %mark_expr.exit128 ], [ 0, %.lr.ph32 ]
-  %383 = load ptr, ptr %379, align 8
-  %384 = getelementptr inbounds nuw %union.ListCell, ptr %383, i64 %indvars.iv144
-  %385 = load ptr, ptr %384, align 8
-  %.not.i127 = icmp eq ptr %385, null
-  br i1 %.not.i127, label %mark_expr.exit128, label %386
+mark_expr.exit80:                                 ; preds = %.lr.ph56, %374, %378
+  %382 = phi i32 [ %370, %.lr.ph56 ], [ %370, %374 ], [ %.pre227, %378 ]
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %383 = sext i32 %382 to i64
+  %384 = icmp slt i64 %indvars.iv.next173, %383
+  br i1 %384, label %.lr.ph56, label %mark_expr.exit
 
-386:                                              ; preds = %.lr.ph35
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 32
-  %388 = load i32, ptr %387, align 8
-  %389 = icmp sgt i32 %388, -1
-  br i1 %389, label %390, label %mark_expr.exit128
+.preheader15:                                     ; preds = %mark_expr.exit82, %.lr.ph42, %.preheader17
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %386 = load ptr, ptr %385, align 8
+  %387 = icmp eq ptr %386, null
+  br i1 %387, label %mark_expr.exit, label %.lr.ph47
 
-390:                                              ; preds = %386
-  %391 = tail call zeroext i1 @bms_is_member(i32 noundef %388, ptr noundef %1) #16
-  %392 = getelementptr inbounds nuw i8, ptr %385, i64 36
-  %393 = zext i1 %391 to i8
-  store i8 %393, ptr %392, align 4
-  %.pre203 = load i32, ptr %378, align 4
-  br label %mark_expr.exit128
+.lr.ph42:                                         ; preds = %.preheader17
+  %388 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %389 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %390 = load i32, ptr %388, align 4
+  %391 = icmp sgt i32 %390, 0
+  br i1 %391, label %.lr.ph45, label %.preheader15
 
-mark_expr.exit128:                                ; preds = %.lr.ph35, %386, %390
-  %394 = phi i32 [ %382, %.lr.ph35 ], [ %382, %386 ], [ %.pre203, %390 ]
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %395 = sext i32 %394 to i64
-  %396 = icmp slt i64 %indvars.iv.next145, %395
-  br i1 %396, label %.lr.ph35, label %.critedge34
+.lr.ph45:                                         ; preds = %.lr.ph42, %mark_expr.exit82
+  %392 = phi i32 [ %404, %mark_expr.exit82 ], [ %390, %.lr.ph42 ]
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %mark_expr.exit82 ], [ 0, %.lr.ph42 ]
+  %393 = load ptr, ptr %389, align 8
+  %394 = getelementptr inbounds nuw %union.ListCell, ptr %393, i64 %indvars.iv166
+  %395 = load ptr, ptr %394, align 8
+  %.not.i81 = icmp eq ptr %395, null
+  br i1 %.not.i81, label %mark_expr.exit82, label %396
 
-.critedge34:                                      ; preds = %mark_expr.exit128, %.lr.ph32, %375
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 4
-  %.not10 = icmp eq ptr %398, null
-  br i1 %.not10, label %.critedge2, label %.lr.ph37
+396:                                              ; preds = %.lr.ph45
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 32
+  %398 = load i32, ptr %397, align 8
+  %399 = icmp sgt i32 %398, -1
+  br i1 %399, label %400, label %mark_expr.exit82
 
-.lr.ph37:                                         ; preds = %.critedge34
-  %400 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  %401 = load i32, ptr %399, align 4
-  %402 = icmp sgt i32 %401, 0
-  br i1 %402, label %.lr.ph40, label %.critedge2
+400:                                              ; preds = %396
+  %401 = tail call zeroext i1 @bms_is_member(i32 noundef %398, ptr noundef %1) #16
+  %402 = getelementptr inbounds nuw i8, ptr %395, i64 36
+  %403 = zext i1 %401 to i8
+  store i8 %403, ptr %402, align 4
+  %.pre225 = load i32, ptr %388, align 4
+  br label %mark_expr.exit82
 
-.lr.ph40:                                         ; preds = %.lr.ph37, %mark_expr.exit130
-  %403 = phi i32 [ %417, %mark_expr.exit130 ], [ %401, %.lr.ph37 ]
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %mark_expr.exit130 ], [ 0, %.lr.ph37 ]
-  %404 = load ptr, ptr %400, align 8
-  %405 = getelementptr inbounds nuw %union.ListCell, ptr %404, i64 %indvars.iv147
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  %408 = load ptr, ptr %407, align 8
-  %.not.i129 = icmp eq ptr %408, null
-  br i1 %.not.i129, label %mark_expr.exit130, label %409
+mark_expr.exit82:                                 ; preds = %.lr.ph45, %396, %400
+  %404 = phi i32 [ %392, %.lr.ph45 ], [ %392, %396 ], [ %.pre225, %400 ]
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %405 = sext i32 %404 to i64
+  %406 = icmp slt i64 %indvars.iv.next167, %405
+  br i1 %406, label %.lr.ph45, label %.preheader15
 
-409:                                              ; preds = %.lr.ph40
-  %410 = getelementptr inbounds nuw i8, ptr %408, i64 32
-  %411 = load i32, ptr %410, align 8
-  %412 = icmp sgt i32 %411, -1
-  br i1 %412, label %413, label %mark_expr.exit130
+.lr.ph47:                                         ; preds = %.preheader15
+  %407 = getelementptr inbounds nuw i8, ptr %386, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %386, i64 16
+  %409 = load i32, ptr %407, align 4
+  %410 = icmp sgt i32 %409, 0
+  br i1 %410, label %.lr.ph50, label %mark_expr.exit
 
-413:                                              ; preds = %409
-  %414 = tail call zeroext i1 @bms_is_member(i32 noundef %411, ptr noundef %1) #16
-  %415 = getelementptr inbounds nuw i8, ptr %408, i64 36
-  %416 = zext i1 %414 to i8
-  store i8 %416, ptr %415, align 4
-  %.pre204 = load i32, ptr %399, align 4
-  br label %mark_expr.exit130
+.lr.ph50:                                         ; preds = %.lr.ph47, %mark_expr.exit84
+  %411 = phi i32 [ %425, %mark_expr.exit84 ], [ %409, %.lr.ph47 ]
+  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %mark_expr.exit84 ], [ 0, %.lr.ph47 ]
+  %412 = load ptr, ptr %408, align 8
+  %413 = getelementptr inbounds nuw %union.ListCell, ptr %412, i64 %indvars.iv169
+  %414 = load ptr, ptr %413, align 8
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
+  %416 = load ptr, ptr %415, align 8
+  %.not.i83 = icmp eq ptr %416, null
+  br i1 %.not.i83, label %mark_expr.exit84, label %417
 
-mark_expr.exit130:                                ; preds = %.lr.ph40, %409, %413
-  %417 = phi i32 [ %403, %.lr.ph40 ], [ %403, %409 ], [ %.pre204, %413 ]
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %418 = sext i32 %417 to i64
-  %419 = icmp slt i64 %indvars.iv.next148, %418
-  br i1 %419, label %.lr.ph40, label %.critedge2
+417:                                              ; preds = %.lr.ph50
+  %418 = getelementptr inbounds nuw i8, ptr %416, i64 32
+  %419 = load i32, ptr %418, align 8
+  %420 = icmp sgt i32 %419, -1
+  br i1 %420, label %421, label %mark_expr.exit84
 
-420:                                              ; preds = %2
-  %421 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %422 = load ptr, ptr %421, align 8
-  %.not.i131 = icmp eq ptr %422, null
-  br i1 %.not.i131, label %mark_expr.exit132, label %423
+421:                                              ; preds = %417
+  %422 = tail call zeroext i1 @bms_is_member(i32 noundef %419, ptr noundef %1) #16
+  %423 = getelementptr inbounds nuw i8, ptr %416, i64 36
+  %424 = zext i1 %422 to i8
+  store i8 %424, ptr %423, align 4
+  %.pre226 = load i32, ptr %407, align 4
+  br label %mark_expr.exit84
 
-423:                                              ; preds = %420
-  %424 = getelementptr inbounds nuw i8, ptr %422, i64 32
-  %425 = load i32, ptr %424, align 8
-  %426 = icmp sgt i32 %425, -1
-  br i1 %426, label %427, label %mark_expr.exit132
+mark_expr.exit84:                                 ; preds = %.lr.ph50, %417, %421
+  %425 = phi i32 [ %411, %.lr.ph50 ], [ %411, %417 ], [ %.pre226, %421 ]
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %426 = sext i32 %425 to i64
+  %427 = icmp slt i64 %indvars.iv.next170, %426
+  br i1 %427, label %.lr.ph50, label %mark_expr.exit
 
-427:                                              ; preds = %423
-  %428 = tail call zeroext i1 @bms_is_member(i32 noundef %425, ptr noundef %1) #16
-  %429 = getelementptr inbounds nuw i8, ptr %422, i64 36
-  %430 = zext i1 %428 to i8
-  store i8 %430, ptr %429, align 4
-  br label %mark_expr.exit132
+428:                                              ; preds = %2
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %430 = load ptr, ptr %429, align 8
+  %.not.i85 = icmp eq ptr %430, null
+  br i1 %.not.i85, label %mark_expr.exit86, label %431
 
-mark_expr.exit132:                                ; preds = %420, %423, %427
-  %431 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %432 = load ptr, ptr %431, align 8
-  %.not.i133 = icmp eq ptr %432, null
-  br i1 %.not.i133, label %.critedge2, label %433
+431:                                              ; preds = %428
+  %432 = getelementptr inbounds nuw i8, ptr %430, i64 32
+  %433 = load i32, ptr %432, align 8
+  %434 = icmp sgt i32 %433, -1
+  br i1 %434, label %435, label %mark_expr.exit86
 
-433:                                              ; preds = %mark_expr.exit132
-  %434 = getelementptr inbounds nuw i8, ptr %432, i64 32
-  %435 = load i32, ptr %434, align 8
-  %436 = icmp sgt i32 %435, -1
-  br i1 %436, label %.critedge2.sink.split, label %.critedge2
+435:                                              ; preds = %431
+  %436 = tail call zeroext i1 @bms_is_member(i32 noundef %433, ptr noundef %1) #16
+  %437 = getelementptr inbounds nuw i8, ptr %430, i64 36
+  %438 = zext i1 %436 to i8
+  store i8 %438, ptr %437, align 4
+  br label %mark_expr.exit86
 
-437:                                              ; preds = %2
-  %438 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %439 = load ptr, ptr %438, align 8
-  %.not.i135 = icmp eq ptr %439, null
-  br i1 %.not.i135, label %.critedge2, label %440
+mark_expr.exit86:                                 ; preds = %428, %431, %435
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %440 = load ptr, ptr %439, align 8
+  %.not.i87 = icmp eq ptr %440, null
+  br i1 %.not.i87, label %mark_expr.exit, label %441
 
-440:                                              ; preds = %437
-  %441 = getelementptr inbounds nuw i8, ptr %439, i64 32
-  %442 = load i32, ptr %441, align 8
-  %443 = icmp sgt i32 %442, -1
-  br i1 %443, label %.critedge2.sink.split, label %.critedge2
+441:                                              ; preds = %mark_expr.exit86
+  %442 = getelementptr inbounds nuw i8, ptr %440, i64 32
+  %443 = load i32, ptr %442, align 8
+  %444 = icmp sgt i32 %443, -1
+  br i1 %444, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-.critedge86:                                      ; preds = %2
-  %444 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %445 = load ptr, ptr %444, align 8
-  %.not.i137 = icmp eq ptr %445, null
-  br i1 %.not.i137, label %mark_expr.exit138, label %446
+445:                                              ; preds = %2
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %447 = load ptr, ptr %446, align 8
+  %.not.i89 = icmp eq ptr %447, null
+  br i1 %.not.i89, label %mark_expr.exit, label %448
 
-446:                                              ; preds = %.critedge86
-  %447 = getelementptr inbounds nuw i8, ptr %445, i64 32
-  %448 = load i32, ptr %447, align 8
-  %449 = icmp sgt i32 %448, -1
-  br i1 %449, label %450, label %mark_expr.exit138
+448:                                              ; preds = %445
+  %449 = getelementptr inbounds nuw i8, ptr %447, i64 32
+  %450 = load i32, ptr %449, align 8
+  %451 = icmp sgt i32 %450, -1
+  br i1 %451, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-450:                                              ; preds = %446
-  %451 = tail call zeroext i1 @bms_is_member(i32 noundef %448, ptr noundef %1) #16
-  %452 = getelementptr inbounds nuw i8, ptr %445, i64 36
-  %453 = zext i1 %451 to i8
-  store i8 %453, ptr %452, align 4
-  br label %mark_expr.exit138
+452:                                              ; preds = %2
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %454 = load ptr, ptr %453, align 8
+  %.not.i91 = icmp eq ptr %454, null
+  br i1 %.not.i91, label %mark_expr.exit92, label %455
 
-mark_expr.exit138:                                ; preds = %.critedge86, %446, %450
-  %454 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds nuw i8, ptr %455, i64 4
-  %.not7 = icmp eq ptr %455, null
-  br i1 %.not7, label %.critedge2, label %.lr.ph27
+455:                                              ; preds = %452
+  %456 = getelementptr inbounds nuw i8, ptr %454, i64 32
+  %457 = load i32, ptr %456, align 8
+  %458 = icmp sgt i32 %457, -1
+  br i1 %458, label %459, label %mark_expr.exit92
 
-.lr.ph27:                                         ; preds = %mark_expr.exit138
-  %457 = getelementptr inbounds nuw i8, ptr %455, i64 16
-  %458 = load i32, ptr %456, align 4
-  %459 = icmp sgt i32 %458, 0
-  br i1 %459, label %.lr.ph30, label %.critedge2
+459:                                              ; preds = %455
+  %460 = tail call zeroext i1 @bms_is_member(i32 noundef %457, ptr noundef %1) #16
+  %461 = getelementptr inbounds nuw i8, ptr %454, i64 36
+  %462 = zext i1 %460 to i8
+  store i8 %462, ptr %461, align 4
+  br label %mark_expr.exit92
 
-.lr.ph30:                                         ; preds = %.lr.ph27, %mark_expr.exit140
-  %460 = phi i32 [ %472, %mark_expr.exit140 ], [ %458, %.lr.ph27 ]
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %mark_expr.exit140 ], [ 0, %.lr.ph27 ]
-  %461 = load ptr, ptr %457, align 8
-  %462 = getelementptr inbounds nuw %union.ListCell, ptr %461, i64 %indvars.iv141
-  %463 = load ptr, ptr %462, align 8
-  %.not.i139 = icmp eq ptr %463, null
-  br i1 %.not.i139, label %mark_expr.exit140, label %464
+mark_expr.exit92:                                 ; preds = %452, %455, %459
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %464 = load ptr, ptr %463, align 8
+  %465 = icmp eq ptr %464, null
+  br i1 %465, label %mark_expr.exit, label %.lr.ph37
 
-464:                                              ; preds = %.lr.ph30
-  %465 = getelementptr inbounds nuw i8, ptr %463, i64 32
-  %466 = load i32, ptr %465, align 8
-  %467 = icmp sgt i32 %466, -1
-  br i1 %467, label %468, label %mark_expr.exit140
+.lr.ph37:                                         ; preds = %mark_expr.exit92
+  %466 = getelementptr inbounds nuw i8, ptr %464, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %464, i64 16
+  %468 = load i32, ptr %466, align 4
+  %469 = icmp sgt i32 %468, 0
+  br i1 %469, label %.lr.ph40, label %mark_expr.exit
 
-468:                                              ; preds = %464
-  %469 = tail call zeroext i1 @bms_is_member(i32 noundef %466, ptr noundef %1) #16
-  %470 = getelementptr inbounds nuw i8, ptr %463, i64 36
-  %471 = zext i1 %469 to i8
-  store i8 %471, ptr %470, align 4
-  %.pre202 = load i32, ptr %456, align 4
-  br label %mark_expr.exit140
+.lr.ph40:                                         ; preds = %.lr.ph37, %mark_expr.exit94
+  %470 = phi i32 [ %482, %mark_expr.exit94 ], [ %468, %.lr.ph37 ]
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %mark_expr.exit94 ], [ 0, %.lr.ph37 ]
+  %471 = load ptr, ptr %467, align 8
+  %472 = getelementptr inbounds nuw %union.ListCell, ptr %471, i64 %indvars.iv163
+  %473 = load ptr, ptr %472, align 8
+  %.not.i93 = icmp eq ptr %473, null
+  br i1 %.not.i93, label %mark_expr.exit94, label %474
 
-mark_expr.exit140:                                ; preds = %.lr.ph30, %464, %468
-  %472 = phi i32 [ %460, %.lr.ph30 ], [ %460, %464 ], [ %.pre202, %468 ]
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %473 = sext i32 %472 to i64
-  %474 = icmp slt i64 %indvars.iv.next142, %473
-  br i1 %474, label %.lr.ph30, label %.critedge2
+474:                                              ; preds = %.lr.ph40
+  %475 = getelementptr inbounds nuw i8, ptr %473, i64 32
+  %476 = load i32, ptr %475, align 8
+  %477 = icmp sgt i32 %476, -1
+  br i1 %477, label %478, label %mark_expr.exit94
 
-475:                                              ; preds = %2
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds nuw i8, ptr %477, i64 4
-  %.not5 = icmp eq ptr %477, null
-  br i1 %.not5, label %.critedge40, label %.lr.ph17
+478:                                              ; preds = %474
+  %479 = tail call zeroext i1 @bms_is_member(i32 noundef %476, ptr noundef %1) #16
+  %480 = getelementptr inbounds nuw i8, ptr %473, i64 36
+  %481 = zext i1 %479 to i8
+  store i8 %481, ptr %480, align 4
+  %.pre224 = load i32, ptr %466, align 4
+  br label %mark_expr.exit94
 
-.lr.ph17:                                         ; preds = %475
-  %479 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  %480 = load i32, ptr %478, align 4
-  %481 = icmp sgt i32 %480, 0
-  br i1 %481, label %.lr.ph20, label %.critedge40
+mark_expr.exit94:                                 ; preds = %.lr.ph40, %474, %478
+  %482 = phi i32 [ %470, %.lr.ph40 ], [ %470, %474 ], [ %.pre224, %478 ]
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %483 = sext i32 %482 to i64
+  %484 = icmp slt i64 %indvars.iv.next164, %483
+  br i1 %484, label %.lr.ph40, label %mark_expr.exit
 
-.lr.ph20:                                         ; preds = %.lr.ph17, %.lr.ph20
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.lr.ph20 ], [ 0, %.lr.ph17 ]
-  %482 = load ptr, ptr %479, align 8
-  %483 = getelementptr inbounds nuw %union.ListCell, ptr %482, i64 %indvars.iv135
-  %484 = load ptr, ptr %483, align 8
-  tail call fastcc void @mark_stmt(ptr noundef %484, ptr noundef %1)
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %485 = load i32, ptr %478, align 4
-  %486 = sext i32 %485 to i64
-  %487 = icmp slt i64 %indvars.iv.next136, %486
-  br i1 %487, label %.lr.ph20, label %.critedge40
+.split.us:                                        ; preds = %.lr.ph30, %.lr.ph27, %.preheader20
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %486 = load ptr, ptr %485, align 8
+  %.not.i95 = icmp eq ptr %486, null
+  br i1 %.not.i95, label %mark_expr.exit96, label %487
 
-.critedge40:                                      ; preds = %.lr.ph20, %.lr.ph17, %475
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %489 = load ptr, ptr %488, align 8
-  %.not.i141 = icmp eq ptr %489, null
-  br i1 %.not.i141, label %mark_expr.exit142, label %490
+487:                                              ; preds = %.split.us
+  %488 = getelementptr inbounds nuw i8, ptr %486, i64 32
+  %489 = load i32, ptr %488, align 8
+  %490 = icmp sgt i32 %489, -1
+  br i1 %490, label %491, label %mark_expr.exit96
 
-490:                                              ; preds = %.critedge40
-  %491 = getelementptr inbounds nuw i8, ptr %489, i64 32
-  %492 = load i32, ptr %491, align 8
-  %493 = icmp sgt i32 %492, -1
-  br i1 %493, label %494, label %mark_expr.exit142
+491:                                              ; preds = %487
+  %492 = tail call zeroext i1 @bms_is_member(i32 noundef %489, ptr noundef %1) #16
+  %493 = getelementptr inbounds nuw i8, ptr %486, i64 36
+  %494 = zext i1 %492 to i8
+  store i8 %494, ptr %493, align 4
+  br label %mark_expr.exit96
 
-494:                                              ; preds = %490
-  %495 = tail call zeroext i1 @bms_is_member(i32 noundef %492, ptr noundef %1) #16
-  %496 = getelementptr inbounds nuw i8, ptr %489, i64 36
-  %497 = zext i1 %495 to i8
-  store i8 %497, ptr %496, align 4
-  br label %mark_expr.exit142
+mark_expr.exit96:                                 ; preds = %.split.us, %487, %491
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %496 = load ptr, ptr %495, align 8
+  %497 = icmp eq ptr %496, null
+  br i1 %497, label %mark_expr.exit, label %.lr.ph32
 
-mark_expr.exit142:                                ; preds = %.critedge40, %490, %494
-  %498 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds nuw i8, ptr %499, i64 4
-  %.not4 = icmp eq ptr %499, null
-  br i1 %.not4, label %.critedge2, label %.lr.ph22
+.lr.ph27:                                         ; preds = %.preheader20
+  %498 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %499 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %500 = load i32, ptr %498, align 4
+  %501 = icmp sgt i32 %500, 0
+  br i1 %501, label %.lr.ph30, label %.split.us
 
-.lr.ph22:                                         ; preds = %mark_expr.exit142
-  %501 = getelementptr inbounds nuw i8, ptr %499, i64 16
-  %502 = load i32, ptr %500, align 4
-  %503 = icmp sgt i32 %502, 0
-  br i1 %503, label %.lr.ph25, label %.critedge2
+.lr.ph30:                                         ; preds = %.lr.ph27, %.lr.ph30
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph30 ], [ 0, %.lr.ph27 ]
+  %502 = load ptr, ptr %499, align 8
+  %503 = getelementptr inbounds nuw %union.ListCell, ptr %502, i64 %indvars.iv157
+  %504 = load ptr, ptr %503, align 8
+  tail call fastcc void @mark_stmt(ptr noundef %504, ptr noundef %1)
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %505 = load i32, ptr %498, align 4
+  %506 = sext i32 %505 to i64
+  %507 = icmp slt i64 %indvars.iv.next158, %506
+  br i1 %507, label %.lr.ph30, label %.split.us
 
-.lr.ph25:                                         ; preds = %.lr.ph22, %mark_expr.exit144
-  %504 = phi i32 [ %516, %mark_expr.exit144 ], [ %502, %.lr.ph22 ]
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %mark_expr.exit144 ], [ 0, %.lr.ph22 ]
-  %505 = load ptr, ptr %501, align 8
-  %506 = getelementptr inbounds nuw %union.ListCell, ptr %505, i64 %indvars.iv138
-  %507 = load ptr, ptr %506, align 8
-  %.not.i143 = icmp eq ptr %507, null
-  br i1 %.not.i143, label %mark_expr.exit144, label %508
+.lr.ph32:                                         ; preds = %mark_expr.exit96
+  %508 = getelementptr inbounds nuw i8, ptr %496, i64 4
+  %509 = getelementptr inbounds nuw i8, ptr %496, i64 16
+  %510 = load i32, ptr %508, align 4
+  %511 = icmp sgt i32 %510, 0
+  br i1 %511, label %.lr.ph35, label %mark_expr.exit
 
-508:                                              ; preds = %.lr.ph25
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 32
-  %510 = load i32, ptr %509, align 8
-  %511 = icmp sgt i32 %510, -1
-  br i1 %511, label %512, label %mark_expr.exit144
+.lr.ph35:                                         ; preds = %.lr.ph32, %mark_expr.exit98
+  %512 = phi i32 [ %524, %mark_expr.exit98 ], [ %510, %.lr.ph32 ]
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %mark_expr.exit98 ], [ 0, %.lr.ph32 ]
+  %513 = load ptr, ptr %509, align 8
+  %514 = getelementptr inbounds nuw %union.ListCell, ptr %513, i64 %indvars.iv160
+  %515 = load ptr, ptr %514, align 8
+  %.not.i97 = icmp eq ptr %515, null
+  br i1 %.not.i97, label %mark_expr.exit98, label %516
 
-512:                                              ; preds = %508
-  %513 = tail call zeroext i1 @bms_is_member(i32 noundef %510, ptr noundef %1) #16
-  %514 = getelementptr inbounds nuw i8, ptr %507, i64 36
-  %515 = zext i1 %513 to i8
-  store i8 %515, ptr %514, align 4
-  %.pre201 = load i32, ptr %500, align 4
-  br label %mark_expr.exit144
+516:                                              ; preds = %.lr.ph35
+  %517 = getelementptr inbounds nuw i8, ptr %515, i64 32
+  %518 = load i32, ptr %517, align 8
+  %519 = icmp sgt i32 %518, -1
+  br i1 %519, label %520, label %mark_expr.exit98
 
-mark_expr.exit144:                                ; preds = %.lr.ph25, %508, %512
-  %516 = phi i32 [ %504, %.lr.ph25 ], [ %504, %508 ], [ %.pre201, %512 ]
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %517 = sext i32 %516 to i64
-  %518 = icmp slt i64 %indvars.iv.next139, %517
-  br i1 %518, label %.lr.ph25, label %.critedge2
+520:                                              ; preds = %516
+  %521 = tail call zeroext i1 @bms_is_member(i32 noundef %518, ptr noundef %1) #16
+  %522 = getelementptr inbounds nuw i8, ptr %515, i64 36
+  %523 = zext i1 %521 to i8
+  store i8 %523, ptr %522, align 4
+  %.pre223 = load i32, ptr %508, align 4
+  br label %mark_expr.exit98
 
-.critedge92:                                      ; preds = %2
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %520 = load ptr, ptr %519, align 8
-  %.not.i145 = icmp eq ptr %520, null
-  br i1 %.not.i145, label %mark_expr.exit146, label %521
+mark_expr.exit98:                                 ; preds = %.lr.ph35, %516, %520
+  %524 = phi i32 [ %512, %.lr.ph35 ], [ %512, %516 ], [ %.pre223, %520 ]
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %525 = sext i32 %524 to i64
+  %526 = icmp slt i64 %indvars.iv.next161, %525
+  br i1 %526, label %.lr.ph35, label %mark_expr.exit
 
-521:                                              ; preds = %.critedge92
-  %522 = getelementptr inbounds nuw i8, ptr %520, i64 32
-  %523 = load i32, ptr %522, align 8
-  %524 = icmp sgt i32 %523, -1
-  br i1 %524, label %525, label %mark_expr.exit146
+527:                                              ; preds = %2
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %529 = load ptr, ptr %528, align 8
+  %.not.i99 = icmp eq ptr %529, null
+  br i1 %.not.i99, label %mark_expr.exit100, label %530
 
-525:                                              ; preds = %521
-  %526 = tail call zeroext i1 @bms_is_member(i32 noundef %523, ptr noundef %1) #16
-  %527 = getelementptr inbounds nuw i8, ptr %520, i64 36
-  %528 = zext i1 %526 to i8
-  store i8 %528, ptr %527, align 4
-  br label %mark_expr.exit146
+530:                                              ; preds = %527
+  %531 = getelementptr inbounds nuw i8, ptr %529, i64 32
+  %532 = load i32, ptr %531, align 8
+  %533 = icmp sgt i32 %532, -1
+  br i1 %533, label %534, label %mark_expr.exit100
 
-mark_expr.exit146:                                ; preds = %.critedge92, %521, %525
-  %529 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %530 = load ptr, ptr %529, align 8
-  %.not.i147 = icmp eq ptr %530, null
-  br i1 %.not.i147, label %mark_expr.exit148, label %531
+534:                                              ; preds = %530
+  %535 = tail call zeroext i1 @bms_is_member(i32 noundef %532, ptr noundef %1) #16
+  %536 = getelementptr inbounds nuw i8, ptr %529, i64 36
+  %537 = zext i1 %535 to i8
+  store i8 %537, ptr %536, align 4
+  br label %mark_expr.exit100
 
-531:                                              ; preds = %mark_expr.exit146
-  %532 = getelementptr inbounds nuw i8, ptr %530, i64 32
-  %533 = load i32, ptr %532, align 8
-  %534 = icmp sgt i32 %533, -1
-  br i1 %534, label %535, label %mark_expr.exit148
+mark_expr.exit100:                                ; preds = %527, %530, %534
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %539 = load ptr, ptr %538, align 8
+  %.not.i101 = icmp eq ptr %539, null
+  br i1 %.not.i101, label %mark_expr.exit102, label %540
 
-535:                                              ; preds = %531
-  %536 = tail call zeroext i1 @bms_is_member(i32 noundef %533, ptr noundef %1) #16
-  %537 = getelementptr inbounds nuw i8, ptr %530, i64 36
-  %538 = zext i1 %536 to i8
-  store i8 %538, ptr %537, align 4
-  br label %mark_expr.exit148
+540:                                              ; preds = %mark_expr.exit100
+  %541 = getelementptr inbounds nuw i8, ptr %539, i64 32
+  %542 = load i32, ptr %541, align 8
+  %543 = icmp sgt i32 %542, -1
+  br i1 %543, label %544, label %mark_expr.exit102
 
-mark_expr.exit148:                                ; preds = %mark_expr.exit146, %531, %535
-  %539 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %540 = load ptr, ptr %539, align 8
-  %.not.i149 = icmp eq ptr %540, null
-  br i1 %.not.i149, label %mark_expr.exit150, label %541
+544:                                              ; preds = %540
+  %545 = tail call zeroext i1 @bms_is_member(i32 noundef %542, ptr noundef %1) #16
+  %546 = getelementptr inbounds nuw i8, ptr %539, i64 36
+  %547 = zext i1 %545 to i8
+  store i8 %547, ptr %546, align 4
+  br label %mark_expr.exit102
 
-541:                                              ; preds = %mark_expr.exit148
-  %542 = getelementptr inbounds nuw i8, ptr %540, i64 32
-  %543 = load i32, ptr %542, align 8
-  %544 = icmp sgt i32 %543, -1
-  br i1 %544, label %545, label %mark_expr.exit150
+mark_expr.exit102:                                ; preds = %mark_expr.exit100, %540, %544
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %549 = load ptr, ptr %548, align 8
+  %.not.i103 = icmp eq ptr %549, null
+  br i1 %.not.i103, label %mark_expr.exit104, label %550
 
-545:                                              ; preds = %541
-  %546 = tail call zeroext i1 @bms_is_member(i32 noundef %543, ptr noundef %1) #16
-  %547 = getelementptr inbounds nuw i8, ptr %540, i64 36
-  %548 = zext i1 %546 to i8
-  store i8 %548, ptr %547, align 4
-  br label %mark_expr.exit150
+550:                                              ; preds = %mark_expr.exit102
+  %551 = getelementptr inbounds nuw i8, ptr %549, i64 32
+  %552 = load i32, ptr %551, align 8
+  %553 = icmp sgt i32 %552, -1
+  br i1 %553, label %554, label %mark_expr.exit104
 
-mark_expr.exit150:                                ; preds = %mark_expr.exit148, %541, %545
-  %549 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
-  %.not1 = icmp eq ptr %550, null
-  br i1 %.not1, label %.critedge2, label %.lr.ph
+554:                                              ; preds = %550
+  %555 = tail call zeroext i1 @bms_is_member(i32 noundef %552, ptr noundef %1) #16
+  %556 = getelementptr inbounds nuw i8, ptr %549, i64 36
+  %557 = zext i1 %555 to i8
+  store i8 %557, ptr %556, align 4
+  br label %mark_expr.exit104
 
-.lr.ph:                                           ; preds = %mark_expr.exit150
-  %552 = getelementptr inbounds nuw i8, ptr %550, i64 16
-  %553 = load i32, ptr %551, align 4
-  %554 = icmp sgt i32 %553, 0
-  br i1 %554, label %.lr.ph15, label %.critedge2
+mark_expr.exit104:                                ; preds = %mark_expr.exit102, %550, %554
+  %558 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %559 = load ptr, ptr %558, align 8
+  %560 = icmp eq ptr %559, null
+  br i1 %560, label %mark_expr.exit, label %.lr.ph
 
-.lr.ph15:                                         ; preds = %.lr.ph, %mark_expr.exit152
-  %555 = phi i32 [ %567, %mark_expr.exit152 ], [ %553, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %mark_expr.exit152 ], [ 0, %.lr.ph ]
-  %556 = load ptr, ptr %552, align 8
-  %557 = getelementptr inbounds nuw %union.ListCell, ptr %556, i64 %indvars.iv
-  %558 = load ptr, ptr %557, align 8
-  %.not.i151 = icmp eq ptr %558, null
-  br i1 %.not.i151, label %mark_expr.exit152, label %559
+.lr.ph:                                           ; preds = %mark_expr.exit104
+  %561 = getelementptr inbounds nuw i8, ptr %559, i64 4
+  %562 = getelementptr inbounds nuw i8, ptr %559, i64 16
+  %563 = load i32, ptr %561, align 4
+  %564 = icmp sgt i32 %563, 0
+  br i1 %564, label %.lr.ph25, label %mark_expr.exit
 
-559:                                              ; preds = %.lr.ph15
-  %560 = getelementptr inbounds nuw i8, ptr %558, i64 32
-  %561 = load i32, ptr %560, align 8
-  %562 = icmp sgt i32 %561, -1
-  br i1 %562, label %563, label %mark_expr.exit152
+.lr.ph25:                                         ; preds = %.lr.ph, %mark_expr.exit106
+  %565 = phi i32 [ %577, %mark_expr.exit106 ], [ %563, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %mark_expr.exit106 ], [ 0, %.lr.ph ]
+  %566 = load ptr, ptr %562, align 8
+  %567 = getelementptr inbounds nuw %union.ListCell, ptr %566, i64 %indvars.iv
+  %568 = load ptr, ptr %567, align 8
+  %.not.i105 = icmp eq ptr %568, null
+  br i1 %.not.i105, label %mark_expr.exit106, label %569
 
-563:                                              ; preds = %559
-  %564 = tail call zeroext i1 @bms_is_member(i32 noundef %561, ptr noundef %1) #16
-  %565 = getelementptr inbounds nuw i8, ptr %558, i64 36
-  %566 = zext i1 %564 to i8
-  store i8 %566, ptr %565, align 4
-  %.pre = load i32, ptr %551, align 4
-  br label %mark_expr.exit152
+569:                                              ; preds = %.lr.ph25
+  %570 = getelementptr inbounds nuw i8, ptr %568, i64 32
+  %571 = load i32, ptr %570, align 8
+  %572 = icmp sgt i32 %571, -1
+  br i1 %572, label %573, label %mark_expr.exit106
 
-mark_expr.exit152:                                ; preds = %.lr.ph15, %559, %563
-  %567 = phi i32 [ %555, %.lr.ph15 ], [ %555, %559 ], [ %.pre, %563 ]
+573:                                              ; preds = %569
+  %574 = tail call zeroext i1 @bms_is_member(i32 noundef %571, ptr noundef %1) #16
+  %575 = getelementptr inbounds nuw i8, ptr %568, i64 36
+  %576 = zext i1 %574 to i8
+  store i8 %576, ptr %575, align 4
+  %.pre = load i32, ptr %561, align 4
+  br label %mark_expr.exit106
+
+mark_expr.exit106:                                ; preds = %.lr.ph25, %569, %573
+  %577 = phi i32 [ %565, %.lr.ph25 ], [ %565, %569 ], [ %.pre, %573 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %568 = sext i32 %567 to i64
-  %569 = icmp slt i64 %indvars.iv.next, %568
-  br i1 %569, label %.lr.ph15, label %.critedge2
+  %578 = sext i32 %577 to i64
+  %579 = icmp slt i64 %indvars.iv.next, %578
+  br i1 %579, label %.lr.ph25, label %mark_expr.exit
 
-570:                                              ; preds = %2
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %572 = load ptr, ptr %571, align 8
-  %.not.i153 = icmp eq ptr %572, null
-  br i1 %.not.i153, label %.critedge2, label %573
+580:                                              ; preds = %2
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %582 = load ptr, ptr %581, align 8
+  %.not.i107 = icmp eq ptr %582, null
+  br i1 %.not.i107, label %mark_expr.exit, label %583
 
-573:                                              ; preds = %570
-  %574 = getelementptr inbounds nuw i8, ptr %572, i64 32
-  %575 = load i32, ptr %574, align 8
-  %576 = icmp sgt i32 %575, -1
-  br i1 %576, label %.critedge2.sink.split, label %.critedge2
+583:                                              ; preds = %580
+  %584 = getelementptr inbounds nuw i8, ptr %582, i64 32
+  %585 = load i32, ptr %584, align 8
+  %586 = icmp sgt i32 %585, -1
+  br i1 %586, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-577:                                              ; preds = %2
-  %578 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %579 = load ptr, ptr %578, align 8
-  %.not.i155 = icmp eq ptr %579, null
-  br i1 %.not.i155, label %.critedge2, label %580
+587:                                              ; preds = %2
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %589 = load ptr, ptr %588, align 8
+  %.not.i109 = icmp eq ptr %589, null
+  br i1 %.not.i109, label %mark_expr.exit, label %590
 
-580:                                              ; preds = %577
-  %581 = getelementptr inbounds nuw i8, ptr %579, i64 32
-  %582 = load i32, ptr %581, align 8
-  %583 = icmp sgt i32 %582, -1
-  br i1 %583, label %.critedge2.sink.split, label %.critedge2
+590:                                              ; preds = %587
+  %591 = getelementptr inbounds nuw i8, ptr %589, i64 32
+  %592 = load i32, ptr %591, align 8
+  %593 = icmp sgt i32 %592, -1
+  br i1 %593, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-584:                                              ; preds = %2
-  %585 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %586 = load ptr, ptr %585, align 8
-  %.not.i157 = icmp eq ptr %586, null
-  br i1 %.not.i157, label %.critedge2, label %587
+594:                                              ; preds = %2
+  %595 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %596 = load ptr, ptr %595, align 8
+  %.not.i111 = icmp eq ptr %596, null
+  br i1 %.not.i111, label %mark_expr.exit, label %597
 
-587:                                              ; preds = %584
-  %588 = getelementptr inbounds nuw i8, ptr %586, i64 32
-  %589 = load i32, ptr %588, align 8
-  %590 = icmp sgt i32 %589, -1
-  br i1 %590, label %.critedge2.sink.split, label %.critedge2
+597:                                              ; preds = %594
+  %598 = getelementptr inbounds nuw i8, ptr %596, i64 32
+  %599 = load i32, ptr %598, align 8
+  %600 = icmp sgt i32 %599, -1
+  br i1 %600, label %mark_expr.exit.sink.split, label %mark_expr.exit
 
-591:                                              ; preds = %2
-  %592 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
-  tail call void @llvm.assume(i1 %592)
-  %593 = load i32, ptr %0, align 4
-  %594 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %593) #16
+601:                                              ; preds = %2
+  %602 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.46) #17
+  tail call void @llvm.assume(i1 %602)
+  %603 = load i32, ptr %0, align 4
+  %604 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %603) #16
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 595, ptr noundef nonnull @__func__.plpgsql_statement_tree_walker_impl) #16
   unreachable
 
-.critedge2.sink.split:                            ; preds = %587, %580, %573, %440, %433, %330, %323, %316, %287, %268, %48
-  %.sink220 = phi i32 [ %50, %48 ], [ %270, %268 ], [ %289, %287 ], [ %318, %316 ], [ %325, %323 ], [ %332, %330 ], [ %435, %433 ], [ %442, %440 ], [ %575, %573 ], [ %582, %580 ], [ %589, %587 ]
-  %.sink = phi ptr [ %47, %48 ], [ %267, %268 ], [ %286, %287 ], [ %315, %316 ], [ %322, %323 ], [ %329, %330 ], [ %432, %433 ], [ %439, %440 ], [ %572, %573 ], [ %579, %580 ], [ %586, %587 ]
-  %595 = tail call zeroext i1 @bms_is_member(i32 noundef %.sink220, ptr noundef %1) #16
-  %596 = getelementptr inbounds nuw i8, ptr %.sink, i64 36
-  %597 = zext i1 %595 to i8
-  store i8 %597, ptr %596, align 4
-  br label %.critedge2
+mark_expr.exit.sink.split:                        ; preds = %597, %590, %583, %448, %441, %339, %332, %325, %284, %269, %62
+  %.sink242 = phi i32 [ %64, %62 ], [ %271, %269 ], [ %286, %284 ], [ %327, %325 ], [ %334, %332 ], [ %341, %339 ], [ %443, %441 ], [ %450, %448 ], [ %585, %583 ], [ %592, %590 ], [ %599, %597 ]
+  %.sink = phi ptr [ %61, %62 ], [ %283, %269 ], [ %298, %284 ], [ %324, %325 ], [ %331, %332 ], [ %338, %339 ], [ %440, %441 ], [ %447, %448 ], [ %582, %583 ], [ %589, %590 ], [ %596, %597 ]
+  %605 = tail call zeroext i1 @bms_is_member(i32 noundef %.sink242, ptr noundef %1) #16
+  %606 = getelementptr inbounds nuw i8, ptr %.sink, i64 36
+  %607 = zext i1 %605 to i8
+  store i8 %607, ptr %606, align 4
+  br label %mark_expr.exit
 
-.critedge2:                                       ; preds = %mark_expr.exit152, %mark_expr.exit144, %mark_expr.exit140, %mark_expr.exit130, %mark_expr.exit126, %.lr.ph50, %.lr.ph65, %.lr.ph70, %.lr.ph75, %.lr.ph88, %.lr.ph106, %.critedge4, %.critedge2.sink.split, %mark_expr.exit150, %.lr.ph, %mark_expr.exit142, %.lr.ph22, %mark_expr.exit138, %.lr.ph27, %.critedge34, %.lr.ph37, %mark_expr.exit124, %.lr.ph42, %mark_expr.exit114, %.lr.ph47, %mark_expr.exit108, %.lr.ph62, %mark_expr.exit102, %.lr.ph67, %176, %.lr.ph72, %.critedge14, %.lr.ph85, %.critedge8, %.lr.ph103, %19, %.lr.ph118, %587, %584, %580, %577, %573, %570, %440, %437, %433, %mark_expr.exit132, %330, %327, %323, %320, %316, %313, %287, %.critedge28, %268, %.critedge26, %48, %45, %.critedge, %2, %2, %2, %2
+mark_expr.exit:                                   ; preds = %mark_expr.exit106, %mark_expr.exit98, %mark_expr.exit94, %mark_expr.exit84, %mark_expr.exit80, %.lr.ph61, %.lr.ph76, %.lr.ph81, %.lr.ph86, %.lr.ph101, %.lr.ph121, %.split134.us, %mark_expr.exit.sink.split, %mark_expr.exit104, %.lr.ph, %mark_expr.exit96, %.lr.ph32, %mark_expr.exit92, %.lr.ph37, %.preheader15, %.lr.ph47, %.lr.ph53, %mark_expr.exit78, %.lr.ph58, %mark_expr.exit68, %.lr.ph73, %mark_expr.exit62, %.lr.ph78, %mark_expr.exit56, %.lr.ph83, %.preheader7, %.lr.ph98, %.critedge14, %.lr.ph118, %.critedge8, %.lr.ph136, %.preheader, %597, %594, %590, %587, %583, %580, %448, %445, %441, %mark_expr.exit86, %339, %336, %332, %329, %325, %322, %284, %.critedge28, %269, %.critedge26, %62, %59, %.critedge, %2, %2, %2, %2
   ret void
 }
 

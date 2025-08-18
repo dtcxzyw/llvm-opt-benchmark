@@ -52835,12 +52835,12 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   br label %6
 
 6:                                                ; preds = %.lr.ph, %52
-  %.053103 = phi ptr [ @.str.44, %.lr.ph ], [ %.255, %52 ]
-  %.057102 = phi i32 [ 1, %.lr.ph ], [ %53, %52 ]
-  %.060101 = phi ptr [ @.str.1348, %.lr.ph ], [ %.262, %52 ]
-  %.0100 = phi i32 [ 1, %.lr.ph ], [ %.1, %52 ]
-  %.08799 = phi i32 [ 1, %.lr.ph ], [ %.188, %52 ]
-  %7 = sext i32 %.057102 to i64
+  %.053102 = phi ptr [ @.str.44, %.lr.ph ], [ %.255, %52 ]
+  %.057101 = phi i32 [ 1, %.lr.ph ], [ %53, %52 ]
+  %.060100 = phi ptr [ @.str.1348, %.lr.ph ], [ %.262, %52 ]
+  %.099 = phi i32 [ 1, %.lr.ph ], [ %.1, %52 ]
+  %.08798 = phi i32 [ 1, %.lr.ph ], [ %.188, %52 ]
+  %7 = sext i32 %.057101 to i64
   %8 = getelementptr inbounds ptr, ptr %2, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = load i8, ptr %9, align 1, !tbaa !25
@@ -52875,12 +52875,12 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
 25:                                               ; preds = %23
   %bcmp67 = tail call i32 @bcmp(ptr nonnull @.str.1350, ptr nonnull %.056, i64 %21)
   %26 = icmp eq i32 %bcmp67, 0
-  %27 = icmp slt i32 %.057102, %5
+  %27 = icmp slt i32 %.057101, %5
   %or.cond = select i1 %26, i1 %27, i1 false
   br i1 %or.cond, label %28, label %.thread89
 
 28:                                               ; preds = %25
-  %29 = add nsw i32 %.057102, 1
+  %29 = add nsw i32 %.057101, 1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %2, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !29
@@ -52893,12 +52893,12 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
 .thread89:                                        ; preds = %25, %33
   %bcmp68 = tail call i32 @bcmp(ptr nonnull @.str.1351, ptr nonnull %.056, i64 %21)
   %35 = icmp eq i32 %bcmp68, 0
-  %36 = icmp slt i32 %.057102, %5
+  %36 = icmp slt i32 %.057101, %5
   %or.cond72 = select i1 %35, i1 %36, i1 false
   br i1 %or.cond72, label %37, label %42
 
 37:                                               ; preds = %.thread89
-  %38 = add nsw i32 %.057102, 1
+  %38 = add nsw i32 %.057101, 1
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %2, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !29
@@ -52923,11 +52923,11 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   br label %93
 
 52:                                               ; preds = %44, %20, %28, %37
-  %.188 = phi i32 [ %.08799, %28 ], [ %.08799, %37 ], [ 0, %20 ], [ %.08799, %44 ]
-  %.1 = phi i32 [ %.0100, %28 ], [ %.0100, %37 ], [ %.0100, %20 ], [ 0, %44 ]
-  %.262 = phi ptr [ %.060101, %28 ], [ %41, %37 ], [ %.060101, %20 ], [ %.060101, %44 ]
-  %.259 = phi i32 [ %29, %28 ], [ %38, %37 ], [ %.057102, %20 ], [ %.057102, %44 ]
-  %.255 = phi ptr [ %32, %28 ], [ %.053103, %37 ], [ %.053103, %20 ], [ %.053103, %44 ]
+  %.188 = phi i32 [ %.08798, %28 ], [ %.08798, %37 ], [ 0, %20 ], [ %.08798, %44 ]
+  %.1 = phi i32 [ %.099, %28 ], [ %.099, %37 ], [ %.099, %20 ], [ 0, %44 ]
+  %.262 = phi ptr [ %.060100, %28 ], [ %41, %37 ], [ %.060100, %20 ], [ %.060100, %44 ]
+  %.259 = phi i32 [ %29, %28 ], [ %38, %37 ], [ %.057101, %20 ], [ %.057101, %44 ]
+  %.255 = phi ptr [ %32, %28 ], [ %.053102, %37 ], [ %.053102, %20 ], [ %.053102, %44 ]
   %53 = add nsw i32 %.259, 1
   %54 = icmp slt i32 %53, %1
   br i1 %54, label %6, label %._crit_edge, !llvm.loop !1053
@@ -52982,8 +52982,8 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
 74:                                               ; preds = %69, %72
   %storemerge.i = phi ptr [ %73, %72 ], [ null, %69 ]
   store ptr %storemerge.i, ptr %70, align 8, !tbaa !351
-  %.pre109 = load i32, ptr %66, align 8, !tbaa !349
-  %75 = icmp eq i32 %.pre109, 0
+  %.pre108 = load i32, ptr %66, align 8, !tbaa !349
+  %75 = icmp eq i32 %.pre108, 0
   br i1 %75, label %76, label %.split.preheader.i
 
 76:                                               ; preds = %74
@@ -52996,39 +52996,43 @@ define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 nound
   %78 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %.pre.i = load i32, ptr %78, align 8, !tbaa !347
   %79 = icmp eq i32 %.pre.i, 0
-  br i1 %79, label %.critedge94, label %sqlite3_recover_errcode.exit.thread
+  br i1 %79, label %.lr.ph116, label %sqlite3_recover_errcode.exit
 
-.critedge94:                                      ; preds = %.split.preheader.i, %.critedge94
+.split.i:                                         ; preds = %.lr.ph116
+  br label %.lr.ph116, !llvm.loop !434
+
+.lr.ph116:                                        ; preds = %.split.preheader.i, %.split.i
   tail call fastcc void @recoverStep(ptr noundef %56)
   %.pre.pre.i.i = load i32, ptr %78, align 8, !tbaa !347
   %80 = load i32, ptr %66, align 8, !tbaa !349
   %81 = icmp ne i32 %80, 6
   %82 = icmp eq i32 %.pre.pre.i.i, 0
   %or.cond.i = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond.i, label %.critedge94, label %sqlite3_recover_errcode.exit, !llvm.loop !434
+  br i1 %or.cond.i, label %.split.i, label %.sqlite3_recover_errcode.exit_crit_edge, !llvm.loop !434
 
-sqlite3_recover_errcode.exit:                     ; preds = %.critedge94
-  %.not = icmp eq i32 %.pre.pre.i.i, 0
-  br i1 %.not, label %91, label %sqlite3_recover_errcode.exit.thread
+.sqlite3_recover_errcode.exit_crit_edge:          ; preds = %.lr.ph116
+  br label %sqlite3_recover_errcode.exit, !llvm.loop !434
 
-sqlite3_recover_errcode.exit.thread:              ; preds = %.split.preheader.i, %sqlite3_recover_errcode.exit
-  %83 = phi i32 [ %.pre.pre.i.i, %sqlite3_recover_errcode.exit ], [ %.pre.i, %.split.preheader.i ]
-  %.not3.i = icmp eq i32 %83, 7
-  br i1 %.not3.i, label %sqlite3_recover_errcode.exit85, label %84
+sqlite3_recover_errcode.exit:                     ; preds = %.sqlite3_recover_errcode.exit_crit_edge, %.split.preheader.i
+  %83 = phi i32 [ %.pre.pre.i.i, %.sqlite3_recover_errcode.exit_crit_edge ], [ %.pre.i, %.split.preheader.i ]
+  switch i32 %83, label %84 [
+    i32 0, label %91
+    i32 7, label %sqlite3_recover_errcode.exit85
+  ]
 
-84:                                               ; preds = %sqlite3_recover_errcode.exit.thread
+84:                                               ; preds = %sqlite3_recover_errcode.exit
   %85 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %86 = load ptr, ptr %85, align 8, !tbaa !348
   br label %sqlite3_recover_errcode.exit85
 
-sqlite3_recover_errcode.exit85:                   ; preds = %84, %sqlite3_recover_errcode.exit.thread, %._crit_edge
-  %87 = phi ptr [ @.str.52, %._crit_edge ], [ @.str.52, %sqlite3_recover_errcode.exit.thread ], [ %86, %84 ]
-  %88 = phi i32 [ 7, %._crit_edge ], [ 7, %sqlite3_recover_errcode.exit.thread ], [ %83, %84 ]
+sqlite3_recover_errcode.exit85:                   ; preds = %sqlite3_recover_errcode.exit, %84, %._crit_edge
+  %87 = phi ptr [ @.str.52, %._crit_edge ], [ %86, %84 ], [ @.str.52, %sqlite3_recover_errcode.exit ]
+  %88 = phi i32 [ 7, %._crit_edge ], [ %83, %84 ], [ %83, %sqlite3_recover_errcode.exit ]
   %89 = load ptr, ptr @stderr, align 8, !tbaa !14
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.1354, ptr noundef %87, i32 noundef %88) #46
   br label %91
 
-91:                                               ; preds = %sqlite3_recover_errcode.exit85, %sqlite3_recover_errcode.exit
+91:                                               ; preds = %sqlite3_recover_errcode.exit, %sqlite3_recover_errcode.exit85
   %92 = tail call i32 @sqlite3_recover_finish(ptr noundef %56)
   br label %93
 

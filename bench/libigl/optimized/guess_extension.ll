@@ -48,26 +48,26 @@ define dso_local void @_ZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_st
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %27 = call ptr @fgets(ptr noundef nonnull %22, i32 noundef 2048, ptr noundef %0)
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit.thread", label %.lr.ph.i
+  br i1 %28, label %"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit.thread", label %.lr.ph
 
 "_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit.thread": ; preds = %.backedge.i, %2
   call void @rewind(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %36
 
-.lr.ph.i:                                         ; preds = %2, %.backedge.i
+.lr.ph:                                           ; preds = %2, %.backedge.i
   %29 = load i8, ptr %22, align 16, !tbaa !12
   switch i8 %29, label %"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit" [
     i8 35, label %.backedge.i
     i8 10, label %.backedge.i
   ]
 
-.backedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i
+.backedge.i:                                      ; preds = %.lr.ph, %.lr.ph
   %30 = call ptr @fgets(ptr noundef nonnull %22, i32 noundef 2048, ptr noundef %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit.thread", label %.lr.ph.i
+  br i1 %31, label %"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit.thread", label %.lr.ph
 
-"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit": ; preds = %.lr.ph.i
+"_ZZN3igl15guess_extensionEP8_IO_FILERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_3clES1_.exit": ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %32 = call i32 (ptr, ptr, ...) @__isoc23_sscanf(ptr noundef nonnull %22, ptr noundef nonnull @.str.6, ptr noundef nonnull %23) #11
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %23, ptr noundef nonnull dereferenceable(21) @.str.7, i64 21)

@@ -876,18 +876,18 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %78 = tail call ptr @alloc_iova(ptr noundef %0, i64 noundef %76, i64 noundef %2, i1 noundef zeroext true)
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.lr.ph, label %._crit_edge
+  br i1 %79, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.thread12
+  br i1 %3, label %.preheader15.preheader, label %.critedge
 
 .loopexit14:                                      ; preds = %.loopexit
   %80 = tail call ptr @alloc_iova(ptr noundef %0, i64 noundef %76, i64 noundef %2, i1 noundef zeroext true)
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.critedge, label %._crit_edge, !llvm.loop !34
 
-.lr.ph:                                           ; preds = %.thread12
-  br i1 %3, label %.preheader15.preheader, label %.critedge
-
-.preheader15.preheader:                           ; preds = %.lr.ph, %.preheader15
-  %82 = phi i64 [ %111, %.preheader15 ], [ 0, %.lr.ph ]
+.preheader15.preheader:                           ; preds = %.lr.ph.preheader, %.preheader15
+  %82 = phi i64 [ %111, %.preheader15 ], [ 0, %.lr.ph.preheader ]
   %83 = load i64, ptr @__cpu_online_mask, align 8
   %84 = shl nsw i64 -1, %82
   %85 = and i64 %83, %84
@@ -975,8 +975,8 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %132 = load i64, ptr %131, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.loopexit14, %._crit_edge, %70
-  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit14 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph.preheader, %.loopexit14, %._crit_edge, %70
+  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit14 ], [ 0, %.lr.ph.preheader ]
   ret i64 %133
 }
 

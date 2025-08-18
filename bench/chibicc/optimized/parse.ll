@@ -1122,64 +1122,61 @@ define internal fastcc ptr @parse_typedef(ptr noundef %0, ptr noundef %1) unname
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !25
   %4 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull @.str.99) #13
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
+.lr.ph:                                           ; preds = %2, %get_ident.exit
+  %.09 = phi i1 [ false, %get_ident.exit ], [ true, %2 ]
   %.pre = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = call fastcc ptr @declarator(ptr noundef %3, ptr noundef %.pre, ptr noundef %1)
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
-  %.not25 = icmp eq ptr %7, null
-  br i1 %.not25, label %.lr.ph._crit_edge, label %.lr.ph26
+  br i1 %.09, label %7, label %5
 
-.critedge:                                        ; preds = %get_ident.exit
-  %8 = load ptr, ptr %3, align 8, !tbaa !25
-  %9 = call ptr @skip(ptr noundef %8, ptr noundef nonnull @.str.57) #13
-  store ptr %9, ptr %3, align 8, !tbaa !25
-  %10 = call fastcc ptr @declarator(ptr noundef %3, ptr noundef %9, ptr noundef %1)
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !83
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.lr.ph._crit_edge, label %.lr.ph26
+5:                                                ; preds = %.lr.ph
+  %6 = call ptr @skip(ptr noundef %.pre, ptr noundef nonnull @.str.57) #13
+  store ptr %6, ptr %3, align 8, !tbaa !25
+  br label %7
 
-.lr.ph._crit_edge:                                ; preds = %.critedge, %.lr.ph.preheader
-  %.lcssa22 = phi ptr [ %5, %.lr.ph.preheader ], [ %10, %.critedge ]
-  %13 = getelementptr inbounds nuw i8, ptr %.lcssa22, i64 40
+7:                                                ; preds = %5, %.lr.ph
+  %8 = phi ptr [ %6, %5 ], [ %.pre, %.lr.ph ]
+  %9 = call fastcc ptr @declarator(ptr noundef %3, ptr noundef %8, ptr noundef %1)
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !83
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %12, label %15
+
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !84
   call void (ptr, ptr, ...) @error_tok(ptr noundef %14, ptr noundef nonnull @.str.141) #16
   unreachable
 
-.lr.ph26:                                         ; preds = %.lr.ph.preheader, %.critedge
-  %15 = phi ptr [ %12, %.critedge ], [ %7, %.lr.ph.preheader ]
-  %16 = phi ptr [ %10, %.critedge ], [ %5, %.lr.ph.preheader ]
-  %17 = load i32, ptr %15, align 16, !tbaa !55
-  %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %get_ident.exit, label %18
+15:                                               ; preds = %7
+  %16 = load i32, ptr %11, align 16, !tbaa !55
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %get_ident.exit, label %17
 
-18:                                               ; preds = %.lr.ph26
-  call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %15, ptr noundef nonnull @.str.66) #16
+17:                                               ; preds = %15
+  call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %11, ptr noundef nonnull @.str.66) #16
   unreachable
 
-get_ident.exit:                                   ; preds = %.lr.ph26
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %20 = load ptr, ptr %19, align 16, !tbaa !72
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %22 = load i32, ptr %21, align 8, !tbaa !73
-  %23 = sext i32 %22 to i64
-  %24 = call noalias ptr @strndup(ptr noundef %20, i64 noundef %23) #13
-  %25 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
-  %26 = load ptr, ptr @scope, align 8, !tbaa !41
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @hashmap_put(ptr noundef nonnull %27, ptr noundef %24, ptr noundef %25) #13
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %16, ptr %28, align 8, !tbaa !75
-  %29 = load ptr, ptr %3, align 8, !tbaa !25
-  %30 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %29, ptr noundef nonnull @.str.99) #13
-  br i1 %30, label %._crit_edge, label %.critedge, !llvm.loop !85
+get_ident.exit:                                   ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %19 = load ptr, ptr %18, align 16, !tbaa !72
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %21 = load i32, ptr %20, align 8, !tbaa !73
+  %22 = sext i32 %21 to i64
+  %23 = call noalias ptr @strndup(ptr noundef %19, i64 noundef %22) #13
+  %24 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
+  %25 = load ptr, ptr @scope, align 8, !tbaa !41
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  call void @hashmap_put(ptr noundef nonnull %26, ptr noundef %23, ptr noundef %24) #13
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %9, ptr %27, align 8, !tbaa !75
+  %28 = load ptr, ptr %3, align 8, !tbaa !25
+  %29 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %28, ptr noundef nonnull @.str.99) #13
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %get_ident.exit, %2
-  %31 = load ptr, ptr %3, align 8, !tbaa !25
-  ret ptr %31
+  %30 = load ptr, ptr %3, align 8, !tbaa !25
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1656,133 +1653,133 @@ define internal fastcc ptr @global_variable(ptr noundef %0, ptr noundef %1, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %11
+
+11:                                               ; preds = %.lr.ph, %76
+  %.024 = phi i1 [ true, %.lr.ph ], [ false, %76 ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !25
-  %11 = call fastcc ptr @declarator(ptr noundef %5, ptr noundef %.pre, ptr noundef %1)
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !83
-  %.not40 = icmp eq ptr %13, null
-  br i1 %.not40, label %._crit_edge42, label %.lr.ph41
+  br i1 %.024, label %14, label %12
 
-14:                                               ; preds = %77
-  %15 = load ptr, ptr %5, align 8, !tbaa !25
-  %16 = call ptr @skip(ptr noundef %15, ptr noundef nonnull @.str.57) #13
-  store ptr %16, ptr %5, align 8, !tbaa !25
-  %17 = call fastcc ptr @declarator(ptr noundef %5, ptr noundef %16, ptr noundef %1)
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !83
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge42, label %.lr.ph41
+12:                                               ; preds = %11
+  %13 = call ptr @skip(ptr noundef %.pre, ptr noundef nonnull @.str.57) #13
+  store ptr %13, ptr %5, align 8, !tbaa !25
+  br label %14
 
-._crit_edge42:                                    ; preds = %14, %.lr.ph
-  %.lcssa37 = phi ptr [ %11, %.lr.ph ], [ %17, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.lcssa37, i64 40
+14:                                               ; preds = %12, %11
+  %15 = phi ptr [ %13, %12 ], [ %.pre, %11 ]
+  %16 = call fastcc ptr @declarator(ptr noundef %5, ptr noundef %15, ptr noundef %1)
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load ptr, ptr %17, align 8, !tbaa !83
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %19, label %22
+
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !84
   call void (ptr, ptr, ...) @error_tok(ptr noundef %21, ptr noundef nonnull @.str.101) #16
   unreachable
 
-.lr.ph41:                                         ; preds = %.lr.ph, %14
-  %22 = phi ptr [ %19, %14 ], [ %13, %.lr.ph ]
-  %23 = phi ptr [ %17, %14 ], [ %11, %.lr.ph ]
-  %24 = load i32, ptr %22, align 16, !tbaa !55
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %get_ident.exit, label %25
+22:                                               ; preds = %14
+  %23 = load i32, ptr %18, align 16, !tbaa !55
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %get_ident.exit, label %24
 
-25:                                               ; preds = %.lr.ph41
-  call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %22, ptr noundef nonnull @.str.66) #16
+24:                                               ; preds = %22
+  call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %18, ptr noundef nonnull @.str.66) #16
   unreachable
 
-get_ident.exit:                                   ; preds = %.lr.ph41
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %27 = load ptr, ptr %26, align 16, !tbaa !72
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %29 = load i32, ptr %28, align 8, !tbaa !73
-  %30 = sext i32 %29 to i64
-  %31 = call noalias ptr @strndup(ptr noundef %27, i64 noundef %30) #13
-  %32 = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %31, ptr %33, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %23, ptr %34, align 8, !tbaa !37
-  %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !38
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  store i32 %36, ptr %37, align 4, !tbaa !40
-  %38 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
-  %39 = load ptr, ptr @scope, align 8, !tbaa !41
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @hashmap_put(ptr noundef nonnull %40, ptr noundef %31, ptr noundef %38) #13
-  store ptr %32, ptr %38, align 8, !tbaa !43
-  %41 = load ptr, ptr @globals, align 8, !tbaa !46
-  store ptr %41, ptr %32, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 46
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 45
-  store ptr %32, ptr @globals, align 8, !tbaa !46
-  %44 = load i8, ptr %7, align 2, !tbaa !77, !range !58, !noundef !59
-  %45 = xor i8 %44, 1
-  store i8 %45, ptr %43, align 1, !tbaa !63
-  %46 = load i8, ptr %8, align 1, !tbaa !76, !range !58, !noundef !59
-  store i8 %46, ptr %42, align 2, !tbaa !54
-  %47 = load i8, ptr %9, align 4, !tbaa !79, !range !58, !noundef !59
-  %48 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store i8 %47, ptr %48, align 8, !tbaa !108
-  %49 = load i32, ptr %10, align 4, !tbaa !81
-  %.not20 = icmp eq i32 %49, 0
-  br i1 %.not20, label %51, label %50
+get_ident.exit:                                   ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %26 = load ptr, ptr %25, align 16, !tbaa !72
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %28 = load i32, ptr %27, align 8, !tbaa !73
+  %29 = sext i32 %28 to i64
+  %30 = call noalias ptr @strndup(ptr noundef %26, i64 noundef %29) #13
+  %31 = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %30, ptr %32, align 8, !tbaa !32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store ptr %16, ptr %33, align 8, !tbaa !37
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !38
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 36
+  store i32 %35, ptr %36, align 4, !tbaa !40
+  %37 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
+  %38 = load ptr, ptr @scope, align 8, !tbaa !41
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  call void @hashmap_put(ptr noundef nonnull %39, ptr noundef %30, ptr noundef %37) #13
+  store ptr %31, ptr %37, align 8, !tbaa !43
+  %40 = load ptr, ptr @globals, align 8, !tbaa !46
+  store ptr %40, ptr %31, align 8, !tbaa !47
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 46
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 45
+  store ptr %31, ptr @globals, align 8, !tbaa !46
+  %43 = load i8, ptr %7, align 2, !tbaa !77, !range !58, !noundef !59
+  %44 = xor i8 %43, 1
+  store i8 %44, ptr %42, align 1, !tbaa !63
+  %45 = load i8, ptr %8, align 1, !tbaa !76, !range !58, !noundef !59
+  store i8 %45, ptr %41, align 2, !tbaa !54
+  %46 = load i8, ptr %9, align 4, !tbaa !79, !range !58, !noundef !59
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store i8 %46, ptr %47, align 8, !tbaa !108
+  %48 = load i32, ptr %10, align 4, !tbaa !81
+  %.not20 = icmp eq i32 %48, 0
+  br i1 %.not20, label %50, label %49
 
-50:                                               ; preds = %get_ident.exit
-  store i32 %49, ptr %37, align 4, !tbaa !40
-  br label %51
+49:                                               ; preds = %get_ident.exit
+  store i32 %48, ptr %36, align 4, !tbaa !40
+  br label %50
 
-51:                                               ; preds = %50, %get_ident.exit
-  %52 = load ptr, ptr %5, align 8, !tbaa !25
-  %53 = call zeroext i1 @equal(ptr noundef %52, ptr noundef nonnull @.str.76) #13
-  br i1 %53, label %54, label %69
+50:                                               ; preds = %49, %get_ident.exit
+  %51 = load ptr, ptr %5, align 8, !tbaa !25
+  %52 = call zeroext i1 @equal(ptr noundef %51, ptr noundef nonnull @.str.76) #13
+  br i1 %52, label %53, label %68
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %5, align 8, !tbaa !25
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !26
-  %58 = load ptr, ptr %34, align 8, !tbaa !37
-  %59 = call fastcc ptr @initializer(ptr noundef nonnull %5, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %34)
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %5, align 8, !tbaa !25
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !26
+  %57 = load ptr, ptr %33, align 8, !tbaa !37
+  %58 = call fastcc ptr @initializer(ptr noundef nonnull %5, ptr noundef %56, ptr noundef %57, ptr noundef nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %60 = load ptr, ptr %34, align 8, !tbaa !37
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !92
-  %63 = sext i32 %62 to i64
-  %64 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %63) #14
-  %65 = call fastcc ptr @write_gvar_data(ptr noundef nonnull %4, ptr noundef %59, ptr noundef %60, ptr noundef %64, i32 noundef 0)
-  %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store ptr %64, ptr %66, align 8, !tbaa !98
-  %67 = load ptr, ptr %4, align 8, !tbaa !109
-  %68 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store ptr %67, ptr %68, align 8, !tbaa !111
+  %59 = load ptr, ptr %33, align 8, !tbaa !37
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !92
+  %62 = sext i32 %61 to i64
+  %63 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %62) #14
+  %64 = call fastcc ptr @write_gvar_data(ptr noundef nonnull %4, ptr noundef %58, ptr noundef %59, ptr noundef %63, i32 noundef 0)
+  %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store ptr %63, ptr %65, align 8, !tbaa !98
+  %66 = load ptr, ptr %4, align 8, !tbaa !109
+  %67 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  store ptr %66, ptr %67, align 8, !tbaa !111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %77
+  br label %76
 
-69:                                               ; preds = %51
-  %70 = load i8, ptr %7, align 2, !tbaa !77, !range !58, !noundef !59
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %77, label %72
+68:                                               ; preds = %50
+  %69 = load i8, ptr %7, align 2, !tbaa !77, !range !58, !noundef !59
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %76, label %71
 
-72:                                               ; preds = %69
-  %73 = load i8, ptr %9, align 4, !tbaa !79, !range !58, !noundef !59
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %77, label %75
+71:                                               ; preds = %68
+  %72 = load i8, ptr %9, align 4, !tbaa !79, !range !58, !noundef !59
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %76, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %32, i64 47
-  store i8 1, ptr %76, align 1, !tbaa !62
-  br label %77
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 47
+  store i8 1, ptr %75, align 1, !tbaa !62
+  br label %76
 
-77:                                               ; preds = %69, %72, %75, %54
-  %78 = load ptr, ptr %5, align 8, !tbaa !25
-  %79 = call zeroext i1 @consume(ptr noundef nonnull %5, ptr noundef %78, ptr noundef nonnull @.str.99) #13
-  br i1 %79, label %._crit_edge, label %14, !llvm.loop !112
+76:                                               ; preds = %68, %71, %74, %53
+  %77 = load ptr, ptr %5, align 8, !tbaa !25
+  %78 = call zeroext i1 @consume(ptr noundef nonnull %5, ptr noundef %77, ptr noundef nonnull @.str.99) #13
+  br i1 %78, label %._crit_edge, label %11, !llvm.loop !112
 
-._crit_edge:                                      ; preds = %77, %3
-  %80 = load ptr, ptr %5, align 8, !tbaa !25
-  ret ptr %80
+._crit_edge:                                      ; preds = %76, %3
+  %79 = load ptr, ptr %5, align 8, !tbaa !25
+  ret ptr %79
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34301,65 +34298,65 @@ define internal fastcc ptr @attribute_list(ptr noundef %0, ptr noundef writeonly
   %10 = call ptr @skip(ptr noundef %9, ptr noundef nonnull @.str.23) #13
   store ptr %10, ptr %3, align 8, !tbaa !25
   %11 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull @.str.24) #13
-  br i1 %11, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %7
+.lr.ph:                                           ; preds = %7, %.backedge
+  %.02 = phi i1 [ false, %.backedge ], [ true, %7 ]
   %.pre = load ptr, ptr %3, align 8, !tbaa !25
-  br label %.lr.ph
+  br i1 %.02, label %14, label %12
 
-.critedge:                                        ; preds = %.backedge
-  %12 = load ptr, ptr %3, align 8, !tbaa !25
-  %13 = call ptr @skip(ptr noundef %12, ptr noundef nonnull @.str.57) #13
+12:                                               ; preds = %.lr.ph
+  %13 = call ptr @skip(ptr noundef %.pre, ptr noundef nonnull @.str.57) #13
   store ptr %13, ptr %3, align 8, !tbaa !25
-  br label %.lr.ph
+  br label %14
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %14 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %13, %.critedge ]
-  %15 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull @.str.136) #13
-  br i1 %15, label %16, label %19
+14:                                               ; preds = %12, %.lr.ph
+  %15 = phi ptr [ %13, %12 ], [ %.pre, %.lr.ph ]
+  %16 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %15, ptr noundef nonnull @.str.136) #13
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %.lr.ph
+17:                                               ; preds = %14
   store i8 1, ptr %6, align 1, !tbaa !227
   %.pre6 = load ptr, ptr %3, align 8, !tbaa !25
   br label %.backedge
 
-.backedge:                                        ; preds = %16, %23
-  %17 = phi ptr [ %.pre6, %16 ], [ %29, %23 ]
-  %18 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %17, ptr noundef nonnull @.str.24) #13
-  br i1 %18, label %._crit_edge, label %.critedge, !llvm.loop !234
+.backedge:                                        ; preds = %17, %24
+  %18 = phi ptr [ %.pre6, %17 ], [ %30, %24 ]
+  %19 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %18, ptr noundef nonnull @.str.24) #13
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !234
 
-19:                                               ; preds = %.lr.ph
-  %20 = load ptr, ptr %3, align 8, !tbaa !25
-  %21 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %20, ptr noundef nonnull @.str.137) #13
-  %22 = load ptr, ptr %3, align 8, !tbaa !25
-  br i1 %21, label %23, label %30
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %3, align 8, !tbaa !25
+  %22 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %21, ptr noundef nonnull @.str.137) #13
+  %23 = load ptr, ptr %3, align 8, !tbaa !25
+  br i1 %22, label %24, label %31
 
-23:                                               ; preds = %19
-  %24 = call ptr @skip(ptr noundef %22, ptr noundef nonnull @.str.23) #13
-  store ptr %24, ptr %3, align 8, !tbaa !25
-  %25 = call fastcc ptr @conditional(ptr noundef nonnull %3, ptr noundef %24)
-  %26 = call fastcc i64 @eval2(ptr noundef %25, ptr noundef null)
-  %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %5, align 8, !tbaa !38
-  %28 = load ptr, ptr %3, align 8, !tbaa !25
-  %29 = call ptr @skip(ptr noundef %28, ptr noundef nonnull @.str.24) #13
-  store ptr %29, ptr %3, align 8, !tbaa !25
+24:                                               ; preds = %20
+  %25 = call ptr @skip(ptr noundef %23, ptr noundef nonnull @.str.23) #13
+  store ptr %25, ptr %3, align 8, !tbaa !25
+  %26 = call fastcc ptr @conditional(ptr noundef nonnull %3, ptr noundef %25)
+  %27 = call fastcc i64 @eval2(ptr noundef %26, ptr noundef null)
+  %28 = trunc i64 %27 to i32
+  store i32 %28, ptr %5, align 8, !tbaa !38
+  %29 = load ptr, ptr %3, align 8, !tbaa !25
+  %30 = call ptr @skip(ptr noundef %29, ptr noundef nonnull @.str.24) #13
+  store ptr %30, ptr %3, align 8, !tbaa !25
   br label %.backedge
 
-30:                                               ; preds = %19
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %22, ptr noundef nonnull @.str.138) #16
+31:                                               ; preds = %20
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %23, ptr noundef nonnull @.str.138) #16
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge, %7
-  %31 = load ptr, ptr %3, align 8, !tbaa !25
-  %32 = call ptr @skip(ptr noundef %31, ptr noundef nonnull @.str.24) #13
-  store ptr %32, ptr %3, align 8, !tbaa !25
-  %33 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %32, ptr noundef nonnull @.str.135) #13
-  br i1 %33, label %7, label %._crit_edge5, !llvm.loop !235
+  %32 = load ptr, ptr %3, align 8, !tbaa !25
+  %33 = call ptr @skip(ptr noundef %32, ptr noundef nonnull @.str.24) #13
+  store ptr %33, ptr %3, align 8, !tbaa !25
+  %34 = call zeroext i1 @consume(ptr noundef nonnull %3, ptr noundef %33, ptr noundef nonnull @.str.135) #13
+  br i1 %34, label %7, label %._crit_edge5, !llvm.loop !235
 
 ._crit_edge5:                                     ; preds = %._crit_edge, %2
-  %34 = load ptr, ptr %3, align 8, !tbaa !25
-  ret ptr %34
+  %35 = load ptr, ptr %3, align 8, !tbaa !25
+  ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable

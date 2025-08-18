@@ -842,29 +842,29 @@ define dso_local void @put_task_stack(ptr noundef %0) local_unnamed_addr #1 alig
   %16 = ptrtoint ptr %15 to i64
   %17 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cached_stacks, i64 %16, i64 0, ptr nonnull elementtype(ptr) @cached_stacks) #18, !srcloc !24
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %26, label %19
+  br i1 %18, label %.loopexit, label %.preheader
 
-19:                                               ; preds = %13
-  %20 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8), i64 %16, i64 0, ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8)) #18, !srcloc !24
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %26, label %.critedge, !llvm.loop !25
+.preheader:                                       ; preds = %13
+  %19 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8), i64 %16, i64 0, ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8)) #18, !srcloc !24
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.loopexit, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 32
-  %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %24, ptr %25, align 8
-  tail call void @call_rcu(ptr noundef %23, ptr noundef nonnull @thread_stack_free_rcu) #18
-  br label %26
+.critedge:                                        ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 32
+  %23 = load ptr, ptr %14, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %23, ptr %24, align 8
+  tail call void @call_rcu(ptr noundef %22, ptr noundef nonnull @thread_stack_free_rcu) #18
+  br label %.loopexit
 
-26:                                               ; preds = %19, %.critedge, %13
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %27, align 32
+.loopexit:                                        ; preds = %.preheader, %.critedge, %13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %25, align 32
   store ptr null, ptr %14, align 8
   br label %.thread
 
-.thread:                                          ; preds = %5, %7, %26, %12
+.thread:                                          ; preds = %5, %7, %.loopexit, %12
   ret void
 }
 
@@ -6282,18 +6282,18 @@ define internal void @thread_stack_free_rcu(ptr noundef %0) #1 align 16 {
   %4 = ptrtoint ptr %3 to i64
   %5 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cached_stacks, i64 %4, i64 0, ptr nonnull elementtype(ptr) @cached_stacks) #18, !srcloc !24
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %10, label %7
+  br i1 %6, label %.loopexit, label %.preheader
 
-7:                                                ; preds = %1
-  %8 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8), i64 %4, i64 0, ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8)) #18, !srcloc !24
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %.critedge, !llvm.loop !25
+.preheader:                                       ; preds = %1
+  %7 = tail call i64 asm sideeffect "cmpxchgq $2, %gs:$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8), i64 %4, i64 0, ptr nonnull elementtype(ptr) getelementptr inbounds nuw (i8, ptr @cached_stacks, i64 8)) #18, !srcloc !24
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %.loopexit, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %7
+.critedge:                                        ; preds = %.preheader
   tail call void @vfree(ptr noundef %0) #18
-  br label %10
+  br label %.loopexit
 
-10:                                               ; preds = %7, %.critedge, %1
+.loopexit:                                        ; preds = %.preheader, %.critedge, %1
   ret void
 }
 

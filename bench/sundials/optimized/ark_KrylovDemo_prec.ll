@@ -261,9 +261,9 @@ check_flag.exit84:                                ; preds = %38
   store double %88, ptr %90, align 8, !tbaa !25
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 6
-  br i1 %exitcond101.not.i, label %.preheader.preheader.i.critedge.i, label %85
+  br i1 %exitcond101.not.i, label %.preheader46.preheader.i.i.critedge, label %85
 
-.preheader.preheader.i.critedge.i:                ; preds = %85
+.preheader46.preheader.i.i.critedge:              ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %46, i64 72
   store i32 6, ptr %91, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %46, i64 76
@@ -283,47 +283,47 @@ check_flag.exit84:                                ; preds = %38
   %99 = getelementptr inbounds nuw i8, ptr %46, i64 96
   store i32 2, ptr %99, align 8, !tbaa !37
   %100 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 128
   store i32 0, ptr %100, align 8, !tbaa !38
-  %102 = getelementptr inbounds nuw i8, ptr %46, i64 108
-  store i32 3, ptr %102, align 4, !tbaa !38
+  %101 = getelementptr inbounds nuw i8, ptr %46, i64 108
+  store i32 3, ptr %101, align 4, !tbaa !38
+  %102 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %103 = getelementptr inbounds nuw i8, ptr %46, i64 112
   store i32 6, ptr %103, align 8, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, i8 0, i64 12, i1 false), !tbaa !38
-  br label %.preheader.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %102, i8 0, i64 12, i1 false), !tbaa !38
+  br label %.preheader46.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.critedge.i
-  %indvars.iv53.i.i = phi i64 [ 3, %.preheader.preheader.i.critedge.i ], [ %indvars.iv.next54.i.i, %.preheader.i.i ]
-  %104 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv53.i.i
+.preheader46.i.i:                                 ; preds = %.preheader46.i.i, %.preheader46.preheader.i.i.critedge
+  %indvars.iv54.i.i = phi i64 [ 3, %.preheader46.preheader.i.i.critedge ], [ %indvars.iv.next55.i.i, %.preheader46.i.i ]
+  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv54.i.i
   store i32 1, ptr %104, align 4, !tbaa !38
-  %indvars.iv.next54.i.i = add nuw nsw i64 %indvars.iv53.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next54.i.i, 6
-  br i1 %exitcond.not.i.i, label %SetGroups.exit.i, label %.preheader.i.i
+  %indvars.iv.next55.i.i = add nuw nsw i64 %indvars.iv54.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next55.i.i, 6
+  br i1 %exitcond.not.i.i, label %SetGroups.exit.i, label %.preheader46.i.i
 
-SetGroups.exit.i:                                 ; preds = %.preheader.i.i
+SetGroups.exit.i:                                 ; preds = %.preheader46.i.i
   %105 = getelementptr inbounds nuw i8, ptr %46, i64 176
   store i32 1, ptr %105, align 4, !tbaa !38
   %106 = getelementptr inbounds nuw i8, ptr %46, i64 180
   store i32 4, ptr %106, align 4, !tbaa !38
   %107 = getelementptr inbounds nuw i8, ptr %46, i64 116
-  %108 = getelementptr inbounds nuw i8, ptr %46, i64 152
   store i32 0, ptr %107, align 4, !tbaa !38
-  %109 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  store i32 3, ptr %109, align 4, !tbaa !38
+  %108 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  store i32 3, ptr %108, align 4, !tbaa !38
+  %109 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %110 = getelementptr inbounds nuw i8, ptr %46, i64 124
   store i32 6, ptr %110, align 4, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %108, i8 0, i64 12, i1 false), !tbaa !38
-  br label %.preheader.i73.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %109, i8 0, i64 12, i1 false), !tbaa !38
+  br label %.preheader46.i73.i
 
-.preheader.i73.i:                                 ; preds = %.preheader.i73.i, %SetGroups.exit.i
-  %indvars.iv53.i74.i = phi i64 [ 3, %SetGroups.exit.i ], [ %indvars.iv.next54.i75.i, %.preheader.i73.i ]
-  %111 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv53.i74.i
+.preheader46.i73.i:                               ; preds = %.preheader46.i73.i, %SetGroups.exit.i
+  %indvars.iv54.i74.i = phi i64 [ 3, %SetGroups.exit.i ], [ %indvars.iv.next55.i75.i, %.preheader46.i73.i ]
+  %111 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv54.i74.i
   store i32 1, ptr %111, align 4, !tbaa !38
-  %indvars.iv.next54.i75.i = add nuw nsw i64 %indvars.iv53.i74.i, 1
-  %exitcond.not.i76.i = icmp eq i64 %indvars.iv.next54.i75.i, 6
-  br i1 %exitcond.not.i76.i, label %InitUserData.exit, label %.preheader.i73.i
+  %indvars.iv.next55.i75.i = add nuw nsw i64 %indvars.iv54.i74.i, 1
+  %exitcond.not.i76.i = icmp eq i64 %indvars.iv.next55.i75.i, 6
+  br i1 %exitcond.not.i76.i, label %InitUserData.exit, label %.preheader46.i73.i
 
-InitUserData.exit:                                ; preds = %.preheader.i73.i
+InitUserData.exit:                                ; preds = %.preheader46.i73.i
   %112 = getelementptr inbounds nuw i8, ptr %46, i64 184
   store i32 1, ptr %112, align 4, !tbaa !38
   %113 = getelementptr inbounds nuw i8, ptr %46, i64 188

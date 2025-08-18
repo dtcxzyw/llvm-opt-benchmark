@@ -8743,7 +8743,7 @@ define hidden noundef range(i32 1, 5) i32 @_ZNK5clang6driver10toolchains5MinGW17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains5MinGW22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(4153) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
   %1 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #19
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1

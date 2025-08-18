@@ -36640,12 +36640,12 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMe
   %.sroa.01.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %47, align 4
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i.i = load i16, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i.i.i.i, i64 0
   store float %.sroa.0.0.vec.extract.i.i.i.i.i, ptr %39, align 4
   %.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i.i.i.i, i64 1
-  %48 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store float %.sroa.0.4.vec.extract.i.i.i.i.i, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i16 %.sroa.22.0.copyload.i.i.i.i.i.i, ptr %49, align 4
   br label %_ZN3vcg6vertex8BitFlagsINS_6Arity6INS0_9EmptyCoreINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_7Coord3fENS0_8Normal3fENS0_10TexCoord2fENS0_5VFAdjENS0_8QualityfENS0_7Color4bEEEE10ImportDataI8CVertexOEEvRKT_.exit
 
@@ -37463,16 +37463,16 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorINS0_12VoronoiAtlasI6CMeshOE8Voro
   store float %30, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %34 = load float, ptr %33, align 4
-  store float %34, ptr %32, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store float %36, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %39 = load i16, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i16 %39, ptr %40, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %38 = load float, ptr %33, align 4
+  store float %38, ptr %32, align 4
+  %39 = load float, ptr %34, align 4
+  store float %39, ptr %35, align 4
+  %40 = load i16, ptr %36, align 4
+  store i16 %40, ptr %37, align 4
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %43 = load float, ptr %42, align 4
@@ -53203,16 +53203,16 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMe
   store float %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load float, ptr %35, align 8
-  store float %36, ptr %34, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  store float %38, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load i16, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i16 %41, ptr %42, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %40 = load float, ptr %35, align 8
+  store float %40, ptr %34, align 4
+  %41 = load float, ptr %36, align 4
+  store float %41, ptr %37, align 4
+  %42 = load i16, ptr %38, align 8
+  store i16 %42, ptr %39, align 4
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %45 = load float, ptr %44, align 4
@@ -53293,7 +53293,7 @@ _ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E15ImportVertexAdjERS
   br i1 %99, label %100, label %117
 
 100:                                              ; preds = %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E15ImportVertexAdjERS5_RKS5_RNS4_10VoroVertexERKSA_RNS6_5RemapE.exit
-  %101 = load i16, ptr %40, align 8
+  %101 = load i16, ptr %38, align 8
   %102 = sext i16 %101 to i64
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %104 = load ptr, ptr %103, align 8
@@ -53315,7 +53315,7 @@ _ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E15ImportVertexAdjERS
 
 .sink.split:                                      ; preds = %100, %113
   %.sink = phi i16 [ %116, %113 ], [ %101, %100 ]
-  store i16 %.sink, ptr %42, align 2
+  store i16 %.sink, ptr %39, align 2
   br label %117
 
 117:                                              ; preds = %.sink.split, %2, %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E15ImportVertexAdjERS5_RKS5_RNS4_10VoroVertexERKSA_RNS6_5RemapE.exit

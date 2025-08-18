@@ -1247,8 +1247,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %7 = alloca %"class.cv::_InputOutputArray", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.cv::Scalar_", align 8
-  %.sroa.0.i.i98.i = alloca double, align 8
-  %.sroa.4.i.i99.i = alloca double, align 8
+  %.sroa.0.i.i102.i = alloca double, align 8
+  %.sroa.4.i.i103.i = alloca double, align 8
   %.sroa.0.i.i76.i = alloca double, align 8
   %.sroa.4.i.i77.i = alloca double, align 8
   %.sroa.0.i.i.i = alloca double, align 8
@@ -11387,29 +11387,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   store ptr %178, ptr %3626, align 8, !tbaa !366
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
-  br label %.preheader.i.i.i.i
+  br label %.preheader19.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %.critedge.i.i.i.i, %.lr.ph1324
-  %3919 = phi i1 [ true, %.lr.ph1324 ], [ false, %.critedge.i.i.i.i ]
-  %indvars.iv23.i.sroa.phi.i.i.i = phi ptr [ %.sroa.0.i.i.i, %.lr.ph1324 ], [ %.sroa.4.i.i.i, %.critedge.i.i.i.i ]
-  %indvars.iv23.i.i.i.i = phi i64 [ 0, %.lr.ph1324 ], [ 2, %.critedge.i.i.i.i ]
-  br label %3920
+.preheader19.i.i.i.i:                             ; preds = %3920, %.lr.ph1324
+  %3919 = phi i1 [ true, %.lr.ph1324 ], [ false, %3920 ]
+  %indvars.iv24.i.sroa.phi.i.i.i = phi ptr [ %.sroa.0.i.i.i, %.lr.ph1324 ], [ %.sroa.4.i.i.i, %3920 ]
+  %indvars.iv24.i.i.i.i = phi i64 [ 0, %.lr.ph1324 ], [ 2, %3920 ]
+  br label %3921
 
-.critedge.i.i.i.i:                                ; preds = %3920
-  store double %3925, ptr %indvars.iv23.i.sroa.phi.i.i.i, align 8, !tbaa !367, !noalias !388
-  br i1 %3919, label %.preheader.i.i.i.i, label %3926, !llvm.loop !391
+3920:                                             ; preds = %3921
+  store double %3926, ptr %indvars.iv24.i.sroa.phi.i.i.i, align 8, !tbaa !367, !noalias !388
+  br i1 %3919, label %.preheader19.i.i.i.i, label %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i.i, !llvm.loop !391
 
-3920:                                             ; preds = %3920, %.preheader.i.i.i.i
-  %3921 = phi i1 [ true, %.preheader.i.i.i.i ], [ false, %3920 ]
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ 1, %3920 ]
-  %.01619.i.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i.i ], [ %3925, %3920 ]
-  %3922 = or disjoint i64 %indvars.iv.i.i.i.i, %indvars.iv23.i.i.i.i
-  %3923 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %3922
-  %3924 = load double, ptr %3923, align 8, !tbaa !367, !noalias !388
-  %3925 = call double @llvm.fmuladd.f64(double %3924, double %3903, double %.01619.i.i.i.i)
-  br i1 %3921, label %3920, label %.critedge.i.i.i.i, !llvm.loop !392
+3921:                                             ; preds = %3921, %.preheader19.i.i.i.i
+  %3922 = phi i1 [ true, %.preheader19.i.i.i.i ], [ false, %3921 ]
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader19.i.i.i.i ], [ 1, %3921 ]
+  %.01620.i.i.i.i = phi double [ 0.000000e+00, %.preheader19.i.i.i.i ], [ %3926, %3921 ]
+  %3923 = or disjoint i64 %indvars.iv.i.i.i.i, %indvars.iv24.i.i.i.i
+  %3924 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %3923
+  %3925 = load double, ptr %3924, align 8, !tbaa !367, !noalias !388
+  %3926 = call double @llvm.fmuladd.f64(double %3925, double %3903, double %.01620.i.i.i.i)
+  br i1 %3922, label %3921, label %3920, !llvm.loop !392
 
-3926:                                             ; preds = %.critedge.i.i.i.i
+_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i.i: ; preds = %3920
+  %.sroa.0.i.i.i.0. = load double, ptr %.sroa.0.i.i.i, align 8, !tbaa !367, !noalias !388
+  %.sroa.4.i.i.i.0. = load double, ptr %.sroa.4.i.i.i, align 8, !tbaa !367, !noalias !388
   %3927 = sdiv i32 %3901, 2
   %3928 = add nsw i32 %3904, %3927
   %3929 = sdiv i32 %3908, 2
@@ -11418,13 +11420,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   %.sroa.10.0.insert.shift24.i = shl nuw i64 %.sroa.10.0.insert.ext23.i, 32
   %.sroa.012.0.insert.ext16.i = zext i32 %3928 to i64
   %.sroa.012.0.insert.insert18.i = or disjoint i64 %.sroa.10.0.insert.shift24.i, %.sroa.012.0.insert.ext16.i
-  %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i = load double, ptr %.sroa.0.i.i.i, align 8, !tbaa !367, !noalias !388
-  %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i = load double, ptr %.sroa.4.i.i.i, align 8, !tbaa !367, !noalias !388
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
-  %.sroa.07.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i, i64 0
+  %.sroa.07.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i.i.0., i64 0
   %3931 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.07.0.vec.insert.i)
-  %3932 = insertelement <2 x double> poison, double %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, i64 0
+  %3932 = insertelement <2 x double> poison, double %.sroa.4.i.i.i.0., i64 0
   %3933 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3932)
   %3934 = add nsw i32 %3931, %3928
   %3935 = add nsw i32 %3933, %3930
@@ -11439,7 +11439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i75.i, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %.noexc929 unwind label %4098
 
-.noexc929:                                        ; preds = %3926
+.noexc929:                                        ; preds = %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -11448,105 +11448,105 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   store ptr %178, ptr %3630, align 8, !tbaa !366
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i76.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i77.i)
-  br label %.preheader.i.i.i78.i
+  br label %.preheader19.i.i.i80.i
 
-.preheader.i.i.i78.i:                             ; preds = %.critedge.i.i.i84.i, %.noexc929
-  %3936 = phi i1 [ true, %.noexc929 ], [ false, %.critedge.i.i.i84.i ]
-  %indvars.iv23.i.sroa.phi.i.i79.i = phi ptr [ %.sroa.0.i.i76.i, %.noexc929 ], [ %.sroa.4.i.i77.i, %.critedge.i.i.i84.i ]
-  %indvars.iv23.i.i.i80.i = phi i64 [ 0, %.noexc929 ], [ 2, %.critedge.i.i.i84.i ]
-  br label %3937
+.preheader19.i.i.i80.i:                           ; preds = %3937, %.noexc929
+  %3936 = phi i1 [ true, %.noexc929 ], [ false, %3937 ]
+  %indvars.iv24.i.sroa.phi.i.i81.i = phi ptr [ %.sroa.0.i.i76.i, %.noexc929 ], [ %.sroa.4.i.i77.i, %3937 ]
+  %indvars.iv24.i.i.i82.i = phi i64 [ 0, %.noexc929 ], [ 2, %3937 ]
+  br label %3938
 
-.critedge.i.i.i84.i:                              ; preds = %3937
-  store double %3942, ptr %indvars.iv23.i.sroa.phi.i.i79.i, align 8, !tbaa !367, !noalias !393
-  br i1 %3936, label %.preheader.i.i.i78.i, label %3943, !llvm.loop !391
+3937:                                             ; preds = %3938
+  store double %3943, ptr %indvars.iv24.i.sroa.phi.i.i81.i, align 8, !tbaa !367, !noalias !393
+  br i1 %3936, label %.preheader19.i.i.i80.i, label %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i86.i, !llvm.loop !391
 
-3937:                                             ; preds = %3937, %.preheader.i.i.i78.i
-  %3938 = phi i1 [ true, %.preheader.i.i.i78.i ], [ false, %3937 ]
-  %indvars.iv.i.i.i82.i = phi i64 [ 0, %.preheader.i.i.i78.i ], [ 1, %3937 ]
-  %.01619.i.i.i83.i = phi double [ 0.000000e+00, %.preheader.i.i.i78.i ], [ %3942, %3937 ]
-  %3939 = or disjoint i64 %indvars.iv.i.i.i82.i, %indvars.iv23.i.i.i80.i
-  %3940 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %3939
-  %3941 = load double, ptr %3940, align 8, !tbaa !367, !noalias !393
-  %3942 = call double @llvm.fmuladd.f64(double %3941, double %3903, double %.01619.i.i.i83.i)
-  br i1 %3938, label %3937, label %.critedge.i.i.i84.i, !llvm.loop !392
+3938:                                             ; preds = %3938, %.preheader19.i.i.i80.i
+  %3939 = phi i1 [ true, %.preheader19.i.i.i80.i ], [ false, %3938 ]
+  %indvars.iv.i.i.i84.i = phi i64 [ 0, %.preheader19.i.i.i80.i ], [ 1, %3938 ]
+  %.01620.i.i.i85.i = phi double [ 0.000000e+00, %.preheader19.i.i.i80.i ], [ %3943, %3938 ]
+  %3940 = or disjoint i64 %indvars.iv.i.i.i84.i, %indvars.iv24.i.i.i82.i
+  %3941 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %3940
+  %3942 = load double, ptr %3941, align 8, !tbaa !367, !noalias !393
+  %3943 = call double @llvm.fmuladd.f64(double %3942, double %3903, double %.01620.i.i.i85.i)
+  br i1 %3939, label %3938, label %3937, !llvm.loop !392
 
-3943:                                             ; preds = %.critedge.i.i.i84.i
-  %.sroa.0.i.i76.i.0..sroa.0.i.i76.i.0..sroa.0.i.i76.i.0..sroa.0.i.i76.0..sroa.0.i.i76.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i85.i = load double, ptr %.sroa.0.i.i76.i, align 8, !tbaa !367, !noalias !393
-  %.sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.0..sroa.4.i.i77.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i86.i = load double, ptr %.sroa.4.i.i77.i, align 8, !tbaa !367, !noalias !393
+_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i86.i: ; preds = %3937
+  %.sroa.0.i.i76.i.0. = load double, ptr %.sroa.0.i.i76.i, align 8, !tbaa !367, !noalias !393
+  %.sroa.4.i.i77.i.0. = load double, ptr %.sroa.4.i.i77.i, align 8, !tbaa !367, !noalias !393
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i76.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i77.i)
-  %.sroa.03.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i76.i.0..sroa.0.i.i76.i.0..sroa.0.i.i76.i.0..sroa.0.i.i76.0..sroa.0.i.i76.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i85.i, i64 0
+  %.sroa.03.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i76.i.0., i64 0
   %3944 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.03.0.vec.insert.i)
-  %3945 = insertelement <2 x double> poison, double %.sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.0..sroa.4.i.i77.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i86.i, i64 0
+  %3945 = insertelement <2 x double> poison, double %.sroa.4.i.i77.i.0., i64 0
   %3946 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3945)
   %3947 = add nsw i32 %3944, %3928
   %3948 = add nsw i32 %3946, %3930
-  %.sroa.2.0.insert.ext.i94.i = zext i32 %3948 to i64
-  %.sroa.2.0.insert.shift.i95.i = shl nuw i64 %.sroa.2.0.insert.ext.i94.i, 32
-  %.sroa.0.0.insert.ext.i96.i = zext i32 %3947 to i64
-  %.sroa.0.0.insert.insert.i97.i = or disjoint i64 %.sroa.2.0.insert.shift.i95.i, %.sroa.0.0.insert.ext.i96.i
+  %.sroa.2.0.insert.ext.i98.i = zext i32 %3948 to i64
+  %.sroa.2.0.insert.shift.i99.i = shl nuw i64 %.sroa.2.0.insert.ext.i98.i, 32
+  %.sroa.0.0.insert.ext.i100.i = zext i32 %3947 to i64
+  %.sroa.0.0.insert.insert.i101.i = or disjoint i64 %.sroa.2.0.insert.shift.i99.i, %.sroa.0.0.insert.ext.i100.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store double 0.000000e+00, ptr %16, align 8, !tbaa !367
   store double 2.550000e+02, ptr %3632, align 8, !tbaa !367
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3633, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i97.i, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 2, i32 noundef 8, i32 noundef 0)
+  invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i101.i, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %.noexc930 unwind label %4098
 
-.noexc930:                                        ; preds = %3943
+.noexc930:                                        ; preds = %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i86.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %3635, align 8
   store i32 50397184, ptr %17, align 8, !tbaa !363
   store ptr %178, ptr %3634, align 8, !tbaa !366
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i98.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i99.i)
-  br label %.preheader.i.i.i100.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i102.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i103.i)
+  br label %.preheader19.i.i.i106.i
 
-.preheader.i.i.i100.i:                            ; preds = %.critedge.i.i.i106.i, %.noexc930
-  %3949 = phi i1 [ true, %.noexc930 ], [ false, %.critedge.i.i.i106.i ]
-  %indvars.iv23.i.sroa.phi.i.i101.i = phi ptr [ %.sroa.0.i.i98.i, %.noexc930 ], [ %.sroa.4.i.i99.i, %.critedge.i.i.i106.i ]
-  %indvars.iv23.i.i.i102.i = phi i64 [ 0, %.noexc930 ], [ 2, %.critedge.i.i.i106.i ]
-  br label %3950
+.preheader19.i.i.i106.i:                          ; preds = %3950, %.noexc930
+  %3949 = phi i1 [ true, %.noexc930 ], [ false, %3950 ]
+  %indvars.iv24.i.sroa.phi.i.i107.i = phi ptr [ %.sroa.0.i.i102.i, %.noexc930 ], [ %.sroa.4.i.i103.i, %3950 ]
+  %indvars.iv24.i.i.i108.i = phi i64 [ 0, %.noexc930 ], [ 2, %3950 ]
+  br label %3951
 
-.critedge.i.i.i106.i:                             ; preds = %3950
-  store double %3955, ptr %indvars.iv23.i.sroa.phi.i.i101.i, align 8, !tbaa !367, !noalias !396
-  br i1 %3949, label %.preheader.i.i.i100.i, label %3956, !llvm.loop !391
+3950:                                             ; preds = %3951
+  store double %3956, ptr %indvars.iv24.i.sroa.phi.i.i107.i, align 8, !tbaa !367, !noalias !396
+  br i1 %3949, label %.preheader19.i.i.i106.i, label %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i112.i, !llvm.loop !391
 
-3950:                                             ; preds = %3950, %.preheader.i.i.i100.i
-  %3951 = phi i1 [ true, %.preheader.i.i.i100.i ], [ false, %3950 ]
-  %indvars.iv.i.i.i104.i = phi i64 [ 0, %.preheader.i.i.i100.i ], [ 1, %3950 ]
-  %.01619.i.i.i105.i = phi double [ 0.000000e+00, %.preheader.i.i.i100.i ], [ %3955, %3950 ]
-  %3952 = or disjoint i64 %indvars.iv.i.i.i104.i, %indvars.iv23.i.i.i102.i
-  %3953 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %3952
-  %3954 = load double, ptr %3953, align 8, !tbaa !367, !noalias !396
-  %3955 = call double @llvm.fmuladd.f64(double %3954, double %3903, double %.01619.i.i.i105.i)
-  br i1 %3951, label %3950, label %.critedge.i.i.i106.i, !llvm.loop !392
+3951:                                             ; preds = %3951, %.preheader19.i.i.i106.i
+  %3952 = phi i1 [ true, %.preheader19.i.i.i106.i ], [ false, %3951 ]
+  %indvars.iv.i.i.i110.i = phi i64 [ 0, %.preheader19.i.i.i106.i ], [ 1, %3951 ]
+  %.01620.i.i.i111.i = phi double [ 0.000000e+00, %.preheader19.i.i.i106.i ], [ %3956, %3951 ]
+  %3953 = or disjoint i64 %indvars.iv.i.i.i110.i, %indvars.iv24.i.i.i108.i
+  %3954 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %3953
+  %3955 = load double, ptr %3954, align 8, !tbaa !367, !noalias !396
+  %3956 = call double @llvm.fmuladd.f64(double %3955, double %3903, double %.01620.i.i.i111.i)
+  br i1 %3952, label %3951, label %3950, !llvm.loop !392
 
-3956:                                             ; preds = %.critedge.i.i.i106.i
-  %.sroa.0.i.i98.i.0..sroa.0.i.i98.i.0..sroa.0.i.i98.i.0..sroa.0.i.i98.0..sroa.0.i.i98.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i107.i = load double, ptr %.sroa.0.i.i98.i, align 8, !tbaa !367, !noalias !396
-  %.sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.0..sroa.4.i.i99.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i108.i = load double, ptr %.sroa.4.i.i99.i, align 8, !tbaa !367, !noalias !396
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i98.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i99.i)
-  %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i98.i.0..sroa.0.i.i98.i.0..sroa.0.i.i98.i.0..sroa.0.i.i98.0..sroa.0.i.i98.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i107.i, i64 0
+_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i112.i: ; preds = %3950
+  %.sroa.0.i.i102.i.0. = load double, ptr %.sroa.0.i.i102.i, align 8, !tbaa !367, !noalias !396
+  %.sroa.4.i.i103.i.0. = load double, ptr %.sroa.4.i.i103.i, align 8, !tbaa !367, !noalias !396
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i102.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i103.i)
+  %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.i.i102.i.0., i64 0
   %3957 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.0.0.vec.insert.i)
-  %3958 = insertelement <2 x double> poison, double %.sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.0..sroa.4.i.i99.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i108.i, i64 0
+  %3958 = insertelement <2 x double> poison, double %.sroa.4.i.i103.i.0., i64 0
   %3959 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3958)
   %3960 = add nsw i32 %3957, %3928
   %3961 = add nsw i32 %3959, %3930
-  %.sroa.2.0.insert.ext.i116.i = zext i32 %3961 to i64
-  %.sroa.2.0.insert.shift.i117.i = shl nuw i64 %.sroa.2.0.insert.ext.i116.i, 32
-  %.sroa.0.0.insert.ext.i118.i = zext i32 %3960 to i64
-  %.sroa.0.0.insert.insert.i119.i = or disjoint i64 %.sroa.2.0.insert.shift.i117.i, %.sroa.0.0.insert.ext.i118.i
+  %.sroa.2.0.insert.ext.i124.i = zext i32 %3961 to i64
+  %.sroa.2.0.insert.shift.i125.i = shl nuw i64 %.sroa.2.0.insert.ext.i124.i, 32
+  %.sroa.0.0.insert.ext.i126.i = zext i32 %3960 to i64
+  %.sroa.0.0.insert.insert.i127.i = or disjoint i64 %.sroa.2.0.insert.shift.i125.i, %.sroa.0.0.insert.ext.i126.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store double 2.550000e+02, ptr %18, align 8, !tbaa !367
   store double 0.000000e+00, ptr %3636, align 8, !tbaa !367
   store double 2.550000e+02, ptr %3637, align 8, !tbaa !367
   store double 0.000000e+00, ptr %3638, align 8, !tbaa !367
-  invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i119.i, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 2, i32 noundef 8, i32 noundef 0)
+  invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i127.i, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %3962 unwind label %4098
 
-3962:                                             ; preds = %3956
+3962:                                             ; preds = %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i112.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -11790,7 +11790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75.i: ; preds = %_
   %4097 = icmp ult i64 %4090, %4096
   br i1 %4097, label %.lr.ph1324, label %._crit_edge1325, !llvm.loop !402
 
-4098:                                             ; preds = %.noexc938, %.noexc937, %3962, %3956, %3943, %3926
+4098:                                             ; preds = %.noexc938, %.noexc937, %3962, %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i112.i, %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i86.i, %_ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_MatMulOpE.exit.i.i.i
   %4099 = landingpad { ptr, i32 }
           cleanup
   br label %.body940

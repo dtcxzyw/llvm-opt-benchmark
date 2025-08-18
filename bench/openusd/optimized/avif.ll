@@ -2578,23 +2578,23 @@ declare ptr @avifArrayPush(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @avifCodecName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
-findAvailableCodec.exit:
+findAvailableCodec.exit.thread:
   %2 = or i32 %0, %1
-  %or.cond = icmp ult i32 %2, 2
-  %.0 = select i1 %or.cond, ptr @.str.64, ptr null
+  %3 = icmp ult i32 %2, 2
+  %.0 = select i1 %3, ptr @.str.64, ptr null
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @avifCodecTypeFromChoice(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
-findAvailableCodec.exit:
+findAvailableCodec.exit.thread:
   %2 = or i32 %0, %1
-  %or.cond = icmp ult i32 %2, 2
-  %.0 = zext i1 %or.cond to i32
+  %narrow = icmp ult i32 %2, 2
+  %.0 = zext i1 %narrow to i32
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @avifCodecChoiceFromName(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
 .critedge:
   %1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.64, ptr noundef nonnull dereferenceable(1) %0) #15
@@ -2606,25 +2606,26 @@ define hidden i32 @avifCodecChoiceFromName(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 27) i32 @avifCodecCreate(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store ptr null, ptr %2, align 8
-  %4 = or i32 %0, %1
-  %or.cond = icmp ult i32 %4, 2
-  br i1 %or.cond, label %5, label %findAvailableCodec.exit
+  %or.cond.i = icmp ult i32 %0, 2
+  %.not17.i = icmp ult i32 %1, 2
+  %or.cond = and i1 %or.cond.i, %.not17.i
+  br i1 %or.cond, label %findAvailableCodec.exit, label %findAvailableCodec.exit.thread, !llvm.loop !16
 
-5:                                                ; preds = %3
-  %6 = tail call ptr @avifCodecCreateAOM() #14
-  store ptr %6, ptr %2, align 8
-  %.not8 = icmp eq ptr %6, null
+findAvailableCodec.exit:                          ; preds = %3
+  %4 = tail call ptr @avifCodecCreateAOM() #14
+  store ptr %4, ptr %2, align 8
+  %.not8 = icmp eq ptr %4, null
   %. = select i1 %.not8, i32 26, i32 0
-  br label %findAvailableCodec.exit
+  br label %findAvailableCodec.exit.thread
 
-findAvailableCodec.exit:                          ; preds = %3, %5
-  %.0 = phi i32 [ %., %5 ], [ 15, %3 ]
+findAvailableCodec.exit.thread:                   ; preds = %3, %findAvailableCodec.exit
+  %.0 = phi i32 [ %., %findAvailableCodec.exit ], [ 15, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @avifCodecVersions(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #3 {
-.critedge:
+.sink.split:
   store i8 0, ptr %0, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.64, i64 3, i1 false)
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -2665,7 +2666,7 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
@@ -2688,3 +2689,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5, !11}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5, !11}

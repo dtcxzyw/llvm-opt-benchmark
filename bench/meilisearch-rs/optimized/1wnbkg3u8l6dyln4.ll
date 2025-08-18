@@ -46598,8 +46598,7 @@ define hidden void @"_ZN79_$LT$arroy..distance..angular..Angular$u20$as$u20$arro
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN7roaring6bitmap4iter107_$LT$impl$u20$core..iter..traits..collect..Extend$LT$u32$GT$$u20$for$u20$roaring..bitmap..RoaringBitmap$GT$6extend17h964bc47fea67b472E.llvm.331090089658796353"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-.critedge:
-  %2 = tail call noundef zeroext i1 @"_ZN7roaring6bitmap8inherent48_$LT$impl$u20$roaring..bitmap..RoaringBitmap$GT$6insert17h57d0b5773b2c919eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %3 = tail call noundef zeroext i1 @"_ZN7roaring6bitmap8inherent48_$LT$impl$u20$roaring..bitmap..RoaringBitmap$GT$6insert17h57d0b5773b2c919eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   ret void
 }
 

@@ -272,50 +272,50 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %7 = load i64, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, label %.critedge.i
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %5
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+.lr.ph.i:                                         ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !alias.scope !15, !noundef !4
+  %9 = load ptr, ptr %8, align 8, !alias.scope !9, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8, !alias.scope !15, !noundef !4
-  %12 = getelementptr inbounds i64, ptr %9, i64 %11
-  store i64 %7, ptr %12, align 8, !noalias !15
-  %13 = add i64 %11, 1
-  store i64 %13, ptr %10, align 8, !alias.scope !15
+  %.promoted.i = load i64, ptr %10, align 8, !alias.scope !9
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  %11 = getelementptr inbounds i64, ptr %9, i64 %.promoted.i
+  store i64 %7, ptr %11, align 8, !noalias !9
+  %12 = add i64 %.promoted.i, 1
+  store i64 %12, ptr %10, align 8, !alias.scope !9
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit: ; preds = %.critedge.i, %5, %2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !range !5, !noundef !4
+_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit: ; preds = %.lr.ph.i, %5, %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8, !range !5, !noundef !4
   %.val = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val14 = load i64, ptr %16, align 8
-  switch i64 %15, label %.critedge.i18 [
-    i64 2, label %23
-    i64 0, label %21
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val14 = load i64, ptr %15, align 8
+  switch i64 %14, label %.lr.ph.i18 [
+    i64 2, label %22
+    i64 0, label %20
   ]
 
-.critedge.i18:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit
+.lr.ph.i18:                                       ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val14
-  store i64 %18, ptr %19, align 8, !noalias !16
-  %20 = add i64 %.val14, 1
-  br label %21
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val14
+  store i64 %17, ptr %18, align 8, !noalias !16
+  %19 = add i64 %.val14, 1
+  br label %20
 
-21:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, %.critedge.i18
-  %.val4.i = phi i64 [ %20, %.critedge.i18 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit ]
-  %22 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %22)
-  br label %23
+20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, %.lr.ph.i18
+  %.val4.i = phi i64 [ %19, %.lr.ph.i18 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit ]
+  %21 = icmp ne ptr %.val, null
+  tail call void @llvm.assume(i1 %21)
+  br label %22
 
-23:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, %21
-  %.val14.sink = phi i64 [ %.val4.i, %21 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit ]
+22:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit, %20
+  %.val14.sink = phi i64 [ %.val4.i, %20 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E.exit ]
   store i64 %.val14.sink, ptr %.val, align 8, !noalias !4
   ret void
 }
@@ -80427,13 +80427,13 @@ attributes #47 = { noreturn nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E: argument 0"}
 !8 = distinct !{!8, !"_ZN4core4iter6traits8iterator8Iterator4fold17h08cf4df93b05ceb9E"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h12aed48c0de651eaE: argument 0"}
-!11 = distinct !{!11, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h12aed48c0de651eaE"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E: argument 0"}
-!14 = distinct !{!14, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E"}
-!15 = !{!13, !10, !7}
+!9 = !{!10, !12, !7}
+!10 = distinct !{!10, !11, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E: argument 0"}
+!11 = distinct !{!11, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E"}
+!12 = distinct !{!12, !13, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h12aed48c0de651eaE: argument 0"}
+!13 = distinct !{!13, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h12aed48c0de651eaE"}
+!14 = !{!12}
+!15 = !{!10}
 !16 = !{!17, !19, !21}
 !17 = distinct !{!17, !18, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E: argument 0"}
 !18 = distinct !{!18, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h7e111a3e4c452c92E"}

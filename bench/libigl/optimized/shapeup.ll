@@ -2106,33 +2106,33 @@ _ZNKSt8functionIFbRKN5Eigen10MatrixBaseINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE
   %214 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv276
   %215 = sext i32 %.044252.us to i64
   %wide.trip.count = zext nneg i32 %211 to i64
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us
+  br label %.split.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us:       ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, %.lr.ph.us
+.split.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us:    ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, %.lr.ph.us
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us ], [ %215, %.lr.ph.us ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us ], [ 0, %.lr.ph.us ]
   %.reass = mul i64 %indvars.iv, %factor.op.mul
   %216 = getelementptr inbounds double, ptr %214, i64 %.reass
   %217 = getelementptr inbounds double, ptr %206, i64 %indvars.iv271
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us
+  br label %.split.us.i.i.i.i.i.i.i.i.i.i.us.us
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us
-  %.09.i.i.i.i.i.i.i.i.i.i.us.us = phi i64 [ %223, %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us ]
-  %218 = mul nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.us.us, %208
+.split.us.i.i.i.i.i.i.i.i.i.i.us.us:              ; preds = %.split.us.i.i.i.i.i.i.i.i.i.i.us.us, %.split.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us
+  %.09.us.i.i.i.i.i.i.i.i.i.i.us.us = phi i64 [ %223, %.split.us.i.i.i.i.i.i.i.i.i.i.us.us ], [ 0, %.split.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us ]
+  %218 = mul nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us.us, %208
   %219 = getelementptr double, ptr %217, i64 %218
-  %220 = mul nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.us.us, %205
+  %220 = mul nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us.us, %205
   %221 = getelementptr double, ptr %216, i64 %220
   %222 = load double, ptr %221, align 8, !tbaa !31
   store double %222, ptr %219, align 8, !tbaa !31
-  %223 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i.us.us, 1
+  %223 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us.us, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us = icmp eq i64 %223, %.fr259
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us, !llvm.loop !218
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.us.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us, label %.split.us.i.i.i.i.i.i.i.i.i.i.us.us, !llvm.loop !218
 
-_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.us.us
+_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS0_IS2_Lin1ELin1ELb0EEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit.us.us: ; preds = %.split.us.i.i.i.i.i.i.i.i.i.i.us.us
   %indvars.iv.next272 = add nsw i64 %indvars.iv271, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNKSt8functionIFbRKN5Eigen10MatrixBaseINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEERKNS1_INS2_IiLin1ELi1ELi0ELin1ELi1EEEEERKNS1_INS2_IiLin1ELin1ELi0ELin1ELin1EEEEERNS0_15PlainObjectBaseIS3_EEEEclES6_SA_SE_SH_.exit.us.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader.us.us, !llvm.loop !219
+  br i1 %exitcond.not, label %_ZNKSt8functionIFbRKN5Eigen10MatrixBaseINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEERKNS1_INS2_IiLin1ELi1ELi0ELin1ELi1EEEEERKNS1_INS2_IiLin1ELin1ELi0ELin1ELin1EEEEERNS0_15PlainObjectBaseIS3_EEEEclES6_SA_SE_SH_.exit.us.loopexit, label %.split.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us, !llvm.loop !219
 
 .loopexit218:                                     ; preds = %198
   %lpad.loopexit = landingpad { ptr, i32 }

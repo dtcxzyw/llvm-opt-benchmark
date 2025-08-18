@@ -18476,7 +18476,7 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   %13 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %13, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17ha218ab1448be3b77E.exit.thread.i.i.i
 
-14:                                               ; preds = %.critedge.i.i.i, %2
+14:                                               ; preds = %.critedge, %2
   %15 = load ptr, ptr %4, align 8, !alias.scope !2425, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %38, label %16
@@ -18554,13 +18554,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha218ab1448be3b77E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2446)
   %44 = load ptr, ptr %11, align 8, !alias.scope !2449, !noalias !2452, !nonnull !4, !noundef !4
   %45 = icmp eq ptr %42, %44
-  br i1 %45, label %48, label %.critedge.i.i.i
+  br i1 %45, label %48, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17ha218ab1448be3b77E.exit.loopexit.i.i.i: ; preds = %38
   %46 = extractvalue { i32, i32 } %39, 1
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit"
 
-.critedge.i.i.i:                                  ; preds = %43
+.critedge:                                        ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %47, ptr %10, align 8, !alias.scope !2449, !noalias !2452
   %.val.i.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !2454, !nonnull !4, !align !43, !noundef !4
@@ -18667,19 +18667,19 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha218ab1448be3b77E.exit16.i.i
   br i1 %.not, label %91, label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit.thread"
 
 "_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit.thread": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %36, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit"
-  %.pn.i.i.i12 = phi i32 [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ]
-  %.pre-phi.i.i.i11 = phi i32 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ 1, %36 ]
+  %.pn.i.i.i20 = phi i32 [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
+  %.pre-phi.i.i.i19 = phi i32 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ], [ 1, %36 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %89 = load i32, ptr %88, align 8, !noundef !4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 8, !alias.scope !2470
   store i32 %89, ptr %0, align 4
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.pn.i.i.i12, ptr %.sroa.54.0..sroa_idx, align 4
+  store i32 %.pn.i.i.i20, ptr %.sroa.54.0..sroa_idx, align 4
   br label %91
 
 91:                                               ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit.thread"
-  %.pre-phi.i.i.i.sink = phi i32 [ %.pre-phi.i.i.i11, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit.thread" ], [ 2, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ]
+  %.pre-phi.i.i.i.sink = phi i32 [ %.pre-phi.i.i.i19, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit.thread" ], [ 2, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744e2fef17424bf1E.exit" ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.pre-phi.i.i.i.sink, ptr %92, align 4
   ret void
@@ -18705,7 +18705,7 @@ define internal fastcc i64 @"_ZN130_$LT$polars_utils..itertools..enumerate_idx..
   %12 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h79ef3a53e6635cecE.exit.thread.i.i.i
 
-13:                                               ; preds = %.critedge.i.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2485, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i.i, label %37, label %15
@@ -18783,13 +18783,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h79ef3a53e6635cecE.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2506)
   %43 = load ptr, ptr %10, align 8, !alias.scope !2509, !noalias !2512, !nonnull !4, !noundef !4
   %44 = icmp eq ptr %41, %43
-  br i1 %44, label %47, label %.critedge.i.i.i
+  br i1 %44, label %47, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h79ef3a53e6635cecE.exit.loopexit.i.i.i: ; preds = %37
   %45 = extractvalue { i16, i16 } %38, 1
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit"
 
-.critedge.i.i.i:                                  ; preds = %42
+.critedge:                                        ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %46, ptr %9, align 8, !alias.scope !2509, !noalias !2512
   %.val.i.i.i.i.i.i = load ptr, ptr %41, align 8, !noalias !2514, !nonnull !4, !align !43, !noundef !4
@@ -18896,15 +18896,15 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h79ef3a53e6635cecE.exit16.i.i
   br i1 %.not, label %97, label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit.thread"
 
 "_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit.thread": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %35, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit"
-  %.pn.i.i.i13 = phi i16 [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit" ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %35 ]
-  %.pre-phi.i.i.i12 = phi i16 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit" ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ 1, %35 ]
+  %.pn.i.i.i21 = phi i16 [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %35 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
+  %.pre-phi.i.i.i20 = phi i16 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3629ba099493e50E.exit" ], [ 1, %35 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %88 = load i32, ptr %87, align 8, !noundef !4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 8, !alias.scope !2530
-  %90 = zext i16 %.pn.i.i.i13 to i64
+  %90 = zext i16 %.pn.i.i.i21 to i64
   %91 = shl nuw i64 %90, 48
-  %92 = zext i16 %.pre-phi.i.i.i12 to i64
+  %92 = zext i16 %.pre-phi.i.i.i20 to i64
   %93 = shl nuw nsw i64 %92, 32
   %94 = or disjoint i64 %91, %93
   %95 = zext i32 %88 to i64
@@ -18936,7 +18936,7 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   %13 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %13, label %14, label %45
 
-14:                                               ; preds = %.critedge.i.i.i, %2
+14:                                               ; preds = %.critedge, %2
   %15 = load ptr, ptr %4, align 8, !alias.scope !2545, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %38, label %16
@@ -19018,9 +19018,9 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2566)
   %48 = load ptr, ptr %11, align 8, !alias.scope !2569, !noalias !2572, !nonnull !4, !noundef !4
   %49 = icmp eq ptr %46, %48
-  br i1 %49, label %51, label %.critedge.i.i.i
+  br i1 %49, label %51, label %.critedge
 
-.critedge.i.i.i:                                  ; preds = %47
+.critedge:                                        ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %50, ptr %10, align 8, !alias.scope !2569, !noalias !2572
   %.val.i.i.i.i.i.i = load ptr, ptr %46, align 8, !noalias !2574, !nonnull !4, !align !43, !noundef !4
@@ -19121,8 +19121,8 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread"
 
 "_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %42, %36, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread15"
-  %.sroa.0.0.i.i.i13 = phi i64 [ %.sroa.0.0.i3.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread15" ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ 1, %42 ], [ 1, %36 ]
-  %.sroa.3.0.i2.pn.i.i.i12 = phi double [ %.sroa.3.0.i2.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread15" ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %43, %42 ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ]
+  %.sroa.0.0.i.i.i13 = phi i64 [ %.sroa.0.0.i3.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread15" ], [ 1, %42 ], [ 1, %36 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
+  %.sroa.3.0.i2.pn.i.i.i12 = phi double [ %.sroa.3.0.i2.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5230a0793e6e7e79E.exit.thread15" ], [ %43, %42 ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %94 = load i32, ptr %93, align 8, !noundef !4
   %95 = add i32 %94, 1
@@ -19164,7 +19164,7 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   %13 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %13, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.thread.i.i.i
 
-14:                                               ; preds = %.critedge.i.i.i, %2
+14:                                               ; preds = %.critedge, %2
   %15 = load ptr, ptr %4, align 8, !alias.scope !2605, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h573b6b5181040713E.exit.i.i.i.i, label %16
@@ -19247,9 +19247,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2626)
   %43 = load ptr, ptr %11, align 8, !alias.scope !2629, !noalias !2632, !nonnull !4, !noundef !4
   %44 = icmp eq ptr %41, %43
-  br i1 %44, label %46, label %.critedge.i.i.i
+  br i1 %44, label %46, label %.critedge
 
-.critedge.i.i.i:                                  ; preds = %42
+.critedge:                                        ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %45, ptr %10, align 8, !alias.scope !2629, !noalias !2632
   %.val.i.i.i.i.i.i = load ptr, ptr %41, align 8, !noalias !2634, !nonnull !4, !align !43, !noundef !4
@@ -19355,9 +19355,9 @@ _ZN4core3ops8function6FnOnce9call_once17h573b6b5181040713E.exit.thread.i11.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2616
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread"
 
-"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread": ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit", %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %36, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20"
-  %.sroa.0.0.i.i.i13 = phi i64 [ %spec.select1.i.i.i18.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit" ], [ %.sroa.0.0.i4.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20" ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ 1, %36 ], [ %spec.select1.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i ]
-  %.sroa.3.0.i3.pn.i.i.i12 = phi i64 [ %83, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit" ], [ %.sroa.3.0.i3.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20" ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ], [ %40, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i ]
+"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit", %36, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20"
+  %.sroa.0.0.i.i.i13 = phi i64 [ %spec.select1.i.i.i18.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit" ], [ %.sroa.0.0.i4.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20" ], [ 1, %36 ], [ %spec.select1.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
+  %.sroa.3.0.i3.pn.i.i.i12 = phi i64 [ %83, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit" ], [ %.sroa.3.0.i3.i.i.i.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf2f12a7396b47ceE.exit.thread20" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ], [ %40, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h603b3a09362b46d2E.exit.i.i.i ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %85 = load i32, ptr %84, align 8, !noundef !4
   %86 = add i32 %85, 1
@@ -19395,7 +19395,7 @@ define internal fastcc range(i64 0, 280384055017472) i64 @"_ZN130_$LT$polars_uti
   %12 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %12, label %13, label %35
 
-13:                                               ; preds = %.critedge.i.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2665, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i.i, label %32, label %15
@@ -19460,13 +19460,13 @@ select.unfold.i.i.i.i:                            ; preds = %32, %"_ZN134_$LT$po
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2686)
   %38 = load ptr, ptr %10, align 8, !alias.scope !2689, !noalias !2692, !nonnull !4, !noundef !4
   %39 = icmp eq ptr %36, %38
-  br i1 %39, label %42, label %.critedge.i.i.i
+  br i1 %39, label %42, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h310f031dd615d6d2E.exit.loopexit.split.loop.exit.i.i.i: ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec5d70fb605667b2E.exit.i.i.i.i.i.i"
   %40 = and i64 %28, 1
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haedf2fa71074c83dE.exit.thread"
 
-.critedge.i.i.i:                                  ; preds = %37
+.critedge:                                        ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %41, ptr %9, align 8, !alias.scope !2689, !noalias !2692
   %.val.i.i.i.i.i.i = load ptr, ptr %36, align 8, !noalias !2694, !nonnull !4, !align !43, !noundef !4
@@ -19602,7 +19602,7 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2730)
   br i1 %19, label %20, label %45
 
-20:                                               ; preds = %.critedge.i.i.i, %2
+20:                                               ; preds = %.critedge, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2731)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2734)
   %21 = load ptr, ptr %8, align 8, !alias.scope !2737, !noalias !2738, !noundef !4
@@ -19683,9 +19683,9 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2764)
   %48 = load ptr, ptr %17, align 8, !alias.scope !2767, !noalias !2770, !nonnull !4, !noundef !4
   %49 = icmp eq ptr %46, %48
-  br i1 %49, label %51, label %.critedge.i.i.i
+  br i1 %49, label %51, label %.critedge
 
-.critedge.i.i.i:                                  ; preds = %47
+.critedge:                                        ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %50, ptr %16, align 8, !alias.scope !2767, !noalias !2770
   %.val.i.i.i.i.i.i = load ptr, ptr %46, align 8, !noalias !2772, !nonnull !4, !align !43, !noundef !4
@@ -19789,8 +19789,8 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit.thread"
 
 "_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit.thread": ; preds = %40, %"_ZN4core6option15Option$LT$T$GT$3zip17he524b306a4c085feE.exit.i.i.i.i.i.i.i", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit"
-  %.sroa.0.110 = phi i128 [ %.sroa.0.0, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit" ], [ 1, %40 ], [ %..i.i.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$3zip17he524b306a4c085feE.exit.i.i.i.i.i.i.i" ]
-  %.sroa.7.19 = phi i128 [ %.sroa.7.0, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit" ], [ %42, %40 ], [ %24, %"_ZN4core6option15Option$LT$T$GT$3zip17he524b306a4c085feE.exit.i.i.i.i.i.i.i" ]
+  %.sroa.0.110 = phi i128 [ %.sroa.0.0, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit" ], [ %..i.i.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$3zip17he524b306a4c085feE.exit.i.i.i.i.i.i.i" ], [ 1, %40 ]
+  %.sroa.7.19 = phi i128 [ %.sroa.7.0, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h49d41705fbbb27a4E.exit" ], [ %24, %"_ZN4core6option15Option$LT$T$GT$3zip17he524b306a4c085feE.exit.i.i.i.i.i.i.i" ], [ %42, %40 ]
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %90 = load i32, ptr %89, align 8, !noundef !4
   %91 = add i32 %90, 1
@@ -19832,7 +19832,7 @@ define internal fastcc void @"_ZN130_$LT$polars_utils..itertools..enumerate_idx.
   %13 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %13, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc2a83f17e3f9cf03E.exit.thread.i.i.i
 
-14:                                               ; preds = %.critedge.i.i.i, %2
+14:                                               ; preds = %.critedge, %2
   %15 = load ptr, ptr %4, align 8, !alias.scope !2819, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %38, label %16
@@ -19910,13 +19910,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc2a83f17e3f9cf03E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2840)
   %44 = load ptr, ptr %11, align 8, !alias.scope !2843, !noalias !2846, !nonnull !4, !noundef !4
   %45 = icmp eq ptr %42, %44
-  br i1 %45, label %48, label %.critedge.i.i.i
+  br i1 %45, label %48, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hc2a83f17e3f9cf03E.exit.loopexit.i.i.i: ; preds = %38
   %46 = extractvalue { i32, float } %39, 1
   br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit"
 
-.critedge.i.i.i:                                  ; preds = %43
+.critedge:                                        ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %47, ptr %10, align 8, !alias.scope !2843, !noalias !2846
   %.val.i.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !2848, !nonnull !4, !align !43, !noundef !4
@@ -20023,19 +20023,19 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc2a83f17e3f9cf03E.exit16.i.i
   br i1 %.not, label %91, label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit.thread"
 
 "_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit.thread": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i", %36, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit"
-  %.pn.i.i.i12 = phi float [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ]
-  %.pre-phi.i.i.i11 = phi i32 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ 1, %36 ]
+  %.pn.i.i.i20 = phi float [ %.pn.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ], [ %.sroa.3.0.i.i.i.i.i.i.i.i, %36 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
+  %.pre-phi.i.i.i19 = phi i32 [ %.pre-phi.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ], [ 1, %36 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %89 = load i32, ptr %88, align 8, !noundef !4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 8, !alias.scope !2864
   store i32 %89, ptr %0, align 4
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.pn.i.i.i12, ptr %.sroa.54.0..sroa_idx, align 4
+  store float %.pn.i.i.i20, ptr %.sroa.54.0..sroa_idx, align 4
   br label %91
 
 91:                                               ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit.thread"
-  %.pre-phi.i.i.i.sink = phi i32 [ %.pre-phi.i.i.i11, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit.thread" ], [ 2, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ]
+  %.pre-phi.i.i.i.sink = phi i32 [ %.pre-phi.i.i.i19, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit.thread" ], [ 2, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf273cc02492f6dE.exit" ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.pre-phi.i.i.i.sink, ptr %92, align 4
   ret void

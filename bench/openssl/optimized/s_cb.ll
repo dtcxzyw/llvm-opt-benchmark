@@ -2547,13 +2547,13 @@ define void @print_ssl_summary(ptr noundef %0) local_unnamed_addr #0 {
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %30, ptr noundef nonnull dereferenceable(2) @print_raw_cipherlist.scsv_id, i64 2)
   %31 = icmp eq i32 %bcmp.i, 0
   %32 = load ptr, ptr @bio_err, align 8, !tbaa !8
-  br i1 %31, label %33, label %.loopexit.i.critedge
+  br i1 %31, label %33, label %.loopexit.i.loopexit.critedge
 
 33:                                               ; preds = %29
   %34 = call i32 @BIO_puts(ptr noundef %32, ptr noundef nonnull @.str.276) #6
   br label %.loopexit.i
 
-.loopexit.i.critedge:                             ; preds = %29
+.loopexit.i.loopexit.critedge:                    ; preds = %29
   %35 = call i32 @BIO_puts(ptr noundef %32, ptr noundef nonnull @.str.277) #6
   %36 = load ptr, ptr @bio_err, align 8, !tbaa !8
   %37 = load ptr, ptr %2, align 8, !tbaa !13
@@ -2568,7 +2568,7 @@ define void @print_ssl_summary(ptr noundef %0) local_unnamed_addr #0 {
   %46 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.278, i32 noundef %45) #6
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.critedge, %33, %25
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit.critedge, %33, %25
   %47 = add i64 %.01723.i, 2
   %48 = load ptr, ptr %2, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2

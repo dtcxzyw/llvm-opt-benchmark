@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
   %10 = trunc i8 %9 to i1
   %11 = icmp eq i32 %2, 0
   %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %12, label %45
+  br i1 %or.cond, label %12, label %44
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -131,58 +131,58 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
 14:                                               ; preds = %12
   %15 = load i8, ptr %13, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %45
+  br i1 %16, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge, label %44
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i32, ptr %1, align 4
-  %20 = load i32, ptr %18, align 8
-  %21 = sub nsw i32 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %25 = load i32, ptr %24, align 4
-  %26 = sub nsw i32 %23, %25
-  %27 = icmp sgt i32 %21, -1
-  %28 = icmp sgt i32 %26, -1
-  %or.cond.i = select i1 %27, i1 %28, i1 false
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp slt i32 %21, %30
-  %or.cond8.i = select i1 %or.cond.i, i1 %31, i1 false
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %26, %33
-  %or.cond11 = select i1 %or.cond8.i, i1 %34, i1 false
-  br i1 %or.cond11, label %35, label %.sink.split
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge: ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = load i32, ptr %1, align 4
+  %19 = load i32, ptr %17, align 8
+  %20 = sub nsw i32 %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %24 = load i32, ptr %23, align 4
+  %25 = sub nsw i32 %22, %24
+  %26 = icmp sgt i32 %20, -1
+  %27 = icmp sgt i32 %25, -1
+  %or.cond.i = select i1 %26, i1 %27, i1 false
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp slt i32 %20, %29
+  %or.cond9.i = select i1 %or.cond.i, i1 %30, i1 false
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp slt i32 %25, %32
+  %or.cond11 = select i1 %or.cond9.i, i1 %33, i1 false
+  br i1 %or.cond11, label %34, label %.sink.split
 
-35:                                               ; preds = %17
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %39 = xor i8 %38, 1
-  store i8 %39, ptr %36, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %41 = load ptr, ptr %40, align 8
-  %.not.i.i.not = icmp eq ptr %41, null
+34:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %36 = load i8, ptr %35, align 1
+  %37 = and i8 %36, 1
+  %38 = xor i8 %37, 1
+  store i8 %38, ptr %35, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %40 = load ptr, ptr %39, align 8
+  %.not.i.i.not = icmp eq ptr %40, null
   br i1 %.not.i.i.not, label %.sink.split, label %_ZNKSt8functionIFvbEEclEb.exit
 
-_ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
+_ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 %39, ptr %6, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  store i8 %38, ptr %6, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNKSt8functionIFvbEEclEb.exit, %35, %17, %12
-  %.sink = phi i8 [ 1, %12 ], [ 0, %17 ], [ 0, %35 ], [ 0, %_ZNKSt8functionIFvbEEclEb.exit ]
+.sink.split:                                      ; preds = %_ZNKSt8functionIFvbEEclEb.exit, %34, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge, %12
+  %.sink = phi i8 [ 1, %12 ], [ 0, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge ], [ 0, %34 ], [ 0, %_ZNKSt8functionIFvbEEclEb.exit ]
   store i8 %.sink, ptr %13, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.sink.split, %14, %5
+44:                                               ; preds = %.sink.split, %14, %5
   ret i1 %or.cond
 }
 
@@ -190,50 +190,50 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIi
 
 ; Function Attrs: mustprogress uwtable
 define hidden i64 @_ZNK7nanogui8CheckBox14preferred_sizeEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %3
+  br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
 
-3:                                                ; preds = %3, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
-  %.not8.i.i = phi i1 [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ false, %3 ]
-  %.07.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ 1, %3 ]
-  %4 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %.07.i.i
-  %5 = load i32, ptr %4, align 4
-  %.not.i.i = icmp eq i32 %5, 0
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
+  %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge ]
+  %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge ]
+  %3 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %.07.i.i
+  %4 = load i32, ptr %3, align 4
+  %.not.i.i = icmp eq i32 %4, 0
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %3, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !5
+  br i1 %or.cond.i.i, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !5
 
-_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %3
-  br i1 %.not.i.i, label %8, label %6
+_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
+  br i1 %.not.i.i, label %7, label %5
 
-6:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit
-  %7 = load i64, ptr %2, align 8
-  %.sroa.06.0.extract.trunc = trunc i64 %7 to i32
-  %.sroa.3.0.extract.shift = lshr i64 %7, 32
+5:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit
+  %6 = load i64, ptr %2, align 8
+  %.sroa.06.0.extract.trunc = trunc i64 %6 to i32
+  %.sroa.3.0.extract.shift = lshr i64 %6, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  br label %22
+  br label %21
 
-8:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit
-  %9 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %10 = sitofp i32 %9 to float
-  tail call void @nvgFontSize(ptr noundef %1, float noundef %10)
+7:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit
+  %8 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %9 = sitofp i32 %8 to float
+  tail call void @nvgFontSize(ptr noundef %1, float noundef %9)
   tail call void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
-  %13 = tail call float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %12, ptr noundef null, ptr noundef null)
-  %14 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %15 = sitofp i32 %14 to float
-  %16 = tail call float @llvm.fmuladd.f32(float %15, float 0x3FFCCCCCC0000000, float %13)
-  %17 = fptosi float %16 to i32
-  %18 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %19 = sitofp i32 %18 to float
-  %20 = fmul float %19, 0x3FF4CCCCC0000000
-  %21 = fptosi float %20 to i32
-  br label %22
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
+  %12 = tail call float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %11, ptr noundef null, ptr noundef null)
+  %13 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %14 = sitofp i32 %13 to float
+  %15 = tail call float @llvm.fmuladd.f32(float %14, float 0x3FFCCCCCC0000000, float %12)
+  %16 = fptosi float %15 to i32
+  %17 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
+  %18 = sitofp i32 %17 to float
+  %19 = fmul float %18, 0x3FF4CCCCC0000000
+  %20 = fptosi float %19 to i32
+  br label %21
 
-22:                                               ; preds = %8, %6
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.trunc, %6 ], [ %21, %8 ]
-  %.sroa.06.0 = phi i32 [ %.sroa.06.0.extract.trunc, %6 ], [ %17, %8 ]
+21:                                               ; preds = %7, %5
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.trunc, %5 ], [ %20, %7 ]
+  %.sroa.06.0 = phi i32 [ %.sroa.06.0.extract.trunc, %5 ], [ %16, %7 ]
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.06.0.insert.ext = zext i32 %.sroa.06.0 to i64

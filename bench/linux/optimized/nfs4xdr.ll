@@ -9970,86 +9970,86 @@ encode_putfh.exit:                                ; preds = %22, %26
 
 43:                                               ; preds = %39
   %44 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef nonnull %41, ptr noundef nonnull @zero_stateid, i32 noundef 16) #12
-  br label %.critedge
+  br label %.loopexit7
 
 45:                                               ; preds = %39
   tail call void asm sideeffect "1516: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1516b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1516) #12, !srcloc !42
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 973, i32 2307, i64 12) #12, !srcloc !43
   tail call void asm sideeffect "1517: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1517b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1517) #12, !srcloc !44
-  br label %.critedge
+  br label %.loopexit7
 
-.critedge:                                        ; preds = %45, %43
+.loopexit7:                                       ; preds = %45, %43
   %46 = shl nuw nsw i64 %33, 2
   %47 = add nuw nsw i64 %46, 4
   %48 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %47) #12
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.critedge7, label %.preheader.preheader, !prof !6
+  br i1 %49, label %.critedge, label %50, !prof !6
 
-.preheader.preheader:                             ; preds = %.critedge
-  %50 = trunc nuw nsw i64 %33 to i32
-  %51 = shl nuw nsw i32 %50, 24
-  store i32 %51, ptr %48, align 4
+50:                                               ; preds = %.loopexit7
+  %51 = trunc nuw nsw i64 %33 to i32
+  %52 = shl nuw nsw i32 %51, 24
+  store i32 %52, ptr %48, align 4
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %52 = phi ptr [ %55, %.preheader ], [ %48, %.preheader.preheader ]
-  %53 = phi i64 [ %59, %.preheader ], [ %33, %.preheader.preheader ]
-  %54 = phi ptr [ %58, %.preheader ], [ %4, %.preheader.preheader ]
-  %55 = getelementptr i8, ptr %52, i64 4
-  %56 = load i32, ptr %54, align 4
-  %57 = tail call i32 @llvm.bswap.i32(i32 %56)
-  store i32 %57, ptr %55, align 4
-  %58 = getelementptr i8, ptr %54, i64 4
-  %59 = add nsw i64 %53, -1
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !60
+.preheader:                                       ; preds = %50, %.preheader
+  %53 = phi ptr [ %56, %.preheader ], [ %48, %50 ]
+  %54 = phi i64 [ %60, %.preheader ], [ %33, %50 ]
+  %55 = phi ptr [ %59, %.preheader ], [ %4, %50 ]
+  %56 = getelementptr i8, ptr %53, i64 4
+  %57 = load i32, ptr %55, align 4
+  %58 = tail call i32 @llvm.bswap.i32(i32 %57)
+  store i32 %58, ptr %56, align 4
+  %59 = getelementptr i8, ptr %55, i64 4
+  %60 = add nsw i64 %54, -1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !60
 
-.critedge7:                                       ; preds = %.critedge
+.critedge:                                        ; preds = %.loopexit7
   tail call void asm sideeffect "1524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1524) #12, !srcloc !61
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1000, i32 2307, i64 12) #12, !srcloc !62
   tail call void asm sideeffect "1525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1525) #12, !srcloc !63
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.critedge7
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %62 = load i64, ptr %61, align 8
-  %63 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %68, label %65, !prof !6
+.loopexit:                                        ; preds = %.preheader, %.critedge
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %63 = load i64, ptr %62, align 8
+  %64 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %69, label %66, !prof !6
 
-65:                                               ; preds = %.loopexit
-  %66 = trunc i64 %62 to i32
-  %67 = tail call i32 @llvm.bswap.i32(i32 %66)
-  store i32 %67, ptr %63, align 4
-  br label %69
+66:                                               ; preds = %.loopexit
+  %67 = trunc i64 %63 to i32
+  %68 = tail call i32 @llvm.bswap.i32(i32 %67)
+  store i32 %68, ptr %64, align 4
+  br label %70
 
-68:                                               ; preds = %.loopexit
+69:                                               ; preds = %.loopexit
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %65
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i64, ptr %61, align 8
-  %73 = trunc i64 %72 to i32
-  tail call void @xdr_write_pages(ptr noundef %1, ptr noundef %71, i32 noundef 0, i32 noundef %73) #12
+70:                                               ; preds = %69, %66
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i64, ptr %62, align 8
+  %74 = trunc i64 %73 to i32
+  tail call void @xdr_write_pages(ptr noundef %1, ptr noundef %72, i32 noundef 0, i32 noundef %74) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %74 = icmp ugt i32 %40, 8
-  br i1 %74, label %75, label %76, !prof !6
+  %75 = icmp ugt i32 %40, 8
+  br i1 %75, label %76, label %77, !prof !6
 
-75:                                               ; preds = %69
+76:                                               ; preds = %70
   tail call void asm sideeffect "1528: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1528) #12, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1059, i32 2307, i64 12) #12, !srcloc !48
   tail call void asm sideeffect "1529: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1529) #12, !srcloc !49
-  br label %76
+  br label %77
 
-76:                                               ; preds = %75, %69
-  %77 = tail call i32 @llvm.bswap.i32(i32 %40)
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %79 = load ptr, ptr %78, align 8
-  store i32 %77, ptr %79, align 4
+77:                                               ; preds = %76, %70
+  %78 = tail call i32 @llvm.bswap.i32(i32 %40)
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %80 = load ptr, ptr %79, align 8
+  store i32 %78, ptr %80, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

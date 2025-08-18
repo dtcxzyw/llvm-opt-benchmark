@@ -57063,58 +57063,57 @@ define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr noundef c
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_render_TRANSFORM, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 36, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix11, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3)
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, 4
-  store i32 %13, ptr %1, align 4
-  %14 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix12, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3)
-  %16 = load i32, ptr %1, align 4
-  %17 = add i32 %16, 4
-  store i32 %17, ptr %1, align 4
-  %18 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix13, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %3)
-  %20 = load i32, ptr %1, align 4
-  %21 = add i32 %20, 4
-  store i32 %21, ptr %1, align 4
-  %22 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix21, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef %3)
-  %24 = load i32, ptr %1, align 4
-  %25 = add i32 %24, 4
-  store i32 %25, ptr %1, align 4
-  %26 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix22, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef %3)
-  %28 = load i32, ptr %1, align 4
-  %29 = add i32 %28, 4
-  store i32 %29, ptr %1, align 4
-  %30 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix23, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef %3)
-  %32 = load i32, ptr %1, align 4
-  %33 = add i32 %32, 4
-  store i32 %33, ptr %1, align 4
-  %34 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix31, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef %3)
-  %36 = load i32, ptr %1, align 4
-  %37 = add i32 %36, 4
-  store i32 %37, ptr %1, align 4
-  %38 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix32, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef %3)
-  %40 = load i32, ptr %1, align 4
-  %41 = add i32 %40, 4
-  store i32 %41, ptr %1, align 4
-  %42 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix33, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef %3)
-  %44 = load i32, ptr %1, align 4
-  %45 = add i32 %44, 4
-  store i32 %45, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_render_TRANSFORM, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 36, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix11, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef %3)
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, 4
+  store i32 %14, ptr %1, align 4
+  %15 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix12, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %3)
+  %17 = load i32, ptr %1, align 4
+  %18 = add i32 %17, 4
+  store i32 %18, ptr %1, align 4
+  %19 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix13, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef %3)
+  %21 = load i32, ptr %1, align 4
+  %22 = add i32 %21, 4
+  store i32 %22, ptr %1, align 4
+  %23 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix21, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %3)
+  %25 = load i32, ptr %1, align 4
+  %26 = add i32 %25, 4
+  store i32 %26, ptr %1, align 4
+  %27 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix22, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef %3)
+  %29 = load i32, ptr %1, align 4
+  %30 = add i32 %29, 4
+  store i32 %30, ptr %1, align 4
+  %31 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix23, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef %3)
+  %33 = load i32, ptr %1, align 4
+  %34 = add i32 %33, 4
+  store i32 %34, ptr %1, align 4
+  %35 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix31, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef %3)
+  %37 = load i32, ptr %1, align 4
+  %38 = add i32 %37, 4
+  store i32 %38, ptr %1, align 4
+  %39 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix32, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %3)
+  %41 = load i32, ptr %1, align 4
+  %42 = add i32 %41, 4
+  store i32 %42, ptr %1, align 4
+  %43 = load i32, ptr @hf_x11_struct_render_TRANSFORM_matrix33, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %3)
+  %45 = load i32, ptr %1, align 4
+  %46 = add i32 %45, 4
+  store i32 %46, ptr %1, align 4
   ret void
 }
 
@@ -60032,43 +60031,42 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr noundef cap
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_record_ExtRange, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 6, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_record_Range8, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 2, i32 noundef 0)
-  %12 = load i32, ptr @ett_x11_rectangle, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
-  %14 = load i32, ptr @hf_x11_struct_record_Range8_first, align 4
-  %15 = load i32, ptr %1, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %3)
-  %17 = load i32, ptr %1, align 4
-  %18 = add i32 %17, 1
-  store i32 %18, ptr %1, align 4
-  %19 = load i32, ptr @hf_x11_struct_record_Range8_last, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %3)
-  %21 = load i32, ptr %1, align 4
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %1, align 4
-  %23 = load i32, ptr @hf_x11_struct_record_Range16, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0)
-  %25 = load i32, ptr @ett_x11_rectangle, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
-  %27 = load i32, ptr @hf_x11_struct_record_Range16_first, align 4
-  %28 = load i32, ptr %1, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %3)
-  %30 = load i32, ptr %1, align 4
-  %31 = add i32 %30, 2
-  store i32 %31, ptr %1, align 4
-  %32 = load i32, ptr @hf_x11_struct_record_Range16_last, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef %3)
-  %34 = load i32, ptr %1, align 4
-  %35 = add i32 %34, 2
-  store i32 %35, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_record_ExtRange, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 6, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_record_Range8, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0)
+  %13 = load i32, ptr @ett_x11_rectangle, align 4
+  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
+  %15 = load i32, ptr @hf_x11_struct_record_Range8_first, align 4
+  %16 = load i32, ptr %1, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %3)
+  %18 = load i32, ptr %1, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %1, align 4
+  %20 = load i32, ptr @hf_x11_struct_record_Range8_last, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %3)
+  %22 = load i32, ptr %1, align 4
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %1, align 4
+  %24 = load i32, ptr @hf_x11_struct_record_Range16, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0)
+  %26 = load i32, ptr @ett_x11_rectangle, align 4
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
+  %28 = load i32, ptr @hf_x11_struct_record_Range16_first, align 4
+  %29 = load i32, ptr %1, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef %3)
+  %31 = load i32, ptr %1, align 4
+  %32 = add i32 %31, 2
+  store i32 %32, ptr %1, align 4
+  %33 = load i32, ptr @hf_x11_struct_record_Range16_last, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 2, i32 noundef %3)
+  %35 = load i32, ptr %1, align 4
+  %36 = add i32 %35, 2
+  store i32 %36, ptr %1, align 4
   ret void
 }
 
@@ -61844,7 +61842,7 @@ renderCreatePicture.exit:                         ; preds = %.lr.ph.i.i221, %.lr
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
+.lr.ph.i:
   %4 = load i32, ptr @hf_x11_struct_render_LINEFIX, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 16, i32 noundef 0)
@@ -64896,38 +64894,37 @@ syncAwait.exit:                                   ; preds = %.lr.ph.i.i, %.lr.ph
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_sync_TRIGGER, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 20, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_sync_TRIGGER_counter, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3)
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, 4
-  store i32 %13, ptr %1, align 4
-  %14 = load i32, ptr @hf_x11_struct_sync_TRIGGER_wait_type, align 4
-  %15 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14, i32 noundef %3)
-  %16 = load i32, ptr @hf_x11_struct_sync_INT64, align 4
-  %17 = load i32, ptr %1, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 8, i32 noundef 0)
-  %19 = load i32, ptr @ett_x11_rectangle, align 4
-  %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19)
-  %21 = load i32, ptr @hf_x11_struct_sync_INT64_hi, align 4
-  %22 = load i32, ptr %1, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %3)
-  %24 = load i32, ptr %1, align 4
-  %25 = add i32 %24, 4
-  store i32 %25, ptr %1, align 4
-  %26 = load i32, ptr @hf_x11_struct_sync_INT64_lo, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef %3)
-  %28 = load i32, ptr %1, align 4
-  %29 = add i32 %28, 4
-  store i32 %29, ptr %1, align 4
-  %30 = load i32, ptr @hf_x11_struct_sync_TRIGGER_test_type, align 4
-  %31 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %30, i32 noundef %3)
+  %5 = load i32, ptr @hf_x11_struct_sync_TRIGGER, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 20, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_sync_TRIGGER_counter, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef %3)
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, 4
+  store i32 %14, ptr %1, align 4
+  %15 = load i32, ptr @hf_x11_struct_sync_TRIGGER_wait_type, align 4
+  %16 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %15, i32 noundef %3)
+  %17 = load i32, ptr @hf_x11_struct_sync_INT64, align 4
+  %18 = load i32, ptr %1, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0)
+  %20 = load i32, ptr @ett_x11_rectangle, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
+  %22 = load i32, ptr @hf_x11_struct_sync_INT64_hi, align 4
+  %23 = load i32, ptr %1, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef %3)
+  %25 = load i32, ptr %1, align 4
+  %26 = add i32 %25, 4
+  store i32 %26, ptr %1, align 4
+  %27 = load i32, ptr @hf_x11_struct_sync_INT64_lo, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef %3)
+  %29 = load i32, ptr %1, align 4
+  %30 = add i32 %29, 4
+  store i32 %30, ptr %1, align 4
+  %31 = load i32, ptr @hf_x11_struct_sync_TRIGGER_test_type, align 4
+  %32 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %31, i32 noundef %3)
   ret void
 }
 
@@ -74332,65 +74329,63 @@ define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef ca
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 16, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_base, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef %3)
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, 4
-  store i32 %13, ptr %1, align 4
-  %14 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_latched, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %3)
-  %16 = load i32, ptr %1, align 4
-  %17 = add i32 %16, 4
-  store i32 %17, ptr %1, align 4
-  %18 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_locked, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %3)
-  %20 = load i32, ptr %1, align 4
-  %21 = add i32 %20, 4
-  store i32 %21, ptr %1, align 4
-  %22 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_effective, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef %3)
-  %24 = load i32, ptr %1, align 4
-  %25 = add i32 %24, 4
-  store i32 %25, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 16, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_base, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef %3)
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, 4
+  store i32 %14, ptr %1, align 4
+  %15 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_latched, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %3)
+  %17 = load i32, ptr %1, align 4
+  %18 = add i32 %17, 4
+  store i32 %18, ptr %1, align 4
+  %19 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_locked, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef %3)
+  %21 = load i32, ptr %1, align 4
+  %22 = add i32 %21, 4
+  store i32 %22, ptr %1, align 4
+  %23 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo_effective, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %3)
+  %25 = load i32, ptr %1, align 4
+  %26 = add i32 %25, 4
+  store i32 %26, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_xinput_GroupInfo, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_base, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef %3)
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, 1
-  store i32 %13, ptr %1, align 4
-  %14 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_latched, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %3)
-  %16 = load i32, ptr %1, align 4
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %1, align 4
-  %18 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_locked, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef %3)
-  %20 = load i32, ptr %1, align 4
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %1, align 4
-  %22 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_effective, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef %3)
-  %24 = load i32, ptr %1, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_xinput_GroupInfo, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_base, align 4
+  %11 = load i32, ptr %1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %3)
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %1, align 4
+  %15 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_latched, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef %3)
+  %17 = load i32, ptr %1, align 4
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %1, align 4
+  %19 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_locked, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %3)
+  %21 = load i32, ptr %1, align 4
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %1, align 4
+  %23 = load i32, ptr @hf_x11_struct_xinput_GroupInfo_effective, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef %3)
+  %25 = load i32, ptr %1, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %1, align 4
   ret void
 }
 
@@ -79821,116 +79816,113 @@ define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nounde
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_xkb_SASetMods, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_xkb_SASetMods_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
-  %11 = load i32, ptr %1, align 4
-  %12 = load i32, ptr @hf_x11_struct_xkb_SASetMods_flags, align 4
-  %13 = load i32, ptr @ett_x11_rectangle, align 4
-  %14 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @struct_xkb_SASetMods.flags_bits, i32 noundef %3)
-  %15 = load i32, ptr %1, align 4
-  %16 = add i32 %15, 1
-  store i32 %16, ptr %1, align 4
-  %17 = load i32, ptr @hf_x11_struct_xkb_SASetMods_mask, align 4
-  %18 = load i32, ptr @ett_x11_rectangle, align 4
-  %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @struct_xkb_SASetMods.mask_bits, i32 noundef %3)
-  %20 = load i32, ptr %1, align 4
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %1, align 4
-  %22 = load i32, ptr @hf_x11_struct_xkb_SASetMods_realMods, align 4
-  %23 = load i32, ptr @ett_x11_rectangle, align 4
-  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @struct_xkb_SASetMods.realMods_bits, i32 noundef %3)
-  %25 = load i32, ptr %1, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %1, align 4
-  %27 = load i32, ptr @hf_x11_struct_xkb_SASetMods_vmodsHigh, align 4
-  %28 = load i32, ptr @ett_x11_rectangle, align 4
-  %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @struct_xkb_SASetMods.vmodsHigh_bits, i32 noundef %3)
-  %30 = load i32, ptr %1, align 4
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %1, align 4
-  %32 = load i32, ptr @hf_x11_struct_xkb_SASetMods_vmodsLow, align 4
-  %33 = load i32, ptr @ett_x11_rectangle, align 4
-  %34 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @struct_xkb_SASetMods.vmodsLow_bits, i32 noundef %3)
-  %35 = load i32, ptr %1, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %1, align 4
-  %37 = load i32, ptr @hf_x11_unused, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef 0)
-  %39 = load i32, ptr %1, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_xkb_SASetMods, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_xkb_SASetMods_type, align 4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %10, i32 noundef %3)
+  %12 = load i32, ptr %1, align 4
+  %13 = load i32, ptr @hf_x11_struct_xkb_SASetMods_flags, align 4
+  %14 = load i32, ptr @ett_x11_rectangle, align 4
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @struct_xkb_SASetMods.flags_bits, i32 noundef %3)
+  %16 = load i32, ptr %1, align 4
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %1, align 4
+  %18 = load i32, ptr @hf_x11_struct_xkb_SASetMods_mask, align 4
+  %19 = load i32, ptr @ett_x11_rectangle, align 4
+  %20 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef nonnull @struct_xkb_SASetMods.mask_bits, i32 noundef %3)
+  %21 = load i32, ptr %1, align 4
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %1, align 4
+  %23 = load i32, ptr @hf_x11_struct_xkb_SASetMods_realMods, align 4
+  %24 = load i32, ptr @ett_x11_rectangle, align 4
+  %25 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull @struct_xkb_SASetMods.realMods_bits, i32 noundef %3)
+  %26 = load i32, ptr %1, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %1, align 4
+  %28 = load i32, ptr @hf_x11_struct_xkb_SASetMods_vmodsHigh, align 4
+  %29 = load i32, ptr @ett_x11_rectangle, align 4
+  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @struct_xkb_SASetMods.vmodsHigh_bits, i32 noundef %3)
+  %31 = load i32, ptr %1, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %1, align 4
+  %33 = load i32, ptr @hf_x11_struct_xkb_SASetMods_vmodsLow, align 4
+  %34 = load i32, ptr @ett_x11_rectangle, align 4
+  %35 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef nonnull @struct_xkb_SASetMods.vmodsLow_bits, i32 noundef %3)
+  %36 = load i32, ptr %1, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %1, align 4
+  %38 = load i32, ptr @hf_x11_unused, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0)
+  %40 = load i32, ptr %1, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_xkb_SASetGroup, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
-  %11 = load i32, ptr %1, align 4
-  %12 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_flags, align 4
-  %13 = load i32, ptr @ett_x11_rectangle, align 4
-  %14 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @struct_xkb_SASetGroup.flags_bits, i32 noundef %3)
-  %15 = load i32, ptr %1, align 4
-  %16 = add i32 %15, 1
-  store i32 %16, ptr %1, align 4
-  %17 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_group, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %3)
-  %19 = load i32, ptr %1, align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %1, align 4
-  %21 = load i32, ptr @hf_x11_unused, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 5, i32 noundef 0)
-  %23 = load i32, ptr %1, align 4
-  %24 = add i32 %23, 5
-  store i32 %24, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_xkb_SASetGroup, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_type, align 4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %10, i32 noundef %3)
+  %12 = load i32, ptr %1, align 4
+  %13 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_flags, align 4
+  %14 = load i32, ptr @ett_x11_rectangle, align 4
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @struct_xkb_SASetGroup.flags_bits, i32 noundef %3)
+  %16 = load i32, ptr %1, align 4
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %1, align 4
+  %18 = load i32, ptr @hf_x11_struct_xkb_SASetGroup_group, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef %3)
+  %20 = load i32, ptr %1, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %1, align 4
+  %22 = load i32, ptr @hf_x11_unused, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 5, i32 noundef 0)
+  %24 = load i32, ptr %1, align 4
+  %25 = add i32 %24, 5
+  store i32 %25, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-.critedge:
-  %4 = load i32, ptr @hf_x11_struct_xkb_SASetControls, align 4
-  %5 = load i32, ptr %1, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef 0)
-  %7 = load i32, ptr @ett_x11_rectangle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_x11_struct_xkb_SASetControls_type, align 4
-  %10 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %9, i32 noundef %3)
-  %11 = load i32, ptr @hf_x11_unused, align 4
-  %12 = load i32, ptr %1, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0)
-  %14 = load i32, ptr %1, align 4
-  %15 = add i32 %14, 3
-  store i32 %15, ptr %1, align 4
-  %16 = load i32, ptr @hf_x11_struct_xkb_SASetControls_boolCtrlsHigh, align 4
-  %17 = load i32, ptr @ett_x11_rectangle, align 4
-  %18 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef nonnull @struct_xkb_SASetControls.boolCtrlsHigh_bits, i32 noundef %3)
-  %19 = load i32, ptr %1, align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %1, align 4
-  %21 = load i32, ptr @hf_x11_struct_xkb_SASetControls_boolCtrlsLow, align 4
-  %22 = load i32, ptr @ett_x11_rectangle, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %8, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @struct_xkb_SASetControls.boolCtrlsLow_bits, i32 noundef %3)
-  %24 = load i32, ptr %1, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %1, align 4
-  %26 = load i32, ptr @hf_x11_unused, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0)
-  %28 = load i32, ptr %1, align 4
-  %29 = add i32 %28, 2
-  store i32 %29, ptr %1, align 4
+  %5 = load i32, ptr @hf_x11_struct_xkb_SASetControls, align 4
+  %6 = load i32, ptr %1, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %8 = load i32, ptr @ett_x11_rectangle, align 4
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = load i32, ptr @hf_x11_struct_xkb_SASetControls_type, align 4
+  %11 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %10, i32 noundef %3)
+  %12 = load i32, ptr @hf_x11_unused, align 4
+  %13 = load i32, ptr %1, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0)
+  %15 = load i32, ptr %1, align 4
+  %16 = add i32 %15, 3
+  store i32 %16, ptr %1, align 4
+  %17 = load i32, ptr @hf_x11_struct_xkb_SASetControls_boolCtrlsHigh, align 4
+  %18 = load i32, ptr @ett_x11_rectangle, align 4
+  %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @struct_xkb_SASetControls.boolCtrlsHigh_bits, i32 noundef %3)
+  %20 = load i32, ptr %1, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %1, align 4
+  %22 = load i32, ptr @hf_x11_struct_xkb_SASetControls_boolCtrlsLow, align 4
+  %23 = load i32, ptr @ett_x11_rectangle, align 4
+  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @struct_xkb_SASetControls.boolCtrlsLow_bits, i32 noundef %3)
+  %25 = load i32, ptr %1, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %1, align 4
+  %27 = load i32, ptr @hf_x11_unused, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 2, i32 noundef 0)
+  %29 = load i32, ptr %1, align 4
+  %30 = add i32 %29, 2
+  store i32 %30, ptr %1, align 4
   ret void
 }
 

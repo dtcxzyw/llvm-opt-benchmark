@@ -17931,25 +17931,20 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %.pre.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !5404, !noalias !5407
   %12 = icmp eq ptr %.pre.i.i.i.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5413)
-  br i1 %12, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i", label %._crit_edge.i.i.i
+  br i1 %12, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i", label %13
 
-._crit_edge.i.i.i:                                ; preds = %8
-  %.pre.i.i.i = load ptr, ptr %10, align 8, !alias.scope !5414, !noalias !5419
-  %.pre1.i.i.i = load ptr, ptr %11, align 8, !alias.scope !5414, !noalias !5419
-  br label %13
-
-13:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i", %._crit_edge.i.i.i
-  %14 = phi ptr [ %.pre1.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.8.sroa.0.0.copyload.i.i.i.i, %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i" ]
-  %15 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %44, %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i" ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !5422)
-  call void @llvm.experimental.noalias.scope.decl(metadata !5423)
-  %16 = icmp eq ptr %14, %15
+13:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E.exit.i.i.i.i", %8
+  call void @llvm.experimental.noalias.scope.decl(metadata !5414)
+  call void @llvm.experimental.noalias.scope.decl(metadata !5417)
+  %14 = load ptr, ptr %10, align 8, !alias.scope !5420, !noalias !5421, !nonnull !22, !noundef !22
+  %15 = load ptr, ptr %11, align 8, !alias.scope !5420, !noalias !5421, !nonnull !22, !noundef !22
+  %16 = icmp eq ptr %15, %14
   br i1 %16, label %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.thread.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i: ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 360
-  store ptr %17, ptr %11, align 8, !alias.scope !5414, !noalias !5419
-  %.sroa.022.0.copyload.i.i.i.i = load i64, ptr %14, align 8, !noalias !5424
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 360
+  store ptr %17, ptr %11, align 8, !alias.scope !5420, !noalias !5421
+  %.sroa.022.0.copyload.i.i.i.i = load i64, ptr %15, align 8, !noalias !5424
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.022.0.copyload.i.i.i.i, 8
   br i1 %.not.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.thread.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h6d9289b220ca1a60E.exit
 
@@ -17959,7 +17954,6 @@ _ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.thread.i.i.i.i.i
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h3889f40f6434a726E.exit.thread30.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.thread.i.i.i.i.i
   store ptr null, ptr %9, align 8, !alias.scope !5404, !noalias !5407
-  %.pre = load i64, ptr %1, align 8, !range !55, !alias.scope !5425, !noalias !5428
   br label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i"
 
 common.resume:                                    ; preds = %56, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i.i", %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i4.i.i.i.i", %49
@@ -17973,8 +17967,8 @@ common.resume:                                    ; preds = %56, %"_ZN4core3ptr1
   br label %common.resume
 
 "_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3889f40f6434a726E.exit.thread30.i.i.i.i, %8
-  %19 = phi i64 [ %.pre, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3889f40f6434a726E.exit.thread30.i.i.i.i ], [ %5, %8 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !5430)
+  call void @llvm.experimental.noalias.scope.decl(metadata !5425)
+  %19 = load i64, ptr %1, align 8, !range !55, !alias.scope !5428, !noalias !5429, !noundef !22
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %.loopexit.i.i.i.i, label %21
 
@@ -18001,7 +17995,7 @@ common.resume:                                    ; preds = %56, %"_ZN4core3ptr1
   %29 = icmp eq i64 %.sroa.4.8.copyload.i.i.i.i.i.i, -9223372036854775808
   br i1 %29, label %.loopexit.i.i.i.i, label %41
 
-.loopexit.i.i.i.i:                                ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952.exit.i.i.i.i.i.i", %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952.exit.thread.i.i.i.i.i.i", %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i"
+.loopexit.i.i.i.i:                                ; preds = %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952.exit.i.i.i.i.i.i", %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h0083944765f00c22E.exit.i.i.i.i", %"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952.exit.thread.i.i.i.i.i.i"
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !5444)
   %31 = load ptr, ptr %30, align 8, !alias.scope !5447, !noalias !5448, !noundef !22
@@ -18082,10 +18076,10 @@ _ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.thread.i6.i.i.i.
   br label %13
 
 _ZN4core3ops8function6FnOnce9call_once17h6d9289b220ca1a60E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i1.i.i.i.i
-  %.sink.i = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i ], [ %37, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i1.i.i.i.i ]
-  %.sroa.0.17.i.i = phi i64 [ %.sroa.022.0.copyload.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i ], [ %.sroa.026.0.copyload.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i1.i.i.i.i ]
+  %.sink.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i1.i.i.i.i ], [ %15, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i ]
+  %.sroa.0.17.i.i = phi i64 [ %.sroa.026.0.copyload.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i1.i.i.i.i ], [ %.sroa.022.0.copyload.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE.exit.i.i.i.i.i ]
   %.sroa.628.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.628.0..sroa_idx.i.i.i.i, i64 352, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.628.0..sroa_idx.i.i.i.i, i64 352, i1 false), !noalias !22
   %.not = icmp eq i64 %.sroa.0.17.i.i, 9
   br i1 %.not, label %_ZN4core3ops8function6FnOnce9call_once17h6d9289b220ca1a60E.exit.thread, label %55
 
@@ -57798,36 +57792,36 @@ attributes #53 = { nounwind }
 !5411 = distinct !{!5411, !5397, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79902d0bcc2abbb9E: argument 0"}
 !5412 = distinct !{!5412, !5394, !"_ZN4core3ops8function6FnOnce9call_once17h6d9289b220ca1a60E: argument 0"}
 !5413 = !{!5405}
-!5414 = !{!5415, !5417, !5405, !5402, !5399, !5396, !5393}
-!5415 = distinct !{!5415, !5416, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E: argument 1"}
-!5416 = distinct !{!5416, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E"}
-!5417 = distinct !{!5417, !5418, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE: argument 1"}
-!5418 = distinct !{!5418, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE"}
-!5419 = !{!5420, !5421, !5408, !5409, !5410, !5411, !5412}
-!5420 = distinct !{!5420, !5416, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E: argument 0"}
-!5421 = distinct !{!5421, !5418, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE: argument 0"}
-!5422 = !{!5417}
-!5423 = !{!5415}
-!5424 = !{!5415, !5417, !5408, !5405, !5409, !5410, !5411, !5412}
-!5425 = !{!5426, !5402, !5399, !5396, !5393}
+!5414 = !{!5415}
+!5415 = distinct !{!5415, !5416, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE: argument 1"}
+!5416 = distinct !{!5416, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE"}
+!5417 = !{!5418}
+!5418 = distinct !{!5418, !5419, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E: argument 1"}
+!5419 = distinct !{!5419, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E"}
+!5420 = !{!5418, !5415, !5405, !5402, !5399, !5396, !5393}
+!5421 = !{!5422, !5423, !5408, !5409, !5410, !5411, !5412}
+!5422 = distinct !{!5422, !5419, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E: argument 0"}
+!5423 = distinct !{!5423, !5416, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE: argument 0"}
+!5424 = !{!5418, !5415, !5408, !5405, !5409, !5410, !5411, !5412}
+!5425 = !{!5426}
 !5426 = distinct !{!5426, !5427, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hacb2a6ae5447a2c4E: argument 1"}
 !5427 = distinct !{!5427, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hacb2a6ae5447a2c4E"}
-!5428 = !{!5429, !5409, !5410, !5411, !5412}
-!5429 = distinct !{!5429, !5427, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hacb2a6ae5447a2c4E: argument 0"}
-!5430 = !{!5426}
-!5431 = !{!5432, !5434, !5435, !5437, !5429, !5426, !5409, !5402, !5410, !5399, !5411, !5396, !5412, !5393}
+!5428 = !{!5426, !5402, !5399, !5396, !5393}
+!5429 = !{!5430, !5409, !5410, !5411, !5412}
+!5430 = distinct !{!5430, !5427, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hacb2a6ae5447a2c4E: argument 0"}
+!5431 = !{!5432, !5434, !5435, !5437, !5430, !5426, !5409, !5402, !5410, !5399, !5411, !5396, !5412, !5393}
 !5432 = distinct !{!5432, !5433, !"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952: argument 0"}
 !5433 = distinct !{!5433, !"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952"}
 !5434 = distinct !{!5434, !5433, !"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb75a20cf152bfbbbE.llvm.17673166239295528952: argument 1"}
 !5435 = distinct !{!5435, !5436, !"_ZN118_$LT$alloc..collections..btree..map..IntoValues$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he869aa0dc696049dE: argument 0"}
 !5436 = distinct !{!5436, !"_ZN118_$LT$alloc..collections..btree..map..IntoValues$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he869aa0dc696049dE"}
 !5437 = distinct !{!5437, !5436, !"_ZN118_$LT$alloc..collections..btree..map..IntoValues$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he869aa0dc696049dE: argument 1"}
-!5438 = !{!5432, !5435, !5429, !5409, !5410, !5411, !5412}
-!5439 = !{!5440, !5442, !5432, !5435, !5429, !5409, !5410, !5411, !5412}
+!5438 = !{!5432, !5435, !5430, !5409, !5410, !5411, !5412}
+!5439 = !{!5440, !5442, !5432, !5435, !5430, !5409, !5410, !5411, !5412}
 !5440 = distinct !{!5440, !5441, !"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_key_val17hc9f42c94ef564d10E: argument 0"}
 !5441 = distinct !{!5441, !"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_key_val17hc9f42c94ef564d10E"}
 !5442 = distinct !{!5442, !5441, !"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_key_val17hc9f42c94ef564d10E: argument 1"}
-!5443 = !{!5435, !5429, !5409, !5410, !5411, !5412}
+!5443 = !{!5435, !5430, !5409, !5410, !5411, !5412}
 !5444 = !{!5445}
 !5445 = distinct !{!5445, !5446, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h3889f40f6434a726E: argument 1"}
 !5446 = distinct !{!5446, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h3889f40f6434a726E"}
@@ -57845,7 +57839,7 @@ attributes #53 = { nounwind }
 !5458 = distinct !{!5458, !5455, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he94c88987ac08c12E: argument 0"}
 !5459 = distinct !{!5459, !5452, !"_ZN4core3ops8function6FnOnce9call_once17hf7499e1d3622f2efE: argument 0"}
 !5460 = !{!5454, !5451, !5449, !5445, !5409, !5410, !5411, !5412}
-!5461 = !{!5435, !5437, !5429, !5426, !5409, !5402, !5410, !5399, !5411, !5396, !5412, !5393}
+!5461 = !{!5435, !5437, !5430, !5426, !5409, !5402, !5410, !5399, !5411, !5396, !5412, !5393}
 !5462 = !{!5437, !5426, !5409, !5402, !5410, !5399, !5411, !5396, !5412, !5393}
 !5463 = !{!5464, !5402, !5399, !5396, !5393}
 !5464 = distinct !{!5464, !5465, !"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h32417d457f939b13E: argument 0"}

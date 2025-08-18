@@ -7762,8 +7762,8 @@ define linkonce_odr void @_ZSt4lockISt11unique_lockISt5mutexES2_JEEvRT_RT0_DpRT1
   store i8 0, ptr %6, align 8, !tbaa !533
   br label %7
 
-7:                                                ; preds = %.critedge.thread, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.2, %.critedge.thread ]
+7:                                                ; preds = %.loopexit, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.2, %.loopexit ]
   %8 = zext nneg i32 %.0 to i64
   %9 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 16, !tbaa !530
@@ -7795,7 +7795,7 @@ define linkonce_odr void @_ZSt4lockISt11unique_lockISt5mutexES2_JEEvRT_RT0_DpRT1
 .invoke:                                          ; preds = %21, %17, %15, %11, %7
   %23 = phi i32 [ 1, %7 ], [ 35, %11 ], [ 1, %15 ], [ 35, %17 ], [ %22, %21 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %23) #33
-          to label %.cont unwind label %29
+          to label %.cont unwind label %30
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -7807,38 +7807,38 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %25 = xor i32 %24, 1
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 16, !tbaa !530
-  %.not.i40 = icmp eq ptr %28, null
-  br i1 %.not.i40, label %.invoke82, label %31
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %27, align 16, !tbaa !530
+  %.not.i40 = icmp eq ptr %29, null
+  br i1 %.not.i40, label %.invoke96, label %32
 
-29:                                               ; preds = %.invoke
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %.invoke
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %91
 
-31:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load i8, ptr %32, align 8, !tbaa !533, !range !73, !noundef !74
+32:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
+  %33 = load i8, ptr %28, align 8, !tbaa !533, !range !73, !noundef !74
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %.invoke82, label %35
+  br i1 %34, label %.invoke96, label %35
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %28, align 8, !tbaa !520
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %29, align 8, !tbaa !520
   %.not.i.i41 = icmp eq ptr %36, null
-  br i1 %.not.i.i41, label %.invoke82, label %37
+  br i1 %.not.i.i41, label %.invoke96, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !523, !range !73, !noundef !74
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %.invoke82, label %42
+  br i1 %40, label %.invoke96, label %42
 
-.invoke82:                                        ; preds = %37, %35, %31, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
-  %41 = phi i32 [ 1, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit ], [ 35, %31 ], [ 1, %35 ], [ 35, %37 ]
+.invoke96:                                        ; preds = %37, %35, %32, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
+  %41 = phi i32 [ 1, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit ], [ 35, %32 ], [ 1, %35 ], [ 35, %37 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #33
-          to label %.cont83 unwind label %45
+          to label %.cont97 unwind label %50
 
-.cont83:                                          ; preds = %.invoke82
+.cont97:                                          ; preds = %.invoke96
   unreachable
 
 42:                                               ; preds = %37
@@ -7846,194 +7846,197 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %.not.i.i.i42 = icmp eq i32 %43, 0
   %44 = zext i1 %.not.i.i.i42 to i8
   store i8 %44, ptr %38, align 8, !tbaa !523
-  store i8 %44, ptr %32, align 8, !tbaa !533
-  br i1 %.not.i.i.i42, label %.critedge.thread, label %47, !llvm.loop !534
+  store i8 %44, ptr %28, align 8, !tbaa !533
+  br i1 %.not.i.i.i42, label %.loopexit, label %.preheader58, !llvm.loop !534
 
-45:                                               ; preds = %.invoke82
-  %46 = landingpad { ptr, i32 }
+.preheader58:                                     ; preds = %42
+  %45 = and i32 %.0, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.promoted = load i8, ptr %48, align 8, !tbaa !533
+  %49 = trunc nuw i8 %.promoted to i1
+  br i1 %49, label %52, label %.invoke98
+
+50:                                               ; preds = %.invoke96
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %91
 
-47:                                               ; preds = %42
-  %48 = and i32 %.0, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i8, ptr %51, align 8, !tbaa !533, !range !73, !noundef !74
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %.invoke84
+52:                                               ; preds = %.preheader58
+  %53 = load ptr, ptr %47, align 16, !tbaa !530
+  %.not.i47 = icmp eq ptr %53, null
+  br i1 %.not.i47, label %.thread, label %54
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %50, align 16, !tbaa !530
-  %.not.i47 = icmp eq ptr %55, null
-  br i1 %.not.i47, label %.critedge.thread, label %56
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load i8, ptr %55, align 8, !tbaa !523, !range !73, !noundef !74
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %.invoke98
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = load i8, ptr %57, align 8, !tbaa !523, !range !73, !noundef !74
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %.invoke84
-
-.invoke84:                                        ; preds = %56, %47
+.invoke98:                                        ; preds = %54, %.preheader58
+  %storemerge = phi i8 [ 0, %.preheader58 ], [ 1, %54 ]
+  store i8 %storemerge, ptr %48, align 8
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #33
-          to label %.cont85 unwind label %64
+          to label %.cont99 unwind label %62
 
-.cont85:                                          ; preds = %.invoke84
+.cont99:                                          ; preds = %.invoke98
   unreachable
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %55, align 8, !tbaa !520
-  %.not.i.i48 = icmp eq ptr %61, null
-  br i1 %.not.i.i48, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i, label %62
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %53, align 8, !tbaa !520
+  %.not.i.i48 = icmp eq ptr %59, null
+  br i1 %.not.i.i48, label %.thread, label %60
 
-62:                                               ; preds = %60
-  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %61) #29
-  store i8 0, ptr %57, align 8, !tbaa !523
-  br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i
+60:                                               ; preds = %58
+  %61 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %59) #29
+  store i8 0, ptr %55, align 8, !tbaa !523
+  br label %.thread
 
-_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i:     ; preds = %62, %60
-  store i8 0, ptr %51, align 8, !tbaa !533
-  br label %.critedge.thread
-
-64:                                               ; preds = %.invoke84
-  %65 = landingpad { ptr, i32 }
+62:                                               ; preds = %.invoke98
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %91
 
-.critedge.thread:                                 ; preds = %42, %54, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i
-  %.pre-phi = phi i64 [ %8, %42 ], [ %26, %54 ], [ %26, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i ]
-  %.2 = phi i32 [ %.0, %42 ], [ %25, %54 ], [ %25, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i ]
-  %66 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %.pre-phi, i32 1
-  %67 = load i8, ptr %66, align 8, !tbaa !533, !range !73, !noundef !74
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %.preheader86, label %7, !llvm.loop !535
+.thread:                                          ; preds = %58, %60, %52
+  %.lcssa70 = phi i8 [ 1, %52 ], [ 0, %60 ], [ 0, %58 ]
+  store i8 %.lcssa70, ptr %48, align 8
+  br label %.loopexit
 
-.preheader86:                                     ; preds = %.critedge.thread, %.preheader86
-  %.026.idx67 = phi i64 [ %.026.add, %.preheader86 ], [ 0, %.critedge.thread ]
-  %.026.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.026.idx67
+.loopexit:                                        ; preds = %42, %.thread
+  %.2 = phi i32 [ %25, %.thread ], [ %.0, %42 ]
+  %64 = zext nneg i32 %.2 to i64
+  %65 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %64, i32 1
+  %66 = load i8, ptr %65, align 8, !tbaa !533, !range !73, !noundef !74
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %.preheader100, label %7, !llvm.loop !535
+
+.preheader100:                                    ; preds = %.loopexit, %.preheader100
+  %.026.idx71 = phi i64 [ %.026.add, %.preheader100 ], [ 0, %.loopexit ]
+  %.026.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.026.idx71
   store ptr null, ptr %.026.ptr, align 16, !tbaa !530
-  %69 = getelementptr inbounds nuw i8, ptr %.026.ptr, i64 8
-  store i8 0, ptr %69, align 8, !tbaa !533
-  %.026.add = add nuw nsw i64 %.026.idx67, 16
+  %68 = getelementptr inbounds nuw i8, ptr %.026.ptr, i64 8
+  store i8 0, ptr %68, align 8, !tbaa !533
+  %.026.add = add nuw nsw i64 %.026.idx71, 16
   %.not35 = icmp eq i64 %.026.add, 32
-  br i1 %.not35, label %.preheader.preheader, label %.preheader86
+  br i1 %.not35, label %.preheader.preheader, label %.preheader100
 
-.preheader.preheader:                             ; preds = %.preheader86
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 32
+.preheader.preheader:                             ; preds = %.preheader100
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
-  %71 = phi ptr [ %72, %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit ], [ %70, %.preheader.preheader ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 -16
-  %73 = getelementptr inbounds i8, ptr %71, i64 -8
-  %74 = load i8, ptr %73, align 8, !tbaa !533, !range !73, !noundef !74
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %76, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
+  %70 = phi ptr [ %71, %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit ], [ %69, %.preheader.preheader ]
+  %71 = getelementptr inbounds i8, ptr %70, i64 -16
+  %72 = getelementptr inbounds i8, ptr %70, i64 -8
+  %73 = load i8, ptr %72, align 8, !tbaa !533, !range !73, !noundef !74
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
 
-76:                                               ; preds = %.preheader
-  %77 = load ptr, ptr %72, align 8, !tbaa !530
-  %.not.i.i51 = icmp eq ptr %77, null
-  br i1 %.not.i.i51, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit, label %78
+75:                                               ; preds = %.preheader
+  %76 = load ptr, ptr %71, align 8, !tbaa !530
+  %.not.i.i51 = icmp eq ptr %76, null
+  br i1 %.not.i.i51, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit, label %77
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %80 = load i8, ptr %79, align 8, !tbaa !523, !range !73, !noundef !74
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %83, label %82
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %79 = load i8, ptr %78, align 8, !tbaa !523, !range !73, !noundef !74
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %82, label %81
 
-82:                                               ; preds = %78
+81:                                               ; preds = %77
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #33
-          to label %.noexc1.i unwind label %87
+          to label %.noexc1.i unwind label %86
 
-.noexc1.i:                                        ; preds = %82
+.noexc1.i:                                        ; preds = %81
   unreachable
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %77, align 8, !tbaa !520
-  %.not.i.i.i52 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i52, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i, label %85
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %76, align 8, !tbaa !520
+  %.not.i.i.i52 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i52, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i, label %84
 
-85:                                               ; preds = %83
-  %86 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %84) #29
-  store i8 0, ptr %79, align 8, !tbaa !523
+84:                                               ; preds = %82
+  %85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %83) #29
+  store i8 0, ptr %78, align 8, !tbaa !523
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i
 
-_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i:   ; preds = %85, %83
-  store i8 0, ptr %73, align 8, !tbaa !533
+_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i:   ; preds = %84, %82
+  store i8 0, ptr %72, align 8, !tbaa !533
   br label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
 
-87:                                               ; preds = %82
-  %88 = landingpad { ptr, i32 }
+86:                                               ; preds = %81
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #32
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #32
   unreachable
 
-_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit:        ; preds = %.preheader, %76, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i
-  %90 = icmp eq ptr %72, %3
-  br i1 %90, label %91, label %.preheader
+_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit:        ; preds = %.preheader, %75, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i
+  %89 = icmp eq ptr %71, %3
+  br i1 %89, label %90, label %.preheader
 
-91:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
+90:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-92:                                               ; preds = %45, %64, %29
-  %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %65, %64 ], [ %46, %45 ]
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %94
+91:                                               ; preds = %50, %62, %30
+  %.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %63, %62 ], [ %51, %50 ]
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %93
 
-94:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57, %92
-  %95 = phi ptr [ %93, %92 ], [ %96, %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57 ]
-  %96 = getelementptr inbounds i8, ptr %95, i64 -16
-  %97 = getelementptr inbounds i8, ptr %95, i64 -8
-  %98 = load i8, ptr %97, align 8, !tbaa !533, !range !73, !noundef !74
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57
+93:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57, %91
+  %94 = phi ptr [ %92, %91 ], [ %95, %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57 ]
+  %95 = getelementptr inbounds i8, ptr %94, i64 -16
+  %96 = getelementptr inbounds i8, ptr %94, i64 -8
+  %97 = load i8, ptr %96, align 8, !tbaa !533, !range !73, !noundef !74
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %96, align 8, !tbaa !530
-  %.not.i.i53 = icmp eq ptr %101, null
-  br i1 %.not.i.i53, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57, label %102
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %95, align 8, !tbaa !530
+  %.not.i.i53 = icmp eq ptr %100, null
+  br i1 %.not.i.i53, label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57, label %101
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %104 = load i8, ptr %103, align 8, !tbaa !523, !range !73, !noundef !74
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %107, label %106
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load i8, ptr %102, align 8, !tbaa !523, !range !73, !noundef !74
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %106, label %105
 
-106:                                              ; preds = %102
+105:                                              ; preds = %101
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #33
-          to label %.noexc1.i54 unwind label %111
+          to label %.noexc1.i54 unwind label %110
 
-.noexc1.i54:                                      ; preds = %106
+.noexc1.i54:                                      ; preds = %105
   unreachable
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %101, align 8, !tbaa !520
-  %.not.i.i.i55 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i55, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56, label %109
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %100, align 8, !tbaa !520
+  %.not.i.i.i55 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i55, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56, label %108
 
-109:                                              ; preds = %107
-  %110 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %108) #29
-  store i8 0, ptr %103, align 8, !tbaa !523
+108:                                              ; preds = %106
+  %109 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %107) #29
+  store i8 0, ptr %102, align 8, !tbaa !523
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56
 
-_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56: ; preds = %109, %107
-  store i8 0, ptr %97, align 8, !tbaa !533
+_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56: ; preds = %108, %106
+  store i8 0, ptr %96, align 8, !tbaa !533
   br label %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57
 
-111:                                              ; preds = %106
-  %112 = landingpad { ptr, i32 }
+110:                                              ; preds = %105
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #32
+  %112 = extractvalue { ptr, i32 } %111, 0
+  call void @__clang_call_terminate(ptr %112) #32
   unreachable
 
-_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57:      ; preds = %94, %100, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56
-  %114 = icmp eq ptr %96, %3
-  br i1 %114, label %115, label %94
+_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57:      ; preds = %93, %99, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit.i.i56
+  %113 = icmp eq ptr %95, %3
+  br i1 %113, label %114, label %93
 
-115:                                              ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57
+114:                                              ; preds = %_ZNSt11unique_lockIS_ISt5mutexEED2Ev.exit57
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 }

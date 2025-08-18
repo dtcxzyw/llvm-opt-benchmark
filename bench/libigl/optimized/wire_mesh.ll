@@ -3304,24 +3304,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5Eigen8internal22qr_precond
   %68 = load i8, ptr %67, align 8, !range !214
   %69 = trunc nuw i8 %68 to i1
   %70 = select i1 %66, i1 true, i1 %69
-  br i1 %70, label %71, label %81
+  br i1 %70, label %_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit.loopexit.critedge, label %_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
+_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit.loopexit.critedge: ; preds = %63
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !tbaa !14
-  %73 = load i32, ptr %72, align 16, !tbaa !27
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr double, ptr %1, i64 %74
-  store double 1.000000e+00, ptr %75, align 8, !tbaa !14
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %77 = load i32, ptr %76, align 4, !tbaa !27
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr double, ptr %1, i64 %78
-  %80 = getelementptr i8, ptr %79, i64 16
-  store double 1.000000e+00, ptr %80, align 8, !tbaa !14
-  br label %81
+  %72 = load i32, ptr %71, align 16, !tbaa !27
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr double, ptr %1, i64 %73
+  store double 1.000000e+00, ptr %74, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %76 = load i32, ptr %75, align 4, !tbaa !27
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr double, ptr %1, i64 %77
+  %79 = getelementptr i8, ptr %78, i64 16
+  store double 1.000000e+00, ptr %79, align 8, !tbaa !14
+  br label %_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit
 
-81:                                               ; preds = %63, %71
+_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEaSINS_17PermutationMatrixILi2ELi2EiEEEERS1_RKNS_9EigenBaseIT_EE.exit.loopexit.critedge, %63
   ret i1 true
 }
 
@@ -4011,7 +4011,7 @@ define linkonce_odr dso_local void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdL
   store double %.scalar.i, ptr %50, align 8, !tbaa !14
   br i1 %40, label %39, label %9, !llvm.loop !335
 
-.critedge:                                        ; preds = %121
+_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi2ELi2EiEEE11setIdentityEl.exit.preheader.critedge: ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %51, align 16, !tbaa !27
@@ -4192,7 +4192,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi1ELin1ELb0EEE
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %invariant.gep = getelementptr inbounds nuw double, ptr %0, i64 %123
-  br i1 %70, label %.lr.ph, label %.critedge
+  br i1 %70, label %.lr.ph, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi2ELi2EiEEE11setIdentityEl.exit.preheader.critedge
 
 .lr.ph:                                           ; preds = %121
   %127 = getelementptr inbounds nuw double, ptr %7, i64 %123

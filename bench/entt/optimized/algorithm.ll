@@ -1843,170 +1843,170 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %13, i8 0, i64 24, i1 false), !tbaa !46
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  br label %.lr.ph.i.i
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  br label %20
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.sroa.06.012.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.06.012.i.i, i64 -4
-  %.val.i.i = load i32, ptr %14, align 4, !tbaa !46
-  %15 = and i32 %.val.i.i, 3
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %16
-  %18 = load i64, ptr %17, align 8, !tbaa !68
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8, !tbaa !68
-  %.not.i.i = icmp eq ptr %14, %7
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !77
-
-20:                                               ; preds = %20, %._crit_edge.i.i
-  %21 = phi i64 [ 0, %._crit_edge.i.i ], [ %24, %20 ]
-  %.013.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.013.i.i
-  %23 = load i64, ptr %22, align 8, !tbaa !68
-  %24 = add i64 %23, %21
-  %25 = add nuw nsw i64 %.013.i.i, 1
-  %26 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %25
-  store i64 %24, ptr %26, align 8, !tbaa !68
-  %exitcond.not.i.i = icmp eq i64 %25, 3
-  br i1 %exitcond.not.i.i, label %.lr.ph16.i.i, label %20, !llvm.loop !78
-
-.lr.ph16.i.i:                                     ; preds = %20, %.lr.ph16.i.i
-  %.sroa.0.015.i.i = phi ptr [ %27, %.lr.ph16.i.i ], [ %12, %20 ]
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 -4
-  %.val9.i.i = load i32, ptr %27, align 4, !tbaa !46
-  %28 = and i32 %.val9.i.i, 3
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %29
-  %31 = load i64, ptr %30, align 8, !tbaa !68
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %30, align 8, !tbaa !68
-  %33 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %31
-  store i32 %.val9.i.i, ptr %33, align 4, !tbaa !20
-  %.not10.i.i = icmp eq ptr %27, %7
-  br i1 %.not10.i.i, label %.loopexit24.i, label %.lr.ph16.i.i, !llvm.loop !79
-
-.loopexit24.i:                                    ; preds = %.lr.ph16.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   br label %.lr.ph.i21.i
 
-._crit_edge.i24.i:                                ; preds = %.lr.ph.i21.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  br label %21
+
+.lr.ph.i.i:                                       ; preds = %"_ZZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEESM_S8_mEEDaSB_SC_SD_SE_.exit.i", %.lr.ph.i.i
+  %.sroa.06.012.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %12, %"_ZZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEESM_S8_mEEDaSB_SC_SD_SE_.exit.i" ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.06.012.i.i, i64 -4
+  %.val.i.i = load i32, ptr %14, align 4, !tbaa !46
+  %15 = lshr i32 %.val.i.i, 4
+  %16 = and i32 %15, 3
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !68
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %18, align 8, !tbaa !68
+  %.not.i.i = icmp eq ptr %14, %7
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !77
+
+21:                                               ; preds = %21, %._crit_edge.i.i
+  %22 = phi i64 [ 0, %._crit_edge.i.i ], [ %25, %21 ]
+  %.013.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %26, %21 ]
+  %23 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.013.i.i
+  %24 = load i64, ptr %23, align 8, !tbaa !68
+  %25 = add i64 %24, %22
+  %26 = add nuw nsw i64 %.013.i.i, 1
+  %27 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %26
+  store i64 %25, ptr %27, align 8, !tbaa !68
+  %exitcond.not.i.i = icmp eq i64 %26, 3
+  br i1 %exitcond.not.i.i, label %.lr.ph16.i.i, label %21, !llvm.loop !78
+
+.lr.ph16.i.i:                                     ; preds = %21, %.lr.ph16.i.i
+  %.sroa.0.015.i.i = phi ptr [ %28, %.lr.ph16.i.i ], [ %12, %21 ]
+  %28 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 -4
+  %.val9.i.i = load i32, ptr %28, align 4, !tbaa !46
+  %29 = lshr i32 %.val9.i.i, 4
+  %30 = and i32 %29, 3
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %31
+  %33 = load i64, ptr %32, align 8, !tbaa !68
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !68
+  %35 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %33
+  store i32 %.val9.i.i, ptr %35, align 4, !tbaa !20
+  %.not10.i.i = icmp eq ptr %28, %7
+  br i1 %.not10.i.i, label %.lr.ph.i.i.i.i.i.preheader.i, label %.lr.ph16.i.i, !llvm.loop !79
+
+._crit_edge.i25.loopexit.i:                       ; preds = %.lr.ph.i21.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %40
+  br label %42
 
-.lr.ph.i21.i:                                     ; preds = %.loopexit24.i, %.lr.ph.i21.i
-  %.sroa.04.011.i.i.idx = phi i64 [ %.sroa.04.011.i.i.add, %.lr.ph.i21.i ], [ 0, %.loopexit24.i ]
-  %.sroa.04.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.04.011.i.i.idx
-  %.val.i22.i = load i32, ptr %.sroa.04.011.i.i.ptr, align 4, !tbaa !46
-  %34 = lshr i32 %.val.i22.i, 2
-  %35 = and i32 %34, 3
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !68
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8, !tbaa !68
-  %.sroa.04.011.i.i.add = add nuw nsw i64 %.sroa.04.011.i.i.idx, 4
-  %.not.i23.i = icmp eq i64 %.sroa.04.011.i.i.add, 24
-  br i1 %.not.i23.i, label %._crit_edge.i24.i, label %.lr.ph.i21.i, !llvm.loop !80
+.lr.ph.i21.i:                                     ; preds = %.lr.ph.i21.i, %.lr.ph.preheader.i.i.i.i.i.i
+  %.sroa.06.012.i22.i = phi ptr [ %36, %.lr.ph.i21.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.06.012.i22.i, i64 -4
+  %.val.i23.i = load i32, ptr %36, align 4, !tbaa !46
+  %37 = and i32 %.val.i23.i, 3
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %38
+  %40 = load i64, ptr %39, align 8, !tbaa !68
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %39, align 8, !tbaa !68
+  %.not.i24.i = icmp eq ptr %36, %7
+  br i1 %.not.i24.i, label %._crit_edge.i25.loopexit.i, label %.lr.ph.i21.i, !llvm.loop !77
 
-40:                                               ; preds = %40, %._crit_edge.i24.i
-  %41 = phi i64 [ 0, %._crit_edge.i24.i ], [ %44, %40 ]
-  %.012.i.i = phi i64 [ 0, %._crit_edge.i24.i ], [ %45, %40 ]
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.012.i.i
-  %43 = load i64, ptr %42, align 8, !tbaa !68
-  %44 = add i64 %43, %41
-  %45 = add nuw nsw i64 %.012.i.i, 1
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %45
-  store i64 %44, ptr %46, align 8, !tbaa !68
-  %exitcond.not.i25.i = icmp eq i64 %45, 3
-  br i1 %exitcond.not.i25.i, label %.lr.ph15.i.i, label %40, !llvm.loop !81
+42:                                               ; preds = %42, %._crit_edge.i25.loopexit.i
+  %43 = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %46, %42 ]
+  %.013.i26.i = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %47, %42 ]
+  %44 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.013.i26.i
+  %45 = load i64, ptr %44, align 8, !tbaa !68
+  %46 = add i64 %45, %43
+  %47 = add nuw nsw i64 %.013.i26.i, 1
+  %48 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %47
+  store i64 %46, ptr %48, align 8, !tbaa !68
+  %exitcond.not.i27.i = icmp eq i64 %47, 3
+  br i1 %exitcond.not.i27.i, label %.lr.ph16.i29.i, label %42, !llvm.loop !78
 
-.lr.ph15.i.i:                                     ; preds = %40, %.lr.ph15.i.i
-  %.sroa.0.014.i.i.idx = phi i64 [ %.sroa.0.014.i.i.add, %.lr.ph15.i.i ], [ 0, %40 ]
-  %.sroa.0.014.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.0.014.i.i.idx
-  %.val10.i.i = load i32, ptr %.sroa.0.014.i.i.ptr, align 4, !tbaa !46
-  %47 = lshr i32 %.val10.i.i, 2
-  %48 = and i32 %47, 3
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %49
-  %51 = load i64, ptr %50, align 8, !tbaa !68
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %50, align 8, !tbaa !68
-  %53 = sub i64 0, %51
-  %54 = getelementptr inbounds %"struct.test::boxed_type", ptr %12, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 -4
-  store i32 %.val10.i.i, ptr %55, align 4, !tbaa !20
-  %.sroa.0.014.i.i.add = add nuw nsw i64 %.sroa.0.014.i.i.idx, 4
-  %.not9.i.i = icmp eq i64 %.sroa.0.014.i.i.add, 24
-  br i1 %.not9.i.i, label %.loopexit23.i, label %.lr.ph15.i.i, !llvm.loop !82
+.lr.ph16.i29.i:                                   ; preds = %42, %.lr.ph16.i29.i
+  %.sroa.0.015.i30.i = phi ptr [ %49, %.lr.ph16.i29.i ], [ %12, %42 ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.015.i30.i, i64 -4
+  %.val9.i31.i = load i32, ptr %49, align 4, !tbaa !46
+  %50 = and i32 %.val9.i31.i, 3
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %51
+  %53 = load i64, ptr %52, align 8, !tbaa !68
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %52, align 8, !tbaa !68
+  %55 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %53
+  store i32 %.val9.i31.i, ptr %55, align 4, !tbaa !20
+  %.not10.i32.i = icmp eq ptr %49, %7
+  br i1 %.not10.i32.i, label %.loopexit23.i, label %.lr.ph16.i29.i, !llvm.loop !79
 
-.loopexit23.i:                                    ; preds = %.lr.ph15.i.i
+.loopexit23.i:                                    ; preds = %.lr.ph16.i29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  br label %.lr.ph.i28.i
+  br label %.lr.ph.i35.i
 
-._crit_edge.i32.i:                                ; preds = %.lr.ph.i28.i
+._crit_edge.i38.i:                                ; preds = %.lr.ph.i35.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  br label %63
+  br label %62
 
-.lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.loopexit23.i
-  %.sroa.06.012.i29.i = phi ptr [ %56, %.lr.ph.i28.i ], [ %12, %.loopexit23.i ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.06.012.i29.i, i64 -4
-  %.val.i30.i = load i32, ptr %56, align 4, !tbaa !46
-  %57 = lshr i32 %.val.i30.i, 4
-  %58 = and i32 %57, 3
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !68
-  %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8, !tbaa !68
-  %.not.i31.i = icmp eq ptr %56, %7
-  br i1 %.not.i31.i, label %._crit_edge.i32.i, label %.lr.ph.i28.i, !llvm.loop !77
+.lr.ph.i35.i:                                     ; preds = %.loopexit23.i, %.lr.ph.i35.i
+  %.sroa.04.011.i.i.idx = phi i64 [ %.sroa.04.011.i.i.add, %.lr.ph.i35.i ], [ 0, %.loopexit23.i ]
+  %.sroa.04.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.04.011.i.i.idx
+  %.val.i36.i = load i32, ptr %.sroa.04.011.i.i.ptr, align 4, !tbaa !46
+  %56 = lshr i32 %.val.i36.i, 2
+  %57 = and i32 %56, 3
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !68
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %59, align 8, !tbaa !68
+  %.sroa.04.011.i.i.add = add nuw nsw i64 %.sroa.04.011.i.i.idx, 4
+  %.not.i37.i = icmp eq i64 %.sroa.04.011.i.i.add, 24
+  br i1 %.not.i37.i, label %._crit_edge.i38.i, label %.lr.ph.i35.i, !llvm.loop !80
 
-63:                                               ; preds = %63, %._crit_edge.i32.i
-  %64 = phi i64 [ 0, %._crit_edge.i32.i ], [ %67, %63 ]
-  %.013.i33.i = phi i64 [ 0, %._crit_edge.i32.i ], [ %68, %63 ]
-  %65 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.013.i33.i
-  %66 = load i64, ptr %65, align 8, !tbaa !68
-  %67 = add i64 %66, %64
-  %68 = add nuw nsw i64 %.013.i33.i, 1
-  %69 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %68
-  store i64 %67, ptr %69, align 8, !tbaa !68
-  %exitcond.not.i34.i = icmp eq i64 %68, 3
-  br i1 %exitcond.not.i34.i, label %.lr.ph16.i36.i, label %63, !llvm.loop !78
+62:                                               ; preds = %62, %._crit_edge.i38.i
+  %63 = phi i64 [ 0, %._crit_edge.i38.i ], [ %66, %62 ]
+  %.012.i.i = phi i64 [ 0, %._crit_edge.i38.i ], [ %67, %62 ]
+  %64 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.012.i.i
+  %65 = load i64, ptr %64, align 8, !tbaa !68
+  %66 = add i64 %65, %63
+  %67 = add nuw nsw i64 %.012.i.i, 1
+  %68 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %67
+  store i64 %66, ptr %68, align 8, !tbaa !68
+  %exitcond.not.i39.i = icmp eq i64 %67, 3
+  br i1 %exitcond.not.i39.i, label %.lr.ph15.i.i, label %62, !llvm.loop !81
 
-.lr.ph16.i36.i:                                   ; preds = %63, %.lr.ph16.i36.i
-  %.sroa.0.015.i37.i = phi ptr [ %70, %.lr.ph16.i36.i ], [ %12, %63 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.015.i37.i, i64 -4
-  %.val9.i38.i = load i32, ptr %70, align 4, !tbaa !46
-  %71 = lshr i32 %.val9.i38.i, 4
-  %72 = and i32 %71, 3
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %73
-  %75 = load i64, ptr %74, align 8, !tbaa !68
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %74, align 8, !tbaa !68
-  %77 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %75
-  store i32 %.val9.i38.i, ptr %77, align 4, !tbaa !20
-  %.not10.i39.i = icmp eq ptr %70, %7
-  br i1 %.not10.i39.i, label %.lr.ph.i.i.i.i.i.preheader.i, label %.lr.ph16.i36.i, !llvm.loop !79
+.lr.ph15.i.i:                                     ; preds = %62, %.lr.ph15.i.i
+  %.sroa.0.014.i.i.idx = phi i64 [ %.sroa.0.014.i.i.add, %.lr.ph15.i.i ], [ 0, %62 ]
+  %.sroa.0.014.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.0.014.i.i.idx
+  %.val10.i.i = load i32, ptr %.sroa.0.014.i.i.ptr, align 4, !tbaa !46
+  %69 = lshr i32 %.val10.i.i, 2
+  %70 = and i32 %69, 3
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %71
+  %73 = load i64, ptr %72, align 8, !tbaa !68
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %72, align 8, !tbaa !68
+  %75 = sub i64 0, %73
+  %76 = getelementptr inbounds %"struct.test::boxed_type", ptr %12, i64 %75
+  %77 = getelementptr inbounds i8, ptr %76, i64 -4
+  store i32 %.val10.i.i, ptr %77, align 4, !tbaa !20
+  %.sroa.0.014.i.i.add = add nuw nsw i64 %.sroa.0.014.i.i.idx, 4
+  %.not9.i.i = icmp eq i64 %.sroa.0.014.i.i.add, 24
+  br i1 %.not9.i.i, label %"_ZZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEESM_S8_mEEDaSB_SC_SD_SE_.exit.i", label %.lr.ph15.i.i, !llvm.loop !82
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %.lr.ph16.i36.i
+"_ZZNK4entt10radix_sortILm2ELm6EEclISt16reverse_iteratorIPN4test10boxed_typeIiEEEZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEvE3$_0EEvT_SB_T0_ENKUlSB_SC_T1_T2_E_clIN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEESM_S8_mEEDaSB_SC_SD_SE_.exit.i": ; preds = %.lr.ph15.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %.lr.ph16.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i

@@ -1230,21 +1230,21 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail20dot_content_repo
   %67 = load ptr, ptr %59, align 8, !tbaa !32
   %68 = load ptr, ptr %61, align 8, !tbaa !32
   %69 = icmp eq ptr %67, %68
-  br i1 %69, label %.loopexit, label %.critedge
+  br i1 %69, label %.loopexit, label %.preheader
 
-.critedge:                                        ; preds = %64, %.critedge
-  %.sroa.080.088 = phi ptr [ %76, %.critedge ], [ %67, %64 ]
-  %70 = load ptr, ptr %6, align 8, !tbaa !62
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.23, i64 noundef 2)
-  %72 = load ptr, ptr %.sroa.080.088, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.080.088, i64 8
-  %74 = load i64, ptr %73, align 8, !tbaa !10
-  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %72, i64 noundef %74)
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.080.088, i64 32
+.preheader:                                       ; preds = %64, %.preheader
+  %.sroa.080.086 = phi ptr [ %76, %.preheader ], [ %67, %64 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.080.086, i64 8
+  %71 = load ptr, ptr %6, align 8, !tbaa !62
+  %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.23, i64 noundef 2)
+  %73 = load ptr, ptr %.sroa.080.086, align 8, !tbaa !3
+  %74 = load i64, ptr %70, align 8, !tbaa !10
+  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %73, i64 noundef %74)
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.080.086, i64 32
   %77 = icmp eq ptr %76, %68
-  br i1 %77, label %.loopexit, label %.critedge, !llvm.loop !114
+  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !114
 
-.loopexit:                                        ; preds = %.critedge, %64, %58
+.loopexit:                                        ; preds = %.preheader, %64, %58
   %78 = load ptr, ptr %6, align 8, !tbaa !62
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.16, i64 noundef 4)
   %80 = load ptr, ptr %6, align 8, !tbaa !62
@@ -1264,11 +1264,11 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail20dot_content_repo
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %93 = load ptr, ptr %92, align 8, !tbaa !32
   %94 = icmp eq ptr %91, %93
-  br i1 %94, label %.critedge2, label %.critedge87
+  br i1 %94, label %.critedge2, label %.lr.ph
 
-.critedge87:                                      ; preds = %89, %.critedge87
-  %.sroa.071.089 = phi ptr [ %107, %.critedge87 ], [ %91, %89 ]
-  %95 = load i64, ptr %.sroa.071.089, align 8, !tbaa !35
+.lr.ph:                                           ; preds = %89, %.lr.ph
+  %.sroa.071.087 = phi ptr [ %107, %.lr.ph ], [ %91, %89 ]
+  %95 = load i64, ptr %.sroa.071.087, align 8, !tbaa !35
   %96 = tail call noundef nonnull align 8 dereferenceable(280) ptr @_ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE(i64 noundef %95, i32 noundef 17)
   %97 = load ptr, ptr %6, align 8, !tbaa !62
   %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull @.str.9, i64 noundef 2)
@@ -1280,11 +1280,11 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail20dot_content_repo
   %104 = load i64, ptr %103, align 8, !tbaa !35
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef %104)
   %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull @.str.26, i64 noundef 43)
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.071.089, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.071.087, i64 8
   %108 = icmp eq ptr %107, %93
-  br i1 %108, label %.critedge2, label %.critedge87, !llvm.loop !115
+  br i1 %108, label %.critedge2, label %.lr.ph, !llvm.loop !115
 
-.critedge2:                                       ; preds = %.critedge87, %89
+.critedge2:                                       ; preds = %.lr.ph, %89
   ret void
 }
 

@@ -5112,8 +5112,8 @@ define internal void @_ZN3gmxL31nbnxn_atomdata_set_ljcombparamsEPNS_16nbnxn_atom
   %20 = call i32 @llvm.smin.i32(i32 %19, i32 %17)
   store i32 %20, ptr %7, align 4, !tbaa !100
   %21 = load i32, ptr %6, align 4, !tbaa !100
-  %.not49 = icmp sgt i32 %21, %20
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not51 = icmp sgt i32 %21, %20
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -5125,8 +5125,8 @@ define internal void @_ZN3gmxL31nbnxn_atomdata_set_ljcombparamsEPNS_16nbnxn_atom
   %28 = load i32, ptr %3, align 4, !tbaa !100
   switch i32 %28, label %._crit_edge [
     i32 2, label %.lr.ph.split.us
-    i32 3, label %.lr.ph.split.us51
-    i32 1, label %.lr.ph.split.us55
+    i32 3, label %.lr.ph.split.us53
+    i32 1, label %.lr.ph.split.us57
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -5142,8 +5142,8 @@ define internal void @_ZN3gmxL31nbnxn_atomdata_set_ljcombparamsEPNS_16nbnxn_atom
   br label %38
 
 38:                                               ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us, %.lr.ph.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us ], [ %36, %.lr.ph.split.us ]
-  %39 = getelementptr i32, ptr %23, i64 %indvars.iv68
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us ], [ %36, %.lr.ph.split.us ]
+  %39 = getelementptr i32, ptr %23, i64 %indvars.iv70
   %40 = getelementptr i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !100
   %42 = load i32, ptr %39, align 4, !tbaa !100
@@ -5194,12 +5194,12 @@ define internal void @_ZN3gmxL31nbnxn_atomdata_set_ljcombparamsEPNS_16nbnxn_atom
   br i1 %64, label %.preheader.i.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us, !llvm.loop !286
 
 _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us: ; preds = %63, %38
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
-  %lftr.wideiv71 = trunc i64 %indvars.iv.next69 to i32
-  %exitcond72.not = icmp eq i32 %37, %lftr.wideiv71
-  br i1 %exitcond72.not, label %._crit_edge, label %38, !llvm.loop !287
+  %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
+  %lftr.wideiv73 = trunc i64 %indvars.iv.next71 to i32
+  %exitcond74.not = icmp eq i32 %37, %lftr.wideiv73
+  br i1 %exitcond74.not, label %._crit_edge, label %38, !llvm.loop !287
 
-.lr.ph.split.us51:                                ; preds = %.lr.ph
+.lr.ph.split.us53:                                ; preds = %.lr.ph
   %65 = load ptr, ptr %4, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 144
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 112
@@ -5211,9 +5211,9 @@ _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us: ; pred
   %73 = add nsw i32 %20, 1
   br label %74
 
-74:                                               ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53, %.lr.ph.split.us51
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53 ], [ %72, %.lr.ph.split.us51 ]
-  %75 = getelementptr i32, ptr %23, i64 %indvars.iv63
+74:                                               ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55, %.lr.ph.split.us53
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55 ], [ %72, %.lr.ph.split.us53 ]
+  %75 = getelementptr i32, ptr %23, i64 %indvars.iv65
   %76 = getelementptr i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !100
   %78 = load i32, ptr %75, align 4, !tbaa !100
@@ -5227,7 +5227,7 @@ _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us: ; pred
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds float, ptr %71, i64 %86
   %88 = icmp sgt i32 %80, 0
-  br i1 %88, label %.preheader.preheader.i27.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53
+  br i1 %88, label %.preheader.preheader.i27.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55
 
 .preheader.preheader.i27.us:                      ; preds = %74
   %89 = zext nneg i32 %80 to i64
@@ -5261,15 +5261,15 @@ _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us: ; pred
 99:                                               ; preds = %90
   %indvars.iv.next22.i38.us = add nuw nsw i64 %indvars.iv21.i29.us, 8
   %100 = icmp samesign ult i64 %indvars.iv.next22.i38.us, %89
-  br i1 %100, label %.preheader.i28.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53, !llvm.loop !289
+  br i1 %100, label %.preheader.i28.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55, !llvm.loop !289
 
-_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53: ; preds = %99, %74
-  %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
-  %lftr.wideiv66 = trunc i64 %indvars.iv.next64 to i32
-  %exitcond67.not = icmp eq i32 %73, %lftr.wideiv66
-  br i1 %exitcond67.not, label %._crit_edge, label %74, !llvm.loop !290
+_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55: ; preds = %99, %74
+  %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
+  %lftr.wideiv68 = trunc i64 %indvars.iv.next66 to i32
+  %exitcond69.not = icmp eq i32 %73, %lftr.wideiv68
+  br i1 %exitcond69.not, label %._crit_edge, label %74, !llvm.loop !290
 
-.lr.ph.split.us55:                                ; preds = %.lr.ph
+.lr.ph.split.us57:                                ; preds = %.lr.ph
   %101 = load ptr, ptr %4, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 144
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 112
@@ -5281,8 +5281,8 @@ _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53: ; pr
   %109 = add nsw i32 %20, 1
   br label %110
 
-110:                                              ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57, %.lr.ph.split.us55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57 ], [ %108, %.lr.ph.split.us55 ]
+110:                                              ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59, %.lr.ph.split.us57
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59 ], [ %108, %.lr.ph.split.us57 ]
   %111 = getelementptr i32, ptr %23, i64 %indvars.iv
   %112 = getelementptr i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4, !tbaa !100
@@ -5297,38 +5297,38 @@ _ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53: ; pr
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds float, ptr %107, i64 %122
   %124 = icmp sgt i32 %116, 0
-  br i1 %124, label %.critedge.preheader.i.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57
+  br i1 %124, label %.preheader.preheader.i39.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59
 
-.critedge.preheader.i.us:                         ; preds = %110
+.preheader.preheader.i39.us:                      ; preds = %110
   %wide.trip.count.i.us = zext nneg i32 %116 to i64
-  br label %.critedge.i.us
+  br label %.preheader.i40.us
 
-.critedge.i.us:                                   ; preds = %.critedge.i.us, %.critedge.preheader.i.us
-  %indvars.iv.i39.us = phi i64 [ 0, %.critedge.preheader.i.us ], [ %indvars.iv.next.i41.us, %.critedge.i.us ]
-  %125 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i39.us
+.preheader.i40.us:                                ; preds = %.preheader.i40.us, %.preheader.preheader.i39.us
+  %indvars.iv.i41.us = phi i64 [ 0, %.preheader.preheader.i39.us ], [ %indvars.iv.next.i43.us, %.preheader.i40.us ]
+  %125 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i41.us
   %126 = load i32, ptr %125, align 4, !tbaa !100
   %127 = shl nsw i32 %126, 1
   %128 = sext i32 %127 to i64
   %129 = getelementptr float, ptr %105, i64 %128
-  %130 = load float, ptr %129, align 4, !tbaa !71
-  %.idx.i40.us = shl nuw nsw i64 %indvars.iv.i39.us, 3
-  %131 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i40.us
-  store float %130, ptr %131, align 4, !tbaa !71
-  %132 = getelementptr i8, ptr %129, i64 4
-  %133 = load float, ptr %132, align 4, !tbaa !71
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  store float %133, ptr %134, align 4, !tbaa !71
-  %indvars.iv.next.i41.us = add nuw nsw i64 %indvars.iv.i39.us, 1
-  %exitcond.not.i42.us = icmp eq i64 %indvars.iv.next.i41.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i42.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57, label %.critedge.i.us, !llvm.loop !291
+  %.idx.i42.us = shl nuw nsw i64 %indvars.iv.i41.us, 3
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i42.us
+  %131 = getelementptr i8, ptr %129, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
+  %133 = load float, ptr %129, align 4, !tbaa !71
+  store float %133, ptr %130, align 4, !tbaa !71
+  %134 = load float, ptr %131, align 4, !tbaa !71
+  store float %134, ptr %132, align 4, !tbaa !71
+  %indvars.iv.next.i43.us = add nuw nsw i64 %indvars.iv.i41.us, 1
+  %exitcond.not.i44.us = icmp eq i64 %indvars.iv.next.i43.us, %wide.trip.count.i.us
+  br i1 %exitcond.not.i44.us, label %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59, label %.preheader.i40.us, !llvm.loop !291
 
-_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57: ; preds = %.critedge.i.us, %110
+_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59: ; preds = %.preheader.i40.us, %110
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %109, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %110, !llvm.loop !292
 
-._crit_edge:                                      ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us57, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us53, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us, %.lr.ph, %16
+._crit_edge:                                      ; preds = %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us59, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us55, %_ZN3gmxL23copy_lj_to_nbat_lj_combILi4EEEvNS_8ArrayRefIKfEEPKiiPf.exit.us, %.lr.ph, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

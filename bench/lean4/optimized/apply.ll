@@ -4437,67 +4437,67 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %1755, %1754, %1752,
   %1781 = zext nneg i32 %1780 to i64
   %1782 = alloca i8, i64 %1781, align 16
   %.not1209 = icmp eq i16 %.val686, 0
-  br i1 %.not1209, label %.critedge, label %.lr.ph
+  br i1 %.not1209, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1779
   %1783 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val686 to i64
-  br label %1784
+  br label %1790
 
-1784:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit685
+.preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit685, %1779
+  %1784 = zext i16 %.val686 to i64
+  %1785 = getelementptr inbounds nuw ptr, ptr %1782, i64 %1784
+  store ptr %1, ptr %1785, align 8, !tbaa !15
+  %1786 = getelementptr i8, ptr %0, i64 8
+  %.val720 = load ptr, ptr %1786, align 8, !tbaa !15
+  %1787 = call noundef ptr %.val720(ptr noundef nonnull %1782)
+  %1788 = load i32, ptr %0, align 8, !tbaa !16
+  %1789 = icmp sgt i32 %1788, 1
+  br i1 %1789, label %1803, label %1805, !prof !19
+
+1790:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit685
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit685 ]
-  %1785 = getelementptr inbounds nuw ptr, ptr %1783, i64 %indvars.iv
-  %1786 = load ptr, ptr %1785, align 8, !tbaa !15
-  %1787 = ptrtoint ptr %1786 to i64
-  %1788 = and i64 %1787, 1
-  %.not1206 = icmp eq i64 %1788, 0
-  br i1 %.not1206, label %1789, label %_ZL8lean_incP11lean_object.exit685
+  %1791 = getelementptr inbounds nuw ptr, ptr %1783, i64 %indvars.iv
+  %1792 = load ptr, ptr %1791, align 8, !tbaa !15
+  %1793 = ptrtoint ptr %1792 to i64
+  %1794 = and i64 %1793, 1
+  %.not1206 = icmp eq i64 %1794, 0
+  br i1 %.not1206, label %1795, label %_ZL8lean_incP11lean_object.exit685
 
-1789:                                             ; preds = %1784
-  %.val.i1081 = load i32, ptr %1786, align 4, !tbaa !16
-  %1790 = icmp sgt i32 %.val.i1081, 0
-  br i1 %1790, label %1791, label %1793, !prof !19
+1795:                                             ; preds = %1790
+  %.val.i1081 = load i32, ptr %1792, align 4, !tbaa !16
+  %1796 = icmp sgt i32 %.val.i1081, 0
+  br i1 %1796, label %1797, label %1799, !prof !19
 
-1791:                                             ; preds = %1789
-  %1792 = add nuw nsw i32 %.val.i1081, 1
-  store i32 %1792, ptr %1786, align 4, !tbaa !16
+1797:                                             ; preds = %1795
+  %1798 = add nuw nsw i32 %.val.i1081, 1
+  store i32 %1798, ptr %1792, align 4, !tbaa !16
   br label %_ZL8lean_incP11lean_object.exit685
 
-1793:                                             ; preds = %1789
+1799:                                             ; preds = %1795
   %.not.i1082 = icmp eq i32 %.val.i1081, 0
-  br i1 %.not.i1082, label %_ZL8lean_incP11lean_object.exit685, label %1794
+  br i1 %.not.i1082, label %_ZL8lean_incP11lean_object.exit685, label %1800
 
-1794:                                             ; preds = %1793
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1786)
-  %.pre1225 = load ptr, ptr %1785, align 8, !tbaa !15
+1800:                                             ; preds = %1799
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1792)
+  %.pre1225 = load ptr, ptr %1791, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit685
 
-_ZL8lean_incP11lean_object.exit685:               ; preds = %1794, %1793, %1791, %1784
-  %1795 = phi ptr [ %.pre1225, %1794 ], [ %1786, %1793 ], [ %1786, %1791 ], [ %1786, %1784 ]
-  %1796 = getelementptr inbounds nuw ptr, ptr %1782, i64 %indvars.iv
-  store ptr %1795, ptr %1796, align 8, !tbaa !15
+_ZL8lean_incP11lean_object.exit685:               ; preds = %1800, %1799, %1797, %1790
+  %1801 = phi ptr [ %.pre1225, %1800 ], [ %1792, %1799 ], [ %1792, %1797 ], [ %1792, %1790 ]
+  %1802 = getelementptr inbounds nuw ptr, ptr %1782, i64 %indvars.iv
+  store ptr %1801, ptr %1802, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %1784, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader, label %1790, !llvm.loop !22
 
-.critedge:                                        ; preds = %_ZL8lean_incP11lean_object.exit685, %1779
-  %1797 = zext i16 %.val686 to i64
-  %1798 = getelementptr inbounds nuw ptr, ptr %1782, i64 %1797
-  store ptr %1, ptr %1798, align 8, !tbaa !15
-  %1799 = getelementptr i8, ptr %0, i64 8
-  %.val720 = load ptr, ptr %1799, align 8, !tbaa !15
-  %1800 = call noundef ptr %.val720(ptr noundef nonnull %1782)
-  %1801 = load i32, ptr %0, align 8, !tbaa !16
-  %1802 = icmp sgt i32 %1801, 1
-  br i1 %1802, label %1803, label %1805, !prof !19
-
-1803:                                             ; preds = %.critedge
-  %1804 = add nsw i32 %1801, -1
+1803:                                             ; preds = %.preheader
+  %1804 = add nsw i32 %1788, -1
   store i32 %1804, ptr %0, align 4, !tbaa !16
   br label %_ZL8lean_decP11lean_object.exit
 
-1805:                                             ; preds = %.critedge
-  %.not.i564 = icmp eq i32 %1801, 0
+1805:                                             ; preds = %.preheader
+  %.not.i564 = icmp eq i32 %1788, 0
   br i1 %.not.i564, label %_ZL8lean_decP11lean_object.exit, label %1806
 
 1806:                                             ; preds = %1805
@@ -4528,7 +4528,7 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %1794, %1793, %1791,
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1806, %1805, %1803, %1778, %1777, %1775, %1604, %1603, %1601, %1441, %1440, %1438, %1289, %1288, %1286, %1148, %1147, %1145, %1018, %1017, %1015, %899, %898, %896, %791, %790, %788, %694, %693, %691, %608, %607, %605, %533, %532, %530, %469, %468, %466, %416, %415, %413, %374, %373, %371, %343, %342, %340, %323, %322, %320, %6, %12, %14, %15, %26, %29, %34, %41, %50, %61, %74, %89, %106, %125, %146, %169, %194, %221, %250, %281, %1813
-  %.0 = phi ptr [ %28, %26 ], [ %33, %29 ], [ %40, %34 ], [ %49, %41 ], [ %60, %50 ], [ %73, %61 ], [ %88, %74 ], [ %105, %89 ], [ %124, %106 ], [ %145, %125 ], [ %168, %146 ], [ %193, %169 ], [ %220, %194 ], [ %249, %221 ], [ %280, %250 ], [ %313, %281 ], [ %1814, %1813 ], [ %0, %15 ], [ %0, %14 ], [ %0, %12 ], [ %0, %6 ], [ %317, %320 ], [ %317, %322 ], [ %317, %323 ], [ %337, %340 ], [ %337, %342 ], [ %337, %343 ], [ %368, %371 ], [ %368, %373 ], [ %368, %374 ], [ %410, %413 ], [ %410, %415 ], [ %410, %416 ], [ %463, %466 ], [ %463, %468 ], [ %463, %469 ], [ %527, %530 ], [ %527, %532 ], [ %527, %533 ], [ %602, %605 ], [ %602, %607 ], [ %602, %608 ], [ %688, %691 ], [ %688, %693 ], [ %688, %694 ], [ %785, %788 ], [ %785, %790 ], [ %785, %791 ], [ %893, %896 ], [ %893, %898 ], [ %893, %899 ], [ %1012, %1015 ], [ %1012, %1017 ], [ %1012, %1018 ], [ %1142, %1145 ], [ %1142, %1147 ], [ %1142, %1148 ], [ %1283, %1286 ], [ %1283, %1288 ], [ %1283, %1289 ], [ %1435, %1438 ], [ %1435, %1440 ], [ %1435, %1441 ], [ %1598, %1601 ], [ %1598, %1603 ], [ %1598, %1604 ], [ %1772, %1775 ], [ %1772, %1777 ], [ %1772, %1778 ], [ %1800, %1803 ], [ %1800, %1805 ], [ %1800, %1806 ]
+  %.0 = phi ptr [ %28, %26 ], [ %33, %29 ], [ %40, %34 ], [ %49, %41 ], [ %60, %50 ], [ %73, %61 ], [ %88, %74 ], [ %105, %89 ], [ %124, %106 ], [ %145, %125 ], [ %168, %146 ], [ %193, %169 ], [ %220, %194 ], [ %249, %221 ], [ %280, %250 ], [ %313, %281 ], [ %1814, %1813 ], [ %0, %15 ], [ %0, %14 ], [ %0, %12 ], [ %0, %6 ], [ %317, %320 ], [ %317, %322 ], [ %317, %323 ], [ %337, %340 ], [ %337, %342 ], [ %337, %343 ], [ %368, %371 ], [ %368, %373 ], [ %368, %374 ], [ %410, %413 ], [ %410, %415 ], [ %410, %416 ], [ %463, %466 ], [ %463, %468 ], [ %463, %469 ], [ %527, %530 ], [ %527, %532 ], [ %527, %533 ], [ %602, %605 ], [ %602, %607 ], [ %602, %608 ], [ %688, %691 ], [ %688, %693 ], [ %688, %694 ], [ %785, %788 ], [ %785, %790 ], [ %785, %791 ], [ %893, %896 ], [ %893, %898 ], [ %893, %899 ], [ %1012, %1015 ], [ %1012, %1017 ], [ %1012, %1018 ], [ %1142, %1145 ], [ %1142, %1147 ], [ %1142, %1148 ], [ %1283, %1286 ], [ %1283, %1288 ], [ %1283, %1289 ], [ %1435, %1438 ], [ %1435, %1440 ], [ %1435, %1441 ], [ %1598, %1601 ], [ %1598, %1603 ], [ %1598, %1604 ], [ %1772, %1775 ], [ %1772, %1777 ], [ %1772, %1778 ], [ %1787, %1803 ], [ %1787, %1805 ], [ %1787, %1806 ]
   ret ptr %.0
 }
 

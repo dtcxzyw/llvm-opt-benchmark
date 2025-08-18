@@ -7984,13 +7984,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mkv_assemble_codecprivate(
   %..i.i = select i1 %21, i32 30, i32 42
   %22 = call i32 @avpriv_split_xiph_headers(ptr noundef %3, i32 noundef %4, i32 noundef %..i.i, ptr noundef nonnull %13, ptr noundef nonnull %14) #14
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %.preheader.i.critedge.i
+  br i1 %23, label %24, label %.preheader.i.i.preheader.critedge
 
 24:                                               ; preds = %20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.88) #14
   br label %put_xiph_codecpriv.exit.i
 
-.preheader.i.critedge.i:                          ; preds = %20
+.preheader.i.i.preheader.critedge:                ; preds = %20
   call void @avio_w8(ptr noundef %1, i32 noundef 2) #14
   %25 = load i32, ptr %14, align 4, !tbaa !139
   %26 = sdiv i32 %25, 255
@@ -8006,8 +8006,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mkv_assemble_codecprivate(
   call void @avio_w8(ptr noundef %1, i32 noundef %32) #14
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.i.critedge.i
-  %indvars.iv4.i.i = phi i64 [ %indvars.iv.next5.i.i, %.preheader.i.i ], [ 0, %.preheader.i.critedge.i ]
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader.critedge, %.preheader.i.i
+  %indvars.iv4.i.i = phi i64 [ %indvars.iv.next5.i.i, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader.critedge ]
   %33 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv4.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !118
   %35 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv4.i.i

@@ -67,20 +67,24 @@ declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_HIDAPI_JoystickIsHaptic(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @SDL_HIDAPI_JoystickIsHaptic(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @SDL_AssertJoysticksLocked() #3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, @SDL_HIDAPI_JoystickDriver
-  br i1 %.not, label %4, label %.critedge
+  br i1 %.not, label %.preheader, label %.loopexit
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr @SDL_HIDAPI_HapticDriverLg4ff, align 8
-  %6 = tail call zeroext i1 %5(ptr noundef nonnull %0) #3
-  br label %.critedge
+.preheader:                                       ; preds = %1, %5
+  %4 = phi i1 [ false, %5 ], [ true, %1 ]
+  br i1 %4, label %5, label %.loopexit
 
-.critedge:                                        ; preds = %4, %1
-  %.05 = phi i1 [ false, %1 ], [ %6, %4 ]
+5:                                                ; preds = %.preheader
+  %6 = load ptr, ptr @SDL_HIDAPI_HapticDriverLg4ff, align 8
+  %7 = tail call zeroext i1 %6(ptr noundef %0) #3
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !5
+
+.loopexit:                                        ; preds = %.preheader, %5, %1
+  %.05 = phi i1 [ false, %1 ], [ %4, %5 ], [ %4, %.preheader ]
   ret i1 %.05
 }
 
@@ -93,125 +97,125 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticOpenFromJoystick(ptr noundef %0, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @SDL_HIDAPI_JoystickDriver
-  br i1 %.not, label %8, label %6
+  br i1 %.not, label %.preheader56, label %6
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #3
-  br label %67
+  br label %66
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr @SDL_HIDAPI_HapticDriverLg4ff, align 8
-  %10 = tail call zeroext i1 %9(ptr noundef nonnull %1) #3
-  br i1 %10, label %11, label %.critedge
+.preheader56:                                     ; preds = %2
+  %8 = load ptr, ptr @SDL_HIDAPI_HapticDriverLg4ff, align 8
+  %9 = tail call zeroext i1 %8(ptr noundef %1) #3
+  br i1 %9, label %10, label %.critedge, !llvm.loop !6
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 8), align 8
-  %13 = tail call ptr %12(ptr noundef nonnull %1) #3
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %67, label %15
+10:                                               ; preds = %.preheader56
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 8), align 8
+  %12 = tail call ptr %11(ptr noundef %1) #3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %66, label %14
 
-15:                                               ; preds = %11
-  %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #3
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %24
+14:                                               ; preds = %10
+  %15 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %23
 
-18:                                               ; preds = %15
+17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @SDL_HIDAPI_HapticDriverLg4ff, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 16), align 8
-  call void %22(ptr noundef nonnull %3) #3
-  %23 = call zeroext i1 @SDL_OutOfMemory_REAL() #3
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %12, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @SDL_HIDAPI_HapticDriverLg4ff, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %20, align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 16), align 8
+  call void %21(ptr noundef nonnull %3) #3
+  %22 = call zeroext i1 @SDL_OutOfMemory_REAL() #3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %67
+  br label %66
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr @SDL_HIDAPI_HapticDriverLg4ff, ptr %25, align 8
-  store ptr %0, ptr %16, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %13, ptr %27, align 8
-  %28 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #3
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %33
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr @SDL_HIDAPI_HapticDriverLg4ff, ptr %24, align 8
+  store ptr %0, ptr %15, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %1, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %12, ptr %26, align 8
+  %27 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #3
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 16), align 8
-  tail call void %31(ptr noundef nonnull %16) #3
-  tail call void @SDL_free_REAL(ptr noundef nonnull %16) #3
-  %32 = tail call zeroext i1 @SDL_OutOfMemory_REAL() #3
-  br label %67
+29:                                               ; preds = %23
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 16), align 8
+  tail call void %30(ptr noundef nonnull %15) #3
+  tail call void @SDL_free_REAL(ptr noundef nonnull %15) #3
+  %31 = tail call zeroext i1 @SDL_OutOfMemory_REAL() #3
+  br label %66
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %16, ptr %34, align 8
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 24), align 8
-  %36 = tail call i32 %35(ptr noundef nonnull %16) #3
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %36, ptr %37, align 8
-  %38 = load ptr, ptr %25, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 %40(ptr noundef nonnull %16) #3
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %41, ptr %42, align 4
-  %43 = load ptr, ptr %25, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef nonnull %16) #3
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %46, ptr %47, align 8
-  %48 = load ptr, ptr %25, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 %50(ptr noundef nonnull %16) #3
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %51, ptr %52, align 4
+32:                                               ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %15, ptr %33, align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 24), align 8
+  %35 = tail call i32 %34(ptr noundef nonnull %15) #3
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %35, ptr %36, align 8
+  %37 = load ptr, ptr %24, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call i32 %39(ptr noundef nonnull %15) #3
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %40, ptr %41, align 4
+  %42 = load ptr, ptr %24, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 %44(ptr noundef nonnull %15) #3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %45, ptr %46, align 8
+  %47 = load ptr, ptr %24, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call i32 %49(ptr noundef nonnull %15) #3
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %50, ptr %51, align 4
   store i32 255, ptr %0, align 8
-  store ptr %0, ptr %28, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr null, ptr %53, align 8
-  %54 = tail call i32 @SDL_GetJoystickID_REAL(ptr noundef nonnull %1) #3
-  %55 = tail call ptr @SDL_OpenJoystick_REAL(i32 noundef %54) #3
-  %56 = load ptr, ptr @haptic_list_mutex, align 8
-  tail call void @SDL_LockMutex_REAL(ptr noundef %56) #3
-  %57 = load ptr, ptr @haptic_list_head, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %.preheader
+  store ptr %0, ptr %27, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr null, ptr %52, align 8
+  %53 = tail call i32 @SDL_GetJoystickID_REAL(ptr noundef %1) #3
+  %54 = tail call ptr @SDL_OpenJoystick_REAL(i32 noundef %53) #3
+  %55 = load ptr, ptr @haptic_list_mutex, align 8
+  tail call void @SDL_LockMutex_REAL(ptr noundef %55) #3
+  %56 = load ptr, ptr @haptic_list_head, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %.preheader
 
-59:                                               ; preds = %33
-  store ptr %28, ptr @haptic_list_head, align 8
-  br label %64
+58:                                               ; preds = %32
+  store ptr %27, ptr @haptic_list_head, align 8
+  br label %63
 
-.preheader:                                       ; preds = %33, %.preheader
-  %.0 = phi ptr [ %61, %.preheader ], [ %57, %33 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %.not55 = icmp eq ptr %61, null
-  br i1 %.not55, label %62, label %.preheader, !llvm.loop !5
+.preheader:                                       ; preds = %32, %.preheader
+  %.0 = phi ptr [ %60, %.preheader ], [ %56, %32 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not55 = icmp eq ptr %60, null
+  br i1 %.not55, label %61, label %.preheader, !llvm.loop !7
 
-62:                                               ; preds = %.preheader
-  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %28, ptr %63, align 8
-  br label %64
+61:                                               ; preds = %.preheader
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %27, ptr %62, align 8
+  br label %63
 
-64:                                               ; preds = %62, %59
-  %65 = load ptr, ptr @haptic_list_mutex, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %65) #3
-  br label %67
+63:                                               ; preds = %61, %58
+  %64 = load ptr, ptr @haptic_list_mutex, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %64) #3
+  br label %66
 
-.critedge:                                        ; preds = %8
-  %66 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #3
-  br label %67
+.critedge:                                        ; preds = %.preheader56
+  %65 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #3
+  br label %66
 
-67:                                               ; preds = %18, %30, %64, %11, %.critedge, %6
-  %.048 = phi i1 [ %7, %6 ], [ %66, %.critedge ], [ %23, %18 ], [ %32, %30 ], [ true, %64 ], [ false, %11 ]
+66:                                               ; preds = %17, %29, %63, %10, %.critedge, %6
+  %.048 = phi i1 [ %7, %6 ], [ %65, %.critedge ], [ %22, %17 ], [ %31, %29 ], [ true, %63 ], [ false, %10 ]
   ret i1 %.048
 }
 
@@ -262,7 +266,7 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
 .lr.ph:                                           ; preds = %.lr.ph31
   %5 = load ptr, ptr %.0, align 8
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !6
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.023.lcssa = phi ptr [ %.020, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
@@ -305,7 +309,7 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
   %25 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
   %.0 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %1, %22
   %26 = load ptr, ptr @haptic_list_mutex, align 8
@@ -484,3 +488,5 @@ attributes #3 = { nounwind }
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

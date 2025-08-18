@@ -16438,9 +16438,9 @@ cleanup11:                                        ; preds = %do.body3
 
 do.end17:                                         ; preds = %cleanup11.thread, %cleanup11
   %call19 = tail call noundef zeroext i1 @_ZN6google8protobuf13json_internal9JsonLexer4PeekESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 1, ptr nonnull @.str.53)
-  br i1 %call19, label %if.then20, label %do.body28.preheader
+  br i1 %call19, label %if.then20, label %do.body22.preheader
 
-do.body28.preheader:                              ; preds = %do.end17
+do.body22.preheader:                              ; preds = %do.end17
   %2 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %kind.i54, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %kind.i, i64 8
@@ -16473,7 +16473,7 @@ if.then23:                                        ; preds = %do.body22
   call void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 12, ptr nonnull @.str.26)
   br label %return
 
-do.body28:                                        ; preds = %do.body28.preheader, %do.body22
+do.body28:                                        ; preds = %do.body22.preheader, %do.body22
   %11 = load ptr, ptr %f, align 8, !noalias !358
   %path_.i = getelementptr inbounds nuw i8, ptr %11, i64 128
   %12 = load ptr, ptr %path_.i, align 8, !noalias !358
@@ -29564,9 +29564,9 @@ cleanup11:                                        ; preds = %do.body3
 
 do.end17:                                         ; preds = %cleanup11.thread, %cleanup11
   %call19 = tail call noundef zeroext i1 @_ZN6google8protobuf13json_internal9JsonLexer4PeekESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 1, ptr nonnull @.str.53)
-  br i1 %call19, label %if.then20, label %do.body28.preheader.split
+  br i1 %call19, label %if.then20, label %do.body22.preheader.split
 
-do.body28.preheader.split:                        ; preds = %do.end17
+do.body22.preheader.split:                        ; preds = %do.end17
   %2 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %kind.i55, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %kind.i, i64 8
@@ -29610,7 +29610,7 @@ if.then23:                                        ; preds = %do.body22
   call void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %json_loc_.i, i64 12, ptr nonnull @.str.26)
   br label %return
 
-do.body28:                                        ; preds = %do.body28.preheader.split, %do.body22
+do.body28:                                        ; preds = %do.body22.preheader.split, %do.body22
   %11 = load ptr, ptr %f, align 8, !noalias !638
   %path_.i = getelementptr inbounds nuw i8, ptr %11, i64 128
   %12 = load ptr, ptr %path_.i, align 8, !noalias !638
@@ -30386,13 +30386,13 @@ if.then29.i:                                      ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.start.p0(ptr nonnull %kind.i.i), !noalias !679
   call void @_ZN6google8protobuf13json_internal9JsonLexer8PeekKindEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.262") align 8 %kind.i.i, ptr noundef nonnull align 8 dereferenceable(136) %11), !noalias !679
   %113 = load i64, ptr %kind.i.i, align 8, !noalias !679
-  %cmp.i.i.i.i93 = icmp eq i64 %113, 0
-  br i1 %cmp.i.i.i.i93, label %_ZN6google8protobuf13json_internal9JsonLexer4PeekENS2_4KindE.exit.i, label %land.end.i.i
+  %cmp.i.i.i.i89 = icmp eq i64 %113, 0
+  br i1 %cmp.i.i.i.i89, label %_ZN6google8protobuf13json_internal9JsonLexer4PeekENS2_4KindE.exit.i, label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %if.then29.i
-  %and.i.i.i.i.i.i.i94 = and i64 %113, 1
-  %cmp.i.i.i.i.i.i.i95 = icmp eq i64 %and.i.i.i.i.i.i.i94, 0
-  br i1 %cmp.i.i.i.i.i.i.i95, label %_ZN6google8protobuf13json_internal9JsonLexer4PeekENS2_4KindE.exit.thread.i, label %if.then.i.i.i.i.i.i
+  %and.i.i.i.i.i.i.i90 = and i64 %113, 1
+  %cmp.i.i.i.i.i.i.i91 = icmp eq i64 %and.i.i.i.i.i.i.i90, 0
+  br i1 %cmp.i.i.i.i.i.i.i91, label %_ZN6google8protobuf13json_internal9JsonLexer4PeekENS2_4KindE.exit.thread.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.end.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %113)

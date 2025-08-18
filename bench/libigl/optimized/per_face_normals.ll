@@ -10085,19 +10085,19 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1E
   %85 = load ptr, ptr %84, align 8, !tbaa !44
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !48
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i10
+  br label %.split.us.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i10:                     ; preds = %82, %.lr.ph.i.i.i.i.i.i.i.i.i.i10
-  %.09.i.i.i.i.i.i.i.i.i.i = phi i64 [ %93, %.lr.ph.i.i.i.i.i.i.i.i.i.i10 ], [ 0, %82 ]
-  %88 = mul nsw i64 %.09.i.i.i.i.i.i.i.i.i.i, %65
+.split.us.i.i.i.i.i.i.i.i.i.i:                    ; preds = %82, %.split.us.i.i.i.i.i.i.i.i.i.i
+  %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %93, %.split.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %82 ]
+  %88 = mul nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, %65
   %89 = getelementptr double, ptr %61, i64 %88
-  %90 = mul nsw i64 %.09.i.i.i.i.i.i.i.i.i.i, %87
+  %90 = mul nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, %87
   %91 = getelementptr double, ptr %85, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !49
   store double %92, ptr %89, align 8, !tbaa !49
-  %93 = add nuw nsw i64 %.09.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i11 = icmp eq i64 %93, %63
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i11, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i10, !llvm.loop !533
+  %93 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i10 = icmp eq i64 %93, %63
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i10, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit, label %.split.us.i.i.i.i.i.i.i.i.i.i, !llvm.loop !533
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi i64 [ %98, %.lr.ph.i.i.i.i.i.i ], [ 0, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit ]
@@ -10110,7 +10110,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1E
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %98, %63
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !79
 
-_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i10, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit
+_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELi3ELi1ELi1ELi3EEEEERS3_RKNS_9DenseBaseIT_EE.exit
   ret void
 }
 

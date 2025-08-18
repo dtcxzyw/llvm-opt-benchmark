@@ -404,7 +404,7 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load i16, ptr %63, align 8
   %trunc = trunc i16 %64 to i8
-  switch i8 %trunc, label %1840 [
+  switch i8 %trunc, label %1841 [
     i8 25, label %65
     i8 0, label %65
     i8 20, label %65
@@ -438,40 +438,40 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
     i8 58, label %293
     i8 10, label %340
     i8 61, label %341
-    i8 6, label %510
-    i8 23, label %511
-    i8 49, label %514
-    i8 48, label %572
-    i8 47, label %722
-    i8 43, label %784
-    i8 29, label %821
-    i8 40, label %851
-    i8 38, label %853
-    i8 12, label %910
-    i8 41, label %910
-    i8 35, label %911
-    i8 24, label %911
-    i8 28, label %1035
-    i8 63, label %1041
-    i8 14, label %1313
-    i8 39, label %1314
-    i8 5, label %1346
-    i8 3, label %1479
-    i8 55, label %1538
-    i8 44, label %1539
-    i8 30, label %1578
-    i8 45, label %1606
-    i8 60, label %1653
-    i8 32, label %1653
-    i8 54, label %1653
-    i8 34, label %1654
-    i8 51, label %1657
-    i8 53, label %1657
-    i8 1, label %1733
-    i8 8, label %1784
-    i8 27, label %1785
-    i8 9, label %1794
-    i8 4, label %1819
+    i8 6, label %511
+    i8 23, label %512
+    i8 49, label %515
+    i8 48, label %573
+    i8 47, label %723
+    i8 43, label %785
+    i8 29, label %822
+    i8 40, label %852
+    i8 38, label %854
+    i8 12, label %911
+    i8 41, label %911
+    i8 35, label %912
+    i8 24, label %912
+    i8 28, label %1036
+    i8 63, label %1042
+    i8 14, label %1314
+    i8 39, label %1315
+    i8 5, label %1347
+    i8 3, label %1480
+    i8 55, label %1539
+    i8 44, label %1540
+    i8 30, label %1579
+    i8 45, label %1607
+    i8 60, label %1654
+    i8 32, label %1654
+    i8 54, label %1654
+    i8 34, label %1655
+    i8 51, label %1658
+    i8 53, label %1658
+    i8 1, label %1734
+    i8 8, label %1785
+    i8 27, label %1786
+    i8 9, label %1795
+    i8 4, label %1820
   ]
 
 65:                                               ; preds = %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62, %62
@@ -485,7 +485,7 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
   %69 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %70 = load ptr, ptr %69, align 8
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %68, ptr noundef %70) #10
-  br label %common.ret419
+  br label %common.ret418
 
 71:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
@@ -503,16 +503,16 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
   %81 = tail call i32 @LLVMGetVectorSize(ptr noundef %80) #10
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %83 = load ptr, ptr %82, align 8
-  %.not286 = icmp eq i32 %81, 0
-  br i1 %.not286, label %llvm_emit_swizzle.exit, label %.lr.ph279.preheader
+  %.not285 = icmp eq i32 %81, 0
+  br i1 %.not285, label %llvm_emit_swizzle.exit, label %.lr.ph278.preheader
 
-.lr.ph279.preheader:                              ; preds = %71
-  %wide.trip.count336 = zext i32 %81 to i64
-  br label %.lr.ph279
+.lr.ph278.preheader:                              ; preds = %71
+  %wide.trip.count335 = zext i32 %81 to i64
+  br label %.lr.ph278
 
-.lr.ph279:                                        ; preds = %.lr.ph279.preheader, %98
-  %indvars.iv333 = phi i64 [ 0, %.lr.ph279.preheader ], [ %indvars.iv.next334, %98 ]
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv333
+.lr.ph278:                                        ; preds = %.lr.ph278.preheader, %98
+  %indvars.iv332 = phi i64 [ 0, %.lr.ph278.preheader ], [ %indvars.iv.next333, %98 ]
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv332
   %85 = load i8, ptr %84, align 1
   %86 = sext i8 %85 to i16
   %.lhs.trunc = add nsw i16 %86, -116
@@ -525,23 +525,23 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
   %93 = icmp eq i32 %92, 31
   br i1 %93, label %94, label %98
 
-94:                                               ; preds = %.lr.ph279
+94:                                               ; preds = %.lr.ph278
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %96, align 8
   br label %98
 
-98:                                               ; preds = %94, %.lr.ph279
-  %.0.i = phi i32 [ %97, %94 ], [ %92, %.lr.ph279 ]
+98:                                               ; preds = %94, %.lr.ph278
+  %.0.i = phi i32 [ %97, %94 ], [ %92, %.lr.ph278 ]
   %99 = add i32 %.0.i, -3
   %100 = icmp ult i32 %99, 5
   %101 = zext i1 %100 to i32
   %102 = tail call ptr @LLVMConstInt(ptr noundef %91, i64 noundef %89, i32 noundef %101) #10
-  %103 = getelementptr inbounds nuw [4 x ptr], ptr %56, i64 0, i64 %indvars.iv333
+  %103 = getelementptr inbounds nuw [4 x ptr], ptr %56, i64 0, i64 %indvars.iv332
   store ptr %102, ptr %103, align 8
-  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count336
-  br i1 %exitcond337.not, label %llvm_emit_swizzle.exit, label %.lr.ph279, !llvm.loop !7
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count335
+  br i1 %exitcond336.not, label %llvm_emit_swizzle.exit, label %.lr.ph278, !llvm.loop !7
 
 llvm_emit_swizzle.exit:                           ; preds = %98, %71
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -553,7 +553,7 @@ llvm_emit_swizzle.exit:                           ; preds = %98, %71
   %110 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %109, ptr noundef %110) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br label %common.ret419
+  br label %common.ret418
 
 111:                                              ; preds = %62
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -592,14 +592,14 @@ llvm_get_benchmark_hook_global.exit:              ; preds = %116, %120
   %.013.i = phi ptr [ %124, %120 ], [ %119, %116 ]
   %125 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %.013.i, ptr noundef %125) #10
-  br label %common.ret419
+  br label %common.ret418
 
 126:                                              ; preds = %62
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr @type_anyfault, align 8
   tail call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %128, ptr noundef %129) #10
-  br label %common.ret419
+  br label %common.ret418
 
 130:                                              ; preds = %62
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -638,7 +638,7 @@ llmv_emit_test_hook.exit:                         ; preds = %135, %139
   %.013.i.i = phi ptr [ %143, %139 ], [ %138, %135 ]
   %144 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %.013.i.i, ptr noundef %144) #10
-  br label %common.ret419
+  br label %common.ret418
 
 145:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -893,16 +893,16 @@ llvm_emit_builtin_access.exit:                    ; preds = %153, %161, %162, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %common.ret419
+  br label %common.ret418
 
 290:                                              ; preds = %62
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %291, i64 32, i1 false)
-  br label %common.ret419
+  br label %common.ret418
 
 292:                                              ; preds = %62
   tail call void @llvm_emit_try_unwrap_chain(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
 293:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -935,8 +935,8 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %296
   %309 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 72
   %310 = load ptr, ptr %309, align 8
   %311 = load i32, ptr %310, align 8
-  %.not.i173 = icmp eq i32 %311, 40
-  br i1 %.not.i173, label %312, label %decl_optional_ref.exit
+  %.not.i172 = icmp eq i32 %311, 40
+  br i1 %.not.i172, label %312, label %decl_optional_ref.exit
 
 312:                                              ; preds = %tailrecurse._crit_edge.i
   %313 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 104
@@ -944,12 +944,12 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %296
   br label %decl_optional_ref.exit
 
 decl_optional_ref.exit:                           ; preds = %tailrecurse._crit_edge.i, %312
-  %.0.i174 = phi ptr [ %314, %312 ], [ null, %tailrecurse._crit_edge.i ]
+  %.0.i173 = phi ptr [ %314, %312 ], [ null, %tailrecurse._crit_edge.i ]
   %315 = load ptr, ptr @type_anyfault, align 8
   %316 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %315) #10
   %317 = load ptr, ptr @type_anyfault, align 8
   %318 = tail call i32 @type_abi_alignment(ptr noundef %317) #10
-  %319 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %316, ptr noundef %.0.i174, i32 noundef %318, ptr noundef nonnull @.str.135) #10
+  %319 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %316, ptr noundef %.0.i173, i32 noundef %318, ptr noundef nonnull @.str.135) #10
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %321 = load ptr, ptr %320, align 8
   %322 = load ptr, ptr @type_anyfault, align 8
@@ -993,11 +993,11 @@ decl_optional_ref.exit:                           ; preds = %tailrecurse._crit_e
 
 llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.exit, %335, %338
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br label %common.ret419
+  br label %common.ret418
 
 340:                                              ; preds = %62
   tail call void @llvm_emit_catch_unwrap(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
 341:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -1069,12 +1069,12 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
 
 392:                                              ; preds = %380, %376
   %.0188.i = phi ptr [ %391, %380 ], [ null, %376 ]
-  switch i32 %358, label %509 [
+  switch i32 %358, label %510 [
     i32 0, label %393
     i32 2, label %395
     i32 5, label %431
-    i32 3, label %465
-    i32 4, label %501
+    i32 3, label %466
+    i32 4, label %502
   ]
 
 393:                                              ; preds = %392
@@ -1090,9 +1090,9 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
   br label %398
 
 398:                                              ; preds = %396, %411
-  %indvars.iv329 = phi i64 [ 0, %396 ], [ %indvars.iv.next330, %411 ]
+  %indvars.iv328 = phi i64 [ 0, %396 ], [ %indvars.iv.next329, %411 ]
   %399 = load ptr, ptr @type_char, align 8
-  %400 = getelementptr inbounds nuw [8 x i32], ptr @__const.llvm_emit_typeid_info.checks, i64 0, i64 %indvars.iv329
+  %400 = getelementptr inbounds nuw [8 x i32], ptr @__const.llvm_emit_typeid_info.checks, i64 0, i64 %indvars.iv328
   %401 = load i32, ptr %400, align 4
   %402 = zext i32 %401 to i64
   %403 = call fastcc ptr @type_lowering(ptr noundef %399)
@@ -1117,9 +1117,9 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
   %416 = call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.139) #10
   call void @llvm_emit_cond_br(ptr noundef %0, ptr noundef nonnull %45, ptr noundef %397, ptr noundef %416) #10
   call void @llvm_emit_block(ptr noundef %0, ptr noundef %416) #10
-  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
-  %exitcond332.not = icmp eq i64 %indvars.iv.next330, 8
-  br i1 %exitcond332.not, label %417, label %398, !llvm.loop !10
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
+  %exitcond331.not = icmp eq i64 %indvars.iv.next329, 8
+  br i1 %exitcond331.not, label %417, label %398, !llvm.loop !10
 
 417:                                              ; preds = %411
   %418 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1147,177 +1147,177 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
   br label %llvm_emit_typeid_info.exit
 
 431:                                              ; preds = %392
-  br i1 %378, label %.critedge.i, label %453
+  br i1 %378, label %432, label %454
 
-.critedge.i:                                      ; preds = %431
-  %432 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #10
-  %433 = load ptr, ptr @type_char, align 8
-  %434 = tail call fastcc ptr @type_lowering(ptr noundef %433)
-  %435 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %434) #10
-  %436 = load i32, ptr %434, align 8
-  %437 = icmp eq i32 %436, 31
-  br i1 %437, label %438, label %442
+432:                                              ; preds = %431
+  %433 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #10
+  %434 = load ptr, ptr @type_char, align 8
+  %435 = tail call fastcc ptr @type_lowering(ptr noundef %434)
+  %436 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %435) #10
+  %437 = load i32, ptr %435, align 8
+  %438 = icmp eq i32 %437, 31
+  br i1 %438, label %439, label %443
 
-438:                                              ; preds = %.critedge.i
-  %439 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %440 = load ptr, ptr %439, align 8
-  %441 = load i32, ptr %440, align 8
-  br label %442
+439:                                              ; preds = %432
+  %440 = getelementptr inbounds nuw i8, ptr %435, i64 8
+  %441 = load ptr, ptr %440, align 8
+  %442 = load i32, ptr %441, align 8
+  br label %443
 
-442:                                              ; preds = %438, %.critedge.i
-  %.0185.i = phi i32 [ %441, %438 ], [ %436, %.critedge.i ]
-  %443 = add i32 %.0185.i, -3
-  %444 = icmp ult i32 %443, 5
-  %445 = zext i1 %444 to i32
-  %446 = tail call ptr @LLVMConstInt(ptr noundef %435, i64 noundef 8, i32 noundef %445) #10
-  call void @llvm_emit_int_comp_raw(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %433, ptr noundef %433, ptr noundef %.0188.i, ptr noundef %446, i32 noundef 19)
-  %447 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.139) #10
-  call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %432, ptr noundef %447) #10
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %447) #10
-  %448 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %449 = load i64, ptr %448, align 8
-  call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.143, i64 %449, ptr noundef null, ptr noundef null) #10
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %432) #10
-  %450 = load ptr, ptr %57, align 8
-  %.not195.i = icmp eq ptr %450, null
-  br i1 %.not195.i, label %453, label %451
+443:                                              ; preds = %439, %432
+  %.0185.i = phi i32 [ %442, %439 ], [ %437, %432 ]
+  %444 = add i32 %.0185.i, -3
+  %445 = icmp ult i32 %444, 5
+  %446 = zext i1 %445 to i32
+  %447 = tail call ptr @LLVMConstInt(ptr noundef %436, i64 noundef 8, i32 noundef %446) #10
+  call void @llvm_emit_int_comp_raw(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %434, ptr noundef %434, ptr noundef %.0188.i, ptr noundef %447, i32 noundef 19)
+  %448 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.139) #10
+  call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %433, ptr noundef %448) #10
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %448) #10
+  %449 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %450 = load i64, ptr %449, align 8
+  call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.143, i64 %450, ptr noundef null, ptr noundef null) #10
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %433) #10
+  %451 = load ptr, ptr %57, align 8
+  %.not195.i = icmp eq ptr %451, null
+  br i1 %.not195.i, label %454, label %452
 
-451:                                              ; preds = %442
-  %452 = load i64, ptr %448, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %452) #10
-  br label %453
+452:                                              ; preds = %443
+  %453 = load i64, ptr %449, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %453) #10
+  br label %454
 
-453:                                              ; preds = %451, %442, %431
-  %454 = load ptr, ptr %354, align 8
-  %455 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %454, i32 noundef 5, i32 noundef %356, ptr noundef nonnull %44)
-  %456 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %457 = load ptr, ptr %456, align 8
-  %458 = load i32, ptr %44, align 4
-  %459 = call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %457, ptr noundef %455, i32 noundef %458, ptr noundef nonnull @.str.144) #10
-  %460 = load ptr, ptr %354, align 8
-  %461 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %460, i32 noundef 6, i32 noundef %356, ptr noundef nonnull %44)
-  %462 = load ptr, ptr @type_chars, align 8
-  %463 = call ptr @type_get_subarray(ptr noundef %462) #10
-  %464 = call ptr @llvm_emit_aggregate_two(ptr noundef nonnull %0, ptr noundef %463, ptr noundef %461, ptr noundef %459)
-  call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %464, ptr noundef %463) #10
+454:                                              ; preds = %452, %443, %431
+  %455 = load ptr, ptr %354, align 8
+  %456 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %455, i32 noundef 5, i32 noundef %356, ptr noundef nonnull %44)
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %458 = load ptr, ptr %457, align 8
+  %459 = load i32, ptr %44, align 4
+  %460 = call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %458, ptr noundef %456, i32 noundef %459, ptr noundef nonnull @.str.144) #10
+  %461 = load ptr, ptr %354, align 8
+  %462 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %461, i32 noundef 6, i32 noundef %356, ptr noundef nonnull %44)
+  %463 = load ptr, ptr @type_chars, align 8
+  %464 = call ptr @type_get_subarray(ptr noundef %463) #10
+  %465 = call ptr @llvm_emit_aggregate_two(ptr noundef nonnull %0, ptr noundef %464, ptr noundef %462, ptr noundef %460)
+  call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %465, ptr noundef %464) #10
   br label %llvm_emit_typeid_info.exit
 
-465:                                              ; preds = %392
-  br i1 %378, label %466, label %493
+466:                                              ; preds = %392
+  br i1 %378, label %467, label %494
 
-466:                                              ; preds = %465
-  %467 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #10
-  br label %468
+467:                                              ; preds = %466
+  %468 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #10
+  br label %469
 
-468:                                              ; preds = %466, %481
-  %indvars.iv325 = phi i64 [ 0, %466 ], [ %indvars.iv.next326, %481 ]
-  %469 = load ptr, ptr @type_char, align 8
-  %470 = getelementptr inbounds nuw [4 x i32], ptr @__const.llvm_emit_typeid_info.checks.145, i64 0, i64 %indvars.iv325
-  %471 = load i32, ptr %470, align 4
-  %472 = zext i32 %471 to i64
-  %473 = call fastcc ptr @type_lowering(ptr noundef %469)
-  %474 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %473) #10
-  %475 = load i32, ptr %473, align 8
-  %476 = icmp eq i32 %475, 31
-  br i1 %476, label %477, label %481
+469:                                              ; preds = %467, %482
+  %indvars.iv324 = phi i64 [ 0, %467 ], [ %indvars.iv.next325, %482 ]
+  %470 = load ptr, ptr @type_char, align 8
+  %471 = getelementptr inbounds nuw [4 x i32], ptr @__const.llvm_emit_typeid_info.checks.145, i64 0, i64 %indvars.iv324
+  %472 = load i32, ptr %471, align 4
+  %473 = zext i32 %472 to i64
+  %474 = call fastcc ptr @type_lowering(ptr noundef %470)
+  %475 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %474) #10
+  %476 = load i32, ptr %474, align 8
+  %477 = icmp eq i32 %476, 31
+  br i1 %477, label %478, label %482
 
-477:                                              ; preds = %468
-  %478 = getelementptr inbounds nuw i8, ptr %473, i64 8
-  %479 = load ptr, ptr %478, align 8
-  %480 = load i32, ptr %479, align 8
-  br label %481
+478:                                              ; preds = %469
+  %479 = getelementptr inbounds nuw i8, ptr %474, i64 8
+  %480 = load ptr, ptr %479, align 8
+  %481 = load i32, ptr %480, align 8
+  br label %482
 
-481:                                              ; preds = %477, %468
-  %.0.i122 = phi i32 [ %480, %477 ], [ %475, %468 ]
-  %482 = add i32 %.0.i122, -3
-  %483 = icmp ult i32 %482, 5
-  %484 = zext i1 %483 to i32
-  %485 = call ptr @LLVMConstInt(ptr noundef %474, i64 noundef %472, i32 noundef %484) #10
-  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %47, ptr noundef %469, ptr noundef %469, ptr noundef %.0188.i, ptr noundef %485, i32 noundef 19)
-  %486 = call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.139) #10
-  call void @llvm_emit_cond_br(ptr noundef %0, ptr noundef nonnull %47, ptr noundef %467, ptr noundef %486) #10
-  call void @llvm_emit_block(ptr noundef %0, ptr noundef %486) #10
-  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
-  %exitcond328.not = icmp eq i64 %indvars.iv.next326, 4
-  br i1 %exitcond328.not, label %487, label %468, !llvm.loop !11
+482:                                              ; preds = %478, %469
+  %.0.i122 = phi i32 [ %481, %478 ], [ %476, %469 ]
+  %483 = add i32 %.0.i122, -3
+  %484 = icmp ult i32 %483, 5
+  %485 = zext i1 %484 to i32
+  %486 = call ptr @LLVMConstInt(ptr noundef %475, i64 noundef %473, i32 noundef %485) #10
+  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %47, ptr noundef %470, ptr noundef %470, ptr noundef %.0188.i, ptr noundef %486, i32 noundef 19)
+  %487 = call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.139) #10
+  call void @llvm_emit_cond_br(ptr noundef %0, ptr noundef nonnull %47, ptr noundef %468, ptr noundef %487) #10
+  call void @llvm_emit_block(ptr noundef %0, ptr noundef %487) #10
+  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
+  %exitcond327.not = icmp eq i64 %indvars.iv.next325, 4
+  br i1 %exitcond327.not, label %488, label %469, !llvm.loop !11
 
-487:                                              ; preds = %481
-  %488 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %489 = load i64, ptr %488, align 8
-  call void @llvm_emit_panic(ptr noundef %0, ptr noundef nonnull @.str.146, i64 %489, ptr noundef null, ptr noundef null) #10
-  call void @llvm_emit_block(ptr noundef %0, ptr noundef %467) #10
-  %490 = load ptr, ptr %57, align 8
-  %.not.i121 = icmp eq ptr %490, null
-  br i1 %.not.i121, label %493, label %491
+488:                                              ; preds = %482
+  %489 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %490 = load i64, ptr %489, align 8
+  call void @llvm_emit_panic(ptr noundef %0, ptr noundef nonnull @.str.146, i64 %490, ptr noundef null, ptr noundef null) #10
+  call void @llvm_emit_block(ptr noundef %0, ptr noundef %468) #10
+  %491 = load ptr, ptr %57, align 8
+  %.not.i121 = icmp eq ptr %491, null
+  br i1 %.not.i121, label %494, label %492
 
-491:                                              ; preds = %487
-  %492 = load i64, ptr %488, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %492) #10
-  br label %493
+492:                                              ; preds = %488
+  %493 = load i64, ptr %489, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %493) #10
+  br label %494
 
-493:                                              ; preds = %491, %487, %465
-  %494 = load ptr, ptr %354, align 8
-  %495 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %494, i32 noundef 5, i32 noundef %356, ptr noundef nonnull %44)
-  %496 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %497 = load ptr, ptr %496, align 8
-  %498 = load i32, ptr %44, align 4
-  %499 = call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %497, ptr noundef %495, i32 noundef %498, ptr noundef nonnull @.str.147) #10
-  %500 = load ptr, ptr %2, align 8
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %499, ptr noundef %500) #10
+494:                                              ; preds = %492, %488, %466
+  %495 = load ptr, ptr %354, align 8
+  %496 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %495, i32 noundef 5, i32 noundef %356, ptr noundef nonnull %44)
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %498 = load ptr, ptr %497, align 8
+  %499 = load i32, ptr %44, align 4
+  %500 = call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %498, ptr noundef %496, i32 noundef %499, ptr noundef nonnull @.str.147) #10
+  %501 = load ptr, ptr %2, align 8
+  call void @llvm_value_set(ptr noundef %1, ptr noundef %500, ptr noundef %501) #10
   br label %llvm_emit_typeid_info.exit
 
-501:                                              ; preds = %392
-  %502 = load ptr, ptr %354, align 8
-  %503 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %502, i32 noundef 3, i32 noundef %356, ptr noundef nonnull %44)
-  %504 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %505 = load ptr, ptr %504, align 8
-  %506 = load i32, ptr %44, align 4
-  %507 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %505, ptr noundef %503, i32 noundef %506, ptr noundef nonnull @.str.148) #10
-  %508 = load ptr, ptr %2, align 8
-  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %507, ptr noundef %508) #10
+502:                                              ; preds = %392
+  %503 = load ptr, ptr %354, align 8
+  %504 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %503, i32 noundef 3, i32 noundef %356, ptr noundef nonnull %44)
+  %505 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %506 = load ptr, ptr %505, align 8
+  %507 = load i32, ptr %44, align 4
+  %508 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %506, ptr noundef %504, i32 noundef %507, ptr noundef nonnull @.str.148) #10
+  %509 = load ptr, ptr %2, align 8
+  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %508, ptr noundef %509) #10
   br label %llvm_emit_typeid_info.exit
 
-509:                                              ; preds = %392
+510:                                              ; preds = %392
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_typeid_info, ptr noundef nonnull @.str.11, i32 noundef 6591) #11
   unreachable
 
-llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %453, %493, %501
+llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %454, %494, %502
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %common.ret419
+  br label %common.ret418
 
-510:                                              ; preds = %62
+511:                                              ; preds = %62
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_expr, ptr noundef nonnull @.str.11, i32 noundef 6919) #11
   unreachable
 
-511:                                              ; preds = %62
-  %512 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %513 = load ptr, ptr %512, align 8
-  tail call void @llvm_emit_local_decl(ptr noundef nonnull %0, ptr noundef %513, ptr noundef %1) #10
-  br label %common.ret419
+512:                                              ; preds = %62
+  %513 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %514 = load ptr, ptr %513, align 8
+  tail call void @llvm_emit_local_decl(ptr noundef nonnull %0, ptr noundef %514, ptr noundef %1) #10
+  br label %common.ret418
 
-514:                                              ; preds = %62
+515:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %515 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %516 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %517 = load i32, ptr %516, align 4
-  %518 = load ptr, ptr @expr_arena, align 8
-  %519 = zext i32 %517 to i64
-  %520 = getelementptr inbounds nuw %struct.Expr_, ptr %518, i64 %519
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %520)
+  %516 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %517 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %518 = load i32, ptr %517, align 4
+  %519 = load ptr, ptr @expr_arena, align 8
+  %520 = zext i32 %518 to i64
+  %521 = getelementptr inbounds nuw %struct.Expr_, ptr %519, i64 %520
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %521)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %521 = load i32, ptr %515, align 8
-  %522 = load ptr, ptr @expr_arena, align 8
-  %523 = zext i32 %521 to i64
-  %524 = getelementptr inbounds nuw %struct.Expr_, ptr %522, i64 %523
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef %524)
+  %522 = load i32, ptr %516, align 8
+  %523 = load ptr, ptr @expr_arena, align 8
+  %524 = zext i32 %522 to i64
+  %525 = getelementptr inbounds nuw %struct.Expr_, ptr %523, i64 %524
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef %525)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %38) #10
   call void @llvm_emit_subarray_pointer(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %39)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %39) #10
@@ -1325,79 +1325,79 @@ llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %4
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %40) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %1) #10
-  %525 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %528 = load ptr, ptr %527, align 8
-  %529 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %528) #10
-  %530 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %531 = load i32, ptr %530, align 4
-  %532 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %526, ptr noundef %529, i32 noundef 1, i32 noundef %531, ptr noundef nonnull %7)
-  %533 = load ptr, ptr @type_usz, align 8
-  %534 = load i32, ptr %7, align 4
-  call void @llvm_value_set_address(ptr noundef nonnull %41, ptr noundef %532, ptr noundef %533, i32 noundef %534) #10
+  %526 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %527 = load ptr, ptr %526, align 8
+  %528 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %529 = load ptr, ptr %528, align 8
+  %530 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %529) #10
+  %531 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %532 = load i32, ptr %531, align 4
+  %533 = call ptr @llvm_emit_struct_gep_raw(ptr noundef nonnull %0, ptr noundef %527, ptr noundef %530, i32 noundef 1, i32 noundef %532, ptr noundef nonnull %7)
+  %534 = load ptr, ptr @type_usz, align 8
+  %535 = load i32, ptr %7, align 4
+  call void @llvm_value_set_address(ptr noundef nonnull %41, ptr noundef %533, ptr noundef %534, i32 noundef %535) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %41) #10
-  %535 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
-  %.not.i123 = icmp eq i32 %535, 0
-  br i1 %.not.i123, label %539, label %536
+  %536 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
+  %.not.i123 = icmp eq i32 %536, 0
+  br i1 %.not.i123, label %540, label %537
 
-536:                                              ; preds = %514
+537:                                              ; preds = %515
   call void @llvm_emit_subarray_len(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %42)
   call void @llvm_emit_int_comp(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull %42, ptr noundef nonnull %41, i32 noundef 18)
-  %537 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %538 = load i64, ptr %537, align 8
-  call void @llvm_emit_panic_if_true(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull @.str.149, i64 %538, ptr noundef nonnull @.str.150, ptr noundef nonnull %42, ptr noundef nonnull %41) #10
-  br label %539
+  %538 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %539 = load i64, ptr %538, align 8
+  call void @llvm_emit_panic_if_true(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull @.str.149, i64 %539, ptr noundef nonnull @.str.150, ptr noundef nonnull %42, ptr noundef nonnull %41) #10
+  br label %540
 
-539:                                              ; preds = %536, %514
-  %540 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %541, i64 56
-  %543 = load ptr, ptr %542, align 8
-  %544 = call i32 @type_abi_alignment(ptr noundef %543) #10
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %546 = load ptr, ptr %545, align 8
-  %547 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %548 = load ptr, ptr %547, align 8
-  %549 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %550 = load ptr, ptr %549, align 8
-  %551 = call i32 @type_size(ptr noundef %543) #10
-  %552 = call fastcc ptr @type_lowering(ptr noundef %550)
-  %553 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %552) #10
-  %554 = load i32, ptr %552, align 8
-  %555 = icmp eq i32 %554, 31
-  br i1 %555, label %556, label %llvm_emit_slice_copy.exit
+540:                                              ; preds = %537, %515
+  %541 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %542 = load ptr, ptr %541, align 8
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 56
+  %544 = load ptr, ptr %543, align 8
+  %545 = call i32 @type_abi_alignment(ptr noundef %544) #10
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %547 = load ptr, ptr %546, align 8
+  %548 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %549 = load ptr, ptr %548, align 8
+  %550 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %551 = load ptr, ptr %550, align 8
+  %552 = call i32 @type_size(ptr noundef %544) #10
+  %553 = call fastcc ptr @type_lowering(ptr noundef %551)
+  %554 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %553) #10
+  %555 = load i32, ptr %553, align 8
+  %556 = icmp eq i32 %555, 31
+  br i1 %556, label %557, label %llvm_emit_slice_copy.exit
 
-556:                                              ; preds = %539
-  %557 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %558 = load ptr, ptr %557, align 8
-  %559 = load i32, ptr %558, align 8
+557:                                              ; preds = %540
+  %558 = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %559 = load ptr, ptr %558, align 8
+  %560 = load i32, ptr %559, align 8
   br label %llvm_emit_slice_copy.exit
 
-llvm_emit_slice_copy.exit:                        ; preds = %539, %556
-  %.0.i124 = phi i32 [ %559, %556 ], [ %554, %539 ]
-  %560 = zext i32 %551 to i64
-  %561 = add i32 %.0.i124, -3
-  %562 = icmp ult i32 %561, 5
-  %563 = zext i1 %562 to i32
-  %564 = call ptr @LLVMConstInt(ptr noundef %553, i64 noundef %560, i32 noundef %563) #10
-  %565 = call ptr @LLVMBuildMul(ptr noundef %546, ptr noundef %548, ptr noundef %564, ptr noundef nonnull @.str.3) #10
-  %566 = load ptr, ptr %545, align 8
-  %567 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %570 = load ptr, ptr %569, align 8
-  %571 = call ptr @LLVMBuildMemMove(ptr noundef %566, ptr noundef %568, i32 noundef %544, ptr noundef %570, i32 noundef %544, ptr noundef %565) #10
+llvm_emit_slice_copy.exit:                        ; preds = %540, %557
+  %.0.i124 = phi i32 [ %560, %557 ], [ %555, %540 ]
+  %561 = zext i32 %552 to i64
+  %562 = add i32 %.0.i124, -3
+  %563 = icmp ult i32 %562, 5
+  %564 = zext i1 %563 to i32
+  %565 = call ptr @LLVMConstInt(ptr noundef %554, i64 noundef %561, i32 noundef %564) #10
+  %566 = call ptr @LLVMBuildMul(ptr noundef %547, ptr noundef %549, ptr noundef %565, ptr noundef nonnull @.str.3) #10
+  %567 = load ptr, ptr %546, align 8
+  %568 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %571 = load ptr, ptr %570, align 8
+  %572 = call ptr @LLVMBuildMemMove(ptr noundef %567, ptr noundef %569, i32 noundef %545, ptr noundef %571, i32 noundef %545, ptr noundef %566) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br label %common.ret419
+  br label %common.ret418
 
-572:                                              ; preds = %62
+573:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -1409,274 +1409,274 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %573 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %574 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %575 = load i32, ptr %574, align 4
-  %576 = load ptr, ptr @expr_arena, align 8
-  %577 = zext i32 %575 to i64
-  %578 = getelementptr inbounds nuw %struct.Expr_, ptr %576, i64 %577
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %578)
+  %574 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %575 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %576 = load i32, ptr %575, align 4
+  %577 = load ptr, ptr @expr_arena, align 8
+  %578 = zext i32 %576 to i64
+  %579 = getelementptr inbounds nuw %struct.Expr_, ptr %577, i64 %578
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %579)
   %.val.i = load i8, ptr %1, align 8
-  %579 = and i8 %.val.i, 31
-  %580 = add nsw i8 %579, -1
-  %spec.select.i = icmp ult i8 %580, 2
-  br i1 %spec.select.i, label %581, label %604
+  %580 = and i8 %.val.i, 31
+  %581 = add nsw i8 %580, -1
+  %spec.select.i = icmp ult i8 %581, 2
+  br i1 %spec.select.i, label %582, label %605
 
-581:                                              ; preds = %572
-  %582 = load ptr, ptr %578, align 8
-  %583 = tail call i32 @type_size(ptr noundef %582) #10
-  %584 = icmp ugt i32 %583, 16
-  br i1 %584, label %585, label %604
+582:                                              ; preds = %573
+  %583 = load ptr, ptr %579, align 8
+  %584 = tail call i32 @type_size(ptr noundef %583) #10
+  %585 = icmp ugt i32 %584, 16
+  br i1 %585, label %586, label %605
 
-585:                                              ; preds = %581
-  %586 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %587 = load ptr, ptr %586, align 8
-  %588 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %587) #10
-  %589 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %590 = load i32, ptr %589, align 4
-  %591 = tail call ptr @llvm_emit_alloca(ptr noundef nonnull %0, ptr noundef %588, i32 noundef %590, ptr noundef nonnull @.str.151) #10
-  %592 = load ptr, ptr %586, align 8
-  %593 = tail call ptr @LLVMIsAAllocaInst(ptr noundef %591) #10
-  %.not.i127 = icmp eq ptr %593, null
-  br i1 %.not.i127, label %594, label %596
+586:                                              ; preds = %582
+  %587 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %588 = load ptr, ptr %587, align 8
+  %589 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %588) #10
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %591 = load i32, ptr %590, align 4
+  %592 = tail call ptr @llvm_emit_alloca(ptr noundef nonnull %0, ptr noundef %589, i32 noundef %591, ptr noundef nonnull @.str.151) #10
+  %593 = load ptr, ptr %587, align 8
+  %594 = tail call ptr @LLVMIsAAllocaInst(ptr noundef %592) #10
+  %.not.i127 = icmp eq ptr %594, null
+  br i1 %.not.i127, label %595, label %597
 
-594:                                              ; preds = %585
-  %595 = tail call ptr @LLVMIsAGlobalVariable(ptr noundef %591) #10
-  %.not131.i = icmp eq ptr %595, null
-  br i1 %.not131.i, label %598, label %596
+595:                                              ; preds = %586
+  %596 = tail call ptr @LLVMIsAGlobalVariable(ptr noundef %592) #10
+  %.not131.i = icmp eq ptr %596, null
+  br i1 %.not131.i, label %599, label %597
 
-596:                                              ; preds = %594, %585
-  %597 = tail call i32 @LLVMGetAlignment(ptr noundef %591) #10
-  br label %600
+597:                                              ; preds = %595, %586
+  %598 = tail call i32 @LLVMGetAlignment(ptr noundef %592) #10
+  br label %601
 
-598:                                              ; preds = %594
-  %599 = tail call i32 @type_abi_alignment(ptr noundef %592) #10
-  br label %600
+599:                                              ; preds = %595
+  %600 = tail call i32 @type_abi_alignment(ptr noundef %593) #10
+  br label %601
 
-600:                                              ; preds = %598, %596
-  %.0123.i = phi i32 [ %597, %596 ], [ %599, %598 ]
-  %601 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %591, ptr noundef nonnull %1, i32 noundef %.0123.i) #10
-  %602 = load ptr, ptr %586, align 8
-  %603 = load i32, ptr %589, align 4
-  tail call void @llvm_value_set_address(ptr noundef nonnull %1, ptr noundef %591, ptr noundef %602, i32 noundef %603) #10
-  br label %605
+601:                                              ; preds = %599, %597
+  %.0123.i = phi i32 [ %598, %597 ], [ %600, %599 ]
+  %602 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %592, ptr noundef nonnull %1, i32 noundef %.0123.i) #10
+  %603 = load ptr, ptr %587, align 8
+  %604 = load i32, ptr %590, align 4
+  tail call void @llvm_value_set_address(ptr noundef nonnull %1, ptr noundef %592, ptr noundef %603, i32 noundef %604) #10
+  br label %606
 
-604:                                              ; preds = %581, %572
+605:                                              ; preds = %582, %573
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
-  br label %605
+  br label %606
 
-605:                                              ; preds = %604, %600
-  %606 = load i32, ptr %573, align 8
-  %607 = load ptr, ptr @expr_arena, align 8
-  %608 = zext i32 %606 to i64
-  %609 = getelementptr inbounds nuw %struct.Expr_, ptr %607, i64 %608
-  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef %609, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+606:                                              ; preds = %605, %601
+  %607 = load i32, ptr %574, align 8
+  %608 = load ptr, ptr @expr_arena, align 8
+  %609 = zext i32 %607 to i64
+  %610 = getelementptr inbounds nuw %struct.Expr_, ptr %608, i64 %609
+  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef %610, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %28) #10
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %29) #10
-  %610 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %611 = load ptr, ptr %610, align 8
-  %612 = call i32 @LLVMIsConstant(ptr noundef %611) #10
-  %.not132.i = icmp eq i32 %612, 0
-  br i1 %.not132.i, label %670, label %613
+  %611 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %612 = load ptr, ptr %611, align 8
+  %613 = call i32 @LLVMIsConstant(ptr noundef %612) #10
+  %.not132.i = icmp eq i32 %613, 0
+  br i1 %.not132.i, label %671, label %614
 
-613:                                              ; preds = %605
-  %614 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %615 = load ptr, ptr %614, align 8
-  %616 = call i32 @LLVMIsConstant(ptr noundef %615) #10
-  %.not133.i = icmp eq i32 %616, 0
-  br i1 %.not133.i, label %670, label %617
+614:                                              ; preds = %606
+  %615 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %616 = load ptr, ptr %615, align 8
+  %617 = call i32 @LLVMIsConstant(ptr noundef %616) #10
+  %.not133.i = icmp eq i32 %617, 0
+  br i1 %.not133.i, label %671, label %618
 
-617:                                              ; preds = %613
-  %618 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %619 = load ptr, ptr %618, align 8
-  %620 = load i32, ptr %619, align 8
-  %621 = add i32 %620, -3
-  %or.cond.i125 = icmp ult i32 %621, 5
-  br i1 %or.cond.i125, label %629, label %622
+618:                                              ; preds = %614
+  %619 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %620 = load ptr, ptr %619, align 8
+  %621 = load i32, ptr %620, align 8
+  %622 = add i32 %621, -3
+  %or.cond.i125 = icmp ult i32 %622, 5
+  br i1 %or.cond.i125, label %630, label %623
 
-622:                                              ; preds = %617
-  %.not134.i = icmp eq i32 %620, 37
-  br i1 %.not134.i, label %623, label %629
+623:                                              ; preds = %618
+  %.not134.i = icmp eq i32 %621, 37
+  br i1 %.not134.i, label %624, label %630
 
-623:                                              ; preds = %622
-  %624 = getelementptr inbounds nuw i8, ptr %619, i64 56
-  %625 = load ptr, ptr %624, align 8
-  %626 = load i32, ptr %625, align 8
-  %627 = add i32 %626, -3
-  %628 = icmp ult i32 %627, 5
-  br label %629
+624:                                              ; preds = %623
+  %625 = getelementptr inbounds nuw i8, ptr %620, i64 56
+  %626 = load ptr, ptr %625, align 8
+  %627 = load i32, ptr %626, align 8
+  %628 = add i32 %627, -3
+  %629 = icmp ult i32 %628, 5
+  br label %630
 
-629:                                              ; preds = %623, %622, %617
-  %.0124.i = phi i1 [ %628, %623 ], [ true, %617 ], [ false, %622 ]
-  %630 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %631 = load ptr, ptr %630, align 8
-  %632 = load i32, ptr %631, align 8
-  %633 = add i32 %632, -3
-  %or.cond3.i = icmp ult i32 %633, 5
-  br i1 %or.cond3.i, label %641, label %634
+630:                                              ; preds = %624, %623, %618
+  %.0124.i = phi i1 [ %629, %624 ], [ true, %618 ], [ false, %623 ]
+  %631 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %632 = load ptr, ptr %631, align 8
+  %633 = load i32, ptr %632, align 8
+  %634 = add i32 %633, -3
+  %or.cond3.i = icmp ult i32 %634, 5
+  br i1 %or.cond3.i, label %642, label %635
 
-634:                                              ; preds = %629
-  %.not135.i = icmp eq i32 %632, 37
-  br i1 %.not135.i, label %635, label %641
+635:                                              ; preds = %630
+  %.not135.i = icmp eq i32 %633, 37
+  br i1 %.not135.i, label %636, label %642
 
-635:                                              ; preds = %634
-  %636 = getelementptr inbounds nuw i8, ptr %631, i64 56
-  %637 = load ptr, ptr %636, align 8
-  %638 = load i32, ptr %637, align 8
-  %639 = add i32 %638, -3
-  %640 = icmp ult i32 %639, 5
-  br label %641
+636:                                              ; preds = %635
+  %637 = getelementptr inbounds nuw i8, ptr %632, i64 56
+  %638 = load ptr, ptr %637, align 8
+  %639 = load i32, ptr %638, align 8
+  %640 = add i32 %639, -3
+  %641 = icmp ult i32 %640, 5
+  br label %642
 
-641:                                              ; preds = %635, %634, %629
-  %.0125.i = phi i1 [ %640, %635 ], [ true, %629 ], [ false, %634 ]
-  %642 = load ptr, ptr %610, align 8
-  br i1 %.0124.i, label %643, label %645
+642:                                              ; preds = %636, %635, %630
+  %.0125.i = phi i1 [ %641, %636 ], [ true, %630 ], [ false, %635 ]
+  %643 = load ptr, ptr %611, align 8
+  br i1 %.0124.i, label %644, label %646
 
-643:                                              ; preds = %641
-  %644 = call i64 @LLVMConstIntGetSExtValue(ptr noundef %642) #10
-  br label %647
+644:                                              ; preds = %642
+  %645 = call i64 @LLVMConstIntGetSExtValue(ptr noundef %643) #10
+  br label %648
 
-645:                                              ; preds = %641
-  %646 = call i64 @LLVMConstIntGetZExtValue(ptr noundef %642) #10
-  br label %647
+646:                                              ; preds = %642
+  %647 = call i64 @LLVMConstIntGetZExtValue(ptr noundef %643) #10
+  br label %648
 
-647:                                              ; preds = %645, %643
-  %648 = phi i64 [ %644, %643 ], [ %646, %645 ]
-  %649 = load ptr, ptr %614, align 8
-  br i1 %.0125.i, label %650, label %652
+648:                                              ; preds = %646, %644
+  %649 = phi i64 [ %645, %644 ], [ %647, %646 ]
+  %650 = load ptr, ptr %615, align 8
+  br i1 %.0125.i, label %651, label %653
 
-650:                                              ; preds = %647
-  %651 = call i64 @LLVMConstIntGetSExtValue(ptr noundef %649) #10
-  br label %654
+651:                                              ; preds = %648
+  %652 = call i64 @LLVMConstIntGetSExtValue(ptr noundef %650) #10
+  br label %655
 
-652:                                              ; preds = %647
-  %653 = call i64 @LLVMConstIntGetZExtValue(ptr noundef %649) #10
-  br label %654
+653:                                              ; preds = %648
+  %654 = call i64 @LLVMConstIntGetZExtValue(ptr noundef %650) #10
+  br label %655
 
-654:                                              ; preds = %652, %650
-  %655 = phi i64 [ %651, %650 ], [ %653, %652 ]
-  %656 = icmp ugt i64 %648, %655
-  br i1 %656, label %llvm_emit_slice_assign.exit, label %657
+655:                                              ; preds = %653, %651
+  %656 = phi i64 [ %652, %651 ], [ %654, %653 ]
+  %657 = icmp ugt i64 %649, %656
+  br i1 %657, label %llvm_emit_slice_assign.exit, label %658
 
-657:                                              ; preds = %654
-  %658 = load i8, ptr %30, align 1
-  %659 = trunc i8 %658 to i1
-  br i1 %659, label %660, label %664
+658:                                              ; preds = %655
+  %659 = load i8, ptr %30, align 1
+  %660 = trunc i8 %659 to i1
+  br i1 %660, label %661, label %665
 
-660:                                              ; preds = %657
-  %661 = icmp eq i64 %648, %655
-  br i1 %661, label %llvm_emit_slice_assign.exit, label %662
+661:                                              ; preds = %658
+  %662 = icmp eq i64 %649, %656
+  br i1 %662, label %llvm_emit_slice_assign.exit, label %663
 
-662:                                              ; preds = %660
-  %663 = add i64 %655, -1
-  br label %664
+663:                                              ; preds = %661
+  %664 = add i64 %656, -1
+  br label %665
 
-664:                                              ; preds = %662, %657
-  %.0126.i = phi i64 [ %663, %662 ], [ %655, %657 ]
-  %665 = sub i64 %.0126.i, %648
-  %666 = icmp ult i64 %665, 4
-  br i1 %666, label %.preheader, label %670
+665:                                              ; preds = %663, %658
+  %.0126.i = phi i64 [ %664, %663 ], [ %656, %658 ]
+  %666 = sub i64 %.0126.i, %649
+  %667 = icmp ult i64 %666, 4
+  br i1 %667, label %.preheader, label %671
 
-.preheader:                                       ; preds = %664
-  %.not138.i272 = icmp ugt i64 %648, %.0126.i
-  br i1 %.not138.i272, label %llvm_emit_slice_assign.exit, label %.lr.ph274
+.preheader:                                       ; preds = %665
+  %.not138.i271 = icmp ugt i64 %649, %.0126.i
+  br i1 %.not138.i271, label %llvm_emit_slice_assign.exit, label %.lr.ph273
 
-.lr.ph274:                                        ; preds = %.preheader, %.lr.ph274
-  %.0127.i273 = phi i64 [ %669, %.lr.ph274 ], [ %648, %.preheader ]
-  %667 = load ptr, ptr @type_usz, align 8
-  call void @llvm_value_set_int(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %667, i64 noundef %.0127.i273) #10
+.lr.ph273:                                        ; preds = %.preheader, %.lr.ph273
+  %.0127.i272 = phi i64 [ %670, %.lr.ph273 ], [ %649, %.preheader ]
+  %668 = load ptr, ptr @type_usz, align 8
+  call void @llvm_value_set_int(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %668, i64 noundef %.0127.i272) #10
   call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %27, ptr noundef %32)
-  %668 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %1) #10
-  %669 = add i64 %.0127.i273, 1
-  %.not138.i = icmp ugt i64 %669, %.0126.i
-  br i1 %.not138.i, label %llvm_emit_slice_assign.exit, label %.lr.ph274, !llvm.loop !12
+  %669 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %1) #10
+  %670 = add i64 %.0127.i272, 1
+  %.not138.i = icmp ugt i64 %670, %.0126.i
+  br i1 %.not138.i, label %llvm_emit_slice_assign.exit, label %.lr.ph273, !llvm.loop !12
 
-670:                                              ; preds = %664, %613, %605
-  %671 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %672 = load ptr, ptr %671, align 8
-  %673 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.152) #10
-  %674 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.83) #10
-  %675 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.153) #10
-  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %673) #10
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %673) #10
-  %676 = load ptr, ptr %57, align 8
-  %.not136.i = icmp eq ptr %676, null
-  br i1 %.not136.i, label %680, label %677
-
-677:                                              ; preds = %670
-  %678 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %679 = load i64, ptr %678, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %679) #10
-  br label %680
-
-680:                                              ; preds = %677, %670
-  %681 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %682 = load ptr, ptr %681, align 8
-  %683 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %684 = load ptr, ptr %683, align 8
-  %685 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %684) #10
-  %686 = call ptr @LLVMBuildPhi(ptr noundef %682, ptr noundef %685, ptr noundef nonnull @.str.3) #10
-  %687 = load ptr, ptr %683, align 8
-  call void @llvm_value_set(ptr noundef nonnull %33, ptr noundef %686, ptr noundef %687) #10
-  %688 = load i8, ptr %30, align 1
-  %689 = trunc i8 %688 to i1
-  %690 = select i1 %689, i32 16, i32 17
-  %691 = load ptr, ptr %683, align 8
-  %692 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %693 = load ptr, ptr %692, align 8
-  %694 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %695 = load ptr, ptr %694, align 8
-  call void @llvm_emit_int_comp_raw(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %691, ptr noundef %693, ptr noundef %686, ptr noundef %695, i32 noundef %690)
-  %696 = load ptr, ptr %57, align 8
-  %.not137.i = icmp eq ptr %696, null
-  br i1 %.not137.i, label %700, label %697
-
-697:                                              ; preds = %680
-  %698 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %699 = load i64, ptr %698, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %699) #10
-  br label %700
-
-700:                                              ; preds = %697, %680
-  call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %675, ptr noundef %674) #10
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %675) #10
-  %701 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef %33)
-  %702 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %1) #10
-  %703 = load ptr, ptr %683, align 8
-  %704 = call fastcc ptr @type_lowering(ptr noundef %703)
-  %705 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %704) #10
-  %706 = load i32, ptr %704, align 8
-  %707 = icmp eq i32 %706, 31
-  br i1 %707, label %708, label %712
-
-708:                                              ; preds = %700
-  %709 = getelementptr inbounds nuw i8, ptr %704, i64 8
-  %710 = load ptr, ptr %709, align 8
-  %711 = load i32, ptr %710, align 8
-  br label %712
-
-712:                                              ; preds = %708, %700
-  %.0.i126 = phi i32 [ %711, %708 ], [ %706, %700 ]
-  %713 = add i32 %.0.i126, -3
-  %714 = icmp ult i32 %713, 5
-  %715 = zext i1 %714 to i32
-  %716 = call ptr @LLVMConstInt(ptr noundef %705, i64 noundef 1, i32 noundef %715) #10
-  %717 = load i64, ptr %701, align 8
-  %718 = call fastcc ptr @llvm_emit_add_int(ptr noundef nonnull %0, ptr noundef %703, ptr noundef %686, ptr noundef %716, i64 %717)
-  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %673) #10
-  %719 = load ptr, ptr %610, align 8
-  store ptr %719, ptr %36, align 16
-  %720 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %718, ptr %720, align 8
-  store ptr %672, ptr %37, align 16
-  %721 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %675, ptr %721, align 8
-  call void @LLVMAddIncoming(ptr noundef %686, ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef 2) #10
+671:                                              ; preds = %665, %614, %606
+  %672 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %673 = load ptr, ptr %672, align 8
+  %674 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.152) #10
+  %675 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.83) #10
+  %676 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.153) #10
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %674) #10
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %674) #10
+  %677 = load ptr, ptr %57, align 8
+  %.not136.i = icmp eq ptr %677, null
+  br i1 %.not136.i, label %681, label %678
+
+678:                                              ; preds = %671
+  %679 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %680 = load i64, ptr %679, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %680) #10
+  br label %681
+
+681:                                              ; preds = %678, %671
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %683 = load ptr, ptr %682, align 8
+  %684 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %685 = load ptr, ptr %684, align 8
+  %686 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %685) #10
+  %687 = call ptr @LLVMBuildPhi(ptr noundef %683, ptr noundef %686, ptr noundef nonnull @.str.3) #10
+  %688 = load ptr, ptr %684, align 8
+  call void @llvm_value_set(ptr noundef nonnull %33, ptr noundef %687, ptr noundef %688) #10
+  %689 = load i8, ptr %30, align 1
+  %690 = trunc i8 %689 to i1
+  %691 = select i1 %690, i32 16, i32 17
+  %692 = load ptr, ptr %684, align 8
+  %693 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %694 = load ptr, ptr %693, align 8
+  %695 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %696 = load ptr, ptr %695, align 8
+  call void @llvm_emit_int_comp_raw(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %692, ptr noundef %694, ptr noundef %687, ptr noundef %696, i32 noundef %691)
+  %697 = load ptr, ptr %57, align 8
+  %.not137.i = icmp eq ptr %697, null
+  br i1 %.not137.i, label %701, label %698
+
+698:                                              ; preds = %681
+  %699 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %700 = load i64, ptr %699, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %700) #10
+  br label %701
+
+701:                                              ; preds = %698, %681
+  call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %676, ptr noundef %675) #10
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %676) #10
+  %702 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef %33)
+  %703 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %1) #10
+  %704 = load ptr, ptr %684, align 8
+  %705 = call fastcc ptr @type_lowering(ptr noundef %704)
+  %706 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %705) #10
+  %707 = load i32, ptr %705, align 8
+  %708 = icmp eq i32 %707, 31
+  br i1 %708, label %709, label %713
+
+709:                                              ; preds = %701
+  %710 = getelementptr inbounds nuw i8, ptr %705, i64 8
+  %711 = load ptr, ptr %710, align 8
+  %712 = load i32, ptr %711, align 8
+  br label %713
+
+713:                                              ; preds = %709, %701
+  %.0.i126 = phi i32 [ %712, %709 ], [ %707, %701 ]
+  %714 = add i32 %.0.i126, -3
+  %715 = icmp ult i32 %714, 5
+  %716 = zext i1 %715 to i32
+  %717 = call ptr @LLVMConstInt(ptr noundef %706, i64 noundef 1, i32 noundef %716) #10
+  %718 = load i64, ptr %702, align 8
+  %719 = call fastcc ptr @llvm_emit_add_int(ptr noundef nonnull %0, ptr noundef %704, ptr noundef %687, ptr noundef %717, i64 %718)
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %674) #10
+  %720 = load ptr, ptr %611, align 8
+  store ptr %720, ptr %36, align 16
+  %721 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %719, ptr %721, align 8
+  store ptr %673, ptr %37, align 16
+  %722 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %676, ptr %722, align 8
+  call void @LLVMAddIncoming(ptr noundef %687, ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef 2) #10
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %675) #10
   br label %llvm_emit_slice_assign.exit
 
-llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph274, %.preheader, %654, %660, %712
+llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph273, %.preheader, %655, %661, %713
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1688,9 +1688,9 @@ llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph274, %.prehea
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %common.ret419
+  br label %common.ret418
 
-722:                                              ; preds = %62
+723:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -1699,2202 +1699,2202 @@ llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph274, %.prehea
   call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %24) #10
-  %723 = load i8, ptr %25, align 1
-  %724 = trunc i8 %723 to i1
-  %725 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %726 = load ptr, ptr %725, align 8
-  %727 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %728 = load ptr, ptr %727, align 8
-  br i1 %724, label %746, label %729
+  %724 = load i8, ptr %25, align 1
+  %725 = trunc i8 %724 to i1
+  %726 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %727 = load ptr, ptr %726, align 8
+  %728 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %729 = load ptr, ptr %728, align 8
+  br i1 %725, label %747, label %730
 
-729:                                              ; preds = %722
-  %730 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %731 = load ptr, ptr %730, align 8
-  %732 = call fastcc ptr @type_lowering(ptr noundef %731)
-  %733 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %732) #10
-  %734 = load i32, ptr %732, align 8
-  %735 = icmp eq i32 %734, 31
-  br i1 %735, label %736, label %740
+730:                                              ; preds = %723
+  %731 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %732 = load ptr, ptr %731, align 8
+  %733 = call fastcc ptr @type_lowering(ptr noundef %732)
+  %734 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %733) #10
+  %735 = load i32, ptr %733, align 8
+  %736 = icmp eq i32 %735, 31
+  br i1 %736, label %737, label %741
 
-736:                                              ; preds = %729
-  %737 = getelementptr inbounds nuw i8, ptr %732, i64 8
-  %738 = load ptr, ptr %737, align 8
-  %739 = load i32, ptr %738, align 8
-  br label %740
+737:                                              ; preds = %730
+  %738 = getelementptr inbounds nuw i8, ptr %733, i64 8
+  %739 = load ptr, ptr %738, align 8
+  %740 = load i32, ptr %739, align 8
+  br label %741
 
-740:                                              ; preds = %736, %729
-  %.0.i128 = phi i32 [ %739, %736 ], [ %734, %729 ]
-  %741 = add i32 %.0.i128, -3
-  %742 = icmp ult i32 %741, 5
-  %743 = zext i1 %742 to i32
-  %744 = call ptr @LLVMConstInt(ptr noundef %733, i64 noundef 1, i32 noundef %743) #10
-  %745 = call ptr @LLVMBuildAdd(ptr noundef %726, ptr noundef %728, ptr noundef %744, ptr noundef nonnull @.str.3) #10
-  br label %746
+741:                                              ; preds = %737, %730
+  %.0.i128 = phi i32 [ %740, %737 ], [ %735, %730 ]
+  %742 = add i32 %.0.i128, -3
+  %743 = icmp ult i32 %742, 5
+  %744 = zext i1 %743 to i32
+  %745 = call ptr @LLVMConstInt(ptr noundef %734, i64 noundef 1, i32 noundef %744) #10
+  %746 = call ptr @LLVMBuildAdd(ptr noundef %727, ptr noundef %729, ptr noundef %745, ptr noundef nonnull @.str.3) #10
+  br label %747
 
-746:                                              ; preds = %722, %740
-  %.sink = phi ptr [ %745, %740 ], [ %728, %722 ]
-  %747 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %748 = load ptr, ptr %747, align 8
-  %749 = call ptr @LLVMBuildSub(ptr noundef %726, ptr noundef %.sink, ptr noundef %748, ptr noundef nonnull @.str.167) #10
-  %750 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %751 = load ptr, ptr %750, align 8
-  %752 = call fastcc ptr @type_lowering(ptr noundef %751)
-  %753 = load i32, ptr %752, align 8
-  switch i32 %753, label %780 [
-    i32 35, label %754
-    i32 33, label %754
-    i32 37, label %754
-    i32 34, label %762
-    i32 23, label %772
+747:                                              ; preds = %723, %741
+  %.sink = phi ptr [ %746, %741 ], [ %729, %723 ]
+  %748 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %749 = load ptr, ptr %748, align 8
+  %750 = call ptr @LLVMBuildSub(ptr noundef %727, ptr noundef %.sink, ptr noundef %749, ptr noundef nonnull @.str.167) #10
+  %751 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %752 = load ptr, ptr %751, align 8
+  %753 = call fastcc ptr @type_lowering(ptr noundef %752)
+  %754 = load i32, ptr %753, align 8
+  switch i32 %754, label %781 [
+    i32 35, label %755
+    i32 33, label %755
+    i32 37, label %755
+    i32 34, label %763
+    i32 23, label %773
   ]
 
-754:                                              ; preds = %746, %746, %746
-  %755 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %756 = load ptr, ptr %755, align 8
-  %757 = load ptr, ptr %750, align 8
-  %758 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %757) #10
-  %759 = load ptr, ptr %750, align 8
-  %760 = call i32 @type_abi_alignment(ptr noundef %759) #10
-  %761 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %756, ptr noundef %758, ptr noundef nonnull %23, i32 noundef %760, ptr noundef nonnull %26)
+755:                                              ; preds = %747, %747, %747
+  %756 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %757 = load ptr, ptr %756, align 8
+  %758 = load ptr, ptr %751, align 8
+  %759 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %758) #10
+  %760 = load ptr, ptr %751, align 8
+  %761 = call i32 @type_abi_alignment(ptr noundef %760) #10
+  %762 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %757, ptr noundef %759, ptr noundef nonnull %23, i32 noundef %761, ptr noundef nonnull %26)
   br label %gencontext_emit_slice.exit
 
-762:                                              ; preds = %746
-  %763 = load ptr, ptr %750, align 8
-  %764 = getelementptr inbounds nuw i8, ptr %763, i64 56
-  %765 = load ptr, ptr %764, align 8
-  %766 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %765) #10
-  %767 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %770 = load ptr, ptr %769, align 8
-  %771 = call ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef nonnull %0, ptr noundef %766, ptr noundef %768, ptr noundef %770)
+763:                                              ; preds = %747
+  %764 = load ptr, ptr %751, align 8
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 56
+  %766 = load ptr, ptr %765, align 8
+  %767 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %766) #10
+  %768 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %769 = load ptr, ptr %768, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %771 = load ptr, ptr %770, align 8
+  %772 = call ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef nonnull %0, ptr noundef %767, ptr noundef %769, ptr noundef %771)
   br label %gencontext_emit_slice.exit
 
-772:                                              ; preds = %746
-  %773 = load ptr, ptr %750, align 8
-  %774 = call ptr @llvm_get_pointee_type(ptr noundef nonnull %0, ptr noundef %773) #10
-  %775 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %776 = load ptr, ptr %775, align 8
-  %777 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %778 = load ptr, ptr %777, align 8
-  %779 = call ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef nonnull %0, ptr noundef %774, ptr noundef %776, ptr noundef %778)
+773:                                              ; preds = %747
+  %774 = load ptr, ptr %751, align 8
+  %775 = call ptr @llvm_get_pointee_type(ptr noundef nonnull %0, ptr noundef %774) #10
+  %776 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %777 = load ptr, ptr %776, align 8
+  %778 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %779 = load ptr, ptr %778, align 8
+  %780 = call ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef nonnull %0, ptr noundef %775, ptr noundef %777, ptr noundef %779)
   br label %gencontext_emit_slice.exit
 
-780:                                              ; preds = %746
+781:                                              ; preds = %747
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.gencontext_emit_slice, ptr noundef nonnull @.str.11, i32 noundef 3026) #11
   unreachable
 
-gencontext_emit_slice.exit:                       ; preds = %754, %762, %772
-  %.029.i = phi ptr [ %761, %754 ], [ %771, %762 ], [ %779, %772 ]
-  %781 = load ptr, ptr %2, align 8
-  %782 = call fastcc ptr @type_lowering(ptr noundef %781)
-  %783 = call ptr @llvm_emit_aggregate_two(ptr noundef nonnull %0, ptr noundef %782, ptr noundef %.029.i, ptr noundef %749)
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %783, ptr noundef %782) #10
+gencontext_emit_slice.exit:                       ; preds = %755, %763, %773
+  %.029.i = phi ptr [ %762, %755 ], [ %772, %763 ], [ %780, %773 ]
+  %782 = load ptr, ptr %2, align 8
+  %783 = call fastcc ptr @type_lowering(ptr noundef %782)
+  %784 = call ptr @llvm_emit_aggregate_two(ptr noundef nonnull %0, ptr noundef %783, ptr noundef %.029.i, ptr noundef %750)
+  call void @llvm_value_set(ptr noundef %1, ptr noundef %784, ptr noundef %783) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %common.ret419
+  br label %common.ret418
 
-784:                                              ; preds = %62
+785:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %785 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %786 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %787 = load i32, ptr %786, align 4
-  %788 = load ptr, ptr @expr_arena, align 8
-  %789 = zext i32 %787 to i64
-  %790 = getelementptr inbounds nuw %struct.Expr_, ptr %788, i64 %789
-  %791 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %792 = load i32, ptr %791, align 8
-  %793 = zext i32 %792 to i64
-  %794 = getelementptr inbounds nuw %struct.Expr_, ptr %788, i64 %793
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %790)
+  %786 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %787 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %788 = load i32, ptr %787, align 4
+  %789 = load ptr, ptr @expr_arena, align 8
+  %790 = zext i32 %788 to i64
+  %791 = getelementptr inbounds nuw %struct.Expr_, ptr %789, i64 %790
+  %792 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %793 = load i32, ptr %792, align 8
+  %794 = zext i32 %793 to i64
+  %795 = getelementptr inbounds nuw %struct.Expr_, ptr %789, i64 %794
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %791)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %794)
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %795)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %21) #10
-  %795 = load ptr, ptr %790, align 8
-  %796 = load i32, ptr %795, align 8
-  %797 = icmp eq i32 %796, 37
-  br i1 %797, label %798, label %.thread
+  %796 = load ptr, ptr %791, align 8
+  %797 = load i32, ptr %796, align 8
+  %798 = icmp eq i32 %797, 37
+  br i1 %798, label %799, label %.thread
 
-798:                                              ; preds = %784
-  %799 = getelementptr inbounds nuw i8, ptr %795, i64 64
-  %800 = load i32, ptr %799, align 8
-  %801 = load i8, ptr %785, align 8
-  %802 = trunc i8 %801 to i1
-  %.not25.i = icmp eq i32 %800, 0
-  br i1 %802, label %805, label %812
+799:                                              ; preds = %785
+  %800 = getelementptr inbounds nuw i8, ptr %796, i64 64
+  %801 = load i32, ptr %800, align 8
+  %802 = load i8, ptr %786, align 8
+  %803 = trunc i8 %802 to i1
+  %.not25.i = icmp eq i32 %801, 0
+  br i1 %803, label %806, label %813
 
-.thread:                                          ; preds = %784
-  %803 = load i8, ptr %785, align 8
-  %804 = trunc i8 %803 to i1
-  br i1 %804, label %.thread215, label %.thread217
+.thread:                                          ; preds = %785
+  %804 = load i8, ptr %786, align 8
+  %805 = trunc i8 %804 to i1
+  br i1 %805, label %.thread214, label %.thread216
 
-805:                                              ; preds = %798
-  br i1 %.not25.i, label %.thread215, label %806
+806:                                              ; preds = %799
+  br i1 %.not25.i, label %.thread214, label %807
 
-806:                                              ; preds = %805
-  %807 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %808 = load ptr, ptr %807, align 8
-  %809 = call ptr @LLVMVectorType(ptr noundef %808, i32 noundef %800) #10
+807:                                              ; preds = %806
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %809 = load ptr, ptr %808, align 8
+  %810 = call ptr @LLVMVectorType(ptr noundef %809, i32 noundef %801) #10
   br label %llvm_emit_pointer_offset.exit
 
-.thread215:                                       ; preds = %.thread, %805
-  %810 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %811 = load ptr, ptr %810, align 8
+.thread214:                                       ; preds = %.thread, %806
+  %811 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %812 = load ptr, ptr %811, align 8
   br label %llvm_emit_pointer_offset.exit
 
-812:                                              ; preds = %798
-  %813 = getelementptr inbounds nuw i8, ptr %795, i64 56
-  %spec.select = select i1 %.not25.i, ptr %790, ptr %813
-  %.pre339 = load ptr, ptr %spec.select, align 8
-  br label %.thread217
+813:                                              ; preds = %799
+  %814 = getelementptr inbounds nuw i8, ptr %796, i64 56
+  %spec.select = select i1 %.not25.i, ptr %791, ptr %814
+  %.pre338 = load ptr, ptr %spec.select, align 8
+  br label %.thread216
 
-.thread217:                                       ; preds = %812, %.thread
-  %814 = phi ptr [ %795, %.thread ], [ %.pre339, %812 ]
-  %815 = call ptr @llvm_get_pointee_type(ptr noundef nonnull %0, ptr noundef %814) #10
+.thread216:                                       ; preds = %813, %.thread
+  %815 = phi ptr [ %796, %.thread ], [ %.pre338, %813 ]
+  %816 = call ptr @llvm_get_pointee_type(ptr noundef nonnull %0, ptr noundef %815) #10
   br label %llvm_emit_pointer_offset.exit
 
-llvm_emit_pointer_offset.exit:                    ; preds = %806, %.thread215, %.thread217
-  %.0.i130 = phi ptr [ %815, %.thread217 ], [ %809, %806 ], [ %811, %.thread215 ]
-  %816 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %817 = load ptr, ptr %816, align 8
-  %818 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %819 = load ptr, ptr %818, align 8
-  %820 = call ptr @llvm_emit_pointer_gep_raw(ptr noundef nonnull %0, ptr noundef %.0.i130, ptr noundef %817, ptr noundef %819)
-  store ptr %820, ptr %816, align 8
+llvm_emit_pointer_offset.exit:                    ; preds = %807, %.thread214, %.thread216
+  %.0.i130 = phi ptr [ %816, %.thread216 ], [ %810, %807 ], [ %812, %.thread214 ]
+  %817 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %818 = load ptr, ptr %817, align 8
+  %819 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %820 = load ptr, ptr %819, align 8
+  %821 = call ptr @llvm_emit_pointer_gep_raw(ptr noundef nonnull %0, ptr noundef %.0.i130, ptr noundef %818, ptr noundef %820)
+  store ptr %821, ptr %817, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %common.ret419
+  br label %common.ret418
 
-821:                                              ; preds = %62
-  %822 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %823 = load ptr, ptr %822, align 8
-  %.not.i131 = icmp eq ptr %823, null
-  br i1 %.not.i131, label %839, label %824
+822:                                              ; preds = %62
+  %823 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %824 = load ptr, ptr %823, align 8
+  %.not.i131 = icmp eq ptr %824, null
+  br i1 %.not.i131, label %840, label %825
 
-824:                                              ; preds = %821
-  %825 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %826 = load ptr, ptr %825, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %826)
-  %827 = load ptr, ptr %822, align 8
-  %828 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %829 = load ptr, ptr %828, align 8
-  %830 = tail call ptr @LLVMIsAAllocaInst(ptr noundef %827) #10
-  %.not33.i = icmp eq ptr %830, null
-  br i1 %.not33.i, label %831, label %833
+825:                                              ; preds = %822
+  %826 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %827 = load ptr, ptr %826, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %827)
+  %828 = load ptr, ptr %823, align 8
+  %829 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %830 = load ptr, ptr %829, align 8
+  %831 = tail call ptr @LLVMIsAAllocaInst(ptr noundef %828) #10
+  %.not33.i = icmp eq ptr %831, null
+  br i1 %.not33.i, label %832, label %834
 
-831:                                              ; preds = %824
-  %832 = tail call ptr @LLVMIsAGlobalVariable(ptr noundef %827) #10
-  %.not34.i = icmp eq ptr %832, null
-  br i1 %.not34.i, label %835, label %833
+832:                                              ; preds = %825
+  %833 = tail call ptr @LLVMIsAGlobalVariable(ptr noundef %828) #10
+  %.not34.i = icmp eq ptr %833, null
+  br i1 %.not34.i, label %836, label %834
 
-833:                                              ; preds = %831, %824
-  %834 = tail call i32 @LLVMGetAlignment(ptr noundef %827) #10
-  br label %837
+834:                                              ; preds = %832, %825
+  %835 = tail call i32 @LLVMGetAlignment(ptr noundef %828) #10
+  br label %838
 
-835:                                              ; preds = %831
-  %836 = tail call i32 @type_abi_alignment(ptr noundef %829) #10
-  br label %837
+836:                                              ; preds = %832
+  %837 = tail call i32 @type_abi_alignment(ptr noundef %830) #10
+  br label %838
 
-837:                                              ; preds = %835, %833
-  %.0.i132 = phi i32 [ %834, %833 ], [ %836, %835 ]
-  %838 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %827, ptr noundef nonnull %1, i32 noundef %.0.i132) #10
-  br label %839
+838:                                              ; preds = %836, %834
+  %.0.i132 = phi i32 [ %835, %834 ], [ %837, %836 ]
+  %839 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %828, ptr noundef nonnull %1, i32 noundef %.0.i132) #10
+  br label %840
 
-839:                                              ; preds = %837, %821
-  %840 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %841 = load ptr, ptr %840, align 8
-  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %841) #10
-  %842 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.168) #10
-  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %842) #10
-  %843 = load ptr, ptr %2, align 8
-  %844 = tail call fastcc ptr @type_lowering(ptr noundef %843)
-  %845 = load ptr, ptr @type_void, align 8
-  %846 = icmp eq ptr %844, %845
-  br i1 %846, label %847, label %848
+840:                                              ; preds = %838, %822
+  %841 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %842 = load ptr, ptr %841, align 8
+  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %842) #10
+  %843 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.168) #10
+  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %843) #10
+  %844 = load ptr, ptr %2, align 8
+  %845 = tail call fastcc ptr @type_lowering(ptr noundef %844)
+  %846 = load ptr, ptr @type_void, align 8
+  %847 = icmp eq ptr %845, %846
+  br i1 %847, label %848, label %849
 
-847:                                              ; preds = %839
-  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %845) #10
-  br label %common.ret419
+848:                                              ; preds = %840
+  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %846) #10
+  br label %common.ret418
 
-848:                                              ; preds = %839
-  %849 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %844) #10
-  %850 = tail call ptr @LLVMGetUndef(ptr noundef %849) #10
-  tail call void @llvm_value_set(ptr noundef %1, ptr noundef %850, ptr noundef %844) #10
-  br label %common.ret419
+849:                                              ; preds = %840
+  %850 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %845) #10
+  %851 = tail call ptr @LLVMGetUndef(ptr noundef %850) #10
+  tail call void @llvm_value_set(ptr noundef %1, ptr noundef %851, ptr noundef %845) #10
+  br label %common.ret418
 
-851:                                              ; preds = %62
-  %852 = load ptr, ptr @type_void, align 8
-  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %852) #10
-  br label %common.ret419
+852:                                              ; preds = %62
+  %853 = load ptr, ptr @type_void, align 8
+  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %853) #10
+  br label %common.ret418
 
-853:                                              ; preds = %62
+854:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %854 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %855 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %856 = load ptr, ptr %855, align 8
-  %.not.i133 = icmp eq ptr %856, null
-  br i1 %.not.i133, label %._crit_edge271, label %857
+  %855 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %856 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %857 = load ptr, ptr %856, align 8
+  %.not.i133 = icmp eq ptr %857, null
+  br i1 %.not.i133, label %._crit_edge270, label %858
 
-857:                                              ; preds = %853
-  %858 = getelementptr inbounds i8, ptr %856, i64 -8
-  %859 = load i32, ptr %858, align 4
-  %.not285 = icmp eq i32 %859, 0
-  br i1 %.not285, label %._crit_edge271, label %.lr.ph270
+858:                                              ; preds = %854
+  %859 = getelementptr inbounds i8, ptr %857, i64 -8
+  %860 = load i32, ptr %859, align 4
+  %.not284 = icmp eq i32 %860, 0
+  br i1 %.not284, label %._crit_edge270, label %.lr.ph269
 
-.lr.ph270:                                        ; preds = %857
-  %860 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %wide.trip.count323 = zext i32 %859 to i64
-  br label %861
+.lr.ph269:                                        ; preds = %858
+  %861 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %wide.trip.count322 = zext i32 %860 to i64
+  br label %862
 
-861:                                              ; preds = %.lr.ph270, %884
-  %indvars.iv320 = phi i64 [ 0, %.lr.ph270 ], [ %indvars.iv.next321, %884 ]
-  %862 = getelementptr inbounds nuw ptr, ptr %856, i64 %indvars.iv320
-  %863 = load ptr, ptr %862, align 8
-  %.not50.i = icmp eq ptr %863, null
-  br i1 %.not50.i, label %884, label %864
+862:                                              ; preds = %.lr.ph269, %885
+  %indvars.iv319 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next320, %885 ]
+  %863 = getelementptr inbounds nuw ptr, ptr %857, i64 %indvars.iv319
+  %864 = load ptr, ptr %863, align 8
+  %.not50.i = icmp eq ptr %864, null
+  br i1 %.not50.i, label %885, label %865
 
-864:                                              ; preds = %861
-  %865 = getelementptr inbounds nuw i8, ptr %863, i64 80
-  %866 = load i32, ptr %865, align 8
-  %trunc.i = trunc i32 %866 to i8
-  switch i8 %trunc.i, label %868 [
-    i8 0, label %867
-    i8 1, label %867
-    i8 2, label %867
-    i8 4, label %867
-    i8 13, label %867
-    i8 14, label %867
-    i8 8, label %867
-    i8 10, label %867
-    i8 9, label %867
-    i8 5, label %867
-    i8 11, label %884
-    i8 12, label %884
-    i8 7, label %884
+865:                                              ; preds = %862
+  %866 = getelementptr inbounds nuw i8, ptr %864, i64 80
+  %867 = load i32, ptr %866, align 8
+  %trunc.i = trunc i32 %867 to i8
+  switch i8 %trunc.i, label %869 [
+    i8 0, label %868
+    i8 1, label %868
+    i8 2, label %868
+    i8 4, label %868
+    i8 13, label %868
+    i8 14, label %868
+    i8 8, label %868
+    i8 10, label %868
+    i8 9, label %868
+    i8 5, label %868
+    i8 11, label %885
+    i8 12, label %885
+    i8 7, label %885
   ]
 
-867:                                              ; preds = %864, %864, %864, %864, %864, %864, %864, %864, %864, %864
+868:                                              ; preds = %865, %865, %865, %865, %865, %865, %865, %865, %865, %865
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_macro_block, ptr noundef nonnull @.str.11, i32 noundef 6212) #11
   unreachable
 
-868:                                              ; preds = %864
-  %869 = getelementptr inbounds nuw i8, ptr %863, i64 88
-  %870 = load ptr, ptr %869, align 8
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %870)
-  %.val.i136 = load i8, ptr %20, align 8
-  %871 = and i8 %.val.i136, 31
-  %872 = add nsw i8 %871, -1
-  %spec.select.i176 = icmp ult i8 %872, 2
-  br i1 %spec.select.i176, label %876, label %873
+869:                                              ; preds = %865
+  %870 = getelementptr inbounds nuw i8, ptr %864, i64 88
+  %871 = load ptr, ptr %870, align 8
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %871)
+  %.val.i135 = load i8, ptr %20, align 8
+  %872 = and i8 %.val.i135, 31
+  %873 = add nsw i8 %872, -1
+  %spec.select.i175 = icmp ult i8 %873, 2
+  br i1 %spec.select.i175, label %877, label %874
 
-873:                                              ; preds = %868
-  %874 = load i32, ptr %865, align 8
-  %875 = and i32 %874, 196608
-  %or.cond.i137 = icmp eq i32 %875, 0
-  br i1 %or.cond.i137, label %878, label %876
+874:                                              ; preds = %869
+  %875 = load i32, ptr %866, align 8
+  %876 = and i32 %875, 196608
+  %or.cond.i136 = icmp eq i32 %876, 0
+  br i1 %or.cond.i136, label %879, label %877
 
-876:                                              ; preds = %873, %868
-  call void @llvm_emit_and_set_decl_alloca(ptr noundef %0, ptr noundef nonnull %863) #10
-  call void @llvm_value_set_decl(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %863) #10
-  %877 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20) #10
-  br label %884
+877:                                              ; preds = %874, %869
+  call void @llvm_emit_and_set_decl_alloca(ptr noundef %0, ptr noundef nonnull %864) #10
+  call void @llvm_value_set_decl(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %864) #10
+  %878 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20) #10
+  br label %885
 
-878:                                              ; preds = %873
-  %879 = getelementptr inbounds nuw i8, ptr %863, i64 24
-  %880 = load i64, ptr %879, align 8
-  %881 = or i64 %880, 131072
-  store i64 %881, ptr %879, align 8
-  %882 = load ptr, ptr %860, align 8
-  %883 = getelementptr inbounds nuw i8, ptr %863, i64 32
-  store ptr %882, ptr %883, align 8
-  br label %884
+879:                                              ; preds = %874
+  %880 = getelementptr inbounds nuw i8, ptr %864, i64 24
+  %881 = load i64, ptr %880, align 8
+  %882 = or i64 %881, 131072
+  store i64 %882, ptr %880, align 8
+  %883 = load ptr, ptr %861, align 8
+  %884 = getelementptr inbounds nuw i8, ptr %864, i64 32
+  store ptr %883, ptr %884, align 8
+  br label %885
 
-884:                                              ; preds = %878, %876, %864, %864, %864, %861
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
-  br i1 %exitcond324.not, label %._crit_edge271, label %861, !llvm.loop !13
+885:                                              ; preds = %879, %877, %865, %865, %865, %862
+  %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
+  %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
+  br i1 %exitcond323.not, label %._crit_edge270, label %862, !llvm.loop !13
 
-._crit_edge271:                                   ; preds = %884, %853, %857
-  %885 = load ptr, ptr %57, align 8
-  %.not47.i = icmp eq ptr %885, null
-  br i1 %.not47.i, label %892, label %886
+._crit_edge270:                                   ; preds = %885, %854, %858
+  %886 = load ptr, ptr %57, align 8
+  %.not47.i = icmp eq ptr %886, null
+  br i1 %.not47.i, label %893, label %887
 
-886:                                              ; preds = %._crit_edge271
-  %887 = load i32, ptr %854, align 8
-  %888 = load ptr, ptr @ast_arena, align 8
-  %889 = zext i32 %887 to i64
-  %890 = getelementptr inbounds nuw %struct.Ast_, ptr %888, i64 %889
-  %891 = load i64, ptr %890, align 8
-  call void @llvm_debug_push_lexical_scope(ptr noundef nonnull %0, i64 %891) #10
-  br label %892
+887:                                              ; preds = %._crit_edge270
+  %888 = load i32, ptr %855, align 8
+  %889 = load ptr, ptr @ast_arena, align 8
+  %890 = zext i32 %888 to i64
+  %891 = getelementptr inbounds nuw %struct.Ast_, ptr %889, i64 %890
+  %892 = load i64, ptr %891, align 8
+  call void @llvm_debug_push_lexical_scope(ptr noundef nonnull %0, i64 %892) #10
+  br label %893
 
-892:                                              ; preds = %886, %._crit_edge271
-  %893 = load ptr, ptr %2, align 8
-  %894 = load i32, ptr %854, align 8
-  %895 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %896 = load ptr, ptr %895, align 8
-  call fastcc void @llvm_emit_return_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %893, i32 noundef %894, ptr noundef %896)
-  %897 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %898 = load i8, ptr %897, align 4
-  %899 = trunc i8 %898 to i1
-  br i1 %899, label %900, label %.critedge.i135
+893:                                              ; preds = %887, %._crit_edge270
+  %894 = load ptr, ptr %2, align 8
+  %895 = load i32, ptr %855, align 8
+  %896 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %897 = load ptr, ptr %896, align 8
+  call fastcc void @llvm_emit_return_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %894, i32 noundef %895, ptr noundef %897)
+  %898 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %899 = load i8, ptr %898, align 4
+  %900 = trunc i8 %899 to i1
+  br i1 %900, label %901, label %.critedge.i
 
-900:                                              ; preds = %892
-  %901 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %902 = load ptr, ptr %901, align 8
-  %.not48.i = icmp eq ptr %902, null
-  br i1 %.not48.i, label %.critedge.i135, label %903
+901:                                              ; preds = %893
+  %902 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %903 = load ptr, ptr %902, align 8
+  %.not48.i = icmp eq ptr %903, null
+  br i1 %.not48.i, label %.critedge.i, label %904
 
-903:                                              ; preds = %900
-  %904 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %905 = load i8, ptr %904, align 8
-  %906 = trunc i8 %905 to i1
-  br i1 %906, label %907, label %.critedge.i135
+904:                                              ; preds = %901
+  %905 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %906 = load i8, ptr %905, align 8
+  %907 = trunc i8 %906 to i1
+  br i1 %907, label %908, label %.critedge.i
 
-907:                                              ; preds = %903
+908:                                              ; preds = %904
   call void @llvm_emit_unreachable(ptr noundef nonnull %0) #10
-  br label %.critedge.i135
+  br label %.critedge.i
 
-.critedge.i135:                                   ; preds = %907, %903, %900, %892
-  %908 = load ptr, ptr %57, align 8
-  %.not49.i = icmp eq ptr %908, null
-  br i1 %.not49.i, label %llvm_emit_macro_block.exit, label %909
+.critedge.i:                                      ; preds = %908, %904, %901, %893
+  %909 = load ptr, ptr %57, align 8
+  %.not49.i = icmp eq ptr %909, null
+  br i1 %.not49.i, label %llvm_emit_macro_block.exit, label %910
 
-909:                                              ; preds = %.critedge.i135
+910:                                              ; preds = %.critedge.i
   call void @llvm_debug_scope_pop(ptr noundef nonnull %0) #10
   br label %llvm_emit_macro_block.exit
 
-llvm_emit_macro_block.exit:                       ; preds = %.critedge.i135, %909
+llvm_emit_macro_block.exit:                       ; preds = %.critedge.i, %910
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %common.ret419
+  br label %common.ret418
 
-910:                                              ; preds = %62, %62
+911:                                              ; preds = %62, %62
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_expr, ptr noundef nonnull @.str.11, i32 noundef 6946) #11
   unreachable
 
-911:                                              ; preds = %62, %62
-  %912 = load ptr, ptr %2, align 8
-  %913 = tail call fastcc ptr @type_lowering(ptr noundef %912)
-  br label %914
+912:                                              ; preds = %62, %62
+  %913 = load ptr, ptr %2, align 8
+  %914 = tail call fastcc ptr @type_lowering(ptr noundef %913)
+  br label %915
 
-914:                                              ; preds = %927, %911
-  %.0.i186 = phi ptr [ %913, %911 ], [ %.1.i187, %927 ]
-  %915 = getelementptr inbounds nuw i8, ptr %.0.i186, i64 8
-  %916 = load ptr, ptr %915, align 8
-  %917 = load i32, ptr %916, align 8
-  switch i32 %917, label %1029 [
-    i32 32, label %918
-    i32 40, label %924
-    i32 31, label %926
-    i32 37, label %928
+915:                                              ; preds = %928, %912
+  %.0.i185 = phi ptr [ %914, %912 ], [ %.1.i186, %928 ]
+  %916 = getelementptr inbounds nuw i8, ptr %.0.i185, i64 8
+  %917 = load ptr, ptr %916, align 8
+  %918 = load i32, ptr %917, align 8
+  switch i32 %918, label %1030 [
+    i32 32, label %919
+    i32 40, label %925
+    i32 31, label %927
+    i32 37, label %929
   ]
 
-918:                                              ; preds = %914
-  %919 = getelementptr inbounds nuw i8, ptr %916, i64 56
-  %920 = load ptr, ptr %919, align 8
-  %921 = getelementptr inbounds nuw i8, ptr %920, i64 96
-  %922 = load ptr, ptr %921, align 8
-  %923 = getelementptr inbounds nuw i8, ptr %922, i64 8
-  br label %927
+919:                                              ; preds = %915
+  %920 = getelementptr inbounds nuw i8, ptr %917, i64 56
+  %921 = load ptr, ptr %920, align 8
+  %922 = getelementptr inbounds nuw i8, ptr %921, i64 96
+  %923 = load ptr, ptr %922, align 8
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 8
+  br label %928
 
-924:                                              ; preds = %914
-  %925 = getelementptr inbounds nuw i8, ptr %916, i64 56
-  br label %927
+925:                                              ; preds = %915
+  %926 = getelementptr inbounds nuw i8, ptr %917, i64 56
+  br label %928
 
-926:                                              ; preds = %914
+927:                                              ; preds = %915
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.80, i32 noundef 2984) #11
   unreachable
 
-927:                                              ; preds = %924, %918
-  %.1.in.i = phi ptr [ %923, %918 ], [ %925, %924 ]
-  %.1.i187 = load ptr, ptr %.1.in.i, align 8
-  br label %914
+928:                                              ; preds = %925, %919
+  %.1.in.i = phi ptr [ %924, %919 ], [ %926, %925 ]
+  %.1.i186 = load ptr, ptr %.1.in.i, align 8
+  br label %915
 
-928:                                              ; preds = %914
+929:                                              ; preds = %915
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %929 = load ptr, ptr %2, align 8
-  %930 = tail call fastcc ptr @type_lowering(ptr noundef %929)
-  %931 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %930) #10
-  %932 = load i16, ptr %63, align 8
-  %933 = and i16 %932, 255
-  %934 = icmp eq i16 %933, 35
-  %935 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %934, label %936, label %966
+  %930 = load ptr, ptr %2, align 8
+  %931 = tail call fastcc ptr @type_lowering(ptr noundef %930)
+  %932 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %931) #10
+  %933 = load i16, ptr %63, align 8
+  %934 = and i16 %933, 255
+  %935 = icmp eq i16 %934, 35
+  %936 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br i1 %935, label %937, label %967
 
-936:                                              ; preds = %928
-  %937 = tail call ptr @LLVMGetUndef(ptr noundef %931) #10
-  %938 = load ptr, ptr %935, align 8
-  %.not61.i183 = icmp eq ptr %938, null
-  br i1 %.not61.i183, label %llvm_emit_vector_initializer_list.exit, label %939
+937:                                              ; preds = %929
+  %938 = tail call ptr @LLVMGetUndef(ptr noundef %932) #10
+  %939 = load ptr, ptr %936, align 8
+  %.not61.i182 = icmp eq ptr %939, null
+  br i1 %.not61.i182, label %llvm_emit_vector_initializer_list.exit, label %940
 
-939:                                              ; preds = %936
-  %940 = getelementptr inbounds i8, ptr %938, i64 -8
-  %941 = load i32, ptr %940, align 4
-  %.not284 = icmp eq i32 %941, 0
-  br i1 %.not284, label %llvm_emit_vector_initializer_list.exit, label %.lr.ph266
+940:                                              ; preds = %937
+  %941 = getelementptr inbounds i8, ptr %939, i64 -8
+  %942 = load i32, ptr %941, align 4
+  %.not283 = icmp eq i32 %942, 0
+  br i1 %.not283, label %llvm_emit_vector_initializer_list.exit, label %.lr.ph265
 
-.lr.ph266:                                        ; preds = %939
-  %942 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %943 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %944
+.lr.ph265:                                        ; preds = %940
+  %943 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %944 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br label %945
 
-944:                                              ; preds = %.lr.ph266, %llvm_update_vector.exit.i
-  %.055.i184264 = phi ptr [ %937, %.lr.ph266 ], [ %964, %llvm_update_vector.exit.i ]
-  %.057.i263 = phi i32 [ 0, %.lr.ph266 ], [ %965, %llvm_update_vector.exit.i ]
-  %945 = zext i32 %.057.i263 to i64
-  %946 = getelementptr inbounds nuw ptr, ptr %938, i64 %945
-  %947 = load ptr, ptr %946, align 8
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %947)
+945:                                              ; preds = %.lr.ph265, %llvm_update_vector.exit.i
+  %.055.i183263 = phi ptr [ %938, %.lr.ph265 ], [ %965, %llvm_update_vector.exit.i ]
+  %.057.i262 = phi i32 [ 0, %.lr.ph265 ], [ %966, %llvm_update_vector.exit.i ]
+  %946 = zext i32 %.057.i262 to i64
+  %947 = getelementptr inbounds nuw ptr, ptr %939, i64 %946
+  %948 = load ptr, ptr %947, align 8
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %948)
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %6) #10
-  %948 = load ptr, ptr %942, align 8
-  %949 = load ptr, ptr @type_usz, align 8
-  %950 = call fastcc ptr @type_lowering(ptr noundef %949)
-  %951 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %950) #10
-  %952 = load i32, ptr %950, align 8
-  %953 = icmp eq i32 %952, 31
-  br i1 %953, label %954, label %llvm_update_vector.exit.i
+  %949 = load ptr, ptr %943, align 8
+  %950 = load ptr, ptr @type_usz, align 8
+  %951 = call fastcc ptr @type_lowering(ptr noundef %950)
+  %952 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %951) #10
+  %953 = load i32, ptr %951, align 8
+  %954 = icmp eq i32 %953, 31
+  br i1 %954, label %955, label %llvm_update_vector.exit.i
 
-954:                                              ; preds = %944
-  %955 = getelementptr inbounds nuw i8, ptr %950, i64 8
-  %956 = load ptr, ptr %955, align 8
-  %957 = load i32, ptr %956, align 8
+955:                                              ; preds = %945
+  %956 = getelementptr inbounds nuw i8, ptr %951, i64 8
+  %957 = load ptr, ptr %956, align 8
+  %958 = load i32, ptr %957, align 8
   br label %llvm_update_vector.exit.i
 
-llvm_update_vector.exit.i:                        ; preds = %954, %944
-  %.0.i.i185 = phi i32 [ %957, %954 ], [ %952, %944 ]
-  %958 = sext i32 %.057.i263 to i64
-  %959 = add i32 %.0.i.i185, -3
-  %960 = icmp ult i32 %959, 5
-  %961 = zext i1 %960 to i32
-  %962 = call ptr @LLVMConstInt(ptr noundef %951, i64 noundef %958, i32 noundef %961) #10
-  %963 = load ptr, ptr %943, align 8
-  %964 = call ptr @LLVMBuildInsertElement(ptr noundef %963, ptr noundef %.055.i184264, ptr noundef %948, ptr noundef %962, ptr noundef nonnull @.str.3) #10
-  %965 = add nuw i32 %.057.i263, 1
-  %exitcond319.not = icmp eq i32 %965, %941
-  br i1 %exitcond319.not, label %llvm_emit_vector_initializer_list.exit, label %944, !llvm.loop !14
+llvm_update_vector.exit.i:                        ; preds = %955, %945
+  %.0.i.i184 = phi i32 [ %958, %955 ], [ %953, %945 ]
+  %959 = sext i32 %.057.i262 to i64
+  %960 = add i32 %.0.i.i184, -3
+  %961 = icmp ult i32 %960, 5
+  %962 = zext i1 %961 to i32
+  %963 = call ptr @LLVMConstInt(ptr noundef %952, i64 noundef %959, i32 noundef %962) #10
+  %964 = load ptr, ptr %944, align 8
+  %965 = call ptr @LLVMBuildInsertElement(ptr noundef %964, ptr noundef %.055.i183263, ptr noundef %949, ptr noundef %963, ptr noundef nonnull @.str.3) #10
+  %966 = add nuw i32 %.057.i262, 1
+  %exitcond318.not = icmp eq i32 %966, %942
+  br i1 %exitcond318.not, label %llvm_emit_vector_initializer_list.exit, label %945, !llvm.loop !14
 
-966:                                              ; preds = %928
-  %967 = tail call ptr @LLVMConstNull(ptr noundef %931) #10
-  %968 = load ptr, ptr %935, align 8
-  %.not.i178 = icmp eq ptr %968, null
-  br i1 %.not.i178, label %llvm_emit_vector_initializer_list.exit, label %969
+967:                                              ; preds = %929
+  %968 = tail call ptr @LLVMConstNull(ptr noundef %932) #10
+  %969 = load ptr, ptr %936, align 8
+  %.not.i177 = icmp eq ptr %969, null
+  br i1 %.not.i177, label %llvm_emit_vector_initializer_list.exit, label %970
 
-969:                                              ; preds = %966
-  %970 = getelementptr inbounds i8, ptr %968, i64 -8
-  %971 = load i32, ptr %970, align 4
-  %.not283 = icmp eq i32 %971, 0
-  br i1 %.not283, label %llvm_emit_vector_initializer_list.exit, label %.lr.ph261
+970:                                              ; preds = %967
+  %971 = getelementptr inbounds i8, ptr %969, i64 -8
+  %972 = load i32, ptr %971, align 4
+  %.not282 = icmp eq i32 %972, 0
+  br i1 %.not282, label %llvm_emit_vector_initializer_list.exit, label %.lr.ph260
 
-.lr.ph261:                                        ; preds = %969
-  %972 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %973 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %wide.trip.count317 = zext i32 %971 to i64
-  br label %974
+.lr.ph260:                                        ; preds = %970
+  %973 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %wide.trip.count316 = zext i32 %972 to i64
+  br label %975
 
-974:                                              ; preds = %.lr.ph261, %.loopexit
-  %indvars.iv314 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next315, %.loopexit ]
-  %.2.i179259 = phi ptr [ %967, %.lr.ph261 ], [ %.4.i, %.loopexit ]
-  %975 = getelementptr inbounds nuw ptr, ptr %968, i64 %indvars.iv314
-  %976 = load ptr, ptr %975, align 8
-  %977 = getelementptr inbounds nuw i8, ptr %976, i64 24
-  %978 = load ptr, ptr %977, align 8
+975:                                              ; preds = %.lr.ph260, %.loopexit
+  %indvars.iv313 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next314, %.loopexit ]
+  %.2.i178258 = phi ptr [ %968, %.lr.ph260 ], [ %.4.i, %.loopexit ]
+  %976 = getelementptr inbounds nuw ptr, ptr %969, i64 %indvars.iv313
+  %977 = load ptr, ptr %976, align 8
+  %978 = getelementptr inbounds nuw i8, ptr %977, i64 24
   %979 = load ptr, ptr %978, align 8
-  %980 = getelementptr inbounds nuw i8, ptr %976, i64 32
-  %981 = load ptr, ptr %980, align 8
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %981)
+  %980 = load ptr, ptr %979, align 8
+  %981 = getelementptr inbounds nuw i8, ptr %977, i64 32
+  %982 = load ptr, ptr %981, align 8
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %982)
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %6) #10
-  %982 = load i8, ptr %979, align 8
-  %983 = and i8 %982, 15
-  switch i8 %983, label %1028 [
-    i8 1, label %984
-    i8 2, label %1004
+  %983 = load i8, ptr %980, align 8
+  %984 = and i8 %983, 15
+  switch i8 %984, label %1029 [
+    i8 1, label %985
+    i8 2, label %1005
   ]
 
-984:                                              ; preds = %974
-  %985 = load ptr, ptr %972, align 8
-  %986 = getelementptr inbounds nuw i8, ptr %979, i64 24
-  %987 = load i32, ptr %986, align 8
-  %988 = load ptr, ptr @type_usz, align 8
-  %989 = call fastcc ptr @type_lowering(ptr noundef %988)
-  %990 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %989) #10
-  %991 = load i32, ptr %989, align 8
-  %992 = icmp eq i32 %991, 31
-  br i1 %992, label %993, label %llvm_update_vector.exit63.i
+985:                                              ; preds = %975
+  %986 = load ptr, ptr %973, align 8
+  %987 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  %988 = load i32, ptr %987, align 8
+  %989 = load ptr, ptr @type_usz, align 8
+  %990 = call fastcc ptr @type_lowering(ptr noundef %989)
+  %991 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %990) #10
+  %992 = load i32, ptr %990, align 8
+  %993 = icmp eq i32 %992, 31
+  br i1 %993, label %994, label %llvm_update_vector.exit63.i
 
-993:                                              ; preds = %984
-  %994 = getelementptr inbounds nuw i8, ptr %989, i64 8
-  %995 = load ptr, ptr %994, align 8
-  %996 = load i32, ptr %995, align 8
+994:                                              ; preds = %985
+  %995 = getelementptr inbounds nuw i8, ptr %990, i64 8
+  %996 = load ptr, ptr %995, align 8
+  %997 = load i32, ptr %996, align 8
   br label %llvm_update_vector.exit63.i
 
-llvm_update_vector.exit63.i:                      ; preds = %993, %984
-  %.0.i62.i = phi i32 [ %996, %993 ], [ %991, %984 ]
-  %997 = sext i32 %987 to i64
-  %998 = add i32 %.0.i62.i, -3
-  %999 = icmp ult i32 %998, 5
-  %1000 = zext i1 %999 to i32
-  %1001 = call ptr @LLVMConstInt(ptr noundef %990, i64 noundef %997, i32 noundef %1000) #10
-  %1002 = load ptr, ptr %973, align 8
-  %1003 = call ptr @LLVMBuildInsertElement(ptr noundef %1002, ptr noundef %.2.i179259, ptr noundef %985, ptr noundef %1001, ptr noundef nonnull @.str.3) #10
+llvm_update_vector.exit63.i:                      ; preds = %994, %985
+  %.0.i62.i = phi i32 [ %997, %994 ], [ %992, %985 ]
+  %998 = sext i32 %988 to i64
+  %999 = add i32 %.0.i62.i, -3
+  %1000 = icmp ult i32 %999, 5
+  %1001 = zext i1 %1000 to i32
+  %1002 = call ptr @LLVMConstInt(ptr noundef %991, i64 noundef %998, i32 noundef %1001) #10
+  %1003 = load ptr, ptr %974, align 8
+  %1004 = call ptr @LLVMBuildInsertElement(ptr noundef %1003, ptr noundef %.2.i178258, ptr noundef %986, ptr noundef %1002, ptr noundef nonnull @.str.3) #10
   br label %.loopexit
 
-1004:                                             ; preds = %974
-  %1005 = getelementptr inbounds nuw i8, ptr %979, i64 24
-  %1006 = load i32, ptr %1005, align 8
-  %1007 = getelementptr inbounds nuw i8, ptr %979, i64 28
-  %1008 = load i32, ptr %1007, align 4
-  %.not60.i182253 = icmp sgt i32 %1006, %1008
-  br i1 %.not60.i182253, label %.loopexit, label %.lr.ph257.preheader
+1005:                                             ; preds = %975
+  %1006 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  %1007 = load i32, ptr %1006, align 8
+  %1008 = getelementptr inbounds nuw i8, ptr %980, i64 28
+  %1009 = load i32, ptr %1008, align 4
+  %.not60.i181252 = icmp sgt i32 %1007, %1009
+  br i1 %.not60.i181252, label %.loopexit, label %.lr.ph256.preheader
 
-.lr.ph257.preheader:                              ; preds = %1004
-  %1009 = sext i32 %1006 to i64
-  br label %.lr.ph257
+.lr.ph256.preheader:                              ; preds = %1005
+  %1010 = sext i32 %1007 to i64
+  br label %.lr.ph256
 
-.lr.ph257:                                        ; preds = %.lr.ph257.preheader, %llvm_update_vector.exit65.i
-  %indvars.iv311 = phi i64 [ %1009, %.lr.ph257.preheader ], [ %indvars.iv.next312, %llvm_update_vector.exit65.i ]
-  %.3.i254 = phi ptr [ %.2.i179259, %.lr.ph257.preheader ], [ %1025, %llvm_update_vector.exit65.i ]
-  %1010 = load ptr, ptr %972, align 8
-  %1011 = load ptr, ptr @type_usz, align 8
-  %1012 = call fastcc ptr @type_lowering(ptr noundef %1011)
-  %1013 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %1012) #10
-  %1014 = load i32, ptr %1012, align 8
-  %1015 = icmp eq i32 %1014, 31
-  br i1 %1015, label %1016, label %llvm_update_vector.exit65.i
+.lr.ph256:                                        ; preds = %.lr.ph256.preheader, %llvm_update_vector.exit65.i
+  %indvars.iv310 = phi i64 [ %1010, %.lr.ph256.preheader ], [ %indvars.iv.next311, %llvm_update_vector.exit65.i ]
+  %.3.i253 = phi ptr [ %.2.i178258, %.lr.ph256.preheader ], [ %1026, %llvm_update_vector.exit65.i ]
+  %1011 = load ptr, ptr %973, align 8
+  %1012 = load ptr, ptr @type_usz, align 8
+  %1013 = call fastcc ptr @type_lowering(ptr noundef %1012)
+  %1014 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %1013) #10
+  %1015 = load i32, ptr %1013, align 8
+  %1016 = icmp eq i32 %1015, 31
+  br i1 %1016, label %1017, label %llvm_update_vector.exit65.i
 
-1016:                                             ; preds = %.lr.ph257
-  %1017 = getelementptr inbounds nuw i8, ptr %1012, i64 8
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = load i32, ptr %1018, align 8
+1017:                                             ; preds = %.lr.ph256
+  %1018 = getelementptr inbounds nuw i8, ptr %1013, i64 8
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = load i32, ptr %1019, align 8
   br label %llvm_update_vector.exit65.i
 
-llvm_update_vector.exit65.i:                      ; preds = %1016, %.lr.ph257
-  %.0.i64.i = phi i32 [ %1019, %1016 ], [ %1014, %.lr.ph257 ]
-  %1020 = add i32 %.0.i64.i, -3
-  %1021 = icmp ult i32 %1020, 5
-  %1022 = zext i1 %1021 to i32
-  %1023 = call ptr @LLVMConstInt(ptr noundef %1013, i64 noundef %indvars.iv311, i32 noundef %1022) #10
-  %1024 = load ptr, ptr %973, align 8
-  %1025 = call ptr @LLVMBuildInsertElement(ptr noundef %1024, ptr noundef %.3.i254, ptr noundef %1010, ptr noundef %1023, ptr noundef nonnull @.str.3) #10
-  %indvars.iv.next312 = add nsw i64 %indvars.iv311, 1
-  %1026 = load i32, ptr %1007, align 4
-  %1027 = sext i32 %1026 to i64
-  %.not60.i182.not = icmp slt i64 %indvars.iv311, %1027
-  br i1 %.not60.i182.not, label %.lr.ph257, label %.loopexit, !llvm.loop !15
+llvm_update_vector.exit65.i:                      ; preds = %1017, %.lr.ph256
+  %.0.i64.i = phi i32 [ %1020, %1017 ], [ %1015, %.lr.ph256 ]
+  %1021 = add i32 %.0.i64.i, -3
+  %1022 = icmp ult i32 %1021, 5
+  %1023 = zext i1 %1022 to i32
+  %1024 = call ptr @LLVMConstInt(ptr noundef %1014, i64 noundef %indvars.iv310, i32 noundef %1023) #10
+  %1025 = load ptr, ptr %974, align 8
+  %1026 = call ptr @LLVMBuildInsertElement(ptr noundef %1025, ptr noundef %.3.i253, ptr noundef %1011, ptr noundef %1024, ptr noundef nonnull @.str.3) #10
+  %indvars.iv.next311 = add nsw i64 %indvars.iv310, 1
+  %1027 = load i32, ptr %1008, align 4
+  %1028 = sext i32 %1027 to i64
+  %.not60.i181.not = icmp slt i64 %indvars.iv310, %1028
+  br i1 %.not60.i181.not, label %.lr.ph256, label %.loopexit, !llvm.loop !15
 
-1028:                                             ; preds = %974
+1029:                                             ; preds = %975
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_vector_initializer_list, ptr noundef nonnull @.str.11, i32 noundef 6337) #11
   unreachable
 
-.loopexit:                                        ; preds = %llvm_update_vector.exit65.i, %1004, %llvm_update_vector.exit63.i
-  %.4.i = phi ptr [ %1003, %llvm_update_vector.exit63.i ], [ %.2.i179259, %1004 ], [ %1025, %llvm_update_vector.exit65.i ]
-  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %exitcond318.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count317
-  br i1 %exitcond318.not, label %llvm_emit_vector_initializer_list.exit, label %974, !llvm.loop !16
+.loopexit:                                        ; preds = %llvm_update_vector.exit65.i, %1005, %llvm_update_vector.exit63.i
+  %.4.i = phi ptr [ %1004, %llvm_update_vector.exit63.i ], [ %.2.i178258, %1005 ], [ %1026, %llvm_update_vector.exit65.i ]
+  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
+  %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
+  br i1 %exitcond317.not, label %llvm_emit_vector_initializer_list.exit, label %975, !llvm.loop !16
 
-llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_update_vector.exit.i, %966, %936, %969, %939
-  %.1.i180 = phi ptr [ %937, %939 ], [ %967, %969 ], [ %937, %936 ], [ %967, %966 ], [ %964, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %.1.i180, ptr noundef %930) #10
+llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_update_vector.exit.i, %967, %937, %970, %940
+  %.1.i179 = phi ptr [ %938, %940 ], [ %968, %970 ], [ %938, %937 ], [ %968, %967 ], [ %965, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
+  call void @llvm_value_set(ptr noundef %1, ptr noundef %.1.i179, ptr noundef %931) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret419
+  br label %common.ret418
 
-1029:                                             ; preds = %914
-  %1030 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef %0, ptr noundef %913, ptr noundef nonnull @.str.105) #10
-  tail call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %1030, ptr noundef %913) #10
-  %1031 = load i16, ptr %63, align 8
-  %trunc.i177 = trunc i16 %1031 to i8
-  switch i8 %trunc.i177, label %1034 [
-    i8 35, label %1032
-    i8 24, label %1033
+1030:                                             ; preds = %915
+  %1031 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef %0, ptr noundef %914, ptr noundef nonnull @.str.105) #10
+  tail call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %1031, ptr noundef %914) #10
+  %1032 = load i16, ptr %63, align 8
+  %trunc.i176 = trunc i16 %1032 to i8
+  switch i8 %trunc.i176, label %1035 [
+    i8 35, label %1033
+    i8 24, label %1034
   ]
 
-1032:                                             ; preds = %1029
+1033:                                             ; preds = %1030
   tail call fastcc void @llvm_emit_initialize_reference_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
-1033:                                             ; preds = %1029
+1034:                                             ; preds = %1030
   tail call fastcc void @llvm_emit_initialize_reference_designated(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
-1034:                                             ; preds = %1029
+1035:                                             ; preds = %1030
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_initialize_reference, ptr noundef nonnull @.str.11, i32 noundef 2317) #11
   unreachable
 
-1035:                                             ; preds = %62
-  %1036 = load ptr, ptr %2, align 8
-  %1037 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1038 = load i32, ptr %1037, align 8
-  %1039 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1040 = load ptr, ptr %1039, align 8
-  tail call fastcc void @llvm_emit_return_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1036, i32 noundef %1038, ptr noundef %1040)
-  br label %common.ret419
+1036:                                             ; preds = %62
+  %1037 = load ptr, ptr %2, align 8
+  %1038 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1039 = load i32, ptr %1038, align 8
+  %1040 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1041 = load ptr, ptr %1040, align 8
+  tail call fastcc void @llvm_emit_return_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1037, i32 noundef %1039, ptr noundef %1041)
+  br label %common.ret418
 
-1041:                                             ; preds = %62
+1042:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %1042 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1043 = load ptr, ptr %1042, align 8
-  %.val.i138 = load ptr, ptr %1043, align 8
-  %1044 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val.i138)
-  %1045 = load ptr, ptr %1042, align 8
-  %1046 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1047 = load i8, ptr %1046, align 8
-  switch i8 %1047, label %1312 [
-    i8 0, label %1048
-    i8 4, label %1049
-    i8 6, label %1050
-    i8 5, label %1155
-    i8 3, label %1187
-    i8 2, label %1288
-    i8 9, label %1301
-    i8 1, label %1307
-    i8 7, label %1310
-    i8 8, label %1311
+  %1043 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1044 = load ptr, ptr %1043, align 8
+  %.val.i137 = load ptr, ptr %1044, align 8
+  %1045 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val.i137)
+  %1046 = load ptr, ptr %1043, align 8
+  %1047 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1048 = load i8, ptr %1047, align 8
+  switch i8 %1048, label %1313 [
+    i8 0, label %1049
+    i8 4, label %1050
+    i8 6, label %1051
+    i8 5, label %1156
+    i8 3, label %1188
+    i8 2, label %1289
+    i8 9, label %1302
+    i8 1, label %1308
+    i8 7, label %1311
+    i8 8, label %1312
   ]
 
-1048:                                             ; preds = %1041
+1049:                                             ; preds = %1042
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.171, ptr noundef nonnull @__func__.llvm_emit_unary_expr, ptr noundef nonnull @.str.11, i32 noundef 2596, i32 noundef 0) #11
   unreachable
 
-1049:                                             ; preds = %1041
+1050:                                             ; preds = %1042
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_unary_expr, ptr noundef nonnull @.str.11, i32 noundef 2599) #11
   unreachable
 
-1050:                                             ; preds = %1041
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045)
-  %1051 = tail call fastcc ptr @type_flatten(ptr noundef %1044)
-  %1052 = load i32, ptr %1051, align 8
-  %1053 = icmp eq i32 %1052, 37
-  br i1 %1053, label %1054, label %1088
+1051:                                             ; preds = %1042
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046)
+  %1052 = tail call fastcc ptr @type_flatten(ptr noundef %1045)
+  %1053 = load i32, ptr %1052, align 8
+  %1054 = icmp eq i32 %1053, 37
+  br i1 %1054, label %1055, label %1089
 
-1054:                                             ; preds = %1050
+1055:                                             ; preds = %1051
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1055 = tail call fastcc ptr @type_flatten(ptr noundef %1044)
-  %1056 = load i32, ptr %1055, align 8
-  %1057 = icmp eq i32 %1056, 37
-  br i1 %1057, label %1058, label %1061
+  %1056 = tail call fastcc ptr @type_flatten(ptr noundef %1045)
+  %1057 = load i32, ptr %1056, align 8
+  %1058 = icmp eq i32 %1057, 37
+  br i1 %1058, label %1059, label %1062
 
-1058:                                             ; preds = %1054
-  %1059 = getelementptr inbounds nuw i8, ptr %1055, i64 56
-  %1060 = load ptr, ptr %1059, align 8
-  br label %1061
+1059:                                             ; preds = %1055
+  %1060 = getelementptr inbounds nuw i8, ptr %1056, i64 56
+  %1061 = load ptr, ptr %1060, align 8
+  br label %1062
 
-1061:                                             ; preds = %1058, %1054
-  %1062 = phi ptr [ %1060, %1058 ], [ null, %1054 ]
-  %1063 = load i32, ptr %1062, align 8
-  %1064 = icmp eq i32 %1063, 31
-  br i1 %1064, label %1065, label %1069
+1062:                                             ; preds = %1059, %1055
+  %1063 = phi ptr [ %1061, %1059 ], [ null, %1055 ]
+  %1064 = load i32, ptr %1063, align 8
+  %1065 = icmp eq i32 %1064, 31
+  br i1 %1065, label %1066, label %1070
 
-1065:                                             ; preds = %1061
-  %1066 = getelementptr inbounds nuw i8, ptr %1062, i64 8
-  %1067 = load ptr, ptr %1066, align 8
-  %1068 = load i32, ptr %1067, align 8
-  br label %1069
+1066:                                             ; preds = %1062
+  %1067 = getelementptr inbounds nuw i8, ptr %1063, i64 8
+  %1068 = load ptr, ptr %1067, align 8
+  %1069 = load i32, ptr %1068, align 8
+  br label %1070
 
-1069:                                             ; preds = %1065, %1061
-  %.0239.i = phi i32 [ %1068, %1065 ], [ %1063, %1061 ]
-  %1070 = add i32 %.0239.i, -13
-  %1071 = icmp ult i32 %1070, 5
-  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1073 = load ptr, ptr %1072, align 8
-  %1074 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1075 = load ptr, ptr %1074, align 8
-  %1076 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1044) #10
-  %1077 = tail call ptr @LLVMConstNull(ptr noundef %1076) #10
-  br i1 %1071, label %1078, label %1080
+1070:                                             ; preds = %1066, %1062
+  %.0239.i = phi i32 [ %1069, %1066 ], [ %1064, %1062 ]
+  %1071 = add i32 %.0239.i, -13
+  %1072 = icmp ult i32 %1071, 5
+  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1074 = load ptr, ptr %1073, align 8
+  %1075 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1076 = load ptr, ptr %1075, align 8
+  %1077 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1045) #10
+  %1078 = tail call ptr @LLVMConstNull(ptr noundef %1077) #10
+  br i1 %1072, label %1079, label %1081
 
-1078:                                             ; preds = %1069
-  %1079 = tail call ptr @LLVMBuildFCmp(ptr noundef %1073, i32 noundef 9, ptr noundef %1075, ptr noundef %1077, ptr noundef nonnull @.str.172) #10
-  br label %1082
+1079:                                             ; preds = %1070
+  %1080 = tail call ptr @LLVMBuildFCmp(ptr noundef %1074, i32 noundef 9, ptr noundef %1076, ptr noundef %1078, ptr noundef nonnull @.str.172) #10
+  br label %1083
 
-1080:                                             ; preds = %1069
-  %1081 = tail call ptr @LLVMBuildICmp(ptr noundef %1073, i32 noundef 32, ptr noundef %1075, ptr noundef %1077, ptr noundef nonnull @.str.172) #10
-  br label %1082
+1081:                                             ; preds = %1070
+  %1082 = tail call ptr @LLVMBuildICmp(ptr noundef %1074, i32 noundef 32, ptr noundef %1076, ptr noundef %1078, ptr noundef nonnull @.str.172) #10
+  br label %1083
 
-1082:                                             ; preds = %1080, %1078
-  %.0241.i = phi ptr [ %1079, %1078 ], [ %1081, %1080 ]
-  %1083 = tail call ptr @type_get_vector_bool(ptr noundef %1044) #10
-  %1084 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1085 = load ptr, ptr %1084, align 8
-  %1086 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1083) #10
-  %1087 = tail call ptr @LLVMBuildSExt(ptr noundef %1085, ptr noundef %.0241.i, ptr noundef %1086, ptr noundef nonnull @.str.3) #10
-  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %1087, ptr noundef %1083) #10
+1083:                                             ; preds = %1081, %1079
+  %.0241.i = phi ptr [ %1080, %1079 ], [ %1082, %1081 ]
+  %1084 = tail call ptr @type_get_vector_bool(ptr noundef %1045) #10
+  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1086 = load ptr, ptr %1085, align 8
+  %1087 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1084) #10
+  %1088 = tail call ptr @LLVMBuildSExt(ptr noundef %1086, ptr noundef %.0241.i, ptr noundef %1087, ptr noundef nonnull @.str.3) #10
+  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %1088, ptr noundef %1084) #10
   br label %llvm_emit_unary_expr.exit
 
-1088:                                             ; preds = %1050
-  %1089 = load i32, ptr %1044, align 8
-  switch i32 %1089, label %1152 [
-    i32 14, label %1090
-    i32 13, label %1090
-    i32 15, label %1090
-    i32 16, label %1090
-    i32 17, label %1090
-    i32 2, label %1098
-    i32 34, label %1104
-    i32 3, label %1140
-    i32 4, label %1140
-    i32 5, label %1140
-    i32 6, label %1140
-    i32 7, label %1140
-    i32 8, label %1140
-    i32 9, label %1140
-    i32 10, label %1140
-    i32 11, label %1140
-    i32 12, label %1140
-    i32 23, label %1140
-    i32 19, label %1146
-    i32 20, label %1146
+1089:                                             ; preds = %1051
+  %1090 = load i32, ptr %1045, align 8
+  switch i32 %1090, label %1153 [
+    i32 14, label %1091
+    i32 13, label %1091
+    i32 15, label %1091
+    i32 16, label %1091
+    i32 17, label %1091
+    i32 2, label %1099
+    i32 34, label %1105
+    i32 3, label %1141
+    i32 4, label %1141
+    i32 5, label %1141
+    i32 6, label %1141
+    i32 7, label %1141
+    i32 8, label %1141
+    i32 9, label %1141
+    i32 10, label %1141
+    i32 11, label %1141
+    i32 12, label %1141
+    i32 23, label %1141
+    i32 19, label %1147
+    i32 20, label %1147
   ]
 
-1090:                                             ; preds = %1088, %1088, %1088, %1088, %1088
+1091:                                             ; preds = %1089, %1089, %1089, %1089, %1089
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1092 = load ptr, ptr %1091, align 8
-  %1093 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1094 = load ptr, ptr %1093, align 8
-  %1095 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef nonnull %1044) #10
-  %1096 = tail call ptr @LLVMConstNull(ptr noundef %1095) #10
-  %1097 = tail call ptr @LLVMBuildFCmp(ptr noundef %1092, i32 noundef 9, ptr noundef %1094, ptr noundef %1096, ptr noundef nonnull @.str.172) #10
-  br label %1153
+  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1095 = load ptr, ptr %1094, align 8
+  %1096 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef nonnull %1045) #10
+  %1097 = tail call ptr @LLVMConstNull(ptr noundef %1096) #10
+  %1098 = tail call ptr @LLVMBuildFCmp(ptr noundef %1093, i32 noundef 9, ptr noundef %1095, ptr noundef %1097, ptr noundef nonnull @.str.172) #10
+  br label %1154
 
-1098:                                             ; preds = %1088
+1099:                                             ; preds = %1089
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1100 = load ptr, ptr %1099, align 8
-  %1101 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = tail call ptr @LLVMBuildNot(ptr noundef %1100, ptr noundef %1102, ptr noundef nonnull @.str.172) #10
-  br label %1153
+  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1101 = load ptr, ptr %1100, align 8
+  %1102 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1103 = load ptr, ptr %1102, align 8
+  %1104 = tail call ptr @LLVMBuildNot(ptr noundef %1101, ptr noundef %1103, ptr noundef nonnull @.str.172) #10
+  br label %1154
 
-1104:                                             ; preds = %1088
-  %1105 = load i8, ptr %1, align 8
-  %1106 = and i8 %1105, 31
-  %.not250.i = icmp eq i8 %1106, 0
-  br i1 %.not250.i, label %1110, label %1107
+1105:                                             ; preds = %1089
+  %1106 = load i8, ptr %1, align 8
+  %1107 = and i8 %1106, 31
+  %.not250.i = icmp eq i8 %1107, 0
+  br i1 %.not250.i, label %1111, label %1108
 
-1107:                                             ; preds = %1104
+1108:                                             ; preds = %1105
   tail call void @llvm_emit_len_for_expr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
-  %1108 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1109 = load ptr, ptr %1108, align 8
-  br label %1136
+  %1109 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1110 = load ptr, ptr %1109, align 8
+  br label %1137
 
-1110:                                             ; preds = %1104
-  %1111 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1112 = load ptr, ptr %1111, align 8
-  %1113 = tail call ptr @LLVMTypeOf(ptr noundef %1112) #10
-  %1114 = tail call i32 @LLVMGetTypeKind(ptr noundef %1113) #10
-  %1115 = icmp eq i32 %1114, 13
-  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1117 = load ptr, ptr %1116, align 8
-  br i1 %1115, label %1118, label %1134
+1111:                                             ; preds = %1105
+  %1112 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1113 = load ptr, ptr %1112, align 8
+  %1114 = tail call ptr @LLVMTypeOf(ptr noundef %1113) #10
+  %1115 = tail call i32 @LLVMGetTypeKind(ptr noundef %1114) #10
+  %1116 = icmp eq i32 %1115, 13
+  %1117 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1118 = load ptr, ptr %1117, align 8
+  br i1 %1116, label %1119, label %1135
 
-1118:                                             ; preds = %1110
-  %1119 = load ptr, ptr @type_usz, align 8
-  %1120 = tail call fastcc ptr @type_lowering(ptr noundef %1119)
-  %1121 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1120) #10
-  %1122 = load i32, ptr %1120, align 8
-  %1123 = icmp eq i32 %1122, 31
-  br i1 %1123, label %1124, label %1128
+1119:                                             ; preds = %1111
+  %1120 = load ptr, ptr @type_usz, align 8
+  %1121 = tail call fastcc ptr @type_lowering(ptr noundef %1120)
+  %1122 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1121) #10
+  %1123 = load i32, ptr %1121, align 8
+  %1124 = icmp eq i32 %1123, 31
+  br i1 %1124, label %1125, label %1129
 
-1124:                                             ; preds = %1118
-  %1125 = getelementptr inbounds nuw i8, ptr %1120, i64 8
-  %1126 = load ptr, ptr %1125, align 8
-  %1127 = load i32, ptr %1126, align 8
-  br label %1128
+1125:                                             ; preds = %1119
+  %1126 = getelementptr inbounds nuw i8, ptr %1121, i64 8
+  %1127 = load ptr, ptr %1126, align 8
+  %1128 = load i32, ptr %1127, align 8
+  br label %1129
 
-1128:                                             ; preds = %1124, %1118
-  %.0236.i = phi i32 [ %1127, %1124 ], [ %1122, %1118 ]
-  %1129 = add i32 %.0236.i, -3
-  %1130 = icmp ult i32 %1129, 5
-  %1131 = zext i1 %1130 to i32
-  %1132 = tail call ptr @LLVMConstInt(ptr noundef %1121, i64 noundef 1, i32 noundef %1131) #10
-  %1133 = tail call ptr @LLVMBuildExtractElement(ptr noundef %1117, ptr noundef %1112, ptr noundef %1132, ptr noundef nonnull @.str.3) #10
-  br label %1136
+1129:                                             ; preds = %1125, %1119
+  %.0236.i = phi i32 [ %1128, %1125 ], [ %1123, %1119 ]
+  %1130 = add i32 %.0236.i, -3
+  %1131 = icmp ult i32 %1130, 5
+  %1132 = zext i1 %1131 to i32
+  %1133 = tail call ptr @LLVMConstInt(ptr noundef %1122, i64 noundef 1, i32 noundef %1132) #10
+  %1134 = tail call ptr @LLVMBuildExtractElement(ptr noundef %1118, ptr noundef %1113, ptr noundef %1133, ptr noundef nonnull @.str.3) #10
+  br label %1137
 
-1134:                                             ; preds = %1110
-  %1135 = tail call ptr @LLVMBuildExtractValue(ptr noundef %1117, ptr noundef %1112, i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %1136
+1135:                                             ; preds = %1111
+  %1136 = tail call ptr @LLVMBuildExtractValue(ptr noundef %1118, ptr noundef %1113, i32 noundef 1, ptr noundef nonnull @.str.3) #10
+  br label %1137
 
-1136:                                             ; preds = %1134, %1128, %1107
-  %.2.i = phi ptr [ %1109, %1107 ], [ %1133, %1128 ], [ %1135, %1134 ]
-  %1137 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = tail call ptr @LLVMBuildIsNull(ptr noundef %1138, ptr noundef %.2.i, ptr noundef nonnull @.str.172) #10
-  br label %1153
+1137:                                             ; preds = %1135, %1129, %1108
+  %.2.i = phi ptr [ %1110, %1108 ], [ %1134, %1129 ], [ %1136, %1135 ]
+  %1138 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1139 = load ptr, ptr %1138, align 8
+  %1140 = tail call ptr @LLVMBuildIsNull(ptr noundef %1139, ptr noundef %.2.i, ptr noundef nonnull @.str.172) #10
+  br label %1154
 
-1140:                                             ; preds = %1088, %1088, %1088, %1088, %1088, %1088, %1088, %1088, %1088, %1088, %1088
+1141:                                             ; preds = %1089, %1089, %1089, %1089, %1089, %1089, %1089, %1089, %1089, %1089, %1089
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1141 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1142 = load ptr, ptr %1141, align 8
-  %1143 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1144 = load ptr, ptr %1143, align 8
-  %1145 = tail call ptr @LLVMBuildIsNull(ptr noundef %1142, ptr noundef %1144, ptr noundef nonnull @.str.172) #10
-  br label %1153
+  %1142 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1143 = load ptr, ptr %1142, align 8
+  %1144 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1145 = load ptr, ptr %1144, align 8
+  %1146 = tail call ptr @LLVMBuildIsNull(ptr noundef %1143, ptr noundef %1145, ptr noundef nonnull @.str.172) #10
+  br label %1154
 
-1146:                                             ; preds = %1088, %1088
+1147:                                             ; preds = %1089, %1089
   tail call fastcc void @llvm_emit_any_pointer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1147 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1148 = load ptr, ptr %1147, align 8
-  %1149 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1150 = load ptr, ptr %1149, align 8
-  %1151 = tail call ptr @LLVMBuildIsNull(ptr noundef %1148, ptr noundef %1150, ptr noundef nonnull @.str.172) #10
-  br label %1153
+  %1148 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1149 = load ptr, ptr %1148, align 8
+  %1150 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1151 = load ptr, ptr %1150, align 8
+  %1152 = tail call ptr @LLVMBuildIsNull(ptr noundef %1149, ptr noundef %1151, ptr noundef nonnull @.str.172) #10
+  br label %1154
 
-1152:                                             ; preds = %1088
+1153:                                             ; preds = %1089
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_unary_expr, ptr noundef nonnull @.str.11, i32 noundef 2655) #11
   unreachable
 
-1153:                                             ; preds = %1146, %1140, %1136, %1098, %1090
-  %.1.i = phi ptr [ %1097, %1090 ], [ %1103, %1098 ], [ %1139, %1136 ], [ %1145, %1140 ], [ %1151, %1146 ]
-  %1154 = load ptr, ptr @type_bool, align 8
-  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.1.i, ptr noundef %1154) #10
+1154:                                             ; preds = %1147, %1141, %1137, %1099, %1091
+  %.1.i = phi ptr [ %1098, %1091 ], [ %1104, %1099 ], [ %1140, %1137 ], [ %1146, %1141 ], [ %1152, %1147 ]
+  %1155 = load ptr, ptr @type_bool, align 8
+  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.1.i, ptr noundef %1155) #10
   br label %llvm_emit_unary_expr.exit
 
-1155:                                             ; preds = %1041
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045)
-  %1156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1157 = load ptr, ptr %1156, align 8
-  %1158 = load i32, ptr %1157, align 8
-  %1159 = icmp eq i32 %1158, 33
-  br i1 %1159, label %1160, label %1181
+1156:                                             ; preds = %1042
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046)
+  %1157 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1158 = load ptr, ptr %1157, align 8
+  %1159 = load i32, ptr %1158, align 8
+  %1160 = icmp eq i32 %1159, 33
+  br i1 %1160, label %1161, label %1182
 
-1160:                                             ; preds = %1155
+1161:                                             ; preds = %1156
   tail call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
-  %1161 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1162 = load ptr, ptr %1161, align 8
-  %1163 = load ptr, ptr %1156, align 8
-  %1164 = tail call i32 @type_size(ptr noundef %1163) #10
-  %1165 = shl i32 %1164, 3
-  %1166 = tail call ptr @LLVMIntTypeInContext(ptr noundef %1162, i32 noundef %1165) #10
-  %1167 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1168 = load ptr, ptr %1167, align 8
-  %1169 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1170 = load i32, ptr %1169, align 4
-  %1171 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %1166, ptr noundef %1168, i32 noundef %1170, ptr noundef nonnull @.str.3) #10
-  %1172 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = tail call ptr @LLVMBuildNot(ptr noundef %1173, ptr noundef %1171, ptr noundef nonnull @.str.173) #10
-  %1175 = load i32, ptr %1169, align 4
-  %1176 = tail call ptr @llvm_emit_alloca(ptr noundef nonnull %0, ptr noundef %1166, i32 noundef %1175, ptr noundef nonnull @.str.3) #10
-  %1177 = load i32, ptr %1169, align 4
-  %1178 = tail call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1176, ptr noundef %1174, i32 noundef %1177) #10
-  %1179 = load ptr, ptr %1156, align 8
-  %1180 = load i32, ptr %1169, align 4
-  tail call void @llvm_value_set_address(ptr noundef nonnull %1, ptr noundef %1176, ptr noundef %1179, i32 noundef %1180) #10
+  %1162 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1163 = load ptr, ptr %1162, align 8
+  %1164 = load ptr, ptr %1157, align 8
+  %1165 = tail call i32 @type_size(ptr noundef %1164) #10
+  %1166 = shl i32 %1165, 3
+  %1167 = tail call ptr @LLVMIntTypeInContext(ptr noundef %1163, i32 noundef %1166) #10
+  %1168 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1169 = load ptr, ptr %1168, align 8
+  %1170 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1171 = load i32, ptr %1170, align 4
+  %1172 = tail call ptr @llvm_load(ptr noundef nonnull %0, ptr noundef %1167, ptr noundef %1169, i32 noundef %1171, ptr noundef nonnull @.str.3) #10
+  %1173 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = tail call ptr @LLVMBuildNot(ptr noundef %1174, ptr noundef %1172, ptr noundef nonnull @.str.173) #10
+  %1176 = load i32, ptr %1170, align 4
+  %1177 = tail call ptr @llvm_emit_alloca(ptr noundef nonnull %0, ptr noundef %1167, i32 noundef %1176, ptr noundef nonnull @.str.3) #10
+  %1178 = load i32, ptr %1170, align 4
+  %1179 = tail call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1177, ptr noundef %1175, i32 noundef %1178) #10
+  %1180 = load ptr, ptr %1157, align 8
+  %1181 = load i32, ptr %1170, align 4
+  tail call void @llvm_value_set_address(ptr noundef nonnull %1, ptr noundef %1177, ptr noundef %1180, i32 noundef %1181) #10
   br label %llvm_emit_unary_expr.exit
 
-1181:                                             ; preds = %1155
+1182:                                             ; preds = %1156
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
-  %1182 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1183 = load ptr, ptr %1182, align 8
-  %1184 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1185 = load ptr, ptr %1184, align 8
-  %1186 = tail call ptr @LLVMBuildNot(ptr noundef %1183, ptr noundef %1185, ptr noundef nonnull @.str.173) #10
-  store ptr %1186, ptr %1184, align 8
+  %1183 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1184 = load ptr, ptr %1183, align 8
+  %1185 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1186 = load ptr, ptr %1185, align 8
+  %1187 = tail call ptr @LLVMBuildNot(ptr noundef %1184, ptr noundef %1186, ptr noundef nonnull @.str.173) #10
+  store ptr %1187, ptr %1185, align 8
   br label %llvm_emit_unary_expr.exit
 
-1187:                                             ; preds = %1041
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045)
+1188:                                             ; preds = %1042
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1188 = getelementptr inbounds nuw i8, ptr %1044, i64 8
-  %1189 = load ptr, ptr %1188, align 8
-  %1190 = load i32, ptr %1189, align 8
-  %1191 = icmp eq i32 %1190, 37
-  br i1 %1191, label %1192, label %1204
+  %1189 = getelementptr inbounds nuw i8, ptr %1045, i64 8
+  %1190 = load ptr, ptr %1189, align 8
+  %1191 = load i32, ptr %1190, align 8
+  %1192 = icmp eq i32 %1191, 37
+  br i1 %1192, label %1193, label %1205
 
-1192:                                             ; preds = %1187
-  %1193 = getelementptr inbounds nuw i8, ptr %1189, i64 56
-  %1194 = load ptr, ptr %1193, align 8
-  %1195 = load i32, ptr %1194, align 8
-  %1196 = icmp eq i32 %1195, 31
-  br i1 %1196, label %1197, label %1201
+1193:                                             ; preds = %1188
+  %1194 = getelementptr inbounds nuw i8, ptr %1190, i64 56
+  %1195 = load ptr, ptr %1194, align 8
+  %1196 = load i32, ptr %1195, align 8
+  %1197 = icmp eq i32 %1196, 31
+  br i1 %1197, label %1198, label %1202
 
-1197:                                             ; preds = %1192
-  %1198 = getelementptr inbounds nuw i8, ptr %1194, i64 8
-  %1199 = load ptr, ptr %1198, align 8
-  %1200 = load i32, ptr %1199, align 8
-  br label %1201
+1198:                                             ; preds = %1193
+  %1199 = getelementptr inbounds nuw i8, ptr %1195, i64 8
+  %1200 = load ptr, ptr %1199, align 8
+  %1201 = load i32, ptr %1200, align 8
+  br label %1202
 
-1201:                                             ; preds = %1197, %1192
-  %.0.i141 = phi i32 [ %1200, %1197 ], [ %1195, %1192 ]
-  %1202 = add i32 %.0.i141, -13
-  %1203 = icmp ult i32 %1202, 5
-  br i1 %1203, label %.critedge.i140, label %1210
+1202:                                             ; preds = %1198, %1193
+  %.0.i140 = phi i32 [ %1201, %1198 ], [ %1196, %1193 ]
+  %1203 = add i32 %.0.i140, -13
+  %1204 = icmp ult i32 %1203, 5
+  br i1 %1204, label %.critedge.i139, label %1211
 
-1204:                                             ; preds = %1187
-  %.old.i = add i32 %1190, -13
+1205:                                             ; preds = %1188
+  %.old.i = add i32 %1191, -13
   %.old251.i = icmp ult i32 %.old.i, 5
-  br i1 %.old251.i, label %.critedge.i140, label %1210
+  br i1 %.old251.i, label %.critedge.i139, label %1211
 
-.critedge.i140:                                   ; preds = %1204, %1201
-  %1205 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1206 = load ptr, ptr %1205, align 8
-  %1207 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1208 = load ptr, ptr %1207, align 8
-  %1209 = tail call ptr @LLVMBuildFNeg(ptr noundef %1206, ptr noundef %1208, ptr noundef nonnull @.str.174) #10
-  store ptr %1209, ptr %1207, align 8
+.critedge.i139:                                   ; preds = %1205, %1202
+  %1206 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1207 = load ptr, ptr %1206, align 8
+  %1208 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1209 = load ptr, ptr %1208, align 8
+  %1210 = tail call ptr @LLVMBuildFNeg(ptr noundef %1207, ptr noundef %1209, ptr noundef nonnull @.str.174) #10
+  store ptr %1210, ptr %1208, align 8
   br label %llvm_emit_unary_expr.exit
 
-1210:                                             ; preds = %1204, %1201
-  %1211 = load ptr, ptr %1042, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1211)
+1211:                                             ; preds = %1205, %1202
+  %1212 = load ptr, ptr %1043, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1212)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1212 = load i16, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 328), align 8
-  %1213 = and i16 %1212, 16384
-  %.not.i139 = icmp eq i16 %1213, 0
-  br i1 %.not.i139, label %1282, label %1214
+  %1213 = load i16, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 328), align 8
+  %1214 = and i16 %1213, 16384
+  %.not.i138 = icmp eq i16 %1214, 0
+  br i1 %.not.i138, label %1283, label %1215
 
-1214:                                             ; preds = %1210
-  %1215 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1216 = load ptr, ptr %1215, align 8
-  %1217 = tail call fastcc ptr @type_flatten(ptr noundef %1216)
-  %1218 = load i32, ptr %1217, align 8
-  %1219 = icmp eq i32 %1218, 37
-  br i1 %1219, label %1282, label %1220
+1215:                                             ; preds = %1211
+  %1216 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1217 = load ptr, ptr %1216, align 8
+  %1218 = tail call fastcc ptr @type_flatten(ptr noundef %1217)
+  %1219 = load i32, ptr %1218, align 8
+  %1220 = icmp eq i32 %1219, 37
+  br i1 %1220, label %1283, label %1221
 
-1220:                                             ; preds = %1214
-  %1221 = load ptr, ptr %1042, align 8
-  %1222 = load ptr, ptr %1221, align 8
-  %1223 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1222) #10
-  %1224 = tail call ptr @LLVMConstNull(ptr noundef %1223) #10
-  %1225 = load ptr, ptr %1188, align 8
-  %1226 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1225) #10
-  store ptr %1226, ptr %17, align 8
-  store ptr %1224, ptr %18, align 16
-  %1227 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %1228 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1229 = load ptr, ptr %1228, align 8
-  store ptr %1229, ptr %1227, align 8
-  %1230 = load i32, ptr getelementptr inbounds nuw (i8, ptr @intrinsic_id, i64 264), align 4
-  %1231 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %1230, ptr noundef nonnull %17, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 2)
-  %1232 = call ptr @LLVMTypeOf(ptr noundef %1231) #10
-  %1233 = call i32 @LLVMGetTypeKind(ptr noundef %1232) #10
-  %1234 = icmp eq i32 %1233, 13
-  %1235 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1236 = load ptr, ptr %1235, align 8
-  br i1 %1234, label %1237, label %1253
+1221:                                             ; preds = %1215
+  %1222 = load ptr, ptr %1043, align 8
+  %1223 = load ptr, ptr %1222, align 8
+  %1224 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1223) #10
+  %1225 = tail call ptr @LLVMConstNull(ptr noundef %1224) #10
+  %1226 = load ptr, ptr %1189, align 8
+  %1227 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1226) #10
+  store ptr %1227, ptr %17, align 8
+  store ptr %1225, ptr %18, align 16
+  %1228 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %1229 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1230 = load ptr, ptr %1229, align 8
+  store ptr %1230, ptr %1228, align 8
+  %1231 = load i32, ptr getelementptr inbounds nuw (i8, ptr @intrinsic_id, i64 264), align 4
+  %1232 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %1231, ptr noundef nonnull %17, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 2)
+  %1233 = call ptr @LLVMTypeOf(ptr noundef %1232) #10
+  %1234 = call i32 @LLVMGetTypeKind(ptr noundef %1233) #10
+  %1235 = icmp eq i32 %1234, 13
+  %1236 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1237 = load ptr, ptr %1236, align 8
+  br i1 %1235, label %1238, label %1254
 
-1237:                                             ; preds = %1220
-  %1238 = load ptr, ptr @type_usz, align 8
-  %1239 = call fastcc ptr @type_lowering(ptr noundef %1238)
-  %1240 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1239) #10
-  %1241 = load i32, ptr %1239, align 8
-  %1242 = icmp eq i32 %1241, 31
-  br i1 %1242, label %1243, label %1247
+1238:                                             ; preds = %1221
+  %1239 = load ptr, ptr @type_usz, align 8
+  %1240 = call fastcc ptr @type_lowering(ptr noundef %1239)
+  %1241 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1240) #10
+  %1242 = load i32, ptr %1240, align 8
+  %1243 = icmp eq i32 %1242, 31
+  br i1 %1243, label %1244, label %1248
 
-1243:                                             ; preds = %1237
-  %1244 = getelementptr inbounds nuw i8, ptr %1239, i64 8
-  %1245 = load ptr, ptr %1244, align 8
-  %1246 = load i32, ptr %1245, align 8
-  br label %1247
+1244:                                             ; preds = %1238
+  %1245 = getelementptr inbounds nuw i8, ptr %1240, i64 8
+  %1246 = load ptr, ptr %1245, align 8
+  %1247 = load i32, ptr %1246, align 8
+  br label %1248
 
-1247:                                             ; preds = %1243, %1237
-  %.0237.i = phi i32 [ %1246, %1243 ], [ %1241, %1237 ]
-  %1248 = add i32 %.0237.i, -3
-  %1249 = icmp ult i32 %1248, 5
-  %1250 = zext i1 %1249 to i32
-  %1251 = call ptr @LLVMConstInt(ptr noundef %1240, i64 noundef 0, i32 noundef %1250) #10
-  %1252 = call ptr @LLVMBuildExtractElement(ptr noundef %1236, ptr noundef %1231, ptr noundef %1251, ptr noundef nonnull @.str.3) #10
-  br label %1255
+1248:                                             ; preds = %1244, %1238
+  %.0237.i = phi i32 [ %1247, %1244 ], [ %1242, %1238 ]
+  %1249 = add i32 %.0237.i, -3
+  %1250 = icmp ult i32 %1249, 5
+  %1251 = zext i1 %1250 to i32
+  %1252 = call ptr @LLVMConstInt(ptr noundef %1241, i64 noundef 0, i32 noundef %1251) #10
+  %1253 = call ptr @LLVMBuildExtractElement(ptr noundef %1237, ptr noundef %1232, ptr noundef %1252, ptr noundef nonnull @.str.3) #10
+  br label %1256
 
-1253:                                             ; preds = %1220
-  %1254 = call ptr @LLVMBuildExtractValue(ptr noundef %1236, ptr noundef %1231, i32 noundef 0, ptr noundef nonnull @.str.3) #10
-  br label %1255
+1254:                                             ; preds = %1221
+  %1255 = call ptr @LLVMBuildExtractValue(ptr noundef %1237, ptr noundef %1232, i32 noundef 0, ptr noundef nonnull @.str.3) #10
+  br label %1256
 
-1255:                                             ; preds = %1253, %1247
-  %.0242.i = phi ptr [ %1252, %1247 ], [ %1254, %1253 ]
-  store ptr %.0242.i, ptr %1228, align 8
-  %1256 = call ptr @LLVMTypeOf(ptr noundef %1231) #10
-  %1257 = call i32 @LLVMGetTypeKind(ptr noundef %1256) #10
-  %1258 = icmp eq i32 %1257, 13
-  %1259 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1260 = load ptr, ptr %1259, align 8
-  br i1 %1258, label %1261, label %1277
+1256:                                             ; preds = %1254, %1248
+  %.0242.i = phi ptr [ %1253, %1248 ], [ %1255, %1254 ]
+  store ptr %.0242.i, ptr %1229, align 8
+  %1257 = call ptr @LLVMTypeOf(ptr noundef %1232) #10
+  %1258 = call i32 @LLVMGetTypeKind(ptr noundef %1257) #10
+  %1259 = icmp eq i32 %1258, 13
+  %1260 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1261 = load ptr, ptr %1260, align 8
+  br i1 %1259, label %1262, label %1278
 
-1261:                                             ; preds = %1255
-  %1262 = load ptr, ptr @type_usz, align 8
-  %1263 = call fastcc ptr @type_lowering(ptr noundef %1262)
-  %1264 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1263) #10
-  %1265 = load i32, ptr %1263, align 8
-  %1266 = icmp eq i32 %1265, 31
-  br i1 %1266, label %1267, label %1271
+1262:                                             ; preds = %1256
+  %1263 = load ptr, ptr @type_usz, align 8
+  %1264 = call fastcc ptr @type_lowering(ptr noundef %1263)
+  %1265 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1264) #10
+  %1266 = load i32, ptr %1264, align 8
+  %1267 = icmp eq i32 %1266, 31
+  br i1 %1267, label %1268, label %1272
 
-1267:                                             ; preds = %1261
-  %1268 = getelementptr inbounds nuw i8, ptr %1263, i64 8
-  %1269 = load ptr, ptr %1268, align 8
-  %1270 = load i32, ptr %1269, align 8
-  br label %1271
+1268:                                             ; preds = %1262
+  %1269 = getelementptr inbounds nuw i8, ptr %1264, i64 8
+  %1270 = load ptr, ptr %1269, align 8
+  %1271 = load i32, ptr %1270, align 8
+  br label %1272
 
-1271:                                             ; preds = %1267, %1261
-  %.0238.i = phi i32 [ %1270, %1267 ], [ %1265, %1261 ]
-  %1272 = add i32 %.0238.i, -3
-  %1273 = icmp ult i32 %1272, 5
-  %1274 = zext i1 %1273 to i32
-  %1275 = call ptr @LLVMConstInt(ptr noundef %1264, i64 noundef 1, i32 noundef %1274) #10
-  %1276 = call ptr @LLVMBuildExtractElement(ptr noundef %1260, ptr noundef %1231, ptr noundef %1275, ptr noundef nonnull @.str.3) #10
-  br label %1279
+1272:                                             ; preds = %1268, %1262
+  %.0238.i = phi i32 [ %1271, %1268 ], [ %1266, %1262 ]
+  %1273 = add i32 %.0238.i, -3
+  %1274 = icmp ult i32 %1273, 5
+  %1275 = zext i1 %1274 to i32
+  %1276 = call ptr @LLVMConstInt(ptr noundef %1265, i64 noundef 1, i32 noundef %1275) #10
+  %1277 = call ptr @LLVMBuildExtractElement(ptr noundef %1261, ptr noundef %1232, ptr noundef %1276, ptr noundef nonnull @.str.3) #10
+  br label %1280
 
-1277:                                             ; preds = %1255
-  %1278 = call ptr @LLVMBuildExtractValue(ptr noundef %1260, ptr noundef %1231, i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %1279
+1278:                                             ; preds = %1256
+  %1279 = call ptr @LLVMBuildExtractValue(ptr noundef %1261, ptr noundef %1232, i32 noundef 1, ptr noundef nonnull @.str.3) #10
+  br label %1280
 
-1279:                                             ; preds = %1277, %1271
-  %.0243.i = phi ptr [ %1276, %1271 ], [ %1278, %1277 ]
-  %1280 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %1281 = load i64, ptr %1280, align 8
-  call void @llvm_emit_panic_on_true(ptr noundef nonnull %0, ptr noundef %.0243.i, ptr noundef nonnull @.str.175, i64 %1281, ptr noundef null, ptr noundef null, ptr noundef null) #10
+1280:                                             ; preds = %1278, %1272
+  %.0243.i = phi ptr [ %1277, %1272 ], [ %1279, %1278 ]
+  %1281 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %1282 = load i64, ptr %1281, align 8
+  call void @llvm_emit_panic_on_true(ptr noundef nonnull %0, ptr noundef %.0243.i, ptr noundef nonnull @.str.175, i64 %1282, ptr noundef null, ptr noundef null, ptr noundef null) #10
   br label %llvm_emit_unary_expr.exit
 
-1282:                                             ; preds = %1214, %1210
-  %1283 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1284 = load ptr, ptr %1283, align 8
-  %1285 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = tail call ptr @LLVMBuildNeg(ptr noundef %1284, ptr noundef %1286, ptr noundef nonnull @.str.176) #10
-  store ptr %1287, ptr %1285, align 8
+1283:                                             ; preds = %1215, %1211
+  %1284 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1285 = load ptr, ptr %1284, align 8
+  %1286 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1287 = load ptr, ptr %1286, align 8
+  %1288 = tail call ptr @LLVMBuildNeg(ptr noundef %1285, ptr noundef %1287, ptr noundef nonnull @.str.176) #10
+  store ptr %1288, ptr %1286, align 8
   br label %llvm_emit_unary_expr.exit
 
-1288:                                             ; preds = %1041
-  %1289 = getelementptr inbounds nuw i8, ptr %1045, i64 16
-  %1290 = load i16, ptr %1289, align 8
-  %1291 = and i16 %1290, 255
-  %1292 = icmp eq i16 %1291, 1
-  br i1 %1292, label %1293, label %1301
+1289:                                             ; preds = %1042
+  %1290 = getelementptr inbounds nuw i8, ptr %1046, i64 16
+  %1291 = load i16, ptr %1290, align 8
+  %1292 = and i16 %1291, 255
+  %1293 = icmp eq i16 %1292, 1
+  br i1 %1293, label %1294, label %1302
 
-1293:                                             ; preds = %1288
-  %1294 = getelementptr inbounds nuw i8, ptr %1045, i64 32
-  %1295 = load ptr, ptr %1294, align 8
-  %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 24
-  %1297 = load i64, ptr %1296, align 8
-  %1298 = and i64 %1297, 127
-  %1299 = icmp eq i64 %1298, 17
-  br i1 %1299, label %1300, label %1301
+1294:                                             ; preds = %1289
+  %1295 = getelementptr inbounds nuw i8, ptr %1046, i64 32
+  %1296 = load ptr, ptr %1295, align 8
+  %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 24
+  %1298 = load i64, ptr %1297, align 8
+  %1299 = and i64 %1298, 127
+  %1300 = icmp eq i64 %1299, 17
+  br i1 %1300, label %1301, label %1302
 
-1300:                                             ; preds = %1293
-  tail call fastcc void @llvm_emit_dynamic_method_addr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1045)
+1301:                                             ; preds = %1294
+  tail call fastcc void @llvm_emit_dynamic_method_addr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1046)
   br label %llvm_emit_unary_expr.exit
 
-1301:                                             ; preds = %1293, %1288, %1041
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045)
+1302:                                             ; preds = %1294, %1289, %1042
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046)
   tail call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1302 = load i8, ptr %1, align 8
-  %1303 = and i8 %1302, -32
-  store i8 %1303, ptr %1, align 8
-  %1304 = load ptr, ptr %2, align 8
-  %1305 = tail call fastcc ptr @type_lowering(ptr noundef %1304)
-  %1306 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %1305, ptr %1306, align 8
+  %1303 = load i8, ptr %1, align 8
+  %1304 = and i8 %1303, -32
+  store i8 %1304, ptr %1, align 8
+  %1305 = load ptr, ptr %2, align 8
+  %1306 = tail call fastcc ptr @type_lowering(ptr noundef %1305)
+  %1307 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %1306, ptr %1307, align 8
   br label %llvm_emit_unary_expr.exit
 
-1307:                                             ; preds = %1041
-  %1308 = load ptr, ptr %2, align 8
-  %1309 = tail call fastcc ptr @type_lowering(ptr noundef %1308)
-  tail call fastcc void @llvm_emit_deref(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045, ptr noundef %1309)
+1308:                                             ; preds = %1042
+  %1309 = load ptr, ptr %2, align 8
+  %1310 = tail call fastcc ptr @type_lowering(ptr noundef %1309)
+  tail call fastcc void @llvm_emit_deref(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046, ptr noundef %1310)
   br label %llvm_emit_unary_expr.exit
 
-1310:                                             ; preds = %1041
-  tail call fastcc void @llvm_emit_pre_inc_dec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045, i32 noundef 1)
+1311:                                             ; preds = %1042
+  tail call fastcc void @llvm_emit_pre_inc_dec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046, i32 noundef 1)
   br label %llvm_emit_unary_expr.exit
 
-1311:                                             ; preds = %1041
-  tail call fastcc void @llvm_emit_pre_inc_dec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1045, i32 noundef -1)
+1312:                                             ; preds = %1042
+  tail call fastcc void @llvm_emit_pre_inc_dec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1046, i32 noundef -1)
   br label %llvm_emit_unary_expr.exit
 
-1312:                                             ; preds = %1041
+1313:                                             ; preds = %1042
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_unary_expr, ptr noundef nonnull @.str.11, i32 noundef 2725) #11
   unreachable
 
-llvm_emit_unary_expr.exit:                        ; preds = %1082, %1153, %1160, %1181, %.critedge.i140, %1279, %1282, %1300, %1301, %1307, %1310, %1311
+llvm_emit_unary_expr.exit:                        ; preds = %1083, %1154, %1161, %1182, %.critedge.i139, %1280, %1283, %1301, %1302, %1308, %1311, %1312
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %common.ret419
-
-1313:                                             ; preds = %62
-  tail call fastcc void @llvm_emit_const_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
 1314:                                             ; preds = %62
-  %1315 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1316 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1317 = load ptr, ptr %1316, align 8
-  %1318 = load ptr, ptr %1315, align 8
-  %.not.i143 = icmp eq ptr %1317, null
-  br i1 %.not.i143, label %._crit_edge248, label %1319
+  tail call fastcc void @llvm_emit_const_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %common.ret418
 
-1319:                                             ; preds = %1314
-  %1320 = getelementptr inbounds i8, ptr %1317, i64 -8
-  %1321 = load i32, ptr %1320, align 4
-  %.not281 = icmp eq i32 %1321, 0
-  br i1 %.not281, label %._crit_edge248, label %.lr.ph247.preheader
+1315:                                             ; preds = %62
+  %1316 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1317 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1318 = load ptr, ptr %1317, align 8
+  %1319 = load ptr, ptr %1316, align 8
+  %.not.i142 = icmp eq ptr %1318, null
+  br i1 %.not.i142, label %._crit_edge247, label %1320
 
-.lr.ph247.preheader:                              ; preds = %1319
-  %wide.trip.count304 = zext i32 %1321 to i64
-  br label %.lr.ph247
+1320:                                             ; preds = %1315
+  %1321 = getelementptr inbounds i8, ptr %1318, i64 -8
+  %1322 = load i32, ptr %1321, align 4
+  %.not280 = icmp eq i32 %1322, 0
+  br i1 %.not280, label %._crit_edge247, label %.lr.ph246.preheader
 
-.lr.ph247:                                        ; preds = %.lr.ph247.preheader, %1327
-  %indvars.iv301 = phi i64 [ 0, %.lr.ph247.preheader ], [ %indvars.iv.next302, %1327 ]
-  %1322 = getelementptr inbounds nuw ptr, ptr %1317, i64 %indvars.iv301
-  %1323 = load ptr, ptr %1322, align 8
-  %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 32
-  %1325 = load ptr, ptr %1324, align 8
-  %.not45.i = icmp eq ptr %1325, null
-  br i1 %.not45.i, label %1326, label %1327
+.lr.ph246.preheader:                              ; preds = %1320
+  %wide.trip.count303 = zext i32 %1322 to i64
+  br label %.lr.ph246
 
-1326:                                             ; preds = %.lr.ph247
-  tail call void @llvm_emit_local_var_alloca(ptr noundef %0, ptr noundef nonnull %1323) #10
-  br label %1327
+.lr.ph246:                                        ; preds = %.lr.ph246.preheader, %1328
+  %indvars.iv300 = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next301, %1328 ]
+  %1323 = getelementptr inbounds nuw ptr, ptr %1318, i64 %indvars.iv300
+  %1324 = load ptr, ptr %1323, align 8
+  %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 32
+  %1326 = load ptr, ptr %1325, align 8
+  %.not45.i = icmp eq ptr %1326, null
+  br i1 %.not45.i, label %1327, label %1328
 
-1327:                                             ; preds = %1326, %.lr.ph247
-  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
-  br i1 %exitcond305.not, label %._crit_edge248, label %.lr.ph247, !llvm.loop !17
+1327:                                             ; preds = %.lr.ph246
+  tail call void @llvm_emit_local_var_alloca(ptr noundef %0, ptr noundef nonnull %1324) #10
+  br label %1328
 
-._crit_edge248:                                   ; preds = %1327, %1314, %1319
-  %.not43.i = icmp eq ptr %1318, null
-  br i1 %.not43.i, label %._crit_edge252, label %1328
+1328:                                             ; preds = %1327, %.lr.ph246
+  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
+  %exitcond304.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count303
+  br i1 %exitcond304.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !17
 
-1328:                                             ; preds = %._crit_edge248
-  %1329 = getelementptr inbounds i8, ptr %1318, i64 -8
-  %1330 = load i32, ptr %1329, align 4
-  %.not282 = icmp eq i32 %1330, 0
-  br i1 %.not282, label %._crit_edge252, label %.lr.ph251.preheader
+._crit_edge247:                                   ; preds = %1328, %1315, %1320
+  %.not43.i = icmp eq ptr %1319, null
+  br i1 %.not43.i, label %._crit_edge251, label %1329
 
-.lr.ph251.preheader:                              ; preds = %1328
-  %wide.trip.count309 = zext i32 %1330 to i64
-  br label %.lr.ph251
+1329:                                             ; preds = %._crit_edge247
+  %1330 = getelementptr inbounds i8, ptr %1319, i64 -8
+  %1331 = load i32, ptr %1330, align 4
+  %.not281 = icmp eq i32 %1331, 0
+  br i1 %.not281, label %._crit_edge251, label %.lr.ph250.preheader
 
-.lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.lr.ph251
-  %indvars.iv306 = phi i64 [ 0, %.lr.ph251.preheader ], [ %indvars.iv.next307, %.lr.ph251 ]
-  %1331 = getelementptr inbounds nuw ptr, ptr %1318, i64 %indvars.iv306
-  %1332 = load ptr, ptr %1331, align 8
-  tail call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %1332)
-  %1333 = getelementptr inbounds nuw ptr, ptr %1317, i64 %indvars.iv306
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 32
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = getelementptr inbounds nuw i8, ptr %1334, i64 40
-  %1338 = load i32, ptr %1337, align 8
-  %1339 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %1336, ptr noundef %1, i32 noundef %1338) #10
-  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count309
-  br i1 %exitcond310.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !18
+.lr.ph250.preheader:                              ; preds = %1329
+  %wide.trip.count308 = zext i32 %1331 to i64
+  br label %.lr.ph250
 
-._crit_edge252:                                   ; preds = %.lr.ph251, %._crit_edge248, %1328
-  %1340 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1341 = load i32, ptr %1340, align 8
-  %.not44.i = icmp eq i32 %1341, 0
-  br i1 %.not44.i, label %common.ret419, label %1342
+.lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.lr.ph250
+  %indvars.iv305 = phi i64 [ 0, %.lr.ph250.preheader ], [ %indvars.iv.next306, %.lr.ph250 ]
+  %1332 = getelementptr inbounds nuw ptr, ptr %1319, i64 %indvars.iv305
+  %1333 = load ptr, ptr %1332, align 8
+  tail call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %1333)
+  %1334 = getelementptr inbounds nuw ptr, ptr %1318, i64 %indvars.iv305
+  %1335 = load ptr, ptr %1334, align 8
+  %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 32
+  %1337 = load ptr, ptr %1336, align 8
+  %1338 = getelementptr inbounds nuw i8, ptr %1335, i64 40
+  %1339 = load i32, ptr %1338, align 8
+  %1340 = tail call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %1337, ptr noundef %1, i32 noundef %1339) #10
+  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
+  %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
+  br i1 %exitcond309.not, label %._crit_edge251, label %.lr.ph250, !llvm.loop !18
 
-1342:                                             ; preds = %._crit_edge252
-  %1343 = load ptr, ptr @ast_arena, align 8
-  %1344 = zext i32 %1341 to i64
-  %1345 = getelementptr inbounds nuw %struct.Ast_, ptr %1343, i64 %1344
-  tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %1345) #10
-  br label %common.ret419
+._crit_edge251:                                   ; preds = %.lr.ph250, %._crit_edge247, %1329
+  %1341 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %1342 = load i32, ptr %1341, align 8
+  %.not44.i = icmp eq i32 %1342, 0
+  br i1 %.not44.i, label %common.ret418, label %1343
 
-1346:                                             ; preds = %62
+1343:                                             ; preds = %._crit_edge251
+  %1344 = load ptr, ptr @ast_arena, align 8
+  %1345 = zext i32 %1342 to i64
+  %1346 = getelementptr inbounds nuw %struct.Ast_, ptr %1344, i64 %1345
+  tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %1346) #10
+  br label %common.ret418
+
+1347:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %1347 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1348 = load i32, ptr %1347, align 8
-  %1349 = load ptr, ptr @expr_arena, align 8
-  %1350 = zext i32 %1348 to i64
-  %1351 = getelementptr inbounds nuw %struct.Expr_, ptr %1349, i64 %1350
-  %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 24
-  %1353 = load ptr, ptr %1352, align 8
-  %1354 = getelementptr inbounds nuw i8, ptr %1351, i64 32
-  %1355 = load ptr, ptr %1354, align 8
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %1353)
-  br label %1356
+  %1348 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1349 = load i32, ptr %1348, align 8
+  %1350 = load ptr, ptr @expr_arena, align 8
+  %1351 = zext i32 %1349 to i64
+  %1352 = getelementptr inbounds nuw %struct.Expr_, ptr %1350, i64 %1351
+  %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 24
+  %1354 = load ptr, ptr %1353, align 8
+  %1355 = getelementptr inbounds nuw i8, ptr %1352, i64 32
+  %1356 = load ptr, ptr %1355, align 8
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %1354)
+  br label %1357
 
-1356:                                             ; preds = %.backedge397, %1346
-  %.0.i194.in = phi ptr [ %1353, %1346 ], [ %.0.i194.in.be, %.backedge397 ]
-  %.0.i194 = load ptr, ptr %.0.i194.in, align 8
-  %1357 = getelementptr inbounds nuw i8, ptr %.0.i194, i64 8
-  %1358 = load ptr, ptr %1357, align 8
-  %1359 = load i32, ptr %1358, align 8
-  switch i32 %1359, label %type_flatten.exit197 [
-    i32 32, label %1360
-    i32 40, label %1366
-    i32 31, label %1368
+1357:                                             ; preds = %.backedge396, %1347
+  %.0.i193.in = phi ptr [ %1354, %1347 ], [ %.0.i193.in.be, %.backedge396 ]
+  %.0.i193 = load ptr, ptr %.0.i193.in, align 8
+  %1358 = getelementptr inbounds nuw i8, ptr %.0.i193, i64 8
+  %1359 = load ptr, ptr %1358, align 8
+  %1360 = load i32, ptr %1359, align 8
+  switch i32 %1360, label %type_flatten.exit196 [
+    i32 32, label %1361
+    i32 40, label %1367
+    i32 31, label %1369
   ]
 
-1360:                                             ; preds = %1356
-  %1361 = getelementptr inbounds nuw i8, ptr %1358, i64 56
-  %1362 = load ptr, ptr %1361, align 8
-  %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 96
-  %1364 = load ptr, ptr %1363, align 8
-  %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 8
-  br label %.backedge397
+1361:                                             ; preds = %1357
+  %1362 = getelementptr inbounds nuw i8, ptr %1359, i64 56
+  %1363 = load ptr, ptr %1362, align 8
+  %1364 = getelementptr inbounds nuw i8, ptr %1363, i64 96
+  %1365 = load ptr, ptr %1364, align 8
+  %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 8
+  br label %.backedge396
 
-1366:                                             ; preds = %1356
-  %1367 = getelementptr inbounds nuw i8, ptr %1358, i64 56
-  br label %.backedge397
+1367:                                             ; preds = %1357
+  %1368 = getelementptr inbounds nuw i8, ptr %1359, i64 56
+  br label %.backedge396
 
-.backedge397:                                     ; preds = %1366, %1360
-  %.0.i194.in.be = phi ptr [ %1365, %1360 ], [ %1367, %1366 ]
-  br label %1356
+.backedge396:                                     ; preds = %1367, %1361
+  %.0.i193.in.be = phi ptr [ %1366, %1361 ], [ %1368, %1367 ]
+  br label %1357
 
-1368:                                             ; preds = %1356
+1369:                                             ; preds = %1357
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.80, i32 noundef 2984) #11
   unreachable
 
-type_flatten.exit197:                             ; preds = %1356
-  %1369 = getelementptr inbounds nuw i8, ptr %1358, i64 56
-  %1370 = load ptr, ptr %1369, align 8
-  call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %1370, ptr noundef %1355)
-  %1371 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1372 = load i8, ptr %1371, align 8
-  %.not.i146 = icmp eq i8 %1372, 20
-  br i1 %.not.i146, label %1377, label %1373
+type_flatten.exit196:                             ; preds = %1357
+  %1370 = getelementptr inbounds nuw i8, ptr %1359, i64 56
+  %1371 = load ptr, ptr %1370, align 8
+  call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %1371, ptr noundef %1356)
+  %1372 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1373 = load i8, ptr %1372, align 8
+  %.not.i145 = icmp eq i8 %1373, 20
+  br i1 %.not.i145, label %1378, label %1374
 
-1373:                                             ; preds = %type_flatten.exit197
+1374:                                             ; preds = %type_flatten.exit196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %.val136.i = load ptr, ptr %1353, align 8
-  call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef nonnull %16, ptr %.val136.i, ptr noundef %1355)
-  %1374 = load i8, ptr %1371, align 8
-  %1375 = zext i8 %1374 to i32
-  %1376 = call i32 @binaryop_assign_base_op(i32 noundef %1375) #10
-  call fastcc void @llvm_emit_binary(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %16, i32 noundef %1376)
-  br label %.preheader394
+  %.val136.i = load ptr, ptr %1354, align 8
+  call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef nonnull %16, ptr %.val136.i, ptr noundef %1356)
+  %1375 = load i8, ptr %1372, align 8
+  %1376 = zext i8 %1375 to i32
+  %1377 = call i32 @binaryop_assign_base_op(i32 noundef %1376) #10
+  call fastcc void @llvm_emit_binary(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %16, i32 noundef %1377)
+  br label %.preheader393
 
-1377:                                             ; preds = %type_flatten.exit197
-  %1378 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %1379 = load i32, ptr %1378, align 4
-  %1380 = load ptr, ptr @expr_arena, align 8
-  %1381 = zext i32 %1379 to i64
-  %1382 = getelementptr inbounds nuw %struct.Expr_, ptr %1380, i64 %1381
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %1382)
-  br label %.preheader394
+1378:                                             ; preds = %type_flatten.exit196
+  %1379 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %1380 = load i32, ptr %1379, align 4
+  %1381 = load ptr, ptr @expr_arena, align 8
+  %1382 = zext i32 %1380 to i64
+  %1383 = getelementptr inbounds nuw %struct.Expr_, ptr %1381, i64 %1382
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %1383)
+  br label %.preheader393
 
-.preheader394:                                    ; preds = %1377, %1373
-  br label %1383
+.preheader393:                                    ; preds = %1378, %1374
+  br label %1384
 
-1383:                                             ; preds = %.backedge, %.preheader394
-  %.0.i190.in = phi ptr [ %1353, %.preheader394 ], [ %.0.i190.in.be, %.backedge ]
-  %.0.i190 = load ptr, ptr %.0.i190.in, align 8
-  %1384 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 8
-  %1385 = load ptr, ptr %1384, align 8
-  %1386 = load i32, ptr %1385, align 8
-  switch i32 %1386, label %type_flatten.exit193 [
-    i32 32, label %1387
-    i32 40, label %1393
-    i32 31, label %1395
+1384:                                             ; preds = %.backedge, %.preheader393
+  %.0.i189.in = phi ptr [ %1354, %.preheader393 ], [ %.0.i189.in.be, %.backedge ]
+  %.0.i189 = load ptr, ptr %.0.i189.in, align 8
+  %1385 = getelementptr inbounds nuw i8, ptr %.0.i189, i64 8
+  %1386 = load ptr, ptr %1385, align 8
+  %1387 = load i32, ptr %1386, align 8
+  switch i32 %1387, label %type_flatten.exit192 [
+    i32 32, label %1388
+    i32 40, label %1394
+    i32 31, label %1396
   ]
 
-1387:                                             ; preds = %1383
-  %1388 = getelementptr inbounds nuw i8, ptr %1385, i64 56
-  %1389 = load ptr, ptr %1388, align 8
-  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 96
-  %1391 = load ptr, ptr %1390, align 8
-  %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 8
+1388:                                             ; preds = %1384
+  %1389 = getelementptr inbounds nuw i8, ptr %1386, i64 56
+  %1390 = load ptr, ptr %1389, align 8
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 96
+  %1392 = load ptr, ptr %1391, align 8
+  %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 8
   br label %.backedge
 
-1393:                                             ; preds = %1383
-  %1394 = getelementptr inbounds nuw i8, ptr %1385, i64 56
+1394:                                             ; preds = %1384
+  %1395 = getelementptr inbounds nuw i8, ptr %1386, i64 56
   br label %.backedge
 
-.backedge:                                        ; preds = %1393, %1387
-  %.0.i190.in.be = phi ptr [ %1392, %1387 ], [ %1394, %1393 ]
-  br label %1383
+.backedge:                                        ; preds = %1394, %1388
+  %.0.i189.in.be = phi ptr [ %1393, %1388 ], [ %1395, %1394 ]
+  br label %1384
 
-1395:                                             ; preds = %1383
+1396:                                             ; preds = %1384
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.80, i32 noundef 2984) #11
   unreachable
 
-type_flatten.exit193:                             ; preds = %1383
-  %1396 = call fastcc ptr @type_lowering(ptr noundef nonnull %1385)
-  %1397 = load i32, ptr %1396, align 8
-  %1398 = icmp eq i32 %1397, 33
-  %1399 = getelementptr inbounds nuw i8, ptr %1385, i64 56
-  br i1 %1398, label %1400, label %1403
+type_flatten.exit192:                             ; preds = %1384
+  %1397 = call fastcc ptr @type_lowering(ptr noundef nonnull %1386)
+  %1398 = load i32, ptr %1397, align 8
+  %1399 = icmp eq i32 %1398, 33
+  %1400 = getelementptr inbounds nuw i8, ptr %1386, i64 56
+  br i1 %1399, label %1401, label %1404
 
-1400:                                             ; preds = %type_flatten.exit193
-  %1401 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef %1) #10
-  %1402 = load ptr, ptr %1399, align 8
-  call fastcc void @llvm_emit_bitassign_array(ptr noundef %0, ptr noundef %1401, ptr noundef nonnull byval(%struct.BEValue) align 8 %15, ptr noundef %1402, ptr noundef %1355)
+1401:                                             ; preds = %type_flatten.exit192
+  %1402 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef %1) #10
+  %1403 = load ptr, ptr %1400, align 8
+  call fastcc void @llvm_emit_bitassign_array(ptr noundef %0, ptr noundef %1402, ptr noundef nonnull byval(%struct.BEValue) align 8 %15, ptr noundef %1403, ptr noundef %1356)
   br label %llvm_emit_bitassign_expr.exit
 
-1403:                                             ; preds = %type_flatten.exit193
-  %1404 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef nonnull %15) #10
-  %1405 = load ptr, ptr %1399, align 8
-  %1406 = getelementptr i8, ptr %1405, i64 112
-  %.val.i147 = load i8, ptr %1406, align 8
-  %1407 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 272), align 8
-  %1408 = trunc i8 %1407 to i1
-  %1409 = and i8 %.val.i147, 2
-  %.not.i188 = icmp eq i8 %1409, 0
-  br i1 %.not.i188, label %bitstruct_requires_bitswap.exit, label %1410
+1404:                                             ; preds = %type_flatten.exit192
+  %1405 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef nonnull %15) #10
+  %1406 = load ptr, ptr %1400, align 8
+  %1407 = getelementptr i8, ptr %1406, i64 112
+  %.val.i146 = load i8, ptr %1407, align 8
+  %1408 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 272), align 8
+  %1409 = trunc i8 %1408 to i1
+  %1410 = and i8 %.val.i146, 2
+  %.not.i187 = icmp eq i8 %1410, 0
+  br i1 %.not.i187, label %bitstruct_requires_bitswap.exit, label %1411
 
-1410:                                             ; preds = %1403
-  br i1 %1408, label %1414, label %1412
+1411:                                             ; preds = %1404
+  br i1 %1409, label %1415, label %1413
 
-bitstruct_requires_bitswap.exit:                  ; preds = %1403
-  %1411 = and i8 %.val.i147, 4
-  %.not4.i = icmp ne i8 %1411, 0
-  %..i = select i1 %.not4.i, i1 %1408, i1 false
-  br i1 %..i, label %1412, label %1414
+bitstruct_requires_bitswap.exit:                  ; preds = %1404
+  %1412 = and i8 %.val.i146, 4
+  %.not4.i = icmp ne i8 %1412, 0
+  %..i = select i1 %.not4.i, i1 %1409, i1 false
+  br i1 %..i, label %1413, label %1415
 
-1412:                                             ; preds = %1410, %bitstruct_requires_bitswap.exit
-  %1413 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %1404)
-  br label %1414
+1413:                                             ; preds = %1411, %bitstruct_requires_bitswap.exit
+  %1414 = call fastcc ptr @llvm_emit_bswap(ptr noundef %0, ptr noundef %1405)
+  br label %1415
 
-1414:                                             ; preds = %1410, %1412, %bitstruct_requires_bitswap.exit
-  %.0.i189219 = phi i1 [ true, %1412 ], [ false, %bitstruct_requires_bitswap.exit ], [ false, %1410 ]
-  %.0125.i148 = phi ptr [ %1413, %1412 ], [ %1404, %bitstruct_requires_bitswap.exit ], [ %1404, %1410 ]
-  %1415 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef %1) #10
-  %1416 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %1417 = load ptr, ptr %1416, align 8
-  %1418 = call i32 @type_size(ptr noundef %1417) #10
-  %1419 = shl i32 %1418, 3
-  %1420 = call ptr @LLVMTypeOf(ptr noundef %.0125.i148) #10
-  %1421 = call ptr @LLVMConstAllOnes(ptr noundef %1420) #10
-  %1422 = getelementptr inbounds nuw i8, ptr %1355, i64 96
-  %1423 = load i32, ptr %1422, align 8
-  %1424 = getelementptr inbounds nuw i8, ptr %1355, i64 100
-  %1425 = load i32, ptr %1424, align 4
-  %1426 = xor i32 %1425, -1
-  %1427 = add i32 %1419, %1426
-  %1428 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1421, i32 noundef %1427) #10
-  %1429 = add nsw i32 %1427, %1423
-  %1430 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %1428, i32 noundef %1429) #10
-  %1431 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1430, i32 noundef %1423) #10
-  %1432 = call ptr @LLVMTypeOf(ptr noundef %1415) #10
-  %1433 = icmp eq ptr %1432, %1420
-  br i1 %1433, label %1444, label %1434
+1415:                                             ; preds = %1411, %1413, %bitstruct_requires_bitswap.exit
+  %.0.i188218 = phi i1 [ true, %1413 ], [ false, %bitstruct_requires_bitswap.exit ], [ false, %1411 ]
+  %.0125.i147 = phi ptr [ %1414, %1413 ], [ %1405, %bitstruct_requires_bitswap.exit ], [ %1405, %1411 ]
+  %1416 = call ptr @llvm_load_value_store(ptr noundef %0, ptr noundef %1) #10
+  %1417 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %1418 = load ptr, ptr %1417, align 8
+  %1419 = call i32 @type_size(ptr noundef %1418) #10
+  %1420 = shl i32 %1419, 3
+  %1421 = call ptr @LLVMTypeOf(ptr noundef %.0125.i147) #10
+  %1422 = call ptr @LLVMConstAllOnes(ptr noundef %1421) #10
+  %1423 = getelementptr inbounds nuw i8, ptr %1356, i64 96
+  %1424 = load i32, ptr %1423, align 8
+  %1425 = getelementptr inbounds nuw i8, ptr %1356, i64 100
+  %1426 = load i32, ptr %1425, align 4
+  %1427 = xor i32 %1426, -1
+  %1428 = add i32 %1420, %1427
+  %1429 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1422, i32 noundef %1428) #10
+  %1430 = add nsw i32 %1428, %1424
+  %1431 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %1429, i32 noundef %1430) #10
+  %1432 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1431, i32 noundef %1424) #10
+  %1433 = call ptr @LLVMTypeOf(ptr noundef %1416) #10
+  %1434 = icmp eq ptr %1433, %1421
+  br i1 %1434, label %1445, label %1435
 
-1434:                                             ; preds = %1414
-  %1435 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %1432) #10
-  %1436 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %1420) #10
-  %1437 = icmp ult i64 %1435, %1436
-  %1438 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1439 = load ptr, ptr %1438, align 8
-  br i1 %1437, label %1440, label %1442
+1435:                                             ; preds = %1415
+  %1436 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %1433) #10
+  %1437 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %1421) #10
+  %1438 = icmp ult i64 %1436, %1437
+  %1439 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1440 = load ptr, ptr %1439, align 8
+  br i1 %1438, label %1441, label %1443
 
-1440:                                             ; preds = %1434
-  %1441 = call ptr @LLVMBuildZExt(ptr noundef %1439, ptr noundef %1415, ptr noundef %1420, ptr noundef nonnull @.str.77) #10
-  br label %1444
+1441:                                             ; preds = %1435
+  %1442 = call ptr @LLVMBuildZExt(ptr noundef %1440, ptr noundef %1416, ptr noundef %1421, ptr noundef nonnull @.str.77) #10
+  br label %1445
 
-1442:                                             ; preds = %1434
-  %1443 = call ptr @LLVMBuildTrunc(ptr noundef %1439, ptr noundef %1415, ptr noundef %1420, ptr noundef nonnull @.str.78) #10
-  br label %1444
+1443:                                             ; preds = %1435
+  %1444 = call ptr @LLVMBuildTrunc(ptr noundef %1440, ptr noundef %1416, ptr noundef %1421, ptr noundef nonnull @.str.78) #10
+  br label %1445
 
-1444:                                             ; preds = %1442, %1440, %1414
-  %.0127.i149 = phi ptr [ %1441, %1440 ], [ %1443, %1442 ], [ %1415, %1414 ]
-  %1445 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0127.i149, i32 noundef %1423) #10
-  %1446 = call i32 @LLVMIsNull(ptr noundef %1445) #10
-  %.not130.i = icmp eq i32 %1446, 0
-  br i1 %.not130.i, label %1447, label %1453
+1445:                                             ; preds = %1443, %1441, %1415
+  %.0127.i148 = phi ptr [ %1442, %1441 ], [ %1444, %1443 ], [ %1416, %1415 ]
+  %1446 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0127.i148, i32 noundef %1424) #10
+  %1447 = call i32 @LLVMIsNull(ptr noundef %1446) #10
+  %.not130.i = icmp eq i32 %1447, 0
+  br i1 %.not130.i, label %1448, label %1454
 
-1447:                                             ; preds = %1444
-  %1448 = call i32 @LLVMIsNull(ptr noundef %1431) #10
-  %.not131.i158 = icmp eq i32 %1448, 0
-  br i1 %.not131.i158, label %1449, label %1453
+1448:                                             ; preds = %1445
+  %1449 = call i32 @LLVMIsNull(ptr noundef %1432) #10
+  %.not131.i157 = icmp eq i32 %1449, 0
+  br i1 %.not131.i157, label %1450, label %1454
 
-1449:                                             ; preds = %1447
-  %1450 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1451 = load ptr, ptr %1450, align 8
-  %1452 = call ptr @LLVMBuildAnd(ptr noundef %1451, ptr noundef %1445, ptr noundef %1431, ptr noundef nonnull @.str.3) #10
-  br label %1453
+1450:                                             ; preds = %1448
+  %1451 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1452 = load ptr, ptr %1451, align 8
+  %1453 = call ptr @LLVMBuildAnd(ptr noundef %1452, ptr noundef %1446, ptr noundef %1432, ptr noundef nonnull @.str.3) #10
+  br label %1454
 
-1453:                                             ; preds = %1449, %1447, %1444
-  %.0.i150 = phi ptr [ %1452, %1449 ], [ %1445, %1444 ], [ %1431, %1447 ]
-  %1454 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1455 = load ptr, ptr %1454, align 8
-  %1456 = call ptr @LLVMBuildNot(ptr noundef %1455, ptr noundef %1431, ptr noundef nonnull @.str.3) #10
-  %1457 = call i32 @LLVMIsNull(ptr noundef %.0125.i148) #10
-  %.not132.i151 = icmp eq i32 %1457, 0
-  br i1 %.not132.i151, label %1458, label %1463
+1454:                                             ; preds = %1450, %1448, %1445
+  %.0.i149 = phi ptr [ %1453, %1450 ], [ %1446, %1445 ], [ %1432, %1448 ]
+  %1455 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1456 = load ptr, ptr %1455, align 8
+  %1457 = call ptr @LLVMBuildNot(ptr noundef %1456, ptr noundef %1432, ptr noundef nonnull @.str.3) #10
+  %1458 = call i32 @LLVMIsNull(ptr noundef %.0125.i147) #10
+  %.not132.i150 = icmp eq i32 %1458, 0
+  br i1 %.not132.i150, label %1459, label %1464
 
-1458:                                             ; preds = %1453
-  %1459 = call i32 @LLVMIsNull(ptr noundef %1456) #10
-  %.not133.i157 = icmp eq i32 %1459, 0
-  br i1 %.not133.i157, label %1460, label %1463
+1459:                                             ; preds = %1454
+  %1460 = call i32 @LLVMIsNull(ptr noundef %1457) #10
+  %.not133.i156 = icmp eq i32 %1460, 0
+  br i1 %.not133.i156, label %1461, label %1464
 
-1460:                                             ; preds = %1458
-  %1461 = load ptr, ptr %1454, align 8
-  %1462 = call ptr @LLVMBuildAnd(ptr noundef %1461, ptr noundef %.0125.i148, ptr noundef %1456, ptr noundef nonnull @.str.3) #10
-  br label %1463
+1461:                                             ; preds = %1459
+  %1462 = load ptr, ptr %1455, align 8
+  %1463 = call ptr @LLVMBuildAnd(ptr noundef %1462, ptr noundef %.0125.i147, ptr noundef %1457, ptr noundef nonnull @.str.3) #10
+  br label %1464
 
-1463:                                             ; preds = %1460, %1458, %1453
-  %.0124.i152 = phi ptr [ %1462, %1460 ], [ %.0125.i148, %1453 ], [ %1456, %1458 ]
-  %1464 = call i32 @LLVMIsNull(ptr noundef %.0124.i152) #10
-  %.not134.i153 = icmp eq i32 %1464, 0
-  br i1 %.not134.i153, label %1465, label %1470
+1464:                                             ; preds = %1461, %1459, %1454
+  %.0124.i151 = phi ptr [ %1463, %1461 ], [ %.0125.i147, %1454 ], [ %1457, %1459 ]
+  %1465 = call i32 @LLVMIsNull(ptr noundef %.0124.i151) #10
+  %.not134.i152 = icmp eq i32 %1465, 0
+  br i1 %.not134.i152, label %1466, label %1471
 
-1465:                                             ; preds = %1463
-  %1466 = call i32 @LLVMIsNull(ptr noundef %.0.i150) #10
-  %.not135.i156 = icmp eq i32 %1466, 0
-  br i1 %.not135.i156, label %1467, label %1470
+1466:                                             ; preds = %1464
+  %1467 = call i32 @LLVMIsNull(ptr noundef %.0.i149) #10
+  %.not135.i155 = icmp eq i32 %1467, 0
+  br i1 %.not135.i155, label %1468, label %1471
 
-1467:                                             ; preds = %1465
-  %1468 = load ptr, ptr %1454, align 8
-  %1469 = call ptr @LLVMBuildOr(ptr noundef %1468, ptr noundef %.0124.i152, ptr noundef %.0.i150, ptr noundef nonnull @.str.3) #10
-  br label %1470
+1468:                                             ; preds = %1466
+  %1469 = load ptr, ptr %1455, align 8
+  %1470 = call ptr @LLVMBuildOr(ptr noundef %1469, ptr noundef %.0124.i151, ptr noundef %.0.i149, ptr noundef nonnull @.str.3) #10
+  br label %1471
 
-1470:                                             ; preds = %1467, %1465, %1463
-  %.0126.i154 = phi ptr [ %1469, %1467 ], [ %.0.i150, %1463 ], [ %.0124.i152, %1465 ]
-  br i1 %.0.i189219, label %1471, label %1473
+1471:                                             ; preds = %1468, %1466, %1464
+  %.0126.i153 = phi ptr [ %1470, %1468 ], [ %.0.i149, %1464 ], [ %.0124.i151, %1466 ]
+  br i1 %.0.i188218, label %1472, label %1474
 
-1471:                                             ; preds = %1470
-  %1472 = call fastcc ptr @llvm_emit_bswap(ptr noundef nonnull %0, ptr noundef %.0126.i154)
-  br label %1473
+1472:                                             ; preds = %1471
+  %1473 = call fastcc ptr @llvm_emit_bswap(ptr noundef nonnull %0, ptr noundef %.0126.i153)
+  br label %1474
 
-1473:                                             ; preds = %1471, %1470
-  %.1.i155 = phi ptr [ %1472, %1471 ], [ %.0126.i154, %1470 ]
-  %1474 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %1475 = load ptr, ptr %1474, align 8
-  %1476 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %1477 = load i32, ptr %1476, align 4
-  %1478 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1475, ptr noundef %.1.i155, i32 noundef %1477) #10
+1474:                                             ; preds = %1472, %1471
+  %.1.i154 = phi ptr [ %1473, %1472 ], [ %.0126.i153, %1471 ]
+  %1475 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %1476 = load ptr, ptr %1475, align 8
+  %1477 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %1478 = load i32, ptr %1477, align 4
+  %1479 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1476, ptr noundef %.1.i154, i32 noundef %1478) #10
   br label %llvm_emit_bitassign_expr.exit
 
-llvm_emit_bitassign_expr.exit:                    ; preds = %1400, %1473
+llvm_emit_bitassign_expr.exit:                    ; preds = %1401, %1474
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %common.ret419
+  br label %common.ret418
 
-1479:                                             ; preds = %62
+1480:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %1480 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1481 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1482 = load i8, ptr %1481, align 8
-  %1483 = zext i8 %1482 to i32
-  %1484 = icmp ugt i8 %1482, 19
-  br i1 %1484, label %1485, label %1537
+  %1481 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1482 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1483 = load i8, ptr %1482, align 8
+  %1484 = zext i8 %1483 to i32
+  %1485 = icmp ugt i8 %1483, 19
+  br i1 %1485, label %1486, label %1538
 
-1485:                                             ; preds = %1479
-  %1486 = load i32, ptr %1480, align 8
-  %1487 = load ptr, ptr @expr_arena, align 8
-  %1488 = zext i32 %1486 to i64
-  %1489 = getelementptr inbounds nuw %struct.Expr_, ptr %1487, i64 %1488
-  %1490 = tail call fastcc zeroext i1 @expr_is_vector_index(ptr noundef %1489)
-  br i1 %1490, label %1491, label %1492
+1486:                                             ; preds = %1480
+  %1487 = load i32, ptr %1481, align 8
+  %1488 = load ptr, ptr @expr_arena, align 8
+  %1489 = zext i32 %1487 to i64
+  %1490 = getelementptr inbounds nuw %struct.Expr_, ptr %1488, i64 %1489
+  %1491 = tail call fastcc zeroext i1 @expr_is_vector_index(ptr noundef %1490)
+  br i1 %1491, label %1492, label %1493
 
-1491:                                             ; preds = %1485
+1492:                                             ; preds = %1486
   tail call fastcc void @llvm_emit_vector_assign_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %llvm_emit_binary_expr.exit
 
-1492:                                             ; preds = %1485
-  %.not228 = icmp eq i8 %1482, 20
-  br i1 %.not228, label %1500, label %1493
+1493:                                             ; preds = %1486
+  %.not227 = icmp eq i8 %1483, 20
+  br i1 %.not227, label %1501, label %1494
 
-1493:                                             ; preds = %1492
-  %1494 = tail call i32 @binaryop_assign_base_op(i32 noundef %1483) #10
-  %1495 = load i32, ptr %1480, align 8
-  %1496 = load ptr, ptr @expr_arena, align 8
-  %1497 = zext i32 %1495 to i64
-  %1498 = getelementptr inbounds nuw %struct.Expr_, ptr %1496, i64 %1497
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %1498)
+1494:                                             ; preds = %1493
+  %1495 = tail call i32 @binaryop_assign_base_op(i32 noundef %1484) #10
+  %1496 = load i32, ptr %1481, align 8
+  %1497 = load ptr, ptr @expr_arena, align 8
+  %1498 = zext i32 %1496 to i64
+  %1499 = getelementptr inbounds nuw %struct.Expr_, ptr %1497, i64 %1498
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %1499)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
-  call fastcc void @llvm_emit_binary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %13, i32 noundef %1494)
-  %1499 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %1) #10
+  call fastcc void @llvm_emit_binary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %13, i32 noundef %1495)
+  %1500 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %1) #10
   br label %llvm_emit_binary_expr.exit
 
-1500:                                             ; preds = %1492
-  %1501 = load i32, ptr %1480, align 8
-  %1502 = load ptr, ptr @expr_arena, align 8
-  %1503 = zext i32 %1501 to i64
-  %1504 = getelementptr inbounds nuw %struct.Expr_, ptr %1502, i64 %1503
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1504)
-  %1505 = getelementptr inbounds nuw i8, ptr %1504, i64 16
-  %1506 = load i16, ptr %1505, align 8
-  %1507 = and i16 %1506, 255
-  %1508 = icmp eq i16 %1507, 34
-  br i1 %1508, label %1509, label %1531
+1501:                                             ; preds = %1493
+  %1502 = load i32, ptr %1481, align 8
+  %1503 = load ptr, ptr @expr_arena, align 8
+  %1504 = zext i32 %1502 to i64
+  %1505 = getelementptr inbounds nuw %struct.Expr_, ptr %1503, i64 %1504
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1505)
+  %1506 = getelementptr inbounds nuw i8, ptr %1505, i64 16
+  %1507 = load i16, ptr %1506, align 8
+  %1508 = and i16 %1507, 255
+  %1509 = icmp eq i16 %1508, 34
+  br i1 %1509, label %1510, label %1532
 
-1509:                                             ; preds = %1500
-  %1510 = getelementptr inbounds nuw i8, ptr %1504, i64 24
-  %1511 = load ptr, ptr %1510, align 8
-  %1512 = getelementptr inbounds nuw i8, ptr %1511, i64 80
-  %1513 = load i32, ptr %1512, align 8
-  %1514 = and i32 %1513, 255
-  %1515 = icmp eq i32 %1514, 8
-  br i1 %1515, label %tailrecurse.i202, label %tailrecurse._crit_edge.i198
+1510:                                             ; preds = %1501
+  %1511 = getelementptr inbounds nuw i8, ptr %1505, i64 24
+  %1512 = load ptr, ptr %1511, align 8
+  %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 80
+  %1514 = load i32, ptr %1513, align 8
+  %1515 = and i32 %1514, 255
+  %1516 = icmp eq i32 %1515, 8
+  br i1 %1516, label %tailrecurse.i201, label %tailrecurse._crit_edge.i197
 
-tailrecurse.i202:                                 ; preds = %1509, %tailrecurse.i202
-  %.tr5.i203 = phi ptr [ %1517, %tailrecurse.i202 ], [ %1511, %1509 ]
-  %1516 = getelementptr inbounds nuw i8, ptr %.tr5.i203, i64 88
-  %1517 = load ptr, ptr %1516, align 8
-  %1518 = getelementptr inbounds nuw i8, ptr %1517, i64 80
-  %1519 = load i32, ptr %1518, align 8
-  %1520 = and i32 %1519, 255
-  %1521 = icmp eq i32 %1520, 8
-  br i1 %1521, label %tailrecurse.i202, label %tailrecurse._crit_edge.i198
+tailrecurse.i201:                                 ; preds = %1510, %tailrecurse.i201
+  %.tr5.i202 = phi ptr [ %1518, %tailrecurse.i201 ], [ %1512, %1510 ]
+  %1517 = getelementptr inbounds nuw i8, ptr %.tr5.i202, i64 88
+  %1518 = load ptr, ptr %1517, align 8
+  %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 80
+  %1520 = load i32, ptr %1519, align 8
+  %1521 = and i32 %1520, 255
+  %1522 = icmp eq i32 %1521, 8
+  br i1 %1522, label %tailrecurse.i201, label %tailrecurse._crit_edge.i197
 
-tailrecurse._crit_edge.i198:                      ; preds = %tailrecurse.i202, %1509
-  %.tr.lcssa.i199 = phi ptr [ %1511, %1509 ], [ %1517, %tailrecurse.i202 ]
-  %1522 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i199, i64 72
-  %1523 = load ptr, ptr %1522, align 8
-  %1524 = load i32, ptr %1523, align 8
-  %.not.i200 = icmp eq i32 %1524, 40
-  br i1 %.not.i200, label %1525, label %decl_optional_ref.exit204
+tailrecurse._crit_edge.i197:                      ; preds = %tailrecurse.i201, %1510
+  %.tr.lcssa.i198 = phi ptr [ %1512, %1510 ], [ %1518, %tailrecurse.i201 ]
+  %1523 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i198, i64 72
+  %1524 = load ptr, ptr %1523, align 8
+  %1525 = load i32, ptr %1524, align 8
+  %.not.i199 = icmp eq i32 %1525, 40
+  br i1 %.not.i199, label %1526, label %decl_optional_ref.exit203
 
-1525:                                             ; preds = %tailrecurse._crit_edge.i198
-  %1526 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i199, i64 104
-  %1527 = load ptr, ptr %1526, align 8
-  br label %decl_optional_ref.exit204
+1526:                                             ; preds = %tailrecurse._crit_edge.i197
+  %1527 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i198, i64 104
+  %1528 = load ptr, ptr %1527, align 8
+  br label %decl_optional_ref.exit203
 
-decl_optional_ref.exit204:                        ; preds = %tailrecurse._crit_edge.i198, %1525
-  %.0.i201 = phi ptr [ %1527, %1525 ], [ null, %tailrecurse._crit_edge.i198 ]
-  %1528 = load i8, ptr %1, align 8
-  %1529 = and i8 %1528, -32
-  %1530 = or disjoint i8 %1529, 1
-  store i8 %1530, ptr %1, align 8
-  br label %1531
+decl_optional_ref.exit203:                        ; preds = %tailrecurse._crit_edge.i197, %1526
+  %.0.i200 = phi ptr [ %1528, %1526 ], [ null, %tailrecurse._crit_edge.i197 ]
+  %1529 = load i8, ptr %1, align 8
+  %1530 = and i8 %1529, -32
+  %1531 = or disjoint i8 %1530, 1
+  store i8 %1531, ptr %1, align 8
+  br label %1532
 
-1531:                                             ; preds = %decl_optional_ref.exit204, %1500
-  %.0.i159 = phi ptr [ %.0.i201, %decl_optional_ref.exit204 ], [ null, %1500 ]
-  %1532 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %1533 = load i32, ptr %1532, align 4
-  %1534 = load ptr, ptr @expr_arena, align 8
-  %1535 = zext i32 %1533 to i64
-  %1536 = getelementptr inbounds nuw %struct.Expr_, ptr %1534, i64 %1535
-  call void @llvm_emit_assign_expr(ptr dead_on_unwind nonnull writable sret(%struct.BEValue) align 8 %14, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1536, ptr noundef %.0.i159)
+1532:                                             ; preds = %decl_optional_ref.exit203, %1501
+  %.0.i158 = phi ptr [ %.0.i200, %decl_optional_ref.exit203 ], [ null, %1501 ]
+  %1533 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %1534 = load i32, ptr %1533, align 4
+  %1535 = load ptr, ptr @expr_arena, align 8
+  %1536 = zext i32 %1534 to i64
+  %1537 = getelementptr inbounds nuw %struct.Expr_, ptr %1535, i64 %1536
+  call void @llvm_emit_assign_expr(ptr dead_on_unwind nonnull writable sret(%struct.BEValue) align 8 %14, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1537, ptr noundef %.0.i158)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   br label %llvm_emit_binary_expr.exit
 
-1537:                                             ; preds = %1479
-  tail call fastcc void @llvm_emit_binary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef %1483)
+1538:                                             ; preds = %1480
+  tail call fastcc void @llvm_emit_binary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef %1484)
   br label %llvm_emit_binary_expr.exit
 
-llvm_emit_binary_expr.exit:                       ; preds = %1491, %1493, %1531, %1537
+llvm_emit_binary_expr.exit:                       ; preds = %1492, %1494, %1532, %1538
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %common.ret419
-
-1538:                                             ; preds = %62
-  tail call void @gencontext_emit_ternary_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %common.ret419
+  br label %common.ret418
 
 1539:                                             ; preds = %62
-  %1540 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1541 = load ptr, ptr %1540, align 8
-  %1542 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1543 = load i8, ptr %1542, align 8
-  %1544 = icmp eq i8 %1543, 7
-  %1545 = select i1 %1544, i32 1, i32 -1
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1546 = getelementptr inbounds nuw i8, ptr %1541, i64 16
-  %1547 = load i16, ptr %1546, align 8
-  %1548 = and i16 %1547, 255
-  %.not.i.i205 = icmp eq i16 %1548, 51
-  br i1 %.not.i.i205, label %expr_is_vector_subscript.exit.i, label %expr_is_vector_subscript.exit.i.thread
+  tail call void @gencontext_emit_ternary_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
+  br label %common.ret418
 
-expr_is_vector_subscript.exit.i:                  ; preds = %1539
-  %1549 = getelementptr inbounds nuw i8, ptr %1541, i64 24
-  %1550 = load i32, ptr %1549, align 8
-  %1551 = load ptr, ptr @expr_arena, align 8
-  %1552 = zext i32 %1550 to i64
-  %1553 = getelementptr inbounds nuw %struct.Expr_, ptr %1551, i64 %1552
-  %1554 = load ptr, ptr %1553, align 8
-  %1555 = tail call fastcc ptr @type_lowering(ptr noundef %1554)
-  %1556 = load i32, ptr %1555, align 8
-  %1557 = icmp eq i32 %1556, 37
-  br i1 %1557, label %1558, label %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge
+1540:                                             ; preds = %62
+  %1541 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1542 = load ptr, ptr %1541, align 8
+  %1543 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1544 = load i8, ptr %1543, align 8
+  %1545 = icmp eq i8 %1544, 7
+  %1546 = select i1 %1545, i32 1, i32 -1
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %1547 = getelementptr inbounds nuw i8, ptr %1542, i64 16
+  %1548 = load i16, ptr %1547, align 8
+  %1549 = and i16 %1548, 255
+  %.not.i.i204 = icmp eq i16 %1549, 51
+  br i1 %.not.i.i204, label %expr_is_vector_subscript.exit.i, label %expr_is_vector_subscript.exit.i.thread
+
+expr_is_vector_subscript.exit.i:                  ; preds = %1540
+  %1550 = getelementptr inbounds nuw i8, ptr %1542, i64 24
+  %1551 = load i32, ptr %1550, align 8
+  %1552 = load ptr, ptr @expr_arena, align 8
+  %1553 = zext i32 %1551 to i64
+  %1554 = getelementptr inbounds nuw %struct.Expr_, ptr %1552, i64 %1553
+  %1555 = load ptr, ptr %1554, align 8
+  %1556 = tail call fastcc ptr @type_lowering(ptr noundef %1555)
+  %1557 = load i32, ptr %1556, align 8
+  %1558 = icmp eq i32 %1557, 37
+  br i1 %1558, label %1559, label %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge
 
 expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge: ; preds = %expr_is_vector_subscript.exit.i
-  %.pre338 = load i16, ptr %1546, align 8
+  %.pre337 = load i16, ptr %1547, align 8
   br label %expr_is_vector_subscript.exit.i.thread
 
-1558:                                             ; preds = %expr_is_vector_subscript.exit.i
-  tail call fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef range(i32 -1, 2) %1545, i1 noundef zeroext false)
+1559:                                             ; preds = %expr_is_vector_subscript.exit.i
+  tail call fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1542, i32 noundef range(i32 -1, 2) %1546, i1 noundef zeroext false)
   br label %llvm_emit_post_inc_dec.exit
 
-expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge, %1539
-  %1559 = phi i16 [ %.pre338, %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge ], [ %1547, %1539 ]
-  %1560 = and i16 %1559, 255
-  %1561 = icmp eq i16 %1560, 4
-  br i1 %1561, label %1562, label %1563
-
-1562:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
-  tail call fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef range(i32 -1, 2) %1545, i1 noundef zeroext false)
-  br label %llvm_emit_post_inc_dec.exit
+expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge, %1540
+  %1560 = phi i16 [ %.pre337, %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge ], [ %1548, %1540 ]
+  %1561 = and i16 %1560, 255
+  %1562 = icmp eq i16 %1561, 4
+  br i1 %1562, label %1563, label %1564
 
 1563:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %1541)
+  tail call fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1542, i32 noundef range(i32 -1, 2) %1546, i1 noundef zeroext false)
+  br label %llvm_emit_post_inc_dec.exit
+
+1564:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %1542)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %1564 = load ptr, ptr %57, align 8
-  %.not.i16.i = icmp eq ptr %1564, null
-  br i1 %.not.i16.i, label %1568, label %1565
+  %1565 = load ptr, ptr %57, align 8
+  %.not.i16.i = icmp eq ptr %1565, null
+  br i1 %.not.i16.i, label %1569, label %1566
 
-1565:                                             ; preds = %1563
-  %1566 = getelementptr inbounds nuw i8, ptr %1541, i64 8
-  %1567 = load i64, ptr %1566, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %1567) #10
-  br label %1568
+1566:                                             ; preds = %1564
+  %1567 = getelementptr inbounds nuw i8, ptr %1542, i64 8
+  %1568 = load i64, ptr %1567, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %1568) #10
+  br label %1569
 
-1568:                                             ; preds = %1565, %1563
+1569:                                             ; preds = %1566, %1564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
   %.not21.i.i = icmp eq ptr %1, null
-  br i1 %.not21.i.i, label %llvm_emit_inc_dec_change.exit.i, label %1569
+  br i1 %.not21.i.i, label %llvm_emit_inc_dec_change.exit.i, label %1570
 
-1569:                                             ; preds = %1568
+1570:                                             ; preds = %1569
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %llvm_emit_inc_dec_change.exit.i
 
-llvm_emit_inc_dec_change.exit.i:                  ; preds = %1569, %1568
-  %1570 = getelementptr inbounds nuw i8, ptr %1541, i64 8
-  %1571 = load i64, ptr %1570, align 8
-  %1572 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1571, ptr noundef %4, i32 noundef range(i32 -1, 2) %1545)
-  %1573 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %1574 = load ptr, ptr %1573, align 8
-  %1575 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1576 = load i32, ptr %1575, align 4
-  %1577 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1574, ptr noundef %1572, i32 noundef %1576) #10
+llvm_emit_inc_dec_change.exit.i:                  ; preds = %1570, %1569
+  %1571 = getelementptr inbounds nuw i8, ptr %1542, i64 8
+  %1572 = load i64, ptr %1571, align 8
+  %1573 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1572, ptr noundef %4, i32 noundef range(i32 -1, 2) %1546)
+  %1574 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %1575 = load ptr, ptr %1574, align 8
+  %1576 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1577 = load i32, ptr %1576, align 4
+  %1578 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1575, ptr noundef %1573, i32 noundef %1577) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %llvm_emit_post_inc_dec.exit
 
-llvm_emit_post_inc_dec.exit:                      ; preds = %1558, %1562, %llvm_emit_inc_dec_change.exit.i
+llvm_emit_post_inc_dec.exit:                      ; preds = %1559, %1563, %llvm_emit_inc_dec_change.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %common.ret419
+  br label %common.ret418
 
-1578:                                             ; preds = %62
+1579:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %1579 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.210) #10
-  %1580 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
-  %1581 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1582 = load ptr, ptr %1581, align 8
-  %1583 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1584 = load ptr, ptr %1583, align 8
-  %1585 = load ptr, ptr @type_anyfault, align 8
-  %1586 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef nonnull %0, ptr noundef %1585, ptr noundef nonnull @.str.212) #10
-  store ptr %1586, ptr %1583, align 8
-  store ptr %1579, ptr %1581, align 8
-  %1587 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1588 = load ptr, ptr %1587, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1588)
+  %1580 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.210) #10
+  %1581 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
+  %1582 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %1583 = load ptr, ptr %1582, align 8
+  %1584 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1585 = load ptr, ptr %1584, align 8
+  %1586 = load ptr, ptr @type_anyfault, align 8
+  %1587 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef nonnull %0, ptr noundef %1586, ptr noundef nonnull @.str.212) #10
+  store ptr %1587, ptr %1584, align 8
+  store ptr %1580, ptr %1582, align 8
+  %1588 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1589 = load ptr, ptr %1588, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1589)
   tail call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef %1) #10
-  store ptr %1582, ptr %1581, align 8
-  store ptr %1584, ptr %1583, align 8
-  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1580) #10
-  store ptr %1582, ptr %1581, align 8
-  store ptr %1584, ptr %1583, align 8
-  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1579) #10
-  %1589 = tail call zeroext i1 @llvm_emit_check_block_branch(ptr noundef nonnull %0) #10
-  br i1 %1589, label %1590, label %1601
+  store ptr %1583, ptr %1582, align 8
+  store ptr %1585, ptr %1584, align 8
+  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1581) #10
+  store ptr %1583, ptr %1582, align 8
+  store ptr %1585, ptr %1584, align 8
+  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1580) #10
+  %1590 = tail call zeroext i1 @llvm_emit_check_block_branch(ptr noundef nonnull %0) #10
+  br i1 %1590, label %1591, label %1602
 
-1590:                                             ; preds = %1578
-  %1591 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %1591, align 8
-  %1592 = load ptr, ptr @type_anyfault, align 8
-  %1593 = tail call i32 @type_abi_alignment(ptr noundef %1592) #10
-  call void @llvm_value_set_address(ptr noundef nonnull %12, ptr noundef %1586, ptr noundef %1592, i32 noundef %1593) #10
-  %1594 = load ptr, ptr @type_anyfault, align 8
-  call void @llvm_emit_any_from_value(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %1594)
-  %1595 = call fastcc ptr @expand_(ptr noundef null, i64 noundef 32)
-  %1596 = getelementptr inbounds i8, ptr %1595, i64 -8
-  %1597 = load i32, ptr %1596, align 4
-  %1598 = add i32 %1597, -1
-  %1599 = zext i32 %1598 to i64
-  %1600 = getelementptr inbounds nuw %struct.BEValue, ptr %1595, i64 %1599
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1600, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
-  call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.213, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull @.str.214, ptr noundef nonnull %1595) #10
-  br label %1601
+1591:                                             ; preds = %1579
+  %1592 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %1592, align 8
+  %1593 = load ptr, ptr @type_anyfault, align 8
+  %1594 = tail call i32 @type_abi_alignment(ptr noundef %1593) #10
+  call void @llvm_value_set_address(ptr noundef nonnull %12, ptr noundef %1587, ptr noundef %1593, i32 noundef %1594) #10
+  %1595 = load ptr, ptr @type_anyfault, align 8
+  call void @llvm_emit_any_from_value(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %1595)
+  %1596 = call fastcc ptr @expand_(ptr noundef null, i64 noundef 32)
+  %1597 = getelementptr inbounds i8, ptr %1596, i64 -8
+  %1598 = load i32, ptr %1597, align 4
+  %1599 = add i32 %1598, -1
+  %1600 = zext i32 %1599 to i64
+  %1601 = getelementptr inbounds nuw %struct.BEValue, ptr %1596, i64 %1600
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1601, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.213, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull @.str.214, ptr noundef nonnull %1596) #10
+  br label %1602
 
-1601:                                             ; preds = %1590, %1578
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1580) #10
-  %1602 = load ptr, ptr %57, align 8
-  %.not45.i160 = icmp eq ptr %1602, null
-  br i1 %.not45.i160, label %llvm_emit_force_unwrap_expr.exit, label %1603
+1602:                                             ; preds = %1591, %1579
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1581) #10
+  %1603 = load ptr, ptr %57, align 8
+  %.not45.i159 = icmp eq ptr %1603, null
+  br i1 %.not45.i159, label %llvm_emit_force_unwrap_expr.exit, label %1604
 
-1603:                                             ; preds = %1601
-  %1604 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %1605 = load i64, ptr %1604, align 8
-  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %1605) #10
+1604:                                             ; preds = %1602
+  %1605 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %1606 = load i64, ptr %1605, align 8
+  call void @llvm_emit_debug_location(ptr noundef nonnull %0, i64 %1606) #10
   br label %llvm_emit_force_unwrap_expr.exit
 
-llvm_emit_force_unwrap_expr.exit:                 ; preds = %1601, %1603
+llvm_emit_force_unwrap_expr.exit:                 ; preds = %1602, %1604
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %common.ret419
+  br label %common.ret418
 
-1606:                                             ; preds = %62
+1607:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %1607 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.215) #10
-  %1608 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
-  %1609 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1610 = load ptr, ptr %1609, align 8
-  %1611 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1612 = load ptr, ptr %1611, align 8
-  %1613 = load ptr, ptr @type_anyfault, align 8
-  %1614 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef nonnull %0, ptr noundef %1613, ptr noundef nonnull @.str.212) #10
-  store ptr %1614, ptr %1611, align 8
-  store ptr %1607, ptr %1609, align 8
-  %1615 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1616 = load ptr, ptr %1615, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1616)
+  %1608 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.215) #10
+  %1609 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
+  %1610 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %1611 = load ptr, ptr %1610, align 8
+  %1612 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1613 = load ptr, ptr %1612, align 8
+  %1614 = load ptr, ptr @type_anyfault, align 8
+  %1615 = tail call ptr @llvm_emit_alloca_aligned(ptr noundef nonnull %0, ptr noundef %1614, ptr noundef nonnull @.str.212) #10
+  store ptr %1615, ptr %1612, align 8
+  store ptr %1608, ptr %1610, align 8
+  %1616 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1617 = load ptr, ptr %1616, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1617)
   tail call void @llvm_value_fold_optional(ptr noundef nonnull %0, ptr noundef %1) #10
-  store ptr %1610, ptr %1609, align 8
-  store ptr %1612, ptr %1611, align 8
-  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1608) #10
-  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1607) #10
-  %1617 = tail call zeroext i1 @llvm_emit_check_block_branch(ptr noundef nonnull %0) #10
-  br i1 %1617, label %1618, label %llvm_emit_rethrow_expr.exit
+  store ptr %1611, ptr %1610, align 8
+  store ptr %1613, ptr %1612, align 8
+  tail call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1609) #10
+  tail call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1608) #10
+  %1618 = tail call zeroext i1 @llvm_emit_check_block_branch(ptr noundef nonnull %0) #10
+  br i1 %1618, label %1619, label %llvm_emit_rethrow_expr.exit
 
-1618:                                             ; preds = %1606
-  %1619 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1620 = load i32, ptr %1619, align 8
-  %.not.i163242 = icmp eq i32 %1620, 0
-  br i1 %.not.i163242, label %._crit_edge, label %.lr.ph244
+1619:                                             ; preds = %1607
+  %1620 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1621 = load i32, ptr %1620, align 8
+  %.not.i162241 = icmp eq i32 %1621, 0
+  br i1 %.not.i162241, label %._crit_edge, label %.lr.ph243
 
-.lr.ph244:                                        ; preds = %1618, %.lr.ph244
-  %.055.i243 = phi i32 [ %1625, %.lr.ph244 ], [ %1620, %1618 ]
-  %1621 = load ptr, ptr @ast_arena, align 8
-  %1622 = zext i32 %.055.i243 to i64
-  %1623 = getelementptr inbounds nuw %struct.Ast_, ptr %1621, i64 %1622
-  %1624 = getelementptr inbounds nuw i8, ptr %1623, i64 8
-  %1625 = load i32, ptr %1624, align 8
-  tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %1623) #10
-  %.not.i163 = icmp eq i32 %1625, 0
-  br i1 %.not.i163, label %._crit_edge, label %.lr.ph244, !llvm.loop !19
+.lr.ph243:                                        ; preds = %1619, %.lr.ph243
+  %.055.i242 = phi i32 [ %1626, %.lr.ph243 ], [ %1621, %1619 ]
+  %1622 = load ptr, ptr @ast_arena, align 8
+  %1623 = zext i32 %.055.i242 to i64
+  %1624 = getelementptr inbounds nuw %struct.Ast_, ptr %1622, i64 %1623
+  %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 8
+  %1626 = load i32, ptr %1625, align 8
+  tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %1624) #10
+  %.not.i162 = icmp eq i32 %1626, 0
+  br i1 %.not.i162, label %._crit_edge, label %.lr.ph243, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph244, %1618
-  %1626 = load ptr, ptr @type_anyfault, align 8
-  call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %11, ptr noundef %1614, ptr noundef %1626) #10
-  %1627 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1628 = load ptr, ptr %1627, align 8
-  %.not58.i = icmp eq ptr %1628, null
-  br i1 %.not58.i, label %1648, label %1629
+._crit_edge:                                      ; preds = %.lr.ph243, %1619
+  %1627 = load ptr, ptr @type_anyfault, align 8
+  call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %11, ptr noundef %1615, ptr noundef %1627) #10
+  %1628 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %1629 = load ptr, ptr %1628, align 8
+  %.not58.i = icmp eq ptr %1629, null
+  br i1 %.not58.i, label %1649, label %1630
 
-1629:                                             ; preds = %._crit_edge
-  %1630 = load ptr, ptr %1628, align 8
-  %1631 = getelementptr inbounds nuw i8, ptr %1630, i64 16
-  %1632 = load ptr, ptr %1631, align 8
-  %.not59.i = icmp eq ptr %1632, null
-  br i1 %.not59.i, label %1645, label %1633
+1630:                                             ; preds = %._crit_edge
+  %1631 = load ptr, ptr %1629, align 8
+  %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 16
+  %1633 = load ptr, ptr %1632, align 8
+  %.not59.i = icmp eq ptr %1633, null
+  br i1 %.not59.i, label %1646, label %1634
 
-1633:                                             ; preds = %1629
-  %1634 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %1635 = load ptr, ptr %1634, align 8
-  %1636 = call ptr @LLVMIsAAllocaInst(ptr noundef nonnull %1632) #10
-  %.not60.i = icmp eq ptr %1636, null
-  br i1 %.not60.i, label %1637, label %1639
+1634:                                             ; preds = %1630
+  %1635 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %1636 = load ptr, ptr %1635, align 8
+  %1637 = call ptr @LLVMIsAAllocaInst(ptr noundef nonnull %1633) #10
+  %.not60.i = icmp eq ptr %1637, null
+  br i1 %.not60.i, label %1638, label %1640
 
-1637:                                             ; preds = %1633
-  %1638 = call ptr @LLVMIsAGlobalVariable(ptr noundef nonnull %1632) #10
-  %.not61.i = icmp eq ptr %1638, null
-  br i1 %.not61.i, label %1641, label %1639
+1638:                                             ; preds = %1634
+  %1639 = call ptr @LLVMIsAGlobalVariable(ptr noundef nonnull %1633) #10
+  %.not61.i = icmp eq ptr %1639, null
+  br i1 %.not61.i, label %1642, label %1640
 
-1639:                                             ; preds = %1637, %1633
-  %1640 = call i32 @LLVMGetAlignment(ptr noundef nonnull %1632) #10
-  br label %1643
+1640:                                             ; preds = %1638, %1634
+  %1641 = call i32 @LLVMGetAlignment(ptr noundef nonnull %1633) #10
+  br label %1644
 
-1641:                                             ; preds = %1637
-  %1642 = call i32 @type_abi_alignment(ptr noundef %1635) #10
-  br label %1643
+1642:                                             ; preds = %1638
+  %1643 = call i32 @type_abi_alignment(ptr noundef %1636) #10
+  br label %1644
 
-1643:                                             ; preds = %1641, %1639
-  %.0.i164 = phi i32 [ %1640, %1639 ], [ %1642, %1641 ]
-  %1644 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef nonnull %1632, ptr noundef nonnull %11, i32 noundef %.0.i164) #10
-  br label %1645
+1644:                                             ; preds = %1642, %1640
+  %.0.i163 = phi i32 [ %1641, %1640 ], [ %1643, %1642 ]
+  %1645 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef nonnull %1633, ptr noundef nonnull %11, i32 noundef %.0.i163) #10
+  br label %1646
 
-1645:                                             ; preds = %1643, %1629
-  %1646 = getelementptr inbounds nuw i8, ptr %1630, i64 8
-  %1647 = load ptr, ptr %1646, align 8
-  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1647) #10
+1646:                                             ; preds = %1644, %1630
+  %1647 = getelementptr inbounds nuw i8, ptr %1631, i64 8
+  %1648 = load ptr, ptr %1647, align 8
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %1648) #10
   br label %llvm_emit_rethrow_expr.exit.sink.split
 
-1648:                                             ; preds = %._crit_edge
+1649:                                             ; preds = %._crit_edge
   call void @llvm_emit_return_abi(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11) #10
   br label %llvm_emit_rethrow_expr.exit.sink.split
 
-llvm_emit_rethrow_expr.exit.sink.split:           ; preds = %1648, %1645
-  %1649 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr null, ptr %1649, align 8
-  %1650 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %1651 = load i8, ptr %1650, align 8
-  %1652 = and i8 %1651, -2
-  store i8 %1652, ptr %1650, align 8
+llvm_emit_rethrow_expr.exit.sink.split:           ; preds = %1649, %1646
+  %1650 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr null, ptr %1650, align 8
+  %1651 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %1652 = load i8, ptr %1651, align 8
+  %1653 = and i8 %1652, -2
+  store i8 %1653, ptr %1651, align 8
   br label %llvm_emit_rethrow_expr.exit
 
-llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_expr.exit.sink.split, %1606
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1608) #10
+llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_expr.exit.sink.split, %1607
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1609) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %common.ret419
+  br label %common.ret418
 
-1653:                                             ; preds = %62, %62, %62
+1654:                                             ; preds = %62, %62, %62
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_expr, ptr noundef nonnull @.str.11, i32 noundef 6985) #11
   unreachable
 
-1654:                                             ; preds = %62
-  %1655 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1656 = load ptr, ptr %1655, align 8
-  tail call void @llvm_value_set_decl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1656) #10
-  br label %common.ret419
+1655:                                             ; preds = %62
+  %1656 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1657 = load ptr, ptr %1656, align 8
+  tail call void @llvm_value_set_decl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1657) #10
+  br label %common.ret418
 
-1657:                                             ; preds = %62, %62
+1658:                                             ; preds = %62, %62
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %1658 = and i16 %64, 255
-  %1659 = icmp eq i16 %1658, 51
-  %1660 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1661 = load i32, ptr %1660, align 8
-  %1662 = load ptr, ptr @expr_arena, align 8
-  %1663 = zext i32 %1661 to i64
-  %1664 = getelementptr inbounds nuw %struct.Expr_, ptr %1662, i64 %1663
-  %1665 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %1666 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1667 = load i32, ptr %1666, align 8
-  %1668 = zext i32 %1667 to i64
-  %1669 = getelementptr inbounds nuw %struct.Expr_, ptr %1662, i64 %1668
-  %1670 = load ptr, ptr %1664, align 8
-  %1671 = tail call fastcc ptr @type_lowering(ptr noundef %1670)
-  br i1 %1659, label %1672, label %1676
+  %1659 = and i16 %64, 255
+  %1660 = icmp eq i16 %1659, 51
+  %1661 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1662 = load i32, ptr %1661, align 8
+  %1663 = load ptr, ptr @expr_arena, align 8
+  %1664 = zext i32 %1662 to i64
+  %1665 = getelementptr inbounds nuw %struct.Expr_, ptr %1663, i64 %1664
+  %1666 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %1667 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1668 = load i32, ptr %1667, align 8
+  %1669 = zext i32 %1668 to i64
+  %1670 = getelementptr inbounds nuw %struct.Expr_, ptr %1663, i64 %1669
+  %1671 = load ptr, ptr %1665, align 8
+  %1672 = tail call fastcc ptr @type_lowering(ptr noundef %1671)
+  br i1 %1660, label %1673, label %1677
 
-1672:                                             ; preds = %1657
-  %1673 = load i32, ptr %1671, align 8
-  %1674 = icmp eq i32 %1673, 37
-  br i1 %1674, label %1675, label %1676
+1673:                                             ; preds = %1658
+  %1674 = load i32, ptr %1672, align 8
+  %1675 = icmp eq i32 %1674, 37
+  br i1 %1675, label %1676, label %1677
 
-1675:                                             ; preds = %1672
+1676:                                             ; preds = %1673
   tail call fastcc void @llvm_emit_vector_subscript(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %gencontext_emit_subscript.exit
 
-1676:                                             ; preds = %1672, %1657
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1664)
+1677:                                             ; preds = %1673, %1658
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1665)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %1677 = load i32, ptr %1671, align 8
-  switch i32 %1677, label %.thread226 [
-    i32 34, label %1678
-    i32 33, label %1680
+  %1678 = load i32, ptr %1672, align 8
+  switch i32 %1678, label %.thread225 [
+    i32 34, label %1679
+    i32 33, label %1681
   ]
 
-1678:                                             ; preds = %1676
-  %1679 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
-  %.not68.i = icmp eq i32 %1679, 0
-  br i1 %.not68.i, label %1686, label %.thread224
+1679:                                             ; preds = %1677
+  %1680 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
+  %.not68.i = icmp eq i32 %1680, 0
+  br i1 %.not68.i, label %1687, label %.thread223
 
-1680:                                             ; preds = %1676
-  %1681 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
-  %.not.i165 = icmp eq i32 %1681, 0
-  br i1 %.not.i165, label %1686, label %1682
+1681:                                             ; preds = %1677
+  %1682 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
+  %.not.i164 = icmp eq i32 %1682, 0
+  br i1 %.not.i164, label %1687, label %1683
 
-1682:                                             ; preds = %1680
-  %1683 = load i16, ptr %63, align 8
-  %1684 = and i16 %1683, 255
-  %1685 = icmp eq i16 %1684, 14
-  br i1 %1685, label %1686, label %.thread224
+1683:                                             ; preds = %1681
+  %1684 = load i16, ptr %63, align 8
+  %1685 = and i16 %1684, 255
+  %1686 = icmp eq i16 %1685, 14
+  br i1 %1686, label %1687, label %.thread223
 
-1686:                                             ; preds = %1680, %1682, %1678
-  %.0.i166.in = load i8, ptr %1665, align 4
-  %1687 = trunc i8 %.0.i166.in to i1
-  br i1 %1687, label %.thread224, label %.thread226
+1687:                                             ; preds = %1681, %1683, %1679
+  %.0.i165.in = load i8, ptr %1666, align 4
+  %1688 = trunc i8 %.0.i165.in to i1
+  br i1 %1688, label %.thread223, label %.thread225
 
-.thread224:                                       ; preds = %1682, %1678, %1686
+.thread223:                                       ; preds = %1683, %1679, %1687
   call void @llvm_emit_len_for_expr(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %1)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %9) #10
-  br label %.thread226
+  br label %.thread225
 
-.thread226:                                       ; preds = %1676, %.thread224, %1686
-  %.not70.i = phi i1 [ false, %.thread224 ], [ true, %1686 ], [ true, %1676 ]
+.thread225:                                       ; preds = %1677, %.thread223, %1687
+  %.not70.i = phi i1 [ false, %.thread223 ], [ true, %1687 ], [ true, %1677 ]
   call void @llvm_emit_ptr_from_array(ptr noundef nonnull %0, ptr noundef %1) #10
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %1) #10
-  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %1669)
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %1670)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %10) #10
-  %1688 = load i8, ptr %1665, align 4
-  %1689 = trunc i8 %1688 to i1
-  br i1 %1689, label %1690, label %1713
+  %1689 = load i8, ptr %1666, align 4
+  %1690 = trunc i8 %1689 to i1
+  br i1 %1690, label %1691, label %1714
 
-1690:                                             ; preds = %.thread226
-  %1691 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %1694 = load ptr, ptr %1693, align 8
-  %1695 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %1696 = load ptr, ptr %1695, align 8
-  %1697 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1696) #10
-  %1698 = call ptr @LLVMTypeOf(ptr noundef %1694) #10
-  %1699 = icmp eq ptr %1698, %1697
-  br i1 %1699, label %1709, label %1700
+1691:                                             ; preds = %.thread225
+  %1692 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1693 = load ptr, ptr %1692, align 8
+  %1694 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %1695 = load ptr, ptr %1694, align 8
+  %1696 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %1697 = load ptr, ptr %1696, align 8
+  %1698 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %1697) #10
+  %1699 = call ptr @LLVMTypeOf(ptr noundef %1695) #10
+  %1700 = icmp eq ptr %1699, %1698
+  br i1 %1700, label %1710, label %1701
 
-1700:                                             ; preds = %1690
-  %1701 = call i64 @llvm_bitsize(ptr noundef nonnull %0, ptr noundef %1698) #10
-  %1702 = call i64 @llvm_bitsize(ptr noundef nonnull %0, ptr noundef %1697) #10
-  %1703 = icmp ult i64 %1701, %1702
-  %1704 = load ptr, ptr %1691, align 8
-  br i1 %1703, label %1705, label %1707
+1701:                                             ; preds = %1691
+  %1702 = call i64 @llvm_bitsize(ptr noundef nonnull %0, ptr noundef %1699) #10
+  %1703 = call i64 @llvm_bitsize(ptr noundef nonnull %0, ptr noundef %1698) #10
+  %1704 = icmp ult i64 %1702, %1703
+  %1705 = load ptr, ptr %1692, align 8
+  br i1 %1704, label %1706, label %1708
 
-1705:                                             ; preds = %1700
-  %1706 = call ptr @LLVMBuildZExt(ptr noundef %1704, ptr noundef %1694, ptr noundef %1697, ptr noundef nonnull @.str.77) #10
-  br label %1709
+1706:                                             ; preds = %1701
+  %1707 = call ptr @LLVMBuildZExt(ptr noundef %1705, ptr noundef %1695, ptr noundef %1698, ptr noundef nonnull @.str.77) #10
+  br label %1710
 
-1707:                                             ; preds = %1700
-  %1708 = call ptr @LLVMBuildTrunc(ptr noundef %1704, ptr noundef %1694, ptr noundef %1697, ptr noundef nonnull @.str.78) #10
-  br label %1709
+1708:                                             ; preds = %1701
+  %1709 = call ptr @LLVMBuildTrunc(ptr noundef %1705, ptr noundef %1695, ptr noundef %1698, ptr noundef nonnull @.str.78) #10
+  br label %1710
 
-1709:                                             ; preds = %1707, %1705, %1690
-  %.064.i = phi ptr [ %1706, %1705 ], [ %1708, %1707 ], [ %1694, %1690 ]
-  %1710 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %1711 = load ptr, ptr %1710, align 8
-  %1712 = call ptr @LLVMBuildNUWSub(ptr noundef %1692, ptr noundef %.064.i, ptr noundef %1711, ptr noundef nonnull @.str.3) #10
-  store ptr %1712, ptr %1710, align 8
-  br label %1713
+1710:                                             ; preds = %1708, %1706, %1691
+  %.064.i = phi ptr [ %1707, %1706 ], [ %1709, %1708 ], [ %1695, %1691 ]
+  %1711 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %1712 = load ptr, ptr %1711, align 8
+  %1713 = call ptr @LLVMBuildNUWSub(ptr noundef %1693, ptr noundef %.064.i, ptr noundef %1712, ptr noundef nonnull @.str.3) #10
+  store ptr %1713, ptr %1711, align 8
+  br label %1714
 
-1713:                                             ; preds = %1709, %.thread226
-  %1714 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
-  %.not69.i = icmp eq i32 %1714, 0
-  %or.cond.i167 = select i1 %.not70.i, i1 true, i1 %.not69.i
-  br i1 %or.cond.i167, label %1726, label %1715
+1714:                                             ; preds = %1710, %.thread225
+  %1715 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
+  %.not69.i = icmp eq i32 %1715, 0
+  %or.cond.i166 = select i1 %.not70.i, i1 true, i1 %.not69.i
+  br i1 %or.cond.i166, label %1727, label %1716
 
-1715:                                             ; preds = %1713
-  %1716 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1717 = load ptr, ptr %1716, align 8
-  %1718 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1719 = load ptr, ptr %1718, align 8
-  %1720 = icmp eq ptr %1717, %1719
-  br i1 %1720, label %1726, label %1721
+1716:                                             ; preds = %1714
+  %1717 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1718 = load ptr, ptr %1717, align 8
+  %1719 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1720 = load ptr, ptr %1719, align 8
+  %1721 = icmp eq ptr %1718, %1720
+  br i1 %1721, label %1727, label %1722
 
-1721:                                             ; preds = %1715
-  %1722 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %1723 = load ptr, ptr %1722, align 8
-  %1724 = getelementptr inbounds nuw i8, ptr %1669, i64 8
-  %1725 = load i64, ptr %1724, align 8
-  call fastcc void @llvm_emit_array_bounds_check(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1723, i64 %1725)
-  br label %1726
+1722:                                             ; preds = %1716
+  %1723 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %1724 = load ptr, ptr %1723, align 8
+  %1725 = getelementptr inbounds nuw i8, ptr %1670, i64 8
+  %1726 = load i64, ptr %1725, align 8
+  call fastcc void @llvm_emit_array_bounds_check(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1724, i64 %1726)
+  br label %1727
 
-1726:                                             ; preds = %1721, %1715, %1713
+1727:                                             ; preds = %1722, %1716, %1714
   call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %10)
-  br i1 %1659, label %gencontext_emit_subscript.exit, label %1727
+  br i1 %1660, label %gencontext_emit_subscript.exit, label %1728
 
-1727:                                             ; preds = %1726
+1728:                                             ; preds = %1727
   call void @llvm_value_fold_optional(ptr noundef nonnull %0, ptr noundef %1) #10
-  %1728 = load i8, ptr %1, align 8
-  %1729 = and i8 %1728, -32
-  store i8 %1729, ptr %1, align 8
-  %1730 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1731 = load ptr, ptr %1730, align 8
-  %1732 = call ptr @type_get_ptr(ptr noundef %1731) #10
-  store ptr %1732, ptr %1730, align 8
+  %1729 = load i8, ptr %1, align 8
+  %1730 = and i8 %1729, -32
+  store i8 %1730, ptr %1, align 8
+  %1731 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1732 = load ptr, ptr %1731, align 8
+  %1733 = call ptr @type_get_ptr(ptr noundef %1732) #10
+  store ptr %1733, ptr %1731, align 8
   br label %gencontext_emit_subscript.exit
 
-gencontext_emit_subscript.exit:                   ; preds = %1675, %1726, %1727
+gencontext_emit_subscript.exit:                   ; preds = %1676, %1727, %1728
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %common.ret419
+  br label %common.ret418
 
-1733:                                             ; preds = %62
+1734:                                             ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1734 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1735 = load ptr, ptr %1734, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1735)
-  %1736 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1737 = load ptr, ptr %1736, align 8
-  %1738 = load ptr, ptr %1735, align 8
-  br label %1739
+  %1735 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1736 = load ptr, ptr %1735, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1736)
+  %1737 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1738 = load ptr, ptr %1737, align 8
+  %1739 = load ptr, ptr %1736, align 8
+  br label %1740
 
-1739:                                             ; preds = %1752, %1733
-  %.0.i207 = phi ptr [ %1738, %1733 ], [ %.1.i209, %1752 ]
-  %1740 = getelementptr inbounds nuw i8, ptr %.0.i207, i64 8
-  %1741 = load ptr, ptr %1740, align 8
-  %1742 = load i32, ptr %1741, align 8
-  switch i32 %1742, label %1780 [
-    i32 32, label %1743
-    i32 40, label %1749
-    i32 31, label %1751
-    i32 24, label %1753
+1740:                                             ; preds = %1753, %1734
+  %.0.i206 = phi ptr [ %1739, %1734 ], [ %.1.i208, %1753 ]
+  %1741 = getelementptr inbounds nuw i8, ptr %.0.i206, i64 8
+  %1742 = load ptr, ptr %1741, align 8
+  %1743 = load i32, ptr %1742, align 8
+  switch i32 %1743, label %1781 [
+    i32 32, label %1744
+    i32 40, label %1750
+    i32 31, label %1752
+    i32 24, label %1754
   ]
 
-1743:                                             ; preds = %1739
-  %1744 = getelementptr inbounds nuw i8, ptr %1741, i64 56
-  %1745 = load ptr, ptr %1744, align 8
-  %1746 = getelementptr inbounds nuw i8, ptr %1745, i64 96
-  %1747 = load ptr, ptr %1746, align 8
-  %1748 = getelementptr inbounds nuw i8, ptr %1747, i64 8
-  br label %1752
+1744:                                             ; preds = %1740
+  %1745 = getelementptr inbounds nuw i8, ptr %1742, i64 56
+  %1746 = load ptr, ptr %1745, align 8
+  %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 96
+  %1748 = load ptr, ptr %1747, align 8
+  %1749 = getelementptr inbounds nuw i8, ptr %1748, i64 8
+  br label %1753
 
-1749:                                             ; preds = %1739
-  %1750 = getelementptr inbounds nuw i8, ptr %1741, i64 56
-  br label %1752
+1750:                                             ; preds = %1740
+  %1751 = getelementptr inbounds nuw i8, ptr %1742, i64 56
+  br label %1753
 
-1751:                                             ; preds = %1739
+1752:                                             ; preds = %1740
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.80, i32 noundef 2984) #11
   unreachable
 
-1752:                                             ; preds = %1749, %1743
-  %.1.in.i208 = phi ptr [ %1748, %1743 ], [ %1750, %1749 ]
-  %.1.i209 = load ptr, ptr %.1.in.i208, align 8
-  br label %1739
+1753:                                             ; preds = %1750, %1744
+  %.1.in.i207 = phi ptr [ %1749, %1744 ], [ %1751, %1750 ]
+  %.1.i208 = load ptr, ptr %.1.in.i207, align 8
+  br label %1740
 
-1753:                                             ; preds = %1739
+1754:                                             ; preds = %1740
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
-  %1754 = getelementptr inbounds nuw i8, ptr %1741, i64 56
-  %1755 = load ptr, ptr %1754, align 8
-  %1756 = getelementptr inbounds nuw i8, ptr %1755, i64 32
-  %1757 = load ptr, ptr %1756, align 8
-  %.not.i168 = icmp eq ptr %1757, null
-  br i1 %.not.i168, label %1758, label %1761
+  %1755 = getelementptr inbounds nuw i8, ptr %1742, i64 56
+  %1756 = load ptr, ptr %1755, align 8
+  %1757 = getelementptr inbounds nuw i8, ptr %1756, i64 32
+  %1758 = load ptr, ptr %1757, align 8
+  %.not.i167 = icmp eq ptr %1758, null
+  br i1 %.not.i167, label %1759, label %1762
 
-1758:                                             ; preds = %1753
-  %1759 = load ptr, ptr %1735, align 8
-  %1760 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %1759) #10
-  %.pre = load ptr, ptr %1754, align 8
-  br label %1761
+1759:                                             ; preds = %1754
+  %1760 = load ptr, ptr %1736, align 8
+  %1761 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %1760) #10
+  %.pre = load ptr, ptr %1755, align 8
+  br label %1762
 
-1761:                                             ; preds = %1758, %1753
-  %1762 = phi ptr [ %.pre, %1758 ], [ %1755, %1753 ]
-  %1763 = getelementptr inbounds nuw i8, ptr %1737, i64 72
-  %1764 = load ptr, ptr %1763, align 8
-  %1765 = getelementptr inbounds nuw i8, ptr %1762, i64 96
-  %1766 = load ptr, ptr %1765, align 8
-  %.not32.i = icmp eq ptr %1766, null
-  br i1 %.not32.i, label %1770, label %1767
+1762:                                             ; preds = %1759, %1754
+  %1763 = phi ptr [ %.pre, %1759 ], [ %1756, %1754 ]
+  %1764 = getelementptr inbounds nuw i8, ptr %1738, i64 72
+  %1765 = load ptr, ptr %1764, align 8
+  %1766 = getelementptr inbounds nuw i8, ptr %1763, i64 96
+  %1767 = load ptr, ptr %1766, align 8
+  %.not32.i = icmp eq ptr %1767, null
+  br i1 %.not32.i, label %1771, label %1768
 
-1767:                                             ; preds = %1761
-  %1768 = getelementptr inbounds i8, ptr %1766, i64 -8
-  %1769 = load i32, ptr %1768, align 4
-  br label %1770
+1768:                                             ; preds = %1762
+  %1769 = getelementptr inbounds i8, ptr %1767, i64 -8
+  %1770 = load i32, ptr %1769, align 4
+  br label %1771
 
-1770:                                             ; preds = %1767, %1761
-  %.0.i169 = phi i32 [ %1769, %1767 ], [ 0, %1761 ]
-  %1771 = tail call ptr @type_get_array(ptr noundef %1764, i32 noundef %.0.i169) #10
-  %1772 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %1771) #10
-  %1773 = getelementptr inbounds nuw i8, ptr %1737, i64 32
-  %1774 = load ptr, ptr %1773, align 8
-  %1775 = tail call i32 @LLVMGetAlignment(ptr noundef %1774) #10
-  %1776 = load ptr, ptr %1773, align 8
-  %1777 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1776, ptr noundef %1772, ptr noundef %1, i32 noundef %1775, ptr noundef nonnull %8)
-  %1778 = load ptr, ptr %1763, align 8
-  %1779 = load i32, ptr %8, align 4
-  tail call void @llvm_value_set_address(ptr noundef %1, ptr noundef %1777, ptr noundef %1778, i32 noundef %1779) #10
+1771:                                             ; preds = %1768, %1762
+  %.0.i168 = phi i32 [ %1770, %1768 ], [ 0, %1762 ]
+  %1772 = tail call ptr @type_get_array(ptr noundef %1765, i32 noundef %.0.i168) #10
+  %1773 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %1772) #10
+  %1774 = getelementptr inbounds nuw i8, ptr %1738, i64 32
+  %1775 = load ptr, ptr %1774, align 8
+  %1776 = tail call i32 @LLVMGetAlignment(ptr noundef %1775) #10
+  %1777 = load ptr, ptr %1774, align 8
+  %1778 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1777, ptr noundef %1773, ptr noundef %1, i32 noundef %1776, ptr noundef nonnull %8)
+  %1779 = load ptr, ptr %1764, align 8
+  %1780 = load i32, ptr %8, align 4
+  tail call void @llvm_value_set_address(ptr noundef %1, ptr noundef %1778, ptr noundef %1779, i32 noundef %1780) #10
   br label %llvm_emit_access_addr.exit
 
-1780:                                             ; preds = %1739
-  %1781 = tail call fastcc ptr @type_lowering(ptr noundef %1738)
-  %1782 = getelementptr inbounds nuw i8, ptr %1781, i64 56
-  %1783 = load ptr, ptr %1782, align 8
-  tail call fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr noundef %1783, ptr noundef %1737)
+1781:                                             ; preds = %1740
+  %1782 = tail call fastcc ptr @type_lowering(ptr noundef %1739)
+  %1783 = getelementptr inbounds nuw i8, ptr %1782, i64 56
+  %1784 = load ptr, ptr %1783, align 8
+  tail call fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr noundef %1784, ptr noundef %1738)
   br label %llvm_emit_access_addr.exit
 
-llvm_emit_access_addr.exit:                       ; preds = %1770, %1780
+llvm_emit_access_addr.exit:                       ; preds = %1771, %1781
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret419
-
-1784:                                             ; preds = %62
-  tail call fastcc void @llvm_emit_call_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
-  br label %common.ret419
+  br label %common.ret418
 
 1785:                                             ; preds = %62
-  %1786 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1787 = load ptr, ptr %1786, align 8
-  %.not.i170 = icmp eq ptr %1787, null
-  br i1 %.not.i170, label %common.ret419, label %1788
+  tail call fastcc void @llvm_emit_call_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
+  br label %common.ret418
 
-1788:                                             ; preds = %1785
-  %1789 = getelementptr inbounds i8, ptr %1787, i64 -8
-  %1790 = load i32, ptr %1789, align 4
-  %.not280 = icmp eq i32 %1790, 0
-  br i1 %.not280, label %common.ret419, label %.lr.ph.preheader
+1786:                                             ; preds = %62
+  %1787 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1788 = load ptr, ptr %1787, align 8
+  %.not.i169 = icmp eq ptr %1788, null
+  br i1 %.not.i169, label %common.ret418, label %1789
 
-.lr.ph.preheader:                                 ; preds = %1788
-  %wide.trip.count = zext i32 %1790 to i64
+1789:                                             ; preds = %1786
+  %1790 = getelementptr inbounds i8, ptr %1788, i64 -8
+  %1791 = load i32, ptr %1790, align 4
+  %.not279 = icmp eq i32 %1791, 0
+  br i1 %.not279, label %common.ret418, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %1789
+  %wide.trip.count = zext i32 %1791 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %1791 = load ptr, ptr %1786, align 8
-  %1792 = getelementptr inbounds nuw ptr, ptr %1791, i64 %indvars.iv
-  %1793 = load ptr, ptr %1792, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1793)
+  %1792 = load ptr, ptr %1787, align 8
+  %1793 = getelementptr inbounds nuw ptr, ptr %1792, i64 %indvars.iv
+  %1794 = load ptr, ptr %1793, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1794)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %common.ret419, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %common.ret418, label %.lr.ph, !llvm.loop !20
 
-1794:                                             ; preds = %62
-  %1795 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1796 = load i8, ptr %1795, align 8
-  %1797 = icmp eq i8 %1796, 37
-  br i1 %1797, label %1798, label %1805
+1795:                                             ; preds = %62
+  %1796 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1797 = load i8, ptr %1796, align 8
+  %1798 = icmp eq i8 %1797, 37
+  br i1 %1798, label %1799, label %1806
 
-1798:                                             ; preds = %1794
-  %1799 = load ptr, ptr @type_void, align 8
-  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %1799) #10
-  %1800 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %1801 = load i32, ptr %1800, align 4
-  %1802 = load ptr, ptr @expr_arena, align 8
-  %1803 = zext i32 %1801 to i64
-  %1804 = getelementptr inbounds nuw %struct.Expr_, ptr %1802, i64 %1803
-  tail call void @llvm_emit_ignored_expr(ptr noundef nonnull %0, ptr noundef %1804)
-  br label %common.ret419
+1799:                                             ; preds = %1795
+  %1800 = load ptr, ptr @type_void, align 8
+  tail call void @llvm_value_set(ptr noundef %1, ptr noundef null, ptr noundef %1800) #10
+  %1801 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %1802 = load i32, ptr %1801, align 4
+  %1803 = load ptr, ptr @expr_arena, align 8
+  %1804 = zext i32 %1802 to i64
+  %1805 = getelementptr inbounds nuw %struct.Expr_, ptr %1803, i64 %1804
+  tail call void @llvm_emit_ignored_expr(ptr noundef nonnull %0, ptr noundef %1805)
+  br label %common.ret418
 
-common.ret419:                                    ; preds = %1798, %1342, %._crit_edge252, %llvm_emit_vector_initializer_list.exit, %1032, %1033, %848, %847, %type_flatten.exit214, %1784, %llvm_emit_access_addr.exit, %gencontext_emit_subscript.exit, %1654, %llvm_emit_rethrow_expr.exit, %llvm_emit_force_unwrap_expr.exit, %llvm_emit_post_inc_dec.exit, %1538, %llvm_emit_binary_expr.exit, %llvm_emit_bitassign_expr.exit, %1313, %llvm_emit_unary_expr.exit, %1035, %llvm_emit_macro_block.exit, %851, %llvm_emit_pointer_offset.exit, %gencontext_emit_slice.exit, %llvm_emit_slice_assign.exit, %llvm_emit_slice_copy.exit, %511, %llvm_emit_typeid_info.exit, %340, %llvm_emit_try_unwrap.exit, %292, %290, %llvm_emit_builtin_access.exit, %llmv_emit_test_hook.exit, %126, %llvm_get_benchmark_hook_global.exit, %llvm_emit_swizzle.exit, %66, %1788, %1785, %.lr.ph, %1805
+common.ret418:                                    ; preds = %1799, %1343, %._crit_edge251, %llvm_emit_vector_initializer_list.exit, %1033, %1034, %849, %848, %type_flatten.exit213, %1785, %llvm_emit_access_addr.exit, %gencontext_emit_subscript.exit, %1655, %llvm_emit_rethrow_expr.exit, %llvm_emit_force_unwrap_expr.exit, %llvm_emit_post_inc_dec.exit, %1539, %llvm_emit_binary_expr.exit, %llvm_emit_bitassign_expr.exit, %1314, %llvm_emit_unary_expr.exit, %1036, %llvm_emit_macro_block.exit, %852, %llvm_emit_pointer_offset.exit, %gencontext_emit_slice.exit, %llvm_emit_slice_assign.exit, %llvm_emit_slice_copy.exit, %512, %llvm_emit_typeid_info.exit, %340, %llvm_emit_try_unwrap.exit, %292, %290, %llvm_emit_builtin_access.exit, %llmv_emit_test_hook.exit, %126, %llvm_get_benchmark_hook_global.exit, %llvm_emit_swizzle.exit, %66, %1789, %1786, %.lr.ph, %1806
   ret void
 
-1805:                                             ; preds = %1794
-  %1806 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %1807 = load i32, ptr %1806, align 4
-  %1808 = load ptr, ptr @expr_arena, align 8
-  %1809 = zext i32 %1807 to i64
-  %1810 = getelementptr inbounds nuw %struct.Expr_, ptr %1808, i64 %1809
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1810)
-  %1811 = load i8, ptr %1795, align 8
-  %1812 = zext i8 %1811 to i32
-  %1813 = load ptr, ptr %2, align 8
-  %1814 = load i32, ptr %1806, align 4
-  %1815 = load ptr, ptr @expr_arena, align 8
-  %1816 = zext i32 %1814 to i64
-  %1817 = getelementptr inbounds nuw %struct.Expr_, ptr %1815, i64 %1816
-  %1818 = load ptr, ptr %1817, align 8
-  tail call void @llvm_emit_cast(ptr noundef nonnull %0, i32 noundef %1812, ptr noundef nonnull %2, ptr noundef %1, ptr noundef %1813, ptr noundef %1818)
-  br label %common.ret419
+1806:                                             ; preds = %1795
+  %1807 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %1808 = load i32, ptr %1807, align 4
+  %1809 = load ptr, ptr @expr_arena, align 8
+  %1810 = zext i32 %1808 to i64
+  %1811 = getelementptr inbounds nuw %struct.Expr_, ptr %1809, i64 %1810
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1811)
+  %1812 = load i8, ptr %1796, align 8
+  %1813 = zext i8 %1812 to i32
+  %1814 = load ptr, ptr %2, align 8
+  %1815 = load i32, ptr %1807, align 4
+  %1816 = load ptr, ptr @expr_arena, align 8
+  %1817 = zext i32 %1815 to i64
+  %1818 = getelementptr inbounds nuw %struct.Expr_, ptr %1816, i64 %1817
+  %1819 = load ptr, ptr %1818, align 8
+  tail call void @llvm_emit_cast(ptr noundef nonnull %0, i32 noundef %1813, ptr noundef nonnull %2, ptr noundef %1, ptr noundef %1814, ptr noundef %1819)
+  br label %common.ret418
 
-1819:                                             ; preds = %62
-  %1820 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1821 = load ptr, ptr %1820, align 8
-  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1821)
-  %1822 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1823 = load ptr, ptr %1822, align 8
-  br label %1824
+1820:                                             ; preds = %62
+  %1821 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %1822 = load ptr, ptr %1821, align 8
+  tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1822)
+  %1823 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1824 = load ptr, ptr %1823, align 8
+  br label %1825
 
-1824:                                             ; preds = %.backedge404, %1819
-  %.0.i211.in = phi ptr [ %1821, %1819 ], [ %.0.i211.in.be, %.backedge404 ]
-  %.0.i211 = load ptr, ptr %.0.i211.in, align 8
-  %1825 = getelementptr inbounds nuw i8, ptr %.0.i211, i64 8
-  %1826 = load ptr, ptr %1825, align 8
-  %1827 = load i32, ptr %1826, align 8
-  switch i32 %1827, label %type_flatten.exit214 [
-    i32 32, label %1828
-    i32 40, label %1834
-    i32 31, label %1836
+1825:                                             ; preds = %.backedge403, %1820
+  %.0.i210.in = phi ptr [ %1822, %1820 ], [ %.0.i210.in.be, %.backedge403 ]
+  %.0.i210 = load ptr, ptr %.0.i210.in, align 8
+  %1826 = getelementptr inbounds nuw i8, ptr %.0.i210, i64 8
+  %1827 = load ptr, ptr %1826, align 8
+  %1828 = load i32, ptr %1827, align 8
+  switch i32 %1828, label %type_flatten.exit213 [
+    i32 32, label %1829
+    i32 40, label %1835
+    i32 31, label %1837
   ]
 
-1828:                                             ; preds = %1824
-  %1829 = getelementptr inbounds nuw i8, ptr %1826, i64 56
-  %1830 = load ptr, ptr %1829, align 8
-  %1831 = getelementptr inbounds nuw i8, ptr %1830, i64 96
-  %1832 = load ptr, ptr %1831, align 8
-  %1833 = getelementptr inbounds nuw i8, ptr %1832, i64 8
-  br label %.backedge404
+1829:                                             ; preds = %1825
+  %1830 = getelementptr inbounds nuw i8, ptr %1827, i64 56
+  %1831 = load ptr, ptr %1830, align 8
+  %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 96
+  %1833 = load ptr, ptr %1832, align 8
+  %1834 = getelementptr inbounds nuw i8, ptr %1833, i64 8
+  br label %.backedge403
 
-1834:                                             ; preds = %1824
-  %1835 = getelementptr inbounds nuw i8, ptr %1826, i64 56
-  br label %.backedge404
+1835:                                             ; preds = %1825
+  %1836 = getelementptr inbounds nuw i8, ptr %1827, i64 56
+  br label %.backedge403
 
-.backedge404:                                     ; preds = %1834, %1828
-  %.0.i211.in.be = phi ptr [ %1833, %1828 ], [ %1835, %1834 ]
-  br label %1824
+.backedge403:                                     ; preds = %1835, %1829
+  %.0.i210.in.be = phi ptr [ %1834, %1829 ], [ %1836, %1835 ]
+  br label %1825
 
-1836:                                             ; preds = %1824
+1837:                                             ; preds = %1825
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.80, i32 noundef 2984) #11
   unreachable
 
-type_flatten.exit214:                             ; preds = %1824
-  %1837 = getelementptr inbounds nuw i8, ptr %1826, i64 56
-  %1838 = load ptr, ptr %1837, align 8
-  tail call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef %1838, ptr noundef %1823)
-  %1839 = load ptr, ptr %1822, align 8
-  %.val.i172 = load ptr, ptr %1821, align 8
-  tail call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr %.val.i172, ptr noundef %1839)
-  br label %common.ret419
+type_flatten.exit213:                             ; preds = %1825
+  %1838 = getelementptr inbounds nuw i8, ptr %1827, i64 56
+  %1839 = load ptr, ptr %1838, align 8
+  tail call fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef %1839, ptr noundef %1824)
+  %1840 = load ptr, ptr %1823, align 8
+  %.val.i171 = load ptr, ptr %1822, align 8
+  tail call fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr %.val.i171, ptr noundef %1840)
+  br label %common.ret418
 
-1840:                                             ; preds = %62
+1841:                                             ; preds = %62
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_expr, ptr noundef nonnull @.str.11, i32 noundef 7009) #11
   unreachable
 }

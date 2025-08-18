@@ -7014,68 +7014,64 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$$LP$alloc..string..String$C
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u3b$$u20$1$u5d$$GT$17hbe9e1d4bdde7b9efE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-.critedge:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %2 = load i8, ptr %1, align 8, !range !18, !alias.scope !773, !noundef !9
-  %3 = icmp eq i8 %2, 4
-  br i1 %3, label %4, label %22
+  %5 = load i8, ptr %2, align 8, !range !18, !alias.scope !773, !noundef !9
+  %6 = icmp eq i8 %5, 4
+  br i1 %6, label %7, label %21
 
-4:                                                ; preds = %.critedge
+7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
-  %5 = load i32, ptr %0, align 8, !range !19, !alias.scope !779, !noundef !9
-  switch i32 %5, label %6 [
-    i32 0, label %14
+  %8 = load i32, ptr %0, align 8, !range !19, !alias.scope !779, !noundef !9
+  switch i32 %8, label %9 [
+    i32 0, label %15
     i32 1, label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
   ]
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+9:                                                ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !780)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !783)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !786)
-  %8 = load i8, ptr %7, align 8, !range !25, !alias.scope !789, !noundef !9
-  %cond.i.i.i.i.i = icmp eq i8 %8, 24
-  br i1 %cond.i.i.i.i.i, label %9, label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
+  %10 = load i8, ptr %3, align 8, !range !25, !alias.scope !789, !noundef !9
+  %cond.i.i.i.i.i = icmp eq i8 %10, 24
+  br i1 %cond.i.i.i.i.i, label %11, label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+11:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !790)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !793)
-  %11 = load ptr, ptr %10, align 8, !alias.scope !796, !nonnull !9, !noundef !9
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !796
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
+  %12 = load ptr, ptr %4, align 8, !alias.scope !796, !nonnull !9, !noundef !9
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !796
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+15:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
-  %16 = load i8, ptr %15, align 8, !range !25, !alias.scope !806, !noundef !9
+  %16 = load i8, ptr %3, align 8, !range !25, !alias.scope !806, !noundef !9
   %cond.i.i.i1.i.i = icmp eq i8 %16, 24
   br i1 %cond.i.i.i1.i.i, label %17, label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+17:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !807)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !810)
-  %19 = load ptr, ptr %18, align 8, !alias.scope !813, !nonnull !9, !noundef !9
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !813
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
+  %18 = load ptr, ptr %4, align 8, !alias.scope !813, !nonnull !9, !noundef !9
+  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !813
+  %20 = icmp eq i64 %19, 1
+  br i1 %20, label %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i": ; preds = %17, %9
-  %.sink.i.i = phi ptr [ %10, %9 ], [ %18, %17 ]
+"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i": ; preds = %17, %11
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.10606712881621943088(i8 noundef 2), !noalias !779
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc31482abb6101999E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink.i.i)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc31482abb6101999E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-22:                                               ; preds = %.critedge
+21:                                               ; preds = %1
   tail call void @"_ZN4core3ptr92drop_in_place$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hab2c9281217abc97E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit"
 
-"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit": ; preds = %4, %6, %9, %14, %17, %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", %22
+"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h124fdb5adf2ee635E.exit": ; preds = %21, %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h37275a12b0855027E.exit.sink.split.i.i", %17, %15, %11, %9, %7
   ret void
 }
 

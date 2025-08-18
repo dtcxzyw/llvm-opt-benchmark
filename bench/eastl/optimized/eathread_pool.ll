@@ -1067,7 +1067,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond
 
 if.then:                                          ; preds = %entry
-  switch i32 %jobWait, label %while.body18.preheader [
+  switch i32 %jobWait, label %while.cond17.preheader [
     i32 0, label %if.end99
     i32 1, label %while.cond.preheader
   ]
@@ -1075,15 +1075,15 @@ if.then:                                          ; preds = %entry
 while.cond.preheader:                             ; preds = %if.then
   %mnActiveCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
-  %cmp6.not77 = icmp eq i32 %0, 0
-  br i1 %cmp6.not77, label %while.end, label %land.rhs.lr.ph
+  %cmp6.not74 = icmp eq i32 %0, 0
+  br i1 %cmp6.not74, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
   %tv_nsec2.i = getelementptr inbounds nuw i8, ptr %timeoutAbsolute, i64 8
   %tv_nsec.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   br label %land.rhs
 
-while.body18.preheader:                           ; preds = %if.then
+while.cond17.preheader:                           ; preds = %if.then
   %mThreadMutex = getelementptr inbounds nuw i8, ptr %this, i64 160
   %mnActiveCount20 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mpNodeHead.i = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -1118,11 +1118,11 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %. = select i1 %cmp13, i32 0, i32 -2
   br label %if.end99
 
-while.body18:                                     ; preds = %while.body18.preheader, %if.then33
+while.body18:                                     ; preds = %if.then33, %while.cond17.preheader
   %call19 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %7 = load atomic i32, ptr %mnActiveCount20 seq_cst, align 8
   %cmp22.not = icmp eq i32 %7, 0
-  br i1 %cmp22.not, label %lor.lhs.false, label %land.rhs24
+  br i1 %cmp22.not, label %lor.lhs.false, label %land.end29
 
 lor.lhs.false:                                    ; preds = %while.body18
   %8 = load ptr, ptr %mpNodeHead.i, align 8
@@ -1130,9 +1130,13 @@ lor.lhs.false:                                    ; preds = %while.body18
   %9 = load ptr, ptr %mpNext.i, align 8
   %10 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i14 = icmp eq ptr %9, %10
-  br i1 %cmp.i14, label %while.end37.critedge.critedge, label %land.rhs24
+  br i1 %cmp.i14, label %land.end29.thread, label %land.end29
 
-land.rhs24:                                       ; preds = %lor.lhs.false, %while.body18
+land.end29.thread:                                ; preds = %lor.lhs.false
+  %call3157 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
+  br label %while.end37.critedge
+
+land.end29:                                       ; preds = %while.body18, %lor.lhs.false
   %call26 = call { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv()
   %11 = extractvalue { i64, i64 } %call26, 0
   %12 = extractvalue { i64, i64 } %call26, 1
@@ -1143,25 +1147,21 @@ land.rhs24:                                       ; preds = %lor.lhs.false, %whi
   %cmp6.i19 = icmp slt i64 %11, %13
   %cond.i20 = select i1 %cmp.i15, i1 %cmp3.i18, i1 %cmp6.i19
   %call31 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  br i1 %cond.i20, label %if.then33, label %while.end37
+  br i1 %cond.i20, label %if.then33, label %while.end37.critedge
 
-if.then33:                                        ; preds = %land.rhs24
+if.then33:                                        ; preds = %land.end29
   store i64 0, ptr %ref.tmp34, align 8
   store i64 10000000, ptr %tv_nsec.i25, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
-  br label %while.body18
+  br label %while.body18, !llvm.loop !30
 
-while.end37.critedge.critedge:                    ; preds = %lor.lhs.false
-  %call31.c = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  br label %while.end37
-
-while.end37:                                      ; preds = %land.rhs24, %while.end37.critedge.critedge
+while.end37.critedge:                             ; preds = %land.end29, %land.end29.thread
   %call39 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %15 = load atomic i32, ptr %mnActiveCount20 seq_cst, align 8
   %cmp42 = icmp eq i32 %15, 0
   br i1 %cmp42, label %land.lhs.true, label %if.else46
 
-land.lhs.true:                                    ; preds = %while.end37
+land.lhs.true:                                    ; preds = %while.end37.critedge
   %16 = load ptr, ptr %mpNodeHead.i, align 8
   %mpNext.i27 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %17 = load ptr, ptr %mpNext.i27, align 8
@@ -1169,7 +1169,7 @@ land.lhs.true:                                    ; preds = %while.end37
   %cmp.i29 = icmp eq ptr %17, %18
   br i1 %cmp.i29, label %if.end47, label %if.else46
 
-if.else46:                                        ; preds = %land.lhs.true, %while.end37
+if.else46:                                        ; preds = %land.lhs.true, %while.end37.critedge
   br label %if.end47
 
 if.end47:                                         ; preds = %land.lhs.true, %if.else46
@@ -1180,41 +1180,41 @@ if.end47:                                         ; preds = %land.lhs.true, %if.
 for.cond:                                         ; preds = %for.cond.preheader, %if.end92
   %nResult.2 = phi i32 [ %nResult.5.lcssa, %if.end92 ], [ -1, %for.cond.preheader ]
   %call54 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %19 = load ptr, ptr %mpNodeHead.i30, align 8, !noalias !30
-  %20 = load ptr, ptr %mpNodeTail.i32, align 8, !noalias !33
-  %it.sroa.0.0.in62 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %it.sroa.0.063 = load ptr, ptr %it.sroa.0.0.in62, align 8
-  %cmp.i33.not64 = icmp eq ptr %20, %it.sroa.0.063
-  br i1 %cmp.i33.not64, label %for.end, label %for.body
+  %19 = load ptr, ptr %mpNodeHead.i30, align 8, !noalias !31
+  %20 = load ptr, ptr %mpNodeTail.i32, align 8, !noalias !34
+  %it.sroa.0.0.in59 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %it.sroa.0.060 = load ptr, ptr %it.sroa.0.0.in59, align 8
+  %cmp.i33.not61 = icmp eq ptr %20, %it.sroa.0.060
+  br i1 %cmp.i33.not61, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond, %for.body
-  %it.sroa.0.067 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.063, %for.cond ]
-  %nResult.366 = phi i32 [ %spec.select9, %for.body ], [ %nResult.2, %for.cond ]
-  %bJobExists.065 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
-  %21 = load i32, ptr %it.sroa.0.067, align 8
+  %it.sroa.0.064 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.060, %for.cond ]
+  %nResult.363 = phi i32 [ %spec.select9, %for.body ], [ %nResult.2, %for.cond ]
+  %bJobExists.062 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
+  %21 = load i32, ptr %it.sroa.0.064, align 8
   %cmp62 = icmp eq i32 %21, %nJob
-  %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.065
-  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.366
-  %it.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it.sroa.0.067, i64 40
+  %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.062
+  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.363
+  %it.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it.sroa.0.064, i64 40
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i33.not = icmp eq ptr %20, %it.sroa.0.0
-  br i1 %cmp.i33.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %cmp.i33.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.body, %for.cond
   %bJobExists.0.lcssa = phi i1 [ false, %for.cond ], [ %spec.select, %for.body ]
   %nResult.3.lcssa = phi i32 [ %nResult.2, %for.cond ], [ %spec.select9, %for.body ]
-  %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !37
-  %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !40
-  %it66.sroa.0.0.in69 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %it66.sroa.0.070 = load ptr, ptr %it66.sroa.0.0.in69, align 8
-  %cmp.i37.not71 = icmp eq ptr %23, %it66.sroa.0.070
-  br i1 %cmp.i37.not71, label %for.end83, label %for.body72
+  %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !38
+  %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !41
+  %it66.sroa.0.0.in66 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %it66.sroa.0.067 = load ptr, ptr %it66.sroa.0.0.in66, align 8
+  %cmp.i37.not68 = icmp eq ptr %23, %it66.sroa.0.067
+  br i1 %cmp.i37.not68, label %for.end83, label %for.body72
 
 for.body72:                                       ; preds = %for.end, %for.inc81
-  %it66.sroa.0.074 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.070, %for.end ]
-  %nResult.573 = phi i32 [ %nResult.6, %for.inc81 ], [ %nResult.3.lcssa, %for.end ]
-  %bJobExists.272 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
-  %24 = load ptr, ptr %it66.sroa.0.074, align 8
+  %it66.sroa.0.071 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.067, %for.end ]
+  %nResult.570 = phi i32 [ %nResult.6, %for.inc81 ], [ %nResult.3.lcssa, %for.end ]
+  %bJobExists.269 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
+  %24 = load ptr, ptr %it66.sroa.0.071, align 8
   %25 = load volatile i8, ptr %24, align 8
   %tobool75 = trunc i8 %25 to i1
   br i1 %tobool75, label %land.lhs.true76, label %for.inc81
@@ -1223,17 +1223,17 @@ land.lhs.true76:                                  ; preds = %for.body72
   %mCurrentJob = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %mCurrentJob, align 8
   %cmp78 = icmp eq i32 %26, %nJob
-  %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.272
-  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.573
+  %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.269
+  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.570
   br label %for.inc81
 
 for.inc81:                                        ; preds = %land.lhs.true76, %for.body72
-  %bJobExists.3 = phi i1 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
-  %nResult.6 = phi i32 [ %nResult.573, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
-  %it66.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it66.sroa.0.074, i64 16
+  %bJobExists.3 = phi i1 [ %bJobExists.269, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
+  %nResult.6 = phi i32 [ %nResult.570, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
+  %it66.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %it66.sroa.0.071, i64 16
   %it66.sroa.0.0 = load ptr, ptr %it66.sroa.0.0.in, align 8
   %cmp.i37.not = icmp eq ptr %23, %it66.sroa.0.0
-  br i1 %cmp.i37.not, label %for.end83, label %for.body72, !llvm.loop !43
+  br i1 %cmp.i37.not, label %for.end83, label %for.body72, !llvm.loop !44
 
 for.end83:                                        ; preds = %for.inc81, %for.end
   %bJobExists.2.lcssa = phi i1 [ %bJobExists.0.lcssa, %for.end ], [ %bJobExists.3, %for.inc81 ]
@@ -1257,7 +1257,7 @@ if.end92:                                         ; preds = %lor.rhs
   store i64 0, ptr %ref.tmp93, align 8
   store i64 10000000, ptr %tv_nsec.i49, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp93)
-  br label %for.cond, !llvm.loop !44
+  br label %for.cond, !llvm.loop !45
 
 if.end99:                                         ; preds = %lor.rhs, %for.end83, %while.end, %if.then, %if.end47
   %nResult.1 = phi i32 [ %nResult.0, %if.end47 ], [ %jobWait, %if.then ], [ %., %while.end ], [ %nResult.5.lcssa, %lor.rhs ], [ 0, %for.end83 ]
@@ -1446,7 +1446,7 @@ if.then49:                                        ; preds = %if.end47
 if.end52:                                         ; preds = %if.end47, %if.then49, %if.end24
   %29 = load volatile i8, ptr %mbQuit, align 1
   %tobool = trunc i8 %29 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !45
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %if.end52, %entry
   call void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %pContext)
@@ -1462,22 +1462,22 @@ declare noundef i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTime
 define dso_local void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
 entry:
   %mpNodeHead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %0 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !46
+  %0 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !47
   %mpNodeTail.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !51
+  %1 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !52
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %entry
   %.pn.i = phi ptr [ %0, %entry ], [ %storemerge.i, %land.rhs.i ]
   %storemerge.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
-  %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !noalias !54
+  %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !noalias !55
   %cmp.i.not.i = icmp eq ptr %1, %storemerge.i
   br i1 %cmp.i.not.i, label %if.end18, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %2 = load ptr, ptr %storemerge.i, align 8, !noalias !54
+  %2 = load ptr, ptr %storemerge.i, align 8, !noalias !55
   %cmp.not.i = icmp eq ptr %pThreadInfo, %2
-  br i1 %cmp.not.i, label %if.then, label %while.cond.i, !llvm.loop !55
+  br i1 %cmp.not.i, label %if.then, label %while.cond.i, !llvm.loop !56
 
 if.then:                                          ; preds = %land.rhs.i
   %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
@@ -1508,40 +1508,40 @@ delete.notnull:                                   ; preds = %if.else
 if.end:                                           ; preds = %if.else, %delete.notnull, %if.then3
   %mpThread6 = getelementptr inbounds nuw i8, ptr %pThreadInfo, i64 8
   store ptr null, ptr %mpThread6, align 8
-  %8 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !56
+  %8 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !57
   %mpNext.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %9 = load ptr, ptr %mpNext.i.i, align 8, !noalias !56
-  %10 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !56
+  %9 = load ptr, ptr %mpNext.i.i, align 8, !noalias !57
+  %10 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !57
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %mpNext.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
-  %11 = load ptr, ptr %mpNext.i, align 8, !noalias !56
+  %11 = load ptr, ptr %mpNext.i, align 8, !noalias !57
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
-  %12 = load ptr, ptr %mpPrev.i, align 8, !noalias !56
+  %12 = load ptr, ptr %mpPrev.i, align 8, !noalias !57
   %mpPrev5.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %12, ptr %mpPrev5.i, align 8, !noalias !56
-  %13 = load ptr, ptr %mpNext.i, align 8, !noalias !56
+  store ptr %12, ptr %mpPrev5.i, align 8, !noalias !57
+  %13 = load ptr, ptr %mpNext.i, align 8, !noalias !57
   %mpNext10.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %13, ptr %mpNext10.i, align 8, !noalias !56
+  store ptr %13, ptr %mpNext10.i, align 8, !noalias !57
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %14 = load i64, ptr %mnSize.i, align 8, !noalias !56
+  %14 = load i64, ptr %mnSize.i, align 8, !noalias !57
   %dec.i = add i64 %14, -1
-  store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !56
-  %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv(), !noalias !56
+  store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !57
+  %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv(), !noalias !57
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %vtable.i.i = load ptr, ptr %call.i.i, align 8, !noalias !56
+  %vtable.i.i = load ptr, ptr %call.i.i, align 8, !noalias !57
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
-  %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !56
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %storemerge.i, i64 noundef 0), !noalias !56
+  %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !57
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %storemerge.i, i64 noundef 0), !noalias !57
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #16, !noalias !56
+  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #16, !noalias !57
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit: ; preds = %if.end, %if.then.i.i, %delete.notnull.i.i
@@ -1649,9 +1649,9 @@ _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocat
   %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
   %mpNodeHead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %16 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !59
+  %16 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !60
   %mpNodeTail.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %17 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !62
+  %17 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !63
   %it.sroa.0.0.in5.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   %it.sroa.0.06.i = load ptr, ptr %it.sroa.0.0.in5.i, align 8
   %cmp.i.not7.i = icmp eq ptr %17, %it.sroa.0.06.i
@@ -1711,9 +1711,9 @@ return:                                           ; preds = %entry, %if.end16, %
 define dso_local void @_ZN2EA6Thread10ThreadPool10FixThreadsEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mpNodeHead.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !65
+  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !66
   %mpNodeTail.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !68
+  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !69
   %it.sroa.0.0.in5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %it.sroa.0.06 = load ptr, ptr %it.sroa.0.0.in5, align 8
   %cmp.i.not7 = icmp eq ptr %1, %it.sroa.0.06
@@ -2105,9 +2105,9 @@ invoke.cont:
   %mThreadMutex = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mpNodeHead.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !71
+  %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !72
   %mpNodeTail.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !74
+  %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !75
   %it.sroa.0.0.in10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %it.sroa.0.011 = load ptr, ptr %it.sroa.0.0.in10, align 8
   %cmp.i.not12 = icmp eq ptr %1, %it.sroa.0.011
@@ -2369,50 +2369,51 @@ attributes #17 = { noreturn nounwind }
 !27 = distinct !{!27, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE5beginEv: %agg.result"}
-!32 = distinct !{!32, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE5beginEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE3endEv: %agg.result"}
-!35 = distinct !{!35, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE3endEv"}
-!36 = distinct !{!36, !6}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!39 = distinct !{!39, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!42 = distinct !{!42, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!43 = distinct !{!43, !6}
+!30 = distinct !{!30, !6}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE5beginEv: %agg.result"}
+!33 = distinct !{!33, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE5beginEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE3endEv: %agg.result"}
+!36 = distinct !{!36, !"_ZNK2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE3endEv"}
+!37 = distinct !{!37, !6}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!40 = distinct !{!40, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!43 = distinct !{!43, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = !{!47, !49}
-!47 = distinct !{!47, !48, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!48 = distinct !{!48, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!49 = distinct !{!49, !50, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_: %agg.result"}
-!50 = distinct !{!50, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_"}
-!51 = !{!52, !49}
-!52 = distinct !{!52, !53, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!53 = distinct !{!53, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!54 = !{!49}
-!55 = distinct !{!55, !6}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE: %agg.result"}
-!58 = distinct !{!58, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!61 = distinct !{!61, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!64 = distinct !{!64, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!67 = distinct !{!67, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!70 = distinct !{!70, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
-!73 = distinct !{!73, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
-!76 = distinct !{!76, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!46 = distinct !{!46, !6}
+!47 = !{!48, !50}
+!48 = distinct !{!48, !49, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!49 = distinct !{!49, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!50 = distinct !{!50, !51, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_: %agg.result"}
+!51 = distinct !{!51, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE4findERKS4_"}
+!52 = !{!53, !50}
+!53 = distinct !{!53, !54, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!54 = distinct !{!54, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!55 = !{!50}
+!56 = distinct !{!56, !6}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE: %agg.result"}
+!59 = distinct !{!59, !"_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!62 = distinct !{!62, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!65 = distinct !{!65, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!68 = distinct !{!68, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!71 = distinct !{!71, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv: %agg.result"}
+!74 = distinct !{!74, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5beginEv"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv: %agg.result"}
+!77 = distinct !{!77, !"_ZNK2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE3endEv"}

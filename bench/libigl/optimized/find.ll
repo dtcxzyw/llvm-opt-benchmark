@@ -2103,37 +2103,37 @@ _ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit: ; preds 
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %16, i64 noundef 1)
   %17 = load i64, ptr %3, align 8, !tbaa !4
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.lr.ph, label %.critedge
+  br i1 %18, label %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, label %.split
 
-.lr.ph:                                           ; preds = %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us: ; preds = %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
   %19 = load ptr, ptr %0, align 8, !tbaa !11
   %20 = load ptr, ptr %1, align 8
   br label %21
 
-.critedge:                                        ; preds = %30, %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
-  ret void
-
-21:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.121 = phi i32 [ 0, %.lr.ph ], [ %.2, %30 ]
+21:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, %30
+  %indvars.iv = phi i64 [ 0, %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %indvars.iv.next, %30 ]
+  %.121.us = phi i32 [ 0, %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %.2.us, %30 ]
   %22 = getelementptr i8, ptr %19, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !12, !range !14, !noundef !15
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = sext i32 %.121 to i64
+  %26 = sext i32 %.121.us to i64
   %27 = getelementptr inbounds i32, ptr %20, i64 %26
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %28, ptr %27, align 4, !tbaa !23
-  %29 = add nsw i32 %.121, 1
+  %29 = add nsw i32 %.121.us, 1
   br label %30
 
-30:                                               ; preds = %21, %25
-  %.2 = phi i32 [ %29, %25 ], [ %.121, %21 ]
+30:                                               ; preds = %25, %21
+  %.2.us = phi i32 [ %29, %25 ], [ %.121.us, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !60
+  br i1 %exitcond.not, label %.split, label %21, !llvm.loop !60
+
+.split:                                           ; preds = %30, %_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3894,37 +3894,37 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit: ; preds
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %18, i64 noundef 1)
   %19 = load i64, ptr %3, align 8, !tbaa !57
   %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %.lr.ph, label %.critedge
+  br i1 %20, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, label %.split
 
-.lr.ph:                                           ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
   %21 = load ptr, ptr %0, align 8, !tbaa !53
   %22 = load ptr, ptr %1, align 8
   br label %23
 
-.critedge:                                        ; preds = %31, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
-  ret void
-
-23:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %.121 = phi i32 [ 0, %.lr.ph ], [ %.2, %31 ]
+23:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, %31
+  %indvars.iv = phi i64 [ 0, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %indvars.iv.next, %31 ]
+  %.121.us = phi i32 [ 0, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %.2.us, %31 ]
   %24 = getelementptr i32, ptr %21, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !23
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %31, label %26
+  %.not.us = icmp eq i32 %25, 0
+  br i1 %.not.us, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = sext i32 %.121 to i64
+  %27 = sext i32 %.121.us to i64
   %28 = getelementptr inbounds i32, ptr %22, i64 %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4, !tbaa !23
-  %30 = add nsw i32 %.121, 1
+  %30 = add nsw i32 %.121.us, 1
   br label %31
 
-31:                                               ; preds = %23, %26
-  %.2 = phi i32 [ %30, %26 ], [ %.121, %23 ]
+31:                                               ; preds = %26, %23
+  %.2.us = phi i32 [ %30, %26 ], [ %.121.us, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %.critedge, label %23, !llvm.loop !85
+  br i1 %exitcond.not, label %.split, label %23, !llvm.loop !85
+
+.split:                                           ; preds = %31, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4578,37 +4578,37 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit: ; preds
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %16, i64 noundef 1)
   %17 = load i64, ptr %3, align 8, !tbaa !4
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.lr.ph, label %.critedge
+  br i1 %18, label %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, label %.split
 
-.lr.ph:                                           ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us: ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
   %19 = load ptr, ptr %0, align 8, !tbaa !11
   %20 = load ptr, ptr %1, align 8
   br label %21
 
-.critedge:                                        ; preds = %30, %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
-  ret void
-
-21:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.121 = phi i32 [ 0, %.lr.ph ], [ %.2, %30 ]
+21:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us, %30
+  %indvars.iv = phi i64 [ 0, %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %indvars.iv.next, %30 ]
+  %.121.us = phi i32 [ 0, %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit.split.us ], [ %.2.us, %30 ]
   %22 = getelementptr i8, ptr %19, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !12, !range !14, !noundef !15
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = sext i32 %.121 to i64
+  %26 = sext i32 %.121.us to i64
   %27 = getelementptr inbounds i32, ptr %20, i64 %26
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %28, ptr %27, align 4, !tbaa !23
-  %29 = add nsw i32 %.121, 1
+  %29 = add nsw i32 %.121.us, 1
   br label %30
 
-30:                                               ; preds = %21, %25
-  %.2 = phi i32 [ %29, %25 ], [ %.121, %21 ]
+30:                                               ; preds = %25, %21
+  %.2.us = phi i32 [ %29, %25 ], [ %.121.us, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !94
+  br i1 %exitcond.not, label %.split, label %21, !llvm.loop !94
+
+.split:                                           ; preds = %30, %_ZNK5Eigen9DenseBaseINS_6MatrixIbLin1ELi1ELi0ELin1ELi1EEEE5countEv.exit
+  ret void
 }
 
 ; Function Attrs: nobuiltin nounwind

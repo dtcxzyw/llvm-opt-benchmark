@@ -3577,7 +3577,7 @@ join.exit43:                                      ; preds = %38
   br i1 %or.cond, label %req_check_len.exit, label %.critedge
 
 req_check_len.exit:                               ; preds = %66, %71, %45, %33, %34, %35, %30, %join.exit43.thread, %join.exit.thread, %54
-  %.0 = phi i32 [ 0, %54 ], [ 0, %join.exit.thread ], [ 0, %join.exit43.thread ], [ 2, %66 ], [ 0, %71 ], [ 1, %45 ], [ 1, %34 ], [ 1, %35 ], [ 0, %33 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %join.exit.thread ], [ 0, %join.exit43.thread ], [ 0, %30 ], [ 0, %33 ], [ 1, %35 ], [ 1, %34 ], [ 1, %45 ], [ 0, %71 ], [ 2, %66 ]
   ret i32 %.0
 }
 

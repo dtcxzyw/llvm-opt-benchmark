@@ -7,17 +7,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_init() local_unnamed_addr #0 {
-.critedge:
   tail call void @lv_draw_sw_mask_init() #3
-  %0 = tail call ptr @lv_draw_create_unit(i64 noundef 64) #3
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @dispatch, ptr %1, align 8, !tbaa !3
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @evaluate, ptr %2, align 8, !tbaa !13
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %3, align 8, !tbaa !14
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str, ptr %4, align 8, !tbaa !15
+  %1 = tail call ptr @lv_draw_create_unit(i64 noundef 64) #3
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr @dispatch, ptr %2, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr @evaluate, ptr %3, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr null, ptr %4, align 8, !tbaa !14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr @.str, ptr %5, align 8, !tbaa !15
   ret void
 }
 

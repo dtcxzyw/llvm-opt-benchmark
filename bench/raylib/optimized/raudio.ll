@@ -102112,13 +102112,13 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
   %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #70
   %16 = sub nsw i32 0, %12
   %17 = call fastcc i32 @ma_result_from_errno(i32 noundef %16)
-  br label %194
+  br label %193
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %5, align 8
   %20 = load ptr, ptr %19, align 8
-  %.not166 = icmp eq ptr %20, null
-  br i1 %.not166, label %ma_free.exit, label %.lr.ph
+  %.not176 = icmp eq ptr %20, null
+  br i1 %.not176, label %ma_free.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -102133,19 +102133,19 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 256
   br label %31
 
-31:                                               ; preds = %.lr.ph, %179
-  %32 = phi ptr [ %20, %.lr.ph ], [ %181, %179 ]
-  %.075170 = phi i32 [ 1, %.lr.ph ], [ %.1, %179 ]
-  %.081169 = phi ptr [ null, %.lr.ph ], [ %.283, %179 ]
-  %.086168 = phi i32 [ 0, %.lr.ph ], [ %.187, %179 ]
-  %.091167 = phi ptr [ %19, %.lr.ph ], [ %180, %179 ]
+31:                                               ; preds = %.lr.ph, %178
+  %32 = phi ptr [ %20, %.lr.ph ], [ %180, %178 ]
+  %.075180 = phi i32 [ 1, %.lr.ph ], [ %.1, %178 ]
+  %.081179 = phi ptr [ null, %.lr.ph ], [ %.283, %178 ]
+  %.086178 = phi i32 [ 0, %.lr.ph ], [ %.187, %178 ]
+  %.091177 = phi ptr [ %19, %.lr.ph ], [ %179, %178 ]
   %33 = load ptr, ptr %21, align 8
   %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull @.str.488) #70
   %35 = load ptr, ptr %21, align 8
-  %36 = load ptr, ptr %.091167, align 8
+  %36 = load ptr, ptr %.091177, align 8
   %37 = call ptr %35(ptr noundef %36, ptr noundef nonnull @.str.489) #70
   %38 = load ptr, ptr %21, align 8
-  %39 = load ptr, ptr %.091167, align 8
+  %39 = load ptr, ptr %.091177, align 8
   %40 = call ptr %38(ptr noundef %39, ptr noundef nonnull @.str.490) #70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -102155,9 +102155,9 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
 42:                                               ; preds = %31
   %43 = call i32 @ma_strcmp(ptr noundef nonnull %40, ptr noundef nonnull @.str.491)
   %44 = call i32 @ma_strcmp(ptr noundef nonnull %40, ptr noundef nonnull @.str.492)
-  %.not189 = icmp eq i32 %44, 0
-  %spec.select116 = select i1 %.not189, i32 2, i32 1
-  %45 = select i1 %.not189, i32 1, i32 2
+  %.not218 = icmp eq i32 %44, 0
+  %spec.select116 = select i1 %.not218, i32 2, i32 1
+  %45 = select i1 %.not218, i32 1, i32 2
   br label %.thread
 
 .thread:                                          ; preds = %31, %42
@@ -102335,7 +102335,7 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
 
 ma_convert_device_name_to_hw_format__alsa.exit.thread131: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.preheader199
+  br label %.preheader
 
 ma_convert_device_name_to_hw_format__alsa.exit.thread: ; preds = %83, %103, %107, %109, %111, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -102345,61 +102345,61 @@ ma_convert_device_name_to_hw_format__alsa.exit:   ; preds = %76, %.preheader.i.i
   %113 = call i32 @ma_strcpy_s(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull readonly %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.preheader199, label %119
+  br i1 %114, label %.preheader, label %119
 
-.preheader199:                                    ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread131, %ma_convert_device_name_to_hw_format__alsa.exit
+.preheader:                                       ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread131, %ma_convert_device_name_to_hw_format__alsa.exit
   br label %115
 
-115:                                              ; preds = %.preheader199, %115
-  %.077 = phi ptr [ %118, %115 ], [ %6, %.preheader199 ]
-  %.076 = phi ptr [ %116, %115 ], [ %25, %.preheader199 ]
+115:                                              ; preds = %.preheader, %115
+  %.077 = phi ptr [ %118, %115 ], [ %6, %.preheader ]
+  %.076 = phi ptr [ %116, %115 ], [ %25, %.preheader ]
   %116 = getelementptr inbounds nuw i8, ptr %.076, i64 1
   %117 = load i8, ptr %.076, align 1
   %118 = getelementptr inbounds nuw i8, ptr %.077, i64 1
   store i8 %117, ptr %.077, align 1
   %.not106 = icmp eq i8 %117, 0
-  br i1 %.not106, label %.loopexit156, label %115
+  br i1 %.not106, label %.loopexit166, label %115
 
 119:                                              ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread, %ma_convert_device_name_to_hw_format__alsa.exit
   %120 = call i32 @ma_strncpy_s(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull %34, i64 noundef -1)
-  br label %.loopexit156
+  br label %.loopexit166
 
-.loopexit156:                                     ; preds = %115, %119
-  %.not.i = icmp eq i32 %.086168, 0
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
+.loopexit166:                                     ; preds = %115, %119
+  %.not.i = icmp eq i32 %.086178, 0
+  br i1 %.not.i, label %.loopexit165, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.loopexit156
-  %wide.trip.count.i = zext i32 %.086168 to i64
+.lr.ph.preheader.i:                               ; preds = %.loopexit166
+  %wide.trip.count.i = zext i32 %.086178 to i64
   br label %.lr.ph.i
 
 121:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit165, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %121, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %121 ]
-  %122 = getelementptr inbounds nuw %union.ma_device_id, ptr %.081169, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw %union.ma_device_id, ptr %.081179, i64 %indvars.iv.i
   %123 = call i32 @ma_strcmp(ptr noundef readonly %122, ptr noundef nonnull readonly %6)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %ma_does_id_exist_in_list__alsa.exit, label %121
 
-.loopexit:                                        ; preds = %121, %.loopexit156
-  %125 = add i32 %.086168, 1
+.loopexit165:                                     ; preds = %121, %.loopexit166
+  %125 = add i32 %.086178, 1
   %126 = load ptr, ptr %27, align 8
   %.not10.i = icmp eq ptr %126, null
   br i1 %.not10.i, label %ma_does_id_exist_in_list__alsa.exit, label %ma_realloc.exit
 
-ma_realloc.exit:                                  ; preds = %.loopexit
+ma_realloc.exit:                                  ; preds = %.loopexit165
   %127 = zext i32 %125 to i64
   %128 = shl nuw nsw i64 %127, 8
   %129 = load ptr, ptr %28, align 8
-  %130 = call ptr %126(ptr noundef %.081169, i64 noundef %128, ptr noundef %129) #70
+  %130 = call ptr %126(ptr noundef %.081179, i64 noundef %128, ptr noundef %129) #70
   %131 = icmp eq ptr %130, null
   br i1 %131, label %ma_does_id_exist_in_list__alsa.exit, label %132
 
 132:                                              ; preds = %ma_realloc.exit
-  %133 = zext i32 %.086168 to i64
+  %133 = zext i32 %.086178 to i64
   %134 = getelementptr inbounds nuw %union.ma_device_id, ptr %130, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %134, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   br label %136
@@ -102409,8 +102409,8 @@ ma_realloc.exit:                                  ; preds = %.loopexit
   br label %136
 
 136:                                              ; preds = %132, %48, %135
-  %.490 = phi i32 [ %.086168, %48 ], [ %125, %132 ], [ %.086168, %135 ]
-  %.5 = phi ptr [ %.081169, %48 ], [ %130, %132 ], [ %.081169, %135 ]
+  %.490 = phi i32 [ %.086178, %48 ], [ %125, %132 ], [ %.086178, %135 ]
+  %.5 = phi ptr [ %.081179, %48 ], [ %130, %132 ], [ %.081179, %135 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1544) %7, i8 0, i64 1544, i1 false)
   %137 = call i32 @ma_strncpy_s(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull %6, i64 noundef -1)
   %138 = call i32 @ma_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.493)
@@ -102460,8 +102460,8 @@ ma_find_char.exit:                                ; preds = %.lr.ph.i121
   br label %164
 
 160:                                              ; preds = %ma_find_char.exit
-  %sext153 = shl i64 %indvars.iv.i122, 32
-  %161 = ashr exact i64 %sext153, 32
+  %sext159 = shl i64 %indvars.iv.i122, 32
+  %161 = ashr exact i64 %sext159, 32
   %162 = call i32 @ma_strncpy_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull %37, i64 noundef %161)
   br label %164
 
@@ -102471,97 +102471,97 @@ ma_find_char.exit.thread:                         ; preds = %147, %142
 
 164:                                              ; preds = %ma_find_char.exit.thread, %160, %152, %141
   %165 = call i32 @ma_strcmp(ptr noundef readonly %34, ptr noundef nonnull @.str.500)
-  %.0.in.i.not = icmp eq i32 %165, 0
-  br i1 %.0.in.i.not, label %168, label %166
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %ma_is_device_blacklisted__alsa.exit, label %.loopexit
 
-166:                                              ; preds = %164
+.loopexit:                                        ; preds = %164
   %167 = call i32 %1(ptr noundef %0, i32 noundef %.180, ptr noundef nonnull %7, ptr noundef %2) #70
-  br label %168
+  br label %ma_is_device_blacklisted__alsa.exit
 
-168:                                              ; preds = %166, %164
-  %.3 = phi i32 [ %.075170, %164 ], [ %167, %166 ]
+ma_is_device_blacklisted__alsa.exit:              ; preds = %164, %.loopexit
+  %.3 = phi i32 [ %167, %.loopexit ], [ %.075180, %164 ]
   %.not112 = icmp eq i32 %.3, 0
-  br i1 %.not112, label %ma_does_id_exist_in_list__alsa.exit, label %.preheader
+  br i1 %.not112, label %ma_does_id_exist_in_list__alsa.exit, label %.preheader162
 
-169:                                              ; preds = %.preheader
-  %170 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i125 = icmp eq i64 %170, 4
-  br i1 %exitcond.not.i125, label %ma_is_common_device_name__alsa.exit, label %.preheader
+168:                                              ; preds = %.preheader162
+  %169 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i125 = icmp eq i64 %169, 4
+  br i1 %exitcond.not.i125, label %ma_is_common_device_name__alsa.exit, label %.preheader162
 
-.preheader:                                       ; preds = %168, %169
-  %.05.i = phi i64 [ %170, %169 ], [ 0, %168 ]
-  %171 = getelementptr inbounds nuw [4 x ptr], ptr @g_maCommonDeviceNamesALSA, i64 0, i64 %.05.i
-  %172 = load ptr, ptr %171, align 8
-  %173 = call i32 @ma_strcmp(ptr noundef readonly %34, ptr noundef %172)
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %ma_is_common_device_name__alsa.exit.thread, label %169
+.preheader162:                                    ; preds = %ma_is_device_blacklisted__alsa.exit, %168
+  %.05.i = phi i64 [ %169, %168 ], [ 0, %ma_is_device_blacklisted__alsa.exit ]
+  %170 = getelementptr inbounds nuw [4 x ptr], ptr @g_maCommonDeviceNamesALSA, i64 0, i64 %.05.i
+  %171 = load ptr, ptr %170, align 8
+  %172 = call i32 @ma_strcmp(ptr noundef readonly %34, ptr noundef %171)
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %ma_is_common_device_name__alsa.exit.thread, label %168
 
-ma_is_common_device_name__alsa.exit:              ; preds = %169
-  br i1 %41, label %ma_is_common_device_name__alsa.exit.thread, label %177
+ma_is_common_device_name__alsa.exit:              ; preds = %168
+  br i1 %41, label %ma_is_common_device_name__alsa.exit.thread, label %ma_is_capture_device_blacklisted__alsa.exit
 
-ma_is_common_device_name__alsa.exit.thread:       ; preds = %.preheader, %ma_is_common_device_name__alsa.exit
-  %175 = call i32 @ma_strcmp(ptr noundef readonly %34, ptr noundef nonnull @.str.500)
-  %.not155 = icmp eq i32 %175, 0
-  br i1 %.not155, label %177, label %.sink.split
+ma_is_common_device_name__alsa.exit.thread:       ; preds = %.preheader162, %ma_is_common_device_name__alsa.exit
+  %174 = call i32 @ma_strcmp(ptr noundef readonly %34, ptr noundef nonnull @.str.500)
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %ma_is_capture_device_blacklisted__alsa.exit, label %ma_is_capture_device_blacklisted__alsa.exit.sink.split
 
-.sink.split:                                      ; preds = %ma_is_common_device_name__alsa.exit.thread
+ma_is_capture_device_blacklisted__alsa.exit.sink.split: ; preds = %ma_is_common_device_name__alsa.exit.thread
   %176 = call i32 %1(ptr noundef %0, i32 noundef %., ptr noundef nonnull %7, ptr noundef %2) #70
-  br label %177
+  br label %ma_is_capture_device_blacklisted__alsa.exit
 
-177:                                              ; preds = %ma_is_common_device_name__alsa.exit.thread, %.sink.split, %ma_is_common_device_name__alsa.exit
-  %.4 = phi i32 [ %.3, %ma_is_common_device_name__alsa.exit ], [ %176, %.sink.split ], [ %.3, %ma_is_common_device_name__alsa.exit.thread ]
+ma_is_capture_device_blacklisted__alsa.exit:      ; preds = %ma_is_common_device_name__alsa.exit.thread, %ma_is_capture_device_blacklisted__alsa.exit.sink.split, %ma_is_common_device_name__alsa.exit
+  %.4 = phi i32 [ %.3, %ma_is_common_device_name__alsa.exit ], [ %176, %ma_is_capture_device_blacklisted__alsa.exit.sink.split ], [ %.3, %ma_is_common_device_name__alsa.exit.thread ]
   %.4.fr = freeze i32 %.4
-  %178 = icmp ne i32 %.4.fr, 0
+  %177 = icmp ne i32 %.4.fr, 0
   br label %ma_does_id_exist_in_list__alsa.exit
 
-ma_does_id_exist_in_list__alsa.exit:              ; preds = %.lr.ph.i, %177, %168, %.loopexit, %ma_realloc.exit
-  %.187 = phi i32 [ %.086168, %ma_realloc.exit ], [ %.086168, %.loopexit ], [ %.490, %168 ], [ %.490, %177 ], [ %.086168, %.lr.ph.i ]
-  %.283 = phi ptr [ %.081169, %ma_realloc.exit ], [ %.081169, %.loopexit ], [ %.5, %168 ], [ %.5, %177 ], [ %.081169, %.lr.ph.i ]
-  %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit ], [ false, %168 ], [ %178, %177 ], [ true, %.lr.ph.i ]
-  %.1 = phi i32 [ %.075170, %ma_realloc.exit ], [ %.075170, %.loopexit ], [ 0, %168 ], [ %.4.fr, %177 ], [ %.075170, %.lr.ph.i ]
+ma_does_id_exist_in_list__alsa.exit:              ; preds = %.lr.ph.i, %ma_is_capture_device_blacklisted__alsa.exit, %ma_is_device_blacklisted__alsa.exit, %.loopexit165, %ma_realloc.exit
+  %.187 = phi i32 [ %.086178, %ma_realloc.exit ], [ %.086178, %.loopexit165 ], [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086178, %.lr.ph.i ]
+  %.283 = phi ptr [ %.081179, %ma_realloc.exit ], [ %.081179, %.loopexit165 ], [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081179, %.lr.ph.i ]
+  %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit165 ], [ false, %ma_is_device_blacklisted__alsa.exit ], [ %177, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
+  %.1 = phi i32 [ %.075180, %ma_realloc.exit ], [ %.075180, %.loopexit165 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075180, %.lr.ph.i ]
   call void @free(ptr noundef %34) #70
   call void @free(ptr noundef %37) #70
   call void @free(ptr noundef %40) #70
-  br i1 %.not115, label %179, label %.thread150
+  br i1 %.not115, label %178, label %.thread156
 
-.thread150:                                       ; preds = %ma_does_id_exist_in_list__alsa.exit
+.thread156:                                       ; preds = %ma_does_id_exist_in_list__alsa.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit159
+  br label %.loopexit169
 
-179:                                              ; preds = %ma_does_id_exist_in_list__alsa.exit
-  %180 = getelementptr inbounds nuw i8, ptr %.091167, i64 8
+178:                                              ; preds = %ma_does_id_exist_in_list__alsa.exit
+  %179 = getelementptr inbounds nuw i8, ptr %.091177, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %181 = load ptr, ptr %180, align 8
-  %.not = icmp eq ptr %181, null
-  br i1 %.not, label %.loopexit159, label %31
+  %180 = load ptr, ptr %179, align 8
+  %.not = icmp eq ptr %180, null
+  br i1 %.not, label %.loopexit169, label %31
 
-.loopexit159:                                     ; preds = %179, %.thread150
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %183 = icmp eq ptr %.283, null
-  br i1 %183, label %ma_free.exit, label %184
+.loopexit169:                                     ; preds = %178, %.thread156
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %182 = icmp eq ptr %.283, null
+  br i1 %182, label %ma_free.exit, label %183
 
-184:                                              ; preds = %.loopexit159
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %186 = load ptr, ptr %185, align 8
-  %.not9.i = icmp eq ptr %186, null
-  br i1 %.not9.i, label %ma_free.exit, label %187
+183:                                              ; preds = %.loopexit169
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %185 = load ptr, ptr %184, align 8
+  %.not9.i = icmp eq ptr %185, null
+  br i1 %.not9.i, label %ma_free.exit, label %186
 
-187:                                              ; preds = %184
-  %188 = load ptr, ptr %182, align 8
-  call void %186(ptr noundef nonnull %.283, ptr noundef %188) #70
+186:                                              ; preds = %183
+  %187 = load ptr, ptr %181, align 8
+  call void %185(ptr noundef nonnull %.283, ptr noundef %187) #70
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %18, %.loopexit159, %184, %187
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %190 = load ptr, ptr %189, align 8
-  %191 = load ptr, ptr %5, align 8
-  %192 = call i32 %190(ptr noundef %191) #70
-  %193 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #70
-  br label %194
+ma_free.exit:                                     ; preds = %18, %.loopexit169, %183, %186
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %189 = load ptr, ptr %188, align 8
+  %190 = load ptr, ptr %5, align 8
+  %191 = call i32 %189(ptr noundef %190) #70
+  %192 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #70
+  br label %193
 
-194:                                              ; preds = %ma_free.exit, %14
+193:                                              ; preds = %ma_free.exit, %14
   %.0 = phi i32 [ %17, %14 ], [ 0, %ma_free.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -119542,10 +119542,10 @@ define internal fastcc void @drmp3_L3_imdct36(ptr noundef nonnull captures(none)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 68
   br label %26
 
-26:                                               ; preds = %4, %193
-  %.0103 = phi ptr [ %0, %4 ], [ %212, %193 ]
-  %.096102 = phi ptr [ %1, %4 ], [ %213, %193 ]
-  %.098101 = phi i32 [ 0, %4 ], [ %211, %193 ]
+26:                                               ; preds = %4, %.preheader
+  %.0103 = phi ptr [ %0, %4 ], [ %211, %.preheader ]
+  %.096102 = phi ptr [ %1, %4 ], [ %212, %.preheader ]
+  %.098101 = phi i32 [ 0, %4 ], [ %210, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load float, ptr %.0103, align 4
@@ -119754,38 +119754,38 @@ define internal fastcc void @drmp3_L3_imdct36(ptr noundef nonnull captures(none)
   %191 = getelementptr inbounds float, ptr %163, i64 %190
   %192 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %192, ptr %191, align 1
-  br i1 %.old1, label %164, label %193
+  br i1 %.old1, label %164, label %.preheader
 
-193:                                              ; preds = %164
-  %194 = getelementptr inbounds nuw i8, ptr %.096102, i64 32
-  %195 = load float, ptr %194, align 4
-  %196 = fmul float %158, 0x3FEFF83400000000
-  %197 = tail call float @llvm.fmuladd.f32(float %106, float 0x3FA6554780000000, float %196)
-  %198 = fmul float %158, 0xBFA6554780000000
-  %199 = tail call float @llvm.fmuladd.f32(float %106, float 0x3FEFF83400000000, float %198)
-  store float %199, ptr %194, align 4
-  %200 = load float, ptr %24, align 4
-  %201 = load float, ptr %25, align 4
-  %202 = fneg float %201
-  %203 = fmul float %197, %202
-  %204 = tail call float @llvm.fmuladd.f32(float %195, float %200, float %203)
-  %205 = getelementptr inbounds nuw i8, ptr %.0103, i64 32
-  store float %204, ptr %205, align 4
+.preheader:                                       ; preds = %164
+  %193 = getelementptr inbounds nuw i8, ptr %.096102, i64 32
+  %194 = fmul float %158, 0x3FEFF83400000000
+  %195 = tail call float @llvm.fmuladd.f32(float %106, float 0x3FA6554780000000, float %194)
+  %196 = fmul float %158, 0xBFA6554780000000
+  %197 = tail call float @llvm.fmuladd.f32(float %106, float 0x3FEFF83400000000, float %196)
+  %198 = getelementptr inbounds nuw i8, ptr %.0103, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %.0103, i64 36
+  %200 = load float, ptr %193, align 4
+  store float %197, ptr %193, align 4
+  %201 = load float, ptr %24, align 4
+  %202 = load float, ptr %25, align 4
+  %203 = fneg float %202
+  %204 = fmul float %195, %203
+  %205 = tail call float @llvm.fmuladd.f32(float %200, float %201, float %204)
+  store float %205, ptr %198, align 4
   %206 = load float, ptr %25, align 4
   %207 = load float, ptr %24, align 4
-  %208 = fmul float %197, %207
-  %209 = tail call float @llvm.fmuladd.f32(float %195, float %206, float %208)
-  %210 = getelementptr inbounds nuw i8, ptr %.0103, i64 36
-  store float %209, ptr %210, align 4
+  %208 = fmul float %195, %207
+  %209 = tail call float @llvm.fmuladd.f32(float %200, float %206, float %208)
+  store float %209, ptr %199, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %211 = add nuw nsw i32 %.098101, 1
-  %212 = getelementptr inbounds nuw i8, ptr %.0103, i64 72
-  %213 = getelementptr inbounds nuw i8, ptr %.096102, i64 36
-  %exitcond105.not = icmp eq i32 %211, %3
-  br i1 %exitcond105.not, label %214, label %26
+  %210 = add nuw nsw i32 %.098101, 1
+  %211 = getelementptr inbounds nuw i8, ptr %.0103, i64 72
+  %212 = getelementptr inbounds nuw i8, ptr %.096102, i64 36
+  %exitcond105.not = icmp eq i32 %210, %3
+  br i1 %exitcond105.not, label %213, label %26
 
-214:                                              ; preds = %193
+213:                                              ; preds = %.preheader
   ret void
 }
 

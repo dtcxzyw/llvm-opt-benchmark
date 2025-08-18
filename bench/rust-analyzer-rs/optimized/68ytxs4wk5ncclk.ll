@@ -17992,10 +17992,10 @@ define hidden void @_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_
 .noexc243:                                        ; preds = %140
   unreachable
 
-.body346:                                         ; preds = %.loopexit585, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %880, %746, %726, %663, %679, %676, %636, %628, %449, %453, %.body410, %.body404, %756, %.thread545, %212
-  %.3187 = phi i8 [ 1, %212 ], [ 1, %.thread545 ], [ %.5189, %.body410 ], [ 1, %.body404 ], [ 1, %756 ], [ 1, %453 ], [ 1, %449 ], [ 1, %628 ], [ 1, %636 ], [ 1, %676 ], [ 1, %679 ], [ 1, %663 ], [ 1, %726 ], [ 1, %746 ], [ 0, %880 ], [ 1, %.loopexit585 ], [ 1, %.loopexit.split-lp.loopexit ], [ %.2186.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.6 = phi i8 [ %.9, %212 ], [ 1, %.thread545 ], [ %.24, %.body410 ], [ 1, %.body404 ], [ 1, %756 ], [ %.13, %453 ], [ %.13, %449 ], [ 1, %628 ], [ 1, %636 ], [ 0, %676 ], [ 0, %679 ], [ 0, %663 ], [ 1, %726 ], [ 1, %746 ], [ 0, %880 ], [ 1, %.loopexit585 ], [ 1, %.loopexit.split-lp.loopexit ], [ %.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn215 = phi { ptr, i32 } [ %.pn213, %212 ], [ %eh.lpad-body359549, %.thread545 ], [ %.pn195, %.body410 ], [ %eh.lpad-body405, %.body404 ], [ %757, %756 ], [ %.pn208, %453 ], [ %.pn208, %449 ], [ %629, %628 ], [ %637, %636 ], [ %677, %676 ], [ %677, %679 ], [ %664, %663 ], [ %727, %726 ], [ %747, %746 ], [ %881, %880 ], [ %lpad.loopexit, %.loopexit585 ], [ %lpad.loopexit586, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp587, %.loopexit.split-lp.loopexit.split-lp ]
+.body346:                                         ; preds = %679, %676, %.loopexit585, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %880, %746, %726, %663, %636, %628, %449, %453, %.body410, %.body404, %756, %.thread545, %212
+  %.3187 = phi i8 [ 1, %212 ], [ 1, %.thread545 ], [ %.5189, %.body410 ], [ 1, %.body404 ], [ 1, %756 ], [ 1, %453 ], [ 1, %449 ], [ 1, %628 ], [ 1, %636 ], [ 1, %663 ], [ 1, %726 ], [ 1, %746 ], [ 0, %880 ], [ 1, %.loopexit585 ], [ 1, %.loopexit.split-lp.loopexit ], [ %.2186.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %676 ], [ 1, %679 ]
+  %.6 = phi i8 [ %.9, %212 ], [ 1, %.thread545 ], [ %.24, %.body410 ], [ 1, %.body404 ], [ 1, %756 ], [ %.13, %453 ], [ %.13, %449 ], [ 1, %628 ], [ 1, %636 ], [ 0, %663 ], [ 1, %726 ], [ 1, %746 ], [ 0, %880 ], [ 1, %.loopexit585 ], [ 1, %.loopexit.split-lp.loopexit ], [ %.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 0, %676 ], [ 0, %679 ]
+  %.pn215 = phi { ptr, i32 } [ %.pn213, %212 ], [ %eh.lpad-body359549, %.thread545 ], [ %.pn195, %.body410 ], [ %eh.lpad-body405, %.body404 ], [ %757, %756 ], [ %.pn208, %453 ], [ %.pn208, %449 ], [ %629, %628 ], [ %637, %636 ], [ %664, %663 ], [ %727, %726 ], [ %747, %746 ], [ %881, %880 ], [ %lpad.loopexit, %.loopexit585 ], [ %lpad.loopexit586, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp587, %.loopexit.split-lp.loopexit.split-lp ], [ %677, %676 ], [ %677, %679 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %87) #66
           to label %.body273 unwind label %410
 
@@ -18226,9 +18226,9 @@ _ZN11chalk_solve7clauses14builtin_traits6unsize12principal_id17hda5a00eb32e384ea
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hdaef36ba9b4ef492E.llvm.6579604558243679033"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %84, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %83)
           to label %227 unwind label %213
 
-.body:                                            ; preds = %358, %374, %371, %327, %319, %272, %225, %.thread, %308
-  %.10 = phi i8 [ 1, %.thread ], [ 1, %308 ], [ 1, %225 ], [ 1, %272 ], [ 1, %319 ], [ 1, %327 ], [ 0, %371 ], [ 0, %374 ], [ 0, %358 ]
-  %.pn210.pn = phi { ptr, i32 } [ %.pn210511, %.thread ], [ %309, %308 ], [ %226, %225 ], [ %273, %272 ], [ %320, %319 ], [ %328, %327 ], [ %372, %371 ], [ %372, %374 ], [ %359, %358 ]
+.body:                                            ; preds = %374, %371, %358, %327, %319, %272, %225, %.thread, %308
+  %.10 = phi i8 [ 1, %.thread ], [ 1, %308 ], [ 1, %225 ], [ 1, %272 ], [ 1, %319 ], [ 1, %327 ], [ 0, %358 ], [ 0, %371 ], [ 0, %374 ]
+  %.pn210.pn = phi { ptr, i32 } [ %.pn210511, %.thread ], [ %309, %308 ], [ %226, %225 ], [ %273, %272 ], [ %320, %319 ], [ %328, %327 ], [ %359, %358 ], [ %372, %371 ], [ %372, %374 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..TraitId$LT$hir_ty..interner..Interner$GT$$GT$$GT$17hcec7a103cfb7faf6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %84) #66
           to label %212 unwind label %410
 

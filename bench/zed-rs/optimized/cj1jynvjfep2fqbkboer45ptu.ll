@@ -23099,28 +23099,27 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$L
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$$u5b$x11rb_protocol..protocol..xinput..EventMask$u3b$$u20$1$u5d$$GT$17hedf547da7d454554E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5458
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d14687e974bfefE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i64, ptr %2, align 8, !range !3524, !noalias !5458, !noundef !9
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit", label %5
+  %2 = alloca [24 x i8], align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5458
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d14687e974bfefE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  %4 = load i64, ptr %3, align 8, !range !3524, !noalias !5458, !noundef !9
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit", label %6
 
-5:                                                ; preds = %.critedge
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !noalias !5458, !noundef !9
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit", label %9
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = load i64, ptr %7, align 8, !noalias !5458, !noundef !9
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit", label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !noalias !5458, !nonnull !9, !noundef !9
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %7, i64 noundef %3) #50
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8, !noalias !5458, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef %4) #50
   br label %"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit"
 
-"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit": ; preds = %.critedge, %5, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !5458
+"_ZN4core3ptr64drop_in_place$LT$x11rb_protocol..protocol..xinput..EventMask$GT$17h36b7d2b5d2022c85E.exit": ; preds = %1, %6, %10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5458
   ret void
 }
 

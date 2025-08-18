@@ -73340,25 +73340,25 @@ if.end.i172:                                      ; preds = %_ZN5eastl9allocator
   %41 = phi ptr [ %.pre.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i171 ], [ %37, %if.then.i168 ], [ %37, %if.end37 ]
   %pPtrArray.012.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %cmp3213.i = icmp ult ptr %pPtrArray.012.i, %40
-  br i1 %cmp3213.i, label %for.end41.i, label %_ZN5eastl5dequeIiNS_9allocatorELj1EE5clearEv.exit
+  br i1 %cmp3213.i, label %for.cond36.preheader.i, label %_ZN5eastl5dequeIiNS_9allocatorELj1EE5clearEv.exit
 
-for.end41.i:                                      ; preds = %if.end.i172, %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i
+for.cond36.preheader.i:                           ; preds = %if.end.i172, %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i
   %42 = phi ptr [ %44, %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i ], [ %40, %if.end.i172 ]
   %pPtrArray.014.i = phi ptr [ %pPtrArray.0.i, %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i ], [ %pPtrArray.012.i, %if.end.i172 ]
   %43 = load ptr, ptr %pPtrArray.014.i, align 8
   %tobool.not.i9.i = icmp eq ptr %43, null
   br i1 %tobool.not.i9.i, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i10.i
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i10.i:   ; preds = %for.end41.i
+_ZN5eastl9allocator10deallocateEPvm.exit.i10.i:   ; preds = %for.cond36.preheader.i
   tail call void @_ZdaPv(ptr noundef nonnull %43) #15
   %.pre16.i = load ptr, ptr %mpCurrentArrayPtr2.i, align 8
   br label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i
 
-_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i10.i, %for.end41.i
-  %44 = phi ptr [ %42, %for.end41.i ], [ %.pre16.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i10.i ]
+_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i10.i, %for.cond36.preheader.i
+  %44 = phi ptr [ %42, %for.cond36.preheader.i ], [ %.pre16.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i10.i ]
   %pPtrArray.0.i = getelementptr inbounds nuw i8, ptr %pPtrArray.014.i, i64 8
   %cmp32.i = icmp ult ptr %pPtrArray.0.i, %44
-  br i1 %cmp32.i, label %for.end41.i, label %_ZN5eastl5dequeIiNS_9allocatorELj1EE5clearEv.exit, !llvm.loop !3342
+  br i1 %cmp32.i, label %for.cond36.preheader.i, label %_ZN5eastl5dequeIiNS_9allocatorELj1EE5clearEv.exit, !llvm.loop !3342
 
 _ZN5eastl5dequeIiNS_9allocatorELj1EE5clearEv.exit: ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreeSubarrayEPi.exit11.i, %if.end.i172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin, i64 32, i1 false)

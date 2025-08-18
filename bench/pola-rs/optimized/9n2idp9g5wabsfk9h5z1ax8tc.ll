@@ -493,9 +493,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h4d67adf53eb35f8dE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h4d67adf53eb35f8dE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -503,8 +503,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h4d67adf53eb35f8dE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h4d67adf53eb35f8dE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h4d67adf53eb35f8dE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !97
@@ -517,9 +517,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hcef8b1f1a0de1c71E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hcef8b1f1a0de1c71E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -527,8 +527,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hcef8b1f1a0de1c71E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hcef8b1f1a0de1c71E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hcef8b1f1a0de1c71E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !107
@@ -1011,9 +1011,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17heabd41bec1ad7a76E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17heabd41bec1ad7a76E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -1021,8 +1021,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17heabd41bec1ad7a76E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17heabd41bec1ad7a76E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17heabd41bec1ad7a76E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !207
@@ -4492,9 +4492,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h25a900e789509d74E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h25a900e789509d74E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -4502,8 +4502,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h25a900e789509d74E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h25a900e789509d74E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h25a900e789509d74E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !889
@@ -5217,9 +5217,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hfd98120a2dee9beaE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hfd98120a2dee9beaE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -5227,8 +5227,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hfd98120a2dee9beaE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hfd98120a2dee9beaE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hfd98120a2dee9beaE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1037
@@ -7544,9 +7544,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb2d42daa73f6e82aE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb2d42daa73f6e82aE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -7554,8 +7554,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hb2d42daa73f6e82aE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hb2d42daa73f6e82aE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hb2d42daa73f6e82aE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1537
@@ -8091,9 +8091,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2f3eaa26acabee8bE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2f3eaa26acabee8bE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -8101,8 +8101,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h2f3eaa26acabee8bE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h2f3eaa26acabee8bE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h2f3eaa26acabee8bE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1672
@@ -8769,9 +8769,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h1484f45eddf5005bE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h1484f45eddf5005bE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -8779,8 +8779,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h1484f45eddf5005bE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h1484f45eddf5005bE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h1484f45eddf5005bE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1759
@@ -9559,9 +9559,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha665f35b32eff78fE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha665f35b32eff78fE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -9569,8 +9569,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17ha665f35b32eff78fE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17ha665f35b32eff78fE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17ha665f35b32eff78fE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1899
@@ -9583,9 +9583,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h5b58cb6a592402c5E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h5b58cb6a592402c5E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -9593,8 +9593,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h5b58cb6a592402c5E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h5b58cb6a592402c5E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h5b58cb6a592402c5E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !1909
@@ -10742,9 +10742,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc5ab2b28fbbc82a7E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc5ab2b28fbbc82a7E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -10752,8 +10752,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hc5ab2b28fbbc82a7E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hc5ab2b28fbbc82a7E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hc5ab2b28fbbc82a7E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !2134
@@ -12016,9 +12016,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h8ec1b28287d07e8aE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h8ec1b28287d07e8aE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -12026,8 +12026,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h8ec1b28287d07e8aE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h8ec1b28287d07e8aE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h8ec1b28287d07e8aE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !2443
@@ -14112,9 +14112,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h9661bc33c73efffcE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h9661bc33c73efffcE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -14122,8 +14122,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h9661bc33c73efffcE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h9661bc33c73efffcE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h9661bc33c73efffcE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !2834
@@ -15545,9 +15545,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hac69339a43871601E.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17hac69339a43871601E.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -15555,8 +15555,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hac69339a43871601E.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hac69339a43871601E.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hac69339a43871601E.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !3083
@@ -15725,9 +15725,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h035875ca441ae60bE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h035875ca441ae60bE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -15735,8 +15735,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h035875ca441ae60bE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h035875ca441ae60bE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h035875ca441ae60bE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !3116
@@ -15749,9 +15749,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i32 %0, 2
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h255e33237222ae6dE.exit, label %.critedge.i
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator4fold17h255e33237222ae6dE.exit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
@@ -15759,8 +15759,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = add i64 %.sroa.4.0.copyload, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h255e33237222ae6dE.exit
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h255e33237222ae6dE.exit: ; preds = %3, %.critedge.i
-  %.val6.i = phi i64 [ %6, %.critedge.i ], [ %.sroa.4.0.copyload, %3 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17h255e33237222ae6dE.exit: ; preds = %3, %.lr.ph.i
+  %.val6.i = phi i64 [ %6, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %7 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %7)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !3126

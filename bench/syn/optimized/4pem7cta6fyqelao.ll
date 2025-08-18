@@ -2385,9 +2385,8 @@ common.resume.i:                                  ; preds = %26, %17
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN65_$LT$syn..token..Underscore$u20$as$u20$core..default..Default$GT$7default17ha2af2c7511601259E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6205,7 +6204,7 @@ define void @"_ZN65_$LT$syn..token..AndAnd$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..AndAnd$u20$as$u20$syn..parse..Parse$GT$5parse17he454613d6244c3d4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..AndAnd$u20$as$u20$syn..parse..Parse$GT$5parse17he454613d6244c3d4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -6306,7 +6305,7 @@ define void @"_ZN64_$LT$syn..token..AndEq$u20$as$u20$quote..to_tokens..ToTokens$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN55_$LT$syn..token..AndEq$u20$as$u20$syn..parse..Parse$GT$5parse17hbabfe460bc1b774aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN55_$LT$syn..token..AndEq$u20$as$u20$syn..parse..Parse$GT$5parse17hbabfe460bc1b774aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -6607,7 +6606,7 @@ define void @"_ZN66_$LT$syn..token..CaretEq$u20$as$u20$quote..to_tokens..ToToken
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN57_$LT$syn..token..CaretEq$u20$as$u20$syn..parse..Parse$GT$5parse17he8a4915f6ab03bb4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN57_$LT$syn..token..CaretEq$u20$as$u20$syn..parse..Parse$GT$5parse17he8a4915f6ab03bb4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7108,7 +7107,7 @@ define void @"_ZN65_$LT$syn..token..DotDot$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..DotDot$u20$as$u20$syn..parse..Parse$GT$5parse17h69eadda36f885caaE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..DotDot$u20$as$u20$syn..parse..Parse$GT$5parse17h69eadda36f885caaE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7543,7 +7542,7 @@ define void @"_ZN63_$LT$syn..token..EqEq$u20$as$u20$quote..to_tokens..ToTokens$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN54_$LT$syn..token..EqEq$u20$as$u20$syn..parse..Parse$GT$5parse17he6cbb0c0500b927bE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN54_$LT$syn..token..EqEq$u20$as$u20$syn..parse..Parse$GT$5parse17he6cbb0c0500b927bE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7644,7 +7643,7 @@ define void @"_ZN67_$LT$syn..token..FatArrow$u20$as$u20$quote..to_tokens..ToToke
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN58_$LT$syn..token..FatArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h00461d583b80c24aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN58_$LT$syn..token..FatArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h00461d583b80c24aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7745,7 +7744,7 @@ define void @"_ZN61_$LT$syn..token..Ge$u20$as$u20$quote..to_tokens..ToTokens$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$syn..token..Ge$u20$as$u20$syn..parse..Parse$GT$5parse17hccca3844da086e16E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN52_$LT$syn..token..Ge$u20$as$u20$syn..parse..Parse$GT$5parse17hccca3844da086e16E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7946,7 +7945,7 @@ define void @"_ZN65_$LT$syn..token..LArrow$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..LArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h6253cc8dd47f93b8E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..LArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h6253cc8dd47f93b8E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8047,7 +8046,7 @@ define void @"_ZN61_$LT$syn..token..Le$u20$as$u20$quote..to_tokens..ToTokens$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$syn..token..Le$u20$as$u20$syn..parse..Parse$GT$5parse17h368a5a54bfd185abE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN52_$LT$syn..token..Le$u20$as$u20$syn..parse..Parse$GT$5parse17h368a5a54bfd185abE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8348,7 +8347,7 @@ define void @"_ZN66_$LT$syn..token..MinusEq$u20$as$u20$quote..to_tokens..ToToken
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN57_$LT$syn..token..MinusEq$u20$as$u20$syn..parse..Parse$GT$5parse17h5e4e9a948c815b47E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN57_$LT$syn..token..MinusEq$u20$as$u20$syn..parse..Parse$GT$5parse17h5e4e9a948c815b47E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8449,7 +8448,7 @@ define void @"_ZN61_$LT$syn..token..Ne$u20$as$u20$quote..to_tokens..ToTokens$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$syn..token..Ne$u20$as$u20$syn..parse..Parse$GT$5parse17h7479d082dd667a2fE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN52_$LT$syn..token..Ne$u20$as$u20$syn..parse..Parse$GT$5parse17h7479d082dd667a2fE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8750,7 +8749,7 @@ define void @"_ZN63_$LT$syn..token..OrEq$u20$as$u20$quote..to_tokens..ToTokens$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN54_$LT$syn..token..OrEq$u20$as$u20$syn..parse..Parse$GT$5parse17h66c97e143ea0b1afE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN54_$LT$syn..token..OrEq$u20$as$u20$syn..parse..Parse$GT$5parse17h66c97e143ea0b1afE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8851,7 +8850,7 @@ define void @"_ZN63_$LT$syn..token..OrOr$u20$as$u20$quote..to_tokens..ToTokens$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN54_$LT$syn..token..OrOr$u20$as$u20$syn..parse..Parse$GT$5parse17h209a8e5a284dc7e4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN54_$LT$syn..token..OrOr$u20$as$u20$syn..parse..Parse$GT$5parse17h209a8e5a284dc7e4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -8952,7 +8951,7 @@ define void @"_ZN66_$LT$syn..token..PathSep$u20$as$u20$quote..to_tokens..ToToken
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN57_$LT$syn..token..PathSep$u20$as$u20$syn..parse..Parse$GT$5parse17h7174f3f45e47f80bE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN57_$LT$syn..token..PathSep$u20$as$u20$syn..parse..Parse$GT$5parse17h7174f3f45e47f80bE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -9153,7 +9152,7 @@ define void @"_ZN68_$LT$syn..token..PercentEq$u20$as$u20$quote..to_tokens..ToTok
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN59_$LT$syn..token..PercentEq$u20$as$u20$syn..parse..Parse$GT$5parse17hc33a53b2a12dc0b5E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN59_$LT$syn..token..PercentEq$u20$as$u20$syn..parse..Parse$GT$5parse17hc33a53b2a12dc0b5E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -9354,7 +9353,7 @@ define void @"_ZN65_$LT$syn..token..PlusEq$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..PlusEq$u20$as$u20$syn..parse..Parse$GT$5parse17h11ec73eec0e3b9b0E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..PlusEq$u20$as$u20$syn..parse..Parse$GT$5parse17h11ec73eec0e3b9b0E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -9655,7 +9654,7 @@ define void @"_ZN65_$LT$syn..token..RArrow$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..RArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h54ce18dbffd3c47aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..RArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h54ce18dbffd3c47aE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -9856,7 +9855,7 @@ define void @"_ZN62_$LT$syn..token..Shl$u20$as$u20$quote..to_tokens..ToTokens$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN53_$LT$syn..token..Shl$u20$as$u20$syn..parse..Parse$GT$5parse17h91475c4a4a3453dfE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN53_$LT$syn..token..Shl$u20$as$u20$syn..parse..Parse$GT$5parse17h91475c4a4a3453dfE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -10074,7 +10073,7 @@ define void @"_ZN62_$LT$syn..token..Shr$u20$as$u20$quote..to_tokens..ToTokens$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN53_$LT$syn..token..Shr$u20$as$u20$syn..parse..Parse$GT$5parse17h1a867f0ff8ae1fc2E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN53_$LT$syn..token..Shr$u20$as$u20$syn..parse..Parse$GT$5parse17h1a867f0ff8ae1fc2E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -10392,7 +10391,7 @@ define void @"_ZN66_$LT$syn..token..SlashEq$u20$as$u20$quote..to_tokens..ToToken
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN57_$LT$syn..token..SlashEq$u20$as$u20$syn..parse..Parse$GT$5parse17h31250e96429adfe5E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN57_$LT$syn..token..SlashEq$u20$as$u20$syn..parse..Parse$GT$5parse17h31250e96429adfe5E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -10593,7 +10592,7 @@ define void @"_ZN65_$LT$syn..token..StarEq$u20$as$u20$quote..to_tokens..ToTokens
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$syn..token..StarEq$u20$as$u20$syn..parse..Parse$GT$5parse17h2c0aa8513cfd46b1E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define void @"_ZN56_$LT$syn..token..StarEq$u20$as$u20$syn..parse..Parse$GT$5parse17h2c0aa8513cfd46b1E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -10789,9 +10788,8 @@ define { ptr, i64 } @"_ZN55_$LT$syn..token..Tilde$u20$as$u20$syn..token..Token$G
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN58_$LT$syn..token..And$u20$as$u20$core..default..Default$GT$7default17h2a6c2a3fd8729499E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10846,9 +10844,8 @@ define i64 @"_ZN56_$LT$syn..token..AndEq$u20$as$u20$core..clone..Clone$GT$5clone
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN57_$LT$syn..token..At$u20$as$u20$core..default..Default$GT$7default17hb0b6056c030b8b7eE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10869,9 +10866,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..At
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Caret$u20$as$u20$core..default..Default$GT$7default17hcb3c007761827582E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10909,9 +10905,8 @@ define i64 @"_ZN58_$LT$syn..token..CaretEq$u20$as$u20$core..clone..Clone$GT$5clo
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Colon$u20$as$u20$core..default..Default$GT$7default17h673f8b3dfbb15ab7E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10932,9 +10927,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Co
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Comma$u20$as$u20$core..default..Default$GT$7default17h8217d535a64eb19eE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10955,9 +10949,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Co
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN61_$LT$syn..token..Dollar$u20$as$u20$core..default..Default$GT$7default17h20f6a0f9af7a7fd1E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10978,9 +10971,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN65_$LT$syn..token..Do
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN58_$LT$syn..token..Dot$u20$as$u20$core..default..Default$GT$7default17h5c526faa7013fefbE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11072,9 +11064,8 @@ define void @"_ZN59_$LT$syn..token..DotDotEq$u20$as$u20$core..clone..Clone$GT$5c
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN57_$LT$syn..token..Eq$u20$as$u20$core..default..Default$GT$7default17h644e9f86cd1ba474E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11146,9 +11137,8 @@ define i64 @"_ZN53_$LT$syn..token..Ge$u20$as$u20$core..clone..Clone$GT$5clone17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN57_$LT$syn..token..Gt$u20$as$u20$core..default..Default$GT$7default17hf2372f3dcb7419d3E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11203,9 +11193,8 @@ define i64 @"_ZN53_$LT$syn..token..Le$u20$as$u20$core..clone..Clone$GT$5clone17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN57_$LT$syn..token..Lt$u20$as$u20$core..default..Default$GT$7default17h1da123f6cd08aaeaE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11226,9 +11215,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Lt
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Minus$u20$as$u20$core..default..Default$GT$7default17h77ddc76acda3fd23E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11283,9 +11271,8 @@ define i64 @"_ZN53_$LT$syn..token..Ne$u20$as$u20$core..clone..Clone$GT$5clone17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN58_$LT$syn..token..Not$u20$as$u20$core..default..Default$GT$7default17h49e07a319a2b5f01E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11306,9 +11293,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..No
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN57_$LT$syn..token..Or$u20$as$u20$core..default..Default$GT$7default17hb2c9fee88d4065d9E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11380,9 +11366,8 @@ define i64 @"_ZN58_$LT$syn..token..PathSep$u20$as$u20$core..clone..Clone$GT$5clo
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN62_$LT$syn..token..Percent$u20$as$u20$core..default..Default$GT$7default17h609a1cf23f123f21E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11420,9 +11405,8 @@ define i64 @"_ZN60_$LT$syn..token..PercentEq$u20$as$u20$core..clone..Clone$GT$5c
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN59_$LT$syn..token..Plus$u20$as$u20$core..default..Default$GT$7default17h673dbdfa1fcaaedbE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11460,9 +11444,8 @@ define i64 @"_ZN57_$LT$syn..token..PlusEq$u20$as$u20$core..clone..Clone$GT$5clon
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Pound$u20$as$u20$core..default..Default$GT$7default17hdb28326941ecd548E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11483,9 +11466,8 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Po
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN63_$LT$syn..token..Question$u20$as$u20$core..default..Default$GT$7default17hc260f00f19b6eec2E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11523,9 +11505,8 @@ define i64 @"_ZN57_$LT$syn..token..RArrow$u20$as$u20$core..clone..Clone$GT$5clon
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN59_$LT$syn..token..Semi$u20$as$u20$core..default..Default$GT$7default17hafa42dd38a4d7c29E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11634,9 +11615,8 @@ define void @"_ZN56_$LT$syn..token..ShrEq$u20$as$u20$core..clone..Clone$GT$5clon
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Slash$u20$as$u20$core..default..Default$GT$7default17h1d9c1dcac2229ac1E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11674,9 +11654,8 @@ define i64 @"_ZN58_$LT$syn..token..SlashEq$u20$as$u20$core..clone..Clone$GT$5clo
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN59_$LT$syn..token..Star$u20$as$u20$core..default..Default$GT$7default17hb3de2503735b3a51E"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -11714,9 +11693,8 @@ define i64 @"_ZN57_$LT$syn..token..StarEq$u20$as$u20$core..clone..Clone$GT$5clon
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @"_ZN60_$LT$syn..token..Tilde$u20$as$u20$core..default..Default$GT$7default17hd65bae8cd83cf35aE"() unnamed_addr #2 {
-.critedge:
-  %0 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  ret i32 %0
+  %1 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

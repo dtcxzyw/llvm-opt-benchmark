@@ -433,14 +433,14 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %58 = tail call noalias ptr @av_calloc(i64 noundef %57, i64 noundef 40) #8
   store ptr %58, ptr %0, align 8, !tbaa !39
   %.not122 = icmp eq ptr %58, null
-  br i1 %.not122, label %.thread, label %.preheader136
+  br i1 %.not122, label %.thread, label %.preheader134
 
-.preheader136:                                    ; preds = %55
+.preheader134:                                    ; preds = %55
   %59 = load i32, ptr %1, align 4, !tbaa !38
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph156, label %.thread
+  br i1 %60, label %.lr.ph154, label %.thread
 
-.lr.ph156:                                        ; preds = %.preheader136
+.lr.ph154:                                        ; preds = %.preheader134
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 50
@@ -454,13 +454,13 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %72
 
-72:                                               ; preds = %.lr.ph156, %._crit_edge
-  %indvars.iv186 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next187, %._crit_edge ]
-  %73 = phi i32 [ %59, %.lr.ph156 ], [ %475, %._crit_edge ]
-  %.0108154 = phi i32 [ 0, %.lr.ph156 ], [ %.2110.lcssa, %._crit_edge ]
+72:                                               ; preds = %.lr.ph154, %._crit_edge
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next185, %._crit_edge ]
+  %73 = phi i32 [ %59, %.lr.ph154 ], [ %475, %._crit_edge ]
+  %.0108152 = phi i32 [ 0, %.lr.ph154 ], [ %.2110.lcssa, %._crit_edge ]
   %74 = load ptr, ptr %0, align 8, !tbaa !39
-  %75 = getelementptr inbounds nuw %struct.Jpeg2000ResLevel, ptr %74, i64 %indvars.iv186
-  %76 = trunc i64 %indvars.iv186 to i32
+  %75 = getelementptr inbounds nuw %struct.Jpeg2000ResLevel, ptr %74, i64 %indvars.iv184
+  %76 = trunc i64 %indvars.iv184 to i32
   %77 = xor i32 %76, -1
   %78 = add i32 %73, %77
   %79 = zext nneg i32 %78 to i64
@@ -469,9 +469,9 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
 
 .preheader:                                       ; preds = %72, %.preheader
   %81 = phi i1 [ true, %72 ], [ false, %.preheader ]
-  %indvars.iv176 = phi i64 [ 0, %72 ], [ 1, %.preheader ]
-  %82 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %61, i64 0, i64 %indvars.iv176
-  %83 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %80, i64 0, i64 %indvars.iv176
+  %indvars.iv174 = phi i64 [ 0, %72 ], [ 1, %.preheader ]
+  %82 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %61, i64 0, i64 %indvars.iv174
+  %83 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %80, i64 0, i64 %indvars.iv174
   %84 = load i32, ptr %82, align 4, !tbaa !18
   %85 = sext i32 %84 to i64
   %86 = sub nsw i64 0, %85
@@ -491,15 +491,15 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br i1 %81, label %.preheader, label %98, !llvm.loop !40
 
 98:                                               ; preds = %.preheader
-  %99 = getelementptr inbounds nuw [34 x i8], ptr %62, i64 0, i64 %indvars.iv186
+  %99 = getelementptr inbounds nuw [34 x i8], ptr %62, i64 0, i64 %indvars.iv184
   %100 = load i8, ptr %99, align 1, !tbaa !15
   %101 = getelementptr inbounds nuw i8, ptr %75, i64 28
   store i8 %100, ptr %101, align 4, !tbaa !41
-  %102 = getelementptr inbounds nuw [34 x i8], ptr %63, i64 0, i64 %indvars.iv186
+  %102 = getelementptr inbounds nuw [34 x i8], ptr %63, i64 0, i64 %indvars.iv184
   %103 = load i8, ptr %102, align 1, !tbaa !15
   %104 = getelementptr inbounds nuw i8, ptr %75, i64 29
   store i8 %103, ptr %104, align 1, !tbaa !44
-  %105 = icmp eq i64 %indvars.iv186, 0
+  %105 = icmp eq i64 %indvars.iv184, 0
   %. = select i1 %105, i8 1, i8 3
   store i8 %., ptr %75, align 8, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -544,9 +544,9 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %137
 
 137:                                              ; preds = %120, %127
-  %.sink189 = phi i32 [ %136, %127 ], [ 0, %120 ]
+  %.sink187 = phi i32 [ %136, %127 ], [ 0, %120 ]
   %138 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store i32 %.sink189, ptr %138, align 8, !tbaa !47
+  store i32 %.sink187, ptr %138, align 8, !tbaa !47
   %139 = zext nneg i8 %. to i64
   %140 = tail call noalias ptr @av_calloc(i64 noundef %139, i64 noundef 40) #8
   %141 = getelementptr inbounds nuw i8, ptr %75, i64 32
@@ -566,25 +566,25 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %151 = load i64, ptr %64, align 8, !tbaa !49
   %152 = udiv i64 %151, 56
   %153 = icmp ugt i64 %150, %152
-  br i1 %153, label %.thread, label %.preheader134
+  br i1 %153, label %.thread, label %.preheader132
 
-.preheader134:                                    ; preds = %142
-  %.not162 = icmp eq i8 %148, 0
-  br i1 %.not162, label %._crit_edge, label %.lr.ph
+.preheader132:                                    ; preds = %142
+  %.not160 = icmp eq i8 %148, 0
+  br i1 %.not160, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader134
-  %154 = icmp ne i64 %indvars.iv186, 0
-  %155 = add nsw i64 %indvars.iv186, -1
-  %156 = sext i32 %.0108154 to i64
+.lr.ph:                                           ; preds = %.preheader132
+  %154 = icmp ne i64 %indvars.iv184, 0
+  %155 = add nsw i64 %indvars.iv184, -1
+  %156 = sext i32 %.0108152 to i64
   %157 = zext i1 %154 to i64
-  %158 = trunc nuw nsw i64 %indvars.iv186 to i32
+  %158 = trunc nuw nsw i64 %indvars.iv184 to i32
   br label %159
 
 159:                                              ; preds = %.lr.ph, %init_band.exit
-  %indvars.iv181 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next182, %init_band.exit ]
-  %indvars.iv179 = phi i64 [ %156, %.lr.ph ], [ %indvars.iv.next180, %init_band.exit ]
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next180, %init_band.exit ]
+  %indvars.iv177 = phi i64 [ %156, %.lr.ph ], [ %indvars.iv.next178, %init_band.exit ]
   %160 = load ptr, ptr %141, align 8, !tbaa !48
-  %161 = getelementptr inbounds nuw %struct.Jpeg2000Band, ptr %160, i64 %indvars.iv181
+  %161 = getelementptr inbounds nuw %struct.Jpeg2000Band, ptr %160, i64 %indvars.iv179
   %162 = load i32, ptr %1, align 4, !tbaa !38
   %163 = sub nsw i32 %162, %158
   %164 = load i8, ptr %65, align 2, !tbaa !66
@@ -600,7 +600,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %186
 
 167:                                              ; preds = %159, %159
-  %168 = getelementptr inbounds [99 x i8], ptr %2, i64 0, i64 %indvars.iv179
+  %168 = getelementptr inbounds [99 x i8], ptr %2, i64 0, i64 %indvars.iv177
   %169 = load i8, ptr %168, align 1, !tbaa !15
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 %66, %170
@@ -608,7 +608,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %173 = add i32 %172, 1065353216
   %174 = bitcast i32 %173 to float
   %175 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %176 = getelementptr inbounds [99 x i16], ptr %67, i64 0, i64 %indvars.iv179
+  %176 = getelementptr inbounds [99 x i16], ptr %67, i64 0, i64 %indvars.iv177
   %177 = load i16, ptr %176, align 2, !tbaa !26
   %178 = uitofp i16 %177 to double
   %179 = fmul nsz double %178, 0x3F40000000000000
@@ -636,7 +636,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %211
 
 188:                                              ; preds = %186
-  %189 = add nuw nsw i64 %indvars.iv181, %157
+  %189 = add nuw nsw i64 %indvars.iv179, %157
   %190 = trunc nuw nsw i64 %189 to i32
   switch i32 %190, label %._crit_edge.i.i [
     i32 1, label %191
@@ -702,8 +702,8 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
 
 .preheader113.i:                                  ; preds = %init_band_stepsize.exit.i
   %223 = zext nneg i32 %163 to i64
-  %224 = trunc nuw nsw i64 %indvars.iv181 to i32
-  %225 = add nuw nsw i32 %224, 1
+  %224 = trunc i64 %indvars.iv179 to i32
+  %225 = add i32 %224, 1
   br label %.preheader112.i
 
 .preheader110.i:                                  ; preds = %init_band_stepsize.exit.i, %.preheader110.i
@@ -835,7 +835,7 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
   %313 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %314 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %315 = getelementptr inbounds nuw i8, ptr %161, i64 18
-  %316 = add nuw nsw i64 %indvars.iv181, %157
+  %316 = add nuw nsw i64 %indvars.iv179, %157
   %317 = trunc nuw nsw i64 %316 to i32
   %318 = and i32 %317, 1
   %.not162.i.i = icmp eq i32 %318, 0
@@ -1071,27 +1071,27 @@ init_prec.exit.i:                                 ; preds = %.critedge.i.i, %.pr
   br i1 %exitcond.not.i, label %init_band.exit, label %320, !llvm.loop !97
 
 init_band.exit:                                   ; preds = %init_prec.exit.i, %.preheader.i
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
   %471 = load i8, ptr %75, align 8, !tbaa !45
   %472 = zext i8 %471 to i64
-  %473 = icmp samesign ult i64 %indvars.iv.next182, %472
+  %473 = icmp samesign ult i64 %indvars.iv.next180, %472
   br i1 %473, label %159, label %._crit_edge.loopexit, !llvm.loop !98
 
 ._crit_edge.loopexit:                             ; preds = %init_band.exit
-  %474 = trunc nsw i64 %indvars.iv.next180 to i32
+  %474 = trunc nsw i64 %indvars.iv.next178 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader134
-  %.2110.lcssa = phi i32 [ %.0108154, %.preheader134 ], [ %474, %._crit_edge.loopexit ]
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader132
+  %.2110.lcssa = phi i32 [ %.0108152, %.preheader132 ], [ %474, %._crit_edge.loopexit ]
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %475 = load i32, ptr %1, align 4, !tbaa !38
   %476 = sext i32 %475 to i64
-  %477 = icmp slt i64 %indvars.iv.next187, %476
+  %477 = icmp slt i64 %indvars.iv.next185, %476
   br i1 %477, label %72, label %.thread, !llvm.loop !99
 
-.thread:                                          ; preds = %._crit_edge, %137, %142, %303, %393, %379, %320, %466, %.preheader136, %391, %301, %55, %51, %47, %20, %12, %40, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %40 ], [ %19, %12 ], [ -1094995529, %20 ], [ -12, %47 ], [ -12, %51 ], [ -12, %55 ], [ -12, %301 ], [ -12, %391 ], [ 0, %.preheader136 ], [ -12, %466 ], [ -12, %320 ], [ -12, %379 ], [ -12, %393 ], [ -12, %303 ], [ 0, %._crit_edge ], [ -12, %137 ], [ -12, %142 ]
+.thread:                                          ; preds = %._crit_edge, %137, %142, %303, %393, %379, %320, %466, %.preheader134, %391, %301, %55, %51, %47, %20, %12, %40, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %40 ], [ %19, %12 ], [ -1094995529, %20 ], [ -12, %47 ], [ -12, %51 ], [ -12, %55 ], [ -12, %301 ], [ -12, %391 ], [ 0, %.preheader134 ], [ -12, %466 ], [ -12, %320 ], [ -12, %379 ], [ -12, %393 ], [ -12, %303 ], [ 0, %._crit_edge ], [ -12, %137 ], [ -12, %142 ]
   ret i32 %.0
 }
 

@@ -3267,29 +3267,29 @@ define weak_odr dso_local void @_ZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   br label %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit
 
 _ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit: ; preds = %21, %20, %14, %13
-  br i1 %.not, label %._crit_edge51, label %.lr.ph50
+  %27 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %2, align 8
+  br i1 %.not, label %.split, label %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit.split.us
 
-.lr.ph50:                                         ; preds = %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit
-  %27 = load ptr, ptr %3, align 8, !tbaa !11
-  %28 = load ptr, ptr %0, align 8, !tbaa !11
-  %29 = load ptr, ptr %2, align 8, !tbaa !11
+_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit.split.us: ; preds = %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit
+  %29 = load ptr, ptr %0, align 8, !tbaa !11
   br label %30
 
-._crit_edge51:                                    ; preds = %30, %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit
-  ret void
-
-30:                                               ; preds = %.lr.ph50, %30
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv54
+30:                                               ; preds = %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit.split.us, %30
+  %indvars.iv53 = phi i64 [ 0, %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit.split.us ], [ %indvars.iv.next54, %30 ]
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv53
   %32 = load i32, ptr %31, align 4, !tbaa !14
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i32, ptr %28, i64 %33
+  %34 = getelementptr i32, ptr %29, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !14
-  %36 = getelementptr i32, ptr %29, i64 %indvars.iv54
+  %36 = getelementptr i32, ptr %28, i64 %indvars.iv53
   store i32 %35, ptr %36, align 4, !tbaa !14
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next55, %6
-  br i1 %exitcond57.not, label %._crit_edge51, label %30, !llvm.loop !136
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %6
+  br i1 %exitcond56.not, label %.split, label %30, !llvm.loop !136
+
+.split:                                           ; preds = %30, %_ZSt4sortIPiZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES5_S5_EEvRKNS3_9DenseBaseIT_EEbRNS3_15PlainObjectBaseIT0_EERNSB_IT1_EEEUlmmE_EvS7_S7_SC_.exit
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -6110,7 +6110,7 @@ define internal fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr nound
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %5)
   switch i32 %5, label %decode_Tango_JavaClntIdent_st.exit [
     i32 0, label %10
-    i32 1, label %decode_Tango_JavaClntIdent_st.exit.critedge
+    i32 1, label %decode_Tango_JavaClntIdent_st.exit.loopexit.critedge
   ]
 
 10:                                               ; preds = %4
@@ -6121,7 +6121,7 @@ define internal fastcc void @decode_Tango_ClntIdent_un(ptr noundef %0, ptr nound
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %14)
   br label %decode_Tango_JavaClntIdent_st.exit
 
-decode_Tango_JavaClntIdent_st.exit.critedge:      ; preds = %4
+decode_Tango_JavaClntIdent_st.exit.loopexit.critedge: ; preds = %4
   %16 = load i32, ptr %2, align 4
   %17 = load i32, ptr @ett_giop_struct, align 4
   %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.776)
@@ -6142,7 +6142,7 @@ decode_Tango_JavaClntIdent_st.exit.critedge:      ; preds = %4
   %32 = tail call ptr @proto_tree_add_uint64(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef %30, i32 noundef 8, i64 noundef %31)
   br label %decode_Tango_JavaClntIdent_st.exit
 
-decode_Tango_JavaClntIdent_st.exit:               ; preds = %decode_Tango_JavaClntIdent_st.exit.critedge, %4, %10
+decode_Tango_JavaClntIdent_st.exit:               ; preds = %decode_Tango_JavaClntIdent_st.exit.loopexit.critedge, %4, %10
   ret void
 }
 

@@ -4306,24 +4306,24 @@ _ZN3gmxL20rebalanceSimpleListsENS_8ArrayRefIKNS_16NbnxnPairlistCpuEEENS0_IS1_EEN
   %669 = icmp slt i32 %664, 1
   %.not.i167 = icmp eq ptr %668, %666
   %or.cond.i168 = select i1 %669, i1 true, i1 %.not.i167
-  br i1 %or.cond.i168, label %_ZN3gmxL19reduce_buffer_flagsENS_8ArrayRefINS_14PairsearchWorkEEEiNS0_ISt5arrayImLm2EEEE.exit, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i
+  br i1 %or.cond.i168, label %_ZN3gmxL19reduce_buffer_flagsENS_8ArrayRefINS_14PairsearchWorkEEEiNS0_ISt5arrayImLm2EEEE.exit, label %.lr.ph.us.preheader.i
 
-_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i: ; preds = %662
+.lr.ph.us.preheader.i:                            ; preds = %662
   %670 = ptrtoint ptr %668 to i64
   %671 = ptrtoint ptr %666 to i64
   %672 = sub i64 %670, %671
   %673 = ashr exact i64 %672, 4
   %wide.trip.count.i169 = zext nneg i32 %664 to i64
-  br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i
+  br label %.lr.ph.us.i
 
-_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i: ; preds = %._crit_edge.us.i, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i
-  %indvars.iv.i170 = phi i64 [ 0, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i ], [ %indvars.iv.next.i172, %._crit_edge.us.i ]
+.lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv.i170 = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i172, %._crit_edge.us.i ]
   %674 = getelementptr inbounds nuw %"struct.gmx::PairsearchWork", ptr %663, i64 %indvars.iv.i170, i32 2
   %675 = load ptr, ptr %674, align 8, !tbaa !293
-  br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i
+  br label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge
 
-_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i: ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i
-  %.0815.us.i = phi i64 [ 0, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i ], [ %683, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i ]
+_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge: ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge, %.lr.ph.us.i
+  %.0815.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %683, %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge ]
   %676 = getelementptr inbounds %"struct.std::array.184", ptr %666, i64 %.0815.us.i
   %677 = getelementptr inbounds %"struct.std::array.184", ptr %675, i64 %.0815.us.i
   %.sroa.0.0.copyload.us.i = load i64, ptr %677, align 8
@@ -4338,12 +4338,12 @@ _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i: ; preds = %_ZL13bitmas
   store i64 %682, ptr %680, align 8, !tbaa !162
   %683 = add nuw i64 %.0815.us.i, 1
   %exitcond.not.i171 = icmp eq i64 %683, %673
-  br i1 %exitcond.not.i171, label %._crit_edge.us.i, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i, !llvm.loop !402
+  br i1 %exitcond.not.i171, label %._crit_edge.us.i, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge, !llvm.loop !402
 
-._crit_edge.us.i:                                 ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.us.i
+._crit_edge.us.i:                                 ; preds = %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.us.i.critedge
   %indvars.iv.next.i172 = add nuw nsw i64 %indvars.iv.i170, 1
-  %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i172, %wide.trip.count.i169
-  br i1 %exitcond21.not.i, label %_ZN3gmxL19reduce_buffer_flagsENS_8ArrayRefINS_14PairsearchWorkEEEiNS0_ISt5arrayImLm2EEEE.exit, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.i, !llvm.loop !403
+  %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i172, %wide.trip.count.i169
+  br i1 %exitcond22.not.i, label %_ZN3gmxL19reduce_buffer_flagsENS_8ArrayRefINS_14PairsearchWorkEEEiNS0_ISt5arrayImLm2EEEE.exit, label %.lr.ph.us.i, !llvm.loop !403
 
 _ZN3gmxL19reduce_buffer_flagsENS_8ArrayRefINS_14PairsearchWorkEEEiNS0_ISt5arrayImLm2EEEE.exit: ; preds = %._crit_edge.us.i, %662, %657
   %684 = getelementptr inbounds nuw i8, ptr %2, i64 124
@@ -6397,21 +6397,21 @@ _ZN3gmxL12addNewIEntryILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistCpuEiii.exit.i
   %741 = getelementptr inbounds nuw i8, ptr %698, i64 88
   %742 = load ptr, ptr %741, align 8, !tbaa !47
   %743 = sext i32 %740 to i64
-  %invariant.gep.i20.i.i = getelementptr float, ptr %724, i64 %743
+  %invariant.gep.i21.i.i = getelementptr float, ptr %724, i64 %743
   br label %744
 
 744:                                              ; preds = %744, %739
-  %indvars.iv.i21.i.i = phi i64 [ 0, %739 ], [ %indvars.iv.next.i23.i.i, %744 ]
-  %gep.i22.i.i = getelementptr float, ptr %invariant.gep.i20.i.i, i64 %indvars.iv.i21.i.i
-  %745 = load float, ptr %gep.i22.i.i, align 4, !tbaa !51
-  %746 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i21.i.i
+  %indvars.iv.i22.i.i = phi i64 [ 0, %739 ], [ %indvars.iv.next.i24.i.i, %744 ]
+  %gep.i23.i.i = getelementptr float, ptr %invariant.gep.i21.i.i, i64 %indvars.iv.i22.i.i
+  %745 = load float, ptr %gep.i23.i.i, align 4, !tbaa !51
+  %746 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i22.i.i
   %747 = load float, ptr %746, align 4, !tbaa !51
   %748 = fadd float %745, %747
-  %749 = getelementptr inbounds nuw float, ptr %742, i64 %indvars.iv.i21.i.i
+  %749 = getelementptr inbounds nuw float, ptr %742, i64 %indvars.iv.i22.i.i
   store float %748, ptr %749, align 4, !tbaa !51
-  %indvars.iv.next.i23.i.i = add nuw nsw i64 %indvars.iv.i21.i.i, 1
-  %exitcond.not.i24.i.i = icmp eq i64 %indvars.iv.next.i23.i.i, 3
-  br i1 %exitcond.not.i24.i.i, label %_ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25ClusterDistanceKernelTypeEPNS_20NbnxmPairlistCpuWorkE.exit.i, label %744, !llvm.loop !470
+  %indvars.iv.next.i24.i.i = add nuw nsw i64 %indvars.iv.i22.i.i, 1
+  %exitcond.not.i25.i.i = icmp eq i64 %indvars.iv.next.i24.i.i, 3
+  br i1 %exitcond.not.i25.i.i, label %_ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25ClusterDistanceKernelTypeEPNS_20NbnxmPairlistCpuWorkE.exit.i, label %744, !llvm.loop !470
 
 _ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25ClusterDistanceKernelTypeEPNS_20NbnxmPairlistCpuWorkE.exit.i: ; preds = %744, %733, %726, %725, %_ZN3gmxL12addNewIEntryILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistCpuEiii.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -9755,9 +9755,9 @@ _ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25Cl
   %2410 = getelementptr inbounds i32, ptr %2403, i64 %indvars.iv.i430.i
   %2411 = load i32, ptr %2410, align 4, !tbaa !101
   %2412 = icmp sgt i32 %2411, 0
-  br i1 %2412, label %.lr.ph120.i.i.i, label %_ZN3gmxL26make_cluster_list_supersubILNS_12PairlistTypeE3EEEvRKNS_4GridES4_PNS_16NbnxnPairlistGpuEiibiPKfffPi.exit.i.i
+  br i1 %2412, label %.lr.ph119.i.i.i, label %_ZN3gmxL26make_cluster_list_supersubILNS_12PairlistTypeE3EEEvRKNS_4GridES4_PNS_16NbnxnPairlistGpuEiibiPKfffPi.exit.i.i
 
-.lr.ph120.i.i.i:                                  ; preds = %2402
+.lr.ph119.i.i.i:                                  ; preds = %2402
   %2413 = load i32, ptr %2013, align 8, !tbaa !466
   %2414 = getelementptr inbounds nuw i8, ptr %2405, i64 160
   %2415 = icmp eq i64 %indvars.iv.i430.i, %2076
@@ -9780,23 +9780,23 @@ _ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25Cl
   %2430 = shl i32 %indvars.iv.tr.i.i, 3
   br label %2431
 
-2431:                                             ; preds = %.thread106.i.i.i, %.lr.ph120.i.i.i
-  %.15.i = phi i32 [ %.13.i, %.lr.ph120.i.i.i ], [ %.17.i, %.thread106.i.i.i ]
-  %.081118.i.i.i = phi i32 [ -1, %.lr.ph120.i.i.i ], [ %.1.lcssa132.i.i.i, %.thread106.i.i.i ]
-  %.082116.i.i.i = phi i32 [ 0, %.lr.ph120.i.i.i ], [ %2704, %.thread106.i.i.i ]
+2431:                                             ; preds = %.thread105.i.i.i, %.lr.ph119.i.i.i
+  %.15.i = phi i32 [ %.13.i, %.lr.ph119.i.i.i ], [ %.17.i, %.thread105.i.i.i ]
+  %.081117.i.i.i = phi i32 [ -1, %.lr.ph119.i.i.i ], [ %.1.lcssa131.i.i.i, %.thread105.i.i.i ]
+  %.082115.i.i.i = phi i32 [ 0, %.lr.ph119.i.i.i ], [ %2704, %.thread105.i.i.i ]
   %2432 = load i32, ptr %2414, align 8, !tbaa !536
   %2433 = sdiv i32 %2432, 4
   %2434 = shl nsw i32 %2433, 2
   %2435 = sub nsw i32 %2432, %2434
-  %2436 = add nsw i32 %.082116.i.i.i, %2430
+  %2436 = add nsw i32 %.082115.i.i.i, %2430
   %2437 = load i32, ptr %112, align 4, !tbaa !442
   %2438 = add i32 %2437, %indvars.iv.tr.i.i
   %2439 = shl i32 %2438, 3
-  %2440 = add i32 %2439, %.082116.i.i.i
+  %2440 = add i32 %2439, %.082115.i.i.i
   br i1 %or.cond.i.i.i, label %2441, label %2443
 
 2441:                                             ; preds = %2431
-  %2442 = add nuw nsw i32 %.082116.i.i.i, 1
+  %2442 = add nuw nsw i32 %.082115.i.i.i, 1
   br label %2447
 
 2443:                                             ; preds = %2431
@@ -9809,7 +9809,7 @@ _ZN3gmxL11icell_set_xILNS_12PairlistTypeE3EEEviRKNS_11BasicVectorIfEEiPKfNS_25Cl
   %2448 = phi i32 [ %2442, %2441 ], [ %2446, %2443 ]
   %2449 = sdiv i32 %2436, 4
   %2450 = mul nsw i32 %2449, 24
-  %2451 = and i32 %.082116.i.i.i, 3
+  %2451 = and i32 %.082115.i.i.i, 3
   %2452 = or disjoint i32 %2450, %2451
   %2453 = load ptr, ptr %114, align 8, !tbaa !53
   %2454 = sext i32 %2452 to i64
@@ -9895,7 +9895,7 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.thread.i.i.i: ; 
 _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds = %2447
   %2515 = add nsw i32 %.15.i, 16
   %2516 = icmp eq i32 %2448, 0
-  br i1 %2516, label %.thread106.i.i.i, label %.lr.ph.i.i.i170
+  br i1 %2516, label %.thread105.i.i.i, label %.lr.ph.i.i.i170
 
 .lr.ph.i.i.i170:                                  ; preds = %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.thread.i.i.i
   %.16.i = phi i32 [ %2514, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.thread.i.i.i ], [ %2515, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i ]
@@ -9908,9 +9908,9 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
 
 2520:                                             ; preds = %2520, %.lr.ph.i.i.i170
   %indvars.iv.i.i433.i = phi i64 [ 0, %.lr.ph.i.i.i170 ], [ %indvars.iv.next.i.i434.i, %2520 ]
-  %.1112.i.i.i = phi i32 [ %.081118.i.i.i, %.lr.ph.i.i.i170 ], [ %.2.i.i.i, %2520 ]
-  %.084110.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i170 ], [ %.185.i.i.i, %2520 ]
-  %.087109.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i170 ], [ %.188.i.i.i, %2520 ]
+  %.1111.i.i.i = phi i32 [ %.081117.i.i.i, %.lr.ph.i.i.i170 ], [ %.2.i.i.i, %2520 ]
+  %.084109.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i170 ], [ %.185.i.i.i, %2520 ]
+  %.087108.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i170 ], [ %.188.i.i.i, %2520 ]
   %2521 = getelementptr inbounds nuw float, ptr %2409, i64 %indvars.iv.i.i433.i
   %2522 = load float, ptr %2521, align 4, !tbaa !51
   %2523 = fcmp olt float %2522, %1896
@@ -9918,10 +9918,10 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
   %2525 = add i32 %2517, %2524
   %2526 = shl nuw i32 1, %2525
   %2527 = zext i1 %2523 to i32
-  %.188.i.i.i = add nuw nsw i32 %.087109.i.i.i, %2527
+  %.188.i.i.i = add nuw nsw i32 %.087108.i.i.i, %2527
   %2528 = select i1 %2523, i32 %2526, i32 0
-  %.185.i.i.i = or i32 %2528, %.084110.i.i.i
-  %.2.i.i.i = select i1 %2523, i32 %2524, i32 %.1112.i.i.i
+  %.185.i.i.i = or i32 %2528, %.084109.i.i.i
+  %.2.i.i.i = select i1 %2523, i32 %2524, i32 %.1111.i.i.i
   %indvars.iv.next.i.i434.i = add nuw nsw i64 %indvars.iv.i.i433.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i434.i, %wide.trip.count.i.i.i
   br i1 %exitcond.i.i.i, label %._crit_edge.i.i.i171, label %2520, !llvm.loop !556
@@ -9929,7 +9929,7 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
 ._crit_edge.i.i.i171:                             ; preds = %2520
   switch i32 %.188.i.i.i, label %.thread.i.i.i [
     i32 1, label %2529
-    i32 0, label %.thread106.i.i.i
+    i32 0, label %.thread105.i.i.i
   ]
 
 2529:                                             ; preds = %._crit_edge.i.i.i171
@@ -9944,11 +9944,11 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
   %2535 = mul nsw i32 %.2.i.i.i, 24
   %2536 = sext i32 %2535 to i64
   %2537 = getelementptr inbounds float, ptr %.val.i.i.i172, i64 %2536
-  %.val.i.i96.i.i.i = load <8 x float>, ptr %2537, align 32, !tbaa !103
+  %.val.le.i.i.i.i.i = load <8 x float>, ptr %2537, align 32, !tbaa !103
   %2538 = getelementptr inbounds nuw i8, ptr %2537, i64 32
-  %.val121.i.i.i.i.i = load <8 x float>, ptr %2538, align 32, !tbaa !103
+  %.val117.le.i.i.i.i.i = load <8 x float>, ptr %2538, align 32, !tbaa !103
   %2539 = getelementptr inbounds nuw i8, ptr %2537, i64 64
-  %.val122.i.i.i.i.i = load <8 x float>, ptr %2539, align 32, !tbaa !103
+  %.val118.le.i.i.i.i.i = load <8 x float>, ptr %2539, align 32, !tbaa !103
   %2540 = shl i32 %2440, 3
   %2541 = sext i32 %2540 to i64
   %2542 = or disjoint i64 %2541, 7
@@ -9957,14 +9957,14 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
   %2544 = or disjoint i64 %2541, 3
   br label %2545
 
-2545:                                             ; preds = %.critedge118.i.i.i.i.i, %2534
-  %indvars.iv21.i.i.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i.i.i, %.critedge118.i.i.i.i.i ], [ %2541, %2534 ]
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.critedge118.i.i.i.i.i ], [ %2542, %2534 ]
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv21.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, label %.critedge118.i.i.i.i.i
+2545:                                             ; preds = %.preheader.i.i.i.i.i, %2534
+  %indvars.iv37.i.i.i.i.i = phi i64 [ %indvars.iv.next38.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %2541, %2534 ]
+  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %2542, %2534 ]
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv37.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, label %.preheader.i.i.i.i.i
 
-.critedge118.i.i.i.i.i:                           ; preds = %2545
-  %2546 = mul nsw i64 %indvars.iv21.i.i.i.i.i, %2429
+.preheader.i.i.i.i.i:                             ; preds = %2545
+  %2546 = mul nsw i64 %indvars.iv37.i.i.i.i.i, %2429
   %2547 = getelementptr inbounds float, ptr %2404, i64 %2546
   %2548 = load float, ptr %2547, align 4, !tbaa !51
   %2549 = insertelement <8 x float> poison, float %2548, i64 0
@@ -9990,12 +9990,12 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
   %2569 = load float, ptr %2568, align 4, !tbaa !51
   %2570 = insertelement <8 x float> poison, float %2569, i64 0
   %2571 = shufflevector <8 x float> %2570, <8 x float> poison, <8 x i32> zeroinitializer
-  %2572 = fsub <8 x float> %.val.i.i96.i.i.i, %2550
-  %2573 = fsub <8 x float> %.val121.i.i.i.i.i, %2554
-  %2574 = fsub <8 x float> %.val122.i.i.i.i.i, %2558
-  %2575 = fsub <8 x float> %.val.i.i96.i.i.i, %2563
-  %2576 = fsub <8 x float> %.val121.i.i.i.i.i, %2567
-  %2577 = fsub <8 x float> %.val122.i.i.i.i.i, %2571
+  %2572 = fsub <8 x float> %.val.le.i.i.i.i.i, %2550
+  %2573 = fsub <8 x float> %.val117.le.i.i.i.i.i, %2554
+  %2574 = fsub <8 x float> %.val118.le.i.i.i.i.i, %2558
+  %2575 = fsub <8 x float> %.val.le.i.i.i.i.i, %2563
+  %2576 = fsub <8 x float> %.val117.le.i.i.i.i.i, %2567
+  %2577 = fsub <8 x float> %.val118.le.i.i.i.i.i, %2571
   %2578 = fmul <8 x float> %2572, %2572
   %2579 = fmul <8 x float> %2573, %2573
   %2580 = fadd <8 x float> %2578, %2579
@@ -10011,18 +10011,18 @@ _ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i: ; preds =
   %2590 = or <8 x i1> %2588, %2589
   %2591 = bitcast <8 x i1> %2590 to i8
   %.not.i.i.i.i.i173 = icmp eq i8 %2591, 0
-  %indvars.iv.next22.i.i.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i.i.i, 1
+  %indvars.iv.next38.i.i.i.i.i = add nuw nsw i64 %indvars.iv37.i.i.i.i.i, 1
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -1
   br i1 %.not.i.i.i.i.i173, label %2545, label %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, !llvm.loop !557
 
-_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i: ; preds = %.critedge118.i.i.i.i.i, %2545
-  %indvars.iv21.i.lcssa.i.i.i.i = phi i64 [ %wide.trip.count.i.i.i.i.i, %2545 ], [ %indvars.iv21.i.i.i.i.i, %.critedge118.i.i.i.i.i ]
-  %indvars.iv.i.lcssa.i.i.i.i = phi i64 [ %2544, %2545 ], [ %indvars.iv.i.i.i.i.i, %.critedge118.i.i.i.i.i ]
-  %2592 = icmp slt i64 %indvars.iv21.i.lcssa.i.i.i.i, %indvars.iv.i.lcssa.i.i.i.i
-  br i1 %2592, label %.thread.i.i.i, label %.thread106.i.i.i
+_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i: ; preds = %.preheader.i.i.i.i.i, %2545
+  %indvars.iv37.i.lcssa.i.i.i.i = phi i64 [ %wide.trip.count.i.i.i.i.i, %2545 ], [ %indvars.iv37.i.i.i.i.i, %.preheader.i.i.i.i.i ]
+  %indvars.iv.i.lcssa.i.i.i.i = phi i64 [ %2544, %2545 ], [ %indvars.iv.i.i.i.i.i, %.preheader.i.i.i.i.i ]
+  %2592 = icmp slt i64 %indvars.iv37.i.lcssa.i.i.i.i, %indvars.iv.i.lcssa.i.i.i.i
+  br i1 %2592, label %.thread.i.i.i, label %.thread105.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, %2529, %._crit_edge.i.i.i171
-  %.289104.i.i.i = phi i32 [ 1, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i ], [ 1, %2529 ], [ %.188.i.i.i, %._crit_edge.i.i.i171 ]
+  %.289103.i.i.i = phi i32 [ 1, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i ], [ 1, %2529 ], [ %.188.i.i.i, %._crit_edge.i.i.i171 ]
   %2593 = sext i32 %2433 to i64
   %2594 = load ptr, ptr %1861, align 8, !tbaa !151
   %2595 = load ptr, ptr %1860, align 8, !tbaa !98
@@ -10118,7 +10118,7 @@ _ZN3gmx18PackedJClusterList6resizeEl.exit.i.i.i:  ; preds = %2624, %2623, %_ZNSt
   br i1 %or.cond.i.i.i, label %2628, label %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i
 
 2628:                                             ; preds = %_ZN3gmx18PackedJClusterList6resizeEl.exit.i.i.i
-  %2629 = add nsw i32 %2517, %.082116.i.i.i
+  %2629 = add nsw i32 %2517, %.082115.i.i.i
   %2630 = shl nuw i32 1, %2629
   %2631 = xor i32 %2630, -1
   %.pre34.pre.i.i.i.i = load ptr, ptr %2018, align 8, !tbaa !97
@@ -10145,8 +10145,8 @@ _ZN3gmx18PackedJClusterList6resizeEl.exit.i.i.i:  ; preds = %2624, %2623, %_ZNSt
   %2643 = ptrtoint ptr %.pre34.i.i.i.i to i64
   %2644 = sub i64 %2642, %2643
   %2645 = lshr exact i64 %2644, 7
-  %.not.i.i97.i.i.i = icmp eq i64 %2644, -128
-  br i1 %.not.i.i97.i.i.i, label %2671, label %2646
+  %.not.i.i96.i.i.i = icmp eq i64 %2644, -128
+  br i1 %.not.i.i96.i.i.i, label %2671, label %2646
 
 2646:                                             ; preds = %2640
   %2647 = ptrtoint ptr %2633 to i64
@@ -10287,28 +10287,28 @@ _ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairl
   %2697 = add nsw i32 %2696, 1
   store i32 %2697, ptr %2695, align 8, !tbaa !536
   %2698 = load i32, ptr %2021, align 8, !tbaa !91
-  %2699 = add nsw i32 %2698, %.289104.i.i.i
+  %2699 = add nsw i32 %2698, %.289103.i.i.i
   store i32 %2699, ptr %2021, align 8, !tbaa !91
   %2700 = add i32 %2696, 4
   %2701 = sdiv i32 %2700, 4
   %2702 = load ptr, ptr %2009, align 8, !tbaa !421
   %2703 = getelementptr inbounds i8, ptr %2702, i64 -4
   store i32 %2701, ptr %2703, align 4, !tbaa !425
-  br label %.thread106.i.i.i
+  br label %.thread105.i.i.i
 
-.thread106.i.i.i:                                 ; preds = %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, %._crit_edge.i.i.i171, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i
+.thread105.i.i.i:                                 ; preds = %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i, %._crit_edge.i.i.i171, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i
   %.17.i = phi i32 [ %.16.i, %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i ], [ %.16.i, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i ], [ %.16.i, %._crit_edge.i.i.i171 ], [ %2515, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i ]
-  %.1.lcssa132.i.i.i = phi i32 [ %.2.i.i.i, %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i ], [ %.2.i.i.i, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i ], [ %.2.i.i.i, %._crit_edge.i.i.i171 ], [ %.081118.i.i.i, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i ]
-  %2704 = add nuw nsw i32 %.082116.i.i.i, 1
+  %.1.lcssa131.i.i.i = phi i32 [ %.2.i.i.i, %_ZN3gmxL29setSelfAndNewtonExclusionsGpuILNS_12PairlistTypeE3EEEvPNS_16NbnxnPairlistGpuEiii.exit.i.i.i ], [ %.2.i.i.i, %_ZN3gmxL18clusterpairInRangeILNS_12PairlistTypeE3EEEbRKNS_20NbnxmPairlistGpuWorkEiiiPKff.exit.i.i.i ], [ %.2.i.i.i, %._crit_edge.i.i.i171 ], [ %.081117.i.i.i, %_ZN3gmxL38clusterBoundingBoxDistance2_xxxx_simd4EPKfiS1_Pf.exit.i.i.i ]
+  %2704 = add nuw nsw i32 %.082115.i.i.i, 1
   %2705 = load ptr, ptr %111, align 8, !tbaa !110
   %2706 = getelementptr inbounds i32, ptr %2705, i64 %indvars.iv.i430.i
   %2707 = load i32, ptr %2706, align 4, !tbaa !101
   %2708 = icmp slt i32 %2704, %2707
   br i1 %2708, label %2431, label %_ZN3gmxL26make_cluster_list_supersubILNS_12PairlistTypeE3EEEvRKNS_4GridES4_PNS_16NbnxnPairlistGpuEiibiPKfffPi.exit.i.i, !llvm.loop !572
 
-_ZN3gmxL26make_cluster_list_supersubILNS_12PairlistTypeE3EEEvRKNS_4GridES4_PNS_16NbnxnPairlistGpuEiibiPKfffPi.exit.i.i: ; preds = %.thread106.i.i.i, %2402
-  %.14.i = phi i32 [ %.13.i, %2402 ], [ %.17.i, %.thread106.i.i.i ]
-  %2709 = phi ptr [ %2403, %2402 ], [ %2705, %.thread106.i.i.i ]
+_ZN3gmxL26make_cluster_list_supersubILNS_12PairlistTypeE3EEEvRKNS_4GridES4_PNS_16NbnxnPairlistGpuEiibiPKfffPi.exit.i.i: ; preds = %.thread105.i.i.i, %2402
+  %.14.i = phi i32 [ %.13.i, %2402 ], [ %.17.i, %.thread105.i.i.i ]
+  %2709 = phi ptr [ %2403, %2402 ], [ %2705, %.thread105.i.i.i ]
   %indvars.iv.next.i431.i = add nsw i64 %indvars.iv.i430.i, 1
   %lftr.wideiv.i.i169 = trunc i64 %indvars.iv.next.i431.i to i32
   %exitcond.not.i432.i = icmp eq i32 %.0331.lcssa.i, %lftr.wideiv.i.i169

@@ -1674,7 +1674,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %21, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %44, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef 12, i64 noundef 0, ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) %23)
-          to label %45 unwind label %81
+          to label %45 unwind label %82
 
 45:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1684,7 +1684,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %46, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef 12, i64 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %47 unwind label %83
+          to label %47 unwind label %84
 
 47:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1694,7 +1694,7 @@ define dso_local void @_ZN3tev10UberShader4drawERKN7nanogui5ArrayIfLm2EEES5_PNS1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %19, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %48, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 12, i64 noundef 0, ptr noundef nonnull %19, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %49 unwind label %85
+          to label %49 unwind label %86
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1727,9 +1727,9 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %18, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   store i64 2, ptr %18, align 16
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %53, ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 10, i64 noundef 1, ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(8) %29)
-          to label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.critedge unwind label %87
+          to label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.preheader.critedge unwind label %88
 
-_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.critedge: ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.preheader.critedge: ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #24
   %67 = load ptr, ptr %43, align 8
@@ -1742,47 +1742,48 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.critedge: ; preds = %_ZN7na
   %73 = sitofp i32 %72 to float
   %74 = load i32, ptr %59, align 4
   %75 = sitofp i32 %74 to float
-  %76 = load i32, ptr %62, align 4
-  %77 = sitofp i32 %76 to float
-  %78 = fdiv float %70, %75
-  %.sroa.066.0.vec.insert = insertelement <2 x float> poison, float %78, i64 0
-  %79 = fdiv float %73, %77
-  %.sroa.066.4.vec.insert = insertelement <2 x float> %.sroa.066.0.vec.insert, float %79, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.022, i64 24
+  %77 = load i32, ptr %76, align 4
+  %78 = sitofp i32 %77 to float
+  %79 = fdiv float %70, %75
+  %.sroa.066.0.vec.insert = insertelement <2 x float> poison, float %79, i64 0
+  %80 = fdiv float %73, %78
+  %.sroa.066.4.vec.insert = insertelement <2 x float> %.sroa.066.0.vec.insert, float %80, i64 1
   store <2 x float> %.sroa.066.4.vec.insert, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %17, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   store i64 2, ptr %17, align 16
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %67, ptr noundef nonnull align 8 dereferenceable(24) %30, i32 noundef 10, i64 noundef 1, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(8) %31)
-          to label %80 unwind label %89
+          to label %81 unwind label %90
 
-80:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.critedge
+81:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.preheader.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %97
+  br label %98
 
-81:                                               ; preds = %14
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %14
+  %83 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-83:                                               ; preds = %45
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %45
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-85:                                               ; preds = %47
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %47
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-87:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-89:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.critedge
-  %90 = landingpad { ptr, i32 }
+90:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit32.preheader.critedge
+  %91 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %49
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull @.str.12, i64 noundef 7)
@@ -1792,50 +1793,50 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   store i64 2, ptr %16, align 16
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %53, ptr noundef nonnull align 8 dereferenceable(24) %32, i32 noundef 10, i64 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(8) %33)
-          to label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge unwind label %93
+          to label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge unwind label %94
 
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge:     ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #24
-  %91 = load ptr, ptr %43, align 8
+  %92 = load ptr, ptr %43, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull @.str.13, i64 noundef 7)
   store float 0x7FF0000000000000, ptr %35, align 4
   store float 0x7FF0000000000000, ptr %.04.i39.sroa.gep42, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformIiEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_.shape, i64 24, i1 false)
   store i64 2, ptr %15, align 16
-  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %91, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef 10, i64 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(8) %35)
-          to label %92 unwind label %95
+  invoke void @_ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(101) %92, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef 10, i64 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(8) %35)
+          to label %93 unwind label %96
 
-92:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge
+93:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %97
+  br label %98
 
-93:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-95:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit40.critedge
+  %97 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
-97:                                               ; preds = %92, %80
-  %.sink = phi ptr [ %34, %92 ], [ %30, %80 ]
+98:                                               ; preds = %93, %81
+  %.sink = phi ptr [ %34, %93 ], [ %30, %81 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #24
-  %98 = load ptr, ptr %43, align 8
-  call void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 dereferenceable(101) %98)
   %99 = load ptr, ptr %43, align 8
-  call void @_ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb(ptr noundef nonnull align 8 dereferenceable(101) %99, i32 noundef 3, i64 noundef 0, i64 noundef 6, i1 noundef zeroext true)
+  call void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 dereferenceable(101) %99)
   %100 = load ptr, ptr %43, align 8
-  call void @_ZN7nanogui6Shader3endEv(ptr noundef nonnull align 8 dereferenceable(101) %100)
+  call void @_ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb(ptr noundef nonnull align 8 dereferenceable(101) %100, i32 noundef 3, i64 noundef 0, i64 noundef 6, i1 noundef zeroext true)
+  %101 = load ptr, ptr %43, align 8
+  call void @_ZN7nanogui6Shader3endEv(ptr noundef nonnull align 8 dereferenceable(101) %101)
   ret void
 
-101:                                              ; preds = %95, %93, %89, %87, %85, %83, %81
-  %.sink76 = phi ptr [ %34, %95 ], [ %32, %93 ], [ %30, %89 ], [ %28, %87 ], [ %27, %85 ], [ %26, %83 ], [ %25, %81 ]
-  %.pn = phi { ptr, i32 } [ %96, %95 ], [ %94, %93 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ]
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink76) #24
+102:                                              ; preds = %96, %94, %90, %88, %86, %84, %82
+  %.sink68 = phi ptr [ %34, %96 ], [ %32, %94 ], [ %30, %90 ], [ %28, %88 ], [ %27, %86 ], [ %26, %84 ], [ %25, %82 ]
+  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink68) #24
   resume { ptr, i32 } %.pn
 }
 

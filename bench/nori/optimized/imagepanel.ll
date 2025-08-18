@@ -138,17 +138,17 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %47 = sdiv i32 %46, %34
   %48 = icmp slt i32 %27, 0
   %49 = fcmp ult float %24, 0.000000e+00
-  %or.cond.not66.not86 = or i1 %49, %48
+  %or.cond.not66.not82 = or i1 %49, %48
   %50 = fcmp ult float %25, 0.000000e+00
-  %or.cond60.not63.not83 = select i1 %or.cond.not66.not86, i1 true, i1 %50
+  %or.cond60.not63.not79 = select i1 %or.cond.not66.not82, i1 true, i1 %50
   %51 = icmp samesign ult i32 %.sroa.speculated.i, %26
-  %or.cond61.not = or i1 %51, %or.cond60.not63.not83
+  %or.cond61.not = or i1 %51, %or.cond60.not63.not79
   %52 = icmp sle i32 %47, %27
   %spec.select = select i1 %or.cond61.not, i1 true, i1 %52
   br label %53
 
 53:                                               ; preds = %36, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %.not78 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %36 ]
+  %.not74 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %36 ]
   %54 = tail call noundef float @llvm.floor.f32(float %24)
   %55 = fsub float %24, %54
   %56 = sitofp i32 %19 to float
@@ -158,7 +158,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %60 = fsub float %25, %59
   %61 = fcmp uge float %60, %57
   %narrow.not = select i1 %58, i1 true, i1 %61
-  %.not = select i1 %narrow.not, i1 true, i1 %.not78
+  %.not = select i1 %narrow.not, i1 true, i1 %.not74
   %62 = mul nsw i32 %34, %27
   %63 = add nsw i32 %62, %26
   %64 = select i1 %.not, i32 -1, i32 %63
@@ -291,34 +291,34 @@ define hidden void @_ZN7nanogui10ImagePanel4drawEP10NVGcontext(ptr noundef nonnu
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %27, %28
-  br i1 %.not, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph: ; preds = %2
+.lr.ph:                                           ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
 
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph, %70
-  %33 = phi ptr [ %28, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph ], [ %113, %70 ]
-  %.092 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph ], [ %111, %70 ]
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
+  %33 = phi ptr [ %28, %.lr.ph ], [ %113, %70 ]
+  %.093 = phi i64 [ 0, %.lr.ph ], [ %111, %70 ]
   %34 = load i32, ptr %10, align 8
   %35 = load i32, ptr %29, align 8
-  %36 = add nsw i32 %35, %34
-  %37 = load i32, ptr %30, align 4
+  %36 = add nsw i32 %34, %35
+  %37 = load i32, ptr %32, align 4
   %38 = add nsw i32 %34, %37
-  %39 = trunc i64 %.092 to i32
-  %40 = srem i32 %39, %24
-  %41 = sdiv i32 %39, %24
-  %42 = load i32, ptr %12, align 8
-  %43 = load i32, ptr %18, align 4
-  %44 = add nsw i32 %43, %42
-  %45 = mul nsw i32 %44, %40
-  %46 = mul nsw i32 %44, %41
+  %39 = load i32, ptr %12, align 8
+  %40 = load i32, ptr %18, align 4
+  %41 = add nsw i32 %40, %39
+  %42 = trunc i64 %.093 to i32
+  %43 = srem i32 %42, %24
+  %44 = sdiv i32 %42, %24
+  %45 = mul nsw i32 %41, %43
+  %46 = mul nsw i32 %41, %44
   %47 = add nsw i32 %36, %45
   %48 = add nsw i32 %38, %46
-  %49 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.092
+  %49 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.093
   %50 = load i32, ptr %49, align 8
   call void @nvgImageSize(ptr noundef %1, i32 noundef %50, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %51 = load i32, ptr %3, align 4
@@ -356,10 +356,10 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZN7nanogui5ArrayIi
   %73 = sitofp i32 %48 to float
   %74 = fadd float %.038, %73
   %75 = load ptr, ptr %25, align 8
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.092
+  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.093
   %77 = load i32, ptr %76, align 8
-  %78 = load i32, ptr %31, align 4
-  %79 = icmp eq i32 %78, %39
+  %78 = load i32, ptr %30, align 4
+  %79 = icmp eq i32 %78, %42
   %80 = select i1 %79, float 1.000000e+00, float 0x3FE6666660000000
   call void @nvgImagePattern(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %5, ptr noundef %1, float noundef %72, float noundef %74, float noundef %.035, float noundef %.036, float noundef 0.000000e+00, i32 noundef %77, float noundef %80)
   call void @nvgBeginPath(ptr noundef %1)
@@ -380,7 +380,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZN7nanogui5ArrayIi
   %92 = extractvalue { <2 x float>, <2 x float> } %91, 0
   store <2 x float> %92, ptr %7, align 8
   %93 = extractvalue { <2 x float>, <2 x float> } %91, 1
-  store <2 x float> %93, ptr %32, align 8
+  store <2 x float> %93, ptr %31, align 8
   call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %6, ptr noundef %1, float noundef %84, float noundef %73, float noundef %87, float noundef %87, float noundef 5.000000e+00, float noundef 3.000000e+00, <2 x float> %89, <2 x float> %90, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %7)
   call void @nvgBeginPath(ptr noundef %1)
   %94 = add nsw i32 %47, -5
@@ -410,7 +410,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZN7nanogui5ArrayIi
   %110 = extractvalue { <2 x float>, <2 x float> } %108, 1
   call void @nvgStrokeColor(ptr noundef %1, <2 x float> %109, <2 x float> %110)
   call void @nvgStroke(ptr noundef %1)
-  %111 = add nuw i64 %.092, 1
+  %111 = add nuw i64 %.093, 1
   %112 = load ptr, ptr %26, align 8
   %113 = load ptr, ptr %25, align 8
   %114 = ptrtoint ptr %112 to i64

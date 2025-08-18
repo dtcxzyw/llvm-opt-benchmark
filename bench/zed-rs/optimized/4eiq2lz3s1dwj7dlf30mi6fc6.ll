@@ -64557,7 +64557,7 @@ select.unfold.us39:                               ; preds = %"_ZN81_$LT$core..st
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16685
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !16663
   %.not.i.i.us53 = icmp eq i64 %73, %.sroa.0.014.i.i.i.i.us52
-  br i1 %.not.i.i.us53, label %.loopexit.loopexit89.critedge, label %.split32.us, !llvm.loop !16702
+  br i1 %.not.i.i.us53, label %.loopexit.loopexit111.critedge, label %.split32.us, !llvm.loop !16702
 
 .split.split:                                     ; preds = %.split, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63890aad7f4353caE.exit"
   %74 = phi i64 [ %99, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63890aad7f4353caE.exit" ], [ %.promoted26, %.split ]
@@ -64735,14 +64735,14 @@ select.unfold:                                    ; preds = %"_ZN81_$LT$core..st
   call void @llvm.experimental.noalias.scope.decl(metadata !16656)
   br label %.loopexit
 
-.loopexit.loopexit89.critedge:                    ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63890aad7f4353caE.exit.us51"
+.loopexit.loopexit111.critedge:                   ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63890aad7f4353caE.exit.us51"
   call void @llvm.experimental.noalias.scope.decl(metadata !16655)
   call void @llvm.experimental.noalias.scope.decl(metadata !16656)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i", %.split.split, %.split.split.us, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36", %.loopexit.loopexit89.critedge, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us", %.split.us, %.loopexit.loopexit.critedge, %.split32.us
-  %.sroa.3.0 = phi i64 [ %117, %.split32.us ], [ undef, %.loopexit.loopexit.critedge ], [ undef, %.split.us ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us" ], [ undef, %.loopexit.loopexit89.critedge ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36" ], [ undef, %.split.split.us ], [ undef, %.split.split ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i" ]
-  %.sroa.0.0 = phi ptr [ %116, %.split32.us ], [ null, %.loopexit.loopexit.critedge ], [ null, %.split.us ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us" ], [ null, %.loopexit.loopexit89.critedge ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36" ], [ null, %.split.split.us ], [ null, %.split.split ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i" ]
+.loopexit:                                        ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i", %.split.split, %.split.split.us, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36", %.loopexit.loopexit111.critedge, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us", %.split.us, %.loopexit.loopexit.critedge, %.split32.us
+  %.sroa.3.0 = phi i64 [ %117, %.split32.us ], [ undef, %.loopexit.loopexit.critedge ], [ undef, %.split.us ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us" ], [ undef, %.loopexit.loopexit111.critedge ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36" ], [ undef, %.split.split.us ], [ undef, %.split.split ], [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i" ]
+  %.sroa.0.0 = phi ptr [ %116, %.split32.us ], [ null, %.loopexit.loopexit.critedge ], [ null, %.split.us ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us" ], [ null, %.loopexit.loopexit111.critedge ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us36" ], [ null, %.split.split.us ], [ null, %.split.split ], [ null, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i" ]
   %118 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %119 = insertvalue { ptr, i64 } %118, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %119

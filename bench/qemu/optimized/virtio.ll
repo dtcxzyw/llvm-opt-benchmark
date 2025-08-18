@@ -6191,142 +6191,141 @@ virtio_delete_queue.exit:                         ; preds = %4, %15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_notify_irqfd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = alloca %struct.timeval, align 8
-  %3 = tail call ptr @get_ptr_rcu_reader() #24
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %5 = load i32, ptr %4, align 4
-  %6 = add i32 %5, 1
-  store i32 %6, ptr %4, align 4
-  %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %7, label %rcu_read_auto_lock.exit
+  %3 = alloca %struct.timeval, align 8
+  %4 = tail call ptr @get_ptr_rcu_reader() #24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %6 = load i32, ptr %5, align 4
+  %7 = add i32 %6, 1
+  store i32 %7, ptr %5, align 4
+  %.not.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.i, label %8, label %rcu_read_auto_lock.exit
 
-7:                                                ; preds = %.critedge
-  %8 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %9 = and i64 %8, 4294967295
-  store atomic i64 %9, ptr %3 monotonic, align 8
+8:                                                ; preds = %2
+  %9 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %10 = and i64 %9, 4294967295
+  store atomic i64 %10, ptr %4 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !7
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
-rcu_read_auto_lock.exit:                          ; preds = %.critedge, %7
-  %10 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %0, ptr noundef %1)
-  %11 = tail call ptr @get_ptr_rcu_reader() #24
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %13 = load i32, ptr %12, align 4
-  %.not.i.i6 = icmp eq i32 %13, 0
-  br i1 %10, label %14, label %rcu_read_auto_unlock.exit
+rcu_read_auto_lock.exit:                          ; preds = %8, %2
+  %11 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %0, ptr noundef %1)
+  %12 = tail call ptr @get_ptr_rcu_reader() #24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %14 = load i32, ptr %13, align 4
+  %.not.i.i6 = icmp eq i32 %14, 0
+  br i1 %11, label %15, label %24
 
-14:                                               ; preds = %rcu_read_auto_lock.exit
-  br i1 %.not.i.i6, label %15, label %16
+15:                                               ; preds = %rcu_read_auto_lock.exit
+  br i1 %.not.i.i6, label %16, label %17
 
-15:                                               ; preds = %14
+16:                                               ; preds = %15
   tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #25
   unreachable
 
-16:                                               ; preds = %14
-  %17 = add i32 %13, -1
-  store i32 %17, ptr %12, align 4
-  %.not8.i.i = icmp eq i32 %17, 0
-  br i1 %.not8.i.i, label %18, label %31
+17:                                               ; preds = %15
+  %18 = add i32 %14, -1
+  store i32 %18, ptr %13, align 4
+  %.not8.i.i = icmp eq i32 %18, 0
+  br i1 %.not8.i.i, label %19, label %.critedge
 
-18:                                               ; preds = %16
-  store atomic i64 0, ptr %11 release, align 8
+19:                                               ; preds = %17
+  store atomic i64 0, ptr %12 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !13
   fence seq_cst
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load atomic i8, ptr %19 monotonic, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %31, !prof !9
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %21 = load atomic i8, ptr %20 monotonic, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %.critedge, !prof !9
 
-22:                                               ; preds = %18
-  store atomic i8 0, ptr %19 monotonic, align 8
+23:                                               ; preds = %19
+  store atomic i8 0, ptr %20 monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #24
-  br label %31
+  br label %.critedge
 
-rcu_read_auto_unlock.exit:                        ; preds = %rcu_read_auto_lock.exit
-  br i1 %.not.i.i6, label %23, label %24
+24:                                               ; preds = %rcu_read_auto_lock.exit
+  br i1 %.not.i.i6, label %25, label %26
 
-23:                                               ; preds = %rcu_read_auto_unlock.exit
+25:                                               ; preds = %24
   tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #25
   unreachable
-
-24:                                               ; preds = %rcu_read_auto_unlock.exit
-  %25 = add i32 %13, -1
-  store i32 %25, ptr %12, align 4
-  %.not8.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not8.i.i.i.i, label %26, label %glib_autoptr_cleanup_RCUReadAuto.exit.thread
 
 26:                                               ; preds = %24
-  store atomic i64 0, ptr %11 release, align 8
+  %27 = add i32 %14, -1
+  store i32 %27, ptr %13, align 4
+  %.not8.i.i.i.i = icmp eq i32 %27, 0
+  br i1 %.not8.i.i.i.i, label %28, label %glib_autoptr_cleanup_RCUReadAuto.exit
+
+28:                                               ; preds = %26
+  store atomic i64 0, ptr %12 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !13
   fence seq_cst
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = load atomic i8, ptr %27 monotonic, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %glib_autoptr_cleanup_RCUReadAuto.exit.thread, !prof !9
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %30 = load atomic i8, ptr %29 monotonic, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %glib_autoptr_cleanup_RCUReadAuto.exit, !prof !9
 
-30:                                               ; preds = %26
-  store atomic i8 0, ptr %27 monotonic, align 8
+32:                                               ; preds = %28
+  store atomic i8 0, ptr %29 monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #24
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit.thread
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-31:                                               ; preds = %22, %18, %16
-  %32 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i8 = icmp eq i32 %32, 0
-  br i1 %.not.i.i8, label %trace_virtio_notify_irqfd.exit, label %33, !prof !19
+.critedge:                                        ; preds = %17, %19, %23
+  %33 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i8 = icmp eq i32 %33, 0
+  br i1 %.not.i.i8, label %trace_virtio_notify_irqfd.exit, label %34, !prof !19
 
-33:                                               ; preds = %31
-  %34 = load i16, ptr @_TRACE_VIRTIO_NOTIFY_IRQFD_DSTATE, align 2
-  %.not4.i.i = icmp eq i16 %34, 0
-  br i1 %.not4.i.i, label %trace_virtio_notify_irqfd.exit, label %35
+34:                                               ; preds = %.critedge
+  %35 = load i16, ptr @_TRACE_VIRTIO_NOTIFY_IRQFD_DSTATE, align 2
+  %.not4.i.i = icmp eq i16 %35, 0
+  br i1 %.not4.i.i, label %trace_virtio_notify_irqfd.exit, label %36
 
-35:                                               ; preds = %33
-  %36 = load i32, ptr @qemu_loglevel, align 4
-  %37 = and i32 %36, 32768
-  %.not5.i.i = icmp eq i32 %37, 0
-  br i1 %.not5.i.i, label %trace_virtio_notify_irqfd.exit, label %38
+36:                                               ; preds = %34
+  %37 = load i32, ptr @qemu_loglevel, align 4
+  %38 = and i32 %37, 32768
+  %.not5.i.i = icmp eq i32 %38, 0
+  br i1 %.not5.i.i, label %trace_virtio_notify_irqfd.exit, label %39
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr @message_with_timestamp, align 1, !range !5, !noundef !6
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %47
+39:                                               ; preds = %36
+  %40 = load i8, ptr @message_with_timestamp, align 1, !range !5, !noundef !6
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %48
 
-41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %42 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #24
-  %43 = tail call i32 @qemu_get_thread_id() #24
-  %44 = load i64, ptr %2, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load i64, ptr %45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %43, i64 noundef %44, i64 noundef %46, ptr noundef %0, ptr noundef %1) #24
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+42:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #24
+  %44 = tail call i32 @qemu_get_thread_id() #24
+  %45 = load i64, ptr %3, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load i64, ptr %46, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %44, i64 noundef %45, i64 noundef %47, ptr noundef %0, ptr noundef %1) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_virtio_notify_irqfd.exit
 
-47:                                               ; preds = %38
+48:                                               ; preds = %39
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, ptr noundef %0, ptr noundef %1) #24
   br label %trace_virtio_notify_irqfd.exit
 
-trace_virtio_notify_irqfd.exit:                   ; preds = %31, %33, %35, %41, %47
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 161
-  %51 = load atomic i8, ptr %50 monotonic, align 1
-  %52 = and i8 %51, 1
-  %.not.i.not = icmp eq i8 %52, 0
-  br i1 %.not.i.not, label %53, label %virtio_set_isr.exit
+trace_virtio_notify_irqfd.exit:                   ; preds = %.critedge, %34, %36, %42, %48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 161
+  %52 = load atomic i8, ptr %51 monotonic, align 1
+  %53 = and i8 %52, 1
+  %.not.i.not = icmp eq i8 %53, 0
+  br i1 %.not.i.not, label %54, label %virtio_set_isr.exit
 
-53:                                               ; preds = %trace_virtio_notify_irqfd.exit
-  %54 = atomicrmw or ptr %50, i8 1 seq_cst, align 1
+54:                                               ; preds = %trace_virtio_notify_irqfd.exit
+  %55 = atomicrmw or ptr %51, i8 1 seq_cst, align 1
   br label %virtio_set_isr.exit
 
-virtio_set_isr.exit:                              ; preds = %trace_virtio_notify_irqfd.exit, %53
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  tail call void @defer_call(ptr noundef nonnull @virtio_notify_irqfd_deferred_fn, ptr noundef nonnull %55) #24
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit.thread
+virtio_set_isr.exit:                              ; preds = %trace_virtio_notify_irqfd.exit, %54
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  tail call void @defer_call(ptr noundef nonnull @virtio_notify_irqfd_deferred_fn, ptr noundef nonnull %56) #24
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit.thread:     ; preds = %30, %26, %24, %virtio_set_isr.exit
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %32, %28, %26, %virtio_set_isr.exit
   ret void
 }
 
@@ -6625,169 +6624,168 @@ trace_virtio_notify_irqfd_deferred_fn.exit:       ; preds = %1, %7, %9, %15, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_notify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = alloca %struct.timeval, align 8
-  %3 = tail call ptr @get_ptr_rcu_reader() #24
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %5 = load i32, ptr %4, align 4
-  %6 = add i32 %5, 1
-  store i32 %6, ptr %4, align 4
-  %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %7, label %rcu_read_auto_lock.exit
+  %3 = alloca %struct.timeval, align 8
+  %4 = tail call ptr @get_ptr_rcu_reader() #24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %6 = load i32, ptr %5, align 4
+  %7 = add i32 %6, 1
+  store i32 %7, ptr %5, align 4
+  %.not.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.i, label %8, label %rcu_read_auto_lock.exit
 
-7:                                                ; preds = %.critedge
-  %8 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %9 = and i64 %8, 4294967295
-  store atomic i64 %9, ptr %3 monotonic, align 8
+8:                                                ; preds = %2
+  %9 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %10 = and i64 %9, 4294967295
+  store atomic i64 %10, ptr %4 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !7
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
-rcu_read_auto_lock.exit:                          ; preds = %.critedge, %7
-  %10 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %0, ptr noundef %1)
-  %11 = tail call ptr @get_ptr_rcu_reader() #24
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %13 = load i32, ptr %12, align 4
-  %.not.i.i5 = icmp eq i32 %13, 0
-  br i1 %10, label %14, label %rcu_read_auto_unlock.exit
+rcu_read_auto_lock.exit:                          ; preds = %8, %2
+  %11 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %0, ptr noundef %1)
+  %12 = tail call ptr @get_ptr_rcu_reader() #24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %14 = load i32, ptr %13, align 4
+  %.not.i.i5 = icmp eq i32 %14, 0
+  br i1 %11, label %15, label %24
 
-14:                                               ; preds = %rcu_read_auto_lock.exit
-  br i1 %.not.i.i5, label %15, label %16
+15:                                               ; preds = %rcu_read_auto_lock.exit
+  br i1 %.not.i.i5, label %16, label %17
 
-15:                                               ; preds = %14
+16:                                               ; preds = %15
   tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #25
   unreachable
 
-16:                                               ; preds = %14
-  %17 = add i32 %13, -1
-  store i32 %17, ptr %12, align 4
-  %.not8.i.i = icmp eq i32 %17, 0
-  br i1 %.not8.i.i, label %18, label %31
+17:                                               ; preds = %15
+  %18 = add i32 %14, -1
+  store i32 %18, ptr %13, align 4
+  %.not8.i.i = icmp eq i32 %18, 0
+  br i1 %.not8.i.i, label %19, label %.critedge
 
-18:                                               ; preds = %16
-  store atomic i64 0, ptr %11 release, align 8
+19:                                               ; preds = %17
+  store atomic i64 0, ptr %12 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !13
   fence seq_cst
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load atomic i8, ptr %19 monotonic, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %31, !prof !9
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %21 = load atomic i8, ptr %20 monotonic, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %.critedge, !prof !9
 
-22:                                               ; preds = %18
-  store atomic i8 0, ptr %19 monotonic, align 8
+23:                                               ; preds = %19
+  store atomic i8 0, ptr %20 monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #24
-  br label %31
+  br label %.critedge
 
-rcu_read_auto_unlock.exit:                        ; preds = %rcu_read_auto_lock.exit
-  br i1 %.not.i.i5, label %23, label %24
+24:                                               ; preds = %rcu_read_auto_lock.exit
+  br i1 %.not.i.i5, label %25, label %26
 
-23:                                               ; preds = %rcu_read_auto_unlock.exit
+25:                                               ; preds = %24
   tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #25
   unreachable
-
-24:                                               ; preds = %rcu_read_auto_unlock.exit
-  %25 = add i32 %13, -1
-  store i32 %25, ptr %12, align 4
-  %.not8.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not8.i.i.i.i, label %26, label %virtio_irq.exit
 
 26:                                               ; preds = %24
-  store atomic i64 0, ptr %11 release, align 8
+  %27 = add i32 %14, -1
+  store i32 %27, ptr %13, align 4
+  %.not8.i.i.i.i = icmp eq i32 %27, 0
+  br i1 %.not8.i.i.i.i, label %28, label %virtio_irq.exit
+
+28:                                               ; preds = %26
+  store atomic i64 0, ptr %12 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !13
   fence seq_cst
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = load atomic i8, ptr %27 monotonic, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %virtio_irq.exit, !prof !9
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %30 = load atomic i8, ptr %29 monotonic, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %virtio_irq.exit, !prof !9
 
-30:                                               ; preds = %26
-  store atomic i8 0, ptr %27 monotonic, align 8
+32:                                               ; preds = %28
+  store atomic i8 0, ptr %29 monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #24
   br label %virtio_irq.exit
 
-31:                                               ; preds = %22, %18, %16
-  %32 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i7 = icmp eq i32 %32, 0
-  br i1 %.not.i.i7, label %trace_virtio_notify.exit, label %33, !prof !19
+.critedge:                                        ; preds = %17, %19, %23
+  %33 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i7 = icmp eq i32 %33, 0
+  br i1 %.not.i.i7, label %trace_virtio_notify.exit, label %34, !prof !19
 
-33:                                               ; preds = %31
-  %34 = load i16, ptr @_TRACE_VIRTIO_NOTIFY_DSTATE, align 2
-  %.not4.i.i = icmp eq i16 %34, 0
-  br i1 %.not4.i.i, label %trace_virtio_notify.exit, label %35
+34:                                               ; preds = %.critedge
+  %35 = load i16, ptr @_TRACE_VIRTIO_NOTIFY_DSTATE, align 2
+  %.not4.i.i = icmp eq i16 %35, 0
+  br i1 %.not4.i.i, label %trace_virtio_notify.exit, label %36
 
-35:                                               ; preds = %33
-  %36 = load i32, ptr @qemu_loglevel, align 4
-  %37 = and i32 %36, 32768
-  %.not5.i.i = icmp eq i32 %37, 0
-  br i1 %.not5.i.i, label %trace_virtio_notify.exit, label %38
+36:                                               ; preds = %34
+  %37 = load i32, ptr @qemu_loglevel, align 4
+  %38 = and i32 %37, 32768
+  %.not5.i.i = icmp eq i32 %38, 0
+  br i1 %.not5.i.i, label %trace_virtio_notify.exit, label %39
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr @message_with_timestamp, align 1, !range !5, !noundef !6
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %47
+39:                                               ; preds = %36
+  %40 = load i8, ptr @message_with_timestamp, align 1, !range !5, !noundef !6
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %48
 
-41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %42 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #24
-  %43 = tail call i32 @qemu_get_thread_id() #24
-  %44 = load i64, ptr %2, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load i64, ptr %45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %43, i64 noundef %44, i64 noundef %46, ptr noundef %0, ptr noundef %1) #24
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+42:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #24
+  %44 = tail call i32 @qemu_get_thread_id() #24
+  %45 = load i64, ptr %3, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load i64, ptr %46, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %44, i64 noundef %45, i64 noundef %47, ptr noundef %0, ptr noundef %1) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_virtio_notify.exit
 
-47:                                               ; preds = %38
+48:                                               ; preds = %39
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, ptr noundef %0, ptr noundef %1) #24
   br label %trace_virtio_notify.exit
 
-trace_virtio_notify.exit:                         ; preds = %31, %33, %35, %41, %47
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 161
-  %51 = load atomic i8, ptr %50 monotonic, align 1
-  %52 = and i8 %51, 1
-  %.not.i.not.i = icmp eq i8 %52, 0
-  br i1 %.not.i.not.i, label %53, label %virtio_set_isr.exit.i
+trace_virtio_notify.exit:                         ; preds = %.critedge, %34, %36, %42, %48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 161
+  %52 = load atomic i8, ptr %51 monotonic, align 1
+  %53 = and i8 %52, 1
+  %.not.i.not.i = icmp eq i8 %53, 0
+  br i1 %.not.i.not.i, label %54, label %virtio_set_isr.exit.i
 
-53:                                               ; preds = %trace_virtio_notify.exit
-  %54 = atomicrmw or ptr %50, i8 1 seq_cst, align 1
-  %.pre.i = load ptr, ptr %48, align 8
+54:                                               ; preds = %trace_virtio_notify.exit
+  %55 = atomicrmw or ptr %51, i8 1 seq_cst, align 1
+  %.pre.i = load ptr, ptr %49, align 8
   br label %virtio_set_isr.exit.i
 
-virtio_set_isr.exit.i:                            ; preds = %53, %trace_virtio_notify.exit
-  %55 = phi ptr [ %49, %trace_virtio_notify.exit ], [ %.pre.i, %53 ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %57 = load i16, ptr %56, align 8
-  %58 = tail call ptr @object_dynamic_cast_assert(ptr noundef %55, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #24
-  %59 = tail call ptr @qdev_get_parent_bus(ptr noundef %58) #24
-  %60 = tail call ptr @object_get_class(ptr noundef %59) #24
-  %61 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %60, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #24
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 429
-  %63 = load i8, ptr %62, align 1, !range !5, !noundef !6
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %virtio_irq.exit, label %virtio_device_disabled.exit.i.i, !prof !9
+virtio_set_isr.exit.i:                            ; preds = %54, %trace_virtio_notify.exit
+  %56 = phi ptr [ %50, %trace_virtio_notify.exit ], [ %.pre.i, %54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %58 = load i16, ptr %57, align 8
+  %59 = tail call ptr @object_dynamic_cast_assert(ptr noundef %56, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #24
+  %60 = tail call ptr @qdev_get_parent_bus(ptr noundef %59) #24
+  %61 = tail call ptr @object_get_class(ptr noundef %60) #24
+  %62 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %61, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #24
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 429
+  %64 = load i8, ptr %63, align 1, !range !5, !noundef !6
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %virtio_irq.exit, label %virtio_device_disabled.exit.i.i, !prof !9
 
 virtio_device_disabled.exit.i.i:                  ; preds = %virtio_set_isr.exit.i
-  %65 = getelementptr inbounds nuw i8, ptr %55, i64 427
-  %66 = load i8, ptr %65, align 1, !range !5, !noundef !6
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %virtio_irq.exit, label %68
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 427
+  %67 = load i8, ptr %66, align 1, !range !5, !noundef !6
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %virtio_irq.exit, label %69
 
-68:                                               ; preds = %virtio_device_disabled.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 152
-  %70 = load ptr, ptr %69, align 8
-  %.not.i3.i = icmp eq ptr %70, null
-  br i1 %.not.i3.i, label %virtio_irq.exit, label %71
+69:                                               ; preds = %virtio_device_disabled.exit.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 152
+  %71 = load ptr, ptr %70, align 8
+  %.not.i3.i = icmp eq ptr %71, null
+  br i1 %.not.i3.i, label %virtio_irq.exit, label %72
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %73 = load ptr, ptr %72, align 8
-  tail call void %70(ptr noundef %73, i16 noundef zeroext %57) #24
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %74 = load ptr, ptr %73, align 8
+  tail call void %71(ptr noundef %74, i16 noundef zeroext %58) #24
   br label %virtio_irq.exit
 
-virtio_irq.exit:                                  ; preds = %30, %26, %24, %71, %68, %virtio_device_disabled.exit.i.i, %virtio_set_isr.exit.i
+virtio_irq.exit:                                  ; preds = %32, %28, %26, %72, %69, %virtio_device_disabled.exit.i.i, %virtio_set_isr.exit.i
   ret void
 }
 

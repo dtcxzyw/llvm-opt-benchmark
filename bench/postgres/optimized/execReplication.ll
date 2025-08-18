@@ -912,102 +912,101 @@ declare ptr @ExecInsertIndexTuples(ptr noundef, ptr noundef, ptr noundef, i1 nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CheckAndReportConflict(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-.critedge20:
-  %6 = alloca %struct.ItemPointerData, align 2
-  %7 = alloca %struct.TM_FailureData, align 4
-  %8 = alloca i16, align 2
-  %9 = alloca i64, align 8
-  %10 = alloca i32, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.not18 = icmp eq ptr %12, null
-  br i1 %.not18, label %.critedge, label %.lr.ph28
+  %7 = alloca %struct.ItemPointerData, align 2
+  %8 = alloca %struct.TM_FailureData, align 4
+  %9 = alloca i16, align 2
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %15 = load ptr, ptr %12, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %.split30.us, label %.lr.ph27
 
-.lr.ph28:                                         ; preds = %.critedge20
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %17 = load i32, ptr %13, align 4
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph37, label %.critedge
-
-.lr.ph37:                                         ; preds = %.lr.ph28, %47
-  %indvars.iv36 = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph28 ]
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv36
-  %21 = load i32, ptr %20, align 8
-  %22 = call zeroext i1 @list_member_oid(ptr noundef %3, i32 noundef %21) #5
-  br i1 %22, label %23, label %47
-
-.critedge:                                        ; preds = %47, %.lr.ph28, %.critedge20
+.split30.us:                                      ; preds = %49, %.lr.ph27, %6
   ret void
 
-23:                                               ; preds = %.lr.ph37
-  %24 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+.lr.ph27:                                         ; preds = %6
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load i32, ptr %17, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph38, label %.split30.us
+
+.lr.ph38:                                         ; preds = %.lr.ph27, %49
+  %indvars.iv37 = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph27 ]
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv37
+  %23 = load i32, ptr %22, align 8
+  %24 = call zeroext i1 @list_member_oid(ptr noundef %3, i32 noundef %23) #5
+  br i1 %24, label %25, label %49
+
+25:                                               ; preds = %.lr.ph38
+  %26 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.sroa.0.0.insert.ext.i = zext i32 %21 to i64
-  %25 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 320
-  %27 = call ptr @list_make1_impl(i32 noundef 471, ptr %25) #5
-  %28 = call zeroext i1 @ExecCheckIndexConstraints(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %27) #5
-  br i1 %28, label %FindConflictTuple.exit.thread, label %.lr.ph
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
+  %27 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 320
+  %29 = call ptr @list_make1_impl(i32 noundef 471, ptr %27) #5
+  %30 = call zeroext i1 @ExecCheckIndexConstraints(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %14, ptr noundef %29) #5
+  br i1 %30, label %FindConflictTuple.exit.thread, label %.lr.ph
 
-29:                                               ; preds = %.lr.ph
-  %30 = call ptr @list_make1_impl(i32 noundef 471, ptr %25) #5
-  %31 = call zeroext i1 @ExecCheckIndexConstraints(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %30) #5
-  br i1 %31, label %._crit_edge, label %.lr.ph
+31:                                               ; preds = %.lr.ph
+  %32 = call ptr @list_make1_impl(i32 noundef 471, ptr %27) #5
+  %33 = call zeroext i1 @ExecCheckIndexConstraints(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %14, ptr noundef %32) #5
+  br i1 %33, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %29
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %FindConflictTuple.exit.thread, label %32
+._crit_edge:                                      ; preds = %31
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %FindConflictTuple.exit.thread, label %34
 
-32:                                               ; preds = %._crit_edge
-  call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %33) #5
+34:                                               ; preds = %._crit_edge
+  call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %35) #5
   br label %FindConflictTuple.exit.thread
 
-.lr.ph:                                           ; preds = %23, %29
-  %33 = call ptr @table_slot_create(ptr noundef %24, ptr noundef null) #5
-  %34 = call ptr @GetLatestSnapshot() #5
-  call void @PushActiveSnapshot(ptr noundef %34) #5
-  %35 = call ptr @GetLatestSnapshot() #5
-  %36 = call i32 @GetCurrentCommandId(i1 noundef zeroext false) #5
-  %37 = load ptr, ptr %26, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 %39(ptr noundef %24, ptr noundef nonnull %6, ptr noundef %35, ptr noundef %33, i32 noundef %36, i32 noundef 1, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %7) #5
+.lr.ph:                                           ; preds = %25, %31
+  %35 = call ptr @table_slot_create(ptr noundef %26, ptr noundef null) #5
+  %36 = call ptr @GetLatestSnapshot() #5
+  call void @PushActiveSnapshot(ptr noundef %36) #5
+  %37 = call ptr @GetLatestSnapshot() #5
+  %38 = call i32 @GetCurrentCommandId(i1 noundef zeroext false) #5
+  %39 = load ptr, ptr %28, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 208
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i32 %41(ptr noundef %26, ptr noundef nonnull %7, ptr noundef %37, ptr noundef %35, i32 noundef %38, i32 noundef 1, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %8) #5
   call void @PopActiveSnapshot() #5
-  %41 = call fastcc zeroext i1 @should_refetch_tuple(i32 noundef %40, ptr noundef %7)
-  br i1 %41, label %29, label %42
+  %43 = call fastcc zeroext i1 @should_refetch_tuple(i32 noundef %42, ptr noundef %8)
+  br i1 %43, label %31, label %44
 
-FindConflictTuple.exit.thread:                    ; preds = %23, %._crit_edge, %32
+FindConflictTuple.exit.thread:                    ; preds = %25, %._crit_edge, %34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %47
+  br label %49
 
-42:                                               ; preds = %.lr.ph
+44:                                               ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %43 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %33, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  %44 = load i32, ptr %10, align 4
-  %45 = load i16, ptr %8, align 2
-  %46 = load i64, ptr %9, align 8
-  call void @ReportApplyConflict(ptr noundef %1, ptr noundef %0, i32 noundef 21, i32 noundef %2, ptr noundef %4, ptr noundef %33, ptr noundef nonnull %5, i32 noundef %21, i32 noundef %44, i16 noundef zeroext %45, i64 noundef %46) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %45 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %35, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10) #5
+  %46 = load i32, ptr %11, align 4
+  %47 = load i16, ptr %9, align 2
+  %48 = load i64, ptr %10, align 8
+  call void @ReportApplyConflict(ptr noundef %1, ptr noundef %0, i32 noundef 21, i32 noundef %2, ptr noundef %4, ptr noundef %35, ptr noundef nonnull %5, i32 noundef %23, i32 noundef %46, i16 noundef zeroext %47, i64 noundef %48) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %47
+  br label %49
 
-47:                                               ; preds = %FindConflictTuple.exit.thread, %42, %.lr.ph37
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv36, 1
-  %48 = load i32, ptr %13, align 4
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph37, label %.critedge
+49:                                               ; preds = %FindConflictTuple.exit.thread, %44, %.lr.ph38
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv37, 1
+  %50 = load i32, ptr %17, align 4
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph38, label %.split30.us
 }
 
 declare void @ExecARInsertTriggers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

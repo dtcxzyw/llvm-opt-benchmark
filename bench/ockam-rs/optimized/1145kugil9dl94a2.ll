@@ -70068,17 +70068,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit": ; preds = %3, %10
   %11 = phi i64 [ %5, %3 ], [ %.pre, %10 ]
-  br i1 %1, label %.critedge.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2936a3e9665b3362E.exit
+  br i1 %1, label %.lr.ph.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2936a3e9665b3362E.exit
 
-.critedge.i.i:                                    ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit"
+.lr.ph.i.i:                                       ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit"
   %12 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 %2, ptr %13, align 1, !noalias !16930
   %14 = add i64 %11, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2936a3e9665b3362E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17h2936a3e9665b3362E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit", %.critedge.i.i
-  %.val3.i.i = phi i64 [ %14, %.critedge.i.i ], [ %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit" ]
+_ZN4core4iter6traits8iterator8Iterator8for_each17h2936a3e9665b3362E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit", %.lr.ph.i.i
+  %.val3.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit" ]
   store i64 %.val3.i.i, ptr %4, align 8, !noalias !16939
   ret void
 }
@@ -94852,17 +94852,17 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i": ; preds = %10, %3
   %11 = phi i64 [ %5, %3 ], [ %.pre.i, %10 ]
-  br i1 %1, label %.critedge.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817a58daa2E.llvm.9060417697508566391.exit"
+  br i1 %1, label %.lr.ph.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817a58daa2E.llvm.9060417697508566391.exit"
 
-.critedge.i.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i"
+.lr.ph.i.i.i:                                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i"
   %12 = load ptr, ptr %0, align 8, !alias.scope !23320, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 %2, ptr %13, align 1, !noalias !23321
   %14 = add i64 %11, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817a58daa2E.llvm.9060417697508566391.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817a58daa2E.llvm.9060417697508566391.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i", %.critedge.i.i.i
-  %.val3.i.i.i = phi i64 [ %14, %.critedge.i.i.i ], [ %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6d2b19817a58daa2E.llvm.9060417697508566391.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i", %.lr.ph.i.i.i
+  %.val3.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i ], [ %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6314aa20ad99c06E.exit.i" ]
   store i64 %.val3.i.i.i, ptr %4, align 8, !alias.scope !23320, !noalias !23330
   ret void
 }

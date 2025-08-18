@@ -8073,32 +8073,31 @@ define range(i32 0, 2) i32 @If_CluCheckDecInAny(i64 noundef %0, i32 noundef %1) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define range(i32 0, 2) i32 @If_CluCheckDecIn(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = icmp sgt i32 %1, 1
-  br i1 %2, label %.lr.ph, label %._crit_edge
+  %3 = and i64 %0, 6148914691236517205
+  %4 = and i64 %0, -6148914691236517206
+  %5 = lshr exact i64 %4, 1
+  %6 = or disjoint i64 %5, %4
+  %7 = icmp sgt i32 %1, 1
+  %sext = mul i64 %3, 12884901888
+  %8 = ashr exact i64 %sext, 32
+  %sext34 = shl i64 %6, 32
+  %9 = ashr exact i64 %sext34, 32
+  br i1 %7, label %.lr.ph.us.preheader, label %.loopexit39
 
-.lr.ph:                                           ; preds = %.critedge
-  %3 = and i64 %0, -6148914691236517206
-  %4 = lshr exact i64 %3, 1
-  %5 = or disjoint i64 %4, %3
-  %6 = and i64 %0, 6148914691236517205
-  %sext = mul i64 %6, 12884901888
-  %7 = ashr exact i64 %sext, 32
-  %sext34 = shl i64 %5, 32
-  %8 = ashr exact i64 %sext34, 32
+.lr.ph.us.preheader:                              ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %10
+  br label %.lr.ph.us
 
-9:                                                ; preds = %39
+10:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !191
+  br i1 %exitcond.not, label %.loopexit39, label %.lr.ph.us, !llvm.loop !191
 
-10:                                               ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %9 ]
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %10
+  %indvars.iv = phi i64 [ 1, %.lr.ph.us.preheader ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !16
-  %13 = and i64 %12, %7
+  %13 = and i64 %12, %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %14
   %16 = zext nneg i32 %15 to i64
@@ -8107,68 +8106,67 @@ define range(i32 0, 2) i32 @If_CluCheckDecIn(i64 noundef %0, i32 noundef %1) loc
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !16
-  %22 = and i64 %21, %7
+  %22 = and i64 %21, %8
   %23 = lshr i64 %22, %16
   %24 = or i64 %23, %22
   %25 = trunc i64 %24 to i32
-  %26 = and i64 %12, %8
+  %26 = and i64 %12, %9
   %27 = shl i64 %26, %16
   %28 = or i64 %27, %26
   %29 = trunc i64 %28 to i32
-  %30 = and i64 %21, %8
+  %30 = and i64 %21, %9
   %31 = lshr i64 %30, %16
   %32 = or i64 %31, %30
   %33 = trunc i64 %32 to i32
   %34 = icmp eq i32 %19, %25
   %35 = icmp eq i32 %19, %29
-  %or.cond = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond, label %._crit_edge, label %36
+  %or.cond.us = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond.us, label %.loopexit39, label %36
 
-36:                                               ; preds = %10
+36:                                               ; preds = %.lr.ph.us
   %37 = icmp eq i32 %19, %33
   %38 = or i1 %35, %34
-  %or.cond38 = select i1 %38, i1 %37, i1 false
-  br i1 %or.cond38, label %._crit_edge, label %39
+  %or.cond38.us = select i1 %38, i1 %37, i1 false
+  br i1 %or.cond38.us, label %.loopexit39, label %39
 
 39:                                               ; preds = %36
   %40 = icmp eq i32 %25, %29
   %41 = icmp eq i32 %25, %33
-  %or.cond37 = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond37, label %._crit_edge, label %9
+  %or.cond37.us = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond37.us, label %.loopexit39, label %10
 
-._crit_edge:                                      ; preds = %10, %36, %39, %9, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %9 ], [ 1, %39 ], [ 1, %36 ], [ 1, %10 ]
+.loopexit39:                                      ; preds = %10, %39, %36, %.lr.ph.us, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %.lr.ph.us ], [ 1, %36 ], [ 1, %39 ], [ 0, %10 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define range(i32 0, 2) i32 @If_CluCheckDecInU(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = icmp sgt i32 %1, 1
-  br i1 %2, label %.lr.ph, label %._crit_edge
+  %3 = and i64 %0, 6148914691236517205
+  %4 = and i64 %0, -6148914691236517206
+  %5 = lshr exact i64 %4, 1
+  %6 = or disjoint i64 %5, %4
+  %7 = icmp sgt i32 %1, 1
+  %sext = mul i64 %3, 12884901888
+  %8 = ashr exact i64 %sext, 32
+  %sext25 = shl i64 %6, 32
+  %9 = ashr exact i64 %sext25, 32
+  br i1 %7, label %.lr.ph.us.preheader, label %.loopexit28
 
-.lr.ph:                                           ; preds = %.critedge
-  %3 = and i64 %0, -6148914691236517206
-  %4 = lshr exact i64 %3, 1
-  %5 = or disjoint i64 %4, %3
-  %6 = and i64 %0, 6148914691236517205
-  %sext = mul i64 %6, 12884901888
-  %7 = ashr exact i64 %sext, 32
-  %sext25 = shl i64 %5, 32
-  %8 = ashr exact i64 %sext25, 32
+.lr.ph.us.preheader:                              ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %10
+  br label %.lr.ph.us
 
-9:                                                ; preds = %10
+10:                                               ; preds = %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !192
+  br i1 %exitcond.not, label %.loopexit28, label %.lr.ph.us, !llvm.loop !192
 
-10:                                               ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %9 ]
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %10
+  %indvars.iv = phi i64 [ 1, %.lr.ph.us.preheader ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !16
-  %13 = and i64 %12, %7
+  %13 = and i64 %12, %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %14
   %16 = zext nneg i32 %15 to i64
@@ -8177,15 +8175,15 @@ define range(i32 0, 2) i32 @If_CluCheckDecInU(i64 noundef %0, i32 noundef %1) lo
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !16
-  %22 = and i64 %21, %7
+  %22 = and i64 %21, %8
   %23 = lshr i64 %22, %16
   %24 = or i64 %23, %22
   %25 = trunc i64 %24 to i32
-  %26 = and i64 %12, %8
+  %26 = and i64 %12, %9
   %27 = shl i64 %26, %16
   %28 = or i64 %27, %26
   %29 = trunc i64 %28 to i32
-  %30 = and i64 %21, %8
+  %30 = and i64 %21, %9
   %31 = lshr i64 %30, %16
   %32 = or i64 %31, %30
   %33 = trunc i64 %32 to i32
@@ -8193,11 +8191,11 @@ define range(i32 0, 2) i32 @If_CluCheckDecInU(i64 noundef %0, i32 noundef %1) lo
   %35 = icmp eq i32 %19, %29
   %36 = icmp eq i32 %19, %33
   %37 = select i1 %34, i1 true, i1 %36
-  %or.cond27 = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond27, label %._crit_edge, label %9
+  %or.cond27.us = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond27.us, label %.loopexit28, label %10
 
-._crit_edge:                                      ; preds = %10, %9, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %9 ], [ 1, %10 ]
+.loopexit28:                                      ; preds = %10, %.lr.ph.us, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %.lr.ph.us ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -8461,119 +8459,119 @@ If_CluAdjust.exit:                                ; preds = %11, %15
   br i1 %.not, label %If_CluCheckDecIn.exit, label %45
 
 45:                                               ; preds = %40
-  %46 = and i64 %.035.i, -6148914691236517206
-  %47 = lshr exact i64 %46, 1
-  %48 = or disjoint i64 %47, %46
-  %49 = and i64 %.035.i, 6148914691236517205
-  %sext.i = mul i64 %49, 12884901888
+  %46 = and i64 %.035.i, 6148914691236517205
+  %47 = and i64 %.035.i, -6148914691236517206
+  %48 = lshr exact i64 %47, 1
+  %49 = or disjoint i64 %48, %47
+  %sext.i = mul i64 %46, 12884901888
   %50 = ashr exact i64 %sext.i, 32
-  %sext34.i = shl i64 %48, 32
+  %sext34.i = shl i64 %49, 32
   %51 = ashr exact i64 %sext34.i, 32
-  br label %53
+  br label %.lr.ph.us.i
 
-52:                                               ; preds = %82
+52:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %If_CluCheckDecIn.exit, label %53, !llvm.loop !191
+  br i1 %exitcond.not.i, label %If_CluCheckDecIn.exit, label %.lr.ph.us.i, !llvm.loop !191
 
-53:                                               ; preds = %52, %45
+.lr.ph.us.i:                                      ; preds = %52, %45
   %indvars.iv.i = phi i64 [ 1, %45 ], [ %indvars.iv.next.i, %52 ]
-  %54 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
-  %55 = load i64, ptr %54, align 8, !tbaa !16
-  %56 = and i64 %55, %50
-  %57 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %58 = shl nuw i32 1, %57
-  %59 = zext nneg i32 %58 to i64
-  %60 = shl i64 %56, %59
-  %61 = or i64 %60, %56
-  %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
-  %64 = load i64, ptr %63, align 8, !tbaa !16
-  %65 = and i64 %64, %50
-  %66 = lshr i64 %65, %59
-  %67 = or i64 %66, %65
-  %68 = trunc i64 %67 to i32
-  %69 = and i64 %55, %51
-  %70 = shl i64 %69, %59
-  %71 = or i64 %70, %69
-  %72 = trunc i64 %71 to i32
-  %73 = and i64 %64, %51
-  %74 = lshr i64 %73, %59
-  %75 = or i64 %74, %73
-  %76 = trunc i64 %75 to i32
-  %77 = icmp eq i32 %62, %68
-  %78 = icmp eq i32 %62, %72
-  %or.cond.i = select i1 %77, i1 %78, i1 false
-  br i1 %or.cond.i, label %If_CluCheckDecInU.exit, label %79
+  %53 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
+  %54 = load i64, ptr %53, align 8, !tbaa !16
+  %55 = and i64 %54, %50
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %57 = shl nuw i32 1, %56
+  %58 = zext nneg i32 %57 to i64
+  %59 = shl i64 %55, %58
+  %60 = or i64 %59, %55
+  %61 = trunc i64 %60 to i32
+  %62 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
+  %63 = load i64, ptr %62, align 8, !tbaa !16
+  %64 = and i64 %63, %50
+  %65 = lshr i64 %64, %58
+  %66 = or i64 %65, %64
+  %67 = trunc i64 %66 to i32
+  %68 = and i64 %54, %51
+  %69 = shl i64 %68, %58
+  %70 = or i64 %69, %68
+  %71 = trunc i64 %70 to i32
+  %72 = and i64 %63, %51
+  %73 = lshr i64 %72, %58
+  %74 = or i64 %73, %72
+  %75 = trunc i64 %74 to i32
+  %76 = icmp eq i32 %61, %67
+  %77 = icmp eq i32 %61, %71
+  %or.cond.us.i = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond.us.i, label %If_CluCheckDecInU.exit, label %78
 
-79:                                               ; preds = %53
-  %80 = icmp eq i32 %62, %76
-  %81 = or i1 %78, %77
-  %or.cond38.i = select i1 %81, i1 %80, i1 false
-  br i1 %or.cond38.i, label %If_CluCheckDecInU.exit, label %82
+78:                                               ; preds = %.lr.ph.us.i
+  %79 = icmp eq i32 %61, %75
+  %80 = or i1 %77, %76
+  %or.cond38.us.i = select i1 %80, i1 %79, i1 false
+  br i1 %or.cond38.us.i, label %If_CluCheckDecInU.exit, label %81
 
-82:                                               ; preds = %79
-  %83 = icmp eq i32 %68, %72
-  %84 = icmp eq i32 %68, %76
-  %or.cond37.i = select i1 %83, i1 %84, i1 false
-  br i1 %or.cond37.i, label %If_CluCheckDecInU.exit, label %52
+81:                                               ; preds = %78
+  %82 = icmp eq i32 %67, %71
+  %83 = icmp eq i32 %67, %75
+  %or.cond37.us.i = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond37.us.i, label %If_CluCheckDecInU.exit, label %52
 
 If_CluCheckDecIn.exit:                            ; preds = %52, %40
-  %85 = getelementptr inbounds nuw i8, ptr %42, i64 140
-  %86 = load i32, ptr %85, align 4, !tbaa !196
-  %.not8 = icmp eq i32 %86, 0
-  br i1 %.not8, label %If_CluCheckDecInU.exit, label %87
+  %84 = getelementptr inbounds nuw i8, ptr %42, i64 140
+  %85 = load i32, ptr %84, align 4, !tbaa !196
+  %.not8 = icmp eq i32 %85, 0
+  br i1 %.not8, label %If_CluCheckDecInU.exit, label %86
 
-87:                                               ; preds = %If_CluCheckDecIn.exit
+86:                                               ; preds = %If_CluCheckDecIn.exit
+  %87 = and i64 %.035.i, 6148914691236517205
   %88 = and i64 %.035.i, -6148914691236517206
   %89 = lshr exact i64 %88, 1
   %90 = or disjoint i64 %89, %88
-  %91 = and i64 %.035.i, 6148914691236517205
-  %sext.i19 = mul i64 %91, 12884901888
-  %92 = ashr exact i64 %sext.i19, 32
+  %sext.i19 = mul i64 %87, 12884901888
+  %91 = ashr exact i64 %sext.i19, 32
   %sext25.i = shl i64 %90, 32
-  %93 = ashr exact i64 %sext25.i, 32
-  br label %95
+  %92 = ashr exact i64 %sext25.i, 32
+  br label %.lr.ph.us.i20
 
-94:                                               ; preds = %95
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 5
-  br i1 %exitcond.not.i22, label %If_CluCheckDecInU.exit, label %95, !llvm.loop !192
+93:                                               ; preds = %.lr.ph.us.i20
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 5
+  br i1 %exitcond.not.i23, label %If_CluCheckDecInU.exit, label %.lr.ph.us.i20, !llvm.loop !192
 
-95:                                               ; preds = %94, %87
-  %indvars.iv.i20 = phi i64 [ 1, %87 ], [ %indvars.iv.next.i21, %94 ]
-  %96 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i20
-  %97 = load i64, ptr %96, align 8, !tbaa !16
-  %98 = and i64 %97, %92
-  %99 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %100 = shl nuw i32 1, %99
-  %101 = zext nneg i32 %100 to i64
-  %102 = shl i64 %98, %101
-  %103 = or i64 %102, %98
-  %104 = trunc i64 %103 to i32
-  %105 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i20
-  %106 = load i64, ptr %105, align 8, !tbaa !16
-  %107 = and i64 %106, %92
-  %108 = lshr i64 %107, %101
-  %109 = or i64 %108, %107
-  %110 = trunc i64 %109 to i32
-  %111 = and i64 %97, %93
-  %112 = shl i64 %111, %101
-  %113 = or i64 %112, %111
-  %114 = trunc i64 %113 to i32
-  %115 = and i64 %106, %93
-  %116 = lshr i64 %115, %101
-  %117 = or i64 %116, %115
-  %118 = trunc i64 %117 to i32
-  %119 = icmp eq i32 %104, %110
-  %120 = icmp eq i32 %104, %114
-  %121 = icmp eq i32 %104, %118
-  %122 = select i1 %119, i1 true, i1 %121
-  %or.cond27.i = select i1 %120, i1 %122, i1 false
-  br i1 %or.cond27.i, label %If_CluCheckDecInU.exit, label %94
+.lr.ph.us.i20:                                    ; preds = %93, %86
+  %indvars.iv.i21 = phi i64 [ 1, %86 ], [ %indvars.iv.next.i22, %93 ]
+  %94 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i21
+  %95 = load i64, ptr %94, align 8, !tbaa !16
+  %96 = and i64 %95, %91
+  %97 = trunc nuw nsw i64 %indvars.iv.i21 to i32
+  %98 = shl nuw i32 1, %97
+  %99 = zext nneg i32 %98 to i64
+  %100 = shl i64 %96, %99
+  %101 = or i64 %100, %96
+  %102 = trunc i64 %101 to i32
+  %103 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i21
+  %104 = load i64, ptr %103, align 8, !tbaa !16
+  %105 = and i64 %104, %91
+  %106 = lshr i64 %105, %99
+  %107 = or i64 %106, %105
+  %108 = trunc i64 %107 to i32
+  %109 = and i64 %95, %92
+  %110 = shl i64 %109, %99
+  %111 = or i64 %110, %109
+  %112 = trunc i64 %111 to i32
+  %113 = and i64 %104, %92
+  %114 = lshr i64 %113, %99
+  %115 = or i64 %114, %113
+  %116 = trunc i64 %115 to i32
+  %117 = icmp eq i32 %102, %108
+  %118 = icmp eq i32 %102, %112
+  %119 = icmp eq i32 %102, %116
+  %120 = select i1 %117, i1 true, i1 %119
+  %or.cond27.us.i = select i1 %118, i1 %120, i1 false
+  br i1 %or.cond27.us.i, label %If_CluCheckDecInU.exit, label %93
 
-If_CluCheckDecInU.exit:                           ; preds = %53, %79, %82, %94, %95, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %94 ], [ 1, %95 ], [ 1, %82 ], [ 1, %79 ], [ 1, %53 ]
+If_CluCheckDecInU.exit:                           ; preds = %81, %78, %.lr.ph.us.i, %93, %.lr.ph.us.i20, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %93 ], [ 1, %.lr.ph.us.i20 ], [ 1, %.lr.ph.us.i ], [ 1, %78 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

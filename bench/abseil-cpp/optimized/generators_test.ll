@@ -16311,97 +16311,97 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   br label %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
 
 _ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i: ; preds = %20, %19, %4
-  %21 = load i64, ptr %10, align 8, !tbaa !274
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %10, align 8, !tbaa !274
-  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %21
-  %24 = load i64, ptr %23, align 8, !tbaa !20
-  %25 = icmp ugt i64 %22, 31
-  br i1 %25, label %26, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+  %.pn15.i.i = load i64, ptr %10, align 8, !tbaa !274
+  %storemerge16.i.i = add i64 %.pn15.i.i, 1
+  store i64 %storemerge16.i.i, ptr %10, align 8, !tbaa !274
+  %.sroa.012.0.in17.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %.pn15.i.i
+  %.sroa.012.018.i.i = load i64, ptr %.sroa.012.0.in17.i.i, align 8, !tbaa !20
+  %21 = icmp ugt i64 %storemerge16.i.i, 31
+  br i1 %21, label %22, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-26:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
+22:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i64 2, ptr %10, align 8, !tbaa !274
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %29 = load i8, ptr %28, align 8, !tbaa !281, !range !282, !noundef !283
-  %30 = trunc nuw i8 %29 to i1
-  %31 = load ptr, ptr %27, align 8, !tbaa !284
-  br i1 %30, label %32, label %33
+  %25 = load i8, ptr %23, align 8, !tbaa !281, !range !282, !noundef !283
+  %26 = trunc nuw i8 %25 to i1
+  %27 = load ptr, ptr %24, align 8, !tbaa !284
+  br i1 %26, label %28, label %29
 
-32:                                               ; preds = %26
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %31, ptr noundef nonnull %9)
+28:                                               ; preds = %22
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %9)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-33:                                               ; preds = %26
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %31, ptr noundef nonnull %9)
+29:                                               ; preds = %22
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %9)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i, %32, %33
-  %34 = load i64, ptr %10, align 8, !tbaa !274
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %10, align 8, !tbaa !274
-  %36 = getelementptr inbounds nuw i64, ptr %9, i64 %34
-  %37 = load i64, ptr %36, align 8, !tbaa !20
+_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i, %28, %29
+  %.pn.i.i = load i64, ptr %10, align 8, !tbaa !274
+  %storemerge.i.i = add i64 %.pn.i.i, 1
+  store i64 %storemerge.i.i, ptr %10, align 8, !tbaa !274
+  %.sroa.012.0.in.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %.pn.i.i
+  %.sroa.012.0.i.i = load i64, ptr %.sroa.012.0.in.i.i, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i = zext i64 %3 to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
   %.sroa.03.0.insert.ext.i = zext i64 %2 to i128
   %.sroa.01.0.insert.insert.i = or disjoint i128 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
   %.sroa.03.0.insert.insert.i = add i128 %.sroa.01.0.insert.insert.i, 1
   %.sroa.0.0.extract.trunc.i = trunc i128 %.sroa.03.0.insert.insert.i to i64
-  %38 = lshr i128 %.sroa.03.0.insert.insert.i, 64
-  %.tr.i = trunc nuw i128 %38 to i64
+  %30 = lshr i128 %.sroa.03.0.insert.insert.i, 64
+  %.tr.i = trunc nuw i128 %30 to i64
   %.sroa.0.0.extract.trunc.i71 = and i64 %2, %.sroa.0.0.extract.trunc.i
   %.sroa.2.0.extract.shift.i = and i128 %.sroa.03.0.insert.insert.i, %.sroa.24.0.insert.shift.i
   %.sroa.01.0.insert.ext.i76 = zext i64 %.sroa.0.0.extract.trunc.i71 to i128
   %.sroa.01.0.insert.insert.i77 = or disjoint i128 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.ext.i76
-  %39 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
-  %.sroa.03.0.insert.ext.i80 = zext i64 %37 to i128
-  br i1 %39, label %40, label %42
+  %31 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
+  %.sroa.03.0.insert.ext.i80 = zext i64 %.sroa.012.0.i.i to i128
+  br i1 %31, label %32, label %34
 
-40:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
-  %.sroa.24.0.insert.ext.i78 = zext i64 %24 to i128
+32:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+  %.sroa.24.0.insert.ext.i78 = zext i64 %.sroa.012.018.i.i to i128
   %.sroa.24.0.insert.shift.i79 = shl nuw i128 %.sroa.24.0.insert.ext.i78, 64
   %.sroa.03.0.insert.insert.i81 = or disjoint i128 %.sroa.24.0.insert.shift.i79, %.sroa.03.0.insert.ext.i80
-  %41 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
-  %.sroa.0.0.extract.trunc.i86 = trunc i128 %41 to i64
-  %.sroa.2.0.extract.shift.i87 = lshr i128 %41, 64
+  %33 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
+  %.sroa.0.0.extract.trunc.i86 = trunc i128 %33 to i64
+  %.sroa.2.0.extract.shift.i87 = lshr i128 %33, 64
   %.sroa.2.0.extract.trunc.i88 = trunc nuw i128 %.sroa.2.0.extract.shift.i87 to i64
   br label %.loopexit
 
-42:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+34:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
   %.sroa.01.0.insert.ext.i69 = and i128 %.sroa.03.0.insert.insert.i, 18446744073709551615
-  %.sroa.22.0.insert.ext.i.i.i = zext i64 %24 to i128
-  %43 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %43, 64
-  %44 = mul nuw i128 %38, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %44, 64
-  %45 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %45, 64
-  %46 = mul nuw i128 %38, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.01.0.insert.ext.i132.i.i = and i128 %44, 18446744073709551615
-  %.sroa.01.0.insert.ext.i141.i.i = and i128 %45, 18446744073709551615
+  %.sroa.22.0.insert.ext.i.i.i = zext i64 %.sroa.012.018.i.i to i128
+  %35 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %35, 64
+  %36 = mul nuw i128 %30, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %36, 64
+  %37 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %37, 64
+  %38 = mul nuw i128 %30, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.01.0.insert.ext.i132.i.i = and i128 %36, 18446744073709551615
+  %.sroa.01.0.insert.ext.i141.i.i = and i128 %37, 18446744073709551615
   %.sroa.03.0.insert.insert.i134.i.i = add nuw nsw i128 %.sroa.2.0.extract.shift.i77.i.i, %.sroa.01.0.insert.ext.i141.i.i
   %.sroa.03.0.insert.insert.i143.i.i = add nuw nsw i128 %.sroa.03.0.insert.insert.i134.i.i, %.sroa.01.0.insert.ext.i132.i.i
-  %47 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
-  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %46
+  %39 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
+  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %38
   %.sroa.03.0.insert.insert.i192.i.i = add nuw i128 %.sroa.03.0.insert.insert.i172.i.i, %.sroa.2.0.extract.shift.i90.i.i
-  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %47
+  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %39
   %.sroa.0.0.extract.trunc.i204.i.i = trunc i128 %.sroa.03.0.insert.insert.i203.i.i to i64
-  %48 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
-  %.tr.i205.i.i = trunc nuw i128 %48 to i64
-  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %44 to i64
+  %40 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
+  %.tr.i205.i.i = trunc nuw i128 %40 to i64
+  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %36 to i64
   %.tr.i225.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i77.i.i to i64
-  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %45 to i64
+  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %37 to i64
   %.narrow.i226.i.i = add i64 %.sroa.2.0.extract.trunc.i215.i.i, %.sroa.2.0.extract.trunc.i235.i.i
   %.narrow.i246.i.i = add i64 %.narrow.i226.i.i, %.tr.i225.i.i
   %.sroa.22.0.insert.ext.i93 = zext i64 %.narrow.i246.i.i to i128
   %.sroa.22.0.insert.shift.i94 = shl nuw i128 %.sroa.22.0.insert.ext.i93, 64
-  %.sroa.01.0.insert.ext.i95 = and i128 %43, 18446744073709551615
+  %.sroa.01.0.insert.ext.i95 = and i128 %35, 18446744073709551615
   %.sroa.01.0.insert.insert.i96 = or disjoint i128 %.sroa.22.0.insert.shift.i94, %.sroa.01.0.insert.ext.i95
-  %49 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
-  br i1 %49, label %50, label %.loopexit, !prof !25
+  %41 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
+  br i1 %41, label %42, label %.loopexit, !prof !25
 
-50:                                               ; preds = %42
+42:                                               ; preds = %34
   %.sroa.03.0.insert.insert.i105 = sub i64 -2, %2
   %.narrow.i108 = xor i64 %.tr.i, -1
   %.sroa.24.0.insert.ext.i111 = zext i64 %.narrow.i108 to i128
@@ -16409,22 +16409,22 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.03.0.insert.ext.i113 = zext i64 %.sroa.03.0.insert.insert.i105 to i128
   %.sroa.01.0.insert.insert.i115 = add nuw nsw i128 %.sroa.03.0.insert.ext.i113, 1
   %.sroa.03.0.insert.insert.i116 = add i128 %.sroa.01.0.insert.insert.i115, %.sroa.24.0.insert.shift.i112
-  %51 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
-  %52 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %51
-  br i1 %52, label %.lr.ph, label %.loopexit
+  %43 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
+  %44 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %43
+  br i1 %44, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %50
+.lr.ph:                                           ; preds = %42
   %.sroa.7.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.9.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  br label %53
+  br label %45
 
-53:                                               ; preds = %.lr.ph, %53
-  %54 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
-  %55 = extractvalue { i64, i64 } %54, 0
-  %56 = extractvalue { i64, i64 } %54, 1
+45:                                               ; preds = %.lr.ph, %45
+  %46 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %55, i64 %56, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
+  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %47, i64 %48, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
@@ -16434,12 +16434,12 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
   %.sroa.01.0.insert.insert.i143 = or disjoint i128 %.sroa.22.0.insert.shift.i141, %.sroa.01.0.insert.ext.i142
-  %57 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %51
-  br i1 %57, label %53, label %.loopexit, !llvm.loop !361
+  %49 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %43
+  br i1 %49, label %45, label %.loopexit, !llvm.loop !361
 
-.loopexit:                                        ; preds = %53, %50, %42, %40
-  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %40 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %42 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %50 ], [ %.sroa.0153.0.copyload155, %53 ]
-  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %40 ], [ %.tr.i205.i.i, %42 ], [ %.tr.i205.i.i, %50 ], [ %.sroa.7.0.copyload160, %53 ]
+.loopexit:                                        ; preds = %45, %42, %34, %32
+  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %32 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %34 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %42 ], [ %.sroa.0153.0.copyload155, %45 ]
+  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %32 ], [ %.tr.i205.i.i, %34 ], [ %.tr.i205.i.i, %42 ], [ %.sroa.7.0.copyload160, %45 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -16474,40 +16474,40 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUnifo
   br label %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i
 
 _ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i: ; preds = %16, %15, %2
-  %17 = load i64, ptr %6, align 8, !tbaa !274
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %6, align 8, !tbaa !274
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
-  %20 = load i64, ptr %19, align 8, !tbaa !20
-  %21 = icmp ugt i64 %18, 31
-  br i1 %21, label %22, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit
+  %.pn15.i = load i64, ptr %6, align 8, !tbaa !274
+  %storemerge16.i = add i64 %.pn15.i, 1
+  store i64 %storemerge16.i, ptr %6, align 8, !tbaa !274
+  %.sroa.012.0.in17.i = getelementptr inbounds nuw i64, ptr %5, i64 %.pn15.i
+  %.sroa.012.018.i = load i64, ptr %.sroa.012.0.in17.i, align 8, !tbaa !20
+  %17 = icmp ugt i64 %storemerge16.i, 31
+  br i1 %17, label %18, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-22:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i
+18:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i64 2, ptr %6, align 8, !tbaa !274
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %25 = load i8, ptr %24, align 8, !tbaa !281, !range !282, !noundef !283
-  %26 = trunc nuw i8 %25 to i1
-  %27 = load ptr, ptr %23, align 8, !tbaa !284
-  br i1 %26, label %28, label %29
+  %21 = load i8, ptr %19, align 8, !tbaa !281, !range !282, !noundef !283
+  %22 = trunc nuw i8 %21 to i1
+  %23 = load ptr, ptr %20, align 8, !tbaa !284
+  br i1 %22, label %24, label %25
 
-28:                                               ; preds = %22
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %5)
+24:                                               ; preds = %18
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %5)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-29:                                               ; preds = %22
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %5)
+25:                                               ; preds = %18
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %5)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i, %28, %29
-  %30 = load i64, ptr %6, align 8, !tbaa !274
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %6, align 8, !tbaa !274
-  %32 = getelementptr inbounds nuw i64, ptr %5, i64 %30
-  %33 = load i64, ptr %32, align 8, !tbaa !20
-  %.fca.0.insert.i10.i = insertvalue { i64, i64 } poison, i64 %33, 0
-  %.fca.1.insert.i11.i = insertvalue { i64, i64 } %.fca.0.insert.i10.i, i64 %20, 1
-  ret { i64, i64 } %.fca.1.insert.i11.i
+_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_NS0_17SimplifiedLoopTagE.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i, %24, %25
+  %.pn.i = load i64, ptr %6, align 8, !tbaa !274
+  %storemerge.i = add i64 %.pn.i, 1
+  store i64 %storemerge.i, ptr %6, align 8, !tbaa !274
+  %.sroa.012.0.in.i = getelementptr inbounds nuw i64, ptr %5, i64 %.pn.i
+  %.sroa.012.0.i = load i64, ptr %.sroa.012.0.in.i, align 8, !tbaa !20
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.012.0.i, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.012.018.i, 1
+  ret { i64, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16867,97 +16867,97 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   br label %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
 
 _ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i: ; preds = %20, %19, %4
-  %21 = load i64, ptr %10, align 8, !tbaa !274
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %10, align 8, !tbaa !274
-  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %21
-  %24 = load i64, ptr %23, align 8, !tbaa !20
-  %25 = icmp ugt i64 %22, 31
-  br i1 %25, label %26, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+  %.pn15.i.i = load i64, ptr %10, align 8, !tbaa !274
+  %storemerge16.i.i = add i64 %.pn15.i.i, 1
+  store i64 %storemerge16.i.i, ptr %10, align 8, !tbaa !274
+  %.sroa.012.0.in17.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %.pn15.i.i
+  %.sroa.012.018.i.i = load i64, ptr %.sroa.012.0.in17.i.i, align 8, !tbaa !20
+  %21 = icmp ugt i64 %storemerge16.i.i, 31
+  br i1 %21, label %22, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-26:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
+22:                                               ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i64 2, ptr %10, align 8, !tbaa !274
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %29 = load i8, ptr %28, align 8, !tbaa !281, !range !282, !noundef !283
-  %30 = trunc nuw i8 %29 to i1
-  %31 = load ptr, ptr %27, align 8, !tbaa !284
-  br i1 %30, label %32, label %33
+  %25 = load i8, ptr %23, align 8, !tbaa !281, !range !282, !noundef !283
+  %26 = trunc nuw i8 %25 to i1
+  %27 = load ptr, ptr %24, align 8, !tbaa !284
+  br i1 %26, label %28, label %29
 
-32:                                               ; preds = %26
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %31, ptr noundef nonnull %9)
+28:                                               ; preds = %22
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %9)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-33:                                               ; preds = %26
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %31, ptr noundef nonnull %9)
+29:                                               ; preds = %22
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %9)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
 
-_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i, %32, %33
-  %34 = load i64, ptr %10, align 8, !tbaa !274
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %10, align 8, !tbaa !274
-  %36 = getelementptr inbounds nuw i64, ptr %9, i64 %34
-  %37 = load i64, ptr %36, align 8, !tbaa !20
+_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit: ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i, %28, %29
+  %.pn.i.i = load i64, ptr %10, align 8, !tbaa !274
+  %storemerge.i.i = add i64 %.pn.i.i, 1
+  store i64 %storemerge.i.i, ptr %10, align 8, !tbaa !274
+  %.sroa.012.0.in.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %.pn.i.i
+  %.sroa.012.0.i.i = load i64, ptr %.sroa.012.0.in.i.i, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i = zext i64 %3 to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
   %.sroa.03.0.insert.ext.i = zext i64 %2 to i128
   %.sroa.01.0.insert.insert.i = or disjoint i128 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
   %.sroa.03.0.insert.insert.i = add i128 %.sroa.01.0.insert.insert.i, 1
   %.sroa.0.0.extract.trunc.i = trunc i128 %.sroa.03.0.insert.insert.i to i64
-  %38 = lshr i128 %.sroa.03.0.insert.insert.i, 64
-  %.tr.i = trunc nuw i128 %38 to i64
+  %30 = lshr i128 %.sroa.03.0.insert.insert.i, 64
+  %.tr.i = trunc nuw i128 %30 to i64
   %.sroa.0.0.extract.trunc.i71 = and i64 %2, %.sroa.0.0.extract.trunc.i
   %.sroa.2.0.extract.shift.i = and i128 %.sroa.03.0.insert.insert.i, %.sroa.24.0.insert.shift.i
   %.sroa.01.0.insert.ext.i76 = zext i64 %.sroa.0.0.extract.trunc.i71 to i128
   %.sroa.01.0.insert.insert.i77 = or disjoint i128 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.ext.i76
-  %39 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
-  %.sroa.03.0.insert.ext.i80 = zext i64 %37 to i128
-  br i1 %39, label %40, label %42
+  %31 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
+  %.sroa.03.0.insert.ext.i80 = zext i64 %.sroa.012.0.i.i to i128
+  br i1 %31, label %32, label %34
 
-40:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
-  %.sroa.24.0.insert.ext.i78 = zext i64 %24 to i128
+32:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+  %.sroa.24.0.insert.ext.i78 = zext i64 %.sroa.012.018.i.i to i128
   %.sroa.24.0.insert.shift.i79 = shl nuw i128 %.sroa.24.0.insert.ext.i78, 64
   %.sroa.03.0.insert.insert.i81 = or disjoint i128 %.sroa.24.0.insert.shift.i79, %.sroa.03.0.insert.ext.i80
-  %41 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
-  %.sroa.0.0.extract.trunc.i86 = trunc i128 %41 to i64
-  %.sroa.2.0.extract.shift.i87 = lshr i128 %41, 64
+  %33 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
+  %.sroa.0.0.extract.trunc.i86 = trunc i128 %33 to i64
+  %.sroa.2.0.extract.shift.i87 = lshr i128 %33, 64
   %.sroa.2.0.extract.trunc.i88 = trunc nuw i128 %.sroa.2.0.extract.shift.i87 to i64
   br label %.loopexit
 
-42:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
+34:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_.exit
   %.sroa.01.0.insert.ext.i69 = and i128 %.sroa.03.0.insert.insert.i, 18446744073709551615
-  %.sroa.22.0.insert.ext.i.i.i = zext i64 %24 to i128
-  %43 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %43, 64
-  %44 = mul nuw i128 %38, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %44, 64
-  %45 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %45, 64
-  %46 = mul nuw i128 %38, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.01.0.insert.ext.i132.i.i = and i128 %44, 18446744073709551615
-  %.sroa.01.0.insert.ext.i141.i.i = and i128 %45, 18446744073709551615
+  %.sroa.22.0.insert.ext.i.i.i = zext i64 %.sroa.012.018.i.i to i128
+  %35 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %35, 64
+  %36 = mul nuw i128 %30, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %36, 64
+  %37 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %37, 64
+  %38 = mul nuw i128 %30, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.01.0.insert.ext.i132.i.i = and i128 %36, 18446744073709551615
+  %.sroa.01.0.insert.ext.i141.i.i = and i128 %37, 18446744073709551615
   %.sroa.03.0.insert.insert.i134.i.i = add nuw nsw i128 %.sroa.2.0.extract.shift.i77.i.i, %.sroa.01.0.insert.ext.i141.i.i
   %.sroa.03.0.insert.insert.i143.i.i = add nuw nsw i128 %.sroa.03.0.insert.insert.i134.i.i, %.sroa.01.0.insert.ext.i132.i.i
-  %47 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
-  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %46
+  %39 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
+  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %38
   %.sroa.03.0.insert.insert.i192.i.i = add nuw i128 %.sroa.03.0.insert.insert.i172.i.i, %.sroa.2.0.extract.shift.i90.i.i
-  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %47
+  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %39
   %.sroa.0.0.extract.trunc.i204.i.i = trunc i128 %.sroa.03.0.insert.insert.i203.i.i to i64
-  %48 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
-  %.tr.i205.i.i = trunc nuw i128 %48 to i64
-  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %44 to i64
+  %40 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
+  %.tr.i205.i.i = trunc nuw i128 %40 to i64
+  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %36 to i64
   %.tr.i225.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i77.i.i to i64
-  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %45 to i64
+  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %37 to i64
   %.narrow.i226.i.i = add i64 %.sroa.2.0.extract.trunc.i215.i.i, %.sroa.2.0.extract.trunc.i235.i.i
   %.narrow.i246.i.i = add i64 %.narrow.i226.i.i, %.tr.i225.i.i
   %.sroa.22.0.insert.ext.i93 = zext i64 %.narrow.i246.i.i to i128
   %.sroa.22.0.insert.shift.i94 = shl nuw i128 %.sroa.22.0.insert.ext.i93, 64
-  %.sroa.01.0.insert.ext.i95 = and i128 %43, 18446744073709551615
+  %.sroa.01.0.insert.ext.i95 = and i128 %35, 18446744073709551615
   %.sroa.01.0.insert.insert.i96 = or disjoint i128 %.sroa.22.0.insert.shift.i94, %.sroa.01.0.insert.ext.i95
-  %49 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
-  br i1 %49, label %50, label %.loopexit, !prof !25
+  %41 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
+  br i1 %41, label %42, label %.loopexit, !prof !25
 
-50:                                               ; preds = %42
+42:                                               ; preds = %34
   %.sroa.03.0.insert.insert.i105 = sub i64 -2, %2
   %.narrow.i108 = xor i64 %.tr.i, -1
   %.sroa.24.0.insert.ext.i111 = zext i64 %.narrow.i108 to i128
@@ -16965,22 +16965,22 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.03.0.insert.ext.i113 = zext i64 %.sroa.03.0.insert.insert.i105 to i128
   %.sroa.01.0.insert.insert.i115 = add nuw nsw i128 %.sroa.03.0.insert.ext.i113, 1
   %.sroa.03.0.insert.insert.i116 = add i128 %.sroa.01.0.insert.insert.i115, %.sroa.24.0.insert.shift.i112
-  %51 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
-  %52 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %51
-  br i1 %52, label %.lr.ph, label %.loopexit
+  %43 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
+  %44 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %43
+  br i1 %44, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %50
+.lr.ph:                                           ; preds = %42
   %.sroa.7.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.9.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  br label %53
+  br label %45
 
-53:                                               ; preds = %.lr.ph, %53
-  %54 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
-  %55 = extractvalue { i64, i64 } %54, 0
-  %56 = extractvalue { i64, i64 } %54, 1
+45:                                               ; preds = %.lr.ph, %45
+  %46 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %55, i64 %56, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
+  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %47, i64 %48, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
@@ -16990,12 +16990,12 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
   %.sroa.01.0.insert.insert.i143 = or disjoint i128 %.sroa.22.0.insert.shift.i141, %.sroa.01.0.insert.ext.i142
-  %57 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %51
-  br i1 %57, label %53, label %.loopexit, !llvm.loop !362
+  %49 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %43
+  br i1 %49, label %45, label %.loopexit, !llvm.loop !362
 
-.loopexit:                                        ; preds = %53, %50, %42, %40
-  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %40 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %42 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %50 ], [ %.sroa.0153.0.copyload155, %53 ]
-  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %40 ], [ %.tr.i205.i.i, %42 ], [ %.tr.i205.i.i, %50 ], [ %.sroa.7.0.copyload160, %53 ]
+.loopexit:                                        ; preds = %45, %42, %34, %32
+  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %32 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %34 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %42 ], [ %.sroa.0153.0.copyload155, %45 ]
+  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %32 ], [ %.tr.i205.i.i, %34 ], [ %.tr.i205.i.i, %42 ], [ %.sroa.7.0.copyload160, %45 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -24265,11 +24265,11 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %12 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i13.i.i, 64
   %.tr.i.i.i.i15.i.i = trunc nuw i128 %12 to i64
   %.narrow.i.i.i.i16.i.i = add i64 %.tr.i.i.i.i15.i.i, 6364136223846793005
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i, ptr %1, align 16, !tbaa !20
-  store i64 %.narrow.i.i.i.i16.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
   %.sroa.0.0.extract.trunc.i.i.i.i17.i.i = lshr i64 %.narrow.i.i.i.i16.i.i, 58
   %13 = xor i64 %.narrow.i.i.i.i16.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i
   %14 = tail call noundef i64 @llvm.fshr.i64(i64 %13, i64 %13, i64 %.sroa.0.0.extract.trunc.i.i.i.i17.i.i)
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i, ptr %1, align 16, !tbaa !20
+  store i64 %.narrow.i.i.i.i16.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i = zext i64 %3 to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
   %.sroa.03.0.insert.ext.i = zext i64 %2 to i128
@@ -24402,14 +24402,14 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUnifo
   %8 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i13.i, 64
   %.tr.i.i.i.i15.i = trunc nuw i128 %8 to i64
   %.narrow.i.i.i.i16.i = add i64 %.tr.i.i.i.i15.i, 6364136223846793005
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i, ptr %1, align 16, !tbaa !20
-  store i64 %.narrow.i.i.i.i16.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !20
   %.sroa.0.0.extract.trunc.i.i.i.i17.i = lshr i64 %.narrow.i.i.i.i16.i, 58
   %9 = xor i64 %.narrow.i.i.i.i16.i, %.sroa.0.0.extract.trunc.i17.i.i.i14.i
   %10 = tail call noundef i64 @llvm.fshr.i64(i64 %9, i64 %9, i64 %.sroa.0.0.extract.trunc.i.i.i.i17.i)
-  %.fca.0.insert.i21.i = insertvalue { i64, i64 } poison, i64 %10, 0
-  %.fca.1.insert.i22.i = insertvalue { i64, i64 } %.fca.0.insert.i21.i, i64 %6, 1
-  ret { i64, i64 } %.fca.1.insert.i22.i
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i, ptr %1, align 16, !tbaa !20
+  store i64 %.narrow.i.i.i.i16.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !20
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %10, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %6, 1
+  ret { i64, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24772,11 +24772,11 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %12 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i13.i.i, 64
   %.tr.i.i.i.i15.i.i = trunc nuw i128 %12 to i64
   %.narrow.i.i.i.i16.i.i = add i64 %.tr.i.i.i.i15.i.i, 6364136223846793005
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i, ptr %1, align 16, !tbaa !20
-  store i64 %.narrow.i.i.i.i16.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
   %.sroa.0.0.extract.trunc.i.i.i.i17.i.i = lshr i64 %.narrow.i.i.i.i16.i.i, 58
   %13 = xor i64 %.narrow.i.i.i.i16.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i
   %14 = tail call noundef i64 @llvm.fshr.i64(i64 %13, i64 %13, i64 %.sroa.0.0.extract.trunc.i.i.i.i17.i.i)
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i14.i.i, ptr %1, align 16, !tbaa !20
+  store i64 %.narrow.i.i.i.i16.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i = zext i64 %3 to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
   %.sroa.03.0.insert.ext.i = zext i64 %2 to i128

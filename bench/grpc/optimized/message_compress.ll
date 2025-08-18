@@ -473,8 +473,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   store ptr %27, ptr %28, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !7
-  %.not153 = icmp eq i64 %30, 0
-  br i1 %.not153, label %._crit_edge.thread, label %.lr.ph
+  %.not151 = icmp eq i64 %30, 0
+  br i1 %.not151, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -483,7 +483,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   br label %38
 
 34:                                               ; preds = %89
-  %35 = add nuw i64 %.083151, 1
+  %35 = add nuw i64 %.083149, 1
   %36 = load i64, ptr %29, align 8, !tbaa !7
   %37 = icmp ult i64 %35, %36
   br i1 %37, label %38, label %._crit_edge, !llvm.loop !37
@@ -491,19 +491,19 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 38:                                               ; preds = %.lr.ph, %34
   %.pr = phi i1 [ %33, %.lr.ph ], [ false, %34 ]
   %39 = phi i64 [ %30, %.lr.ph ], [ %36, %34 ]
-  %.074152 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %34 ]
-  %.083151 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
+  %.074150 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %34 ]
+  %.083149 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
   %40 = add i64 %39, -1
-  %41 = icmp eq i64 %.083151, %40
-  %spec.select = select i1 %41, i32 4, i32 %.074152
+  %41 = icmp eq i64 %.083149, %40
+  %spec.select = select i1 %41, i32 4, i32 %.074150
   %42 = load ptr, ptr %31, align 8, !tbaa !12
-  %43 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083151
+  %43 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083149
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   %.not92 = icmp eq ptr %44, null
   br i1 %.not92, label %54, label %45
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083151, i32 1
+  %46 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083149, i32 1
   %47 = load i64, ptr %46, align 8, !tbaa !38
   %48 = icmp ugt i64 %47, 4294967295
   br i1 %48, label %49, label %50, !prof !34
@@ -532,9 +532,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 59:                                               ; preds = %54, %50
   %60 = phi ptr [ %53, %50 ], [ %58, %54 ]
   store ptr %60, ptr %0, align 8, !tbaa !40
-  br i1 %.pr, label %.critedge145, label %71
+  br i1 %.pr, label %.critedge165, label %71
 
-.critedge145:                                     ; preds = %86, %59
+.critedge165:                                     ; preds = %86, %59
   %61 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %9, i64 noundef 1024)
@@ -547,13 +547,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %.not97 = select i1 %.not95, i1 %64, i1 false
   br i1 %.not97, label %65, label %.critedge105, !prof !34
 
-65:                                               ; preds = %.critedge145
+65:                                               ; preds = %.critedge165
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str, i32 noundef 56, i64 37, ptr nonnull @.str.4) #12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   unreachable
 
-.critedge105:                                     ; preds = %.critedge145
+.critedge105:                                     ; preds = %.critedge165
   %.not98 = icmp eq ptr %62, null
   %66 = and i64 %63, 255
   %67 = select i1 %.not98, i64 %66, i64 %63
@@ -616,7 +616,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 86:                                               ; preds = %71
   %87 = load i32, ptr %23, align 8, !tbaa !35
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.critedge145, label %89, !llvm.loop !45
+  br i1 %88, label %.critedge165, label %89, !llvm.loop !45
 
 89:                                               ; preds = %86
   %90 = load i32, ptr %32, align 8, !tbaa !39

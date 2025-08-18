@@ -10779,18 +10779,18 @@ define internal noundef i32 @cpuacct_stats_show(ptr noundef %0, ptr readnone cap
   br i1 %55, label %13, label %.thread, !prof !51, !llvm.loop !278
 
 .thread:                                          ; preds = %13, %25, %21
+  %.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %5, align 8
   %57 = tail call ptr @of_css(ptr noundef %56) #42
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 888
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @cputime_adjust(ptr noundef nonnull %3, ptr noundef nonnull %59, ptr noundef nonnull %4, ptr noundef nonnull %60) #42
-  %61 = load i64, ptr %4, align 16
-  %62 = call i64 @nsec_to_clock_t(i64 noundef %61) #42
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20, i64 noundef %62) #42
-  %63 = load i64, ptr %60, align 8
-  %64 = call i64 @nsec_to_clock_t(i64 noundef %63) #42
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i64 noundef %64) #42
+  call void @cputime_adjust(ptr noundef nonnull %3, ptr noundef nonnull %59, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.gep2) #42
+  %60 = load i64, ptr %4, align 16
+  %61 = call i64 @nsec_to_clock_t(i64 noundef %60) #42
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20, i64 noundef %61) #42
+  %62 = load i64, ptr %.sroa.gep2, align 8
+  %63 = call i64 @nsec_to_clock_t(i64 noundef %62) #42
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i64 noundef %63) #42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0

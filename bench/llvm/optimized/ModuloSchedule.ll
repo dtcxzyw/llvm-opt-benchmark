@@ -17392,43 +17392,39 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117EliminateDeadPhisEPN4llvm17MachineBasicBlockERNS0_19MachineRegisterInfoEPNS0_13LiveIntervalsEb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
-.critedge:
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.not = icmp eq ptr %2, null
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  br label %9
 
-._crit_edge:                                      ; preds = %63
-  br i1 %.2, label %8, label %.critedge42
+.loopexit38:                                      ; preds = %63
+  br i1 %.2, label %9, label %.critedge, !llvm.loop !726
 
-8:                                                ; preds = %.critedge, %._crit_edge
-  %9 = load ptr, ptr %4, align 8, !tbaa !256
-  %10 = tail call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %0) #20
-  %.not3738 = icmp eq ptr %9, %10
-  br i1 %.not3738, label %.critedge42, label %.lr.ph, !llvm.loop !726
+9:                                                ; preds = %4, %.loopexit38
+  %10 = load ptr, ptr %5, align 8, !tbaa !256
+  %11 = tail call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %0) #20
+  %.not3739 = icmp eq ptr %10, %11
+  br i1 %.not3739, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8
-  br label %11, !llvm.loop !726
-
-11:                                               ; preds = %.lr.ph, %63
-  %.140 = phi i1 [ false, %.lr.ph ], [ %.2, %63 ]
-  %.sroa.032.039 = phi ptr [ %9, %.lr.ph ], [ %22, %63 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.032.039, align 8
+.lr.ph:                                           ; preds = %9, %63
+  %.141 = phi i1 [ %.2, %63 ], [ false, %9 ]
+  %.sroa.032.040 = phi ptr [ %22, %63 ], [ %10, %9 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.032.040, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i, label %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i: ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.032.039, i64 44
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i: ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.032.040, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 8
   %.not34.i.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not34.i.i.i.i.i, label %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i
 
 _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i
-  %.sroa.0.15.i.i.i.i.i = phi ptr [ %17, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i ], [ %.sroa.032.039, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i ]
+  %.sroa.0.15.i.i.i.i.i = phi ptr [ %17, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i ], [ %.sroa.032.040, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.15.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !256
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 44
@@ -17437,21 +17433,21 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %.not3.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i, !llvm.loop !258
 
-_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i, %11, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.032.039, %11 ], [ %.sroa.032.039, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i ], [ %17, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i ]
+_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i, %.lr.ph, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.032.040, %.lr.ph ], [ %.sroa.032.040, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i ], [ %17, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !256
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.039, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.040, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !114
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !139
   %27 = icmp slt i32 %26, 0
   %28 = and i32 %26, 2147483647
   %29 = zext nneg i32 %28 to i64
-  %30 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %6, align 8
   %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %30, i64 %29, i32 1
   %32 = zext nneg i32 %26 to i64
-  %33 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
   %.0.in.i.i.i = select i1 %27, ptr %31, ptr %34
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !141
@@ -17484,7 +17480,7 @@ _ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit: ; preds = %38, %35
   br i1 %3, label %63, label %41
 
 41:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit
-  %42 = tail call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.039) #20
+  %42 = tail call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.040) #20
   %43 = icmp eq i32 %42, 3
   br i1 %43, label %44, label %63
 
@@ -17496,7 +17492,7 @@ _ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit: ; preds = %38, %35
   %49 = load i32, ptr %48, align 4, !tbaa !139
   %50 = and i32 %49, 2147483647
   %51 = zext nneg i32 %50 to i64
-  %52 = load ptr, ptr %5, align 8, !tbaa !25
+  %52 = load ptr, ptr %6, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %52, i64 %51
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %53, align 8
   %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
@@ -17511,20 +17507,20 @@ _ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit: ; preds = %38, %35
   br i1 %.not, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %44, %.loopexit
-  %62 = load ptr, ptr %7, align 8, !tbaa !208
-  tail call void @_ZN4llvm11SlotIndexes26removeMachineInstrFromMapsERNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.039, i1 noundef zeroext false) #20
+  %62 = load ptr, ptr %8, align 8, !tbaa !208
+  tail call void @_ZN4llvm11SlotIndexes26removeMachineInstrFromMapsERNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.040, i1 noundef zeroext false) #20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %44, %.loopexit
-  tail call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.039) #20
+  tail call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.032.040) #20
   br label %63
 
 63:                                               ; preds = %.sink.split, %_ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit, %41
-  %.2 = phi i1 [ %.140, %_ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit ], [ %.140, %41 ], [ true, %.sink.split ]
-  %.not37 = icmp eq ptr %22, %10
-  br i1 %.not37, label %._crit_edge, label %11, !llvm.loop !726
+  %.2 = phi i1 [ %.141, %_ZNK4llvm19MachineRegisterInfo9use_emptyENS_8RegisterE.exit ], [ %.141, %41 ], [ true, %.sink.split ]
+  %.not37 = icmp eq ptr %22, %11
+  br i1 %.not37, label %.loopexit38, label %.lr.ph
 
-.critedge42:                                      ; preds = %8, %._crit_edge
+.critedge:                                        ; preds = %9, %.loopexit38
   ret void
 }
 

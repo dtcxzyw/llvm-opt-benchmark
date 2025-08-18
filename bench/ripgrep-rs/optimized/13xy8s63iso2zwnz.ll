@@ -37,14 +37,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i": ; preds = %.noexc, %2
   %12 = phi i64 [ 0, %2 ], [ %.pre.i.i, %.noexc ]
   %13 = trunc i24 %1 to i1
-  br i1 %13, label %.critedge.i.i.i.i, label %21
+  br i1 %13, label %.lr.ph.i.i.i.i, label %21
 
-.critedge.i.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i"
+.lr.ph.i.i.i.i:                                   ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i"
   %14 = load ptr, ptr %8, align 8, !alias.scope !4, !nonnull !9, !noundef !9
-  %15 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12
-  %16 = lshr i24 %1, 8
-  %17 = trunc nuw i24 %16 to i16
-  store i16 %17, ptr %15, align 1, !noalias !10
+  %15 = lshr i24 %1, 8
+  %16 = trunc nuw i24 %15 to i16
+  %17 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12
+  store i16 %16, ptr %17, align 1, !noalias !10
   %18 = add i64 %12, 1
   br label %21
 
@@ -54,8 +54,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$17h56d2e457819a3fedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #15
           to label %24 unwind label %22
 
-21:                                               ; preds = %.critedge.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i"
-  %.val7.i.i.i.i = phi i64 [ %18, %.critedge.i.i.i.i ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i" ]
+21:                                               ; preds = %.lr.ph.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i"
+  %.val7.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i" ]
   store i64 %.val7.i.i.i.i, ptr %9, align 8, !alias.scope !4, !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1444,14 +1444,14 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i": ; preds = %.noexc.i, %2
   %12 = phi i64 [ 0, %2 ], [ %.pre.i.i.i, %.noexc.i ]
   %13 = trunc i24 %1 to i1
-  br i1 %13, label %.critedge.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817.exit"
+  br i1 %13, label %.lr.ph.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817.exit"
 
-.critedge.i.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i"
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i"
   %14 = load ptr, ptr %8, align 8, !alias.scope !281, !noalias !278, !nonnull !9, !noundef !9
-  %15 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12
-  %16 = lshr i24 %1, 8
-  %17 = trunc nuw i24 %16 to i16
-  store i16 %17, ptr %15, align 1, !noalias !286
+  %15 = lshr i24 %1, 8
+  %16 = trunc nuw i24 %15 to i16
+  %17 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12
+  store i16 %16, ptr %17, align 1, !noalias !286
   %18 = add i64 %12, 1
   br label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817.exit"
 
@@ -1470,8 +1470,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 23:                                               ; preds = %19
   resume { ptr, i32 } %20
 
-"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i", %.critedge.i.i.i.i.i
-  %.val7.i.i.i.i.i = phi i64 [ %18, %.critedge.i.i.i.i.i ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i" ]
+"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4a762a0cafe82233E.llvm.7235936923565746817.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i", %.lr.ph.i.i.i.i.i
+  %.val7.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i" ]
   store i64 %.val7.i.i.i.i.i, ptr %9, align 8, !alias.scope !281, !noalias !295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !278

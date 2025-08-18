@@ -5124,12 +5124,12 @@ _ZN3syn4expr7parsing9atom_expr17h42ad26974faa1e7fE.exit: ; preds = %_ZN3syn4expr
   br i1 %674, label %.body368.thread, label %common.resume
 
 .body368.thread1422.loopexit:                     ; preds = %.backedge, %691, %695, %699, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.i", %755, %1105, %1168, %1275
-  %lpad.loopexit1776 = landingpad { ptr, i32 }
+  %lpad.loopexit1778 = landingpad { ptr, i32 }
           cleanup
   br label %.body368.thread
 
 .body368.thread1422.loopexit.split-lp:            ; preds = %768, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i, %774, %778, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$syn..lit..LitFloatRepr$GT$$GT$17h083675d2ae7cac4eE.llvm.8351105841907204142.exit.i", %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$syn..lit..LitFloatRepr$GT$$GT$17h083675d2ae7cac4eE.llvm.8351105841907204142.exit.i374"
-  %lpad.loopexit.split-lp1777 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1779 = landingpad { ptr, i32 }
           cleanup
   br label %.body368.thread
 
@@ -7638,7 +7638,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i340: ; preds = %961,
           to label %common.resume unwind label %1064
 
 .body368.thread:                                  ; preds = %.body368.thread1422.loopexit, %.body368.thread1422.loopexit.split-lp, %918, %862, %793, %1267, %1271, %1160, %1164, %1089, %1047, %.body368
-  %.pn292947 = phi { ptr, i32 } [ %.pn292, %.body368 ], [ %1268, %1267 ], [ %1268, %1271 ], [ %1161, %1160 ], [ %1161, %1164 ], [ %1090, %1089 ], [ %1048, %1047 ], [ %.pn79.i, %793 ], [ %919, %918 ], [ %863, %862 ], [ %lpad.loopexit1776, %.body368.thread1422.loopexit ], [ %lpad.loopexit.split-lp1777, %.body368.thread1422.loopexit.split-lp ]
+  %.pn292947 = phi { ptr, i32 } [ %.pn292, %.body368 ], [ %1268, %1267 ], [ %1268, %1271 ], [ %1161, %1160 ], [ %1161, %1164 ], [ %1090, %1089 ], [ %1048, %1047 ], [ %.pn79.i, %793 ], [ %919, %918 ], [ %863, %862 ], [ %lpad.loopexit1778, %.body368.thread1422.loopexit ], [ %lpad.loopexit.split-lp1779, %.body368.thread1422.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hda2fae599c7d1a31E"(ptr noalias noundef align 8 dereferenceable(176) %133) #19
           to label %common.resume unwind label %1064
 }
@@ -9965,7 +9965,7 @@ define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h7e5bea97fbdc1d74E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h7e5bea97fbdc1d74E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -10970,7 +10970,7 @@ define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hf0f08b6411ead3a4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hf0f08b6411ead3a4E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8

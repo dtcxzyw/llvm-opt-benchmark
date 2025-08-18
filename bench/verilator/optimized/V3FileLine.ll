@@ -2650,7 +2650,7 @@ define dso_local noundef zeroext i16 @_ZN17FileLineSingleton8msgEnAndEtt(ptr nou
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
   %.not.i.i.i = icmp ugt i64 %13, %6
-  %.079.i.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.05.i.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not.i.i.i, label %_ZNK17FileLineSingleton5msgEnEt.exit, label %14
 
 14:                                               ; preds = %3
@@ -2662,13 +2662,13 @@ _ZNK17FileLineSingleton5msgEnEt.exit:             ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   %16 = zext i16 %2 to i64
   %.not.i.i.i7 = icmp ugt i64 %13, %16
-  br i1 %.not.i.i.i7, label %_ZNK17FileLineSingleton5msgEnEt.exit10, label %17
+  br i1 %.not.i.i.i7, label %_ZNK17FileLineSingleton5msgEnEt.exit8, label %17
 
 17:                                               ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.62, i64 noundef %16, i64 noundef %13) #28
   unreachable
 
-_ZNK17FileLineSingleton5msgEnEt.exit10:           ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit
+_ZNK17FileLineSingleton5msgEnEt.exit8:            ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit
   %18 = getelementptr inbounds nuw %"class.std::bitset", ptr %9, i64 %16
   %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = load i64, ptr %4, align 8, !tbaa !13
@@ -2676,45 +2676,45 @@ _ZNK17FileLineSingleton5msgEnEt.exit10:           ; preds = %_ZNK17FileLineSingl
   store i64 %21, ptr %4, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !13
-  %24 = load i64, ptr %.079.i.i.sroa.gep18, align 8, !tbaa !13
+  %24 = load i64, ptr %.05.i.i.sroa.gep18, align 8, !tbaa !13
   %25 = and i64 %24, %23
-  store i64 %25, ptr %.079.i.i.sroa.gep18, align 8, !tbaa !13
-  br label %26
+  store i64 %25, ptr %.05.i.i.sroa.gep18, align 8, !tbaa !13
+  br label %_ZNK17FileLineSingleton5msgEnEt.exit10
 
-26:                                               ; preds = %26, %_ZNK17FileLineSingleton5msgEnEt.exit10
-  %.not10.i.i = phi i1 [ true, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ false, %26 ]
-  %.079.i.i.sroa.phi = phi ptr [ %4, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ %.079.i.i.sroa.gep18, %26 ]
-  %.079.i.i = phi i64 [ 0, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ 1, %26 ]
-  %27 = load i64, ptr %.079.i.i.sroa.phi, align 8, !tbaa !13
-  %28 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %.079.i.i
-  %29 = load i64, ptr %28, align 8, !tbaa !13
-  %.not.i.i = icmp eq i64 %27, %29
+_ZNK17FileLineSingleton5msgEnEt.exit10:           ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit8, %_ZNK17FileLineSingleton5msgEnEt.exit10
+  %.not10.i.i = phi i1 [ false, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ true, %_ZNK17FileLineSingleton5msgEnEt.exit8 ]
+  %.079.i.i.sroa.phi = phi ptr [ %.05.i.i.sroa.gep18, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ %4, %_ZNK17FileLineSingleton5msgEnEt.exit8 ]
+  %.079.i.i = phi i64 [ 1, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ 0, %_ZNK17FileLineSingleton5msgEnEt.exit8 ]
+  %26 = load i64, ptr %.079.i.i.sroa.phi, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %.079.i.i
+  %28 = load i64, ptr %27, align 8, !tbaa !13
+  %.not.i.i = icmp eq i64 %26, %28
   %or.cond.i.i = and i1 %.not10.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %26, label %_ZNKSt6bitsetILm121EEeqERKS0_.exit, !llvm.loop !114
+  br i1 %or.cond.i.i, label %_ZNK17FileLineSingleton5msgEnEt.exit10, label %_ZNKSt6bitsetILm121EEeqERKS0_.exit, !llvm.loop !114
 
-_ZNKSt6bitsetILm121EEeqERKS0_.exit:               ; preds = %26
-  br i1 %.not.i.i, label %35, label %_ZNK17FileLineSingleton5msgEnEt.exit12
+_ZNKSt6bitsetILm121EEeqERKS0_.exit:               ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit10
+  br i1 %.not.i.i, label %34, label %_ZNK17FileLineSingleton5msgEnEt.exit12
 
 _ZNK17FileLineSingleton5msgEnEt.exit12:           ; preds = %_ZNKSt6bitsetILm121EEeqERKS0_.exit, %_ZNK17FileLineSingleton5msgEnEt.exit12
   %.not10.i.i13 = phi i1 [ false, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ true, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
-  %.079.i.i14.sroa.phi = phi ptr [ %.079.i.i.sroa.gep18, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ %4, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
+  %.079.i.i14.sroa.phi = phi ptr [ %.05.i.i.sroa.gep18, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ %4, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
   %.079.i.i14 = phi i64 [ 1, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ 0, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
-  %30 = load i64, ptr %.079.i.i14.sroa.phi, align 8, !tbaa !13
-  %31 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %.079.i.i14
-  %32 = load i64, ptr %31, align 8, !tbaa !13
-  %.not.i.i15 = icmp eq i64 %30, %32
+  %29 = load i64, ptr %.079.i.i14.sroa.phi, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %.079.i.i14
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %.not.i.i15 = icmp eq i64 %29, %31
   %or.cond.i.i16 = and i1 %.not10.i.i13, %.not.i.i15
   br i1 %or.cond.i.i16, label %_ZNK17FileLineSingleton5msgEnEt.exit12, label %_ZNKSt6bitsetILm121EEeqERKS0_.exit17, !llvm.loop !114
 
 _ZNKSt6bitsetILm121EEeqERKS0_.exit17:             ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit12
-  br i1 %.not.i.i15, label %35, label %33
+  br i1 %.not.i.i15, label %34, label %32
 
-33:                                               ; preds = %_ZNKSt6bitsetILm121EEeqERKS0_.exit17
-  %34 = call noundef zeroext i16 @_ZN17FileLineSingleton14addMsgEnBitSetERKSt6bitsetILm121EE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %35
+32:                                               ; preds = %_ZNKSt6bitsetILm121EEeqERKS0_.exit17
+  %33 = call noundef zeroext i16 @_ZN17FileLineSingleton14addMsgEnBitSetERKSt6bitsetILm121EE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  br label %34
 
-35:                                               ; preds = %_ZNKSt6bitsetILm121EEeqERKS0_.exit17, %_ZNKSt6bitsetILm121EEeqERKS0_.exit, %33
-  %.0 = phi i16 [ %34, %33 ], [ %1, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ], [ %2, %_ZNKSt6bitsetILm121EEeqERKS0_.exit17 ]
+34:                                               ; preds = %_ZNKSt6bitsetILm121EEeqERKS0_.exit17, %_ZNKSt6bitsetILm121EEeqERKS0_.exit, %32
+  %.0 = phi i16 [ %33, %32 ], [ %1, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ], [ %2, %_ZNKSt6bitsetILm121EEeqERKS0_.exit17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.0
 }

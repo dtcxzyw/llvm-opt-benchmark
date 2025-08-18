@@ -1192,16 +1192,16 @@ define noundef zeroext i1 @_ZN4base8CopyFileERKNS_8FilePathES2_(ptr noundef nonn
 
 26:                                               ; preds = %21
   %27 = invoke noalias noundef nonnull dereferenceable(32768) ptr @_Znwm(i64 noundef 32768) #27
-          to label %.critedge unwind label %34
+          to label %28 unwind label %34
 
-.critedge:                                        ; preds = %26
+28:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32768) %27, i8 0, i64 32768, i1 false)
   br label %29
 
-28:                                               ; preds = %44
-  br i1 %.426, label %29, label %_ZNSt6vectorIcSaIcEED2Ev.exit45
+.loopexit:                                        ; preds = %44
+  br i1 %.426, label %29, label %_ZNSt6vectorIcSaIcEED2Ev.exit45, !llvm.loop !53
 
-29:                                               ; preds = %.critedge, %28
+29:                                               ; preds = %28, %.loopexit
   %30 = invoke noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull align 8 dereferenceable(50) %3, ptr noundef nonnull %27, i32 noundef 32768)
           to label %31 unwind label %36
 
@@ -1241,7 +1241,7 @@ define noundef zeroext i1 @_ZN4base8CopyFileERKNS_8FilePathES2_(ptr noundef nonn
   %.119 = add nuw nsw i64 %.018, %46
   %47 = icmp slt i64 %.119, %32
   %or.cond = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond, label %.preheader, label %28, !llvm.loop !53
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !53
 
 48:                                               ; preds = %.preheader
   %49 = landingpad { ptr, i32 }
@@ -1253,8 +1253,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %48, %36
   call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %51
 
-_ZNSt6vectorIcSaIcEED2Ev.exit45:                  ; preds = %38, %31, %28
-  %.123 = phi i1 [ false, %28 ], [ true, %38 ], [ false, %31 ]
+_ZNSt6vectorIcSaIcEED2Ev.exit45:                  ; preds = %38, %31, %.loopexit
+  %.123 = phi i1 [ false, %.loopexit ], [ true, %38 ], [ false, %31 ]
   call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %50
 

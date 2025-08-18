@@ -7024,33 +7024,29 @@ _ZNSt6vectorIj13std_allocatorIjEE5clearEv.exit:   ; preds = %1, %8
   %21 = load i32, ptr %20, align 8, !tbaa !372
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8, !tbaa !372
-  %23 = tail call noundef zeroext i1 @_ZN2lp8dioph_eq3imp11push_branchEv(ptr noundef nonnull align 8 dereferenceable(1300) %0)
-  br i1 %23, label %.preheader, label %.loopexit._crit_edge
+  br label %.loopexit
 
-24:                                               ; preds = %.backedge
-  %25 = load ptr, ptr %13, align 8, !tbaa !144
-  %26 = tail call noundef nonnull align 8 dereferenceable(192) ptr @_ZN2lp10lar_solver5statsEv(ptr noundef nonnull align 8 dereferenceable(2128) %25)
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
-  %28 = load i32, ptr %27, align 8, !tbaa !372
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !372
-  br i1 %.09.be, label %.loopexit.loopexit, label %.preheader.backedge
+23:                                               ; preds = %.backedge
+  %24 = load ptr, ptr %13, align 8, !tbaa !144
+  %25 = tail call noundef nonnull align 8 dereferenceable(192) ptr @_ZN2lp10lar_solver5statsEv(ptr noundef nonnull align 8 dereferenceable(2128) %24)
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
+  %27 = load i32, ptr %26, align 8, !tbaa !372
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 8, !tbaa !372
+  br i1 %.09.be, label %.loopexit, label %.preheader
 
-.preheader.backedge:                              ; preds = %24, %.loopexit.loopexit
-  br label %.preheader
+.loopexit:                                        ; preds = %23, %.lr.ph
+  %29 = tail call noundef zeroext i1 @_ZN2lp8dioph_eq3imp11push_branchEv(ptr noundef nonnull align 8 dereferenceable(1300) %0)
+  br i1 %29, label %.preheader, label %30
 
-.loopexit.loopexit:                               ; preds = %24
-  %30 = tail call noundef zeroext i1 @_ZN2lp8dioph_eq3imp11push_branchEv(ptr noundef nonnull align 8 dereferenceable(1300) %0)
-  br i1 %30, label %.preheader.backedge, label %.loopexit._crit_edge
-
-.loopexit._crit_edge:                             ; preds = %.loopexit.loopexit, %.lr.ph
+30:                                               ; preds = %.loopexit
   %31 = load i32, ptr %14, align 8, !tbaa !367
   %32 = add i32 %31, -1
   store i32 %32, ptr %14, align 8, !tbaa !367
   %.not1.i = icmp eq i32 %31, 0
   br i1 %.not1.i, label %_ZN2lp8dioph_eq3imp14undo_branchingEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit._crit_edge, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %33 = load ptr, ptr %13, align 8, !tbaa !144
   tail call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128) %33)
   %34 = load i32, ptr %14, align 8, !tbaa !367
@@ -7059,7 +7055,7 @@ _ZNSt6vectorIj13std_allocatorIjEE5clearEv.exit:   ; preds = %1, %8
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %_ZN2lp8dioph_eq3imp14undo_branchingEv.exit, label %.lr.ph.i, !llvm.loop !373
 
-_ZN2lp8dioph_eq3imp14undo_branchingEv.exit:       ; preds = %.lr.ph.i, %.loopexit._crit_edge
+_ZN2lp8dioph_eq3imp14undo_branchingEv.exit:       ; preds = %.lr.ph.i, %30
   %36 = load ptr, ptr %13, align 8, !tbaa !144
   %37 = tail call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %36)
   %38 = load ptr, ptr %13, align 8, !tbaa !144
@@ -7070,7 +7066,7 @@ _ZN2lp8dioph_eq3imp14undo_branchingEv.exit:       ; preds = %.lr.ph.i, %.loopexi
   store i32 %42, ptr %40, align 4, !tbaa !374
   br label %.thread
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader.backedge
+.preheader:                                       ; preds = %.loopexit, %23
   %43 = load i32, ptr %14, align 8, !tbaa !367
   %44 = add i32 %43, 1
   store i32 %44, ptr %14, align 8, !tbaa !367
@@ -7213,7 +7209,7 @@ _ZN2lp8dioph_eq3imp22undo_explored_branchesEv.exit: ; preds = %.lr.ph.i19
   store i32 %111, ptr %9, align 8, !tbaa !363
   %112 = load i32, ptr %10, align 4, !tbaa !137
   %113 = icmp ult i32 %111, %112
-  br i1 %113, label %24, label %._crit_edge, !llvm.loop !387
+  br i1 %113, label %23, label %._crit_edge, !llvm.loop !387
 
 114:                                              ; preds = %.preheader
   %115 = load ptr, ptr %13, align 8, !tbaa !144

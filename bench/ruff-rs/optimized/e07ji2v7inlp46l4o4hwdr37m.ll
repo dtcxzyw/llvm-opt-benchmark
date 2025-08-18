@@ -16035,70 +16035,62 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Optio
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$$u5b$lsp_types..notebook..NotebookSelector$u3b$$u20$1$u5d$$GT$17hc6bef45622205273E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = load i64, ptr %0, align 8, !range !9, !alias.scope !933, !noundef !10
-  %2 = icmp eq i64 %1, 0
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %2, label %4, label %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %0, align 8, !range !9, !alias.scope !933, !noundef !10
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %6, label %7
 
-4:                                                ; preds = %.critedge
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..notebook..Notebook$GT$17haaba7b79f15b8e45E"(ptr noalias noundef align 8 dereferenceable(80) %3)
-          to label %15 unwind label %9
+6:                                                ; preds = %1
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..notebook..Notebook$GT$17haaba7b79f15b8e45E"(ptr noalias noundef align 8 dereferenceable(80) %2)
+          to label %16 unwind label %11
 
-5:                                                ; preds = %.critedge
-  %6 = load i64, ptr %3, align 8, !range !475, !alias.scope !936, !noundef !10
-  %7 = icmp eq i64 %6, 4
-  br i1 %7, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..Notebook$GT$$GT$17h177ef16e11d4369dE.exit.i", label %8
+7:                                                ; preds = %1
+  %8 = load i64, ptr %2, align 8, !range !475, !alias.scope !936, !noundef !10
+  %9 = icmp eq i64 %8, 4
+  br i1 %9, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i", label %10
 
-8:                                                ; preds = %5
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..notebook..Notebook$GT$17haaba7b79f15b8e45E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %3)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..Notebook$GT$$GT$17h177ef16e11d4369dE.exit.i" unwind label %21
+10:                                               ; preds = %7
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..notebook..Notebook$GT$17haaba7b79f15b8e45E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %2)
+          to label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i" unwind label %21
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !range !11, !alias.scope !939, !noundef !10
-  %13 = icmp eq i64 %12, -9223372036854775808
-  br i1 %13, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i", label %14
+  %13 = load i64, ptr %3, align 8, !range !11, !alias.scope !939, !noundef !10
+  %14 = icmp eq i64 %13, -9223372036854775808
+  br i1 %14, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i", label %15
 
-14:                                               ; preds = %9
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+15:                                               ; preds = %11
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i" unwind label %19
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !range !11, !alias.scope !942, !noundef !10
+16:                                               ; preds = %6
+  %17 = load i64, ptr %3, align 8, !range !11, !alias.scope !942, !noundef !10
   %18 = icmp eq i64 %17, -9223372036854775808
   br i1 %18, label %"_ZN4core3ptr58drop_in_place$LT$lsp_types..notebook..NotebookSelector$GT$17h03f0fdb096349ba3E.exit", label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i"
 
-"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..Notebook$GT$$GT$17h177ef16e11d4369dE.exit.i", %15
-  %.sink.i = phi ptr [ %24, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..Notebook$GT$$GT$17h177ef16e11d4369dE.exit.i" ], [ %16, %15 ]
-  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink.i)
+"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i": ; preds = %7, %10, %16
+  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr58drop_in_place$LT$lsp_types..notebook..NotebookSelector$GT$17h03f0fdb096349ba3E.exit"
 
-19:                                               ; preds = %21, %14
+19:                                               ; preds = %21, %15
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #23
   unreachable
 
-"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i": ; preds = %21, %14, %9
-  %.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %10, %14 ], [ %10, %9 ]
+"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i": ; preds = %21, %15, %11
+  %.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %12, %15 ], [ %12, %11 ]
   resume { ptr, i32 } %.pn.i
 
-21:                                               ; preds = %8
+21:                                               ; preds = %10
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #22
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$17h773d7b9596c42205E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #22
           to label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit.i" unwind label %19
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..Notebook$GT$$GT$17h177ef16e11d4369dE.exit.i": ; preds = %8, %5
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i"
-
-"_ZN4core3ptr58drop_in_place$LT$lsp_types..notebook..NotebookSelector$GT$17h03f0fdb096349ba3E.exit": ; preds = %15, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i"
+"_ZN4core3ptr58drop_in_place$LT$lsp_types..notebook..NotebookSelector$GT$17h03f0fdb096349ba3E.exit": ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..notebook..NotebookCellSelector$GT$$GT$$GT$17h696decb11495274cE.exit3.sink.split.i", %16
   ret void
 }
 

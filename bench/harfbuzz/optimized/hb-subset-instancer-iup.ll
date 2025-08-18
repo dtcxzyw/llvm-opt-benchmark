@@ -2273,7 +2273,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %96, %._cr
   br i1 %.not39.i.i, label %_ZN11hb_vector_tIdLb0EED2Ev.exit.i, label %.split.us.preheader.i.i
 
 .split.us.preheader.i.i:                          ; preds = %169, %166
-  %.sroa.0.0..sroa.0.0..sroa.0.0.3772.i = phi i32 [ 0, %169 ], [ %163, %166 ]
+  %.sroa.0.0..sroa.0.0..sroa.0.0.3774.i = phi i32 [ 0, %169 ], [ %163, %166 ]
   %.sroa.12.050.i = phi ptr [ null, %169 ], [ %malloc.i, %166 ]
   %.sroa.13.0.i = phi ptr [ null, %169 ], [ %malloc59.i, %166 ]
   %170 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -2397,8 +2397,8 @@ _ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vecto
   br label %.critedge.i
 
 _ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i: ; preds = %.loopexit.us.i.i
-  %.not.not62.not.i = icmp eq i32 %.sroa.speculated.i.i.fr, 0
-  br i1 %.not.not62.not.i, label %.critedge.i, label %.lr.ph.i
+  %.not.not63.not.i = icmp eq i32 %.sroa.speculated.i.i.fr, 0
+  br i1 %.not.not63.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ]
@@ -2424,7 +2424,7 @@ _ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vecto
   br i1 %or.cond213.not, label %.lr.ph.i, label %.critedge.i, !llvm.loop !149
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i
-  %.sroa.0.0..sroa.0.0..sroa.0.0.37.i = phi i32 [ %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.37.pre.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.3772.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.3772.i, %.lr.ph.i ]
+  %.sroa.0.0..sroa.0.0..sroa.0.0.37.i = phi i32 [ %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.37.pre.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.3774.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ], [ %.sroa.0.0..sroa.0.0..sroa.0.0.3774.i, %.lr.ph.i ]
   %.sroa.13.258.i = phi ptr [ null, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i ], [ %.sroa.13.0.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ], [ %.sroa.13.0.i, %.lr.ph.i ]
   %.sroa.12.257.i = phi ptr [ %.sroa.12.1.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i ], [ %.sroa.12.050.i, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ], [ %.sroa.12.050.i, %.lr.ph.i ]
   %.0.i = phi i1 [ false, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.thread.i ], [ true, %_ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vector_tIdLb0EES8_.exit.i ], [ %220, %.lr.ph.i ]
@@ -2436,20 +2436,20 @@ _ZL12_iup_segment10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiiR11hb_vecto
   br label %_ZN11hb_vector_tIdLb0EED2Ev.exit.i
 
 _ZN11hb_vector_tIdLb0EED2Ev.exit.i:               ; preds = %221, %.critedge.i, %169
-  %.084.i = phi i1 [ %.0.i, %.critedge.i ], [ %.0.i, %221 ], [ true, %169 ]
-  %.sroa.12.25783.i = phi ptr [ %.sroa.12.257.i, %.critedge.i ], [ %.sroa.12.257.i, %221 ], [ null, %169 ]
+  %.086.i = phi i1 [ %.0.i, %.critedge.i ], [ %.0.i, %221 ], [ true, %169 ]
+  %.sroa.12.25785.i = phi ptr [ %.sroa.12.257.i, %.critedge.i ], [ %.sroa.12.257.i, %221 ], [ null, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %.sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.0..sroa.041.0..sroa.041.0.43.i = load i32, ptr %.sroa.041.i, align 8, !tbaa !139
   %.not.i.i33.i = icmp eq i32 %.sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.0..sroa.041.0..sroa.041.0.43.i, 0
   br i1 %.not.i.i33.i, label %_ZL19_can_iup_in_between10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiid.exit, label %222
 
 222:                                              ; preds = %_ZN11hb_vector_tIdLb0EED2Ev.exit.i
-  tail call void @free(ptr noundef %.sroa.12.25783.i) #11
+  tail call void @free(ptr noundef %.sroa.12.25785.i) #11
   br label %_ZL19_can_iup_in_between10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiid.exit
 
 _ZL19_can_iup_in_between10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiid.exit: ; preds = %_ZN11hb_vector_tIdLb0EED2Ev.exit.i, %222
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.041.i)
-  br i1 %.084.i, label %223, label %.critedge
+  br i1 %.086.i, label %223, label %.critedge
 
 223:                                              ; preds = %_ZL19_can_iup_in_between10hb_array_tIK15contour_point_tES_IKiES4_RS1_S5_iiiid.exit
   %224 = load ptr, ptr %49, align 8, !tbaa !98

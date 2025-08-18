@@ -1276,22 +1276,22 @@ define hidden noundef i64 @"_ZN14regex_automata4util4pool5inner9THREAD_ID7__geti
 define hidden void @"_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17h8b7f9ea05a6776b3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.sroa.0.sroa.0.0.copyload = load i64, ptr %1, align 8, !alias.scope !250
   %3 = trunc nuw i64 %.sroa.0.sroa.0.0.copyload to i1
-  br i1 %3, label %.critedge, label %4
+  br i1 %3, label %.lr.ph, label %6
 
-4:                                                ; preds = %.critedge, %2
-  ret void
-
-.critedge:                                        ; preds = %2
+.lr.ph:                                           ; preds = %2
+  %.promoted = load i64, ptr %0, align 8
   %.sroa.0.sroa.4.sroa.4.0..sroa.0.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.sroa.4.0..sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !250
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.sroa.0.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !250
-  %5 = load i64, ptr %0, align 8, !noundef !10
-  %6 = add i64 %5, %.sroa.0.sroa.4.sroa.0.0.copyload
-  store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.sroa.4.sroa.4.0.copyload, ptr %7, align 8
-  br label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.0.sroa.4.sroa.4.0.copyload, ptr %4, align 8
+  %5 = add i64 %.promoted, %.sroa.0.sroa.4.sroa.0.0.copyload
+  store i64 %5, ptr %0, align 8
+  br label %6
+
+6:                                                ; preds = %.lr.ph, %2
+  ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

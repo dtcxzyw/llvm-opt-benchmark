@@ -3593,25 +3593,20 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
   %.pre.i = load ptr, ptr %5, align 8, !alias.scope !916, !noalias !919
   %11 = icmp eq ptr %.pre.i, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
-  br i1 %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.thread.i, label %._crit_edge
+  br i1 %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.thread.i, label %12
 
-._crit_edge:                                      ; preds = %2
-  %.pre = load ptr, ptr %6, align 8, !alias.scope !922, !noalias !927
-  %.pre1 = load ptr, ptr %7, align 8, !alias.scope !922, !noalias !927
-  br label %12
-
-12:                                               ; preds = %._crit_edge, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i"
-  %13 = phi ptr [ %.pre1, %._crit_edge ], [ %.sroa.2.0.copyload.i, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i" ]
-  %14 = phi ptr [ %.pre, %._crit_edge ], [ %32, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i" ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !930)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !931)
-  %15 = icmp eq ptr %13, %14
+12:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h0d197860a7f1d41fE.exit.i", %2
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !925)
+  %13 = load ptr, ptr %6, align 8, !alias.scope !928, !noalias !929, !nonnull !4, !noundef !4
+  %14 = load ptr, ptr %7, align 8, !alias.scope !928, !noalias !929, !nonnull !4, !noundef !4
+  %15 = icmp eq ptr %14, %13
   br i1 %15, label %_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E.exit.thread.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E.exit.i.i: ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %16, ptr %7, align 8, !alias.scope !922, !noalias !927
-  %.sroa.0.0.copyload7.i.i = load i8, ptr %13, align 8, !noalias !932
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %16, ptr %7, align 8, !alias.scope !928, !noalias !929
+  %.sroa.0.0.copyload7.i.i = load i8, ptr %14, align 8, !noalias !932
   %.not6.i.i = icmp eq i8 %.sroa.0.0.copyload7.i.i, 6
   br i1 %.not6.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E.exit.thread.i.i, label %19
 
@@ -3634,7 +3629,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.threa
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE.exit.thread.i
 
 19:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E.exit.i.i
-  %.sroa.7.0..sroa_idx8.i.le.i = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %.sroa.7.0..sroa_idx8.i.le.i = getelementptr inbounds nuw i8, ptr %14, i64 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx8.i.le.i, i64 23, i1 false)
   store i8 %.sroa.0.0.copyload7.i.i, ptr %0, align 8, !alias.scope !911, !noalias !914
@@ -27138,17 +27133,17 @@ attributes #28 = { nounwind }
 !919 = !{!920, !912}
 !920 = distinct !{!920, !918, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hd02517195f64760fE: argument 0"}
 !921 = !{!917}
-!922 = !{!923, !925, !917, !915}
-!923 = distinct !{!923, !924, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E: argument 1"}
-!924 = distinct !{!924, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E"}
-!925 = distinct !{!925, !926, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E: argument 1"}
-!926 = distinct !{!926, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E"}
-!927 = !{!928, !929, !920, !912}
-!928 = distinct !{!928, !924, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E: argument 0"}
-!929 = distinct !{!929, !926, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E: argument 0"}
-!930 = !{!925}
-!931 = !{!923}
-!932 = !{!923, !925, !920, !917, !912}
+!922 = !{!923}
+!923 = distinct !{!923, !924, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E: argument 1"}
+!924 = distinct !{!924, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E"}
+!925 = !{!926}
+!926 = distinct !{!926, !927, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E: argument 1"}
+!927 = distinct !{!927, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E"}
+!928 = !{!926, !923, !917, !915}
+!929 = !{!930, !931, !920, !912}
+!930 = distinct !{!930, !927, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3260be8ad31234E: argument 0"}
+!931 = distinct !{!931, !924, !"_ZN4core3ops8function6FnOnce9call_once17hda29cd41bb65a5f9E: argument 0"}
+!932 = !{!926, !923, !920, !917, !912}
 !933 = !{!912, !915}
 !934 = !{!935}
 !935 = distinct !{!935, !936, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hed007062cfcaa82cE: argument 1"}

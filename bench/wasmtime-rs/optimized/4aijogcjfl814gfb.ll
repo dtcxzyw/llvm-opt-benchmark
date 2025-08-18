@@ -5077,7 +5077,7 @@ common.resume:                                    ; preds = %22, %12, %.body13
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-.body13:                                          ; preds = %89, %86, %68
+.body13:                                          ; preds = %86, %89, %68
   %.pn6 = phi { ptr, i32 } [ %.pn4, %68 ], [ %87, %89 ], [ %87, %86 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 229
   store i8 0, ptr %93, align 1
@@ -35119,8 +35119,8 @@ common.ret:                                       ; preds = %800, %797, %217
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !4262
   br label %.body269.i
 
-.body269.i:                                       ; preds = %793, %785, %782, %.body269.sink.split.i, %373
-  %.pn134.pn.pn.i = phi { ptr, i32 } [ %.pn134.pn.i, %793 ], [ %.pn134.pn.i, %373 ], [ %783, %785 ], [ %783, %782 ], [ %.pn134.pn.pn.ph.i, %.body269.sink.split.i ]
+.body269.i:                                       ; preds = %785, %782, %793, %.body269.sink.split.i, %373
+  %.pn134.pn.pn.i = phi { ptr, i32 } [ %.pn134.pn.i, %793 ], [ %.pn134.pn.i, %373 ], [ %.pn134.pn.pn.ph.i, %.body269.sink.split.i ], [ %783, %782 ], [ %783, %785 ]
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 309
   store i8 0, ptr %424, align 1, !noalias !4262
   br label %.body.i

@@ -384,40 +384,39 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$ockam_multiaddr..regis
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$$u5b$ockam_multiaddr..Match$u3b$$u20$1$u5d$$GT$17h0286f8a9cc93aa4dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %2 = load i32, ptr %0, align 8, !range !38, !alias.scope !35, !noundef !8
-  switch i32 %2, label %3 [
+  %4 = load i32, ptr %0, align 8, !range !38, !alias.scope !35, !noundef !8
+  switch i32 %4, label %5 [
     i32 2, label %"_ZN4core3ptr43drop_in_place$LT$ockam_multiaddr..Match$GT$17hea0ac9d2e8ae53f1E.exit"
     i32 0, label %"_ZN4core3ptr43drop_in_place$LT$ockam_multiaddr..Match$GT$17hea0ac9d2e8ae53f1E.exit"
   ]
 
-3:                                                ; preds = %.critedge
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !39
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h549c9a679dd62ac1E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !range !25, !noalias !39, !noundef !8
-  %.not.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i", label %7
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !39
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h549c9a679dd62ac1E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  %8 = load i64, ptr %6, align 8, !range !25, !noalias !39, !noundef !8
+  %.not.i.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i", label %9
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !39, !noundef !8
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i", label %11
+9:                                                ; preds = %5
+  %10 = load i64, ptr %3, align 8, !noalias !39, !noundef !8
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i", label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %1, align 8, !noalias !39, !nonnull !8, !noundef !8
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %9, i64 noundef %6) #25
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %2, align 8, !noalias !39, !nonnull !8, !noundef !8
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %10, i64 noundef %8) #25
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i"
 
-"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i": ; preds = %11, %7, %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !39
+"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i": ; preds = %12, %9, %5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !39
   br label %"_ZN4core3ptr43drop_in_place$LT$ockam_multiaddr..Match$GT$17hea0ac9d2e8ae53f1E.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$ockam_multiaddr..Match$GT$17hea0ac9d2e8ae53f1E.exit": ; preds = %.critedge, %.critedge, %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i"
+"_ZN4core3ptr43drop_in_place$LT$ockam_multiaddr..Match$GT$17hea0ac9d2e8ae53f1E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$ockam_multiaddr..Code$GT$$GT$17he3777e80b2b0378aE.exit.i.i", %1, %1
   ret void
 }
 

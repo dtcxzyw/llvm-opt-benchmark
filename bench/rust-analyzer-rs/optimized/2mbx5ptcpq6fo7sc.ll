@@ -16753,9 +16753,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  br i1 %10, label %.critedge.i, label %15
+  br i1 %10, label %.lr.ph.i, label %15
 
-.critedge.i:                                      ; preds = %9
+.lr.ph.i:                                         ; preds = %9
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -16765,8 +16765,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %14 = add i64 %.sroa.4.0.copyload, 1
   br label %15
 
-15:                                               ; preds = %.critedge.i, %9
-  %.val3.i = phi i64 [ %14, %.critedge.i ], [ %.sroa.4.0.copyload, %9 ]
+15:                                               ; preds = %.lr.ph.i, %9
+  %.val3.i = phi i64 [ %14, %.lr.ph.i ], [ %.sroa.4.0.copyload, %9 ]
   %16 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %16)
   store i64 %.val3.i, ptr %.sroa.0.0.copyload, align 8, !noalias !7576

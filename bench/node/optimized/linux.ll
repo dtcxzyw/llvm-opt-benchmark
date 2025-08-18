@@ -3335,9 +3335,9 @@ for.end:                                          ; preds = %for.cond
 for.cond42.preheader:                             ; preds = %for.end
   %call4359 = call i32 (ptr, ptr, ...) @fscanf(ptr noundef nonnull %call37, ptr noundef nonnull @.str.13, ptr noundef nonnull %cpu)
   %cmp44.not60 = icmp eq i32 %call4359, 1
-  br i1 %cmp44.not60, label %land.rhs.preheader.lr.ph, label %for.end110
+  br i1 %cmp44.not60, label %while.cond.preheader.lr.ph, label %for.end110
 
-land.rhs.preheader.lr.ph:                         ; preds = %for.cond42.preheader
+while.cond.preheader.lr.ph:                       ; preds = %for.cond42.preheader
   %add.ptr58 = getelementptr inbounds nuw i8, ptr %buf, i64 13
   br label %land.rhs
 
@@ -3346,7 +3346,7 @@ for.cond42.loopexit:                              ; preds = %while.cond98
   %cmp44.not = icmp eq i32 %call43, 1
   br i1 %cmp44.not, label %land.rhs.backedge, label %for.end110
 
-land.rhs:                                         ; preds = %land.rhs.backedge, %land.rhs.preheader.lr.ph
+land.rhs:                                         ; preds = %land.rhs.backedge, %while.cond.preheader.lr.ph
   %call49 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 1024, ptr noundef nonnull %call37)
   %tobool50.not = icmp eq ptr %call49, null
   br i1 %tobool50.not, label %while.cond98.preheader, label %while.body

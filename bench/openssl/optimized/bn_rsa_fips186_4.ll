@@ -299,35 +299,32 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %..i = select i1 %55, i32 5, i32 0
   %.0.i = select i1 %54, i32 4, i32 %..i
   %56 = mul i32 %10, 20
-  br i1 %.not, label %.critedge, label %60
+  %smax = tail call i32 @llvm.smax.i32(i32 %56, i32 1)
+  %57 = add nsw i32 %smax, -1
+  br i1 %.not, label %.critedge, label %61
 
 .critedge:                                        ; preds = %67, %53
-  %57 = tail call i32 @BN_priv_rand_range_ex(ptr noundef %1, ptr noundef %12, i32 noundef 0, ptr noundef %7) #3
-  %.not114 = icmp eq i32 %57, 0
-  br i1 %.not114, label %.loopexit, label %58
+  %58 = tail call i32 @BN_priv_rand_range_ex(ptr noundef %1, ptr noundef %12, i32 noundef 0, ptr noundef %7) #3
+  %.not114 = icmp eq i32 %58, 0
+  br i1 %.not114, label %.loopexit, label %59
 
-58:                                               ; preds = %.critedge
-  %59 = tail call i32 @BN_add(ptr noundef %1, ptr noundef %1, ptr noundef %11) #3
-  %.not115 = icmp eq i32 %59, 0
-  br i1 %.not115, label %.loopexit, label %60
+59:                                               ; preds = %.critedge
+  %60 = tail call i32 @BN_add(ptr noundef %1, ptr noundef %1, ptr noundef %11) #3
+  %.not115 = icmp eq i32 %60, 0
+  br i1 %.not115, label %.loopexit, label %61
 
-60:                                               ; preds = %58, %53
-  %61 = tail call i32 @BN_mod_sub(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %15, ptr noundef %7) #3
-  %.not116 = icmp eq i32 %61, 0
-  br i1 %.not116, label %.loopexit, label %62
+61:                                               ; preds = %59, %53
+  %62 = tail call i32 @BN_mod_sub(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %15, ptr noundef %7) #3
+  %.not116 = icmp eq i32 %62, 0
+  br i1 %.not116, label %.loopexit, label %63
 
-62:                                               ; preds = %60
-  %63 = tail call i32 @BN_add(ptr noundef %0, ptr noundef %0, ptr noundef %1) #3
-  %.not117 = icmp eq i32 %63, 0
-  br i1 %.not117, label %.loopexit, label %.preheader.preheader
+63:                                               ; preds = %61
+  %64 = tail call i32 @BN_add(ptr noundef %0, ptr noundef %0, ptr noundef %1) #3
+  %.not117 = icmp eq i32 %64, 0
+  br i1 %.not117, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %62
-  %smax = tail call i32 @llvm.smax.i32(i32 %56, i32 1)
-  %64 = add nsw i32 %smax, -1
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %82
-  %.096 = phi i32 [ %83, %82 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %63, %82
+  %.096 = phi i32 [ %83, %82 ], [ 0, %63 ]
   %65 = tail call i32 @BN_num_bits(ptr noundef %0) #3
   %66 = icmp sgt i32 %65, %10
   br i1 %66, label %67, label %68
@@ -364,7 +361,7 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   ]
 
 80:                                               ; preds = %76, %74
-  %exitcond.not = icmp eq i32 %.096, %64
+  %exitcond.not = icmp eq i32 %.096, %57
   br i1 %exitcond.not, label %81, label %82
 
 81:                                               ; preds = %80
@@ -383,8 +380,8 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %86 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %82, %68, %72, %76, %67, %60, %62, %.critedge, %58, %51, %35, %37, %39, %41, %43, %45, %47, %26, %30, %33, %23, %20, %9, %85, %81
-  %.095 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ 0, %67 ], [ 0, %81 ], [ 1, %85 ], [ 0, %62 ], [ 0, %60 ], [ 0, %58 ], [ 0, %.critedge ], [ 0, %51 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %82 ]
+.loopexit:                                        ; preds = %82, %68, %72, %76, %67, %61, %63, %.critedge, %59, %51, %35, %37, %39, %41, %43, %45, %47, %26, %30, %33, %23, %20, %9, %85, %81
+  %.095 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ 0, %81 ], [ 1, %85 ], [ 0, %51 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %59 ], [ 0, %.critedge ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %82 ]
   tail call void @BN_clear(ptr noundef %16) #3
   tail call void @BN_CTX_end(ptr noundef %7) #3
   br label %.loopexit122

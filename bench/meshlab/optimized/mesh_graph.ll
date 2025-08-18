@@ -12032,16 +12032,16 @@ _ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90: ; preds = %164, %155
   store double %191, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 24
   %194 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  %195 = load double, ptr %194, align 8
-  store double %195, ptr %193, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 32
-  store double %197, ptr %198, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %171, i64 40
-  %200 = load i16, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 40
-  store i16 %200, ptr %201, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %171, i64 40
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0267, i64 40
+  %199 = load double, ptr %194, align 8
+  store double %199, ptr %193, align 8
+  %200 = load double, ptr %195, align 8
+  store double %200, ptr %196, align 8
+  %201 = load i16, ptr %197, align 8
+  store i16 %201, ptr %198, align 8
   %202 = load double, ptr %171, align 8
   store double %202, ptr %.sroa.0184.0267, align 8
   %203 = getelementptr inbounds nuw i8, ptr %171, i64 8

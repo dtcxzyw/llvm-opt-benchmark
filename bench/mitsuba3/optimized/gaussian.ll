@@ -162,73 +162,73 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 14:                                               ; preds = %7, %14
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %14 ]
-  %.074107 = phi double [ 1.000000e+00, %7 ], [ %20, %14 ]
+  %.074105 = phi double [ 1.000000e+00, %7 ], [ %20, %14 ]
   %15 = getelementptr inbounds nuw [10 x double], ptr @__const.GaussianFilter.coeff, i64 0, i64 %indvars.iv
   %16 = load double, ptr %15, align 8
-  %17 = fmul contract double %.074107, %16
+  %17 = fmul contract double %.074105, %16
   %18 = fptrunc double %17 to float
   %19 = getelementptr inbounds nuw [10 x float], ptr %5, i64 0, i64 %indvars.iv
   store float %18, ptr %19, align 4
-  %20 = fdiv contract double %.074107, %13
+  %20 = fdiv contract double %.074105, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !4
+  br i1 %exitcond.not, label %25, label %14, !llvm.loop !4
 
-21:                                               ; preds = %2, %.critedge
+21:                                               ; preds = %2, %25
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %61
 
 23:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  br label %60
+  br label %61
 
-.critedge:                                        ; preds = %14
-  %25 = fmul contract float %10, %10
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %27 = load float, ptr %26, align 4
-  %28 = load float, ptr %5, align 16
-  %29 = call contract noundef float @llvm.fma.f32(float %25, float %27, float %28)
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load float, ptr %30, align 4
-  %33 = load float, ptr %31, align 8
-  %34 = call contract noundef float @llvm.fma.f32(float %25, float %32, float %33)
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load float, ptr %35, align 4
-  %38 = load float, ptr %36, align 16
-  %39 = call contract noundef float @llvm.fma.f32(float %25, float %37, float %38)
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %42 = load float, ptr %40, align 4
-  %43 = load float, ptr %41, align 8
-  %44 = call contract noundef float @llvm.fma.f32(float %25, float %42, float %43)
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %47 = load float, ptr %45, align 4
-  %48 = load float, ptr %46, align 16
-  %49 = call contract noundef float @llvm.fma.f32(float %25, float %47, float %48)
-  %50 = fmul contract float %25, %25
-  %51 = call contract noundef float @llvm.fma.f32(float %50, float %34, float %29)
-  %52 = call contract noundef float @llvm.fma.f32(float %50, float %44, float %39)
-  %53 = fmul contract float %50, %50
-  %54 = call contract noundef float @llvm.fma.f32(float %53, float %52, float %51)
-  %55 = fmul contract float %53, %53
-  %56 = call contract noundef float @llvm.fma.f32(float %55, float %49, float %54)
-  %57 = fsub contract float %28, %56
-  store float %57, ptr %5, align 16
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 16 dereferenceable(40) %5, i64 40, i1 false)
+25:                                               ; preds = %14
+  %26 = fmul contract float %10, %10
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %28 = load float, ptr %27, align 4
+  %29 = load float, ptr %5, align 16
+  %30 = call contract noundef float @llvm.fma.f32(float %26, float %28, float %29)
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = load float, ptr %31, align 4
+  %34 = load float, ptr %32, align 8
+  %35 = call contract noundef float @llvm.fma.f32(float %26, float %33, float %34)
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load float, ptr %36, align 4
+  %39 = load float, ptr %37, align 16
+  %40 = call contract noundef float @llvm.fma.f32(float %26, float %38, float %39)
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %43 = load float, ptr %41, align 4
+  %44 = load float, ptr %42, align 8
+  %45 = call contract noundef float @llvm.fma.f32(float %26, float %43, float %44)
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %48 = load float, ptr %46, align 4
+  %49 = load float, ptr %47, align 16
+  %50 = call contract noundef float @llvm.fma.f32(float %26, float %48, float %49)
+  %51 = fmul contract float %26, %26
+  %52 = call contract noundef float @llvm.fma.f32(float %51, float %35, float %30)
+  %53 = call contract noundef float @llvm.fma.f32(float %51, float %45, float %40)
+  %54 = fmul contract float %51, %51
+  %55 = call contract noundef float @llvm.fma.f32(float %54, float %53, float %52)
+  %56 = fmul contract float %54, %54
+  %57 = call contract noundef float @llvm.fma.f32(float %56, float %50, float %55)
+  %58 = fsub contract float %29, %57
+  store float %58, ptr %5, align 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 16 dereferenceable(40) %5, i64 40, i1 false)
   invoke void @_ZN7mitsuba20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19init_discretizationEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
-          to label %59 unwind label %21
+          to label %60 unwind label %21
 
-59:                                               ; preds = %.critedge
+60:                                               ; preds = %25
   ret void
 
-60:                                               ; preds = %23, %21
+61:                                               ; preds = %23, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
   call void @_ZN7mitsuba20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #15
   resume { ptr, i32 } %.pn
@@ -253,42 +253,41 @@ declare void @_ZN7mitsuba20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef float @_ZNK7mitsuba14GaussianFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalEfb(ptr noundef nonnull align 8 dereferenceable(96) %0, float noundef %1, i1 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
-.critedge:
-  %3 = fmul contract float %1, %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %6 = load float, ptr %5, align 4
-  %7 = load float, ptr %4, align 8
-  %8 = tail call contract noundef float @llvm.fma.f32(float %3, float %6, float %7)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load float, ptr %9, align 4
-  %12 = load float, ptr %10, align 8
-  %13 = tail call contract noundef float @llvm.fma.f32(float %3, float %11, float %12)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load float, ptr %14, align 4
-  %17 = load float, ptr %15, align 8
-  %18 = tail call contract noundef float @llvm.fma.f32(float %3, float %16, float %17)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load float, ptr %19, align 4
-  %22 = load float, ptr %20, align 8
-  %23 = tail call contract noundef float @llvm.fma.f32(float %3, float %21, float %22)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load float, ptr %24, align 4
-  %27 = load float, ptr %25, align 8
-  %28 = tail call contract noundef float @llvm.fma.f32(float %3, float %26, float %27)
-  %29 = fmul contract float %3, %3
-  %30 = tail call contract noundef float @llvm.fma.f32(float %29, float %13, float %8)
-  %31 = tail call contract noundef float @llvm.fma.f32(float %29, float %23, float %18)
-  %32 = fmul contract float %29, %29
-  %33 = tail call contract noundef float @llvm.fma.f32(float %32, float %31, float %30)
-  %34 = fmul contract float %32, %32
-  %35 = tail call contract noundef float @llvm.fma.f32(float %34, float %28, float %33)
-  %36 = fcmp contract olt float %35, 0.000000e+00
-  %..i = select contract i1 %36, float 0.000000e+00, float %35
+  %4 = fmul contract float %1, %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %7 = load float, ptr %6, align 4
+  %8 = load float, ptr %5, align 8
+  %9 = tail call contract noundef float @llvm.fma.f32(float %4, float %7, float %8)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load float, ptr %10, align 4
+  %13 = load float, ptr %11, align 8
+  %14 = tail call contract noundef float @llvm.fma.f32(float %4, float %12, float %13)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %17 = load float, ptr %15, align 4
+  %18 = load float, ptr %16, align 8
+  %19 = tail call contract noundef float @llvm.fma.f32(float %4, float %17, float %18)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = load float, ptr %20, align 4
+  %23 = load float, ptr %21, align 8
+  %24 = tail call contract noundef float @llvm.fma.f32(float %4, float %22, float %23)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %27 = load float, ptr %25, align 4
+  %28 = load float, ptr %26, align 8
+  %29 = tail call contract noundef float @llvm.fma.f32(float %4, float %27, float %28)
+  %30 = fmul contract float %4, %4
+  %31 = tail call contract noundef float @llvm.fma.f32(float %30, float %14, float %9)
+  %32 = tail call contract noundef float @llvm.fma.f32(float %30, float %24, float %19)
+  %33 = fmul contract float %30, %30
+  %34 = tail call contract noundef float @llvm.fma.f32(float %33, float %32, float %31)
+  %35 = fmul contract float %33, %33
+  %36 = tail call contract noundef float @llvm.fma.f32(float %35, float %29, float %34)
+  %37 = fcmp contract olt float %36, 0.000000e+00
+  %..i = select contract i1 %37, float 0.000000e+00, float %36
   ret float %..i
 }
 

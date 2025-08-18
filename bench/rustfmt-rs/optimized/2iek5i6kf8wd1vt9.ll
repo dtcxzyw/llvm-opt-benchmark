@@ -763,7 +763,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
   %6 = icmp eq i8 %.pre.i, 2
   br i1 %6, label %10, label %7
 
-7:                                                ; preds = %.critedge.i, %1
+7:                                                ; preds = %.critedge, %1
   %8 = tail call noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2861aef0dba363dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !range !100
   %.not.i.i = icmp eq i32 %8, 1114112
   br i1 %.not.i.i, label %9, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8d662079b352997E.exit"
@@ -789,7 +789,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %13, %17
   %15 = phi i8 [ %18, %17 ], [ %14, %13 ]
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.critedge.i, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !112
@@ -819,7 +819,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !108, !noalias !109
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %"_ZN4core3ptr403drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$rustfmt_nightly..comment..UngroupedCommentCodeSlices$C$rustfmt_nightly..comment..changed_comment_content..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..comment..changed_comment_content..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7a79fa541ccbad28E.exit.i.i.i", %10
+.loopexit.i:                                      ; preds = %10, %"_ZN4core3ptr403drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$rustfmt_nightly..comment..UngroupedCommentCodeSlices$C$rustfmt_nightly..comment..changed_comment_content..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..comment..changed_comment_content..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7a79fa541ccbad28E.exit.i.i.i"
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 153
   %25 = load i8, ptr %24, align 1, !range !6, !alias.scope !132, !noundef !4
   %26 = icmp eq i8 %25, 2
@@ -835,7 +835,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
   store i8 2, ptr %24, align 1, !alias.scope !132
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8d662079b352997E.exit"
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.sroa.5.i.i.sroa.5.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.5.i.i.sroa.5.0..sroa.3.0..sroa_idx.i.i.i.sroa_idx.i.i.i.i.i, align 8, !noalias !135, !nonnull !4, !noundef !4
   %.sroa.5.i.i.sroa.6.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.5.i.i.sroa.6.0..sroa.3.0..sroa_idx.i.i.i.sroa_idx.i.i.i.i.i, align 8, !noalias !135
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !112

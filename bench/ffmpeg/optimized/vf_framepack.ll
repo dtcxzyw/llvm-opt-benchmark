@@ -71,8 +71,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .preheader:                                       ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8, !tbaa !23
-  %.not70 = icmp eq i32 %19, 0
-  br i1 %.not70, label %try_push_frame.exit, label %.lr.ph
+  %.not69 = icmp eq i32 %19, 0
+  br i1 %.not69, label %try_push_frame.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -122,12 +122,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 46:                                               ; preds = %39, %36
   %47 = load ptr, ptr %28, align 8, !tbaa !27
   %.not47 = icmp eq ptr %47, null
-  br i1 %.not47, label %457, label %48
+  br i1 %.not47, label %458, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %37, align 8, !tbaa !27
   %.not48 = icmp eq ptr %49, null
-  br i1 %.not48, label %457, label %50
+  br i1 %.not48, label %458, label %50
 
 50:                                               ; preds = %48
   %.val = load ptr, ptr %12, align 8, !tbaa !20
@@ -223,7 +223,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %99 = tail call ptr @ff_get_video_buffer(ptr noundef %.val.val, i32 noundef %96, i32 noundef %98) #6
   store ptr %99, ptr %7, align 8, !tbaa !27
   %.not64.i = icmp eq ptr %99, null
-  br i1 %.not64.i, label %456, label %100
+  br i1 %.not64.i, label %457, label %100
 
 100:                                              ; preds = %94
   %101 = load ptr, ptr %.val.val, align 8, !tbaa !52
@@ -791,66 +791,67 @@ spatial_frame_pack.exit.i:                        ; preds = %415, %370, %._crit_
 
 448:                                              ; preds = %spatial_frame_pack.exit.i
   call void @av_frame_free(ptr noundef nonnull %7) #6
-  br label %456
+  br label %457
 
 .preheader.i:                                     ; preds = %spatial_frame_pack.exit.i
   call void @av_frame_free(ptr noundef nonnull %51) #6
-  call void @av_frame_free(ptr noundef nonnull %54) #6
-  %449 = load ptr, ptr %7, align 8, !tbaa !27
-  %450 = call ptr @av_stereo3d_create_side_data(ptr noundef %449) #6
-  %.not65.i = icmp eq ptr %450, null
-  br i1 %.not65.i, label %451, label %452
-
-451:                                              ; preds = %.preheader.i
-  call void @av_frame_free(ptr noundef nonnull %7) #6
-  br label %456
+  %449 = getelementptr inbounds nuw i8, ptr %.val59, i64 40
+  call void @av_frame_free(ptr noundef nonnull %449) #6
+  %450 = load ptr, ptr %7, align 8, !tbaa !27
+  %451 = call ptr @av_stereo3d_create_side_data(ptr noundef %450) #6
+  %.not65.i = icmp eq ptr %451, null
+  br i1 %.not65.i, label %452, label %453
 
 452:                                              ; preds = %.preheader.i
-  %453 = load i32, ptr %57, align 8, !tbaa !29
-  store i32 %453, ptr %450, align 4, !tbaa !42
-  %454 = load ptr, ptr %7, align 8, !tbaa !27
-  %455 = call i32 @ff_filter_frame(ptr noundef nonnull %.val.val, ptr noundef %454) #6
-  br label %456
+  call void @av_frame_free(ptr noundef nonnull %7) #6
+  br label %457
 
-456:                                              ; preds = %452, %451, %448, %94
-  %.2.i = phi i32 [ %446, %448 ], [ %455, %452 ], [ -12, %451 ], [ -12, %94 ]
+453:                                              ; preds = %.preheader.i
+  %454 = load i32, ptr %57, align 8, !tbaa !29
+  store i32 %454, ptr %451, align 4, !tbaa !42
+  %455 = load ptr, ptr %7, align 8, !tbaa !27
+  %456 = call i32 @ff_filter_frame(ptr noundef nonnull %.val.val, ptr noundef %455) #6
+  br label %457
+
+457:                                              ; preds = %453, %452, %448, %94
+  %.2.i = phi i32 [ %446, %448 ], [ %456, %453 ], [ -12, %452 ], [ -12, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %try_push_frame.exit
 
-457:                                              ; preds = %46, %48
+458:                                              ; preds = %46, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %458 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %459 = load ptr, ptr %458, align 8, !tbaa !24
-  %460 = load ptr, ptr %459, align 8, !tbaa !21
-  %461 = call i32 @ff_inlink_acknowledge_status(ptr noundef %460, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
-  %.not49 = icmp eq i32 %461, 0
-  br i1 %.not49, label %.critedge56, label %462
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %460 = load ptr, ptr %459, align 8, !tbaa !24
+  %461 = load ptr, ptr %460, align 8, !tbaa !21
+  %462 = call i32 @ff_inlink_acknowledge_status(ptr noundef %461, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
+  %.not49 = icmp eq i32 %462, 0
+  br i1 %.not49, label %.critedge56, label %463
 
-462:                                              ; preds = %457
-  %463 = load i32, ptr %8, align 4, !tbaa !64
-  %464 = load i64, ptr %9, align 8, !tbaa !79
-  call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %463, i64 noundef %464) #6
+463:                                              ; preds = %458
+  %464 = load i32, ptr %8, align 4, !tbaa !64
+  %465 = load i64, ptr %9, align 8, !tbaa !79
+  call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %464, i64 noundef %465) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %try_push_frame.exit
 
-.critedge56:                                      ; preds = %457
+.critedge56:                                      ; preds = %458
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %465 = load ptr, ptr %458, align 8, !tbaa !24
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %467 = load ptr, ptr %466, align 8, !tbaa !21
-  %468 = call i32 @ff_inlink_acknowledge_status(ptr noundef %467, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
-  %.not50 = icmp eq i32 %468, 0
-  br i1 %.not50, label %.critedge58, label %469
+  %466 = load ptr, ptr %459, align 8, !tbaa !24
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
+  %468 = load ptr, ptr %467, align 8, !tbaa !21
+  %469 = call i32 @ff_inlink_acknowledge_status(ptr noundef %468, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
+  %.not50 = icmp eq i32 %469, 0
+  br i1 %.not50, label %.critedge58, label %470
 
-469:                                              ; preds = %.critedge56
-  %470 = load i32, ptr %10, align 4, !tbaa !64
-  %471 = load i64, ptr %11, align 8, !tbaa !79
-  call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %470, i64 noundef %471) #6
+470:                                              ; preds = %.critedge56
+  %471 = load i32, ptr %10, align 4, !tbaa !64
+  %472 = load i64, ptr %11, align 8, !tbaa !79
+  call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %471, i64 noundef %472) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %try_push_frame.exit
@@ -858,44 +859,44 @@ spatial_frame_pack.exit.i:                        ; preds = %415, %370, %._crit_
 .critedge58:                                      ; preds = %.critedge56
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %472 = load ptr, ptr %12, align 8, !tbaa !20
-  %473 = load ptr, ptr %472, align 8, !tbaa !21
-  %474 = call i32 @ff_outlink_frame_wanted(ptr noundef %473) #6
-  %.not51 = icmp eq i32 %474, 0
-  br i1 %.not51, label %480, label %475
+  %473 = load ptr, ptr %12, align 8, !tbaa !20
+  %474 = load ptr, ptr %473, align 8, !tbaa !21
+  %475 = call i32 @ff_outlink_frame_wanted(ptr noundef %474) #6
+  %.not51 = icmp eq i32 %475, 0
+  br i1 %.not51, label %481, label %476
 
-475:                                              ; preds = %.critedge58
-  %476 = load ptr, ptr %28, align 8, !tbaa !27
-  %.not52 = icmp eq ptr %476, null
-  br i1 %.not52, label %477, label %480
+476:                                              ; preds = %.critedge58
+  %477 = load ptr, ptr %28, align 8, !tbaa !27
+  %.not52 = icmp eq ptr %477, null
+  br i1 %.not52, label %478, label %481
 
-477:                                              ; preds = %475
-  %478 = load ptr, ptr %458, align 8, !tbaa !24
-  %479 = load ptr, ptr %478, align 8, !tbaa !21
-  call void @ff_inlink_request_frame(ptr noundef %479) #6
+478:                                              ; preds = %476
+  %479 = load ptr, ptr %459, align 8, !tbaa !24
+  %480 = load ptr, ptr %479, align 8, !tbaa !21
+  call void @ff_inlink_request_frame(ptr noundef %480) #6
   br label %try_push_frame.exit
 
-480:                                              ; preds = %475, %.critedge58
-  %481 = load ptr, ptr %12, align 8, !tbaa !20
-  %482 = load ptr, ptr %481, align 8, !tbaa !21
-  %483 = call i32 @ff_outlink_frame_wanted(ptr noundef %482) #6
-  %.not53 = icmp eq i32 %483, 0
-  br i1 %.not53, label %try_push_frame.exit, label %484
+481:                                              ; preds = %476, %.critedge58
+  %482 = load ptr, ptr %12, align 8, !tbaa !20
+  %483 = load ptr, ptr %482, align 8, !tbaa !21
+  %484 = call i32 @ff_outlink_frame_wanted(ptr noundef %483) #6
+  %.not53 = icmp eq i32 %484, 0
+  br i1 %.not53, label %try_push_frame.exit, label %485
 
-484:                                              ; preds = %480
-  %485 = load ptr, ptr %37, align 8, !tbaa !27
-  %.not54 = icmp eq ptr %485, null
-  br i1 %.not54, label %486, label %try_push_frame.exit
+485:                                              ; preds = %481
+  %486 = load ptr, ptr %37, align 8, !tbaa !27
+  %.not54 = icmp eq ptr %486, null
+  br i1 %.not54, label %487, label %try_push_frame.exit
 
-486:                                              ; preds = %484
-  %487 = load ptr, ptr %458, align 8, !tbaa !24
-  %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  %489 = load ptr, ptr %488, align 8, !tbaa !21
-  call void @ff_inlink_request_frame(ptr noundef %489) #6
+487:                                              ; preds = %485
+  %488 = load ptr, ptr %459, align 8, !tbaa !24
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
+  %490 = load ptr, ptr %489, align 8, !tbaa !21
+  call void @ff_inlink_request_frame(ptr noundef %490) #6
   br label %try_push_frame.exit
 
-try_push_frame.exit:                              ; preds = %21, %86, %83, %.preheader, %456, %53, %50, %469, %462, %480, %484, %39, %30, %486, %477
-  %.140 = phi i32 [ 0, %486 ], [ 0, %477 ], [ 0, %469 ], [ 0, %462 ], [ %34, %30 ], [ %44, %39 ], [ -1497649742, %484 ], [ -1497649742, %480 ], [ %.2.i, %456 ], [ 0, %53 ], [ 0, %50 ], [ 0, %.preheader ], [ -12, %83 ], [ %92, %86 ], [ 0, %21 ]
+try_push_frame.exit:                              ; preds = %21, %86, %83, %.preheader, %457, %53, %50, %470, %463, %481, %485, %39, %30, %487, %478
+  %.140 = phi i32 [ 0, %487 ], [ 0, %478 ], [ 0, %470 ], [ 0, %463 ], [ %34, %30 ], [ %44, %39 ], [ -1497649742, %485 ], [ -1497649742, %481 ], [ %.2.i, %457 ], [ 0, %53 ], [ 0, %50 ], [ 0, %.preheader ], [ -12, %83 ], [ %92, %86 ], [ 0, %21 ]
   ret i32 %.140
 }
 

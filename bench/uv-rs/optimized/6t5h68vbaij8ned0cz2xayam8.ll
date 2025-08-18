@@ -33175,9 +33175,8 @@ define hidden void @"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr218drop_in_place$LT$$u5b$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$u3b$$u20$1$u5d$$GT$17h5427d77e66c5a23eE.llvm.14234798039696082073"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 }
 
@@ -33194,27 +33193,27 @@ define hidden void @"_ZN4core3ptr218drop_in_place$LT$$u5b$$LP$pubgrub..internal.
   %4 = add nuw nsw i64 %.sroa.0.0, 1
   %5 = getelementptr inbounds nuw { i32, [1 x i32], { i64, [7 x i64] } }, ptr %0, i64 %.sroa.0.0, i32 2, i32 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
-          to label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit" unwind label %7
+          to label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit" unwind label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7"
 
 6:                                                ; preds = %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit"
   ret void
 
-7:                                                ; preds = %3
-  %8 = landingpad { ptr, i32 }
+"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7": ; preds = %3
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = icmp eq i64 %4, 2
-  br i1 %9, label %.critedge, label %10
+  %8 = icmp eq i64 %4, 2
+  br i1 %8, label %.critedge, label %9
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
-          to label %.critedge unwind label %12
+9:                                                ; preds = %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7"
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
+          to label %.critedge unwind label %11
 
-.critedge:                                        ; preds = %10, %7
-  resume { ptr, i32 } %8
+.critedge:                                        ; preds = %9, %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7"
+  resume { ptr, i32 } %7
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable
@@ -34856,24 +34855,24 @@ define hidden void @"_ZN4core3ptr235drop_in_place$LT$pubgrub..internal..small_ma
   %31 = add nuw nsw i64 %.sroa.0.0.i, 1
   %32 = getelementptr inbounds nuw { i32, [1 x i32], { i64, [7 x i64] } }, ptr %0, i64 %.sroa.0.0.i, i32 2, i32 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %32)
-          to label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit.i" unwind label %33
+          to label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit.i" unwind label %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7.i"
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7.i": ; preds = %30
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %35 = icmp eq i64 %31, 2
-  br i1 %35, label %.critedge.i, label %36
+  %34 = icmp eq i64 %31, 2
+  br i1 %34, label %.critedge, label %35
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %37)
-          to label %.critedge.i unwind label %38
+35:                                               ; preds = %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7.i"
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
+          to label %.critedge unwind label %37
 
-.critedge.i:                                      ; preds = %36, %33
-  resume { ptr, i32 } %34
+.critedge:                                        ; preds = %35, %"_ZN4core3ptr197drop_in_place$LT$$LP$pubgrub..internal..arena..Id$LT$uv_resolver..pubgrub..package..PubGrubPackage$GT$$C$pubgrub..term..Term$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$RP$$GT$17h0c9afd957080860aE.llvm.14234798039696082073.exit7.i"
+  resume { ptr, i32 } %33
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable
@@ -35465,7 +35464,7 @@ define hidden void @"_ZN4core3ptr246drop_in_place$LT$pubgrub..internal..partial_
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %13, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr289drop_in_place$LT$pubgrub..internal..small_vec..SmallVec$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$$GT$17hcfa2e656d3b5ef9fE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(160) %20) #40
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %41
 
 "_ZN4core3ptr146drop_in_place$LT$pubgrub..internal..partial_solution..AssignmentsIntersection$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$GT$17h968e1589390b512cE.llvm.14234798039696082073.exit": ; preds = %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hbeaed4a831f6e862E.exit.i"
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -35504,25 +35503,25 @@ define hidden void @"_ZN4core3ptr246drop_in_place$LT$pubgrub..internal..partial_
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %34)
-          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit.i.i" unwind label %35
+          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit.i.i" unwind label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i.i"
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i.i": ; preds = %31
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %37 = icmp eq i64 %32, 2
-  br i1 %37, label %common.resume, label %38
+  %36 = icmp eq i64 %32, 2
+  br i1 %36, label %common.resume, label %37
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %39)
-          to label %common.resume unwind label %40
+37:                                               ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i.i"
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %38)
+          to label %common.resume unwind label %39
 
-common.resume:                                    ; preds = %.body, %35, %38
-  %common.resume.op = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %eh.lpad-body, %.body ]
+common.resume:                                    ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i.i", %37, %.body
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %35, %37 ], [ %35, %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable
@@ -35530,8 +35529,8 @@ common.resume:                                    ; preds = %.body, %35, %38
 "_ZN4core3ptr289drop_in_place$LT$pubgrub..internal..small_vec..SmallVec$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$$GT$17hcfa2e656d3b5ef9fE.llvm.14234798039696082073.exit": ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit.i.i", %"_ZN4core3ptr146drop_in_place$LT$pubgrub..internal..partial_solution..AssignmentsIntersection$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$$GT$17h968e1589390b512cE.llvm.14234798039696082073.exit", %26, %28
   ret void
 
-42:                                               ; preds = %.body
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %.body
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable
@@ -37195,9 +37194,8 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$$LT$alloc..vec..into_iter..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$$u5b$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$u3b$$u20$1$u5d$$GT$17h3c0e8adf94bee52bE.llvm.14234798039696082073"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 }
 
@@ -37214,27 +37212,27 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$$u5b$pubgrub..internal..par
   %4 = add nuw nsw i64 %.sroa.0.0, 1
   %5 = getelementptr inbounds nuw { { i64, [7 x i64] }, i32, i32, i32, [1 x i32] }, ptr %0, i64 %.sroa.0.0, i32 0, i32 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
-          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit" unwind label %7
+          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit" unwind label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7"
 
 6:                                                ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit"
   ret void
 
-7:                                                ; preds = %3
-  %8 = landingpad { ptr, i32 }
+"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7": ; preds = %3
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = icmp eq i64 %4, 2
-  br i1 %9, label %.critedge, label %10
+  %8 = icmp eq i64 %4, 2
+  br i1 %8, label %.critedge, label %9
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
-          to label %.critedge unwind label %12
+9:                                                ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7"
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
+          to label %.critedge unwind label %11
 
-.critedge:                                        ; preds = %10, %7
-  resume { ptr, i32 } %8
+.critedge:                                        ; preds = %9, %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7"
+  resume { ptr, i32 } %7
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable
@@ -38715,24 +38713,24 @@ define hidden void @"_ZN4core3ptr289drop_in_place$LT$pubgrub..internal..small_ve
   %12 = add nuw nsw i64 %.sroa.0.0.i, 1
   %13 = getelementptr inbounds nuw { { i64, [7 x i64] }, i32, i32, i32, [1 x i32] }, ptr %0, i64 %.sroa.0.0.i, i32 0, i32 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13)
-          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit.i" unwind label %14
+          to label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit.i" unwind label %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i"
 
-14:                                               ; preds = %11
-  %15 = landingpad { ptr, i32 }
+"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i": ; preds = %11
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp eq i64 %12, 2
-  br i1 %16, label %.critedge.i, label %17
+  %15 = icmp eq i64 %12, 2
+  br i1 %15, label %.critedge, label %16
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18)
-          to label %.critedge.i unwind label %19
+16:                                               ; preds = %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i"
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
+          to label %.critedge unwind label %18
 
-.critedge.i:                                      ; preds = %17, %14
-  resume { ptr, i32 } %15
+.critedge:                                        ; preds = %16, %"_ZN4core3ptr243drop_in_place$LT$pubgrub..internal..partial_solution..DatedDerivation$LT$uv_resolver..pubgrub..package..PubGrubPackage$C$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$C$uv_resolver..resolver..availability..UnavailableReason$GT$$GT$17h206e365e28fee9cfE.exit7.i"
+  resume { ptr, i32 } %14
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #41
   unreachable

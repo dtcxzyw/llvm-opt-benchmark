@@ -166,8 +166,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1f4d682aa633397bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1f4d682aa633397bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h0df3d07766a5e483E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !7
@@ -186,8 +186,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h45274df0251de669E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h45274df0251de669E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h9d753539d8acce31E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !15
@@ -206,8 +206,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h7bccd3b009712330E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h7bccd3b009712330E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h6432a461f4ce3e9dE.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !23
@@ -226,8 +226,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17he28fa39ff82436d2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17he28fa39ff82436d2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h041b67d217953f39E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !31
@@ -246,8 +246,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf20925b19f48b85bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf20925b19f48b85bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h5cf47a09ea8e4dddE.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !39
@@ -266,8 +266,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf41f1065857c6471E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf41f1065857c6471E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17hd6b6b0ad095411c2E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !noalias !47
@@ -638,7 +638,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h35b09bd8ea979ae6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h35b09bd8ea979ae6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -665,7 +665,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h403bd3ad021bf0a0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h403bd3ad021bf0a0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -692,7 +692,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h99df1c4658d388b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h99df1c4658d388b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -719,7 +719,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hdd3d932f616d7155E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hdd3d932f616d7155E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -746,7 +746,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17he7e167597fcb968eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17he7e167597fcb968eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -773,7 +773,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf27bd75326d8feedE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf27bd75326d8feedE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -931,7 +931,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h28da83edde0e65e6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h28da83edde0e65e6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -958,7 +958,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2bb1a9ba548019f5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2bb1a9ba548019f5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -985,7 +985,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h54cb99d9b8a5052aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h54cb99d9b8a5052aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1012,7 +1012,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hef61500c93cc354fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hef61500c93cc354fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1313,7 +1313,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h79ff2d9e1dd41304E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h79ff2d9e1dd41304E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1340,7 +1340,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h9f0b764f87792f78E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h9f0b764f87792f78E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1367,7 +1367,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hc7e9c419eca686faE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hc7e9c419eca686faE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1394,7 +1394,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hcbc4458037d5cdc0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hcbc4458037d5cdc0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1421,7 +1421,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf9bff28dd8f2fa8bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf9bff28dd8f2fa8bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1448,7 +1448,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hfb9aae0248e3cfa9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hfb9aae0248e3cfa9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1660,7 +1660,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h567f978f79ac7cdfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h567f978f79ac7cdfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1687,7 +1687,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h80a9f5b517234e3aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h80a9f5b517234e3aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1714,7 +1714,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17heda7a97e1147a7deE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17heda7a97e1147a7deE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1741,7 +1741,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf5148fc8feb1a386E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf5148fc8feb1a386E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2019,7 +2019,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1015afa7a520229dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1015afa7a520229dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2046,7 +2046,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h65b30879b623e764E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h65b30879b623e764E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2073,7 +2073,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h70572fe6653d74dbE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h70572fe6653d74dbE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2100,7 +2100,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hb14f2eb8e0b4f90eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hb14f2eb8e0b4f90eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2127,7 +2127,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hb282cc791c6a0824E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hb282cc791c6a0824E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2154,7 +2154,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hd01d8e730c826437E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hd01d8e730c826437E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2387,7 +2387,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1684b3be64eaf60aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h1684b3be64eaf60aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2414,7 +2414,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17ha4c7c850649f229dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17ha4c7c850649f229dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2441,7 +2441,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hbfe2d73c4b38be7fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hbfe2d73c4b38be7fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2468,7 +2468,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hd45a29497bfaf3c9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hd45a29497bfaf3c9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2923,7 +2923,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h0effc0642d33ac3bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h0effc0642d33ac3bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2950,7 +2950,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2ac95d150c6a87bfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2ac95d150c6a87bfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2977,7 +2977,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h7ccd0bfc9c20c858E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h7ccd0bfc9c20c858E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3004,7 +3004,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hdec6b92d3e2c4da9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hdec6b92d3e2c4da9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3031,7 +3031,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hed1b334f8a1c54c3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hed1b334f8a1c54c3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3058,7 +3058,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf0125519b85958bcE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17hf0125519b85958bcE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3364,8 +3364,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2fdfcb626fd40492E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h2fdfcb626fd40492E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h739fb119b3c1d36fE.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !379
@@ -3384,8 +3384,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h35e9e0bf95e596edE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h35e9e0bf95e596edE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h513e94e34f16223eE.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !387
@@ -3404,8 +3404,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h462ec1f2ceeff311E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h462ec1f2ceeff311E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h94e27c1ca7d3dc80E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !395
@@ -3424,8 +3424,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h8f1e8ca0eb922964E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h8f1e8ca0eb922964E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17hec9b1df2030a9101E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !403
@@ -3444,8 +3444,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h94326431e4494e8cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17h94326431e4494e8cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h2960ca8572bc68e0E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !411
@@ -3464,8 +3464,8 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17heb70a605226f9fe4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$19lanewise_comparison17heb70a605226f9fe4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h888b3c4085280074E.exit.critedge":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   %.sroa.0.0.copyload7 = load double, ptr %1, align 8, !noalias !419
@@ -3484,12 +3484,34 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$9low_unary17h310e3d2854cc587aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %3 = load i32, ptr %1, align 4, !alias.scope !424, !noalias !429, !noundef !3
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$9low_unary17h310e3d2854cc587aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17h8c2bad4c68379f10E.exit.critedge:
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
+  %2 = load i32, ptr %1, align 4, !alias.scope !432, !noalias !433, !noundef !3
+  %3 = sext i32 %2 to i64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4, !alias.scope !432, !noalias !433, !noundef !3
+  %6 = sext i32 %5 to i64
+  store i64 %3, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %.sroa.42.0..sroa_idx, align 8
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$10high_unary17h34b838294b9cb47cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17h8794377454040a80E.exit.critedge:
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load i32, ptr %2, align 4, !alias.scope !443, !noalias !444, !noundef !3
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !alias.scope !424, !noalias !429, !noundef !3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %6 = load i32, ptr %5, align 4, !alias.scope !443, !noalias !444, !noundef !3
   %7 = sext i32 %6 to i64
   store i64 %4, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3497,68 +3519,78 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..s
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$10high_unary17h34b838294b9cb47cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 4, !alias.scope !432, !noalias !437, !noundef !3
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 4, !alias.scope !432, !noalias !437, !noundef !3
-  %8 = sext i32 %7 to i64
-  store i64 %5, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %.sroa.42.0..sroa_idx, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$10low_binary17h476a0289a29fa53bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = load i32, ptr %1, align 4, !noalias !440, !noundef !3
-  %5 = load i32, ptr %2, align 4, !noalias !440, !noundef !3
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$10low_binary17h476a0289a29fa53bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17hb1148201f706e08fE.exit.critedge:
+  %.sroa.6.02.i.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.6.02.i.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load i32, ptr %1, align 4, !noalias !446, !noundef !3
+  %4 = load i32, ptr %2, align 4, !noalias !446, !noundef !3
+  %5 = sext i32 %3 to i64
   %6 = sext i32 %4 to i64
-  %7 = sext i32 %5 to i64
-  %8 = mul nsw i64 %7, %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !noalias !440, !noundef !3
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !noalias !440, !noundef !3
-  %13 = sext i32 %10 to i64
-  %14 = sext i32 %12 to i64
-  %15 = mul nsw i64 %14, %13
-  store i64 %8, ptr %0, align 8
+  %7 = mul nsw i64 %6, %5
+  %8 = load i32, ptr %.sroa.6.02.i.i.sroa.gep11, align 4, !noalias !446, !noundef !3
+  %9 = load i32, ptr %.sroa.6.02.i.i.sroa.gep8, align 4, !noalias !446, !noundef !3
+  %10 = sext i32 %8 to i64
+  %11 = sext i32 %9 to i64
+  %12 = mul nsw i64 %11, %10
+  store i64 %7, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %.sroa.46.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.46.0..sroa_idx, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$11high_binary17h2424d41d61d37d65E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4, !noalias !445, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !noalias !445, !noundef !3
-  %8 = sext i32 %5 to i64
-  %9 = sext i32 %7 to i64
-  %10 = mul nsw i64 %9, %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !noalias !445, !noundef !3
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !noalias !445, !noundef !3
-  %15 = sext i32 %12 to i64
-  %16 = sext i32 %14 to i64
-  %17 = mul nsw i64 %16, %15
-  store i64 %10, ptr %0, align 8
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$11high_binary17h2424d41d61d37d65E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17h51e8a61f4cc2e466E.exit.critedge:
+  %.sroa.6.02.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.6.02.i.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.6.02.i.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.02.i.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3 = load i32, ptr %.sroa.6.02.i.i.sroa.gep10, align 4, !noalias !451, !noundef !3
+  %4 = load i32, ptr %.sroa.6.02.i.i.sroa.gep, align 4, !noalias !451, !noundef !3
+  %5 = sext i32 %3 to i64
+  %6 = sext i32 %4 to i64
+  %7 = mul nsw i64 %6, %5
+  %8 = load i32, ptr %.sroa.6.02.i.i.sroa.gep11, align 4, !noalias !451, !noundef !3
+  %9 = load i32, ptr %.sroa.6.02.i.i.sroa.gep8, align 4, !noalias !451, !noundef !3
+  %10 = sext i32 %8 to i64
+  %11 = sext i32 %9 to i64
+  %12 = mul nsw i64 %11, %10
+  store i64 %7, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %.sroa.46.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.46.0..sroa_idx, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$9low_unary17h7f4fcd8c62844615E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %3 = load i32, ptr %1, align 4, !alias.scope !450, !noalias !455, !noundef !3
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$9low_unary17h7f4fcd8c62844615E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17hd323ba428b8e0506E.exit.critedge:
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
+  %2 = load i32, ptr %1, align 4, !alias.scope !464, !noalias !465, !noundef !3
+  %3 = zext i32 %2 to i64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4, !alias.scope !464, !noalias !465, !noundef !3
+  %6 = zext i32 %5 to i64
+  store i64 %3, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %.sroa.42.0..sroa_idx, align 8
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$10high_unary17h3658a0daa13e9814E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17h54d28306e6342ac0E.exit.critedge:
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !467)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load i32, ptr %2, align 4, !alias.scope !475, !noalias !476, !noundef !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !alias.scope !450, !noalias !455, !noundef !3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %6 = load i32, ptr %5, align 4, !alias.scope !475, !noalias !476, !noundef !3
   %7 = zext i32 %6 to i64
   store i64 %4, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3566,77 +3598,65 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..s
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$10high_unary17h3658a0daa13e9814E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 4, !alias.scope !458, !noalias !463, !noundef !3
-  %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 4, !alias.scope !458, !noalias !463, !noundef !3
-  %8 = zext i32 %7 to i64
-  store i64 %5, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %.sroa.42.0..sroa_idx, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$10low_binary17h6ff6e5825210cbd6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = load i32, ptr %1, align 4, !noalias !466, !noundef !3
-  %5 = load i32, ptr %2, align 4, !noalias !466, !noundef !3
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$10low_binary17h6ff6e5825210cbd6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17hc84f4ff5fe3cdc96E.exit.critedge:
+  %.sroa.6.02.i.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.6.02.i.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load i32, ptr %1, align 4, !noalias !478, !noundef !3
+  %4 = load i32, ptr %2, align 4, !noalias !478, !noundef !3
+  %5 = zext i32 %3 to i64
   %6 = zext i32 %4 to i64
-  %7 = zext i32 %5 to i64
-  %8 = mul nuw i64 %7, %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !noalias !466, !noundef !3
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !noalias !466, !noundef !3
-  %13 = zext i32 %10 to i64
-  %14 = zext i32 %12 to i64
-  %15 = mul nuw i64 %14, %13
-  store i64 %8, ptr %0, align 8
+  %7 = mul nuw i64 %6, %5
+  %8 = load i32, ptr %.sroa.6.02.i.i.sroa.gep11, align 4, !noalias !478, !noundef !3
+  %9 = load i32, ptr %.sroa.6.02.i.i.sroa.gep8, align 4, !noalias !478, !noundef !3
+  %10 = zext i32 %8 to i64
+  %11 = zext i32 %9 to i64
+  %12 = mul nuw i64 %11, %10
+  store i64 %7, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %.sroa.46.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.46.0..sroa_idx, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$11high_binary17hd3c1130d24ac3a49E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4, !noalias !471, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !noalias !471, !noundef !3
-  %8 = zext i32 %5 to i64
-  %9 = zext i32 %7 to i64
-  %10 = mul nuw i64 %9, %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !noalias !471, !noundef !3
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !noalias !471, !noundef !3
-  %15 = zext i32 %12 to i64
-  %16 = zext i32 %14 to i64
-  %17 = mul nuw i64 %16, %15
-  store i64 %10, ptr %0, align 8
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$11high_binary17hd3c1130d24ac3a49E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+_ZN4core5array11try_from_fn17hb7421576d09c417bE.exit.critedge:
+  %.sroa.6.02.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.6.02.i.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.6.02.i.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.02.i.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3 = load i32, ptr %.sroa.6.02.i.i.sroa.gep10, align 4, !noalias !483, !noundef !3
+  %4 = load i32, ptr %.sroa.6.02.i.i.sroa.gep, align 4, !noalias !483, !noundef !3
+  %5 = zext i32 %3 to i64
+  %6 = zext i32 %4 to i64
+  %7 = mul nuw i64 %6, %5
+  %8 = load i32, ptr %.sroa.6.02.i.i.sroa.gep11, align 4, !noalias !483, !noundef !3
+  %9 = load i32, ptr %.sroa.6.02.i.i.sroa.gep8, align 4, !noalias !483, !noundef !3
+  %10 = zext i32 %8 to i64
+  %11 = zext i32 %9 to i64
+  %12 = mul nuw i64 %11, %10
+  store i64 %7, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %.sroa.46.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.46.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$14pairwise_unary17ha9561336254e02baE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   br label %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h680d54512e236a2fE.exit.i.i.i"
 
 "_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h680d54512e236a2fE.exit.i.i.i": ; preds = %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h680d54512e236a2fE.exit.i.i.i", %2
   %.sroa.6.06.i.i = phi i64 [ 0, %2 ], [ %10, %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h680d54512e236a2fE.exit.i.i.i" ]
   %.idx.i.i = shl nuw nsw i64 %.sroa.6.06.i.i, 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i.i
-  %5 = load i16, ptr %4, align 2, !alias.scope !482, !noalias !483, !noundef !3
+  %5 = load i16, ptr %4, align 2, !alias.scope !494, !noalias !495, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %7 = load i16, ptr %6, align 2, !alias.scope !482, !noalias !483, !noundef !3
-  %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_s15extadd_pairwise17h92338798c029c3adE(i16 noundef %5, i16 noundef %7), !noalias !486
+  %7 = load i16, ptr %6, align 2, !alias.scope !494, !noalias !495, !noundef !3
+  %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_s15extadd_pairwise17h92338798c029c3adE(i16 noundef %5, i16 noundef %7), !noalias !498
   %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.06.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.06.i.i, 1
@@ -3657,14 +3677,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %17, %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$15pairwise_binary28_$u7b$$u7b$closure$u7d$$u7d$17h0b85c951f8adb6f1E.exit.i.i.i" ]
   %5 = shl nuw nsw i64 %.sroa.6.02.i.i, 1
   %6 = getelementptr inbounds nuw i16, ptr %1, i64 %5
-  %7 = load i16, ptr %6, align 2, !noalias !487, !noundef !3
+  %7 = load i16, ptr %6, align 2, !noalias !499, !noundef !3
   %8 = or disjoint i64 %5, 1
   %9 = getelementptr inbounds nuw i16, ptr %1, i64 %8
-  %10 = load i16, ptr %9, align 2, !noalias !487, !noundef !3
+  %10 = load i16, ptr %9, align 2, !noalias !499, !noundef !3
   %11 = getelementptr inbounds nuw i16, ptr %2, i64 %5
-  %12 = load i16, ptr %11, align 2, !noalias !487, !noundef !3
+  %12 = load i16, ptr %11, align 2, !noalias !499, !noundef !3
   %13 = getelementptr inbounds nuw i16, ptr %2, i64 %8
-  %14 = load i16, ptr %13, align 2, !noalias !487, !noundef !3
+  %14 = load i16, ptr %13, align 2, !noalias !499, !noundef !3
   %.sroa.44.0.insert.ext.i.i.i.i = zext i16 %14 to i32
   %.sroa.44.0.insert.shift.i.i.i.i = shl nuw i32 %.sroa.44.0.insert.ext.i.i.i.i, 16
   %.sroa.0.0.insert.ext.i.i.i.i = zext i16 %12 to i32
@@ -3673,7 +3693,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %.sroa.46.0.insert.shift.i.i.i.i = shl nuw i32 %.sroa.46.0.insert.ext.i.i.i.i, 16
   %.sroa.05.0.insert.ext.i.i.i.i = zext i16 %7 to i32
   %.sroa.05.0.insert.insert.i.i.i.i = or disjoint i32 %.sroa.46.0.insert.shift.i.i.i.i, %.sroa.05.0.insert.ext.i.i.i.i
-  %15 = tail call noundef i32 @_ZN10wasmi_core4simd17i32x4_dot_i16x8_s3dot17hba86967bd58ee68aE(i32 %.sroa.05.0.insert.insert.i.i.i.i, i32 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !487
+  %15 = tail call noundef i32 @_ZN10wasmi_core4simd17i32x4_dot_i16x8_s3dot17hba86967bd58ee68aE(i32 %.sroa.05.0.insert.insert.i.i.i.i, i32 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !499
   %16 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
   store i32 %15, ptr %16, align 4
   %17 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -3693,7 +3713,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
-  %6 = load i16, ptr %5, align 2, !alias.scope !492, !noalias !497, !noundef !3
+  %6 = load i16, ptr %5, align 2, !alias.scope !504, !noalias !509, !noundef !3
   %7 = sext i16 %6 to i32
   %8 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
   store i32 %7, ptr %8, align 4
@@ -3715,7 +3735,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i16, ptr %6, align 2, !alias.scope !500, !noalias !505, !noundef !3
+  %7 = load i16, ptr %6, align 2, !alias.scope !512, !noalias !517, !noundef !3
   %8 = sext i16 %7 to i32
   %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
   store i32 %8, ptr %9, align 4
@@ -3736,9 +3756,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = load i16, ptr %6, align 2, !noalias !508, !noundef !3
+  %7 = load i16, ptr %6, align 2, !noalias !520, !noundef !3
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.02.i.i
-  %9 = load i16, ptr %8, align 2, !noalias !508, !noundef !3
+  %9 = load i16, ptr %8, align 2, !noalias !520, !noundef !3
   %10 = sext i16 %7 to i32
   %11 = sext i16 %9 to i32
   %12 = mul nsw i32 %11, %10
@@ -3762,9 +3782,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 4
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %6
-  %8 = load i16, ptr %7, align 2, !noalias !513, !noundef !3
+  %8 = load i16, ptr %7, align 2, !noalias !525, !noundef !3
   %9 = getelementptr inbounds nuw i16, ptr %2, i64 %6
-  %10 = load i16, ptr %9, align 2, !noalias !513, !noundef !3
+  %10 = load i16, ptr %9, align 2, !noalias !525, !noundef !3
   %11 = sext i16 %8 to i32
   %12 = sext i16 %10 to i32
   %13 = mul nsw i32 %12, %11
@@ -3782,18 +3802,18 @@ _ZN4core5array11try_from_fn17h3a127f8b645d12c9E.exit: ; preds = %5
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$14pairwise_unary17hffa4502ac9dacc10E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !521)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   br label %"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h4f068d2efcfb5202E.exit.i.i.i"
 
 "_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h4f068d2efcfb5202E.exit.i.i.i": ; preds = %"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h4f068d2efcfb5202E.exit.i.i.i", %2
   %.sroa.6.06.i.i = phi i64 [ 0, %2 ], [ %10, %"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h4f068d2efcfb5202E.exit.i.i.i" ]
   %.idx.i.i = shl nuw nsw i64 %.sroa.6.06.i.i, 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i.i
-  %5 = load i16, ptr %4, align 2, !alias.scope !524, !noalias !525, !noundef !3
+  %5 = load i16, ptr %4, align 2, !alias.scope !536, !noalias !537, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %7 = load i16, ptr %6, align 2, !alias.scope !524, !noalias !525, !noundef !3
-  %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_u15extadd_pairwise17h40423550ea4a66beE(i16 noundef %5, i16 noundef %7), !noalias !528
+  %7 = load i16, ptr %6, align 2, !alias.scope !536, !noalias !537, !noundef !3
+  %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_u15extadd_pairwise17h40423550ea4a66beE(i16 noundef %5, i16 noundef %7), !noalias !540
   %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.06.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.06.i.i, 1
@@ -3813,7 +3833,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
-  %6 = load i16, ptr %5, align 2, !alias.scope !529, !noalias !534, !noundef !3
+  %6 = load i16, ptr %5, align 2, !alias.scope !541, !noalias !546, !noundef !3
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
   store i32 %7, ptr %8, align 4
@@ -3835,7 +3855,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i16, ptr %6, align 2, !alias.scope !537, !noalias !542, !noundef !3
+  %7 = load i16, ptr %6, align 2, !alias.scope !549, !noalias !554, !noundef !3
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
   store i32 %8, ptr %9, align 4
@@ -3856,9 +3876,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = load i16, ptr %6, align 2, !noalias !545, !noundef !3
+  %7 = load i16, ptr %6, align 2, !noalias !557, !noundef !3
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.02.i.i
-  %9 = load i16, ptr %8, align 2, !noalias !545, !noundef !3
+  %9 = load i16, ptr %8, align 2, !noalias !557, !noundef !3
   %10 = zext i16 %7 to i32
   %11 = zext i16 %9 to i32
   %12 = mul nuw i32 %11, %10
@@ -3882,9 +3902,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 4
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %6
-  %8 = load i16, ptr %7, align 2, !noalias !550, !noundef !3
+  %8 = load i16, ptr %7, align 2, !noalias !562, !noundef !3
   %9 = getelementptr inbounds nuw i16, ptr %2, i64 %6
-  %10 = load i16, ptr %9, align 2, !noalias !550, !noundef !3
+  %10 = load i16, ptr %9, align 2, !noalias !562, !noundef !3
   %11 = zext i16 %8 to i32
   %12 = zext i16 %10 to i32
   %13 = mul nuw i32 %12, %11
@@ -3902,18 +3922,18 @@ _ZN4core5array11try_from_fn17h75ec39bb079b0ce6E.exit: ; preds = %5
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$14pairwise_unary17h5e42759b5d79a0b6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !567)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
   br label %"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h7cb7d370ba5e1b79E.exit.i.i.i"
 
 "_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h7cb7d370ba5e1b79E.exit.i.i.i": ; preds = %"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h7cb7d370ba5e1b79E.exit.i.i.i", %2
   %.sroa.6.06.i.i = phi i64 [ 0, %2 ], [ %11, %"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h7cb7d370ba5e1b79E.exit.i.i.i" ]
   %4 = shl nuw nsw i64 %.sroa.6.06.i.i, 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1, !alias.scope !561, !noalias !562, !noundef !3
+  %6 = load i8, ptr %5, align 1, !alias.scope !573, !noalias !574, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %8 = load i8, ptr %7, align 1, !alias.scope !561, !noalias !562, !noundef !3
-  %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_s15extadd_pairwise17h94e260bfec76fbfeE(i8 noundef %6, i8 noundef %8), !noalias !565
+  %8 = load i8, ptr %7, align 1, !alias.scope !573, !noalias !574, !noundef !3
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_s15extadd_pairwise17h94e260bfec76fbfeE(i8 noundef %6, i8 noundef %8), !noalias !577
   %10 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.06.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.06.i.i, 1
@@ -3934,14 +3954,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %17, %"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$15pairwise_binary28_$u7b$$u7b$closure$u7d$$u7d$17haeab461745de4a07E.exit.i.i.i" ]
   %5 = shl nuw nsw i64 %.sroa.6.02.i.i, 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
-  %7 = load i8, ptr %6, align 1, !noalias !566, !noundef !3
+  %7 = load i8, ptr %6, align 1, !noalias !578, !noundef !3
   %8 = or disjoint i64 %5, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
-  %10 = load i8, ptr %9, align 1, !noalias !566, !noundef !3
+  %10 = load i8, ptr %9, align 1, !noalias !578, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %5
-  %12 = load i8, ptr %11, align 1, !noalias !566, !noundef !3
+  %12 = load i8, ptr %11, align 1, !noalias !578, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %8
-  %14 = load i8, ptr %13, align 1, !noalias !566, !noundef !3
+  %14 = load i8, ptr %13, align 1, !noalias !578, !noundef !3
   %.sroa.44.0.insert.ext.i.i.i.i = zext i8 %14 to i16
   %.sroa.44.0.insert.shift.i.i.i.i = shl nuw i16 %.sroa.44.0.insert.ext.i.i.i.i, 8
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %12 to i16
@@ -3950,7 +3970,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %.sroa.46.0.insert.shift.i.i.i.i = shl nuw i16 %.sroa.46.0.insert.ext.i.i.i.i, 8
   %.sroa.05.0.insert.ext.i.i.i.i = zext i8 %7 to i16
   %.sroa.05.0.insert.insert.i.i.i.i = or disjoint i16 %.sroa.46.0.insert.shift.i.i.i.i, %.sroa.05.0.insert.ext.i.i.i.i
-  %15 = tail call noundef i16 @_ZN10wasmi_core4simd31i16x8_relaxed_dot_i8x16_i7x16_s3dot17h8baa079e8ed3d2e9E(i16 %.sroa.05.0.insert.insert.i.i.i.i, i16 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !566
+  %15 = tail call noundef i16 @_ZN10wasmi_core4simd31i16x8_relaxed_dot_i8x16_i7x16_s3dot17h8baa079e8ed3d2e9E(i16 %.sroa.05.0.insert.insert.i.i.i.i, i16 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !578
   %16 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
   store i16 %15, ptr %16, align 2
   %17 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -3970,7 +3990,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
-  %6 = load i8, ptr %5, align 1, !alias.scope !571, !noalias !576, !noundef !3
+  %6 = load i8, ptr %5, align 1, !alias.scope !583, !noalias !588, !noundef !3
   %7 = sext i8 %6 to i16
   %8 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
   store i16 %7, ptr %8, align 2
@@ -3992,7 +4012,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i8, ptr %6, align 1, !alias.scope !579, !noalias !584, !noundef !3
+  %7 = load i8, ptr %6, align 1, !alias.scope !591, !noalias !596, !noundef !3
   %8 = sext i8 %7 to i16
   %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
   store i16 %8, ptr %9, align 2
@@ -4013,9 +4033,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = load i8, ptr %6, align 1, !noalias !587, !noundef !3
+  %7 = load i8, ptr %6, align 1, !noalias !599, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.6.02.i.i
-  %9 = load i8, ptr %8, align 1, !noalias !587, !noundef !3
+  %9 = load i8, ptr %8, align 1, !noalias !599, !noundef !3
   %10 = sext i8 %7 to i16
   %11 = sext i8 %9 to i16
   %12 = mul nsw i16 %11, %10
@@ -4039,9 +4059,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %8 = load i8, ptr %7, align 1, !noalias !592, !noundef !3
+  %8 = load i8, ptr %7, align 1, !noalias !604, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %6
-  %10 = load i8, ptr %9, align 1, !noalias !592, !noundef !3
+  %10 = load i8, ptr %9, align 1, !noalias !604, !noundef !3
   %11 = sext i8 %8 to i16
   %12 = sext i8 %10 to i16
   %13 = mul nsw i16 %12, %11
@@ -4059,18 +4079,18 @@ _ZN4core5array11try_from_fn17h711c16dc6d6ed99fE.exit: ; preds = %5
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$14pairwise_unary17h939a647adba157b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
   br label %"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h1d03de778dc08929E.exit.i.i.i"
 
 "_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h1d03de778dc08929E.exit.i.i.i": ; preds = %"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h1d03de778dc08929E.exit.i.i.i", %2
   %.sroa.6.06.i.i = phi i64 [ 0, %2 ], [ %11, %"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$14pairwise_unary28_$u7b$$u7b$closure$u7d$$u7d$17h1d03de778dc08929E.exit.i.i.i" ]
   %4 = shl nuw nsw i64 %.sroa.6.06.i.i, 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1, !alias.scope !603, !noalias !604, !noundef !3
+  %6 = load i8, ptr %5, align 1, !alias.scope !615, !noalias !616, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %8 = load i8, ptr %7, align 1, !alias.scope !603, !noalias !604, !noundef !3
-  %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_u15extadd_pairwise17he8a271a10c8b2ee7E(i8 noundef %6, i8 noundef %8), !noalias !607
+  %8 = load i8, ptr %7, align 1, !alias.scope !615, !noalias !616, !noundef !3
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_u15extadd_pairwise17he8a271a10c8b2ee7E(i8 noundef %6, i8 noundef %8), !noalias !619
   %10 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.06.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.06.i.i, 1
@@ -4090,7 +4110,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
-  %6 = load i8, ptr %5, align 1, !alias.scope !608, !noalias !613, !noundef !3
+  %6 = load i8, ptr %5, align 1, !alias.scope !620, !noalias !625, !noundef !3
   %7 = zext i8 %6 to i16
   %8 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
   store i16 %7, ptr %8, align 2
@@ -4112,7 +4132,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i8, ptr %6, align 1, !alias.scope !616, !noalias !621, !noundef !3
+  %7 = load i8, ptr %6, align 1, !alias.scope !628, !noalias !633, !noundef !3
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
   store i16 %8, ptr %9, align 2
@@ -4133,9 +4153,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = load i8, ptr %6, align 1, !noalias !624, !noundef !3
+  %7 = load i8, ptr %6, align 1, !noalias !636, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.6.02.i.i
-  %9 = load i8, ptr %8, align 1, !noalias !624, !noundef !3
+  %9 = load i8, ptr %8, align 1, !noalias !636, !noundef !3
   %10 = zext i8 %7 to i16
   %11 = zext i8 %9 to i16
   %12 = mul nuw i16 %11, %10
@@ -4159,9 +4179,9 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %8 = load i8, ptr %7, align 1, !noalias !629, !noundef !3
+  %8 = load i8, ptr %7, align 1, !noalias !641, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %6
-  %10 = load i8, ptr %9, align 1, !noalias !629, !noundef !3
+  %10 = load i8, ptr %9, align 1, !noalias !641, !noundef !3
   %11 = zext i8 %8 to i16
   %12 = zext i8 %10 to i16
   %13 = mul nuw i16 %12, %11
@@ -4177,47 +4197,53 @@ _ZN4core5array11try_from_fn17h12afe6d77b4aafafE.exit: ; preds = %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$9low_unary17h3f3ebf123db70974E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
-  %3 = load i32, ptr %1, align 4, !alias.scope !640, !noalias !641, !noundef !3
-  %4 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_s17h183581ac45bb396bE(i32 noundef %3), !noalias !644
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !alias.scope !640, !noalias !641, !noundef !3
-  %7 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_s17h183581ac45bb396bE(i32 noundef %6), !noalias !644
-  store double %4, ptr %0, align 8
+define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$9low_unary17h3f3ebf123db70974E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$9low_unary28_$u7b$$u7b$closure$u7d$$u7d$17h711f29cabb3aea57E.exit.i.i.i":
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !646)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !649)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !652)
+  %2 = load i32, ptr %1, align 4, !alias.scope !654, !noalias !655, !noundef !3
+  %3 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_s17h183581ac45bb396bE(i32 noundef %2), !noalias !657
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4, !alias.scope !654, !noalias !655, !noundef !3
+  %6 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_s17h183581ac45bb396bE(i32 noundef %5), !noalias !657
+  store double %3, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %7, ptr %.sroa.42.0..sroa_idx, align 8
+  store double %6, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$9low_unary17h480bd2265bf03023E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !645)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
-  %3 = load i32, ptr %1, align 4, !alias.scope !651, !noalias !652, !noundef !3
-  %4 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_u17h778f2d5297dd2567E(i32 noundef %3), !noalias !655
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !alias.scope !651, !noalias !652, !noundef !3
-  %7 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_u17h778f2d5297dd2567E(i32 noundef %6), !noalias !655
-  store double %4, ptr %0, align 8
+define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$9low_unary17h480bd2265bf03023E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$9low_unary28_$u7b$$u7b$closure$u7d$$u7d$17h7ad6fe67fca88bd1E.exit.i.i.i":
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !658)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !661)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !664)
+  %2 = load i32, ptr %1, align 4, !alias.scope !666, !noalias !667, !noundef !3
+  %3 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_u17h778f2d5297dd2567E(i32 noundef %2), !noalias !669
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4, !alias.scope !666, !noalias !667, !noundef !3
+  %6 = tail call noundef double @_ZN10wasmi_core4wasm17f64_convert_i32_u17h778f2d5297dd2567E(i32 noundef %5), !noalias !669
+  store double %3, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %7, ptr %.sroa.42.0..sroa_idx, align 8
+  store double %6, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..F32x4$GT$$GT$9low_unary17h49fedcfc30d6848bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
-  %3 = load float, ptr %1, align 4, !alias.scope !662, !noalias !663, !noundef !3
-  %4 = tail call noundef double @_ZN10wasmi_core4wasm15f64_promote_f3217h1ffd967cdb2a6033E(float noundef %3), !noalias !666
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load float, ptr %5, align 4, !alias.scope !662, !noalias !663, !noundef !3
-  %7 = tail call noundef double @_ZN10wasmi_core4wasm15f64_promote_f3217h1ffd967cdb2a6033E(float noundef %6), !noalias !666
-  store double %4, ptr %0, align 8
+define hidden void @"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..F32x4$GT$$GT$9low_unary17h49fedcfc30d6848bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+"_ZN103_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..F32x4$GT$$GT$9low_unary28_$u7b$$u7b$closure$u7d$$u7d$17hfedef19928857ea0E.exit.i.i.i":
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !673)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !676)
+  %2 = load float, ptr %1, align 4, !alias.scope !678, !noalias !679, !noundef !3
+  %3 = tail call noundef double @_ZN10wasmi_core4wasm15f64_promote_f3217h1ffd967cdb2a6033E(float noundef %2), !noalias !681
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load float, ptr %4, align 4, !alias.scope !678, !noalias !679, !noundef !3
+  %6 = tail call noundef double @_ZN10wasmi_core4wasm15f64_promote_f3217h1ffd967cdb2a6033E(float noundef %5), !noalias !681
+  store double %3, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %7, ptr %.sroa.42.0..sroa_idx, align 8
+  store double %6, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
@@ -4233,8 +4259,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
-  %8 = load double, ptr %7, align 8, !noalias !667, !noundef !3
-  %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_s17h0fa037716e707cbdE(double noundef %8), !noalias !667
+  %8 = load double, ptr %7, align 8, !noalias !682, !noundef !3
+  %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_s17h0fa037716e707cbdE(double noundef %8), !noalias !682
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h8ae9897c64879795E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h8ae9897c64879795E.exit.i.i": ; preds = %6, %4
@@ -4262,8 +4288,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
-  %8 = load double, ptr %7, align 8, !noalias !672, !noundef !3
-  %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_u17h8d22788b0af3afc6E(double noundef %8), !noalias !672
+  %8 = load double, ptr %7, align 8, !noalias !687, !noundef !3
+  %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_u17h8d22788b0af3afc6E(double noundef %8), !noalias !687
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc500a02523d2bc96E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc500a02523d2bc96E.exit.i.i": ; preds = %6, %4
@@ -4291,8 +4317,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..s
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
-  %8 = load double, ptr %7, align 8, !noalias !677, !noundef !3
-  %9 = tail call noundef float @_ZN10wasmi_core4wasm14f32_demote_f6417hd1562f00a3d6371eE(double noundef %8), !noalias !677
+  %8 = load double, ptr %7, align 8, !noalias !692, !noundef !3
+  %9 = tail call noundef float @_ZN10wasmi_core4wasm14f32_demote_f6417hd1562f00a3d6371eE(double noundef %8), !noalias !692
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17he34de1255244c728E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17he34de1255244c728E.exit.i.i": ; preds = %6, %4
@@ -4320,8 +4346,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
-  %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !682, !noundef !3
-  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd579bdfE(i32 noundef %.sink.i.i.i.i), !noalias !682
+  %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !697, !noundef !3
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd579bdfE(i32 noundef %.sink.i.i.i.i), !noalias !697
   %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -4345,8 +4371,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
-  %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !687, !noundef !3
-  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %.sink.i.i.i.i), !noalias !687
+  %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !702, !noundef !3
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %.sink.i.i.i.i), !noalias !702
   %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -4370,8 +4396,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..s
   %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
-  %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !692, !noundef !3
-  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_i16_to_i817habf0952e05f66f34E(i16 noundef %.sink.i.i.i.i), !noalias !692
+  %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !707, !noundef !3
+  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_i16_to_i817habf0952e05f66f34E(i16 noundef %.sink.i.i.i.i), !noalias !707
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
   store i8 %9, ptr %10, align 1
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -4395,8 +4421,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..s
   %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
-  %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !697, !noundef !3
-  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_u16_to_u817hafdf4f0df3015b56E(i16 noundef %.sink.i.i.i.i), !noalias !697
+  %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !712, !noundef !3
+  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_u16_to_u817hafdf4f0df3015b56E(i16 noundef %.sink.i.i.i.i), !noalias !712
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
   store i8 %9, ptr %10, align 1
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
@@ -4409,37 +4435,37 @@ _ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE.exit: ; preds = %"_ZN101_$LT$was
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #6
+declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.sadd.sat.i8(i8, i8) #7
+declare i8 @llvm.sadd.sat.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ssub.sat.i8(i8, i8) #7
+declare i8 @llvm.ssub.sat.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.uadd.sat.i8(i8, i8) #7
+declare i8 @llvm.uadd.sat.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.usub.sat.i8(i8, i8) #7
+declare i8 @llvm.usub.sat.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.sadd.sat.i16(i16, i16) #7
+declare i16 @llvm.sadd.sat.i16(i16, i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ssub.sat.i16(i16, i16) #7
+declare i16 @llvm.ssub.sat.i16(i16, i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.uadd.sat.i16(i16, i16) #7
+declare i16 @llvm.uadd.sat.i16(i16, i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.usub.sat.i16(i16, i16) #7
+declare i16 @llvm.usub.sat.i16(i16, i16) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef double @_ZN10wasmi_core4wasm7f64_max17h040e7b32363fdf9eE(double noundef, double noundef) unnamed_addr #0
@@ -4469,7 +4495,7 @@ declare noundef float @_ZN10wasmi_core4wasm7f32_min17hfa412a1ed574aa50E(float no
 declare hidden noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_s15extadd_pairwise17h92338798c029c3adE(i16 noundef, i16 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef i32 @_ZN10wasmi_core4simd17i32x4_dot_i16x8_s3dot17hba86967bd58ee68aE(i32, i32) unnamed_addr #0
@@ -4580,83 +4606,81 @@ declare hidden void @_ZN4core5array5drain16drain_array_with17h2d6565b8d3bf040aE(
 declare hidden void @_ZN4core5array5drain16drain_array_with17ha730563351f2c925E(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 2 captures(none) dereferenceable(16), i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fma.f32(float, float, float) #7
+declare float @llvm.fma.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fma.f64(double, double, double) #7
+declare double @llvm.fma.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctpop.i8(i8) #7
+declare i8 @llvm.ctpop.i8(i8) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #11
+declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #11
+declare i16 @llvm.abs.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #11
+declare i16 @llvm.smin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #11
+declare i16 @llvm.smax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #11
+declare i16 @llvm.umax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #11
+declare i16 @llvm.umin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #11
+declare i8 @llvm.abs.i8(i8, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #11
+declare i8 @llvm.smax.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #11
+declare i8 @llvm.smin.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #11
+declare i8 @llvm.umax.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #11
+declare i8 @llvm.umin.i8(i8, i8) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}
@@ -5085,281 +5109,296 @@ attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !421 = !{!420, !422}
 !422 = distinct !{!422, !418, !"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$15lanewise_binary17h888b3c4085280074E: argument 1"}
 !423 = !{!422, !417}
-!424 = !{!425, !427}
-!425 = distinct !{!425, !426, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E: argument 1"}
-!426 = distinct !{!426, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E"}
-!427 = distinct !{!427, !428, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E: argument 1"}
-!428 = distinct !{!428, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E"}
-!429 = !{!430, !431}
-!430 = distinct !{!430, !426, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E: argument 0"}
-!431 = distinct !{!431, !428, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E: argument 0"}
-!432 = !{!433, !435}
-!433 = distinct !{!433, !434, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE: argument 1"}
-!434 = distinct !{!434, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE"}
-!435 = distinct !{!435, !436, !"_ZN4core5array11try_from_fn17h8794377454040a80E: argument 1"}
-!436 = distinct !{!436, !"_ZN4core5array11try_from_fn17h8794377454040a80E"}
-!437 = !{!438, !439}
-!438 = distinct !{!438, !434, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE: argument 0"}
-!439 = distinct !{!439, !436, !"_ZN4core5array11try_from_fn17h8794377454040a80E: argument 0"}
-!440 = !{!441, !443}
-!441 = distinct !{!441, !442, !"_ZN4core5array18try_from_fn_erased17h01a3a4594c2ea8f0E: argument 0"}
-!442 = distinct !{!442, !"_ZN4core5array18try_from_fn_erased17h01a3a4594c2ea8f0E"}
-!443 = distinct !{!443, !444, !"_ZN4core5array11try_from_fn17hb1148201f706e08fE: argument 0"}
-!444 = distinct !{!444, !"_ZN4core5array11try_from_fn17hb1148201f706e08fE"}
-!445 = !{!446, !448}
-!446 = distinct !{!446, !447, !"_ZN4core5array18try_from_fn_erased17h6d9c57703cf3b080E: argument 0"}
-!447 = distinct !{!447, !"_ZN4core5array18try_from_fn_erased17h6d9c57703cf3b080E"}
-!448 = distinct !{!448, !449, !"_ZN4core5array11try_from_fn17h51e8a61f4cc2e466E: argument 0"}
-!449 = distinct !{!449, !"_ZN4core5array11try_from_fn17h51e8a61f4cc2e466E"}
-!450 = !{!451, !453}
-!451 = distinct !{!451, !452, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E: argument 1"}
-!452 = distinct !{!452, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E"}
-!453 = distinct !{!453, !454, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E: argument 1"}
-!454 = distinct !{!454, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E"}
-!455 = !{!456, !457}
-!456 = distinct !{!456, !452, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E: argument 0"}
-!457 = distinct !{!457, !454, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E: argument 0"}
-!458 = !{!459, !461}
-!459 = distinct !{!459, !460, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE: argument 1"}
-!460 = distinct !{!460, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE"}
-!461 = distinct !{!461, !462, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E: argument 1"}
-!462 = distinct !{!462, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E"}
-!463 = !{!464, !465}
-!464 = distinct !{!464, !460, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE: argument 0"}
-!465 = distinct !{!465, !462, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E: argument 0"}
-!466 = !{!467, !469}
-!467 = distinct !{!467, !468, !"_ZN4core5array18try_from_fn_erased17hd9ceee20cc62a339E: argument 0"}
-!468 = distinct !{!468, !"_ZN4core5array18try_from_fn_erased17hd9ceee20cc62a339E"}
-!469 = distinct !{!469, !470, !"_ZN4core5array11try_from_fn17hc84f4ff5fe3cdc96E: argument 0"}
-!470 = distinct !{!470, !"_ZN4core5array11try_from_fn17hc84f4ff5fe3cdc96E"}
-!471 = !{!472, !474}
-!472 = distinct !{!472, !473, !"_ZN4core5array18try_from_fn_erased17hbe636a769e948e64E: argument 0"}
-!473 = distinct !{!473, !"_ZN4core5array18try_from_fn_erased17hbe636a769e948e64E"}
-!474 = distinct !{!474, !475, !"_ZN4core5array11try_from_fn17hb7421576d09c417bE: argument 0"}
-!475 = distinct !{!475, !"_ZN4core5array11try_from_fn17hb7421576d09c417bE"}
-!476 = !{!477}
-!477 = distinct !{!477, !478, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E: argument 1"}
-!478 = distinct !{!478, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E"}
-!479 = !{!480}
-!480 = distinct !{!480, !481, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE: argument 1"}
-!481 = distinct !{!481, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE"}
-!482 = !{!480, !477}
-!483 = !{!484, !485}
-!484 = distinct !{!484, !481, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE: argument 0"}
-!485 = distinct !{!485, !478, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E: argument 0"}
-!486 = !{!484, !480, !485, !477}
-!487 = !{!488, !490}
-!488 = distinct !{!488, !489, !"_ZN4core5array18try_from_fn_erased17h9c050177653b582cE: argument 0"}
-!489 = distinct !{!489, !"_ZN4core5array18try_from_fn_erased17h9c050177653b582cE"}
-!490 = distinct !{!490, !491, !"_ZN4core5array11try_from_fn17h4e3b47e295725816E: argument 0"}
-!491 = distinct !{!491, !"_ZN4core5array11try_from_fn17h4e3b47e295725816E"}
-!492 = !{!493, !495}
-!493 = distinct !{!493, !494, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E: argument 1"}
-!494 = distinct !{!494, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E"}
-!495 = distinct !{!495, !496, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE: argument 1"}
-!496 = distinct !{!496, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE"}
-!497 = !{!498, !499}
-!498 = distinct !{!498, !494, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E: argument 0"}
-!499 = distinct !{!499, !496, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE: argument 0"}
-!500 = !{!501, !503}
-!501 = distinct !{!501, !502, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE: argument 1"}
-!502 = distinct !{!502, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE"}
-!503 = distinct !{!503, !504, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E: argument 1"}
-!504 = distinct !{!504, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E"}
-!505 = !{!506, !507}
-!506 = distinct !{!506, !502, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE: argument 0"}
-!507 = distinct !{!507, !504, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E: argument 0"}
-!508 = !{!509, !511}
-!509 = distinct !{!509, !510, !"_ZN4core5array18try_from_fn_erased17haedcd0703100df74E: argument 0"}
-!510 = distinct !{!510, !"_ZN4core5array18try_from_fn_erased17haedcd0703100df74E"}
-!511 = distinct !{!511, !512, !"_ZN4core5array11try_from_fn17h308a9838c8a1d063E: argument 0"}
-!512 = distinct !{!512, !"_ZN4core5array11try_from_fn17h308a9838c8a1d063E"}
-!513 = !{!514, !516}
-!514 = distinct !{!514, !515, !"_ZN4core5array18try_from_fn_erased17hfed63515f4fcf42dE: argument 0"}
-!515 = distinct !{!515, !"_ZN4core5array18try_from_fn_erased17hfed63515f4fcf42dE"}
-!516 = distinct !{!516, !517, !"_ZN4core5array11try_from_fn17h3a127f8b645d12c9E: argument 0"}
-!517 = distinct !{!517, !"_ZN4core5array11try_from_fn17h3a127f8b645d12c9E"}
-!518 = !{!519}
-!519 = distinct !{!519, !520, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE: argument 1"}
-!520 = distinct !{!520, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE"}
-!521 = !{!522}
-!522 = distinct !{!522, !523, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E: argument 1"}
-!523 = distinct !{!523, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E"}
-!524 = !{!522, !519}
-!525 = !{!526, !527}
-!526 = distinct !{!526, !523, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E: argument 0"}
-!527 = distinct !{!527, !520, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE: argument 0"}
-!528 = !{!526, !522, !527, !519}
-!529 = !{!530, !532}
-!530 = distinct !{!530, !531, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E: argument 1"}
-!531 = distinct !{!531, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E"}
-!532 = distinct !{!532, !533, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E: argument 1"}
-!533 = distinct !{!533, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E"}
-!534 = !{!535, !536}
-!535 = distinct !{!535, !531, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E: argument 0"}
-!536 = distinct !{!536, !533, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E: argument 0"}
-!537 = !{!538, !540}
-!538 = distinct !{!538, !539, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E: argument 1"}
-!539 = distinct !{!539, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E"}
-!540 = distinct !{!540, !541, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE: argument 1"}
-!541 = distinct !{!541, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE"}
-!542 = !{!543, !544}
-!543 = distinct !{!543, !539, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E: argument 0"}
-!544 = distinct !{!544, !541, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE: argument 0"}
-!545 = !{!546, !548}
-!546 = distinct !{!546, !547, !"_ZN4core5array18try_from_fn_erased17he1c1c200ce600e06E: argument 0"}
-!547 = distinct !{!547, !"_ZN4core5array18try_from_fn_erased17he1c1c200ce600e06E"}
-!548 = distinct !{!548, !549, !"_ZN4core5array11try_from_fn17hcb5be3ea9a6bbd0dE: argument 0"}
-!549 = distinct !{!549, !"_ZN4core5array11try_from_fn17hcb5be3ea9a6bbd0dE"}
-!550 = !{!551, !553}
-!551 = distinct !{!551, !552, !"_ZN4core5array18try_from_fn_erased17h37213eb3b2d4d8e1E: argument 0"}
-!552 = distinct !{!552, !"_ZN4core5array18try_from_fn_erased17h37213eb3b2d4d8e1E"}
-!553 = distinct !{!553, !554, !"_ZN4core5array11try_from_fn17h75ec39bb079b0ce6E: argument 0"}
-!554 = distinct !{!554, !"_ZN4core5array11try_from_fn17h75ec39bb079b0ce6E"}
-!555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZN4core5array11try_from_fn17h282f105f7089297eE: argument 1"}
-!557 = distinct !{!557, !"_ZN4core5array11try_from_fn17h282f105f7089297eE"}
-!558 = !{!559}
-!559 = distinct !{!559, !560, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E: argument 1"}
-!560 = distinct !{!560, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E"}
-!561 = !{!559, !556}
-!562 = !{!563, !564}
-!563 = distinct !{!563, !560, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E: argument 0"}
-!564 = distinct !{!564, !557, !"_ZN4core5array11try_from_fn17h282f105f7089297eE: argument 0"}
-!565 = !{!563, !559, !564, !556}
-!566 = !{!567, !569}
-!567 = distinct !{!567, !568, !"_ZN4core5array18try_from_fn_erased17h963254dc9769f998E: argument 0"}
-!568 = distinct !{!568, !"_ZN4core5array18try_from_fn_erased17h963254dc9769f998E"}
-!569 = distinct !{!569, !570, !"_ZN4core5array11try_from_fn17h1dea693c0a944be2E: argument 0"}
-!570 = distinct !{!570, !"_ZN4core5array11try_from_fn17h1dea693c0a944be2E"}
-!571 = !{!572, !574}
-!572 = distinct !{!572, !573, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE: argument 1"}
-!573 = distinct !{!573, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE"}
-!574 = distinct !{!574, !575, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE: argument 1"}
-!575 = distinct !{!575, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE"}
-!576 = !{!577, !578}
-!577 = distinct !{!577, !573, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE: argument 0"}
-!578 = distinct !{!578, !575, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE: argument 0"}
-!579 = !{!580, !582}
-!580 = distinct !{!580, !581, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E: argument 1"}
-!581 = distinct !{!581, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E"}
-!582 = distinct !{!582, !583, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E: argument 1"}
-!583 = distinct !{!583, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E"}
-!584 = !{!585, !586}
-!585 = distinct !{!585, !581, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E: argument 0"}
-!586 = distinct !{!586, !583, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E: argument 0"}
-!587 = !{!588, !590}
-!588 = distinct !{!588, !589, !"_ZN4core5array18try_from_fn_erased17h484038d7026ec25bE: argument 0"}
-!589 = distinct !{!589, !"_ZN4core5array18try_from_fn_erased17h484038d7026ec25bE"}
-!590 = distinct !{!590, !591, !"_ZN4core5array11try_from_fn17h5f3000cd37067cf9E: argument 0"}
-!591 = distinct !{!591, !"_ZN4core5array11try_from_fn17h5f3000cd37067cf9E"}
-!592 = !{!593, !595}
-!593 = distinct !{!593, !594, !"_ZN4core5array18try_from_fn_erased17hfca348a003492fc0E: argument 0"}
-!594 = distinct !{!594, !"_ZN4core5array18try_from_fn_erased17hfca348a003492fc0E"}
-!595 = distinct !{!595, !596, !"_ZN4core5array11try_from_fn17h711c16dc6d6ed99fE: argument 0"}
-!596 = distinct !{!596, !"_ZN4core5array11try_from_fn17h711c16dc6d6ed99fE"}
-!597 = !{!598}
-!598 = distinct !{!598, !599, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE: argument 1"}
-!599 = distinct !{!599, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE"}
-!600 = !{!601}
-!601 = distinct !{!601, !602, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E: argument 1"}
-!602 = distinct !{!602, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E"}
-!603 = !{!601, !598}
-!604 = !{!605, !606}
-!605 = distinct !{!605, !602, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E: argument 0"}
-!606 = distinct !{!606, !599, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE: argument 0"}
-!607 = !{!605, !601, !606, !598}
-!608 = !{!609, !611}
-!609 = distinct !{!609, !610, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E: argument 1"}
-!610 = distinct !{!610, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E"}
-!611 = distinct !{!611, !612, !"_ZN4core5array11try_from_fn17h88d232072679be35E: argument 1"}
-!612 = distinct !{!612, !"_ZN4core5array11try_from_fn17h88d232072679be35E"}
-!613 = !{!614, !615}
-!614 = distinct !{!614, !610, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E: argument 0"}
-!615 = distinct !{!615, !612, !"_ZN4core5array11try_from_fn17h88d232072679be35E: argument 0"}
-!616 = !{!617, !619}
-!617 = distinct !{!617, !618, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE: argument 1"}
-!618 = distinct !{!618, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE"}
-!619 = distinct !{!619, !620, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E: argument 1"}
-!620 = distinct !{!620, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E"}
-!621 = !{!622, !623}
-!622 = distinct !{!622, !618, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE: argument 0"}
-!623 = distinct !{!623, !620, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E: argument 0"}
-!624 = !{!625, !627}
-!625 = distinct !{!625, !626, !"_ZN4core5array18try_from_fn_erased17ha54f2765b6f62e56E: argument 0"}
-!626 = distinct !{!626, !"_ZN4core5array18try_from_fn_erased17ha54f2765b6f62e56E"}
-!627 = distinct !{!627, !628, !"_ZN4core5array11try_from_fn17h04c27964b2578fa2E: argument 0"}
-!628 = distinct !{!628, !"_ZN4core5array11try_from_fn17h04c27964b2578fa2E"}
-!629 = !{!630, !632}
-!630 = distinct !{!630, !631, !"_ZN4core5array18try_from_fn_erased17h29959c09867d9c5cE: argument 0"}
-!631 = distinct !{!631, !"_ZN4core5array18try_from_fn_erased17h29959c09867d9c5cE"}
-!632 = distinct !{!632, !633, !"_ZN4core5array11try_from_fn17h12afe6d77b4aafafE: argument 0"}
-!633 = distinct !{!633, !"_ZN4core5array11try_from_fn17h12afe6d77b4aafafE"}
-!634 = !{!635}
-!635 = distinct !{!635, !636, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E: argument 1"}
-!636 = distinct !{!636, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E"}
-!637 = !{!638}
-!638 = distinct !{!638, !639, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE: argument 1"}
-!639 = distinct !{!639, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE"}
-!640 = !{!638, !635}
-!641 = !{!642, !643}
-!642 = distinct !{!642, !639, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE: argument 0"}
-!643 = distinct !{!643, !636, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E: argument 0"}
-!644 = !{!642, !638, !643, !635}
-!645 = !{!646}
-!646 = distinct !{!646, !647, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E: argument 1"}
-!647 = distinct !{!647, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E"}
-!648 = !{!649}
-!649 = distinct !{!649, !650, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E: argument 1"}
-!650 = distinct !{!650, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E"}
-!651 = !{!649, !646}
-!652 = !{!653, !654}
-!653 = distinct !{!653, !650, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E: argument 0"}
-!654 = distinct !{!654, !647, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E: argument 0"}
-!655 = !{!653, !649, !654, !646}
-!656 = !{!657}
-!657 = distinct !{!657, !658, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E: argument 1"}
-!658 = distinct !{!658, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E"}
-!659 = !{!660}
-!660 = distinct !{!660, !661, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E: argument 1"}
-!661 = distinct !{!661, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E"}
-!662 = !{!660, !657}
-!663 = !{!664, !665}
-!664 = distinct !{!664, !661, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E: argument 0"}
-!665 = distinct !{!665, !658, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E: argument 0"}
-!666 = !{!664, !660, !665, !657}
-!667 = !{!668, !670}
-!668 = distinct !{!668, !669, !"_ZN4core5array18try_from_fn_erased17h5221862e2c0a60fbE: argument 0"}
-!669 = distinct !{!669, !"_ZN4core5array18try_from_fn_erased17h5221862e2c0a60fbE"}
-!670 = distinct !{!670, !671, !"_ZN4core5array11try_from_fn17h68f21c1d1b5b7a5cE: argument 0"}
-!671 = distinct !{!671, !"_ZN4core5array11try_from_fn17h68f21c1d1b5b7a5cE"}
-!672 = !{!673, !675}
-!673 = distinct !{!673, !674, !"_ZN4core5array18try_from_fn_erased17hdfccc7237c1f2620E: argument 0"}
-!674 = distinct !{!674, !"_ZN4core5array18try_from_fn_erased17hdfccc7237c1f2620E"}
-!675 = distinct !{!675, !676, !"_ZN4core5array11try_from_fn17hfd5a59e9cdbc5f23E: argument 0"}
-!676 = distinct !{!676, !"_ZN4core5array11try_from_fn17hfd5a59e9cdbc5f23E"}
-!677 = !{!678, !680}
-!678 = distinct !{!678, !679, !"_ZN4core5array18try_from_fn_erased17h742208ff6a70350bE: argument 0"}
-!679 = distinct !{!679, !"_ZN4core5array18try_from_fn_erased17h742208ff6a70350bE"}
-!680 = distinct !{!680, !681, !"_ZN4core5array11try_from_fn17hacb462b08de7c9acE: argument 0"}
-!681 = distinct !{!681, !"_ZN4core5array11try_from_fn17hacb462b08de7c9acE"}
+!424 = !{!425}
+!425 = distinct !{!425, !426, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E: argument 1"}
+!426 = distinct !{!426, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E"}
+!427 = !{!428}
+!428 = distinct !{!428, !429, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E: argument 0"}
+!429 = distinct !{!429, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E"}
+!430 = !{!431}
+!431 = distinct !{!431, !429, !"_ZN4core5array18try_from_fn_erased17h014cdcce85ddd594E: argument 1"}
+!432 = !{!431, !425}
+!433 = !{!428, !434}
+!434 = distinct !{!434, !426, !"_ZN4core5array11try_from_fn17h8c2bad4c68379f10E: argument 0"}
+!435 = !{!436}
+!436 = distinct !{!436, !437, !"_ZN4core5array11try_from_fn17h8794377454040a80E: argument 1"}
+!437 = distinct !{!437, !"_ZN4core5array11try_from_fn17h8794377454040a80E"}
+!438 = !{!439}
+!439 = distinct !{!439, !440, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE: argument 0"}
+!440 = distinct !{!440, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE"}
+!441 = !{!442}
+!442 = distinct !{!442, !440, !"_ZN4core5array18try_from_fn_erased17hfd81d815ea680e8fE: argument 1"}
+!443 = !{!442, !436}
+!444 = !{!439, !445}
+!445 = distinct !{!445, !437, !"_ZN4core5array11try_from_fn17h8794377454040a80E: argument 0"}
+!446 = !{!447, !449}
+!447 = distinct !{!447, !448, !"_ZN4core5array18try_from_fn_erased17h01a3a4594c2ea8f0E: argument 0"}
+!448 = distinct !{!448, !"_ZN4core5array18try_from_fn_erased17h01a3a4594c2ea8f0E"}
+!449 = distinct !{!449, !450, !"_ZN4core5array11try_from_fn17hb1148201f706e08fE: argument 0"}
+!450 = distinct !{!450, !"_ZN4core5array11try_from_fn17hb1148201f706e08fE"}
+!451 = !{!452, !454}
+!452 = distinct !{!452, !453, !"_ZN4core5array18try_from_fn_erased17h6d9c57703cf3b080E: argument 0"}
+!453 = distinct !{!453, !"_ZN4core5array18try_from_fn_erased17h6d9c57703cf3b080E"}
+!454 = distinct !{!454, !455, !"_ZN4core5array11try_from_fn17h51e8a61f4cc2e466E: argument 0"}
+!455 = distinct !{!455, !"_ZN4core5array11try_from_fn17h51e8a61f4cc2e466E"}
+!456 = !{!457}
+!457 = distinct !{!457, !458, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E: argument 1"}
+!458 = distinct !{!458, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E"}
+!459 = !{!460}
+!460 = distinct !{!460, !461, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E: argument 0"}
+!461 = distinct !{!461, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E"}
+!462 = !{!463}
+!463 = distinct !{!463, !461, !"_ZN4core5array18try_from_fn_erased17h8513e07d92db4973E: argument 1"}
+!464 = !{!463, !457}
+!465 = !{!460, !466}
+!466 = distinct !{!466, !458, !"_ZN4core5array11try_from_fn17hd323ba428b8e0506E: argument 0"}
+!467 = !{!468}
+!468 = distinct !{!468, !469, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E: argument 1"}
+!469 = distinct !{!469, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E"}
+!470 = !{!471}
+!471 = distinct !{!471, !472, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE: argument 0"}
+!472 = distinct !{!472, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE"}
+!473 = !{!474}
+!474 = distinct !{!474, !472, !"_ZN4core5array18try_from_fn_erased17h0fe79ec6a152034eE: argument 1"}
+!475 = !{!474, !468}
+!476 = !{!471, !477}
+!477 = distinct !{!477, !469, !"_ZN4core5array11try_from_fn17h54d28306e6342ac0E: argument 0"}
+!478 = !{!479, !481}
+!479 = distinct !{!479, !480, !"_ZN4core5array18try_from_fn_erased17hd9ceee20cc62a339E: argument 0"}
+!480 = distinct !{!480, !"_ZN4core5array18try_from_fn_erased17hd9ceee20cc62a339E"}
+!481 = distinct !{!481, !482, !"_ZN4core5array11try_from_fn17hc84f4ff5fe3cdc96E: argument 0"}
+!482 = distinct !{!482, !"_ZN4core5array11try_from_fn17hc84f4ff5fe3cdc96E"}
+!483 = !{!484, !486}
+!484 = distinct !{!484, !485, !"_ZN4core5array18try_from_fn_erased17hbe636a769e948e64E: argument 0"}
+!485 = distinct !{!485, !"_ZN4core5array18try_from_fn_erased17hbe636a769e948e64E"}
+!486 = distinct !{!486, !487, !"_ZN4core5array11try_from_fn17hb7421576d09c417bE: argument 0"}
+!487 = distinct !{!487, !"_ZN4core5array11try_from_fn17hb7421576d09c417bE"}
+!488 = !{!489}
+!489 = distinct !{!489, !490, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E: argument 1"}
+!490 = distinct !{!490, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E"}
+!491 = !{!492}
+!492 = distinct !{!492, !493, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE: argument 1"}
+!493 = distinct !{!493, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE"}
+!494 = !{!492, !489}
+!495 = !{!496, !497}
+!496 = distinct !{!496, !493, !"_ZN4core5array18try_from_fn_erased17h9523ca614f4766fdE: argument 0"}
+!497 = distinct !{!497, !490, !"_ZN4core5array11try_from_fn17h8acc7e505decd941E: argument 0"}
+!498 = !{!496, !492, !497, !489}
+!499 = !{!500, !502}
+!500 = distinct !{!500, !501, !"_ZN4core5array18try_from_fn_erased17h9c050177653b582cE: argument 0"}
+!501 = distinct !{!501, !"_ZN4core5array18try_from_fn_erased17h9c050177653b582cE"}
+!502 = distinct !{!502, !503, !"_ZN4core5array11try_from_fn17h4e3b47e295725816E: argument 0"}
+!503 = distinct !{!503, !"_ZN4core5array11try_from_fn17h4e3b47e295725816E"}
+!504 = !{!505, !507}
+!505 = distinct !{!505, !506, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E: argument 1"}
+!506 = distinct !{!506, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E"}
+!507 = distinct !{!507, !508, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE: argument 1"}
+!508 = distinct !{!508, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE"}
+!509 = !{!510, !511}
+!510 = distinct !{!510, !506, !"_ZN4core5array18try_from_fn_erased17h4ce0ed3dc7247da4E: argument 0"}
+!511 = distinct !{!511, !508, !"_ZN4core5array11try_from_fn17h98856a7b57cecd6bE: argument 0"}
+!512 = !{!513, !515}
+!513 = distinct !{!513, !514, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE: argument 1"}
+!514 = distinct !{!514, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE"}
+!515 = distinct !{!515, !516, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E: argument 1"}
+!516 = distinct !{!516, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E"}
+!517 = !{!518, !519}
+!518 = distinct !{!518, !514, !"_ZN4core5array18try_from_fn_erased17h6feaaa5a1ed3ac7bE: argument 0"}
+!519 = distinct !{!519, !516, !"_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E: argument 0"}
+!520 = !{!521, !523}
+!521 = distinct !{!521, !522, !"_ZN4core5array18try_from_fn_erased17haedcd0703100df74E: argument 0"}
+!522 = distinct !{!522, !"_ZN4core5array18try_from_fn_erased17haedcd0703100df74E"}
+!523 = distinct !{!523, !524, !"_ZN4core5array11try_from_fn17h308a9838c8a1d063E: argument 0"}
+!524 = distinct !{!524, !"_ZN4core5array11try_from_fn17h308a9838c8a1d063E"}
+!525 = !{!526, !528}
+!526 = distinct !{!526, !527, !"_ZN4core5array18try_from_fn_erased17hfed63515f4fcf42dE: argument 0"}
+!527 = distinct !{!527, !"_ZN4core5array18try_from_fn_erased17hfed63515f4fcf42dE"}
+!528 = distinct !{!528, !529, !"_ZN4core5array11try_from_fn17h3a127f8b645d12c9E: argument 0"}
+!529 = distinct !{!529, !"_ZN4core5array11try_from_fn17h3a127f8b645d12c9E"}
+!530 = !{!531}
+!531 = distinct !{!531, !532, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE: argument 1"}
+!532 = distinct !{!532, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE"}
+!533 = !{!534}
+!534 = distinct !{!534, !535, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E: argument 1"}
+!535 = distinct !{!535, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E"}
+!536 = !{!534, !531}
+!537 = !{!538, !539}
+!538 = distinct !{!538, !535, !"_ZN4core5array18try_from_fn_erased17h1dfb9d9244ceffc5E: argument 0"}
+!539 = distinct !{!539, !532, !"_ZN4core5array11try_from_fn17ha28b88e111a79c8dE: argument 0"}
+!540 = !{!538, !534, !539, !531}
+!541 = !{!542, !544}
+!542 = distinct !{!542, !543, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E: argument 1"}
+!543 = distinct !{!543, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E"}
+!544 = distinct !{!544, !545, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E: argument 1"}
+!545 = distinct !{!545, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E"}
+!546 = !{!547, !548}
+!547 = distinct !{!547, !543, !"_ZN4core5array18try_from_fn_erased17h41708a055bf32855E: argument 0"}
+!548 = distinct !{!548, !545, !"_ZN4core5array11try_from_fn17h8e94262a6fe61cd5E: argument 0"}
+!549 = !{!550, !552}
+!550 = distinct !{!550, !551, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E: argument 1"}
+!551 = distinct !{!551, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E"}
+!552 = distinct !{!552, !553, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE: argument 1"}
+!553 = distinct !{!553, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE"}
+!554 = !{!555, !556}
+!555 = distinct !{!555, !551, !"_ZN4core5array18try_from_fn_erased17h46eb354d8b6b3b24E: argument 0"}
+!556 = distinct !{!556, !553, !"_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE: argument 0"}
+!557 = !{!558, !560}
+!558 = distinct !{!558, !559, !"_ZN4core5array18try_from_fn_erased17he1c1c200ce600e06E: argument 0"}
+!559 = distinct !{!559, !"_ZN4core5array18try_from_fn_erased17he1c1c200ce600e06E"}
+!560 = distinct !{!560, !561, !"_ZN4core5array11try_from_fn17hcb5be3ea9a6bbd0dE: argument 0"}
+!561 = distinct !{!561, !"_ZN4core5array11try_from_fn17hcb5be3ea9a6bbd0dE"}
+!562 = !{!563, !565}
+!563 = distinct !{!563, !564, !"_ZN4core5array18try_from_fn_erased17h37213eb3b2d4d8e1E: argument 0"}
+!564 = distinct !{!564, !"_ZN4core5array18try_from_fn_erased17h37213eb3b2d4d8e1E"}
+!565 = distinct !{!565, !566, !"_ZN4core5array11try_from_fn17h75ec39bb079b0ce6E: argument 0"}
+!566 = distinct !{!566, !"_ZN4core5array11try_from_fn17h75ec39bb079b0ce6E"}
+!567 = !{!568}
+!568 = distinct !{!568, !569, !"_ZN4core5array11try_from_fn17h282f105f7089297eE: argument 1"}
+!569 = distinct !{!569, !"_ZN4core5array11try_from_fn17h282f105f7089297eE"}
+!570 = !{!571}
+!571 = distinct !{!571, !572, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E: argument 1"}
+!572 = distinct !{!572, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E"}
+!573 = !{!571, !568}
+!574 = !{!575, !576}
+!575 = distinct !{!575, !572, !"_ZN4core5array18try_from_fn_erased17h59f63cb57d9e9919E: argument 0"}
+!576 = distinct !{!576, !569, !"_ZN4core5array11try_from_fn17h282f105f7089297eE: argument 0"}
+!577 = !{!575, !571, !576, !568}
+!578 = !{!579, !581}
+!579 = distinct !{!579, !580, !"_ZN4core5array18try_from_fn_erased17h963254dc9769f998E: argument 0"}
+!580 = distinct !{!580, !"_ZN4core5array18try_from_fn_erased17h963254dc9769f998E"}
+!581 = distinct !{!581, !582, !"_ZN4core5array11try_from_fn17h1dea693c0a944be2E: argument 0"}
+!582 = distinct !{!582, !"_ZN4core5array11try_from_fn17h1dea693c0a944be2E"}
+!583 = !{!584, !586}
+!584 = distinct !{!584, !585, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE: argument 1"}
+!585 = distinct !{!585, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE"}
+!586 = distinct !{!586, !587, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE: argument 1"}
+!587 = distinct !{!587, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE"}
+!588 = !{!589, !590}
+!589 = distinct !{!589, !585, !"_ZN4core5array18try_from_fn_erased17haf7f19840f4c515eE: argument 0"}
+!590 = distinct !{!590, !587, !"_ZN4core5array11try_from_fn17h77b485a980b87f6fE: argument 0"}
+!591 = !{!592, !594}
+!592 = distinct !{!592, !593, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E: argument 1"}
+!593 = distinct !{!593, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E"}
+!594 = distinct !{!594, !595, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E: argument 1"}
+!595 = distinct !{!595, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E"}
+!596 = !{!597, !598}
+!597 = distinct !{!597, !593, !"_ZN4core5array18try_from_fn_erased17h5de9b36d08e91c68E: argument 0"}
+!598 = distinct !{!598, !595, !"_ZN4core5array11try_from_fn17h84aeadd4320d0409E: argument 0"}
+!599 = !{!600, !602}
+!600 = distinct !{!600, !601, !"_ZN4core5array18try_from_fn_erased17h484038d7026ec25bE: argument 0"}
+!601 = distinct !{!601, !"_ZN4core5array18try_from_fn_erased17h484038d7026ec25bE"}
+!602 = distinct !{!602, !603, !"_ZN4core5array11try_from_fn17h5f3000cd37067cf9E: argument 0"}
+!603 = distinct !{!603, !"_ZN4core5array11try_from_fn17h5f3000cd37067cf9E"}
+!604 = !{!605, !607}
+!605 = distinct !{!605, !606, !"_ZN4core5array18try_from_fn_erased17hfca348a003492fc0E: argument 0"}
+!606 = distinct !{!606, !"_ZN4core5array18try_from_fn_erased17hfca348a003492fc0E"}
+!607 = distinct !{!607, !608, !"_ZN4core5array11try_from_fn17h711c16dc6d6ed99fE: argument 0"}
+!608 = distinct !{!608, !"_ZN4core5array11try_from_fn17h711c16dc6d6ed99fE"}
+!609 = !{!610}
+!610 = distinct !{!610, !611, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE: argument 1"}
+!611 = distinct !{!611, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE"}
+!612 = !{!613}
+!613 = distinct !{!613, !614, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E: argument 1"}
+!614 = distinct !{!614, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E"}
+!615 = !{!613, !610}
+!616 = !{!617, !618}
+!617 = distinct !{!617, !614, !"_ZN4core5array18try_from_fn_erased17h4c87ed54ec11be64E: argument 0"}
+!618 = distinct !{!618, !611, !"_ZN4core5array11try_from_fn17h74002ebcb6c8d94dE: argument 0"}
+!619 = !{!617, !613, !618, !610}
+!620 = !{!621, !623}
+!621 = distinct !{!621, !622, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E: argument 1"}
+!622 = distinct !{!622, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E"}
+!623 = distinct !{!623, !624, !"_ZN4core5array11try_from_fn17h88d232072679be35E: argument 1"}
+!624 = distinct !{!624, !"_ZN4core5array11try_from_fn17h88d232072679be35E"}
+!625 = !{!626, !627}
+!626 = distinct !{!626, !622, !"_ZN4core5array18try_from_fn_erased17h45ccdba5829fc941E: argument 0"}
+!627 = distinct !{!627, !624, !"_ZN4core5array11try_from_fn17h88d232072679be35E: argument 0"}
+!628 = !{!629, !631}
+!629 = distinct !{!629, !630, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE: argument 1"}
+!630 = distinct !{!630, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE"}
+!631 = distinct !{!631, !632, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E: argument 1"}
+!632 = distinct !{!632, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E"}
+!633 = !{!634, !635}
+!634 = distinct !{!634, !630, !"_ZN4core5array18try_from_fn_erased17hf617bb83c2139d1cE: argument 0"}
+!635 = distinct !{!635, !632, !"_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E: argument 0"}
+!636 = !{!637, !639}
+!637 = distinct !{!637, !638, !"_ZN4core5array18try_from_fn_erased17ha54f2765b6f62e56E: argument 0"}
+!638 = distinct !{!638, !"_ZN4core5array18try_from_fn_erased17ha54f2765b6f62e56E"}
+!639 = distinct !{!639, !640, !"_ZN4core5array11try_from_fn17h04c27964b2578fa2E: argument 0"}
+!640 = distinct !{!640, !"_ZN4core5array11try_from_fn17h04c27964b2578fa2E"}
+!641 = !{!642, !644}
+!642 = distinct !{!642, !643, !"_ZN4core5array18try_from_fn_erased17h29959c09867d9c5cE: argument 0"}
+!643 = distinct !{!643, !"_ZN4core5array18try_from_fn_erased17h29959c09867d9c5cE"}
+!644 = distinct !{!644, !645, !"_ZN4core5array11try_from_fn17h12afe6d77b4aafafE: argument 0"}
+!645 = distinct !{!645, !"_ZN4core5array11try_from_fn17h12afe6d77b4aafafE"}
+!646 = !{!647}
+!647 = distinct !{!647, !648, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E: argument 1"}
+!648 = distinct !{!648, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E"}
+!649 = !{!650}
+!650 = distinct !{!650, !651, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE: argument 0"}
+!651 = distinct !{!651, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE"}
+!652 = !{!653}
+!653 = distinct !{!653, !651, !"_ZN4core5array18try_from_fn_erased17h133846ec96ecd89eE: argument 1"}
+!654 = !{!653, !647}
+!655 = !{!650, !656}
+!656 = distinct !{!656, !648, !"_ZN4core5array11try_from_fn17hf5df9ff339648a90E: argument 0"}
+!657 = !{!650, !653, !656, !647}
+!658 = !{!659}
+!659 = distinct !{!659, !660, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E: argument 1"}
+!660 = distinct !{!660, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E"}
+!661 = !{!662}
+!662 = distinct !{!662, !663, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E: argument 0"}
+!663 = distinct !{!663, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E"}
+!664 = !{!665}
+!665 = distinct !{!665, !663, !"_ZN4core5array18try_from_fn_erased17hfa6d1d185dc0db52E: argument 1"}
+!666 = !{!665, !659}
+!667 = !{!662, !668}
+!668 = distinct !{!668, !660, !"_ZN4core5array11try_from_fn17h8f2fe1f8333b9374E: argument 0"}
+!669 = !{!662, !665, !668, !659}
+!670 = !{!671}
+!671 = distinct !{!671, !672, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E: argument 1"}
+!672 = distinct !{!672, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E"}
+!673 = !{!674}
+!674 = distinct !{!674, !675, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E: argument 0"}
+!675 = distinct !{!675, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E"}
+!676 = !{!677}
+!677 = distinct !{!677, !675, !"_ZN4core5array18try_from_fn_erased17ha8ecbbd96ba65850E: argument 1"}
+!678 = !{!677, !671}
+!679 = !{!674, !680}
+!680 = distinct !{!680, !672, !"_ZN4core5array11try_from_fn17h3558cbdcf4aaa9f0E: argument 0"}
+!681 = !{!674, !677, !680, !671}
 !682 = !{!683, !685}
-!683 = distinct !{!683, !684, !"_ZN4core5array18try_from_fn_erased17h3f39966fbd329447E: argument 0"}
-!684 = distinct !{!684, !"_ZN4core5array18try_from_fn_erased17h3f39966fbd329447E"}
-!685 = distinct !{!685, !686, !"_ZN4core5array11try_from_fn17h441047f2d42fa73bE: argument 0"}
-!686 = distinct !{!686, !"_ZN4core5array11try_from_fn17h441047f2d42fa73bE"}
+!683 = distinct !{!683, !684, !"_ZN4core5array18try_from_fn_erased17h5221862e2c0a60fbE: argument 0"}
+!684 = distinct !{!684, !"_ZN4core5array18try_from_fn_erased17h5221862e2c0a60fbE"}
+!685 = distinct !{!685, !686, !"_ZN4core5array11try_from_fn17h68f21c1d1b5b7a5cE: argument 0"}
+!686 = distinct !{!686, !"_ZN4core5array11try_from_fn17h68f21c1d1b5b7a5cE"}
 !687 = !{!688, !690}
-!688 = distinct !{!688, !689, !"_ZN4core5array18try_from_fn_erased17hbf180826a3284332E: argument 0"}
-!689 = distinct !{!689, !"_ZN4core5array18try_from_fn_erased17hbf180826a3284332E"}
-!690 = distinct !{!690, !691, !"_ZN4core5array11try_from_fn17h468eb401a71c8c42E: argument 0"}
-!691 = distinct !{!691, !"_ZN4core5array11try_from_fn17h468eb401a71c8c42E"}
+!688 = distinct !{!688, !689, !"_ZN4core5array18try_from_fn_erased17hdfccc7237c1f2620E: argument 0"}
+!689 = distinct !{!689, !"_ZN4core5array18try_from_fn_erased17hdfccc7237c1f2620E"}
+!690 = distinct !{!690, !691, !"_ZN4core5array11try_from_fn17hfd5a59e9cdbc5f23E: argument 0"}
+!691 = distinct !{!691, !"_ZN4core5array11try_from_fn17hfd5a59e9cdbc5f23E"}
 !692 = !{!693, !695}
-!693 = distinct !{!693, !694, !"_ZN4core5array18try_from_fn_erased17hc4d7a94b0c83d0b3E: argument 0"}
-!694 = distinct !{!694, !"_ZN4core5array18try_from_fn_erased17hc4d7a94b0c83d0b3E"}
-!695 = distinct !{!695, !696, !"_ZN4core5array11try_from_fn17hd0a261fd3403a084E: argument 0"}
-!696 = distinct !{!696, !"_ZN4core5array11try_from_fn17hd0a261fd3403a084E"}
+!693 = distinct !{!693, !694, !"_ZN4core5array18try_from_fn_erased17h742208ff6a70350bE: argument 0"}
+!694 = distinct !{!694, !"_ZN4core5array18try_from_fn_erased17h742208ff6a70350bE"}
+!695 = distinct !{!695, !696, !"_ZN4core5array11try_from_fn17hacb462b08de7c9acE: argument 0"}
+!696 = distinct !{!696, !"_ZN4core5array11try_from_fn17hacb462b08de7c9acE"}
 !697 = !{!698, !700}
-!698 = distinct !{!698, !699, !"_ZN4core5array18try_from_fn_erased17hf094323b77ce2711E: argument 0"}
-!699 = distinct !{!699, !"_ZN4core5array18try_from_fn_erased17hf094323b77ce2711E"}
-!700 = distinct !{!700, !701, !"_ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE: argument 0"}
-!701 = distinct !{!701, !"_ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE"}
+!698 = distinct !{!698, !699, !"_ZN4core5array18try_from_fn_erased17h3f39966fbd329447E: argument 0"}
+!699 = distinct !{!699, !"_ZN4core5array18try_from_fn_erased17h3f39966fbd329447E"}
+!700 = distinct !{!700, !701, !"_ZN4core5array11try_from_fn17h441047f2d42fa73bE: argument 0"}
+!701 = distinct !{!701, !"_ZN4core5array11try_from_fn17h441047f2d42fa73bE"}
+!702 = !{!703, !705}
+!703 = distinct !{!703, !704, !"_ZN4core5array18try_from_fn_erased17hbf180826a3284332E: argument 0"}
+!704 = distinct !{!704, !"_ZN4core5array18try_from_fn_erased17hbf180826a3284332E"}
+!705 = distinct !{!705, !706, !"_ZN4core5array11try_from_fn17h468eb401a71c8c42E: argument 0"}
+!706 = distinct !{!706, !"_ZN4core5array11try_from_fn17h468eb401a71c8c42E"}
+!707 = !{!708, !710}
+!708 = distinct !{!708, !709, !"_ZN4core5array18try_from_fn_erased17hc4d7a94b0c83d0b3E: argument 0"}
+!709 = distinct !{!709, !"_ZN4core5array18try_from_fn_erased17hc4d7a94b0c83d0b3E"}
+!710 = distinct !{!710, !711, !"_ZN4core5array11try_from_fn17hd0a261fd3403a084E: argument 0"}
+!711 = distinct !{!711, !"_ZN4core5array11try_from_fn17hd0a261fd3403a084E"}
+!712 = !{!713, !715}
+!713 = distinct !{!713, !714, !"_ZN4core5array18try_from_fn_erased17hf094323b77ce2711E: argument 0"}
+!714 = distinct !{!714, !"_ZN4core5array18try_from_fn_erased17hf094323b77ce2711E"}
+!715 = distinct !{!715, !716, !"_ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE: argument 0"}
+!716 = distinct !{!716, !"_ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE"}

@@ -20635,7 +20635,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   %79 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %80 = load i64, ptr %79, align 8
   %.not54 = icmp eq i64 %80, 0
-  br i1 %.not54, label %.loopexit.loopexit.critedge.critedge, label %.lr.ph
+  br i1 %.not54, label %.lr.ph53.preheader, label %.lr.ph
 
 81:                                               ; preds = %69
   %82 = call ptr @__cxa_allocate_exception(i64 16) #23
@@ -20657,61 +20657,58 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br label %.body
 
 .preheader:                                       ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
-  br i1 %87, label %.lr.ph53.preheader, label %.loopexit
+  br i1 %86, label %.lr.ph53.preheader, label %.loopexit
 
-.lr.ph53.preheader:                               ; preds = %.preheader
-  %86 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 1
-  store float 0.000000e+00, ptr %86, align 4
-  br i1 %.not54, label %.loopexit.loopexit.critedge, label %.loopexit, !llvm.loop !34
+.lr.ph53.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
+  %indvars.iv56.ph = phi i64 [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ], [ 1, %.preheader ]
+  br label %.lr.ph53
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
-  %87 = phi i1 [ false, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ true, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %86 = phi i1 [ false, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ true, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
   %indvars.iv = phi i64 [ 1, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 %indvars.iv
-  invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 4 dereferenceable(4) %88, ptr noundef nonnull align 8 dereferenceable(232) %3)
-          to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %91
+  %87 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 %indvars.iv
+  invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 4 dereferenceable(4) %87, ptr noundef nonnull align 8 dereferenceable(232) %3)
+          to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %90
 
 _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit: ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = load i64, ptr %79, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %89, i64 2)
-  %90 = icmp samesign ugt i64 %.sroa.speculated, %indvars.iv.next
-  br i1 %90, label %.lr.ph, label %.preheader, !llvm.loop !35
+  %88 = load i64, ptr %79, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %88, i64 2)
+  %89 = icmp samesign ugt i64 %.sroa.speculated, %indvars.iv.next
+  br i1 %89, label %.lr.ph, label %.preheader, !llvm.loop !34
 
-91:                                               ; preds = %.lr.ph
-  %92 = landingpad { ptr, i32 }
+90:                                               ; preds = %.lr.ph
+  %91 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6Assimp7Blender5ErrorE
   br label %.body
 
-.body:                                            ; preds = %65, %63, %84, %91, %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn36.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %92, %91 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %85, %84 ]
-  %.131 = extractvalue { ptr, i32 } %.pn36.pn, 1
-  %93 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #23
-  %94 = icmp eq i32 %.131, %93
-  br i1 %94, label %95, label %common.resume
+.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
+  %92 = phi i1 [ false, %.lr.ph53 ], [ %.not54, %.lr.ph53.preheader ]
+  %indvars.iv56 = phi i64 [ 1, %.lr.ph53 ], [ %indvars.iv56.ph, %.lr.ph53.preheader ]
+  %93 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 %indvars.iv56
+  store float 0.000000e+00, ptr %93, align 4
+  br i1 %92, label %.lr.ph53, label %.loopexit, !llvm.loop !35
 
-95:                                               ; preds = %.body
+.body:                                            ; preds = %65, %63, %84, %90, %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
+  %.pn36.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %91, %90 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %85, %84 ]
+  %.131 = extractvalue { ptr, i32 } %.pn36.pn, 1
+  %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #23
+  %95 = icmp eq i32 %.131, %94
+  br i1 %95, label %96, label %common.resume
+
+96:                                               ; preds = %.body
   %.1 = extractvalue { ptr, i32 } %.pn36.pn, 0
-  %96 = call ptr @__cxa_begin_catch(ptr %.1) #23
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(16) %96) #23
+  %97 = call ptr @__cxa_begin_catch(ptr %.1) #23
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(16) %97) #23
   store i64 0, ptr %1, align 4
   call void @__cxa_end_catch()
   br label %.loopexit
 
-.loopexit.loopexit.critedge.critedge:             ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader
-  store float 0.000000e+00, ptr %1, align 4
-  br label %.loopexit.loopexit.critedge
-
-.loopexit.loopexit.critedge:                      ; preds = %.loopexit.loopexit.critedge.critedge, %.lr.ph53.preheader
-  %101 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 1
-  store float 0.000000e+00, ptr %101, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph53.preheader, %.loopexit.loopexit.critedge, %.preheader, %95
+.loopexit:                                        ; preds = %.lr.ph53, %.preheader, %96
   %sext = shl i64 %17, 32
   %102 = ashr exact i64 %sext, 32
   %103 = load ptr, ptr %9, align 8

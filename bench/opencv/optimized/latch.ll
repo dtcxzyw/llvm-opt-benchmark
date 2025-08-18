@@ -617,20 +617,20 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %29 = add nuw i32 %5, 1
   br label %30
 
-._crit_edge:                                      ; preds = %.critedge, %_ZNK2cv11_InputArray6getMatEi.exit
+._crit_edge:                                      ; preds = %.loopexit, %_ZNK2cv11_InputArray6getMatEi.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-30:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %.critedge ]
-  %31 = phi ptr [ %16, %.lr.ph ], [ %48, %.critedge ]
+30:                                               ; preds = %.lr.ph, %.loopexit
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next49, %.loopexit ]
+  %31 = phi ptr [ %16, %.lr.ph ], [ %48, %.loopexit ]
   %32 = load ptr, ptr %23, align 8, !tbaa !49
   %33 = load ptr, ptr %24, align 8, !tbaa !56
   %34 = load i64, ptr %33, align 8, !tbaa !57
-  %35 = mul i64 %34, %indvars.iv47
+  %35 = mul i64 %34, %indvars.iv48
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %31, i64 %indvars.iv47
+  %37 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %31, i64 %indvars.iv48
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load float, ptr %38, align 4, !tbaa !81
   %40 = fmul float %39, 0x3F91DF46A0000000
@@ -639,12 +639,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %43 = fptrunc double %42 to float
   %44 = call double @sin(double noundef %41) #26, !tbaa !3
   %45 = fptrunc double %44 to float
-  store i8 0, ptr %36, align 1, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i8 0, ptr %36, align 1, !tbaa !38
   br label %55
 
-.critedge:                                        ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+.loopexit:                                        ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %47 = load ptr, ptr %14, align 8, !tbaa !77
   %48 = load ptr, ptr %1, align 8, !tbaa !80
   %49 = ptrtoint ptr %47 to i64
@@ -653,7 +653,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %52 = sdiv exact i64 %51, 28
   %sext = shl i64 %52, 32
   %53 = ashr exact i64 %sext, 32
-  %54 = icmp slt i64 %indvars.iv.next48, %53
+  %54 = icmp slt i64 %indvars.iv.next49, %53
   br i1 %54, label %30, label %._crit_edge, !llvm.loop !82
 
 55:                                               ; preds = %30, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
@@ -818,7 +818,7 @@ _ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointE
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   %156 = add nsw i32 %.043, -1
   %.not = icmp eq i32 %.043, 0
-  br i1 %.not, label %.critedge, label %55, !llvm.loop !83
+  br i1 %.not, label %.loopexit, label %55, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress uwtable

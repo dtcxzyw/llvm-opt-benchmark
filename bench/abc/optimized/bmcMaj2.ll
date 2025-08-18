@@ -2949,8 +2949,8 @@ Exa_ManAddCnfStart.exit:                          ; preds = %341, %._crit_edge.i
   %365 = load i32, ptr %25, align 4, !tbaa !119
   %366 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %364, i32 noundef %365)
   %.pr88 = load i32, ptr %10, align 4, !tbaa !3
-  %.not25116 = icmp eq i32 %.pr88, -1
-  br i1 %.not25116, label %.thread87, label %.lr.ph
+  %.not25117 = icmp eq i32 %.pr88, -1
+  br i1 %.not25117, label %.thread87, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Exa_ManAddCnfStart.exit
   %367 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2965,7 +2965,7 @@ Exa_ManAddCnfStart.exit:                          ; preds = %341, %._crit_edge.i
   br label %374
 
 374:                                              ; preds = %.lr.ph, %.loopexit
-  %.023117 = phi i32 [ 0, %.lr.ph ], [ %670, %.loopexit ]
+  %.023118 = phi i32 [ 0, %.lr.ph ], [ %670, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %375 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #18
   %376 = icmp slt i32 %375, 0
@@ -3022,7 +3022,7 @@ Abc_Clock.exit34:                                 ; preds = %374, %377
   %403 = load i32, ptr %22, align 8, !tbaa !117
   %404 = load i32, ptr %27, align 8, !tbaa !120
   %405 = icmp slt i32 %403, %404
-  br i1 %405, label %.lr.ph144.i, label %.loopexit99
+  br i1 %405, label %.lr.ph144.i, label %.loopexit100
 
 .lr.ph144.i:                                      ; preds = %._crit_edge.i35
   %406 = sext i32 %403 to i64
@@ -3253,9 +3253,9 @@ Abc_Clock.exit34:                                 ; preds = %374, %377
   %511 = load i32, ptr %27, align 8, !tbaa !120
   %512 = sext i32 %511 to i64
   %513 = icmp slt i64 %indvars.iv.next160.i, %512
-  br i1 %513, label %407, label %.loopexit99, !llvm.loop !149
+  br i1 %513, label %407, label %.loopexit100, !llvm.loop !149
 
-.loopexit99:                                      ; preds = %510, %._crit_edge.i35
+.loopexit100:                                     ; preds = %510, %._crit_edge.i35
   %514 = load i32, ptr %25, align 4, !tbaa !119
   %515 = mul nsw i32 %514, 3
   %516 = load i32, ptr %45, align 8, !tbaa !124
@@ -3267,8 +3267,8 @@ Abc_Clock.exit34:                                 ; preds = %374, %377
   %.not27 = icmp eq i32 %520, 0
   br i1 %.not27, label %544, label %521
 
-521:                                              ; preds = %.loopexit99
-  %522 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.023117)
+521:                                              ; preds = %.loopexit100
+  %522 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.023118)
   %523 = load ptr, ptr @stdout, align 8, !tbaa !85
   %524 = load i32, ptr %22, align 8, !tbaa !117
   call void @Extra_PrintBinary(ptr noundef %523, ptr noundef nonnull %10, i32 noundef %524) #18
@@ -3303,7 +3303,7 @@ Abc_Clock.exit47:                                 ; preds = %521, %535
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %543)
   br label %544
 
-544:                                              ; preds = %Abc_Clock.exit47, %.loopexit99
+544:                                              ; preds = %Abc_Clock.exit47, %.loopexit100
   %545 = icmp eq i32 %519, -1
   br i1 %545, label %546, label %547
 
@@ -3608,7 +3608,7 @@ Abc_TtOr.exit.i:                                  ; preds = %.lr.ph.i70.i, %.pre
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   store i32 %669, ptr %10, align 4, !tbaa !3
-  %670 = add nuw nsw i32 %.023117, 1
+  %670 = add nuw nsw i32 %.023118, 1
   %.not25 = icmp eq i32 %669, -1
   br i1 %.not25, label %.thread87, label %374, !llvm.loop !161
 

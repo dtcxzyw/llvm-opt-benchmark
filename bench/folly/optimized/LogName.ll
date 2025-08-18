@@ -243,200 +243,187 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5folly7LogName4hashENS_5RangeIPK
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4_(ptr %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #3 align 2 {
-.critedge:
-  %4 = ptrtoint ptr %3 to i64
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %1 to i64
-  %7 = icmp eq ptr %0, %1
-  br i1 %7, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit", label %.lr.ph.i.preheader
+  %5 = ptrtoint ptr %3 to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = ptrtoint ptr %1 to i64
+  %8 = icmp eq ptr %0, %1
+  br i1 %8, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit", label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.critedge
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub i64 %8, %6
-  %scevgep = getelementptr i8, ptr %1, i64 %9
+.lr.ph.i.preheader:                               ; preds = %4
+  %9 = ptrtoint ptr %0 to i64
+  %10 = sub i64 %9, %7
+  %scevgep = getelementptr i8, ptr %1, i64 %10
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %12
-  %.sroa.10.0 = phi ptr [ %10, %12 ], [ %1, %.lr.ph.i.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.10.0, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !16
-  switch i8 %11, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" [
-    i8 92, label %12
-    i8 47, label %12
-    i8 46, label %12
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %13
+  %.sroa.10.0 = phi ptr [ %11, %13 ], [ %1, %.lr.ph.i.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.10.0, i64 -1
+  %12 = load i8, ptr %11, align 1, !tbaa !16
+  switch i8 %12, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" [
+    i8 92, label %13
+    i8 47, label %13
+    i8 46, label %13
   ]
 
-12:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %13 = icmp eq ptr %0, %10
-  br i1 %13, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", label %.lr.ph.i, !llvm.loop !23
+13:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %14 = icmp eq ptr %0, %11
+  br i1 %14, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", label %.lr.ph.i, !llvm.loop !23
 
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit": ; preds = %12, %.lr.ph.i
-  %.sroa.10.1.ph = phi ptr [ %.sroa.10.0, %.lr.ph.i ], [ %scevgep, %12 ]
+"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit": ; preds = %13, %.lr.ph.i
+  %.sroa.10.1.ph = phi ptr [ %.sroa.10.0, %.lr.ph.i ], [ %scevgep, %13 ]
   %.pre = ptrtoint ptr %.sroa.10.1.ph to i64
   br label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit"
 
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit": ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", %.critedge
-  %.sroa.10.153.pre-phi = phi i64 [ %.pre, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" ], [ %6, %.critedge ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.1.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" ], [ %1, %.critedge ]
-  %14 = icmp eq ptr %2, %3
-  br i1 %14, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5", label %.lr.ph.i4.preheader
+"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit": ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", %4
+  %.sroa.10.144.pre-phi = phi i64 [ %.pre, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" ], [ %7, %4 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.1.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit" ], [ %1, %4 ]
+  %15 = icmp eq ptr %2, %3
+  br i1 %15, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5", label %.lr.ph.i4.preheader
 
 .lr.ph.i4.preheader:                              ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit"
-  %15 = sub i64 %5, %4
-  %scevgep52 = getelementptr i8, ptr %3, i64 %15
+  %16 = sub i64 %6, %5
+  %scevgep43 = getelementptr i8, ptr %3, i64 %16
   br label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %.lr.ph.i4.preheader, %18
-  %.sroa.12.0 = phi ptr [ %16, %18 ], [ %3, %.lr.ph.i4.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -1
-  %17 = load i8, ptr %16, align 1, !tbaa !16
-  switch i8 %17, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" [
-    i8 92, label %18
-    i8 47, label %18
-    i8 46, label %18
+.lr.ph.i4:                                        ; preds = %.lr.ph.i4.preheader, %19
+  %.sroa.12.0 = phi ptr [ %17, %19 ], [ %3, %.lr.ph.i4.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -1
+  %18 = load i8, ptr %17, align 1, !tbaa !16
+  switch i8 %18, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" [
+    i8 92, label %19
+    i8 47, label %19
+    i8 46, label %19
   ]
 
-18:                                               ; preds = %.lr.ph.i4, %.lr.ph.i4, %.lr.ph.i4
-  %19 = icmp eq ptr %2, %16
-  br i1 %19, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit", label %.lr.ph.i4, !llvm.loop !23
+19:                                               ; preds = %.lr.ph.i4, %.lr.ph.i4, %.lr.ph.i4
+  %20 = icmp eq ptr %2, %17
+  br i1 %20, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit", label %.lr.ph.i4, !llvm.loop !23
 
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit": ; preds = %18, %.lr.ph.i4
-  %.sroa.12.1.ph = phi ptr [ %.sroa.12.0, %.lr.ph.i4 ], [ %scevgep52, %18 ]
-  %.pre64 = ptrtoint ptr %.sroa.12.1.ph to i64
+"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit": ; preds = %19, %.lr.ph.i4
+  %.sroa.12.1.ph = phi ptr [ %.sroa.12.0, %.lr.ph.i4 ], [ %scevgep43, %19 ]
+  %.pre52 = ptrtoint ptr %.sroa.12.1.ph to i64
   br label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
 
 "_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5": ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit", %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit"
-  %.sroa.12.157.pre-phi = phi i64 [ %.pre64, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" ], [ %4, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit" ]
+  %.sroa.12.148.pre-phi = phi i64 [ %.pre52, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" ], [ %5, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit" ]
   %.sroa.12.1 = phi ptr [ %.sroa.12.1.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" ], [ %3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit" ]
-  br label %.loopexit31
+  br label %21
 
-.loopexit31.loopexit:                             ; preds = %53, %53, %53
-  br label %.loopexit31
+21:                                               ; preds = %56, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
+  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %58, %56 ]
+  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %57, %56 ]
+  %.0 = phi i1 [ true, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %spec.select.i, %56 ]
+  %.sroa.014.050 = ptrtoint ptr %.sroa.014.0 to i64
+  %.sroa.024.046 = ptrtoint ptr %.sroa.024.0 to i64
+  br i1 %.0, label %22, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10"
 
-.loopexit31:                                      ; preds = %.loopexit31.loopexit, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
-  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %55, %.loopexit31.loopexit ]
-  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %54, %.loopexit31.loopexit ]
-  %.sroa.014.059 = ptrtoint ptr %.sroa.014.0 to i64
-  %.sroa.024.055 = ptrtoint ptr %.sroa.024.0 to i64
-  %20 = icmp eq ptr %.sroa.024.0, %.sroa.10.1
-  br i1 %20, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit", label %.lr.ph.i7.preheader
+22:                                               ; preds = %21
+  %23 = icmp eq ptr %.sroa.024.0, %.sroa.10.1
+  br i1 %23, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit", label %.lr.ph.i7.preheader
 
-.lr.ph.i7.preheader:                              ; preds = %.loopexit31
-  %scevgep54 = getelementptr i8, ptr %.sroa.024.0, i64 %.sroa.10.153.pre-phi
-  %21 = sub i64 0, %.sroa.024.055
-  %scevgep56 = getelementptr i8, ptr %scevgep54, i64 %21
+.lr.ph.i7.preheader:                              ; preds = %22
+  %scevgep45 = getelementptr i8, ptr %.sroa.024.0, i64 %.sroa.10.144.pre-phi
+  %24 = sub i64 0, %.sroa.024.046
+  %scevgep47 = getelementptr i8, ptr %scevgep45, i64 %24
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %23
-  %.sroa.024.2 = phi ptr [ %24, %23 ], [ %.sroa.024.0, %.lr.ph.i7.preheader ]
-  %22 = load i8, ptr %.sroa.024.2, align 1, !tbaa !16
-  switch i8 %22, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit" [
-    i8 92, label %23
-    i8 47, label %23
-    i8 46, label %23
+.lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %26
+  %.sroa.024.2 = phi ptr [ %27, %26 ], [ %.sroa.024.0, %.lr.ph.i7.preheader ]
+  %25 = load i8, ptr %.sroa.024.2, align 1, !tbaa !16
+  switch i8 %25, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit" [
+    i8 92, label %26
+    i8 47, label %26
+    i8 46, label %26
   ]
 
-23:                                               ; preds = %.lr.ph.i7, %.lr.ph.i7, %.lr.ph.i7
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.024.2, i64 1
-  %25 = icmp eq ptr %24, %.sroa.10.1
-  br i1 %25, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit", label %.lr.ph.i7, !llvm.loop !24
+26:                                               ; preds = %.lr.ph.i7, %.lr.ph.i7, %.lr.ph.i7
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.024.2, i64 1
+  %28 = icmp eq ptr %27, %.sroa.10.1
+  br i1 %28, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit", label %.lr.ph.i7, !llvm.loop !24
 
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit": ; preds = %23, %.lr.ph.i7
-  %.sroa.024.3.ph = phi ptr [ %.sroa.024.2, %.lr.ph.i7 ], [ %scevgep56, %23 ]
-  %.pre65 = ptrtoint ptr %.sroa.024.3.ph to i64
-  br label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit"
-
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit": ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit", %.loopexit31
-  %.sroa.024.362.pre-phi = phi i64 [ %.pre65, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit" ], [ %.sroa.024.055, %.loopexit31 ]
-  %.sroa.024.3 = phi ptr [ %.sroa.024.3.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit" ], [ %.sroa.024.0, %.loopexit31 ]
-  %26 = icmp eq ptr %.sroa.014.0, %.sroa.12.1
-  br i1 %26, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9.preheader
+"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit": ; preds = %.lr.ph.i7, %26, %22
+  %.sroa.024.3 = phi ptr [ %.sroa.024.0, %22 ], [ %scevgep47, %26 ], [ %.sroa.024.2, %.lr.ph.i7 ]
+  %29 = icmp eq ptr %.sroa.014.0, %.sroa.12.1
+  br i1 %29, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9.preheader
 
 .lr.ph.i9.preheader:                              ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit"
-  %scevgep58 = getelementptr i8, ptr %.sroa.014.0, i64 %.sroa.12.157.pre-phi
-  %27 = sub i64 0, %.sroa.014.059
-  %scevgep60 = getelementptr i8, ptr %scevgep58, i64 %27
+  %scevgep49 = getelementptr i8, ptr %.sroa.014.0, i64 %.sroa.12.148.pre-phi
+  %30 = sub i64 0, %.sroa.014.050
+  %scevgep51 = getelementptr i8, ptr %scevgep49, i64 %30
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %29
-  %.sroa.014.2 = phi ptr [ %30, %29 ], [ %.sroa.014.0, %.lr.ph.i9.preheader ]
-  %28 = load i8, ptr %.sroa.014.2, align 1, !tbaa !16
-  switch i8 %28, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10" [
-    i8 92, label %29
-    i8 47, label %29
-    i8 46, label %29
+.lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %32
+  %.sroa.014.2 = phi ptr [ %33, %32 ], [ %.sroa.014.0, %.lr.ph.i9.preheader ]
+  %31 = load i8, ptr %.sroa.014.2, align 1, !tbaa !16
+  switch i8 %31, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10" [
+    i8 92, label %32
+    i8 47, label %32
+    i8 46, label %32
   ]
 
-29:                                               ; preds = %.lr.ph.i9, %.lr.ph.i9, %.lr.ph.i9
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.2, i64 1
-  %31 = icmp eq ptr %30, %.sroa.12.1
-  br i1 %31, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9, !llvm.loop !24
+32:                                               ; preds = %.lr.ph.i9, %.lr.ph.i9, %.lr.ph.i9
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.014.2, i64 1
+  %34 = icmp eq ptr %33, %.sroa.12.1
+  br i1 %34, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9, !llvm.loop !24
 
-"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10": ; preds = %.lr.ph.i9, %29, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit"
-  %.sroa.014.3 = phi ptr [ %.sroa.014.0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit" ], [ %scevgep60, %29 ], [ %.sroa.014.2, %.lr.ph.i9 ]
-  br label %32
+"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10": ; preds = %32, %.lr.ph.i9, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit", %21
+  %.sroa.014.1 = phi ptr [ %.sroa.014.0, %21 ], [ %.sroa.014.0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit" ], [ %scevgep51, %32 ], [ %.sroa.014.2, %.lr.ph.i9 ]
+  %.sroa.024.1 = phi ptr [ %.sroa.024.0, %21 ], [ %.sroa.024.3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit" ], [ %.sroa.024.3, %.lr.ph.i9 ], [ %.sroa.024.3, %32 ]
+  %35 = icmp eq ptr %.sroa.024.1, %.sroa.10.1
+  br i1 %35, label %36, label %39
 
-32:                                               ; preds = %53, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10"
-  %.sroa.014.1 = phi ptr [ %.sroa.014.3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10" ], [ %55, %53 ]
-  %.sroa.024.1 = phi ptr [ %.sroa.024.3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10" ], [ %54, %53 ]
-  %33 = icmp eq ptr %.sroa.024.1, %.sroa.10.1
-  br i1 %33, label %34, label %38
-
-34:                                               ; preds = %32
-  %scevgep61.le = getelementptr i8, ptr %.sroa.014.3, i64 %.sroa.10.153.pre-phi
-  %35 = sub i64 0, %.sroa.024.362.pre-phi
-  %scevgep63.le = getelementptr i8, ptr %scevgep61.le, i64 %35
-  %36 = icmp ne ptr %scevgep63.le, %.sroa.12.1
-  %37 = sext i1 %36 to i32
+36:                                               ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10"
+  %37 = icmp ne ptr %.sroa.014.1, %.sroa.12.1
+  %38 = sext i1 %37 to i32
   br label %.loopexit
 
-38:                                               ; preds = %32
-  %39 = icmp eq ptr %.sroa.014.1, %.sroa.12.1
-  br i1 %39, label %.loopexit, label %40
+39:                                               ; preds = %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10"
+  %40 = icmp eq ptr %.sroa.014.1, %.sroa.12.1
+  br i1 %40, label %.loopexit, label %41
 
-40:                                               ; preds = %38
-  %41 = load i8, ptr %.sroa.024.1, align 1, !tbaa !16
-  switch i8 %41, label %47 [
-    i8 92, label %42
-    i8 47, label %42
-    i8 46, label %42
+41:                                               ; preds = %39
+  %42 = load i8, ptr %.sroa.024.1, align 1, !tbaa !16
+  %43 = and i8 %42, -2
+  %or.cond.i = icmp eq i8 %43, 46
+  %44 = icmp eq i8 %42, 92
+  %spec.select.i = or i1 %44, %or.cond.i
+  switch i8 %42, label %50 [
+    i8 92, label %45
+    i8 47, label %45
+    i8 46, label %45
   ]
 
-42:                                               ; preds = %40, %40, %40
-  %43 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
-  switch i8 %43, label %44 [
-    i8 92, label %53
-    i8 47, label %53
-    i8 46, label %53
+45:                                               ; preds = %41, %41, %41
+  %46 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
+  switch i8 %46, label %47 [
+    i8 92, label %56
+    i8 47, label %56
+    i8 46, label %56
   ]
 
-44:                                               ; preds = %42
-  %45 = sext i8 %43 to i32
-  %46 = sub nsw i32 46, %45
+47:                                               ; preds = %45
+  %48 = sext i8 %46 to i32
+  %49 = sub nsw i32 46, %48
   br label %.loopexit
 
-47:                                               ; preds = %40
-  %48 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
-  %.not = icmp eq i8 %41, %48
-  br i1 %.not, label %53, label %49
+50:                                               ; preds = %41
+  %51 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
+  %.not = icmp eq i8 %42, %51
+  br i1 %.not, label %56, label %52
 
-49:                                               ; preds = %47
-  %50 = sext i8 %41 to i32
-  %51 = sext i8 %48 to i32
-  %52 = sub nsw i32 %50, %51
+52:                                               ; preds = %50
+  %53 = sext i8 %42 to i32
+  %54 = sext i8 %51 to i32
+  %55 = sub nsw i32 %53, %54
   br label %.loopexit
 
-53:                                               ; preds = %42, %42, %42, %47
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
-  switch i8 %41, label %32 [
-    i8 92, label %.loopexit31.loopexit
-    i8 47, label %.loopexit31.loopexit
-    i8 46, label %.loopexit31.loopexit
-  ]
+56:                                               ; preds = %45, %45, %45, %50
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
+  br label %21, !llvm.loop !25
 
-.loopexit:                                        ; preds = %38, %49, %44, %34
-  %.02 = phi i32 [ %37, %34 ], [ %46, %44 ], [ %52, %49 ], [ 1, %38 ]
+.loopexit:                                        ; preds = %39, %52, %47, %36
+  %.02 = phi i32 [ %38, %36 ], [ %49, %47 ], [ %55, %52 ], [ 1, %39 ]
   ret i32 %.02
 }
 
@@ -464,7 +451,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !26
 
 .critedge.preheader:                              ; preds = %10, %.lr.ph
   %.1.ph = phi i64 [ %.028, %.lr.ph ], [ 0, %10 ]
@@ -483,7 +470,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
     i8 92, label %.lr.ph33.preheader
     i8 47, label %.lr.ph33.preheader
     i8 46, label %.lr.ph33.preheader
-  ], !llvm.loop !26
+  ], !llvm.loop !27
 
 .lr.ph33.preheader:                               ; preds = %11, %11, %11
   br label %.lr.ph33
@@ -501,7 +488,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
 
 18:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33
   %.not15 = icmp eq i64 %15, 0
-  br i1 %.not15, label %.critedge4, label %.lr.ph33, !llvm.loop !27
+  br i1 %.not15, label %.critedge4, label %.lr.ph33, !llvm.loop !28
 
 .critedge4:                                       ; preds = %.critedge, %18, %.lr.ph33
   %.2.lcssa = phi i64 [ %.232, %.lr.ph33 ], [ 0, %18 ], [ 0, %.critedge ]
@@ -555,3 +542,4 @@ attributes #5 = { builtin nounwind }
 !25 = distinct !{!25, !18}
 !26 = distinct !{!26, !18}
 !27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}

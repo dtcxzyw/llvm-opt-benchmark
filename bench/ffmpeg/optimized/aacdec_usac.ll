@@ -4783,7 +4783,7 @@ complex_stereo_get_filter.exit.i:                 ; preds = %.thread16.i.i, %101
   call void %1110(ptr noundef %0, ptr noundef nonnull %3) #13
   br label %apply_complex_stereo.exit.i
 
-apply_complex_stereo.exit.i:                      ; preds = %._crit_edge.us38.i.i, %1108, %.lr.ph22.i109.i, %1034, %897, %893
+apply_complex_stereo.exit.i:                      ; preds = %._crit_edge.us38.i.i, %893, %897, %1034, %.lr.ph22.i109.i, %1108
   %1111 = getelementptr inbounds nuw i8, ptr %3, i64 9760
   %1112 = getelementptr inbounds nuw i8, ptr %3, i64 5664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1111, ptr noundef nonnull align 16 dereferenceable(4096) %1112, i64 4096, i1 false)

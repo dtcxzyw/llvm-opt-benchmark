@@ -9880,9 +9880,9 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h7198442eb00b374aE(ptr 
 
 925:                                              ; preds = %921, %921, %921, %922
   %926 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %927 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2313
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf7331e8a5c7de8f1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %926)
-  %927 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %928 = load i64, ptr %927, align 8, !range !2326, !noalias !2313, !noundef !5
   %929 = icmp eq i64 %928, 0
   br i1 %929, label %"_ZN4core3ptr123drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$u3b$$u20$1$u5d$$GT$17h1719de89eb067bd2E.exit", label %930
@@ -26980,29 +26980,28 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$cor
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$u3b$$u20$1$u5d$$GT$17h1719de89eb067bd2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca [24 x i8], align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5711
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf7331e8a5c7de8f1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !range !2326, !noalias !5711, !noundef !5
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit", label %6
+  %2 = alloca [24 x i8], align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5711
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf7331e8a5c7de8f1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
+  %5 = load i64, ptr %4, align 8, !range !2326, !noalias !5711, !noundef !5
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit", label %7
 
-6:                                                ; preds = %.critedge
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !5711, !noundef !5
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit", label %10
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = load i64, ptr %8, align 8, !noalias !5711, !noundef !5
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit", label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %1, align 8, !noalias !5711, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef %4) #44
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %2, align 8, !noalias !5711, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %9, i64 noundef %5) #44
   br label %"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit"
 
-"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit": ; preds = %.critedge, %6, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !5711
+"_ZN4core3ptr102drop_in_place$LT$$LP$core..ops..range..Range$LT$rope..point..Point$GT$$C$alloc..string..String$RP$$GT$17hd4724ab3856d8dbdE.exit": ; preds = %1, %7, %11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5711
   ret void
 }
 

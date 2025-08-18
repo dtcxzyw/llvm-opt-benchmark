@@ -11041,9 +11041,9 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv14Lab2RGBintegerclEPKhPhiE26__cv_trace_location_fn2571)
   %6 = icmp sgt i32 %3, 0
-  br i1 %6, label %.critedge.lr.ph, label %._crit_edge
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-.critedge.lr.ph:                                  ; preds = %4
+.lr.ph:                                           ; preds = %4
   %7 = load i32, ptr %0, align 4, !tbaa !459
   %8 = load ptr, ptr @_ZN2cvL8abToXZ_bE, align 8, !tbaa !309
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11060,10 +11060,10 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
   %20 = sext i32 %7 to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %124
-  %.032 = phi ptr [ %1, %.critedge.lr.ph ], [ %126, %124 ]
-  %.01531 = phi ptr [ %2, %.critedge.lr.ph ], [ %127, %124 ]
-  %.01630 = phi i32 [ 0, %.critedge.lr.ph ], [ %125, %124 ]
+.critedge:                                        ; preds = %.lr.ph, %124
+  %.032 = phi ptr [ %1, %.lr.ph ], [ %126, %124 ]
+  %.01531 = phi ptr [ %2, %.lr.ph ], [ %127, %124 ]
+  %.01630 = phi i32 [ 0, %.lr.ph ], [ %125, %124 ]
   %21 = load i8, ptr %.032, align 1, !tbaa !500
   %22 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !500

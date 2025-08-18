@@ -1913,8 +1913,8 @@ x509_profile_check_key.exit.thread:               ; preds = %102, %107, %109, %x
 130:                                              ; preds = %x509_crt_verifycrl.exit.i, %.preheader.i
   %131 = phi i32 [ %.pre, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
   %.042.i = phi ptr [ %.2.ph.i, %x509_crt_verifycrl.exit.i ], [ %0, %.preheader.i ]
-  %.041.i = phi i32 [ %.08.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
-  %.0.i40 = phi i32 [ %.122.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
+  %.041.i = phi i32 [ %storemerge.i.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
+  %.0.i40 = phi i32 [ %.121.i, %x509_crt_verifycrl.exit.i ], [ 0, %.preheader.i ]
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %132
   store ptr %.042.i, ptr %133, align 8, !tbaa !88
@@ -2032,603 +2032,606 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
   br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %180, !llvm.loop !117
 
 x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %189, %.preheader.i.i, %173, %170
-  %192 = getelementptr inbounds nuw i8, ptr %.042.i, i64 160
-  %193 = sub i32 %171, %.0.i40
-  %194 = getelementptr inbounds nuw i8, ptr %.042.i, i64 48
-  %195 = getelementptr inbounds nuw i8, ptr %.042.i, i64 40
-  %196 = getelementptr inbounds nuw i8, ptr %.042.i, i64 728
-  %197 = getelementptr inbounds nuw i8, ptr %.042.i, i64 712
-  %198 = getelementptr inbounds nuw i8, ptr %.042.i, i64 704
-  %199 = getelementptr inbounds nuw i8, ptr %.042.i, i64 736
+  %192 = getelementptr inbounds nuw i8, ptr %.042.i, i64 736
+  %193 = getelementptr inbounds nuw i8, ptr %.042.i, i64 160
+  %194 = sub i32 %171, %.0.i40
+  %195 = getelementptr inbounds nuw i8, ptr %.042.i, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %.042.i, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %.042.i, i64 728
+  %198 = getelementptr inbounds nuw i8, ptr %.042.i, i64 712
+  %199 = getelementptr inbounds nuw i8, ptr %.042.i, i64 704
   br label %200
 
-200:                                              ; preds = %326, %x509_crt_check_ee_locally_trusted.exit.thread.i
-  %.08.i = phi i32 [ 1, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ 0, %326 ]
-  %.not9.i.i.i.i = phi i1 [ false, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ true, %326 ]
-  %201 = phi ptr [ %1, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ %327, %326 ]
-  %cond4.i.i.i = icmp eq ptr %201, null
+200:                                              ; preds = %x509_crt_find_parent_in.exit.thread.i.i, %x509_crt_check_ee_locally_trusted.exit.thread.i
+  %.not.i55.i = phi i1 [ false, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ true, %x509_crt_find_parent_in.exit.thread.i.i ]
+  %storemerge.i.i = phi i32 [ 1, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ 0, %x509_crt_find_parent_in.exit.thread.i.i ]
+  br i1 %.not.i55.i, label %201, label %203
+
+201:                                              ; preds = %200
+  %202 = load ptr, ptr %192, align 8, !tbaa !23
+  br label %203
+
+203:                                              ; preds = %201, %200
+  %204 = phi ptr [ %202, %201 ], [ %1, %200 ]
+  %cond4.i.i.i = icmp eq ptr %204, null
   br i1 %cond4.i.i.i, label %x509_crt_find_parent_in.exit.thread.i.i, label %.lr.ph.i.i.i41
 
-.lr.ph.i.i.i41:                                   ; preds = %200, %x509_crt_check_parent.exit.thread.i.i.i
-  %.07.i.i.i = phi i32 [ %.1.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ 0, %200 ]
-  %.0326.i.i.i = phi ptr [ %.133.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ null, %200 ]
-  %.0345.i.i.i = phi ptr [ %325, %x509_crt_check_parent.exit.thread.i.i.i ], [ %201, %200 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 224
+.lr.ph.i.i.i41:                                   ; preds = %203, %x509_crt_check_parent.exit.thread.i.i.i
+  %.07.i.i.i = phi i32 [ %.1.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ 0, %203 ]
+  %.0326.i.i.i = phi ptr [ %.133.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ null, %203 ]
+  %.0345.i.i.i = phi ptr [ %328, %x509_crt_check_parent.exit.thread.i.i.i ], [ %204, %203 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 224
   br label %.lr.ph.i19.i.i
 
-.lr.ph.i19.i.i:                                   ; preds = %266, %.lr.ph.i.i.i41
-  %.029.i.i.i = phi ptr [ %270, %266 ], [ %202, %.lr.ph.i.i.i41 ]
-  %.01828.i.i.i = phi ptr [ %268, %266 ], [ %192, %.lr.ph.i.i.i41 ]
-  %203 = icmp eq ptr %.01828.i.i.i, null
-  %204 = icmp eq ptr %.029.i.i.i, null
-  %or.cond.i20.i.i = select i1 %203, i1 true, i1 %204
-  br i1 %or.cond.i20.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %205
+.lr.ph.i19.i.i:                                   ; preds = %269, %.lr.ph.i.i.i41
+  %.029.i.i.i = phi ptr [ %273, %269 ], [ %205, %.lr.ph.i.i.i41 ]
+  %.01828.i.i.i = phi ptr [ %271, %269 ], [ %193, %.lr.ph.i.i.i41 ]
+  %206 = icmp eq ptr %.01828.i.i.i, null
+  %207 = icmp eq ptr %.029.i.i.i, null
+  %or.cond.i20.i.i = select i1 %206, i1 true, i1 %207
+  br i1 %or.cond.i20.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %208
 
-205:                                              ; preds = %.lr.ph.i19.i.i
-  %206 = load i32, ptr %.01828.i.i.i, align 8, !tbaa !118
-  %207 = load i32, ptr %.029.i.i.i, align 8, !tbaa !118
-  %.not.i.i.i42 = icmp eq i32 %206, %207
-  br i1 %.not.i.i.i42, label %208, label %x509_crt_check_parent.exit.thread.i.i.i
+208:                                              ; preds = %.lr.ph.i19.i.i
+  %209 = load i32, ptr %.01828.i.i.i, align 8, !tbaa !118
+  %210 = load i32, ptr %.029.i.i.i, align 8, !tbaa !118
+  %.not.i.i.i42 = icmp eq i32 %209, %210
+  br i1 %.not.i.i.i42, label %211, label %x509_crt_check_parent.exit.thread.i.i.i
 
-208:                                              ; preds = %205
-  %209 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 8
-  %210 = load i64, ptr %209, align 8, !tbaa !98
-  %211 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 8
-  %212 = load i64, ptr %211, align 8, !tbaa !98
-  %.not21.i.i.i = icmp eq i64 %210, %212
-  br i1 %.not21.i.i.i, label %213, label %x509_crt_check_parent.exit.thread.i.i.i
+211:                                              ; preds = %208
+  %212 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 8
+  %213 = load i64, ptr %212, align 8, !tbaa !98
+  %214 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 8
+  %215 = load i64, ptr %214, align 8, !tbaa !98
+  %.not21.i.i.i = icmp eq i64 %213, %215
+  br i1 %.not21.i.i.i, label %216, label %x509_crt_check_parent.exit.thread.i.i.i
 
-213:                                              ; preds = %208
-  %214 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 16
-  %215 = load ptr, ptr %214, align 8, !tbaa !99
-  %216 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 16
-  %217 = load ptr, ptr %216, align 8, !tbaa !99
-  %bcmp.i.i.i43 = call i32 @bcmp(ptr %215, ptr %217, i64 %210)
+216:                                              ; preds = %211
+  %217 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 16
+  %218 = load ptr, ptr %217, align 8, !tbaa !99
+  %219 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 16
+  %220 = load ptr, ptr %219, align 8, !tbaa !99
+  %bcmp.i.i.i43 = call i32 @bcmp(ptr %218, ptr %220, i64 %213)
   %.not22.i.i.i = icmp eq i32 %bcmp.i.i.i43, 0
-  br i1 %.not22.i.i.i, label %218, label %x509_crt_check_parent.exit.thread.i.i.i
+  br i1 %.not22.i.i.i, label %221, label %x509_crt_check_parent.exit.thread.i.i.i
 
-218:                                              ; preds = %213
-  %219 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 24
-  %220 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 24
-  %221 = load i32, ptr %219, align 8, !tbaa !42
-  %222 = load i32, ptr %220, align 8, !tbaa !42
-  %223 = icmp eq i32 %221, %222
-  br i1 %223, label %224, label %236
+221:                                              ; preds = %216
+  %222 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 24
+  %224 = load i32, ptr %222, align 8, !tbaa !42
+  %225 = load i32, ptr %223, align 8, !tbaa !42
+  %226 = icmp eq i32 %224, %225
+  br i1 %226, label %227, label %239
 
-224:                                              ; preds = %218
-  %225 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
-  %226 = load i64, ptr %225, align 8, !tbaa !39
-  %227 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
-  %228 = load i64, ptr %227, align 8, !tbaa !39
-  %229 = icmp eq i64 %226, %228
-  br i1 %229, label %230, label %236
+227:                                              ; preds = %221
+  %228 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
+  %229 = load i64, ptr %228, align 8, !tbaa !39
+  %230 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
+  %231 = load i64, ptr %230, align 8, !tbaa !39
+  %232 = icmp eq i64 %229, %231
+  br i1 %232, label %233, label %239
 
-230:                                              ; preds = %224
-  %231 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
-  %232 = load ptr, ptr %231, align 8, !tbaa !41
-  %233 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
-  %234 = load ptr, ptr %233, align 8, !tbaa !41
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %232, ptr %234, i64 %226)
-  %235 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %235, label %x509_string_cmp.exit.i.i.i, label %236
+233:                                              ; preds = %227
+  %234 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
+  %235 = load ptr, ptr %234, align 8, !tbaa !41
+  %236 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
+  %237 = load ptr, ptr %236, align 8, !tbaa !41
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %235, ptr %237, i64 %229)
+  %238 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %238, label %x509_string_cmp.exit.i.i.i, label %239
 
-236:                                              ; preds = %230, %224, %218
-  switch i32 %221, label %x509_crt_check_parent.exit.thread.i.i.i [
-    i32 12, label %237
-    i32 19, label %237
+239:                                              ; preds = %233, %227, %221
+  switch i32 %224, label %x509_crt_check_parent.exit.thread.i.i.i [
+    i32 12, label %240
+    i32 19, label %240
   ]
 
-237:                                              ; preds = %236, %236
-  switch i32 %222, label %x509_crt_check_parent.exit.thread.i.i.i [
-    i32 12, label %238
-    i32 19, label %238
+240:                                              ; preds = %239, %239
+  switch i32 %225, label %x509_crt_check_parent.exit.thread.i.i.i [
+    i32 12, label %241
+    i32 19, label %241
   ]
 
-238:                                              ; preds = %237, %237
-  %239 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
-  %240 = load i64, ptr %239, align 8, !tbaa !39
-  %241 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
-  %242 = load i64, ptr %241, align 8, !tbaa !39
-  %243 = icmp eq i64 %240, %242
-  br i1 %243, label %244, label %x509_crt_check_parent.exit.thread.i.i.i
+241:                                              ; preds = %240, %240
+  %242 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
+  %243 = load i64, ptr %242, align 8, !tbaa !39
+  %244 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
+  %245 = load i64, ptr %244, align 8, !tbaa !39
+  %246 = icmp eq i64 %243, %245
+  br i1 %246, label %247, label %x509_crt_check_parent.exit.thread.i.i.i
 
-244:                                              ; preds = %238
-  %245 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
-  %246 = load ptr, ptr %245, align 8, !tbaa !41
-  %247 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
-  %248 = load ptr, ptr %247, align 8, !tbaa !41
-  %.not.i.i.i.i.i = icmp eq i64 %240, 0
+247:                                              ; preds = %241
+  %248 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
+  %249 = load ptr, ptr %248, align 8, !tbaa !41
+  %250 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
+  %251 = load ptr, ptr %250, align 8, !tbaa !41
+  %.not.i.i.i.i.i = icmp eq i64 %243, 0
   br i1 %.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %244, %260
-  %.01925.i.i.i.i.i = phi i64 [ %261, %260 ], [ 0, %244 ]
-  %249 = getelementptr inbounds nuw i8, ptr %246, i64 %.01925.i.i.i.i.i
-  %250 = load i8, ptr %249, align 1, !tbaa !43
-  %251 = getelementptr inbounds nuw i8, ptr %248, i64 %.01925.i.i.i.i.i
-  %252 = load i8, ptr %251, align 1, !tbaa !43
-  %253 = icmp eq i8 %250, %252
-  br i1 %253, label %260, label %254
+.lr.ph.i.i.i.i.i:                                 ; preds = %247, %263
+  %.01925.i.i.i.i.i = phi i64 [ %264, %263 ], [ 0, %247 ]
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 %.01925.i.i.i.i.i
+  %253 = load i8, ptr %252, align 1, !tbaa !43
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 %.01925.i.i.i.i.i
+  %255 = load i8, ptr %254, align 1, !tbaa !43
+  %256 = icmp eq i8 %253, %255
+  br i1 %256, label %263, label %257
 
-254:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %255 = xor i8 %252, %250
-  %256 = icmp eq i8 %255, 32
-  br i1 %256, label %257, label %x509_crt_check_parent.exit.thread.i.i.i
+257:                                              ; preds = %.lr.ph.i.i.i.i.i
+  %258 = xor i8 %255, %253
+  %259 = icmp eq i8 %258, 32
+  br i1 %259, label %260, label %x509_crt_check_parent.exit.thread.i.i.i
 
-257:                                              ; preds = %254
-  %258 = and i8 %250, -33
-  %259 = add i8 %258, -65
-  %or.cond24.i.i.i.i.i = icmp ult i8 %259, 26
-  br i1 %or.cond24.i.i.i.i.i, label %260, label %x509_crt_check_parent.exit.thread.i.i.i
+260:                                              ; preds = %257
+  %261 = and i8 %253, -33
+  %262 = add i8 %261, -65
+  %or.cond24.i.i.i.i.i = icmp ult i8 %262, 26
+  br i1 %or.cond24.i.i.i.i.i, label %263, label %x509_crt_check_parent.exit.thread.i.i.i
 
-260:                                              ; preds = %257, %.lr.ph.i.i.i.i.i
-  %261 = add nuw i64 %.01925.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %261, %240
+263:                                              ; preds = %260, %.lr.ph.i.i.i.i.i
+  %264 = add nuw i64 %.01925.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %264, %243
   br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !119
 
-x509_string_cmp.exit.i.i.i:                       ; preds = %260, %244, %230
-  %262 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 56
-  %263 = load i8, ptr %262, align 8, !tbaa !120
-  %264 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 56
-  %265 = load i8, ptr %264, align 8, !tbaa !120
-  %.not24.i.i.i = icmp eq i8 %263, %265
-  br i1 %.not24.i.i.i, label %266, label %x509_crt_check_parent.exit.thread.i.i.i
+x509_string_cmp.exit.i.i.i:                       ; preds = %263, %247, %233
+  %265 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 56
+  %266 = load i8, ptr %265, align 8, !tbaa !120
+  %267 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 56
+  %268 = load i8, ptr %267, align 8, !tbaa !120
+  %.not24.i.i.i = icmp eq i8 %266, %268
+  br i1 %.not24.i.i.i, label %269, label %x509_crt_check_parent.exit.thread.i.i.i
 
-266:                                              ; preds = %x509_string_cmp.exit.i.i.i
-  %267 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 48
-  %268 = load ptr, ptr %267, align 8, !tbaa !100
-  %269 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 48
-  %270 = load ptr, ptr %269, align 8, !tbaa !100
-  %271 = icmp ne ptr %268, null
-  %272 = icmp ne ptr %270, null
-  %273 = select i1 %271, i1 true, i1 %272
-  br i1 %273, label %.lr.ph.i19.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !121
+269:                                              ; preds = %x509_string_cmp.exit.i.i.i
+  %270 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 48
+  %271 = load ptr, ptr %270, align 8, !tbaa !100
+  %272 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 48
+  %273 = load ptr, ptr %272, align 8, !tbaa !100
+  %274 = icmp ne ptr %271, null
+  %275 = icmp ne ptr %273, null
+  %276 = select i1 %274, i1 true, i1 %275
+  br i1 %276, label %.lr.ph.i19.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !121
 
-x509_name_cmp.exit.i.i:                           ; preds = %266
-  br i1 %.not9.i.i.i.i, label %.thread.i.i.i.i, label %274
+x509_name_cmp.exit.i.i:                           ; preds = %269
+  br i1 %.not.i55.i, label %.thread.i.i.i.i, label %277
 
-274:                                              ; preds = %x509_name_cmp.exit.i.i
-  %275 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 56
-  %276 = load i32, ptr %275, align 8, !tbaa !3
-  %277 = icmp slt i32 %276, 3
-  br i1 %277, label %x509_crt_check_parent.exit.i.i.i, label %.thread.i.i.i.i
+277:                                              ; preds = %x509_name_cmp.exit.i.i
+  %278 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 56
+  %279 = load i32, ptr %278, align 8, !tbaa !3
+  %280 = icmp slt i32 %279, 3
+  br i1 %280, label %x509_crt_check_parent.exit.i.i.i, label %.thread.i.i.i.i
 
-.thread.i.i.i.i:                                  ; preds = %274, %x509_name_cmp.exit.i.i
-  %278 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 644
-  %279 = load i32, ptr %278, align 4, !tbaa !68
-  %.not11.i.i.i.i = icmp eq i32 %279, 0
-  br i1 %.not11.i.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %280
+.thread.i.i.i.i:                                  ; preds = %277, %x509_name_cmp.exit.i.i
+  %281 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 644
+  %282 = load i32, ptr %281, align 4, !tbaa !68
+  %.not11.i.i.i.i = icmp eq i32 %282, 0
+  br i1 %.not11.i.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %283
 
-280:                                              ; preds = %.thread.i.i.i.i
-  %281 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 640
-  %282 = load i32, ptr %281, align 8, !tbaa !67
-  %283 = and i32 %282, 4
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %x509_crt_check_parent.exit.i.i.i, label %285
+283:                                              ; preds = %.thread.i.i.i.i
+  %284 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 640
+  %285 = load i32, ptr %284, align 8, !tbaa !67
+  %286 = and i32 %285, 4
+  %287 = icmp eq i32 %286, 0
+  br i1 %287, label %x509_crt_check_parent.exit.i.i.i, label %288
 
-285:                                              ; preds = %280
-  %286 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 652
-  %287 = load i32, ptr %286, align 4, !tbaa !71
-  %288 = and i32 %287, 32773
-  %or.cond.i.i.i.i = icmp eq i32 %288, 4
+288:                                              ; preds = %283
+  %289 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 652
+  %290 = load i32, ptr %289, align 4, !tbaa !71
+  %291 = and i32 %290, 32773
+  %or.cond.i.i.i.i = icmp eq i32 %291, 4
   br i1 %or.cond.i.i.i.i, label %x509_crt_check_parent.exit.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i
 
-x509_crt_check_parent.exit.i.i.i:                 ; preds = %285, %280, %274
-  %289 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 648
-  %290 = load i32, ptr %289, align 8, !tbaa !69
-  %291 = icmp sgt i32 %290, 0
-  %292 = icmp ult i32 %290, %193
-  %or.cond12.i.i.i = and i1 %291, %292
-  br i1 %or.cond12.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %293
+x509_crt_check_parent.exit.i.i.i:                 ; preds = %288, %283, %277
+  %292 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 648
+  %293 = load i32, ptr %292, align 8, !tbaa !69
+  %294 = icmp sgt i32 %293, 0
+  %295 = icmp ult i32 %293, %194
+  %or.cond12.i.i.i = and i1 %294, %295
+  br i1 %or.cond12.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %296
 
-293:                                              ; preds = %x509_crt_check_parent.exit.i.i.i
+296:                                              ; preds = %x509_crt_check_parent.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %294 = load i32, ptr %151, align 8, !tbaa !65
-  %295 = call ptr @mbedtls_md_info_from_type(i32 noundef %294) #17
-  %296 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %295) #17
-  %297 = zext i8 %296 to i64
-  %298 = load ptr, ptr %194, align 8, !tbaa !29
-  %299 = load i64, ptr %195, align 8, !tbaa !30
-  %300 = call i32 @mbedtls_md(ptr noundef %295, ptr noundef %298, i64 noundef %299, ptr noundef nonnull %13) #17
-  %.not.i38.i.i.i = icmp eq i32 %300, 0
-  br i1 %.not.i38.i.i.i, label %301, label %x509_crt_check_signature.exit.i.i.i
+  %297 = load i32, ptr %151, align 8, !tbaa !65
+  %298 = call ptr @mbedtls_md_info_from_type(i32 noundef %297) #17
+  %299 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %298) #17
+  %300 = zext i8 %299 to i64
+  %301 = load ptr, ptr %195, align 8, !tbaa !29
+  %302 = load i64, ptr %196, align 8, !tbaa !30
+  %303 = call i32 @mbedtls_md(ptr noundef %298, ptr noundef %301, i64 noundef %302, ptr noundef nonnull %13) #17
+  %.not.i38.i.i.i = icmp eq i32 %303, 0
+  br i1 %.not.i38.i.i.i, label %304, label %x509_crt_check_signature.exit.i.i.i
 
-301:                                              ; preds = %293
-  %302 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 360
-  %303 = load i32, ptr %161, align 4, !tbaa !64
-  %304 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %302, i32 noundef %303) #17
-  %.not14.i.i.i.i = icmp eq i32 %304, 0
-  br i1 %.not14.i.i.i.i, label %x509_crt_check_signature.exit.i.i.i, label %305
-
-305:                                              ; preds = %301
+304:                                              ; preds = %296
+  %305 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 360
   %306 = load i32, ptr %161, align 4, !tbaa !64
-  %307 = load ptr, ptr %196, align 8, !tbaa !66
-  %308 = load i32, ptr %151, align 8, !tbaa !65
-  %309 = load ptr, ptr %197, align 8, !tbaa !122
-  %310 = load i64, ptr %198, align 8, !tbaa !123
-  %311 = call i32 @mbedtls_pk_verify_ext(i32 noundef %306, ptr noundef %307, ptr noundef nonnull %302, i32 noundef %308, ptr noundef nonnull %13, i64 noundef %297, ptr noundef %309, i64 noundef %310) #17
-  %312 = icmp eq i32 %311, 0
+  %307 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %305, i32 noundef %306) #17
+  %.not14.i.i.i.i = icmp eq i32 %307, 0
+  br i1 %.not14.i.i.i.i, label %x509_crt_check_signature.exit.i.i.i, label %308
+
+308:                                              ; preds = %304
+  %309 = load i32, ptr %161, align 4, !tbaa !64
+  %310 = load ptr, ptr %197, align 8, !tbaa !66
+  %311 = load i32, ptr %151, align 8, !tbaa !65
+  %312 = load ptr, ptr %198, align 8, !tbaa !122
+  %313 = load i64, ptr %199, align 8, !tbaa !123
+  %314 = call i32 @mbedtls_pk_verify_ext(i32 noundef %309, ptr noundef %310, ptr noundef nonnull %305, i32 noundef %311, ptr noundef nonnull %13, i64 noundef %300, ptr noundef %312, i64 noundef %313) #17
+  %315 = icmp eq i32 %314, 0
   br label %x509_crt_check_signature.exit.i.i.i
 
-x509_crt_check_signature.exit.i.i.i:              ; preds = %305, %301, %293
-  %.0.i.i.i.i = phi i1 [ %312, %305 ], [ false, %293 ], [ false, %301 ]
+x509_crt_check_signature.exit.i.i.i:              ; preds = %308, %304, %296
+  %.0.i.i.i.i = phi i1 [ %315, %308 ], [ false, %296 ], [ false, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %313 = zext i1 %.0.i.i.i.i to i32
-  %or.cond.i.i.i = select i1 %.not9.i.i.i.i, i1 true, i1 %.0.i.i.i.i
-  br i1 %or.cond.i.i.i, label %314, label %x509_crt_check_parent.exit.thread.i.i.i
+  %316 = zext i1 %.0.i.i.i.i to i32
+  %or.cond.i.i.i = select i1 %.not.i55.i, i1 true, i1 %.0.i.i.i.i
+  br i1 %or.cond.i.i.i, label %317, label %x509_crt_check_parent.exit.thread.i.i.i
 
-314:                                              ; preds = %x509_crt_check_signature.exit.i.i.i
-  %315 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 312
-  %316 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %315, ptr noundef nonnull %14) #17
-  %317 = icmp slt i32 %316, 0
-  br i1 %317, label %322, label %318
+317:                                              ; preds = %x509_crt_check_signature.exit.i.i.i
+  %318 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 312
+  %319 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %318, ptr noundef nonnull %14) #17
+  %320 = icmp slt i32 %319, 0
+  br i1 %320, label %325, label %321
 
-318:                                              ; preds = %314
-  %319 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 288
-  %320 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %319, ptr noundef nonnull %14) #17
-  %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %322, label %.loopexit.i
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 288
+  %323 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %322, ptr noundef nonnull %14) #17
+  %324 = icmp sgt i32 %323, 0
+  br i1 %324, label %325, label %.loopexit.i
 
-322:                                              ; preds = %318, %314
-  %323 = icmp eq ptr %.0326.i.i.i, null
-  %spec.select.i.i.i = select i1 %323, ptr %.0345.i.i.i, ptr %.0326.i.i.i
-  %spec.select37.i.i.i = select i1 %323, i32 %313, i32 %.07.i.i.i
+325:                                              ; preds = %321, %317
+  %326 = icmp eq ptr %.0326.i.i.i, null
+  %spec.select.i.i.i = select i1 %326, ptr %.0345.i.i.i, ptr %.0326.i.i.i
+  %spec.select37.i.i.i = select i1 %326, i32 %316, i32 %.07.i.i.i
   br label %x509_crt_check_parent.exit.thread.i.i.i
 
-x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exit.i.i.i, %238, %237, %236, %213, %208, %205, %.lr.ph.i19.i.i, %257, %254, %322, %x509_crt_check_signature.exit.i.i.i, %x509_crt_check_parent.exit.i.i.i, %285, %.thread.i.i.i.i
-  %.133.i.i.i = phi ptr [ %.0326.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select.i.i.i, %322 ], [ %.0326.i.i.i, %.thread.i.i.i.i ], [ %.0326.i.i.i, %285 ], [ %.0326.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.0326.i.i.i, %254 ], [ %.0326.i.i.i, %257 ], [ %.0326.i.i.i, %.lr.ph.i19.i.i ], [ %.0326.i.i.i, %205 ], [ %.0326.i.i.i, %208 ], [ %.0326.i.i.i, %213 ], [ %.0326.i.i.i, %236 ], [ %.0326.i.i.i, %237 ], [ %.0326.i.i.i, %238 ], [ %.0326.i.i.i, %x509_string_cmp.exit.i.i.i ]
-  %.1.i.i.i = phi i32 [ %.07.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select37.i.i.i, %322 ], [ %.07.i.i.i, %.thread.i.i.i.i ], [ %.07.i.i.i, %285 ], [ %.07.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.07.i.i.i, %254 ], [ %.07.i.i.i, %257 ], [ %.07.i.i.i, %.lr.ph.i19.i.i ], [ %.07.i.i.i, %205 ], [ %.07.i.i.i, %208 ], [ %.07.i.i.i, %213 ], [ %.07.i.i.i, %236 ], [ %.07.i.i.i, %237 ], [ %.07.i.i.i, %238 ], [ %.07.i.i.i, %x509_string_cmp.exit.i.i.i ]
-  %324 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 736
-  %325 = load ptr, ptr %324, align 8, !tbaa !23
-  %cond.i.i.i = icmp eq ptr %325, null
+x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exit.i.i.i, %241, %240, %239, %216, %211, %208, %.lr.ph.i19.i.i, %260, %257, %325, %x509_crt_check_signature.exit.i.i.i, %x509_crt_check_parent.exit.i.i.i, %288, %.thread.i.i.i.i
+  %.133.i.i.i = phi ptr [ %.0326.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select.i.i.i, %325 ], [ %.0326.i.i.i, %.thread.i.i.i.i ], [ %.0326.i.i.i, %288 ], [ %.0326.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.0326.i.i.i, %257 ], [ %.0326.i.i.i, %260 ], [ %.0326.i.i.i, %.lr.ph.i19.i.i ], [ %.0326.i.i.i, %208 ], [ %.0326.i.i.i, %211 ], [ %.0326.i.i.i, %216 ], [ %.0326.i.i.i, %239 ], [ %.0326.i.i.i, %240 ], [ %.0326.i.i.i, %241 ], [ %.0326.i.i.i, %x509_string_cmp.exit.i.i.i ]
+  %.1.i.i.i = phi i32 [ %.07.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select37.i.i.i, %325 ], [ %.07.i.i.i, %.thread.i.i.i.i ], [ %.07.i.i.i, %288 ], [ %.07.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.07.i.i.i, %257 ], [ %.07.i.i.i, %260 ], [ %.07.i.i.i, %.lr.ph.i19.i.i ], [ %.07.i.i.i, %208 ], [ %.07.i.i.i, %211 ], [ %.07.i.i.i, %216 ], [ %.07.i.i.i, %239 ], [ %.07.i.i.i, %240 ], [ %.07.i.i.i, %241 ], [ %.07.i.i.i, %x509_string_cmp.exit.i.i.i ]
+  %327 = getelementptr inbounds nuw i8, ptr %.0345.i.i.i, i64 736
+  %328 = load ptr, ptr %327, align 8, !tbaa !23
+  %cond.i.i.i = icmp eq ptr %328, null
   br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i41, !llvm.loop !124
 
 x509_crt_find_parent_in.exit.i.i:                 ; preds = %x509_crt_check_parent.exit.thread.i.i.i
   %.not18.i.i = icmp eq ptr %.133.i.i.i, null
   br i1 %.not18.i.i, label %x509_crt_find_parent_in.exit.thread.i.i, label %.loopexit.i
 
-x509_crt_find_parent_in.exit.thread.i.i:          ; preds = %x509_crt_find_parent_in.exit.i.i, %200
-  br i1 %.not9.i.i.i.i, label %x509_crt_find_parent.exit.i, label %326
-
-326:                                              ; preds = %x509_crt_find_parent_in.exit.thread.i.i
-  %327 = load ptr, ptr %199, align 8, !tbaa !23
-  br label %200
+x509_crt_find_parent_in.exit.thread.i.i:          ; preds = %x509_crt_find_parent_in.exit.i.i, %203
+  br i1 %.not.i55.i, label %x509_crt_find_parent.exit.i, label %200
 
 x509_crt_find_parent.exit.i:                      ; preds = %x509_crt_find_parent_in.exit.thread.i.i
-  %328 = load i32, ptr %134, align 4, !tbaa !31
-  %329 = or i32 %328, 8
-  store i32 %329, ptr %134, align 4, !tbaa !31
+  %329 = load i32, ptr %134, align 4, !tbaa !31
+  %330 = or i32 %329, 8
+  store i32 %330, ptr %134, align 4, !tbaa !31
   br label %.loopexit24
 
-.loopexit.i:                                      ; preds = %x509_crt_find_parent_in.exit.i.i, %318
-  %.2.ph.i = phi ptr [ %.0345.i.i.i, %318 ], [ %.133.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
-  %.07.ph.i = phi i32 [ %313, %318 ], [ %.1.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
-  %330 = load i32, ptr %22, align 8, !tbaa !114
-  %.not47.i = icmp eq i32 %330, 1
-  br i1 %.not47.i, label %.thread24.i, label %331
+.loopexit.i:                                      ; preds = %x509_crt_find_parent_in.exit.i.i, %321
+  %.2.ph.i = phi ptr [ %.0345.i.i.i, %321 ], [ %.133.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
+  %.07.ph.i = phi i32 [ %316, %321 ], [ %.1.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
+  %331 = load i32, ptr %22, align 8, !tbaa !114
+  %.not47.i = icmp eq i32 %331, 1
+  br i1 %.not47.i, label %.thread23.i, label %332
 
-331:                                              ; preds = %.loopexit.i
-  %332 = getelementptr inbounds nuw i8, ptr %.042.i, i64 224
-  %333 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %192, ptr noundef nonnull %332)
-  %334 = icmp eq i32 %333, 0
-  %335 = zext i1 %334 to i32
-  %spec.select.i = add i32 %.0.i40, %335
-  %336 = icmp ugt i32 %330, 8
-  %or.cond.i = and i1 %.not9.i.i.i.i, %336
-  br i1 %or.cond.i, label %x509_crt_verify_chain.exit, label %.thread24.i
+332:                                              ; preds = %.loopexit.i
+  %333 = getelementptr inbounds nuw i8, ptr %.042.i, i64 224
+  %334 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %193, ptr noundef nonnull %333)
+  %335 = icmp eq i32 %334, 0
+  %336 = zext i1 %335 to i32
+  %spec.select.i = add i32 %.0.i40, %336
+  %337 = icmp ugt i32 %331, 8
+  %or.cond.i = and i1 %.not.i55.i, %337
+  br i1 %or.cond.i, label %x509_crt_verify_chain.exit, label %.thread23.i
 
-.thread24.i:                                      ; preds = %331, %.loopexit.i
-  %.122.i = phi i32 [ %spec.select.i, %331 ], [ %.0.i40, %.loopexit.i ]
+.thread23.i:                                      ; preds = %332, %.loopexit.i
+  %.121.i = phi i32 [ %spec.select.i, %332 ], [ %.0.i40, %.loopexit.i ]
   %.not49.i = icmp eq i32 %.07.ph.i, 0
-  br i1 %.not49.i, label %337, label %340
+  br i1 %.not49.i, label %338, label %341
 
-337:                                              ; preds = %.thread24.i
-  %338 = load i32, ptr %134, align 8, !tbaa !31
-  %339 = or i32 %338, 8
-  store i32 %339, ptr %134, align 8, !tbaa !31
-  br label %340
+338:                                              ; preds = %.thread23.i
+  %339 = load i32, ptr %134, align 8, !tbaa !31
+  %340 = or i32 %339, 8
+  store i32 %340, ptr %134, align 8, !tbaa !31
+  br label %341
 
-340:                                              ; preds = %337, %.thread24.i
-  %341 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 360
-  %342 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %341) #17
-  switch i32 %342, label %347 [
-    i32 6, label %343
-    i32 1, label %343
+341:                                              ; preds = %338, %.thread23.i
+  %342 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 360
+  %343 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %342) #17
+  switch i32 %343, label %348 [
+    i32 6, label %344
+    i32 1, label %344
   ]
 
-343:                                              ; preds = %340, %340
-  %344 = call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %341) #17
-  %345 = load i32, ptr %126, align 4, !tbaa !104
-  %346 = zext i32 %345 to i64
-  %.not19.i.i = icmp ult i64 %344, %346
-  br i1 %.not19.i.i, label %x509_profile_check_key.exit.thread.i, label %361
+344:                                              ; preds = %341, %341
+  %345 = call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %342) #17
+  %346 = load i32, ptr %126, align 4, !tbaa !104
+  %347 = zext i32 %346 to i64
+  %.not19.i.i = icmp ult i64 %345, %347
+  br i1 %.not19.i.i, label %x509_profile_check_key.exit.thread.i, label %362
 
-347:                                              ; preds = %340
-  %348 = add i32 %342, -2
-  %or.cond5.i.i = icmp ult i32 %348, 3
-  br i1 %or.cond5.i.i, label %349, label %x509_profile_check_key.exit.thread.i
+348:                                              ; preds = %341
+  %349 = add i32 %343, -2
+  %or.cond5.i.i = icmp ult i32 %349, 3
+  br i1 %or.cond5.i.i, label %350, label %x509_profile_check_key.exit.thread.i
 
-349:                                              ; preds = %347
-  %.val.i.i = load ptr, ptr %341, align 8
-  %350 = getelementptr i8, ptr %.2.ph.i, i64 368
-  %.val21.i.i = load ptr, ptr %350, align 8
+350:                                              ; preds = %348
+  %.val.i.i = load ptr, ptr %342, align 8
+  %351 = getelementptr i8, ptr %.2.ph.i, i64 368
+  %.val21.i.i = load ptr, ptr %351, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.val.i.i, ptr %12, align 8
   store ptr %.val21.i.i, ptr %127, align 8
-  %351 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %12) #17
-  %352 = load ptr, ptr %127, align 8
+  %352 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %12) #17
+  %353 = load ptr, ptr %127, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %353 = load i32, ptr %352, align 8, !tbaa !105
-  %354 = icmp eq i32 %353, 0
-  br i1 %354, label %x509_profile_check_key.exit.thread.i, label %x509_profile_check_key.exit.i
+  %354 = load i32, ptr %353, align 8, !tbaa !105
+  %355 = icmp eq i32 %354, 0
+  br i1 %355, label %x509_profile_check_key.exit.thread.i, label %x509_profile_check_key.exit.i
 
-x509_profile_check_key.exit.i:                    ; preds = %349
-  %355 = load i32, ptr %128, align 4, !tbaa !113
-  %356 = add i32 %353, -1
-  %357 = shl nuw i32 1, %356
-  %358 = and i32 %355, %357
-  %.not.i57.i = icmp eq i32 %358, 0
-  br i1 %.not.i57.i, label %x509_profile_check_key.exit.thread.i, label %361
+x509_profile_check_key.exit.i:                    ; preds = %350
+  %356 = load i32, ptr %128, align 4, !tbaa !113
+  %357 = add i32 %354, -1
+  %358 = shl nuw i32 1, %357
+  %359 = and i32 %356, %358
+  %.not.i58.i = icmp eq i32 %359, 0
+  br i1 %.not.i58.i, label %x509_profile_check_key.exit.thread.i, label %362
 
-x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_key.exit.i, %349, %347, %343
-  %359 = load i32, ptr %134, align 8, !tbaa !31
-  %360 = or i32 %359, 65536
-  store i32 %360, ptr %134, align 8, !tbaa !31
-  br label %361
+x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_key.exit.i, %350, %348, %344
+  %360 = load i32, ptr %134, align 8, !tbaa !31
+  %361 = or i32 %360, 65536
+  store i32 %361, ptr %134, align 8, !tbaa !31
+  br label %362
 
-361:                                              ; preds = %x509_profile_check_key.exit.thread.i, %x509_profile_check_key.exit.i, %343
+362:                                              ; preds = %x509_profile_check_key.exit.thread.i, %x509_profile_check_key.exit.i, %344
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %.not9295.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.lr.ph.i.i
 
-.lr.ph.lr.ph.i.i:                                 ; preds = %361
-  %362 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 224
-  %363 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 640
-  %364 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 652
-  %365 = getelementptr i8, ptr %.2.ph.i, i64 368
-  %366 = getelementptr inbounds nuw i8, ptr %.042.i, i64 80
-  %367 = getelementptr inbounds nuw i8, ptr %.042.i, i64 72
-  br label %.lr.ph.i58.i
+.lr.ph.lr.ph.i.i:                                 ; preds = %362
+  %363 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 224
+  %364 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 640
+  %365 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 652
+  %366 = getelementptr i8, ptr %.2.ph.i, i64 368
+  %367 = getelementptr inbounds nuw i8, ptr %.042.i, i64 80
+  %368 = getelementptr inbounds nuw i8, ptr %.042.i, i64 72
+  br label %.lr.ph.i59.i
 
-.lr.ph.i58.i:                                     ; preds = %.outer.i.i, %.lr.ph.lr.ph.i.i
-  %.043.ph97.i.i = phi ptr [ %2, %.lr.ph.lr.ph.i.i ], [ %477, %.outer.i.i ]
+.lr.ph.i59.i:                                     ; preds = %.outer.i.i, %.lr.ph.lr.ph.i.i
+  %.043.ph97.i.i = phi ptr [ %2, %.lr.ph.lr.ph.i.i ], [ %478, %.outer.i.i ]
   %.044.ph96.i.i = phi i32 [ 0, %.lr.ph.lr.ph.i.i ], [ %.6.i.i, %.outer.i.i ]
-  br label %368
+  br label %369
 
-368:                                              ; preds = %375, %.lr.ph.i58.i
-  %.04393.i.i = phi ptr [ %.043.ph97.i.i, %.lr.ph.i58.i ], [ %377, %375 ]
-  %369 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 48
-  %370 = load i32, ptr %369, align 8, !tbaa !125
-  %371 = icmp eq i32 %370, 0
-  br i1 %371, label %375, label %372
+369:                                              ; preds = %376, %.lr.ph.i59.i
+  %.04393.i.i = phi ptr [ %.043.ph97.i.i, %.lr.ph.i59.i ], [ %378, %376 ]
+  %370 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 48
+  %371 = load i32, ptr %370, align 8, !tbaa !125
+  %372 = icmp eq i32 %371, 0
+  br i1 %372, label %376, label %373
 
-372:                                              ; preds = %368
-  %373 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 104
-  %374 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %373, ptr noundef nonnull %362)
-  %.not45.i.i = icmp eq i32 %374, 0
-  br i1 %.not45.i.i, label %378, label %375
+373:                                              ; preds = %369
+  %374 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 104
+  %375 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %374, ptr noundef nonnull %363)
+  %.not45.i.i = icmp eq i32 %375, 0
+  br i1 %.not45.i.i, label %379, label %376
 
-375:                                              ; preds = %372, %368
-  %376 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
-  %377 = load ptr, ptr %376, align 8, !tbaa !128
-  %.not.i59.i = icmp eq ptr %377, null
-  br i1 %.not.i59.i, label %x509_crt_verifycrl.exit.i, label %368, !llvm.loop !129
+376:                                              ; preds = %373, %369
+  %377 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
+  %378 = load ptr, ptr %377, align 8, !tbaa !128
+  %.not.i60.i = icmp eq ptr %378, null
+  br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %369, !llvm.loop !129
 
-378:                                              ; preds = %372
-  %379 = load i32, ptr %363, align 8, !tbaa !67
-  %380 = and i32 %379, 4
-  %381 = icmp eq i32 %380, 0
-  br i1 %381, label %select.unfold.i.i, label %382
+379:                                              ; preds = %373
+  %380 = load i32, ptr %364, align 8, !tbaa !67
+  %381 = and i32 %380, 4
+  %382 = icmp eq i32 %381, 0
+  br i1 %382, label %select.unfold.i.i, label %383
 
-382:                                              ; preds = %378
-  %383 = load i32, ptr %364, align 4, !tbaa !71
-  %384 = and i32 %383, 32771
-  %or.cond.i.i = icmp eq i32 %384, 2
+383:                                              ; preds = %379
+  %384 = load i32, ptr %365, align 4, !tbaa !71
+  %385 = and i32 %384, 32771
+  %or.cond.i.i = icmp eq i32 %385, 2
   br i1 %or.cond.i.i, label %select.unfold.i.i, label %mbedtls_x509_crt_check_key_usage.exit.i.i
 
-mbedtls_x509_crt_check_key_usage.exit.i.i:        ; preds = %382
-  %385 = or i32 %.044.ph96.i.i, 16
+mbedtls_x509_crt_check_key_usage.exit.i.i:        ; preds = %383
+  %386 = or i32 %.044.ph96.i.i, 16
   br label %x509_crt_verifycrl.exit.i
 
-select.unfold.i.i:                                ; preds = %382, %378
-  %386 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 392
-  %387 = load i32, ptr %386, align 8, !tbaa !130
-  %388 = icmp eq i32 %387, 0
-  br i1 %388, label %x509_profile_check_md_alg.exit.thread.i.i, label %x509_profile_check_md_alg.exit.i.i
+select.unfold.i.i:                                ; preds = %383, %379
+  %387 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 392
+  %388 = load i32, ptr %387, align 8, !tbaa !130
+  %389 = icmp eq i32 %388, 0
+  br i1 %389, label %x509_profile_check_md_alg.exit.thread.i.i, label %x509_profile_check_md_alg.exit.i.i
 
 x509_profile_check_md_alg.exit.thread.i.i:        ; preds = %select.unfold.i.i
-  %389 = or i32 %.044.ph96.i.i, 131072
-  br label %395
+  %390 = or i32 %.044.ph96.i.i, 131072
+  br label %396
 
 x509_profile_check_md_alg.exit.i.i:               ; preds = %select.unfold.i.i
-  %390 = load i32, ptr %3, align 4, !tbaa !116
-  %391 = add i32 %387, -1
-  %392 = shl nuw i32 1, %391
-  %393 = and i32 %390, %392
-  %.fr.i.i = freeze i32 %393
+  %391 = load i32, ptr %3, align 4, !tbaa !116
+  %392 = add i32 %388, -1
+  %393 = shl nuw i32 1, %392
+  %394 = and i32 %391, %393
+  %.fr.i.i = freeze i32 %394
   %.not.i55.not.i.i = icmp eq i32 %.fr.i.i, 0
-  %394 = or i32 %.044.ph96.i.i, 131072
-  %spec.select.i.i = select i1 %.not.i55.not.i.i, i32 %394, i32 %.044.ph96.i.i
-  br label %395
+  %395 = or i32 %.044.ph96.i.i, 131072
+  %spec.select.i.i = select i1 %.not.i55.not.i.i, i32 %395, i32 %.044.ph96.i.i
+  br label %396
 
-395:                                              ; preds = %x509_profile_check_md_alg.exit.i.i, %x509_profile_check_md_alg.exit.thread.i.i
-  %396 = phi i32 [ %389, %x509_profile_check_md_alg.exit.thread.i.i ], [ %spec.select.i.i, %x509_profile_check_md_alg.exit.i.i ]
-  %397 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 396
-  %398 = load i32, ptr %397, align 4, !tbaa !131
-  %399 = icmp eq i32 %398, 0
-  br i1 %399, label %x509_profile_check_pk_alg.exit.thread.i.i, label %x509_profile_check_pk_alg.exit.i.i
+396:                                              ; preds = %x509_profile_check_md_alg.exit.i.i, %x509_profile_check_md_alg.exit.thread.i.i
+  %397 = phi i32 [ %390, %x509_profile_check_md_alg.exit.thread.i.i ], [ %spec.select.i.i, %x509_profile_check_md_alg.exit.i.i ]
+  %398 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 396
+  %399 = load i32, ptr %398, align 4, !tbaa !131
+  %400 = icmp eq i32 %399, 0
+  br i1 %400, label %x509_profile_check_pk_alg.exit.thread.i.i, label %x509_profile_check_pk_alg.exit.i.i
 
-x509_profile_check_pk_alg.exit.thread.i.i:        ; preds = %395
-  %400 = or i32 %396, 262144
-  br label %406
+x509_profile_check_pk_alg.exit.thread.i.i:        ; preds = %396
+  %401 = or i32 %397, 262144
+  br label %407
 
-x509_profile_check_pk_alg.exit.i.i:               ; preds = %395
-  %401 = load i32, ptr %125, align 4, !tbaa !102
-  %402 = add i32 %398, -1
-  %403 = shl nuw i32 1, %402
-  %404 = and i32 %401, %403
-  %.fr82.i.i = freeze i32 %404
+x509_profile_check_pk_alg.exit.i.i:               ; preds = %396
+  %402 = load i32, ptr %125, align 4, !tbaa !102
+  %403 = add i32 %399, -1
+  %404 = shl nuw i32 1, %403
+  %405 = and i32 %402, %404
+  %.fr82.i.i = freeze i32 %405
   %.not.i58.not.i.i = icmp eq i32 %.fr82.i.i, 0
-  %405 = or i32 %396, 262144
-  %spec.select80.i.i = select i1 %.not.i58.not.i.i, i32 %405, i32 %396
-  br label %406
+  %406 = or i32 %397, 262144
+  %spec.select80.i.i = select i1 %.not.i58.not.i.i, i32 %406, i32 %397
+  br label %407
 
-406:                                              ; preds = %x509_profile_check_pk_alg.exit.i.i, %x509_profile_check_pk_alg.exit.thread.i.i
-  %407 = phi i32 [ %400, %x509_profile_check_pk_alg.exit.thread.i.i ], [ %spec.select80.i.i, %x509_profile_check_pk_alg.exit.i.i ]
-  %408 = call ptr @mbedtls_md_info_from_type(i32 noundef %387) #17
-  %409 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %408) #17
-  %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 40
-  %412 = load ptr, ptr %411, align 8, !tbaa !132
-  %413 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 32
-  %414 = load i64, ptr %413, align 8, !tbaa !133
-  %415 = call i32 @mbedtls_md(ptr noundef %408, ptr noundef %412, i64 noundef %414, ptr noundef nonnull %11) #17
-  %.not49.i.i = icmp eq i32 %415, 0
-  br i1 %.not49.i.i, label %418, label %416
+407:                                              ; preds = %x509_profile_check_pk_alg.exit.i.i, %x509_profile_check_pk_alg.exit.thread.i.i
+  %408 = phi i32 [ %401, %x509_profile_check_pk_alg.exit.thread.i.i ], [ %spec.select80.i.i, %x509_profile_check_pk_alg.exit.i.i ]
+  %409 = call ptr @mbedtls_md_info_from_type(i32 noundef %388) #17
+  %410 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %409) #17
+  %411 = zext i8 %410 to i64
+  %412 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 40
+  %413 = load ptr, ptr %412, align 8, !tbaa !132
+  %414 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 32
+  %415 = load i64, ptr %414, align 8, !tbaa !133
+  %416 = call i32 @mbedtls_md(ptr noundef %409, ptr noundef %413, i64 noundef %415, ptr noundef nonnull %11) #17
+  %.not49.i.i = icmp eq i32 %416, 0
+  br i1 %.not49.i.i, label %419, label %417
 
-416:                                              ; preds = %406
-  %417 = or i32 %407, 16
+417:                                              ; preds = %407
+  %418 = or i32 %408, 16
   br label %x509_crt_verifycrl.exit.i
 
-418:                                              ; preds = %406
-  %419 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %341) #17
-  switch i32 %419, label %424 [
-    i32 6, label %420
-    i32 1, label %420
+419:                                              ; preds = %407
+  %420 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %342) #17
+  switch i32 %420, label %425 [
+    i32 6, label %421
+    i32 1, label %421
   ]
 
-420:                                              ; preds = %418, %418
-  %421 = call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %341) #17
-  %422 = load i32, ptr %126, align 4, !tbaa !104
-  %423 = zext i32 %422 to i64
-  %.not19.i.i.i = icmp ult i64 %421, %423
+421:                                              ; preds = %419, %419
+  %422 = call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %342) #17
+  %423 = load i32, ptr %126, align 4, !tbaa !104
+  %424 = zext i32 %423 to i64
+  %.not19.i.i.i = icmp ult i64 %422, %424
   br label %x509_profile_check_key.exit.i.i
 
-424:                                              ; preds = %418
-  %425 = add i32 %419, -2
-  %or.cond5.i.i.i = icmp ult i32 %425, 3
-  br i1 %or.cond5.i.i.i, label %426, label %x509_profile_check_key.exit.thread.i.i
+425:                                              ; preds = %419
+  %426 = add i32 %420, -2
+  %or.cond5.i.i.i = icmp ult i32 %426, 3
+  br i1 %or.cond5.i.i.i, label %427, label %x509_profile_check_key.exit.thread.i.i
 
-426:                                              ; preds = %424
-  %.val.i.i.i = load ptr, ptr %341, align 8
-  %.val21.i.i.i = load ptr, ptr %365, align 8
+427:                                              ; preds = %425
+  %.val.i.i.i = load ptr, ptr %342, align 8
+  %.val21.i.i.i = load ptr, ptr %366, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.val.i.i.i, ptr %10, align 8
   store ptr %.val21.i.i.i, ptr %129, align 8
-  %427 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #17
-  %428 = load ptr, ptr %129, align 8
+  %428 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #17
+  %429 = load ptr, ptr %129, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %429 = load i32, ptr %428, align 8, !tbaa !105
-  %430 = icmp eq i32 %429, 0
-  br i1 %430, label %x509_profile_check_key.exit.thread.i.i, label %431
+  %430 = load i32, ptr %429, align 8, !tbaa !105
+  %431 = icmp eq i32 %430, 0
+  br i1 %431, label %x509_profile_check_key.exit.thread.i.i, label %432
 
-431:                                              ; preds = %426
-  %432 = load i32, ptr %128, align 4, !tbaa !113
-  %433 = add i32 %429, -1
-  %434 = shl nuw i32 1, %433
-  %435 = and i32 %432, %434
-  %.not.i63.i.i = icmp eq i32 %435, 0
+432:                                              ; preds = %427
+  %433 = load i32, ptr %128, align 4, !tbaa !113
+  %434 = add i32 %430, -1
+  %435 = shl nuw i32 1, %434
+  %436 = and i32 %433, %435
+  %.not.i63.i.i = icmp eq i32 %436, 0
   br label %x509_profile_check_key.exit.i.i
 
-x509_profile_check_key.exit.thread.i.i:           ; preds = %426, %424
-  %436 = or i32 %407, 65536
-  br label %438
+x509_profile_check_key.exit.thread.i.i:           ; preds = %427, %425
+  %437 = or i32 %408, 65536
+  br label %439
 
-x509_profile_check_key.exit.i.i:                  ; preds = %431, %420
-  %.0.i62.in.i.i = phi i1 [ %.not19.i.i.i, %420 ], [ %.not.i63.i.i, %431 ]
+x509_profile_check_key.exit.i.i:                  ; preds = %432, %421
+  %.0.i62.in.i.i = phi i1 [ %.not19.i.i.i, %421 ], [ %.not.i63.i.i, %432 ]
   %.0.i62.in.fr.i.i = freeze i1 %.0.i62.in.i.i
-  %437 = or i32 %407, 65536
-  %spec.select81.i.i = select i1 %.0.i62.in.fr.i.i, i32 %437, i32 %407
-  br label %438
+  %438 = or i32 %408, 65536
+  %spec.select81.i.i = select i1 %.0.i62.in.fr.i.i, i32 %438, i32 %408
+  br label %439
 
-438:                                              ; preds = %x509_profile_check_key.exit.i.i, %x509_profile_check_key.exit.thread.i.i
-  %439 = phi i32 [ %436, %x509_profile_check_key.exit.thread.i.i ], [ %spec.select81.i.i, %x509_profile_check_key.exit.i.i ]
-  %440 = load i32, ptr %397, align 4, !tbaa !131
-  %441 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 400
-  %442 = load ptr, ptr %441, align 8, !tbaa !134
-  %443 = load i32, ptr %386, align 8, !tbaa !130
-  %444 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 384
-  %445 = load ptr, ptr %444, align 8, !tbaa !135
-  %446 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 376
-  %447 = load i64, ptr %446, align 8, !tbaa !136
-  %448 = call i32 @mbedtls_pk_verify_ext(i32 noundef %440, ptr noundef %442, ptr noundef nonnull %341, i32 noundef %443, ptr noundef nonnull %11, i64 noundef %410, ptr noundef %445, i64 noundef %447) #17
-  %.not51.i.i = icmp eq i32 %448, 0
-  br i1 %.not51.i.i, label %451, label %449
+439:                                              ; preds = %x509_profile_check_key.exit.i.i, %x509_profile_check_key.exit.thread.i.i
+  %440 = phi i32 [ %437, %x509_profile_check_key.exit.thread.i.i ], [ %spec.select81.i.i, %x509_profile_check_key.exit.i.i ]
+  %441 = load i32, ptr %398, align 4, !tbaa !131
+  %442 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 400
+  %443 = load ptr, ptr %442, align 8, !tbaa !134
+  %444 = load i32, ptr %387, align 8, !tbaa !130
+  %445 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 384
+  %446 = load ptr, ptr %445, align 8, !tbaa !135
+  %447 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 376
+  %448 = load i64, ptr %447, align 8, !tbaa !136
+  %449 = call i32 @mbedtls_pk_verify_ext(i32 noundef %441, ptr noundef %443, ptr noundef nonnull %342, i32 noundef %444, ptr noundef nonnull %11, i64 noundef %411, ptr noundef %446, i64 noundef %448) #17
+  %.not51.i.i = icmp eq i32 %449, 0
+  br i1 %.not51.i.i, label %452, label %450
 
-449:                                              ; preds = %438
-  %450 = or i32 %439, 16
+450:                                              ; preds = %439
+  %451 = or i32 %440, 16
   br label %x509_crt_verifycrl.exit.i
 
-451:                                              ; preds = %438
-  %452 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 192
-  %453 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %452, ptr noundef nonnull %14) #17
-  %454 = lshr i32 %453, 26
-  %455 = and i32 %454, 32
-  %spec.select54.i.i = or i32 %455, %439
-  %456 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 168
-  %457 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %456, ptr noundef nonnull %14) #17
-  %458 = icmp sgt i32 %457, 0
-  %459 = or i32 %spec.select54.i.i, 1024
-  %.6.i.i = select i1 %458, i32 %459, i32 %spec.select54.i.i
-  %460 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 216
-  br label %461
+452:                                              ; preds = %439
+  %453 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 192
+  %454 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %453, ptr noundef nonnull %14) #17
+  %455 = lshr i32 %454, 26
+  %456 = and i32 %455, 32
+  %spec.select54.i.i = or i32 %456, %440
+  %457 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 168
+  %458 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %457, ptr noundef nonnull %14) #17
+  %459 = icmp sgt i32 %458, 0
+  %460 = or i32 %spec.select54.i.i, 1024
+  %.6.i.i = select i1 %459, i32 %460, i32 %spec.select54.i.i
+  %461 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 216
+  br label %462
 
-461:                                              ; preds = %472, %451
-  %.013.i.i.i = phi ptr [ %460, %451 ], [ %474, %472 ]
-  %462 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
-  %463 = load i64, ptr %462, align 8, !tbaa !80
-  %.not12.i.i.i = icmp eq i64 %463, 0
-  br i1 %.not12.i.i.i, label %.outer.i.i, label %464
+462:                                              ; preds = %473, %452
+  %.013.i.i.i = phi ptr [ %461, %452 ], [ %475, %473 ]
+  %463 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
+  %464 = load i64, ptr %463, align 8, !tbaa !80
+  %.not12.i.i.i = icmp eq i64 %464, 0
+  br i1 %.not12.i.i.i, label %.outer.i.i, label %465
 
-464:                                              ; preds = %461
-  %465 = load i64, ptr %367, align 8, !tbaa !83
-  %466 = icmp eq i64 %465, %463
-  br i1 %466, label %467, label %472
+465:                                              ; preds = %462
+  %466 = load i64, ptr %368, align 8, !tbaa !83
+  %467 = icmp eq i64 %466, %464
+  br i1 %467, label %468, label %473
 
-467:                                              ; preds = %464
-  %468 = load ptr, ptr %366, align 8, !tbaa !84
-  %469 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
-  %470 = load ptr, ptr %469, align 8, !tbaa !85
-  %bcmp.i.i61.i = call i32 @bcmp(ptr %468, ptr %470, i64 %463)
-  %471 = icmp eq i32 %bcmp.i.i61.i, 0
-  br i1 %471, label %mbedtls_x509_crt_is_revoked.exit.i.i, label %472
+468:                                              ; preds = %465
+  %469 = load ptr, ptr %367, align 8, !tbaa !84
+  %470 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
+  %471 = load ptr, ptr %470, align 8, !tbaa !85
+  %bcmp.i.i62.i = call i32 @bcmp(ptr %469, ptr %471, i64 %464)
+  %472 = icmp eq i32 %bcmp.i.i62.i, 0
+  br i1 %472, label %mbedtls_x509_crt_is_revoked.exit.i.i, label %473
 
-472:                                              ; preds = %467, %464
-  %473 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 96
-  %474 = load ptr, ptr %473, align 8, !tbaa !86
-  %.not.i64.i.i = icmp eq ptr %474, null
-  br i1 %.not.i64.i.i, label %.outer.i.i, label %461, !llvm.loop !87
+473:                                              ; preds = %468, %465
+  %474 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 96
+  %475 = load ptr, ptr %474, align 8, !tbaa !86
+  %.not.i64.i.i = icmp eq ptr %475, null
+  br i1 %.not.i64.i.i, label %.outer.i.i, label %462, !llvm.loop !87
 
-mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %467
-  %475 = or i32 %.6.i.i, 2
+mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %468
+  %476 = or i32 %.6.i.i, 2
   br label %x509_crt_verifycrl.exit.i
 
-.outer.i.i:                                       ; preds = %472, %461
-  %476 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
-  %477 = load ptr, ptr %476, align 8, !tbaa !128
-  %.not92.i.i = icmp eq ptr %477, null
-  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i58.i, !llvm.loop !129
+.outer.i.i:                                       ; preds = %473, %462
+  %477 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
+  %478 = load ptr, ptr %477, align 8, !tbaa !128
+  %.not92.i.i = icmp eq ptr %478, null
+  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !129
 
-x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %375, %mbedtls_x509_crt_is_revoked.exit.i.i, %449, %416, %mbedtls_x509_crt_check_key_usage.exit.i.i, %361
-  %.0.i60.i = phi i32 [ 0, %361 ], [ %385, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %417, %416 ], [ %450, %449 ], [ %475, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.044.ph96.i.i, %375 ], [ %.6.i.i, %.outer.i.i ]
+x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %376, %mbedtls_x509_crt_is_revoked.exit.i.i, %450, %417, %mbedtls_x509_crt_check_key_usage.exit.i.i, %362
+  %.0.i61.i = phi i32 [ 0, %362 ], [ %386, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %418, %417 ], [ %451, %450 ], [ %476, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.044.ph96.i.i, %376 ], [ %.6.i.i, %.outer.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %478 = load i32, ptr %134, align 8, !tbaa !31
-  %479 = or i32 %478, %.0.i60.i
-  store i32 %479, ptr %134, align 8, !tbaa !31
+  %479 = load i32, ptr %134, align 8, !tbaa !31
+  %480 = or i32 %479, %.0.i61.i
+  store i32 %480, ptr %134, align 8, !tbaa !31
   %.pre = load i32, ptr %22, align 8, !tbaa !114
   br label %130
 
-x509_crt_verify_chain.exit:                       ; preds = %331, %122
+x509_crt_verify_chain.exit:                       ; preds = %332, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
 .loopexit24:                                      ; preds = %149, %184, %x509_crt_find_parent.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %480 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %481 = load i32, ptr %480, align 8, !tbaa !90
-  %482 = or i32 %481, %.3
-  store i32 %482, ptr %480, align 8, !tbaa !90
+  %481 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %482 = load i32, ptr %481, align 8, !tbaa !90
+  %483 = or i32 %482, %.3
+  store i32 %483, ptr %481, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %483 = load i32, ptr %22, align 8, !tbaa !114
-  %.not18.i = icmp eq i32 %483, 0
+  %484 = load i32, ptr %22, align 8, !tbaa !114
+  %.not18.i = icmp eq i32 %484, 0
   br i1 %.not18.i, label %.loopexit24..loopexit20_crit_edge, label %.lr.ph.i
 
 .loopexit24..loopexit20_crit_edge:                ; preds = %.loopexit24
@@ -2640,70 +2643,70 @@ x509_crt_verify_chain.exit:                       ; preds = %331, %122
   br i1 %.not16.i45, label %.lr.ph.split.us.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
-  %484 = zext i32 %483 to i64
+  %485 = zext i32 %484 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %.promoted.i = load i32, ptr %5, align 4, !tbaa !31
-  %485 = zext i32 %483 to i64
-  br label %486
+  %486 = zext i32 %484 to i64
+  br label %487
 
-486:                                              ; preds = %486, %.lr.ph.split.us.i
-  %indvars.iv23.i = phi i64 [ %488, %486 ], [ %485, %.lr.ph.split.us.i ]
-  %487 = phi i32 [ %491, %486 ], [ %.promoted.i, %.lr.ph.split.us.i ]
-  %488 = add nsw i64 %indvars.iv23.i, -1
-  %489 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %488, i32 1
-  %490 = load i32, ptr %489, align 8, !tbaa !90
-  %491 = or i32 %490, %487
-  %.not.us.wide.i = icmp eq i64 %488, 0
-  br i1 %.not.us.wide.i, label %.loopexit, label %486, !llvm.loop !137
+487:                                              ; preds = %487, %.lr.ph.split.us.i
+  %indvars.iv23.i = phi i64 [ %489, %487 ], [ %486, %.lr.ph.split.us.i ]
+  %488 = phi i32 [ %492, %487 ], [ %.promoted.i, %.lr.ph.split.us.i ]
+  %489 = add nsw i64 %indvars.iv23.i, -1
+  %490 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %489, i32 1
+  %491 = load i32, ptr %490, align 8, !tbaa !90
+  %492 = or i32 %491, %488
+  %.not.us.wide.i = icmp eq i64 %489, 0
+  br i1 %.not.us.wide.i, label %.loopexit, label %487, !llvm.loop !137
 
-.lr.ph.split.i:                                   ; preds = %498, %.lr.ph.split.preheader.i
-  %indvars.iv.i = phi i64 [ %484, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %498 ]
+.lr.ph.split.i:                                   ; preds = %499, %.lr.ph.split.preheader.i
+  %indvars.iv.i = phi i64 [ %485, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %499 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %492 = and i64 %indvars.iv.next.i, 4294967295
-  %493 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %492
-  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  %495 = load i32, ptr %494, align 8, !tbaa !90
-  store i32 %495, ptr %9, align 4, !tbaa !31
-  %496 = load ptr, ptr %493, align 8, !tbaa !88
-  %497 = call i32 %6(ptr noundef %7, ptr noundef %496, i32 noundef %indvars.i, ptr noundef nonnull %9) #17
-  %.fr = freeze i32 %497
+  %493 = and i64 %indvars.iv.next.i, 4294967295
+  %494 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %493
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %496 = load i32, ptr %495, align 8, !tbaa !90
+  store i32 %496, ptr %9, align 4, !tbaa !31
+  %497 = load ptr, ptr %494, align 8, !tbaa !88
+  %498 = call i32 %6(ptr noundef %7, ptr noundef %497, i32 noundef %indvars.i, ptr noundef nonnull %9) #17
+  %.fr = freeze i32 %498
   %.not17.i46 = icmp eq i32 %.fr, 0
-  br i1 %.not17.i46, label %498, label %502
+  br i1 %.not17.i46, label %499, label %503
 
-498:                                              ; preds = %.lr.ph.split.i
-  %499 = load i32, ptr %9, align 4, !tbaa !31
-  %500 = load i32, ptr %5, align 4, !tbaa !31
-  %501 = or i32 %500, %499
-  store i32 %501, ptr %5, align 4, !tbaa !31
+499:                                              ; preds = %.lr.ph.split.i
+  %500 = load i32, ptr %9, align 4, !tbaa !31
+  %501 = load i32, ptr %5, align 4, !tbaa !31
+  %502 = or i32 %501, %500
+  store i32 %502, ptr %5, align 4, !tbaa !31
   %.not.i48 = icmp eq i32 %indvars.i, 0
   br i1 %.not.i48, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !139
 
-502:                                              ; preds = %.lr.ph.split.i
+503:                                              ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %503 = icmp eq i32 %.fr, -9984
-  %spec.select = select i1 %503, i32 -12288, i32 %.fr
+  %504 = icmp eq i32 %.fr, -9984
+  %spec.select = select i1 %504, i32 -12288, i32 %.fr
   br label %.thread
 
-.thread:                                          ; preds = %502, %x509_crt_verify_chain_reset.exit, %x509_crt_verify_chain.exit
-  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ -12288, %x509_crt_verify_chain.exit ], [ %spec.select, %502 ]
+.thread:                                          ; preds = %503, %x509_crt_verify_chain_reset.exit, %x509_crt_verify_chain.exit
+  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ -12288, %x509_crt_verify_chain.exit ], [ %spec.select, %503 ]
   store i32 -1, ptr %5, align 4, !tbaa !31
-  br label %505
+  br label %506
 
-.loopexit:                                        ; preds = %486
-  store i32 %491, ptr %5, align 4, !tbaa !31
+.loopexit:                                        ; preds = %487
+  store i32 %492, ptr %5, align 4, !tbaa !31
   br label %.loopexit20
 
-.loopexit20:                                      ; preds = %498, %.loopexit24..loopexit20_crit_edge, %.loopexit
-  %504 = phi i32 [ %.pre111, %.loopexit24..loopexit20_crit_edge ], [ %491, %.loopexit ], [ %501, %498 ]
+.loopexit20:                                      ; preds = %499, %.loopexit24..loopexit20_crit_edge, %.loopexit
+  %505 = phi i32 [ %.pre111, %.loopexit24..loopexit20_crit_edge ], [ %492, %.loopexit ], [ %502, %499 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not34 = icmp eq i32 %504, 0
+  %.not34 = icmp eq i32 %505, 0
   %. = select i1 %.not34, i32 0, i32 -9984
-  br label %505
+  br label %506
 
-505:                                              ; preds = %.loopexit20, %.thread
+506:                                              ; preds = %.loopexit20, %.thread
   %.0 = phi i32 [ %.ph, %.thread ], [ %., %.loopexit20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0

@@ -57357,30 +57357,29 @@ define internal void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$polar
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$$u5b$polars_core..frame..column..Column$u3b$$u20$1$u5d$$GT$17h5c55a8f231941334E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = load i8, ptr %0, align 16, !range !201, !alias.scope !5570, !noundef !3
-  %2 = add nsw i8 %1, -28
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %2, i8 2)
-  switch i8 %narrow.i, label %3 [
-    i8 0, label %4
-    i8 1, label %6
+  %2 = load i8, ptr %0, align 16, !range !201, !alias.scope !5570, !noundef !3
+  %3 = add nsw i8 %2, -28
+  %narrow.i = tail call i8 @llvm.umin.i8(i8 %3, i8 2)
+  switch i8 %narrow.i, label %4 [
+    i8 0, label %5
+    i8 1, label %7
   ]
 
-3:                                                ; preds = %.critedge
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..scalar..ScalarColumn$GT$17he83dffb4bae0b442E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %0)
   br label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit"
 
-4:                                                ; preds = %.critedge
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..series..SeriesColumn$GT$17hf6b5133ebcc0e8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..series..SeriesColumn$GT$17hf6b5133ebcc0e8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   br label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit"
 
-6:                                                ; preds = %.critedge
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h3ffe55cf616b1175E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h3ffe55cf616b1175E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
   br label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit"
 
-"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit": ; preds = %3, %4, %6
+"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit": ; preds = %7, %5, %4
   ret void
 }
 
@@ -66033,9 +66032,9 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #27
   unreachable
 
-.thread255:                                       ; preds = %.body37, %443, %440, %448
-  %.sroa.011.2 = phi i1 [ %.sroa.011.4.ph, %448 ], [ false, %440 ], [ false, %443 ], [ false, %.body37 ]
-  %.pn26.pn.pn = phi { ptr, i32 } [ %.pn26.pn.ph, %448 ], [ %441, %440 ], [ %441, %443 ], [ %eh.lpad-body38, %.body37 ]
+.thread255:                                       ; preds = %443, %440, %.body37, %448
+  %.sroa.011.2 = phi i1 [ %.sroa.011.4.ph, %448 ], [ false, %.body37 ], [ false, %440 ], [ false, %443 ]
+  %.pn26.pn.pn = phi { ptr, i32 } [ %.pn26.pn.ph, %448 ], [ %eh.lpad-body38, %.body37 ], [ %441, %440 ], [ %441, %443 ]
   br i1 %.not277, label %.body34, label %.thread236
 
 317:                                              ; preds = %352, %349, %.noexc126, %.noexc125, %340, %333, %330, %.noexc117, %.noexc116, %321, %312, %310, %307, %357, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit121, %300

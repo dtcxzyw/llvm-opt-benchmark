@@ -4114,12 +4114,11 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hfee5ceab6c65be0dE
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core5array11try_from_fn17h47aae4a46f290ec8E.llvm.4702386525267621285(ptr dead_on_unwind noalias noundef writable writeonly sret([1216 x i8]) align 8 captures(none) dereferenceable(1216) initializes((0, 1216)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #8 {
-.critedge:
-  %3 = alloca [1216 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN4core5array18try_from_fn_erased17hb543d8531b0dd13bE.llvm.4702386525267621285(ptr noalias noundef nonnull align 8 %3, i64 noundef 1, ptr noundef nonnull %1, ptr poison)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(1216) %3, i64 1216, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %4 = alloca [1216 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @_ZN4core5array18try_from_fn_erased17hb543d8531b0dd13bE.llvm.4702386525267621285(ptr noalias noundef nonnull align 8 %4, i64 noundef 1, ptr noundef nonnull %1, ptr poison)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(1216) %4, i64 1216, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

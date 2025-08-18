@@ -2875,8 +2875,8 @@ define hidden void @_ZN14GenerateOopMap17do_interpretationEv(ptr noundef nonnull
   %.pre = load i8, ptr %4, align 8
   br label %7
 
-7:                                                ; preds = %46, %1
-  %8 = phi i8 [ %47, %46 ], [ %.pre, %1 ]
+7:                                                ; preds = %45, %1
+  %8 = phi i8 [ %46, %45 ], [ %.pre, %1 ]
   store i8 0, ptr %2, align 8
   store i8 1, ptr %3, align 2
   %9 = trunc i8 %8 to i1
@@ -2906,78 +2906,75 @@ define hidden void @_ZN14GenerateOopMap17do_interpretationEv(ptr noundef nonnull
   %.pre.i = load i32, ptr %5, align 4
   br label %.preheader.i
 
-..critedge2_crit_edge.i:                          ; preds = %34
-  %split.not.i = xor i1 %.2.i, true
-  %18 = trunc i8 %36 to i1
-  %or.cond16.i = select i1 %split.not.i, i1 true, i1 %18
-  br i1 %or.cond16.i, label %_ZN14GenerateOopMap10interp_allEv.exit, label %.preheader.i
+.critedge2.loopexit.i:                            ; preds = %33
+  %.2.not.i = xor i1 %.2.i, true
+  %18 = trunc i8 %35 to i1
+  %or.cond15.i = select i1 %.2.not.i, i1 true, i1 %18
+  br i1 %or.cond15.i, label %_ZN14GenerateOopMap10interp_allEv.exit, label %.preheader.i, !llvm.loop !26
 
-.preheader.i:                                     ; preds = %..critedge2_crit_edge.i, %.preheader.preheader.i
-  %19 = phi i8 [ %16, %.preheader.preheader.i ], [ %35, %..critedge2_crit_edge.i ]
-  %20 = phi i8 [ %16, %.preheader.preheader.i ], [ %36, %..critedge2_crit_edge.i ]
-  %21 = phi i32 [ %.pre.i, %.preheader.preheader.i ], [ %38, %..critedge2_crit_edge.i ]
+.preheader.i:                                     ; preds = %.critedge2.loopexit.i, %.preheader.preheader.i
+  %19 = phi i8 [ %16, %.preheader.preheader.i ], [ %34, %.critedge2.loopexit.i ]
+  %20 = phi i8 [ %16, %.preheader.preheader.i ], [ %35, %.critedge2.loopexit.i ]
+  %21 = phi i32 [ %.pre.i, %.preheader.preheader.i ], [ %37, %.critedge2.loopexit.i ]
   %22 = icmp slt i32 %21, 1
   %23 = trunc i8 %20 to i1
-  %or.cond12.i = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond12.i, label %_ZN14GenerateOopMap10interp_allEv.exit, label %.lr.ph.i, !llvm.loop !26
+  %or.cond11.i = select i1 %22, i1 true, i1 %23
+  br i1 %or.cond11.i, label %_ZN14GenerateOopMap10interp_allEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i
-  br label %24, !llvm.loop !26
+.lr.ph.i:                                         ; preds = %.preheader.i, %33
+  %24 = phi i8 [ %34, %33 ], [ %19, %.preheader.i ]
+  %25 = phi i8 [ %35, %33 ], [ %20, %.preheader.i ]
+  %26 = phi i8 [ %36, %33 ], [ %20, %.preheader.i ]
+  %27 = phi i32 [ %37, %33 ], [ %21, %.preheader.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i ]
+  %.113.i = phi i1 [ %.2.i, %33 ], [ false, %.preheader.i ]
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %class.BasicBlock, ptr %28, i64 %indvars.iv.i
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-24:                                               ; preds = %34, %.lr.ph.i
-  %25 = phi i8 [ %19, %.lr.ph.i ], [ %35, %34 ]
-  %26 = phi i8 [ %20, %.lr.ph.i ], [ %36, %34 ]
-  %27 = phi i8 [ %20, %.lr.ph.i ], [ %37, %34 ]
-  %28 = phi i32 [ %21, %.lr.ph.i ], [ %38, %34 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %.114.i = phi i1 [ false, %.lr.ph.i ], [ %.2.i, %34 ]
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds nuw %class.BasicBlock, ptr %29, i64 %indvars.iv.i
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %.lr.ph.i
+  store i8 0, ptr %29, align 8
+  tail call void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %29)
+  %.pre16.i = load i32, ptr %5, align 4
+  %.pre17.i = load i8, ptr %4, align 8
+  br label %33
 
-33:                                               ; preds = %24
-  store i8 0, ptr %30, align 8
-  tail call void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %30)
-  %.pre17.i = load i32, ptr %5, align 4
-  %.pre18.i = load i8, ptr %4, align 8
-  br label %34
-
-34:                                               ; preds = %33, %24
-  %35 = phi i8 [ %.pre18.i, %33 ], [ %25, %24 ]
-  %36 = phi i8 [ %.pre18.i, %33 ], [ %26, %24 ]
-  %37 = phi i8 [ %.pre18.i, %33 ], [ %27, %24 ]
-  %38 = phi i32 [ %.pre17.i, %33 ], [ %28, %24 ]
-  %.2.i = phi i1 [ true, %33 ], [ %.114.i, %24 ]
+33:                                               ; preds = %32, %.lr.ph.i
+  %34 = phi i8 [ %.pre17.i, %32 ], [ %24, %.lr.ph.i ]
+  %35 = phi i8 [ %.pre17.i, %32 ], [ %25, %.lr.ph.i ]
+  %36 = phi i8 [ %.pre17.i, %32 ], [ %26, %.lr.ph.i ]
+  %37 = phi i32 [ %.pre16.i, %32 ], [ %27, %.lr.ph.i ]
+  %.2.i = phi i1 [ true, %32 ], [ %.113.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = sext i32 %38 to i64
-  %40 = icmp sge i64 %indvars.iv.next.i, %39
-  %41 = trunc i8 %37 to i1
-  %or.cond.i = select i1 %40, i1 true, i1 %41
-  br i1 %or.cond.i, label %..critedge2_crit_edge.i, label %24, !llvm.loop !27
+  %38 = sext i32 %37 to i64
+  %39 = icmp sge i64 %indvars.iv.next.i, %38
+  %40 = trunc i8 %36 to i1
+  %or.cond.i = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond.i, label %.critedge2.loopexit.i, label %.lr.ph.i, !llvm.loop !27
 
-_ZN14GenerateOopMap10interp_allEv.exit:           ; preds = %.preheader.i, %..critedge2_crit_edge.i, %15
-  %42 = phi i8 [ %16, %15 ], [ %19, %.preheader.i ], [ %35, %..critedge2_crit_edge.i ]
-  %43 = phi i8 [ %16, %15 ], [ %20, %.preheader.i ], [ %36, %..critedge2_crit_edge.i ]
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %46, label %45
+_ZN14GenerateOopMap10interp_allEv.exit:           ; preds = %.preheader.i, %.critedge2.loopexit.i, %15
+  %41 = phi i8 [ %16, %15 ], [ %19, %.preheader.i ], [ %34, %.critedge2.loopexit.i ]
+  %42 = phi i8 [ %16, %15 ], [ %20, %.preheader.i ], [ %35, %.critedge2.loopexit.i ]
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %45, label %44
 
-45:                                               ; preds = %_ZN14GenerateOopMap10interp_allEv.exit
+44:                                               ; preds = %_ZN14GenerateOopMap10interp_allEv.exit
   tail call void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
   %.pre6 = load i8, ptr %4, align 8
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %_ZN14GenerateOopMap10interp_allEv.exit
-  %47 = phi i8 [ %.pre6, %45 ], [ %42, %_ZN14GenerateOopMap10interp_allEv.exit ]
-  %48 = load i8, ptr %2, align 8
-  %49 = trunc i8 %48 to i1
-  %.not = xor i1 %49, true
-  %50 = trunc i8 %47 to i1
-  %or.cond = select i1 %.not, i1 true, i1 %50
+45:                                               ; preds = %44, %_ZN14GenerateOopMap10interp_allEv.exit
+  %46 = phi i8 [ %.pre6, %44 ], [ %41, %_ZN14GenerateOopMap10interp_allEv.exit ]
+  %47 = load i8, ptr %2, align 8
+  %48 = trunc i8 %47 to i1
+  %.not = xor i1 %48, true
+  %49 = trunc i8 %46 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %49
   br i1 %or.cond, label %.critedge, label %7, !llvm.loop !28
 
-.critedge:                                        ; preds = %46
+.critedge:                                        ; preds = %45
   ret void
 }
 
@@ -3294,67 +3291,63 @@ _ZN14GenerateOopMap15initialize_varsEv.exit:      ; preds = %.lr.ph.i1, %_ZN14Ge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14GenerateOopMap10interp_allEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
-.critedge11:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.old = load i8, ptr %1, align 8
-  %.old15 = trunc i8 %.old to i1
-  br i1 %.old15, label %.critedge, label %.preheader.preheader
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.old = load i8, ptr %2, align 8
+  %.old14 = trunc i8 %.old to i1
+  br i1 %.old14, label %.critedge, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.critedge11
-  %.pre = load i32, ptr %2, align 4
+.preheader.preheader:                             ; preds = %1
+  %.pre = load i32, ptr %3, align 4
   br label %.preheader
 
-..critedge2_crit_edge:                            ; preds = %18
-  %split.not = xor i1 %.2, true
-  %4 = trunc i8 %19 to i1
-  %or.cond16 = select i1 %split.not, i1 true, i1 %4
-  br i1 %or.cond16, label %.critedge, label %.preheader
+.critedge2.loopexit:                              ; preds = %18
+  %.2.not = xor i1 %.2, true
+  %5 = trunc i8 %19 to i1
+  %or.cond15 = select i1 %.2.not, i1 true, i1 %5
+  br i1 %or.cond15, label %.critedge, label %.preheader, !llvm.loop !26
 
-.preheader:                                       ; preds = %.preheader.preheader, %..critedge2_crit_edge
-  %5 = phi i8 [ %.old, %.preheader.preheader ], [ %19, %..critedge2_crit_edge ]
-  %6 = phi i32 [ %.pre, %.preheader.preheader ], [ %21, %..critedge2_crit_edge ]
-  %7 = icmp slt i32 %6, 1
-  %8 = trunc i8 %5 to i1
-  %or.cond12 = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond12, label %.critedge, label %.lr.ph, !llvm.loop !26
+.preheader:                                       ; preds = %.preheader.preheader, %.critedge2.loopexit
+  %6 = phi i8 [ %.old, %.preheader.preheader ], [ %19, %.critedge2.loopexit ]
+  %7 = phi i32 [ %.pre, %.preheader.preheader ], [ %21, %.critedge2.loopexit ]
+  %8 = icmp slt i32 %7, 1
+  %9 = trunc i8 %6 to i1
+  %or.cond11 = select i1 %8, i1 true, i1 %9
+  br i1 %or.cond11, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
-  br label %9, !llvm.loop !26
-
-9:                                                ; preds = %.lr.ph, %18
-  %10 = phi i8 [ %5, %.lr.ph ], [ %19, %18 ]
-  %11 = phi i8 [ %5, %.lr.ph ], [ %20, %18 ]
-  %12 = phi i32 [ %6, %.lr.ph ], [ %21, %18 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %.114 = phi i1 [ false, %.lr.ph ], [ %.2, %18 ]
-  %13 = load ptr, ptr %3, align 8
+.lr.ph:                                           ; preds = %.preheader, %18
+  %10 = phi i8 [ %19, %18 ], [ %6, %.preheader ]
+  %11 = phi i8 [ %20, %18 ], [ %6, %.preheader ]
+  %12 = phi i32 [ %21, %18 ], [ %7, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
+  %.113 = phi i1 [ %.2, %18 ], [ false, %.preheader ]
+  %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds nuw %class.BasicBlock, ptr %13, i64 %indvars.iv
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %18
 
-17:                                               ; preds = %9
+17:                                               ; preds = %.lr.ph
   store i8 0, ptr %14, align 8
   tail call void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %14)
-  %.pre17 = load i32, ptr %2, align 4
-  %.pre18 = load i8, ptr %1, align 8
+  %.pre16 = load i32, ptr %3, align 4
+  %.pre17 = load i8, ptr %2, align 8
   br label %18
 
-18:                                               ; preds = %9, %17
-  %19 = phi i8 [ %.pre18, %17 ], [ %10, %9 ]
-  %20 = phi i8 [ %.pre18, %17 ], [ %11, %9 ]
-  %21 = phi i32 [ %.pre17, %17 ], [ %12, %9 ]
-  %.2 = phi i1 [ true, %17 ], [ %.114, %9 ]
+18:                                               ; preds = %.lr.ph, %17
+  %19 = phi i8 [ %.pre17, %17 ], [ %10, %.lr.ph ]
+  %20 = phi i8 [ %.pre17, %17 ], [ %11, %.lr.ph ]
+  %21 = phi i32 [ %.pre16, %17 ], [ %12, %.lr.ph ]
+  %.2 = phi i1 [ true, %17 ], [ %.113, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %21 to i64
   %23 = icmp sge i64 %indvars.iv.next, %22
   %24 = trunc i8 %20 to i1
   %or.cond = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond, label %..critedge2_crit_edge, label %9, !llvm.loop !27
+  br i1 %or.cond, label %.critedge2.loopexit, label %.lr.ph, !llvm.loop !27
 
-.critedge:                                        ; preds = %.preheader, %..critedge2_crit_edge, %.critedge11
+.critedge:                                        ; preds = %.preheader, %.critedge2.loopexit, %1
   ret void
 }
 

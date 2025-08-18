@@ -20729,22 +20729,22 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc90
-  %last.addr.063 = phi ptr [ %last, %entry ], [ %last.addr.1, %for.inc90 ]
-  %buffer.addr.062 = phi ptr [ %buffer, %entry ], [ %buffer.addr.1, %for.inc90 ]
-  %srcFirst.060 = phi ptr [ %first, %entry ], [ %srcFirst.1, %for.inc90 ]
-  %j.059 = phi i32 [ 0, %entry ], [ %.pre, %for.inc90 ]
-  %doSeparateHistogramCalculation.058 = phi i1 [ true, %entry ], [ %cmp9, %for.inc90 ]
-  br i1 %doSeparateHistogramCalculation.058, label %if.then, label %if.end
+  %last.addr.064 = phi ptr [ %last, %entry ], [ %last.addr.1, %for.inc90 ]
+  %buffer.addr.063 = phi ptr [ %buffer, %entry ], [ %buffer.addr.1, %for.inc90 ]
+  %srcFirst.061 = phi ptr [ %first, %entry ], [ %srcFirst.1, %for.inc90 ]
+  %j.060 = phi i32 [ 0, %entry ], [ %.pre, %for.inc90 ]
+  %doSeparateHistogramCalculation.059 = phi i1 [ true, %entry ], [ %cmp9, %for.inc90 ]
+  br i1 %doSeparateHistogramCalculation.059, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   store i64 0, ptr %bucketSize, align 8
-  %cmp2.not52 = icmp eq ptr %srcFirst.060, %last.addr.063
+  %cmp2.not52 = icmp eq ptr %srcFirst.061, %last.addr.064
   br i1 %cmp2.not52, label %if.end, label %for.body3
 
 for.body3:                                        ; preds = %if.then, %for.body3
-  %temp.053 = phi ptr [ %incdec.ptr, %for.body3 ], [ %srcFirst.060, %if.then ]
+  %temp.053 = phi ptr [ %incdec.ptr, %for.body3 ], [ %srcFirst.061, %if.then ]
   %1 = load i32, ptr %temp.053, align 4
-  %shr = lshr i32 %1, %j.059
+  %shr = lshr i32 %1, %j.060
   %and = and i32 %shr, 1
   %idxprom = zext nneg i32 %and to i64
   %arrayidx = getelementptr inbounds nuw [2 x i32], ptr %bucketSize, i64 0, i64 %idxprom
@@ -20752,39 +20752,39 @@ for.body3:                                        ; preds = %if.then, %for.body3
   %inc = add i32 %2, 1
   store i32 %inc, ptr %arrayidx, align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %temp.053, i64 4
-  %cmp2.not = icmp eq ptr %incdec.ptr, %last.addr.063
+  %cmp2.not = icmp eq ptr %incdec.ptr, %last.addr.064
   br i1 %cmp2.not, label %if.end, label %for.body3, !llvm.loop !445
 
 if.end:                                           ; preds = %for.body3, %if.then, %for.body
-  %3 = load i32, ptr %srcFirst.060, align 4
-  %shr5 = lshr i32 %3, %j.059
+  %3 = load i32, ptr %srcFirst.061, align 4
+  %shr5 = lshr i32 %3, %j.060
   %and6 = and i32 %shr5, 1
   %idxprom7 = zext nneg i32 %and6 to i64
   %arrayidx8 = getelementptr inbounds nuw [2 x i32], ptr %bucketSize, i64 0, i64 %idxprom7
   %4 = load i32, ptr %arrayidx8, align 4
-  %sub.ptr.lhs.cast = ptrtoint ptr %last.addr.063 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %srcFirst.060 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %last.addr.064 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %srcFirst.061 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
   %conv = trunc i64 %sub.ptr.div to i32
   %cmp9 = icmp eq i32 %4, %conv
-  %.pre = add nuw nsw i32 %j.059, 1
+  %.pre = add nuw nsw i32 %j.060, 1
   br i1 %cmp9, label %for.inc90, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp11 = icmp eq i32 %j.059, 31
+  %cmp11 = icmp eq i32 %j.060, 31
   store i32 0, ptr %bucketPosition, align 4
   %5 = load i32, ptr %bucketSize, align 8
   store i32 %5, ptr %arrayidx56, align 4
   br i1 %cmp11, label %if.then12, label %if.else43
 
 if.then12:                                        ; preds = %if.else
-  %cmp30.not56 = icmp eq ptr %srcFirst.060, %last.addr.063
-  br i1 %cmp30.not56, label %if.end84, label %for.body31
+  %cmp30.not57 = icmp eq ptr %srcFirst.061, %last.addr.064
+  br i1 %cmp30.not57, label %if.end84, label %for.body31
 
 for.body31:                                       ; preds = %if.then12, %for.body31
-  %temp.157 = phi ptr [ %incdec.ptr41, %for.body31 ], [ %srcFirst.060, %if.then12 ]
-  %6 = load i32, ptr %temp.157, align 4
+  %temp.158 = phi ptr [ %incdec.ptr41, %for.body31 ], [ %srcFirst.061, %if.then12 ]
+  %6 = load i32, ptr %temp.158, align 4
   %shr33 = lshr i32 %6, 31
   %conv35 = zext nneg i32 %shr33 to i64
   %arrayidx36 = getelementptr inbounds nuw [2 x i32], ptr %bucketPosition, i64 0, i64 %conv35
@@ -20792,22 +20792,22 @@ for.body31:                                       ; preds = %if.then12, %for.bod
   %inc37 = add i32 %7, 1
   store i32 %inc37, ptr %arrayidx36, align 4
   %idxprom38 = zext i32 %7 to i64
-  %arrayidx39 = getelementptr inbounds nuw i32, ptr %buffer.addr.062, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds nuw i32, ptr %buffer.addr.063, i64 %idxprom38
   store i32 %6, ptr %arrayidx39, align 4
-  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %temp.157, i64 4
-  %cmp30.not = icmp eq ptr %incdec.ptr41, %last.addr.063
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %temp.158, i64 4
+  %cmp30.not = icmp eq ptr %incdec.ptr41, %last.addr.064
   br i1 %cmp30.not, label %if.end84, label %for.body31, !llvm.loop !446
 
 if.else43:                                        ; preds = %if.else
   store i32 0, ptr %bucketSize, align 8
   store i32 0, ptr %arrayidx62, align 4
-  %cmp64.not54 = icmp eq ptr %srcFirst.060, %last.addr.063
-  br i1 %cmp64.not54, label %if.end84, label %for.body65
+  %cmp64.not55 = icmp eq ptr %srcFirst.061, %last.addr.064
+  br i1 %cmp64.not55, label %if.end84, label %for.body65
 
 for.body65:                                       ; preds = %if.else43, %for.body65
-  %temp.255 = phi ptr [ %incdec.ptr82, %for.body65 ], [ %srcFirst.060, %if.else43 ]
-  %8 = load i32, ptr %temp.255, align 4
-  %shr69 = lshr i32 %8, %j.059
+  %temp.256 = phi ptr [ %incdec.ptr82, %for.body65 ], [ %srcFirst.061, %if.else43 ]
+  %8 = load i32, ptr %temp.256, align 4
+  %shr69 = lshr i32 %8, %j.060
   %and70 = and i32 %shr69, 1
   %conv71 = zext nneg i32 %and70 to i64
   %arrayidx72 = getelementptr inbounds nuw [2 x i32], ptr %bucketPosition, i64 0, i64 %conv71
@@ -20815,7 +20815,7 @@ for.body65:                                       ; preds = %if.else43, %for.bod
   %inc73 = add i32 %9, 1
   store i32 %inc73, ptr %arrayidx72, align 4
   %idxprom74 = zext i32 %9 to i64
-  %arrayidx75 = getelementptr inbounds nuw i32, ptr %buffer.addr.062, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds nuw i32, ptr %buffer.addr.063, i64 %idxprom74
   store i32 %8, ptr %arrayidx75, align 4
   %shr76 = lshr i32 %8, %.pre
   %and77 = and i32 %shr76, 1
@@ -20824,34 +20824,34 @@ for.body65:                                       ; preds = %if.else43, %for.bod
   %10 = load i32, ptr %arrayidx79, align 4
   %inc80 = add i32 %10, 1
   store i32 %inc80, ptr %arrayidx79, align 4
-  %incdec.ptr82 = getelementptr inbounds nuw i8, ptr %temp.255, i64 4
-  %cmp64.not = icmp eq ptr %incdec.ptr82, %last.addr.063
+  %incdec.ptr82 = getelementptr inbounds nuw i8, ptr %temp.256, i64 4
+  %cmp64.not = icmp eq ptr %incdec.ptr82, %last.addr.064
   br i1 %cmp64.not, label %if.end84, label %for.body65, !llvm.loop !447
 
 if.end84:                                         ; preds = %for.body65, %for.body31, %if.else43, %if.then12
-  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.062, i64 %sub.ptr.sub
+  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.063, i64 %sub.ptr.sub
   br label %for.inc90
 
 for.inc90:                                        ; preds = %if.end, %if.end84
-  %srcFirst.1 = phi ptr [ %buffer.addr.062, %if.end84 ], [ %srcFirst.060, %if.end ]
-  %buffer.addr.1 = phi ptr [ %srcFirst.060, %if.end84 ], [ %buffer.addr.062, %if.end ]
-  %last.addr.1 = phi ptr [ %add.ptr, %if.end84 ], [ %last.addr.063, %if.end ]
+  %srcFirst.1 = phi ptr [ %buffer.addr.063, %if.end84 ], [ %srcFirst.061, %if.end ]
+  %buffer.addr.1 = phi ptr [ %srcFirst.061, %if.end84 ], [ %buffer.addr.063, %if.end ]
+  %last.addr.1 = phi ptr [ %add.ptr, %if.end84 ], [ %last.addr.064, %if.end ]
   %exitcond.not = icmp eq i32 %.pre, 32
   br i1 %exitcond.not, label %for.end92, label %for.body, !llvm.loop !448
 
 for.end92:                                        ; preds = %for.inc90
   %cmp93.not = icmp eq ptr %srcFirst.1, %first
-  %cmp96.not64 = icmp eq ptr %srcFirst.1, %last.addr.1
-  %or.cond = select i1 %cmp93.not, i1 true, i1 %cmp96.not64
+  %cmp96.not65 = icmp eq ptr %srcFirst.1, %last.addr.1
+  %or.cond = select i1 %cmp93.not, i1 true, i1 %cmp96.not65
   br i1 %or.cond, label %if.end102, label %for.body97
 
 for.body97:                                       ; preds = %for.end92, %for.body97
-  %buffer.addr.266 = phi ptr [ %incdec.ptr98, %for.body97 ], [ %buffer.addr.1, %for.end92 ]
-  %temp.365 = phi ptr [ %incdec.ptr100, %for.body97 ], [ %srcFirst.1, %for.end92 ]
-  %11 = load i32, ptr %temp.365, align 4
-  %incdec.ptr98 = getelementptr inbounds nuw i8, ptr %buffer.addr.266, i64 4
-  store i32 %11, ptr %buffer.addr.266, align 4
-  %incdec.ptr100 = getelementptr inbounds nuw i8, ptr %temp.365, i64 4
+  %buffer.addr.267 = phi ptr [ %incdec.ptr98, %for.body97 ], [ %buffer.addr.1, %for.end92 ]
+  %temp.366 = phi ptr [ %incdec.ptr100, %for.body97 ], [ %srcFirst.1, %for.end92 ]
+  %11 = load i32, ptr %temp.366, align 4
+  %incdec.ptr98 = getelementptr inbounds nuw i8, ptr %buffer.addr.267, i64 4
+  store i32 %11, ptr %buffer.addr.267, align 4
+  %incdec.ptr100 = getelementptr inbounds nuw i8, ptr %temp.366, i64 4
   %cmp96.not = icmp eq ptr %incdec.ptr100, %last.addr.1
   br i1 %cmp96.not, label %if.end102, label %for.body97, !llvm.loop !449
 

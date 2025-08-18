@@ -6004,9 +6004,9 @@ mpeg_decode_motion.exit.i:                        ; preds = %719, %693, %get_vlc
   %773 = shl nuw nsw i32 4096, %772
   %774 = and i32 %773, %.0441.i
   %.not466.i = icmp eq i32 %774, 0
-  br i1 %.not466.i, label %.loopexit22.i, label %.loopexit22.i.critedge
+  br i1 %.not466.i, label %.loopexit22.i, label %.loopexit22.i.loopexit.critedge
 
-.loopexit22.i.critedge:                           ; preds = %.preheader479
+.loopexit22.i.loopexit.critedge:                  ; preds = %.preheader479
   %775 = load i32, ptr %33, align 8, !tbaa !109
   %776 = load ptr, ptr %21, align 8, !tbaa !105
   %777 = lshr i32 %775, 3
@@ -6044,7 +6044,7 @@ mpeg_decode_motion.exit.i:                        ; preds = %719, %693, %get_vlc
   store i32 %799, ptr %801, align 4, !tbaa !64
   br label %.loopexit22.i
 
-.loopexit22.i:                                    ; preds = %.loopexit22.i.critedge, %.preheader479
+.loopexit22.i:                                    ; preds = %.loopexit22.i.loopexit.critedge, %.preheader479
   br i1 %771, label %.preheader479, label %.loopexit15.loopexit53.i, !llvm.loop !240
 
 802:                                              ; preds = %593

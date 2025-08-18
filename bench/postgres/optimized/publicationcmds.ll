@@ -1869,19 +1869,16 @@ list_length.exit:                                 ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 4096
-  br i1 %4, label %.critedge9.preheader, label %13
+  br i1 %4, label %.lr.ph, label %13
 
-.critedge9.preheader:                             ; preds = %list_length.exit
-  %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge9.preheader
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.critedge9
+.lr.ph:                                           ; preds = %list_length.exit
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = icmp sgt i32 %3, 0
+  br i1 %6, label %.critedge9, label %.critedge
 
 .critedge9:                                       ; preds = %.lr.ph, %.critedge9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge9 ]
-  %7 = load ptr, ptr %6, align 8
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge9 ], [ 0, %.lr.ph ]
+  %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   tail call void @CacheInvalidateRelcacheByRelid(i32 noundef %9) #9
@@ -1889,13 +1886,13 @@ list_length.exit:                                 ; preds = %1
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.critedge9, label %.critedge, !llvm.loop !13
+  br i1 %12, label %.critedge9, label %.critedge
 
 13:                                               ; preds = %list_length.exit
   tail call void @CacheInvalidateRelcacheAll() #9
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge9, %.critedge9.preheader, %1, %13
+.critedge:                                        ; preds = %.critedge9, %1, %.lr.ph, %13
   ret void
 }
 
@@ -2169,7 +2166,7 @@ define dso_local void @AlterPublication(ptr noundef %0, ptr noundef %1) local_un
   %150 = load i32, ptr %139, align 4
   %151 = sext i32 %150 to i64
   %.not76.i = icmp slt i64 %indvars.iv.next99.i, %151
-  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !14
+  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !13
 
 .critedge79.i:                                    ; preds = %145, %142, %.preheader.i
   %.066.i = phi ptr [ %144, %142 ], [ null, %.preheader.i ], [ %149, %145 ]
@@ -2183,19 +2180,16 @@ list_length.exit.i.i:                             ; preds = %.critedge79.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = icmp slt i32 %156, 4096
-  br i1 %157, label %.critedge9.preheader.i.i, label %InvalidatePublicationRels.exit.sink.split.i
+  br i1 %157, label %.lr.ph.i.i, label %InvalidatePublicationRels.exit.sink.split.i
 
-.critedge9.preheader.i.i:                         ; preds = %list_length.exit.i.i
-  %158 = icmp sgt i32 %156, 0
-  br i1 %158, label %.lr.ph.i.i, label %InvalidatePublicationRels.exit.i
+.lr.ph.i.i:                                       ; preds = %list_length.exit.i.i
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %159 = icmp sgt i32 %156, 0
+  br i1 %159, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i
 
-.lr.ph.i.i:                                       ; preds = %.critedge9.preheader.i.i
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  br label %.critedge9.i.i
-
-.critedge9.i.i:                                   ; preds = %.critedge9.i.i, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.critedge9.i.i ]
-  %160 = load ptr, ptr %159, align 8
+.critedge9.i.i:                                   ; preds = %.lr.ph.i.i, %.critedge9.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge9.i.i ], [ 0, %.lr.ph.i.i ]
+  %160 = load ptr, ptr %158, align 8
   %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv.i.i
   %162 = load i32, ptr %161, align 8
   call void @CacheInvalidateRelcacheByRelid(i32 noundef %162) #9
@@ -2203,13 +2197,13 @@ list_length.exit.i.i:                             ; preds = %.critedge79.i
   %163 = load i32, ptr %155, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i, !llvm.loop !13
+  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i
 
 InvalidatePublicationRels.exit.sink.split.i:      ; preds = %list_length.exit.i.i, %124
   call void @CacheInvalidateRelcacheAll() #9
   br label %InvalidatePublicationRels.exit.i
 
-InvalidatePublicationRels.exit.i:                 ; preds = %.critedge9.i.i, %InvalidatePublicationRels.exit.sink.split.i, %.critedge9.preheader.i.i, %.critedge79.i
+InvalidatePublicationRels.exit.i:                 ; preds = %.critedge9.i.i, %InvalidatePublicationRels.exit.sink.split.i, %.lr.ph.i.i, %.critedge79.i
   %166 = load i32, ptr %133, align 4
   %.sroa.052.4.insert.ext.i = zext i32 %166 to i64
   %.sroa.052.4.insert.shift.i = shl nuw i64 %.sroa.052.4.insert.ext.i, 32
@@ -2805,19 +2799,16 @@ list_length.exit.i:                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %18, 4096
-  br i1 %19, label %.critedge9.preheader.i, label %28
+  br i1 %19, label %.lr.ph.i, label %28
 
-.critedge9.preheader.i:                           ; preds = %list_length.exit.i
-  %20 = icmp sgt i32 %18, 0
-  br i1 %20, label %.lr.ph.i, label %InvalidatePublicationRels.exit
+.lr.ph.i:                                         ; preds = %list_length.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %21 = icmp sgt i32 %18, 0
+  br i1 %21, label %.critedge9.i, label %InvalidatePublicationRels.exit
 
-.lr.ph.i:                                         ; preds = %.critedge9.preheader.i
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  br label %.critedge9.i
-
-.critedge9.i:                                     ; preds = %.critedge9.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge9.i ]
-  %22 = load ptr, ptr %21, align 8
+.critedge9.i:                                     ; preds = %.lr.ph.i, %.critedge9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge9.i ], [ 0, %.lr.ph.i ]
+  %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 8
   tail call void @CacheInvalidateRelcacheByRelid(i32 noundef %24) #9
@@ -2825,13 +2816,13 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
   br label %InvalidatePublicationRels.exit
 
-InvalidatePublicationRels.exit:                   ; preds = %.critedge9.i, %8, %.critedge9.preheader.i, %28
+InvalidatePublicationRels.exit:                   ; preds = %.critedge9.i, %8, %.lr.ph.i, %28
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %2, ptr noundef nonnull %29) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #9
@@ -2918,19 +2909,16 @@ list_length.exit.i:                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %18, 4096
-  br i1 %19, label %.critedge9.preheader.i, label %28
+  br i1 %19, label %.lr.ph.i, label %28
 
-.critedge9.preheader.i:                           ; preds = %list_length.exit.i
-  %20 = icmp sgt i32 %18, 0
-  br i1 %20, label %.lr.ph.i, label %InvalidatePublicationRels.exit
+.lr.ph.i:                                         ; preds = %list_length.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %21 = icmp sgt i32 %18, 0
+  br i1 %21, label %.critedge9.i, label %InvalidatePublicationRels.exit
 
-.lr.ph.i:                                         ; preds = %.critedge9.preheader.i
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  br label %.critedge9.i
-
-.critedge9.i:                                     ; preds = %.critedge9.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge9.i ]
-  %22 = load ptr, ptr %21, align 8
+.critedge9.i:                                     ; preds = %.lr.ph.i, %.critedge9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge9.i ], [ 0, %.lr.ph.i ]
+  %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 8
   tail call void @CacheInvalidateRelcacheByRelid(i32 noundef %24) #9
@@ -2938,13 +2926,13 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
   br label %InvalidatePublicationRels.exit
 
-InvalidatePublicationRels.exit:                   ; preds = %.critedge9.i, %8, %.critedge9.preheader.i, %28
+InvalidatePublicationRels.exit:                   ; preds = %.critedge9.i, %8, %.lr.ph.i, %28
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %2, ptr noundef nonnull %29) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #9
@@ -3538,4 +3526,3 @@ attributes #12 = { noreturn nounwind }
 !11 = distinct !{!11, !7}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}

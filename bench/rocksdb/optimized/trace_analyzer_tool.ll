@@ -7337,14 +7337,14 @@ _ZN7rocksdb6StatusaSEOS0_.exit11.thread:          ; preds = %61, %_ZNKSt14defaul
   store i64 %95, ptr %96, align 8, !tbaa !291
   %97 = load i8, ptr @_ZN3fLB24FLAGS_output_time_seriesE, align 1, !tbaa !214, !range !215, !noundef !216
   %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %.critedge.preheader
+  br i1 %98, label %99, label %.lr.ph
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   store i64 %95, ptr %100, align 8, !tbaa !292
-  br label %.critedge.preheader
+  br label %.lr.ph
 
-.critedge.preheader:                              ; preds = %94, %99
+.lr.ph:                                           ; preds = %94, %99
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7375,9 +7375,9 @@ _ZN7rocksdb6StatusaSEOS0_.exit11.thread:          ; preds = %61, %_ZNKSt14defaul
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 5
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  br label %.critedge
+  br label %.backedge
 
-.critedge:                                        ; preds = %.critedge.preheader, %_ZN7rocksdb6StatusaSEOS0_.exit37.thread
+.backedge:                                        ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit37.thread, %.lr.ph
   store i64 0, ptr %8, align 8, !tbaa !290
   store i8 14, ptr %105, align 8, !tbaa !280
   store i64 0, ptr %101, align 8, !tbaa !289
@@ -7388,7 +7388,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit11.thread:          ; preds = %61, %_ZNKSt14defaul
   invoke void @_ZN7rocksdb13TraceAnalyzer15ReadTraceRecordEPNS_5TraceE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %10, ptr noundef nonnull align 8 dereferenceable(1476) %1, ptr noundef nonnull %8)
           to label %127 unwind label %137
 
-127:                                              ; preds = %.critedge
+127:                                              ; preds = %.backedge
   %128 = load i8, ptr %10, align 8, !tbaa !231
   store i8 %128, ptr %3, align 8, !tbaa !233
   store i8 0, ptr %10, align 8, !tbaa !233
@@ -7432,7 +7432,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit21.thread:          ; preds = %127, %_ZNKSt14defau
     i8 7, label %194
   ]
 
-137:                                              ; preds = %.critedge
+137:                                              ; preds = %.backedge
   %138 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7588,7 +7588,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit37.thread:          ; preds = %178, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %187 = load i8, ptr %3, align 8, !tbaa !233
   %188 = icmp eq i8 %187, 0
-  br i1 %188, label %.critedge, label %189, !llvm.loop !299
+  br i1 %188, label %.backedge, label %189, !llvm.loop !299
 
 189:                                              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit37.thread
   %190 = load ptr, ptr @stderr, align 8, !tbaa !53
@@ -7608,8 +7608,8 @@ _ZN7rocksdb6StatusaSEOS0_.exit37.thread:          ; preds = %178, %_ZNKSt14defau
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !300
   br label %_ZN7rocksdb6StatusC2EOS0_.exit34
 
-.loopexit.thread:                                 ; preds = %_ZN7rocksdb6StatusD2Ev.exit30, %139, %_ZN7rocksdb6StatusaSEOS0_.exit21.thread
-  %196 = phi i8 [ %136, %_ZN7rocksdb6StatusaSEOS0_.exit21.thread ], [ %156, %_ZN7rocksdb6StatusD2Ev.exit30 ], [ 0, %139 ]
+.loopexit.thread:                                 ; preds = %139, %_ZN7rocksdb6StatusD2Ev.exit30, %_ZN7rocksdb6StatusaSEOS0_.exit21.thread
+  %196 = phi i8 [ %136, %_ZN7rocksdb6StatusaSEOS0_.exit21.thread ], [ 0, %139 ], [ %156, %_ZN7rocksdb6StatusD2Ev.exit30 ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %197, align 8, !tbaa !229
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)

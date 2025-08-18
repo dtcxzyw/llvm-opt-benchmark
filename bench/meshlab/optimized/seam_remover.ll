@@ -5860,16 +5860,16 @@ _ZNSt3setISt4pairIP8MeshFaceiESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._crit_e
   store double %235, ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.079.0166, i64 24
   %238 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %239 = load double, ptr %238, align 8
-  store double %239, ptr %237, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %241 = load double, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %.sroa.079.0166, i64 32
-  store double %241, ptr %242, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %244 = load i16, ptr %243, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.079.0166, i64 40
-  store i16 %244, ptr %245, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.079.0166, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.079.0166, i64 40
+  %243 = load double, ptr %238, align 8
+  store double %243, ptr %237, align 8
+  %244 = load double, ptr %239, align 8
+  store double %244, ptr %240, align 8
+  %245 = load i16, ptr %241, align 8
+  store i16 %245, ptr %242, align 8
   %246 = load double, ptr %.0, align 8
   store double %246, ptr %.sroa.079.0166, align 8
   %247 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -10730,16 +10730,16 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE21PermutateVertexVectorERS
   store double %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %46 = load double, ptr %45, align 8
-  store double %46, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store double %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %51 = load i16, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i16 %51, ptr %52, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %50 = load double, ptr %45, align 8
+  store double %50, ptr %44, align 8
+  %51 = load double, ptr %46, align 8
+  store double %51, ptr %47, align 8
+  %52 = load i16, ptr %48, align 8
+  store i16 %52, ptr %49, align 8
   %53 = load double, ptr %22, align 8
   store double %53, ptr %21, align 8
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 8

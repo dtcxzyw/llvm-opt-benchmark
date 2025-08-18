@@ -5562,311 +5562,311 @@ define dso_local range(i32 0, 2) i32 @ACLShouldKillPubsubClient(ptr noundef %0, 
   %5 = alloca %struct.listIter, align 8
   %6 = tail call i32 @getClientType(ptr noundef %0) #25
   %7 = icmp eq i32 %6, 2
-  br i1 %7, label %.critedge, label %.critedge52
+  br i1 %7, label %8, label %.critedge52
 
-.critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %9 = load ptr, ptr %8, align 8, !tbaa !198
-  %10 = tail call ptr @dictGetIterator(ptr noundef %9) #25
-  %11 = tail call ptr @dictNext(ptr noundef %10) #25
-  %.not85 = icmp eq ptr %11, null
-  br i1 %.not85, label %.critedge73, label %sdslen.exit
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %10 = load ptr, ptr %9, align 8, !tbaa !198
+  %11 = tail call ptr @dictGetIterator(ptr noundef %10) #25
+  %12 = tail call ptr @dictNext(ptr noundef %11) #25
+  %.not81 = icmp eq ptr %12, null
+  br i1 %.not81, label %._crit_edge, label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %.critedge, %._crit_edge21.i
-  %12 = phi ptr [ %22, %._crit_edge21.i ], [ %11, %.critedge ]
-  %13 = call ptr @dictGetKey(ptr noundef nonnull %12) #25
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !146
+sdslen.exit:                                      ; preds = %8, %._crit_edge21.i
+  %13 = phi ptr [ %23, %._crit_edge21.i ], [ %12, %8 ]
+  %14 = call ptr @dictGetKey(ptr noundef nonnull %13) #25
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %5) #25
-  %16 = call ptr @listNext(ptr noundef nonnull %5) #25
-  %.not19.i = icmp eq ptr %16, null
+  %17 = call ptr @listNext(ptr noundef nonnull %5) #25
+  %.not19.i = icmp eq ptr %17, null
   br i1 %.not19.i, label %ACLCheckChannelAgainstList.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %sdslen.exit, %.critedge18.i
-  %17 = phi ptr [ %21, %.critedge18.i ], [ %16, %sdslen.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !85
-  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #29
-  %.not15.i = icmp eq i32 %20, 0
+  %18 = phi ptr [ %22, %.critedge18.i ], [ %17, %sdslen.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !85
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #29
+  %.not15.i = icmp eq i32 %21, 0
   br i1 %.not15.i, label %._crit_edge21.i, label %.critedge18.i, !llvm.loop !190
 
 .critedge18.i:                                    ; preds = %.lr.ph.split.i
-  %21 = call ptr @listNext(ptr noundef nonnull %5) #25
-  %.not.i = icmp eq ptr %21, null
+  %22 = call ptr @listNext(ptr noundef nonnull %5) #25
+  %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %ACLCheckChannelAgainstList.exit, label %.lr.ph.split.i
 
 ._crit_edge21.i:                                  ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %22 = call ptr @dictNext(ptr noundef %10) #25
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.critedge73, label %sdslen.exit
+  %23 = call ptr @dictNext(ptr noundef %11) #25
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %._crit_edge, label %sdslen.exit
 
 ACLCheckChannelAgainstList.exit:                  ; preds = %sdslen.exit, %.critedge18.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge52.sink.split
 
-.critedge73:                                      ; preds = %._crit_edge21.i, %.critedge
-  call void @dictReleaseIterator(ptr noundef %10) #25
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %24 = load ptr, ptr %23, align 8, !tbaa !199
-  %25 = call ptr @dictGetIterator(ptr noundef %24) #25
-  %26 = call ptr @dictNext(ptr noundef %25) #25
-  %.not4386 = icmp eq ptr %26, null
-  br i1 %.not4386, label %.critedge75, label %.lr.ph
+._crit_edge:                                      ; preds = %._crit_edge21.i, %8
+  call void @dictReleaseIterator(ptr noundef %11) #25
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %25 = load ptr, ptr %24, align 8, !tbaa !199
+  %26 = call ptr @dictGetIterator(ptr noundef %25) #25
+  %27 = call ptr @dictNext(ptr noundef %26) #25
+  %.not4382 = icmp eq ptr %27, null
+  br i1 %.not4382, label %._crit_edge84, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge73, %.critedge._crit_edge.i
-  %27 = phi ptr [ %83, %.critedge._crit_edge.i ], [ %26, %.critedge73 ]
-  %28 = call ptr @dictGetKey(ptr noundef nonnull %27) #25
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !146
-  %31 = getelementptr inbounds i8, ptr %30, i64 -1
-  %32 = load i8, ptr %31, align 1, !tbaa !19
-  %33 = zext i8 %32 to i32
-  %34 = and i32 %33, 7
-  switch i32 %34, label %sdslen.exit54 [
-    i32 0, label %35
-    i32 1, label %38
-    i32 2, label %42
-    i32 3, label %46
-    i32 4, label %50
+.lr.ph:                                           ; preds = %._crit_edge, %.critedge._crit_edge.i
+  %28 = phi ptr [ %84, %.critedge._crit_edge.i ], [ %27, %._crit_edge ]
+  %29 = call ptr @dictGetKey(ptr noundef nonnull %28) #25
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !146
+  %32 = getelementptr inbounds i8, ptr %31, i64 -1
+  %33 = load i8, ptr %32, align 1, !tbaa !19
+  %34 = zext i8 %33 to i32
+  %35 = and i32 %34, 7
+  switch i32 %35, label %sdslen.exit54 [
+    i32 0, label %36
+    i32 1, label %39
+    i32 2, label %43
+    i32 3, label %47
+    i32 4, label %51
   ]
 
-35:                                               ; preds = %.lr.ph
-  %36 = lshr i32 %33, 3
-  %37 = zext nneg i32 %36 to i64
+36:                                               ; preds = %.lr.ph
+  %37 = lshr i32 %34, 3
+  %38 = zext nneg i32 %37 to i64
   br label %sdslen.exit54
 
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %30, i64 -3
-  %40 = load i8, ptr %39, align 1, !tbaa !19
-  %41 = zext i8 %40 to i64
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds i8, ptr %31, i64 -3
+  %41 = load i8, ptr %40, align 1, !tbaa !19
+  %42 = zext i8 %41 to i64
   br label %sdslen.exit54
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %30, i64 -5
-  %44 = load i16, ptr %43, align 1, !tbaa !26
-  %45 = zext i16 %44 to i64
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds i8, ptr %31, i64 -5
+  %45 = load i16, ptr %44, align 1, !tbaa !26
+  %46 = zext i16 %45 to i64
   br label %sdslen.exit54
 
-46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %30, i64 -9
-  %48 = load i32, ptr %47, align 1, !tbaa !102
-  %49 = zext i32 %48 to i64
+47:                                               ; preds = %.lr.ph
+  %48 = getelementptr inbounds i8, ptr %31, i64 -9
+  %49 = load i32, ptr %48, align 1, !tbaa !102
+  %50 = zext i32 %49 to i64
   br label %sdslen.exit54
 
-50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %30, i64 -17
-  %52 = load i64, ptr %51, align 1, !tbaa !5
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds i8, ptr %31, i64 -17
+  %53 = load i64, ptr %52, align 1, !tbaa !5
   br label %sdslen.exit54
 
-sdslen.exit54:                                    ; preds = %.lr.ph, %35, %38, %42, %46, %50
-  %.0.i53 = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ], [ 0, %.lr.ph ]
-  %53 = trunc i64 %.0.i53 to i32
+sdslen.exit54:                                    ; preds = %.lr.ph, %36, %39, %43, %47, %51
+  %.0.i53 = phi i64 [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ], [ 0, %.lr.ph ]
+  %54 = trunc i64 %.0.i53 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %4) #25
-  %54 = call ptr @listNext(ptr noundef nonnull %4) #25
-  %.not19.i55 = icmp eq ptr %54, null
+  %55 = call ptr @listNext(ptr noundef nonnull %4) #25
+  %.not19.i55 = icmp eq ptr %55, null
   br i1 %.not19.i55, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %sdslen.exit54, %.critedge18.us.i
-  %55 = phi ptr [ %82, %.critedge18.us.i ], [ %54, %sdslen.exit54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !85
-  %58 = getelementptr inbounds i8, ptr %57, i64 -1
-  %59 = load i8, ptr %58, align 1, !tbaa !19
-  %60 = zext i8 %59 to i32
-  %61 = and i32 %60, 7
-  switch i32 %61, label %sdslen.exit.us.i [
-    i32 0, label %77
-    i32 1, label %73
-    i32 2, label %69
-    i32 3, label %65
-    i32 4, label %62
+  %56 = phi ptr [ %83, %.critedge18.us.i ], [ %55, %sdslen.exit54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !85
+  %59 = getelementptr inbounds i8, ptr %58, i64 -1
+  %60 = load i8, ptr %59, align 1, !tbaa !19
+  %61 = zext i8 %60 to i32
+  %62 = and i32 %61, 7
+  switch i32 %62, label %sdslen.exit.us.i [
+    i32 0, label %78
+    i32 1, label %74
+    i32 2, label %70
+    i32 3, label %66
+    i32 4, label %63
   ]
 
-62:                                               ; preds = %.lr.ph.split.us.i
-  %63 = getelementptr inbounds i8, ptr %57, i64 -17
-  %64 = load i64, ptr %63, align 1, !tbaa !5
+63:                                               ; preds = %.lr.ph.split.us.i
+  %64 = getelementptr inbounds i8, ptr %58, i64 -17
+  %65 = load i64, ptr %64, align 1, !tbaa !5
   br label %sdslen.exit.us.i
 
-65:                                               ; preds = %.lr.ph.split.us.i
-  %66 = getelementptr inbounds i8, ptr %57, i64 -9
-  %67 = load i32, ptr %66, align 1, !tbaa !102
-  %68 = zext i32 %67 to i64
+66:                                               ; preds = %.lr.ph.split.us.i
+  %67 = getelementptr inbounds i8, ptr %58, i64 -9
+  %68 = load i32, ptr %67, align 1, !tbaa !102
+  %69 = zext i32 %68 to i64
   br label %sdslen.exit.us.i
 
-69:                                               ; preds = %.lr.ph.split.us.i
-  %70 = getelementptr inbounds i8, ptr %57, i64 -5
-  %71 = load i16, ptr %70, align 1, !tbaa !26
-  %72 = zext i16 %71 to i64
+70:                                               ; preds = %.lr.ph.split.us.i
+  %71 = getelementptr inbounds i8, ptr %58, i64 -5
+  %72 = load i16, ptr %71, align 1, !tbaa !26
+  %73 = zext i16 %72 to i64
   br label %sdslen.exit.us.i
 
-73:                                               ; preds = %.lr.ph.split.us.i
-  %74 = getelementptr inbounds i8, ptr %57, i64 -3
-  %75 = load i8, ptr %74, align 1, !tbaa !19
-  %76 = zext i8 %75 to i64
+74:                                               ; preds = %.lr.ph.split.us.i
+  %75 = getelementptr inbounds i8, ptr %58, i64 -3
+  %76 = load i8, ptr %75, align 1, !tbaa !19
+  %77 = zext i8 %76 to i64
   br label %sdslen.exit.us.i
 
-77:                                               ; preds = %.lr.ph.split.us.i
-  %78 = lshr i32 %60, 3
-  %79 = zext nneg i32 %78 to i64
+78:                                               ; preds = %.lr.ph.split.us.i
+  %79 = lshr i32 %61, 3
+  %80 = zext nneg i32 %79 to i64
   br label %sdslen.exit.us.i
 
-sdslen.exit.us.i:                                 ; preds = %77, %73, %69, %65, %62, %.lr.ph.split.us.i
-  %.0.i.us.i = phi i64 [ %79, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %62 ], [ 0, %.lr.ph.split.us.i ]
-  %80 = trunc i64 %.0.i.us.i to i32
-  %81 = call i32 @stringmatchlen(ptr noundef nonnull %57, i32 noundef %80, ptr noundef %30, i32 noundef %53, i32 noundef 0) #25
-  %.not16.us.i = icmp eq i32 %81, 0
+sdslen.exit.us.i:                                 ; preds = %78, %74, %70, %66, %63, %.lr.ph.split.us.i
+  %.0.i.us.i = phi i64 [ %80, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %63 ], [ 0, %.lr.ph.split.us.i ]
+  %81 = trunc i64 %.0.i.us.i to i32
+  %82 = call i32 @stringmatchlen(ptr noundef nonnull %58, i32 noundef %81, ptr noundef %31, i32 noundef %54, i32 noundef 0) #25
+  %.not16.us.i = icmp eq i32 %82, 0
   br i1 %.not16.us.i, label %.critedge18.us.i, label %.critedge._crit_edge.i, !llvm.loop !190
 
 .critedge18.us.i:                                 ; preds = %sdslen.exit.us.i
-  %82 = call ptr @listNext(ptr noundef nonnull %4) #25
-  %.not.us.i = icmp eq ptr %82, null
+  %83 = call ptr @listNext(ptr noundef nonnull %4) #25
+  %.not.us.i = icmp eq ptr %83, null
   br i1 %.not.us.i, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i, !llvm.loop !191
 
 .critedge._crit_edge.i:                           ; preds = %sdslen.exit.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %83 = call ptr @dictNext(ptr noundef %25) #25
-  %.not43 = icmp eq ptr %83, null
-  br i1 %.not43, label %.critedge75, label %.lr.ph
+  %84 = call ptr @dictNext(ptr noundef %26) #25
+  %.not43 = icmp eq ptr %84, null
+  br i1 %.not43, label %._crit_edge84, label %.lr.ph
 
 ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit54, %.critedge18.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge52.sink.split
 
-.critedge75:                                      ; preds = %.critedge._crit_edge.i, %.critedge73
-  call void @dictReleaseIterator(ptr noundef %25) #25
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %85 = load ptr, ptr %84, align 8, !tbaa !200
-  %86 = call ptr @dictGetIterator(ptr noundef %85) #25
-  %87 = call ptr @dictNext(ptr noundef %86) #25
-  %.not4687 = icmp eq ptr %87, null
-  br i1 %.not4687, label %.critedge52.sink.split, label %.lr.ph88
+._crit_edge84:                                    ; preds = %.critedge._crit_edge.i, %._crit_edge
+  call void @dictReleaseIterator(ptr noundef %26) #25
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %86 = load ptr, ptr %85, align 8, !tbaa !200
+  %87 = call ptr @dictGetIterator(ptr noundef %86) #25
+  %88 = call ptr @dictNext(ptr noundef %87) #25
+  %.not4685 = icmp eq ptr %88, null
+  br i1 %.not4685, label %.critedge52.sink.split, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %.critedge75, %.critedge._crit_edge.i67
-  %88 = phi ptr [ %144, %.critedge._crit_edge.i67 ], [ %87, %.critedge75 ]
-  %89 = call ptr @dictGetKey(ptr noundef nonnull %88) #25
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !146
-  %92 = getelementptr inbounds i8, ptr %91, i64 -1
-  %93 = load i8, ptr %92, align 1, !tbaa !19
-  %94 = zext i8 %93 to i32
-  %95 = and i32 %94, 7
-  switch i32 %95, label %sdslen.exit60 [
-    i32 0, label %96
-    i32 1, label %99
-    i32 2, label %103
-    i32 3, label %107
-    i32 4, label %111
+.lr.ph87:                                         ; preds = %._crit_edge84, %.critedge._crit_edge.i67
+  %89 = phi ptr [ %145, %.critedge._crit_edge.i67 ], [ %88, %._crit_edge84 ]
+  %90 = call ptr @dictGetKey(ptr noundef nonnull %89) #25
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !146
+  %93 = getelementptr inbounds i8, ptr %92, i64 -1
+  %94 = load i8, ptr %93, align 1, !tbaa !19
+  %95 = zext i8 %94 to i32
+  %96 = and i32 %95, 7
+  switch i32 %96, label %sdslen.exit60 [
+    i32 0, label %97
+    i32 1, label %100
+    i32 2, label %104
+    i32 3, label %108
+    i32 4, label %112
   ]
 
-96:                                               ; preds = %.lr.ph88
-  %97 = lshr i32 %94, 3
-  %98 = zext nneg i32 %97 to i64
+97:                                               ; preds = %.lr.ph87
+  %98 = lshr i32 %95, 3
+  %99 = zext nneg i32 %98 to i64
   br label %sdslen.exit60
 
-99:                                               ; preds = %.lr.ph88
-  %100 = getelementptr inbounds i8, ptr %91, i64 -3
-  %101 = load i8, ptr %100, align 1, !tbaa !19
-  %102 = zext i8 %101 to i64
+100:                                              ; preds = %.lr.ph87
+  %101 = getelementptr inbounds i8, ptr %92, i64 -3
+  %102 = load i8, ptr %101, align 1, !tbaa !19
+  %103 = zext i8 %102 to i64
   br label %sdslen.exit60
 
-103:                                              ; preds = %.lr.ph88
-  %104 = getelementptr inbounds i8, ptr %91, i64 -5
-  %105 = load i16, ptr %104, align 1, !tbaa !26
-  %106 = zext i16 %105 to i64
+104:                                              ; preds = %.lr.ph87
+  %105 = getelementptr inbounds i8, ptr %92, i64 -5
+  %106 = load i16, ptr %105, align 1, !tbaa !26
+  %107 = zext i16 %106 to i64
   br label %sdslen.exit60
 
-107:                                              ; preds = %.lr.ph88
-  %108 = getelementptr inbounds i8, ptr %91, i64 -9
-  %109 = load i32, ptr %108, align 1, !tbaa !102
-  %110 = zext i32 %109 to i64
+108:                                              ; preds = %.lr.ph87
+  %109 = getelementptr inbounds i8, ptr %92, i64 -9
+  %110 = load i32, ptr %109, align 1, !tbaa !102
+  %111 = zext i32 %110 to i64
   br label %sdslen.exit60
 
-111:                                              ; preds = %.lr.ph88
-  %112 = getelementptr inbounds i8, ptr %91, i64 -17
-  %113 = load i64, ptr %112, align 1, !tbaa !5
+112:                                              ; preds = %.lr.ph87
+  %113 = getelementptr inbounds i8, ptr %92, i64 -17
+  %114 = load i64, ptr %113, align 1, !tbaa !5
   br label %sdslen.exit60
 
-sdslen.exit60:                                    ; preds = %.lr.ph88, %96, %99, %103, %107, %111
-  %.0.i59 = phi i64 [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %113, %111 ], [ 0, %.lr.ph88 ]
-  %114 = trunc i64 %.0.i59 to i32
+sdslen.exit60:                                    ; preds = %.lr.ph87, %97, %100, %104, %108, %112
+  %.0.i59 = phi i64 [ %99, %97 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %114, %112 ], [ 0, %.lr.ph87 ]
+  %115 = trunc i64 %.0.i59 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %3) #25
-  %115 = call ptr @listNext(ptr noundef nonnull %3) #25
-  %.not19.i61 = icmp eq ptr %115, null
+  %116 = call ptr @listNext(ptr noundef nonnull %3) #25
+  %.not19.i61 = icmp eq ptr %116, null
   br i1 %.not19.i61, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63
 
 .lr.ph.split.us.i63:                              ; preds = %sdslen.exit60, %.critedge18.us.i69
-  %116 = phi ptr [ %143, %.critedge18.us.i69 ], [ %115, %sdslen.exit60 ]
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !85
-  %119 = getelementptr inbounds i8, ptr %118, i64 -1
-  %120 = load i8, ptr %119, align 1, !tbaa !19
-  %121 = zext i8 %120 to i32
-  %122 = and i32 %121, 7
-  switch i32 %122, label %sdslen.exit.us.i64 [
-    i32 0, label %138
-    i32 1, label %134
-    i32 2, label %130
-    i32 3, label %126
-    i32 4, label %123
+  %117 = phi ptr [ %144, %.critedge18.us.i69 ], [ %116, %sdslen.exit60 ]
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !85
+  %120 = getelementptr inbounds i8, ptr %119, i64 -1
+  %121 = load i8, ptr %120, align 1, !tbaa !19
+  %122 = zext i8 %121 to i32
+  %123 = and i32 %122, 7
+  switch i32 %123, label %sdslen.exit.us.i64 [
+    i32 0, label %139
+    i32 1, label %135
+    i32 2, label %131
+    i32 3, label %127
+    i32 4, label %124
   ]
 
-123:                                              ; preds = %.lr.ph.split.us.i63
-  %124 = getelementptr inbounds i8, ptr %118, i64 -17
-  %125 = load i64, ptr %124, align 1, !tbaa !5
+124:                                              ; preds = %.lr.ph.split.us.i63
+  %125 = getelementptr inbounds i8, ptr %119, i64 -17
+  %126 = load i64, ptr %125, align 1, !tbaa !5
   br label %sdslen.exit.us.i64
 
-126:                                              ; preds = %.lr.ph.split.us.i63
-  %127 = getelementptr inbounds i8, ptr %118, i64 -9
-  %128 = load i32, ptr %127, align 1, !tbaa !102
-  %129 = zext i32 %128 to i64
+127:                                              ; preds = %.lr.ph.split.us.i63
+  %128 = getelementptr inbounds i8, ptr %119, i64 -9
+  %129 = load i32, ptr %128, align 1, !tbaa !102
+  %130 = zext i32 %129 to i64
   br label %sdslen.exit.us.i64
 
-130:                                              ; preds = %.lr.ph.split.us.i63
-  %131 = getelementptr inbounds i8, ptr %118, i64 -5
-  %132 = load i16, ptr %131, align 1, !tbaa !26
-  %133 = zext i16 %132 to i64
+131:                                              ; preds = %.lr.ph.split.us.i63
+  %132 = getelementptr inbounds i8, ptr %119, i64 -5
+  %133 = load i16, ptr %132, align 1, !tbaa !26
+  %134 = zext i16 %133 to i64
   br label %sdslen.exit.us.i64
 
-134:                                              ; preds = %.lr.ph.split.us.i63
-  %135 = getelementptr inbounds i8, ptr %118, i64 -3
-  %136 = load i8, ptr %135, align 1, !tbaa !19
-  %137 = zext i8 %136 to i64
+135:                                              ; preds = %.lr.ph.split.us.i63
+  %136 = getelementptr inbounds i8, ptr %119, i64 -3
+  %137 = load i8, ptr %136, align 1, !tbaa !19
+  %138 = zext i8 %137 to i64
   br label %sdslen.exit.us.i64
 
-138:                                              ; preds = %.lr.ph.split.us.i63
-  %139 = lshr i32 %121, 3
-  %140 = zext nneg i32 %139 to i64
+139:                                              ; preds = %.lr.ph.split.us.i63
+  %140 = lshr i32 %122, 3
+  %141 = zext nneg i32 %140 to i64
   br label %sdslen.exit.us.i64
 
-sdslen.exit.us.i64:                               ; preds = %138, %134, %130, %126, %123, %.lr.ph.split.us.i63
-  %.0.i.us.i65 = phi i64 [ %140, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %126 ], [ %125, %123 ], [ 0, %.lr.ph.split.us.i63 ]
-  %141 = trunc i64 %.0.i.us.i65 to i32
-  %142 = call i32 @stringmatchlen(ptr noundef nonnull %118, i32 noundef %141, ptr noundef %91, i32 noundef %114, i32 noundef 0) #25
-  %.not16.us.i66 = icmp eq i32 %142, 0
+sdslen.exit.us.i64:                               ; preds = %139, %135, %131, %127, %124, %.lr.ph.split.us.i63
+  %.0.i.us.i65 = phi i64 [ %141, %139 ], [ %138, %135 ], [ %134, %131 ], [ %130, %127 ], [ %126, %124 ], [ 0, %.lr.ph.split.us.i63 ]
+  %142 = trunc i64 %.0.i.us.i65 to i32
+  %143 = call i32 @stringmatchlen(ptr noundef nonnull %119, i32 noundef %142, ptr noundef %92, i32 noundef %115, i32 noundef 0) #25
+  %.not16.us.i66 = icmp eq i32 %143, 0
   br i1 %.not16.us.i66, label %.critedge18.us.i69, label %.critedge._crit_edge.i67, !llvm.loop !190
 
 .critedge18.us.i69:                               ; preds = %sdslen.exit.us.i64
-  %143 = call ptr @listNext(ptr noundef nonnull %3) #25
-  %.not.us.i70 = icmp eq ptr %143, null
+  %144 = call ptr @listNext(ptr noundef nonnull %3) #25
+  %.not.us.i70 = icmp eq ptr %144, null
   br i1 %.not.us.i70, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63, !llvm.loop !191
 
 .critedge._crit_edge.i67:                         ; preds = %sdslen.exit.us.i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %144 = call ptr @dictNext(ptr noundef %86) #25
-  %.not46 = icmp eq ptr %144, null
-  br i1 %.not46, label %.critedge52.sink.split, label %.lr.ph88
+  %145 = call ptr @dictNext(ptr noundef %87) #25
+  %.not46 = icmp eq ptr %145, null
+  br i1 %.not46, label %.critedge52.sink.split, label %.lr.ph87
 
 ACLCheckChannelAgainstList.exit71:                ; preds = %sdslen.exit60, %.critedge18.us.i69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge52.sink.split
 
-.critedge52.sink.split:                           ; preds = %.critedge._crit_edge.i67, %.critedge75, %ACLCheckChannelAgainstList.exit58, %ACLCheckChannelAgainstList.exit, %ACLCheckChannelAgainstList.exit71
-  %.sink = phi ptr [ %86, %ACLCheckChannelAgainstList.exit71 ], [ %10, %ACLCheckChannelAgainstList.exit ], [ %25, %ACLCheckChannelAgainstList.exit58 ], [ %86, %.critedge75 ], [ %86, %.critedge._crit_edge.i67 ]
-  %.1.ph = phi i32 [ 1, %ACLCheckChannelAgainstList.exit71 ], [ 1, %ACLCheckChannelAgainstList.exit ], [ 1, %ACLCheckChannelAgainstList.exit58 ], [ 0, %.critedge75 ], [ 0, %.critedge._crit_edge.i67 ]
+.critedge52.sink.split:                           ; preds = %.critedge._crit_edge.i67, %._crit_edge84, %ACLCheckChannelAgainstList.exit58, %ACLCheckChannelAgainstList.exit, %ACLCheckChannelAgainstList.exit71
+  %.sink = phi ptr [ %87, %ACLCheckChannelAgainstList.exit71 ], [ %11, %ACLCheckChannelAgainstList.exit ], [ %26, %ACLCheckChannelAgainstList.exit58 ], [ %87, %._crit_edge84 ], [ %87, %.critedge._crit_edge.i67 ]
+  %.1.ph = phi i32 [ 1, %ACLCheckChannelAgainstList.exit71 ], [ 1, %ACLCheckChannelAgainstList.exit ], [ 1, %ACLCheckChannelAgainstList.exit58 ], [ 0, %._crit_edge84 ], [ 0, %.critedge._crit_edge.i67 ]
   call void @dictReleaseIterator(ptr noundef %.sink) #25
   br label %.critedge52
 

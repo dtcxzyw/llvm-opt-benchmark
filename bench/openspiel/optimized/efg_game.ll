@@ -7079,14 +7079,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %5, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %6, %5 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #29
-  br label %110
+  br label %109
 
-.loopexit.loopexit.split:                         ; preds = %96, %91, %70
+.loopexit.loopexit.split:                         ; preds = %95, %90, %.lr.ph34.split
   %lpad.loopexit14 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit.split-lp:                      ; preds = %78
+.loopexit.loopexit.split-lp:                      ; preds = %77
   %lpad.loopexit.split-lp15 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -7099,7 +7099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.split.us, %.loopexit.loopexit.split, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp15, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit14, %.loopexit.loopexit.split ], [ %lpad.loopexit14.us, %.loopexit.loopexit.split.us ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
-  br label %110
+  br label %109
 
 _ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit: ; preds = %24
   %28 = load i32, ptr %7, align 8
@@ -7147,7 +7147,7 @@ _ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit.thread: ; preds = %17, %_
 
 .lr.ph34.lr.ph:                                   ; preds = %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit.thread
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  br label %70
+  br label %.lr.ph34.split
 
 .lr.ph34.split.us:                                ; preds = %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13.us
   %51 = load i32, ptr %7, align 8
@@ -7194,86 +7194,86 @@ _ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13.us: ; preds = %63, %.
           cleanup
   br label %.loopexit
 
-70:                                               ; preds = %.lr.ph34.lr.ph, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13
-  %71 = load i32, ptr %7, align 8
-  %72 = sext i32 %71 to i64
-  %73 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %72)
-          to label %74 unwind label %.loopexit.loopexit.split
+.lr.ph34.split:                                   ; preds = %.lr.ph34.lr.ph, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13
+  %70 = load i32, ptr %7, align 8
+  %71 = sext i32 %70 to i64
+  %72 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %71)
+          to label %73 unwind label %.loopexit.loopexit.split
 
-74:                                               ; preds = %70
-  %75 = load i8, ptr %73, align 1
-  %76 = icmp eq i8 %75, 44
-  %77 = load i32, ptr %7, align 8
-  br i1 %76, label %78, label %91
+73:                                               ; preds = %.lr.ph34.split
+  %74 = load i8, ptr %72, align 1
+  %75 = icmp eq i8 %74, 44
+  %76 = load i32, ptr %7, align 8
+  br i1 %75, label %77, label %90
 
-78:                                               ; preds = %74
-  %79 = add nsw i32 %77, 1
-  store i32 %79, ptr %7, align 8
-  %80 = sext i32 %79 to i64
-  %81 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %80)
+77:                                               ; preds = %73
+  %78 = add nsw i32 %76, 1
+  store i32 %78, ptr %7, align 8
+  %79 = sext i32 %78 to i64
+  %80 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %79)
           to label %.noexc9 unwind label %.loopexit.loopexit.split-lp
 
-.noexc9:                                          ; preds = %78
-  %82 = load i8, ptr %81, align 1
-  %83 = icmp eq i8 %82, 10
-  br i1 %83, label %84, label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10
+.noexc9:                                          ; preds = %77
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 10
+  br i1 %82, label %83, label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10
 
-84:                                               ; preds = %.noexc9
-  %85 = load i32, ptr %50, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %50, align 4
+83:                                               ; preds = %.noexc9
+  %84 = load i32, ptr %50, align 4
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %50, align 4
   br label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10
 
-_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10: ; preds = %.noexc9, %84
-  %87 = load i32, ptr %7, align 8
-  %88 = sext i32 %87 to i64
-  %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
-  %90 = icmp ugt i64 %89, %88
-  br i1 %90, label %.lr.ph34.split.us, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11
+_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10: ; preds = %.noexc9, %83
+  %86 = load i32, ptr %7, align 8
+  %87 = sext i32 %86 to i64
+  %88 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
+  %89 = icmp ugt i64 %88, %87
+  br i1 %89, label %.lr.ph34.split.us, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11
 
-91:                                               ; preds = %74
-  %92 = sext i32 %77 to i64
-  %93 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %92)
-          to label %94 unwind label %.loopexit.loopexit.split
+90:                                               ; preds = %73
+  %91 = sext i32 %76 to i64
+  %92 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %91)
+          to label %93 unwind label %.loopexit.loopexit.split
 
-94:                                               ; preds = %91
-  %95 = load i8, ptr %93, align 1
-  switch i8 %95, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11 [
-    i8 32, label %96
-    i8 13, label %96
-    i8 10, label %96
+93:                                               ; preds = %90
+  %94 = load i8, ptr %92, align 1
+  switch i8 %94, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11 [
+    i8 32, label %95
+    i8 13, label %95
+    i8 10, label %95
   ]
 
-96:                                               ; preds = %94, %94, %94
-  %97 = load i32, ptr %7, align 8
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %7, align 8
-  %99 = sext i32 %98 to i64
-  %100 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %99)
+95:                                               ; preds = %93, %93, %93
+  %96 = load i32, ptr %7, align 8
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %7, align 8
+  %98 = sext i32 %97 to i64
+  %99 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %98)
           to label %.noexc12 unwind label %.loopexit.loopexit.split
 
-.noexc12:                                         ; preds = %96
-  %101 = load i8, ptr %100, align 1
-  %102 = icmp eq i8 %101, 10
-  br i1 %102, label %103, label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13
+.noexc12:                                         ; preds = %95
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, 10
+  br i1 %101, label %102, label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13
 
-103:                                              ; preds = %.noexc12
-  %104 = load i32, ptr %50, align 4
-  %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %50, align 4
+102:                                              ; preds = %.noexc12
+  %103 = load i32, ptr %50, align 4
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %50, align 4
   br label %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13
 
-_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13: ; preds = %.noexc12, %103
-  %106 = load i32, ptr %7, align 8
-  %107 = sext i32 %106 to i64
-  %108 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
-  %109 = icmp ugt i64 %108, %107
-  br i1 %109, label %70, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11
+_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13: ; preds = %.noexc12, %102
+  %105 = load i32, ptr %7, align 8
+  %106 = sext i32 %105 to i64
+  %107 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
+  %108 = icmp ugt i64 %107, %106
+  br i1 %108, label %.lr.ph34.split, label %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11
 
-_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11: ; preds = %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13, %94, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13.us, %54, %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit.thread, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10
+_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit11: ; preds = %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13, %93, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit13.us, %54, %_ZN10open_spiel8efg_game7EFGGame15AdvancePositionEv.exit10, %_ZNK10open_spiel8efg_game7EFGGame12IsWhiteSpaceEc.exit.thread
   ret void
 
-110:                                              ; preds = %.loopexit, %.body
+109:                                              ; preds = %.loopexit, %.body
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }

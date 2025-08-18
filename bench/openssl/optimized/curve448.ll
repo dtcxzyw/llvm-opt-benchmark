@@ -1608,51 +1608,50 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = alloca [1 x %struct.gf_s], align 16
   %3 = alloca [1 x %struct.gf_s], align 16
-  %4 = alloca [1 x %struct.curve448_point_s], align 16
-  %5 = alloca [56 x i8], align 16
-  %6 = alloca [1 x %struct.curve448_scalar_s], align 16
-  %7 = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %4 = alloca [1 x %struct.gf_s], align 16
+  %5 = alloca [1 x %struct.curve448_point_s], align 16
+  %6 = alloca [56 x i8], align 16
+  %7 = alloca [1 x %struct.curve448_scalar_s], align 16
+  %8 = alloca [1 x %struct.curve448_point_s], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 1 dereferenceable(56) %1, i64 56, i1 false)
-  %8 = load i8, ptr %5, align 16, !tbaa !16
-  %9 = and i8 %8, -4
-  store i8 %9, ptr %5, align 16, !tbaa !16
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 55
-  %11 = load i8, ptr %10, align 1, !tbaa !16
-  %12 = or i8 %11, -128
-  store i8 %12, ptr %10, align 1, !tbaa !16
-  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 56) #7
-  call void @ossl_curve448_scalar_halve(ptr noundef nonnull %6, ptr noundef nonnull %6) #7
-  %13 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !42
-  call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false), !tbaa.struct !28
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %6, ptr noundef nonnull align 1 dereferenceable(56) %1, i64 56, i1 false)
+  %9 = load i8, ptr %6, align 16, !tbaa !16
+  %10 = and i8 %9, -4
+  store i8 %10, ptr %6, align 16, !tbaa !16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 55
+  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %13 = or i8 %12, -128
+  store i8 %13, ptr %11, align 1, !tbaa !16
+  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 56) #7
+  call void @ossl_curve448_scalar_halve(ptr noundef nonnull %7, ptr noundef nonnull %7) #7
+  %14 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !42
+  call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %8, ptr noundef %14, ptr noundef nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull readonly align 16 dereferenceable(256) %8, i64 256, i1 false), !tbaa.struct !28
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 192
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @ossl_gf_sqr(ptr noundef nonnull %2, ptr noundef nonnull %4) #7
-  %15 = call i64 @gf_isr(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @ossl_gf_mul(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %17, ptr noundef nonnull %16) #7
-  call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %17, i32 noundef 1) #7
-  call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 256) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %5) #7
+  %16 = call i64 @gf_isr(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %15, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 256) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @ossl_gf_mul(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %18) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %18, ptr noundef nonnull %17) #7
+  call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %18, i32 noundef 1) #7
+  call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 256) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 256) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 

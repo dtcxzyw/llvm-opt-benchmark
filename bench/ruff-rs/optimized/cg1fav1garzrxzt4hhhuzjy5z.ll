@@ -1750,13 +1750,13 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h2ef304d46cf7548aE(
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load ptr, ptr %33, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %31, align 8
+  %34 = load ptr, ptr %32, align 8
   store i64 %.val10, ptr %27, align 8
   store ptr %34, ptr %31, align 8
   store i64 %.val9, ptr %28, align 8
-  store ptr %32, ptr %33, align 8
+  store ptr %33, ptr %32, align 8
   %35 = shl i64 %.sroa.04.0.i, 1
   %36 = or disjoint i64 %35, 1
   %.not.i = icmp ult i64 %36, %.sroa.0.0.sroa.speculated.i
@@ -2185,13 +2185,13 @@ _ZN4core5slice4sort6shared9smallsort18small_sort_general17hb7bfadf214e123f1E.exi
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %175 = load ptr, ptr %174, align 8, !alias.scope !402
-  %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %177 = load ptr, ptr %176, align 8, !alias.scope !402
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %176 = load ptr, ptr %174, align 8, !alias.scope !402
+  %177 = load ptr, ptr %175, align 8, !alias.scope !402
   store i64 %.val10.i, ptr %170, align 8, !alias.scope !402
   store ptr %177, ptr %174, align 8, !alias.scope !402
   store i64 %.val9.i, ptr %171, align 8, !alias.scope !402
-  store ptr %175, ptr %176, align 8, !alias.scope !402
+  store ptr %176, ptr %175, align 8, !alias.scope !402
   %178 = shl i64 %.sroa.04.0.i.i, 1
   %179 = or disjoint i64 %178, 1
   %.not.i.i = icmp ult i64 %179, %.sroa.0.0.sroa.speculated.i.i

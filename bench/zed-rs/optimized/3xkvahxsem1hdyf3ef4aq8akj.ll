@@ -26336,14 +26336,14 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..cell..UnsafeCell$LT$$
 .body.i:                                          ; preds = %20, %14
   %eh.lpad-body.i = phi { ptr, i32 } [ %21, %20 ], [ %15, %14 ]
   %22 = icmp eq i64 %5, 2
-  br i1 %22, label %.critedge.i, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %.body.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$async_io..reactor..Direction$GT$17hc12fa6ac13a9d531E"(ptr noalias noundef readonly align 8 dereferenceable(88) %24) #30
-          to label %.critedge.i unwind label %25
+          to label %.critedge unwind label %25
 
-.critedge.i:                                      ; preds = %23, %.body.i
+.critedge:                                        ; preds = %23, %.body.i
   resume { ptr, i32 } %eh.lpad-body.i
 
 25:                                               ; preds = %23
@@ -26917,14 +26917,14 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..sync..mutex..Mutex$LT$
 .body.i.i:                                        ; preds = %21, %15
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %22, %21 ], [ %16, %15 ]
   %23 = icmp eq i64 %6, 2
-  br i1 %23, label %.critedge.i.i, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %.body.i.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$async_io..reactor..Direction$GT$17hc12fa6ac13a9d531E"(ptr noalias noundef readonly align 8 dereferenceable(88) %25) #30
-          to label %.critedge.i.i unwind label %26
+          to label %.critedge unwind label %26
 
-.critedge.i.i:                                    ; preds = %24, %.body.i.i
+.critedge:                                        ; preds = %24, %.body.i.i
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 26:                                               ; preds = %24
@@ -76848,14 +76848,14 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$async_io..reactor..Source$GT
 .body.i.i.i:                                      ; preds = %21, %15
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %16, %15 ]
   %23 = icmp eq i64 %6, 2
-  br i1 %23, label %.critedge.i.i.i, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %.body.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$async_io..reactor..Direction$GT$17hc12fa6ac13a9d531E"(ptr noalias noundef readonly align 8 dereferenceable(88) %25) #30
-          to label %.critedge.i.i.i unwind label %26
+          to label %.critedge unwind label %26
 
-.critedge.i.i.i:                                  ; preds = %24, %.body.i.i.i
+.critedge:                                        ; preds = %24, %.body.i.i.i
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 26:                                               ; preds = %24
@@ -77119,7 +77119,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$copilot..RegisteredBuffer$GT
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable
 
-.body:                                            ; preds = %25, %22, %12
+.body:                                            ; preds = %22, %25, %12
   %.pn4 = phi { ptr, i32 } [ %13, %12 ], [ %23, %25 ], [ %23, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   invoke void @"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hf0fcbaad3c1779f6E.llvm.148755494358810581"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29) #30

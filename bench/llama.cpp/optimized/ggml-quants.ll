@@ -13241,22 +13241,22 @@ iq2_find_best_neighbour.exit369.i.us:             ; preds = %264, %228, %209
 288:                                              ; preds = %285, %204
   %.2330.i.us = phi float [ %.3.i.us, %285 ], [ %.1329.i.us, %204 ]
   %289 = fcmp olt float %.2330.i.us, 0.000000e+00
-  br i1 %289, label %.loopexit376.loopexit.i.critedge.us, label %.loopexit376.i.us
+  br i1 %289, label %.preheader.us, label %.loopexit376.i.us
 
-.loopexit376.loopexit.i.critedge.us:              ; preds = %288
-  %.sroa.0.0..sroa.0.0. = load i8, ptr %.sroa.0, align 1, !tbaa !13, !noalias !791
-  %290 = and i8 %.sroa.0.0..sroa.0.0., 127
+.preheader.us:                                    ; preds = %288
+  %.sroa.0.0. = load i8, ptr %.sroa.0, align 1, !tbaa !13, !noalias !791
+  %290 = and i8 %.sroa.0.0., 127
   %291 = xor i8 %290, 127
   store i8 %291, ptr %.sroa.0, align 1, !tbaa !13, !noalias !791
-  %.sroa.5.0..sroa.5.0. = load i8, ptr %.sroa.5, align 1, !tbaa !13, !noalias !791
-  %292 = and i8 %.sroa.5.0..sroa.5.0., 127
+  %.sroa.5.0. = load i8, ptr %.sroa.5, align 1, !tbaa !13, !noalias !791
+  %292 = and i8 %.sroa.5.0., 127
   %293 = xor i8 %292, 127
   store i8 %293, ptr %.sroa.5, align 1, !tbaa !13, !noalias !791
   %294 = fneg float %.2330.i.us
   br label %.loopexit376.i.us
 
-.loopexit376.i.us:                                ; preds = %.loopexit376.loopexit.i.critedge.us, %288
-  %.4.i.us = phi float [ %.2330.i.us, %288 ], [ %294, %.loopexit376.loopexit.i.critedge.us ]
+.loopexit376.i.us:                                ; preds = %.preheader.us, %288
+  %.4.i.us = phi float [ %.2330.i.us, %288 ], [ %294, %.preheader.us ]
   %295 = shl nuw nsw i64 %indvars.iv510.i.us, 1
   br label %.preheader371.i.us
 
@@ -18775,20 +18775,20 @@ iq2_find_best_neighbour.exit345.i.us:             ; preds = %242, %206, %187
 266:                                              ; preds = %263, %182
   %.2.i.us = phi float [ %.3.i.us, %263 ], [ %.1313.i.us, %182 ]
   %267 = fcmp olt float %.2.i.us, 0.000000e+00
-  br i1 %267, label %.loopexit352.loopexit.i.critedge.us, label %.loopexit352.i.us
+  br i1 %267, label %.preheader.us, label %.loopexit352.i.us
 
-.loopexit352.loopexit.i.critedge.us:              ; preds = %266
-  %.sroa.0.0..sroa.0.0. = load i8, ptr %.sroa.0, align 1, !tbaa !13, !noalias !1110
-  %268 = xor i8 %.sroa.0.0..sroa.0.0., -1
+.preheader.us:                                    ; preds = %266
+  %.sroa.0.0. = load i8, ptr %.sroa.0, align 1, !tbaa !13, !noalias !1110
+  %268 = xor i8 %.sroa.0.0., -1
   store i8 %268, ptr %.sroa.0, align 1, !tbaa !13, !noalias !1110
-  %.sroa.5.0..sroa.5.0. = load i8, ptr %.sroa.5, align 1, !tbaa !13, !noalias !1110
-  %269 = xor i8 %.sroa.5.0..sroa.5.0., -1
+  %.sroa.5.0. = load i8, ptr %.sroa.5, align 1, !tbaa !13, !noalias !1110
+  %269 = xor i8 %.sroa.5.0., -1
   store i8 %269, ptr %.sroa.5, align 1, !tbaa !13, !noalias !1110
   %270 = fneg float %.2.i.us
   br label %.loopexit352.i.us
 
-.loopexit352.i.us:                                ; preds = %.loopexit352.loopexit.i.critedge.us, %266
-  %.4.i.us = phi float [ %.2.i.us, %266 ], [ %270, %.loopexit352.loopexit.i.critedge.us ]
+.loopexit352.i.us:                                ; preds = %.preheader.us, %266
+  %.4.i.us = phi float [ %.2.i.us, %266 ], [ %270, %.preheader.us ]
   %271 = shl nuw nsw i64 %indvars.iv487.i.us, 1
   %272 = lshr i64 %indvars.iv487.i.us, 1
   %273 = and i64 %272, 2147483647

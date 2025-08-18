@@ -104821,7 +104821,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail9from_j
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %0, align 8, !tbaa !17
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %_ZN8nlohmann16json_abi_v3_11_36detail20from_json_array_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEiLm2EEEDTcmcldtfp_3getIT0_EEcvv_EERKT_RSt5arrayISG_XT1_EENS1_12priority_tagILj2EEE.exit.critedge, label %8, !prof !1438
+  br i1 %7, label %.preheader, label %8, !prof !1438
 
 8:                                                ; preds = %2
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #29
@@ -104878,7 +104878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14
   call void @__cxa_free_exception(ptr %9) #29
   br label %30
 
-_ZN8nlohmann16json_abi_v3_11_36detail20from_json_array_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEiLm2EEEDTcmcldtfp_3getIT0_EEcvv_EERKT_RSt5arrayISG_XT1_EENS1_12priority_tagILj2EEE.exit.critedge: ; preds = %2
+.preheader:                                       ; preds = %2
   %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE2atEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !295

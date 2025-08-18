@@ -13805,30 +13805,35 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 73:                                               ; preds = %64
   invoke void @_ZN11quinn_proto5frame3Ack4iter17h956ca7fd117b10eeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %32, ptr noundef nonnull align 8 %5)
-          to label %74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %308, %320
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %320 ], [ %lpad.thr_comm.split-lp, %308 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit161, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %308, %320
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %320 ], [ %lpad.thr_comm.split-lp, %308 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit161, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit166, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$GT$17hcd2e14946376df61E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %33) #25
           to label %38 unwind label %321
 
-.loopexit:                                        ; preds = %124, %294, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.i"
+.loopexit:                                        ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %338, %334
+.loopexit.split-lp.loopexit:                      ; preds = %294, %124
   %lpad.loopexit161 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %79, %325, %329, %331
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %334, %338
   %lpad.loopexit164 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.thread142.invoke, %73, %82, %85, %.loopexit160, %133, %143, %163, %177, %182, %215, %221, %223, %229, %237, %.thread137, %255, %262, %275, %285, %173, %195, %199, %203, %207
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %331, %329, %325, %79
+  %lpad.loopexit166 = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit.split-lp
+
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.thread145.invoke, %207, %203, %199, %195, %173, %285, %275, %262, %255, %.thread137, %237, %229, %223, %221, %215, %182, %177, %163, %143, %133, %.loopexit160, %85, %82, %73
+  %lpad.loopexit.split-lp167 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -13849,7 +13854,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 79:                                               ; preds = %341, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @"_ZN86_$LT$quinn_proto..frame..AckIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24ed9ee75085ef04E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
-          to label %80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 80:                                               ; preds = %79
   %81 = load i8, ptr %75, align 8, !range !181, !noundef !3
@@ -13860,14 +13865,14 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %83 = invoke noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet8is_empty17h9ab8a699eac73ad9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %33)
-          to label %84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 84:                                               ; preds = %82
   br i1 %83, label %86, label %85
 
 85:                                               ; preds = %84
   invoke void @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet4elts17h13292eca68462328E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %33)
-          to label %87 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %87 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 86:                                               ; preds = %84
   store i64 2, ptr %0, align 8
@@ -13898,19 +13903,14 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
   %.pre.i = load i64, ptr %24, align 8, !range !79, !alias.scope !430
   %104 = trunc nuw i64 %.pre.i to i1
-  br i1 %104, label %._crit_edge, label %111
+  br i1 %104, label %105, label %111
 
-._crit_edge:                                      ; preds = %103
-  %.pre = load i64, ptr %88, align 8, !alias.scope !433, !noalias !442
-  %.pre179 = load i64, ptr %89, align 8, !alias.scope !444, !noalias !445
-  br label %105
-
-105:                                              ; preds = %._crit_edge, %.critedge.i
-  %106 = phi i64 [ %.pre179, %._crit_edge ], [ %115, %.critedge.i ]
-  %107 = phi i64 [ %.pre, %._crit_edge ], [ %114, %.critedge.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  call void @llvm.experimental.noalias.scope.decl(metadata !442)
-  %108 = icmp ult i64 %107, %106
+105:                                              ; preds = %.critedge, %103
+  call void @llvm.experimental.noalias.scope.decl(metadata !433)
+  call void @llvm.experimental.noalias.scope.decl(metadata !436)
+  %106 = load i64, ptr %88, align 8, !alias.scope !438, !noalias !436, !noundef !3
+  %107 = load i64, ptr %89, align 8, !alias.scope !445, !noalias !433, !noundef !3
+  %108 = icmp ult i64 %106, %107
   br i1 %108, label %.thread, label %109
 
 109:                                              ; preds = %105
@@ -13918,7 +13918,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   br label %111
 
 .thread:                                          ; preds = %105
-  %110 = add nuw i64 %107, 1
+  %110 = add nuw i64 %106, 1
   store i64 %110, ptr %88, align 8, !alias.scope !446
   br label %124
 
@@ -13935,9 +13935,9 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 .noexc104:                                        ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.i"
   %.pre10.i = load i64, ptr %7, align 8, !range !79, !noalias !427
   %113 = trunc nuw i64 %.pre10.i to i1
-  br i1 %113, label %.critedge.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.thread.i"
+  br i1 %113, label %.critedge, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.thread.i"
 
-.critedge.i:                                      ; preds = %.noexc104
+.critedge:                                        ; preds = %.noexc104
   %114 = load i64, ptr %91, align 8, !noalias !427, !noundef !3
   %115 = load i64, ptr %92, align 8, !noalias !427, !noundef !3
   store i64 1, ptr %24, align 8, !alias.scope !427
@@ -13966,10 +13966,10 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   br label %124
 
 124:                                              ; preds = %122, %.thread
-  %.sroa.3.0.i2.pn.i129 = phi i64 [ %107, %.thread ], [ %119, %122 ]
+  %.sroa.3.0.i2.pn.i129 = phi i64 [ %106, %.thread ], [ %119, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %125 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN148_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..IndexMut$LT$quinn_proto..packet..SpaceId$GT$$GT$9index_mut17h4e82433c0c2a4615E"(ptr noalias noundef nonnull align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.192)
-          to label %294 unwind label %.loopexit
+          to label %294 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit160:                                     ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE.exit.thread.i", %118
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !427
@@ -13981,7 +13981,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 5895
   %131 = load i8, ptr %130, align 1, !range !103, !noundef !3
   %132 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.185)
-          to label %133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 133:                                              ; preds = %.loopexit160
   %134 = trunc nuw i8 %131 to i1
@@ -13992,7 +13992,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   %139 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %140 = load ptr, ptr %139, align 8, !invariant.load !3, !nonnull !3
   invoke void %140(ptr noundef nonnull align 1 %126, i64 noundef %2, i32 noundef %3, i64 noundef %129, i1 noundef zeroext %134, i64 noundef %136, i64 %138)
-          to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 141:                                              ; preds = %133
   %142 = trunc nuw i8 %.sroa.017.0 to i1
@@ -14001,7 +14001,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 143:                                              ; preds = %179, %184, %141
   invoke fastcc void @_ZN11quinn_proto10connection10Connection19detect_lost_packets17h4e58b5c1e24938c9E(ptr noalias noundef align 16 dereferenceable(6000) %1, i64 noundef %2, i32 noundef %3, i8 noundef %4, i1 noundef zeroext true)
-          to label %188 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %188 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 144:                                              ; preds = %141
   %.not89 = icmp eq i8 %4, 2
@@ -14034,7 +14034,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   %.sroa.3.0 = phi i32 [ %.sroa.3.0.i, %145 ], [ 0, %144 ]
   %.sroa.019.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %145 ], [ 0, %144 ]
   %164 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.186)
-          to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 368
@@ -14049,7 +14049,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 173:                                              ; preds = %165
   %174 = invoke { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hcd5baaf383ccc308E"(i64 noundef %2, i32 noundef range(i32 0, 1000000000) %3, i64 noundef %167, i32 noundef range(i32 0, 1000000000) %169)
-          to label %.noexc108 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc108 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc108:                                        ; preds = %173
   %175 = extractvalue { i64, i32 } %174, 0
@@ -14061,7 +14061,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
   %.sroa.0.0.i107 = phi i64 [ %175, %.noexc108 ], [ 0, %165 ]
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 232
   invoke void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6993e6223e61b04E(ptr noalias noundef nonnull align 8 dereferenceable(64) %178, i64 noundef %.sroa.019.0, i32 noundef %.sroa.3.0, i64 noundef %.sroa.0.0.i107, i32 noundef %.sroa.3.0.i106)
-          to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -14071,7 +14071,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 182:                                              ; preds = %179
   %183 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.187)
-          to label %184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 184:                                              ; preds = %182
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 608
@@ -14096,7 +14096,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 195:                                              ; preds = %191
   %196 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.240)
-          to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc110:                                        ; preds = %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 160
@@ -14106,7 +14106,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 199:                                              ; preds = %.noexc110
   %200 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.241)
-          to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc111:                                        ; preds = %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 160
@@ -14116,7 +14116,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 203:                                              ; preds = %.noexc111
   %204 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.242)
-          to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc112:                                        ; preds = %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 416
@@ -14126,7 +14126,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_ack_re
 
 207:                                              ; preds = %.noexc112
   %208 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.243)
-          to label %_ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc86f7b83ed1c2e3bE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc86f7b83ed1c2e3bE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc86f7b83ed1c2e3bE.exit: ; preds = %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 416
@@ -14147,7 +14147,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 
 215:                                              ; preds = %229, %283, %219, %_ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc86f7b83ed1c2e3bE.exit.thread134
   invoke void @_ZN11quinn_proto10connection10Connection24set_loss_detection_timer17h6c0c65bd5757ba0fE(ptr noalias noundef nonnull align 16 dereferenceable(6000) %1, i64 noundef %2, i32 noundef %3)
-          to label %291 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %291 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 216:                                              ; preds = %_ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc86f7b83ed1c2e3bE.exit.thread134
   %217 = load i64, ptr %5, align 8, !range !79, !noundef !3
@@ -14161,7 +14161,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 
 221:                                              ; preds = %219
   %222 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.188)
-          to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 368
@@ -14169,11 +14169,11 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 376
   %227 = load i32, ptr %226, align 8, !range !102, !noundef !3
   %228 = invoke noundef i64 @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet3len17h731aec61015daea8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %33)
-          to label %229 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %229 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 229:                                              ; preds = %223
   invoke fastcc void @_ZN11quinn_proto10connection10Connection11process_ecn17h9b14982323ebbeffE(ptr noalias noundef align 16 dereferenceable(6000) %1, i64 noundef %2, i32 noundef %3, i8 noundef %4, i64 noundef %228, ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, i64 noundef %225, i32 noundef %227)
-          to label %215 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %215 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 230:                                              ; preds = %216
   %231 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
@@ -14196,7 +14196,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 
 237:                                              ; preds = %235
   %238 = invoke noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @_ZN11quinn_proto10connection10Connection15on_ack_received10__CALLSITE17hef2aaf67b3af5f28E)
-          to label %239 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %239 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 239:                                              ; preds = %237
   %240 = icmp eq i8 %238, 0
@@ -14206,7 +14206,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   %.sroa.027.0139 = phi i8 [ %238, %239 ], [ %236, %235 ], [ %236, %235 ]
   %241 = load ptr, ptr @_ZN11quinn_proto10connection10Connection15on_ack_received10__CALLSITE17hef2aaf67b3af5f28E, align 8, !nonnull !3, !align !9, !noundef !3
   %242 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h79c82975f1d755d5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %241, i8 noundef %.sroa.027.0139)
-          to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 243:                                              ; preds = %.thread137
   br i1 %242, label %244, label %.thread140
@@ -14220,7 +14220,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not92 = icmp eq i64 %248, 0
-  br i1 %.not92, label %.thread142.invoke, label %284
+  br i1 %.not92, label %.thread145.invoke, label %284
 
 .thread140:                                       ; preds = %235, %232, %243, %239, %230
   %249 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h4bd33b52b8179ae2E monotonic, align 1
@@ -14246,7 +14246,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   %.sroa.647.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %260, ptr %.sroa.647.0..sroa_idx48, align 8
   %261 = invoke { ptr, ptr } @_ZN3log6logger17hee1dafc15e2b57e5E()
-          to label %262 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %262 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 262:                                              ; preds = %255
   %263 = extractvalue { ptr, ptr } %261, 0
@@ -14254,7 +14254,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8, !invariant.load !3, !nonnull !3
   %267 = invoke noundef zeroext i1 %266(ptr noundef align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-          to label %268 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %268 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 268:                                              ; preds = %262
   br i1 %267, label %269, label %283
@@ -14268,12 +14268,12 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not94 = icmp eq i64 %273, 0
-  br i1 %.not94, label %.thread142.invoke, label %274
+  br i1 %.not94, label %.thread145.invoke, label %274
 
 274:                                              ; preds = %269
   %.sroa.080.0.copyload = load ptr, ptr %271, align 8
   %.not95 = icmp eq ptr %.sroa.080.0.copyload, null
-  br i1 %.not95, label %.thread142.invoke, label %275, !prof !180
+  br i1 %.not95, label %.thread145.invoke, label %275, !prof !180
 
 275:                                              ; preds = %274
   store ptr %.sroa.080.0.copyload, ptr %12, align 8
@@ -14304,14 +14304,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hfcd250a03a6c4879E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %256, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %264, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-          to label %282 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.thread142.invoke:                                ; preds = %284, %244, %274, %269
-  invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.1dc7a0cd482730c16fe359231f756162.92, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.189) #27
-          to label %.thread142.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.thread142.cont:                                  ; preds = %.thread142.invoke
-  unreachable
+          to label %282 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 282:                                              ; preds = %275
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -14328,7 +14321,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 284:                                              ; preds = %244
   %.sroa.072.0.copyload = load ptr, ptr %246, align 8
   %.not93 = icmp eq ptr %.sroa.072.0.copyload, null
-  br i1 %.not93, label %.thread142.invoke, label %285, !prof !180
+  br i1 %.not93, label %.thread145.invoke, label %285, !prof !180
 
 285:                                              ; preds = %284
   store ptr %.sroa.072.0.copyload, ptr %17, align 8
@@ -14357,7 +14350,14 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %246, ptr %.sroa.532.0..sroa_idx, align 8
   invoke fastcc void @"_ZN11quinn_proto10connection10Connection15on_ack_received28_$u7b$$u7b$closure$u7d$$u7d$17h9bc1ed470e9e9bc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %19)
-          to label %290 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %290 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.thread145.invoke:                                ; preds = %284, %244, %274, %269
+  invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.1dc7a0cd482730c16fe359231f756162.92, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.189) #27
+          to label %.thread145.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.thread145.cont:                                  ; preds = %.thread145.invoke
+  unreachable
 
 290:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -14381,7 +14381,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 
 294:                                              ; preds = %124
   invoke void @_ZN11quinn_proto10connection6spaces11PacketSpace4take17h34b4ab6035149267E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %23, ptr noalias noundef nonnull align 16 dereferenceable(736) %125, i64 noundef %.sroa.3.0.i2.pn.i129)
-          to label %295 unwind label %.loopexit
+          to label %295 unwind label %.loopexit.split-lp.loopexit
 
 295:                                              ; preds = %294
   %296 = load i64, ptr %23, align 8, !range !7, !noundef !3
@@ -14476,7 +14476,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   store i64 %.sroa.3.0.copyload, ptr %76, align 8, !alias.scope !469, !noalias !472
   store i8 %81, ptr %77, align 8, !alias.scope !469, !noalias !472
   invoke void @_ZN11quinn_proto10connection6spaces18PacketNumberFilter9check_ack17hdb40c8df91b74697E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %78, i8 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %326 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %326 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 326:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -14497,7 +14497,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 329:                                              ; preds = %326
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %330 = invoke noundef align 16 dereferenceable(736) ptr @"_ZN145_$LT$$u5b$quinn_proto..connection..spaces..PacketSpace$u3b$$u20$3$u5d$$u20$as$u20$core..ops..index..Index$LT$quinn_proto..packet..SpaceId$GT$$GT$5index17hbff920282dc6fbbeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(2208) %36, i8 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1dc7a0cd482730c16fe359231f756162.194)
-          to label %331 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %331 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 331:                                              ; preds = %329
   %332 = getelementptr inbounds nuw i8, ptr %330, i64 632
@@ -14507,7 +14507,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
   store i8 %81, ptr %.sroa.4.0..sroa_idx117, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5119.0..sroa_idx120, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5119.0..sroa_idx, i64 7, i1 false)
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h0fc418c9b44fcf13E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %332, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 333:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -14517,7 +14517,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 
 334:                                              ; preds = %338, %333
   %335 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$20perform_next_checked17h79c1b34bb17f30a1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %26)
-          to label %336 unwind label %.loopexit.split-lp.loopexit
+          to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 336:                                              ; preds = %334
   %337 = extractvalue { ptr, ptr } %335, 0
@@ -14527,7 +14527,7 @@ _ZN11quinn_proto10connection10Connection33peer_completed_address_validation17hc8
 338:                                              ; preds = %336
   %339 = load i64, ptr %337, align 8, !noundef !3
   %340 = invoke noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet10insert_one17hcdbce0798325f8afE(ptr noalias noundef nonnull align 8 dereferenceable(48) %33, i64 noundef %339)
-          to label %334 unwind label %.loopexit.split-lp.loopexit
+          to label %334 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 341:                                              ; preds = %336
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -43156,20 +43156,20 @@ attributes #27 = { noreturn }
 !430 = !{!431, !428}
 !431 = distinct !{!431, !432, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h4c9ca5e6be29d93bE: argument 0"}
 !432 = distinct !{!432, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h4c9ca5e6be29d93bE"}
-!433 = !{!434, !436, !438, !440, !431, !428}
+!433 = !{!434}
 !434 = distinct !{!434, !435, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17haf3016a0baf2fbb8E: argument 0"}
 !435 = distinct !{!435, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17haf3016a0baf2fbb8E"}
-!436 = distinct !{!436, !437, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hfab890112bf27d94E: argument 0"}
-!437 = distinct !{!437, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hfab890112bf27d94E"}
-!438 = distinct !{!438, !439, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf6d38cd9d1b6ac65E: argument 0"}
-!439 = distinct !{!439, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf6d38cd9d1b6ac65E"}
-!440 = distinct !{!440, !441, !"_ZN4core3ops8function6FnOnce9call_once17hd03f84c70ee8238bE: argument 0"}
-!441 = distinct !{!441, !"_ZN4core3ops8function6FnOnce9call_once17hd03f84c70ee8238bE"}
-!442 = !{!443}
-!443 = distinct !{!443, !435, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17haf3016a0baf2fbb8E: argument 1"}
-!444 = !{!443, !436, !438, !440, !431, !428}
-!445 = !{!434}
-!446 = !{!436, !438, !440, !431, !428}
+!436 = !{!437}
+!437 = distinct !{!437, !435, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$u64$GT$2lt17haf3016a0baf2fbb8E: argument 1"}
+!438 = !{!434, !439, !441, !443, !431, !428}
+!439 = distinct !{!439, !440, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hfab890112bf27d94E: argument 0"}
+!440 = distinct !{!440, !"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hfab890112bf27d94E"}
+!441 = distinct !{!441, !442, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf6d38cd9d1b6ac65E: argument 0"}
+!442 = distinct !{!442, !"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf6d38cd9d1b6ac65E"}
+!443 = distinct !{!443, !444, !"_ZN4core3ops8function6FnOnce9call_once17hd03f84c70ee8238bE: argument 0"}
+!444 = distinct !{!444, !"_ZN4core3ops8function6FnOnce9call_once17hd03f84c70ee8238bE"}
+!445 = !{!437, !439, !441, !443, !431, !428}
+!446 = !{!439, !441, !443, !431, !428}
 !447 = !{!448, !428}
 !448 = distinct !{!448, !449, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE: argument 1"}
 !449 = distinct !{!449, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h354ffdef97e8bfcaE"}

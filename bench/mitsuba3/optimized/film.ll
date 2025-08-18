@@ -376,16 +376,16 @@ define weak_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7mitsuba4Fil
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15set_crop_windowERKNS_5PointIjLm2EEERKNS_6VectorIjLm2EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.i.critedge:
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = load i32, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %1, align 4
-  %8 = add i32 %7, %4
+  %8 = add i32 %4, %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %6
+  %11 = add i32 %6, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -393,30 +393,33 @@ define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %16 = icmp ule i32 %8, %13
   %17 = icmp ule i32 %11, %15
   %or.cond.not = and i1 %16, %17
-  br i1 %or.cond.not, label %22, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+  br i1 %or.cond.not, label %25, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.i.critedge
   %18 = load ptr, ptr @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
-  call void @_ZN10tinyformat6formatIJjjjjjjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  call void @_ZN10tinyformat6formatIJjjjjjjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %21)
   invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull align 8 dereferenceable(24) %3) #20
-          to label %19 unwind label %20
+          to label %22 unwind label %23
 
-19:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+22:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
   unreachable
 
-20:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %24
 
-22:                                               ; preds = %.critedge
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %2, align 4
-  store i64 %24, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %1, align 4
-  store i64 %26, ptr %25, align 8
+25:                                               ; preds = %_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.i.critedge
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i64, ptr %2, align 4
+  store i64 %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load i64, ptr %1, align 4
+  store i64 %29, ptr %28, align 8
   ret void
 }
 
@@ -554,14 +557,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8set_sizeERKNS_5PointIjLm2EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = alloca %"struct.mitsuba::Point", align 4
-  %4 = load i64, ptr %1, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %4, ptr %5, align 8
-  store i32 0, ptr %3, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %6, align 4
-  call void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15set_crop_windowERKNS_5PointIjLm2EEERKNS_6VectorIjLm2EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %5)
+_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_5PointIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.critedge:
+  %2 = alloca %"struct.mitsuba::Point", align 4
+  %3 = load i32, ptr %1, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4
+  %.012.i.i2.sroa.gep5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %3, ptr %6, align 8
+  %.sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %5, ptr %.sroa_idx7, align 4
+  store i32 0, ptr %2, align 4
+  store i32 0, ptr %.012.i.i2.sroa.gep5, align 4
+  call void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15set_crop_windowERKNS_5PointIjLm2EEERKNS_6VectorIjLm2EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %6)
   ret void
 }
 
@@ -660,7 +668,7 @@ define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   store i64 %11, ptr %4, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.3, i64 noundef 4)
   %12 = invoke noundef zeroext i1 @_ZN7mitsuba6string8containsERKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %13 unwind label %20
+          to label %13 unwind label %21
 
 13:                                               ; preds = %2
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
@@ -669,53 +677,59 @@ define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
 14:                                               ; preds = %13
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.4, i64 noundef 9)
   %15 = invoke noundef zeroext i1 @_ZN7mitsuba6string8containsERKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %16 unwind label %22
+          to label %16 unwind label %23
 
 16:                                               ; preds = %14
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
-  br i1 %15, label %24, label %17
+  br i1 %15, label %25, label %_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.preheader.critedge
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %3, align 8
-  br label %24
+_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.preheader.critedge: ; preds = %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %20 = load i32, ptr %19, align 4
+  store i32 %18, ptr %3, align 8
+  %.sroa_idx16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %20, ptr %.sroa_idx16, align 4
+  br label %25
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-22:                                               ; preds = %14
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %14
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-24:                                               ; preds = %17, %16
+25:                                               ; preds = %_ZN7mitsuba5PointIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjNS_6VectorIjLm2EEES1_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrS8_5DepthsrS9_5DepthEiE4typeELi0EEERKNS2_9ArrayBaseIT_Lb0ES9_EE.exit.preheader.critedge, %16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str.5, i64 noundef 11)
-  %25 = invoke noundef zeroext i1 @_ZN7mitsuba6string8containsERKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %26 unwind label %28
+  %26 = invoke noundef zeroext i1 @_ZN7mitsuba6string8containsERKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %27 unwind label %28
 
-26:                                               ; preds = %24
+27:                                               ; preds = %25
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
-  br i1 %25, label %30, label %27
+  br i1 %26, label %30, label %.preheader
 
-27:                                               ; preds = %26
-  store i64 0, ptr %4, align 8
+.preheader:                                       ; preds = %27
+  store i32 0, ptr %4, align 8
+  %.sroa_idx9 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %.sroa_idx9, align 4
   br label %30
 
-28:                                               ; preds = %24
+28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-30:                                               ; preds = %26, %27, %13
+30:                                               ; preds = %27, %.preheader, %13
   call void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15set_crop_windowERKNS_5PointIjLm2EEERKNS_6VectorIjLm2EEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %3)
   ret void
 
-31:                                               ; preds = %28, %22, %20
-  %.sink = phi ptr [ %7, %28 ], [ %6, %22 ], [ %5, %20 ]
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %23, %22 ], [ %21, %20 ]
+31:                                               ; preds = %28, %23, %21
+  %.sink = phi ptr [ %7, %28 ], [ %6, %23 ], [ %5, %21 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %24, %23 ], [ %22, %21 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #21
   resume { ptr, i32 } %.pn
 }

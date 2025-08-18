@@ -3821,17 +3821,17 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$alloc..b
 define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..ArcInner$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$$GT$17h4ce58e02d14f8823E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !573)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
-  %3 = load ptr, ptr %2, align 8, !alias.scope !585, !nonnull !3, !noundef !3
-  %4 = load i64, ptr %3, align 8, !range !229, !noalias !585, !noundef !3
+  %3 = load ptr, ptr %2, align 8, !alias.scope !576, !nonnull !3, !noundef !3
+  %4 = load i64, ptr %3, align 8, !range !229, !noalias !576, !noundef !3
   %5 = icmp eq i64 %4, 3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !583)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !584)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   br i1 %5, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h6cc96fb593b11e57E.exit", label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !585
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !576
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h6cc96fb593b11e57E.exit", !prof !46
 
@@ -58565,16 +58565,16 @@ attributes #34 = { cold "function-inline-cost-multiplier"="2" }
 !573 = !{!574}
 !574 = distinct !{!574, !575, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h6cc96fb593b11e57E: argument 0"}
 !575 = distinct !{!575, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h6cc96fb593b11e57E"}
-!576 = !{!577}
-!577 = distinct !{!577, !578, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E: argument 0"}
-!578 = distinct !{!578, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E"}
-!579 = !{!580}
-!580 = distinct !{!580, !581, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h69d072b94f827ca5E: argument 0"}
-!581 = distinct !{!581, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h69d072b94f827ca5E"}
-!582 = !{!583}
-!583 = distinct !{!583, !584, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94579c00c5f6c839E: argument 0"}
-!584 = distinct !{!584, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94579c00c5f6c839E"}
-!585 = !{!583, !580, !577, !574}
+!576 = !{!577, !579, !581, !574}
+!577 = distinct !{!577, !578, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94579c00c5f6c839E: argument 0"}
+!578 = distinct !{!578, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h94579c00c5f6c839E"}
+!579 = distinct !{!579, !580, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h69d072b94f827ca5E: argument 0"}
+!580 = distinct !{!580, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h69d072b94f827ca5E"}
+!581 = distinct !{!581, !582, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E: argument 0"}
+!582 = distinct !{!582, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E"}
+!583 = !{!581}
+!584 = !{!579}
+!585 = !{!577}
 !586 = !{!587}
 !587 = distinct !{!587, !588, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E: argument 0"}
 !588 = distinct !{!588, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17haaf6253224b4c252E"}

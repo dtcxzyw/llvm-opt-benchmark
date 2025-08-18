@@ -50534,12 +50534,12 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %107 = load ptr, ptr %37, align 8
   %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #55
   %.not65.i110.us.i = icmp eq i32 %.promoted.i.fr, 32
-  %spec.select181.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
+  %spec.select223.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
   br label %nk_utf_decode.exit.thread.i, !llvm.loop !1119
 
 .lr.ph.i86.i:                                     ; preds = %.lr.ph.i86.preheader.i, %nk_utf_decode.exit.i
   %109 = phi i32 [ %166, %nk_utf_decode.exit.i ], [ %.promoted.i.fr, %.lr.ph.i86.preheader.i ]
-  %.05177.i89.i = phi i32 [ %spec.select223.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
+  %.05177.i89.i = phi i32 [ %spec.select224.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.05575.i91.i = phi i32 [ %110, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.06072.i94.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ %103, %.lr.ph.i86.preheader.i ]
   %110 = add nsw i32 %.06072.i94.i, %.05575.i91.i
@@ -50549,7 +50549,7 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #55
   %.fr80 = freeze i32 %109
   %.not65.i110.i = icmp eq i32 %.fr80, 32
-  %spec.select223.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
+  %spec.select224.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds i8, ptr %101, i64 %115
   %117 = sub i32 %102, %110
@@ -50671,7 +50671,7 @@ nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %.lr.ph.i86.i, %.lr.ph.i86.preheader.split.us.i
-  %.us-phi174.i = phi i32 [ %spec.select181.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select223.i, %.lr.ph.i86.i ], [ %spec.select223.i, %._crit_edge.loopexit.i.i ], [ %spec.select223.i, %._crit_edge.i.i ]
+  %.us-phi174.i = phi i32 [ %spec.select223.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select224.i, %.lr.ph.i86.i ], [ %spec.select224.i, %._crit_edge.loopexit.i.i ], [ %spec.select224.i, %._crit_edge.i.i ]
   %.us-phi175.i = phi i32 [ %103, %.lr.ph.i86.preheader.split.us.i ], [ %110, %._crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ], [ %102, %.lr.ph.i86.i ]
   %165 = icmp slt i32 %.us-phi175.i, %102
   br label %nk_text_clamp.exit111.thread.i
@@ -50687,7 +50687,7 @@ nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_valida
   br i1 %or.cond66.i109.i, label %.lr.ph.i86.i, label %nk_text_clamp.exit111.thread.i, !llvm.loop !216
 
 nk_text_clamp.exit111.thread.i:                   ; preds = %nk_utf_decode.exit.i, %nk_utf_decode.exit.thread.i
-  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select223.i, %nk_utf_decode.exit.i ]
+  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select224.i, %nk_utf_decode.exit.i ]
   %169 = phi i32 [ %.us-phi175.i, %nk_utf_decode.exit.thread.i ], [ %110, %nk_utf_decode.exit.i ]
   %.lcssa.i81.i = phi i1 [ %165, %nk_utf_decode.exit.thread.i ], [ %168, %nk_utf_decode.exit.i ]
   %.not64.i82.i = icmp eq i32 %.152.i101160.i, 0
@@ -58781,24 +58781,24 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 5382
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 5376
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 5380
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   br label %77
 
-77:                                               ; preds = %.lr.ph, %nk_utf_decode.exit143
-  %.0181 = phi i32 [ 0, %.lr.ph ], [ %238, %nk_utf_decode.exit143 ]
-  %.046180 = phi i32 [ %.023.i, %.lr.ph ], [ %.023.i115, %nk_utf_decode.exit143 ]
-  %.0145178 = phi i32 [ %.1, %.lr.ph ], [ %.2, %nk_utf_decode.exit143 ]
-  switch i32 %.0145178, label %80 [
-    i32 127, label %237
+77:                                               ; preds = %.lr.ph, %nk_utf_decode.exit174
+  %.0311 = phi i32 [ 0, %.lr.ph ], [ %334, %nk_utf_decode.exit174 ]
+  %.046310 = phi i32 [ %.023.i, %.lr.ph ], [ %.023.i146, %nk_utf_decode.exit174 ]
+  %.0247308 = phi i32 [ %.1, %.lr.ph ], [ %.2, %nk_utf_decode.exit174 ]
+  switch i32 %.0247308, label %80 [
+    i32 127, label %333
     i32 10, label %78
   ]
 
 78:                                               ; preds = %77
   %79 = load i8, ptr %61, align 8, !tbaa !1175
   %.not = icmp eq i8 %79, 0
-  br i1 %.not, label %80, label %237
+  br i1 %.not, label %80, label %333
 
 80:                                               ; preds = %77, %78
   %81 = load ptr, ptr %62, align 8, !tbaa !1176
@@ -58806,15 +58806,15 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   br i1 %.not54, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = call i32 %81(ptr noundef nonnull %0, i32 noundef %.0145178) #55
+  %83 = call i32 %81(ptr noundef nonnull %0, i32 noundef %.0247308) #55
   %.not55 = icmp eq i32 %83, 0
-  br i1 %.not55, label %237, label %84
+  br i1 %.not55, label %333, label %84
 
 84:                                               ; preds = %82, %80
   %85 = load i32, ptr %63, align 4, !tbaa !1170
   %86 = load i32, ptr %64, align 8, !tbaa !1171
   %.not56 = icmp eq i32 %85, %86
-  br i1 %.not56, label %87, label %161
+  br i1 %.not56, label %87, label %257
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %66, align 8, !tbaa !1172
@@ -58825,7 +58825,7 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
 91:                                               ; preds = %87
   %92 = load i8, ptr %8, align 4, !tbaa !1173
   %93 = icmp eq i8 %92, 2
-  br i1 %93, label %94, label %.preheader.i60
+  br i1 %93, label %94, label %.preheader.i64
 
 94:                                               ; preds = %91
   store i16 99, ptr %70, align 2, !tbaa !1157
@@ -58841,15 +58841,15 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
 98:                                               ; preds = %97, %94
   %99 = load i16, ptr %73, align 4, !tbaa !1160
   %100 = icmp sgt i16 %99, 998
-  br i1 %100, label %.lr.ph.i.i.i, label %.critedge.i
+  br i1 %100, label %.lr.ph.i.i.i, label %nk_textedit_createundo.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %98, %.lr.ph.i.i.i
   call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %69)
   %101 = load i16, ptr %73, align 4, !tbaa !1160
   %102 = icmp sgt i16 %101, 998
-  br i1 %102, label %.lr.ph.i.i.i, label %.critedge.i, !llvm.loop !1161
+  br i1 %102, label %.lr.ph.i.i.i, label %nk_textedit_createundo.exit.i, !llvm.loop !1161
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %98
+nk_textedit_createundo.exit.i:                    ; preds = %.lr.ph.i.i.i, %98
   %103 = phi i16 [ %99, %98 ], [ %101, %.lr.ph.i.i.i ]
   %104 = load i16, ptr %72, align 4, !tbaa !1159
   %105 = add i16 %104, 1
@@ -58865,477 +58865,745 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   store i16 %103, ptr %110, align 4, !tbaa !1166
   %111 = add nsw i16 %103, 1
   store i16 %111, ptr %73, align 4, !tbaa !1160
+  %112 = icmp slt i32 %88, 0
+  br i1 %112, label %nk_str_rune_at.exit.us.i, label %nk_textedit_createundo.exit.split.i
+
+nk_str_rune_at.exit.us.i:                         ; preds = %nk_textedit_createundo.exit.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  br label %nk_textedit_makeundo_replace.exit
+
+nk_textedit_createundo.exit.split.i:              ; preds = %nk_textedit_createundo.exit.i
+  %113 = icmp eq i32 %88, 0
+  %114 = load ptr, ptr %75, align 8, !tbaa !80
+  %.fr44.i = freeze ptr %114
+  %115 = load i64, ptr %74, align 8, !tbaa !77
+  %116 = trunc i64 %115 to i32
+  br i1 %113, label %nk_textedit_createundo.exit.split.split.us.i, label %nk_textedit_createundo.exit.split.split.i
+
+nk_textedit_createundo.exit.split.split.us.i:     ; preds = %nk_textedit_createundo.exit.split.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !7
-  %112 = icmp slt i32 %88, 0
-  br i1 %112, label %nk_textedit_makeundo_replace.exit, label %113
+  %117 = call i32 @nk_utf_decode(ptr noundef %.fr44.i, ptr noundef nonnull %4, i32 noundef %116)
+  %118 = load i32, ptr %4, align 4, !tbaa !7
+  br label %nk_textedit_makeundo_replace.exit
 
-113:                                              ; preds = %.critedge.i
-  %114 = load ptr, ptr %74, align 8, !tbaa !80
-  %115 = load i64, ptr %75, align 8, !tbaa !77
-  %116 = trunc i64 %115 to i32
-  %117 = call i32 @nk_utf_decode(ptr noundef %114, ptr noundef nonnull %4, i32 noundef %116)
-  %.not44.i.i.i = icmp eq i32 %117, 0
-  br i1 %.not44.i.i.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph.i.i13.i
+nk_textedit_createundo.exit.split.split.i:        ; preds = %nk_textedit_createundo.exit.split.i
+  %119 = icmp eq ptr %.fr44.i, null
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.not.i175 = icmp eq i32 %116, 0
+  %or.cond432 = select i1 %119, i1 true, i1 %.not.i175
+  br i1 %or.cond432, label %nk_textedit_makeundo_replace.exit, label %120
 
-.lr.ph.i.i13.i:                                   ; preds = %113, %119
-  %.03147.i.i.i = phi i32 [ %120, %119 ], [ 0, %113 ]
-  %.03246.i.i.i = phi i32 [ %125, %119 ], [ %117, %113 ]
-  %.03345.i.i.i = phi i32 [ %121, %119 ], [ 0, %113 ]
-  %118 = icmp eq i32 %.03147.i.i.i, %88
-  br i1 %118, label %nk_textedit_makeundo_replace.exit, label %119
+120:                                              ; preds = %nk_textedit_createundo.exit.split.split.i
+  store i32 65533, ptr %4, align 4, !tbaa !7
+  %121 = load i8, ptr %.fr44.i, align 1, !tbaa !9
+  br label %122
 
-119:                                              ; preds = %.lr.ph.i.i13.i
-  %120 = add nuw nsw i32 %.03147.i.i.i, 1
-  %121 = add nsw i32 %.03345.i.i.i, %.03246.i.i.i
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %114, i64 %122
-  %124 = sub nsw i32 %116, %121
-  %125 = call i32 @nk_utf_decode(ptr noundef %123, ptr noundef nonnull %4, i32 noundef %124)
-  %.not.i.i.i = icmp eq i32 %125, 0
-  br i1 %.not.i.i.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph.i.i13.i, !llvm.loop !87
+122:                                              ; preds = %129, %120
+  %indvars.iv86.i177 = phi i32 [ %indvars.iv.next87.i181, %129 ], [ -2, %120 ]
+  %indvars.iv.i.i178 = phi i64 [ %indvars.iv.next.i.i179, %129 ], [ 0, %120 ]
+  %123 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i178
+  %124 = load i8, ptr %123, align 1, !tbaa !9
+  %125 = and i8 %124, %121
+  %126 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i178
+  %127 = load i8, ptr %126, align 1, !tbaa !9
+  %128 = icmp eq i8 %125, %127
+  br i1 %128, label %nk_utf_decode_byte.exit.i183, label %129
 
-nk_textedit_makeundo_replace.exit:                ; preds = %.lr.ph.i.i13.i, %119, %.critedge.i, %113
-  %126 = sext i16 %103 to i64
-  %127 = getelementptr inbounds [999 x i32], ptr %76, i64 0, i64 %126
-  %128 = load i32, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store i32 %128, ptr %127, align 4, !tbaa !7
-  %129 = load i32, ptr %66, align 8, !tbaa !1172
-  call void @nk_str_delete_runes(ptr noundef nonnull %67, i32 noundef %129, i32 noundef 1)
-  %.pre219 = load i32, ptr %66, align 8, !tbaa !1172
-  br label %.preheader.i60
+129:                                              ; preds = %122
+  %indvars.iv.next.i.i179 = add nuw nsw i64 %indvars.iv.i.i178, 1
+  %exitcond.not.i.i180 = icmp eq i64 %indvars.iv.next.i.i179, 5
+  %indvars.iv.next87.i181 = add nsw i32 %indvars.iv86.i177, 1
+  br i1 %exitcond.not.i.i180, label %.lr.ph.i.i13.preheader.i, label %122, !llvm.loop !32
 
-.preheader.i60:                                   ; preds = %91, %nk_textedit_makeundo_replace.exit
-  %130 = phi i32 [ %88, %91 ], [ %.pre219, %nk_textedit_makeundo_replace.exit ]
-  %131 = sext i32 %.0181 to i64
-  %132 = getelementptr inbounds i8, ptr %1, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !9
-  br label %134
+nk_utf_decode_byte.exit.i183:                     ; preds = %122
+  %130 = trunc nuw nsw i64 %indvars.iv.i.i178 to i32
+  %131 = add i32 %130, -1
+  %or.cond3.i184 = icmp ult i32 %131, 3
+  br i1 %or.cond3.i184, label %.preheader.i185, label %.lr.ph.i.i13.preheader.i
 
-134:                                              ; preds = %141, %.preheader.i60
-  %indvars.iv86.i.i = phi i32 [ %indvars.iv.next87.i.i, %141 ], [ -2, %.preheader.i60 ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %141 ], [ 0, %.preheader.i60 ]
-  %135 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i
-  %136 = load i8, ptr %135, align 1, !tbaa !9
-  %137 = and i8 %136, %133
-  %138 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i
-  %139 = load i8, ptr %138, align 1, !tbaa !9
-  %140 = icmp eq i8 %137, %139
-  br i1 %140, label %nk_utf_decode_byte.exit.i.i, label %141
+.preheader.i185:                                  ; preds = %nk_utf_decode_byte.exit.i183
+  %132 = xor i8 %124, -1
+  %133 = and i8 %121, %132
+  %134 = zext i8 %133 to i32
+  %135 = icmp sgt i32 %116, 1
+  %136 = icmp samesign ugt i64 %indvars.iv.i.i178, 1
+  %137 = select i1 %135, i1 %136, i1 false
+  br i1 %137, label %.lr.ph.preheader.i191, label %._crit_edge.i186
 
-141:                                              ; preds = %134
+.lr.ph.preheader.i191:                            ; preds = %.preheader.i185
+  %138 = add nsw i32 %116, -2
+  %umin.i192 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i177, i32 %138)
+  %139 = add nuw nsw i32 %umin.i192, 2
+  %wide.trip.count.i193 = zext nneg i32 %139 to i64
+  br label %.lr.ph.i194
+
+.lr.ph.i194:                                      ; preds = %150, %.lr.ph.preheader.i191
+  %indvars.iv.i195 = phi i64 [ 1, %.lr.ph.preheader.i191 ], [ %indvars.iv.next.i206, %150 ]
+  %.069.i196 = phi i32 [ %134, %.lr.ph.preheader.i191 ], [ %155, %150 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.fr44.i, i64 %indvars.iv.i195
+  %141 = load i8, ptr %140, align 1, !tbaa !9
+  br label %142
+
+142:                                              ; preds = %149, %.lr.ph.i194
+  %indvars.iv.i29.i197 = phi i64 [ 0, %.lr.ph.i194 ], [ %indvars.iv.next.i30.i198, %149 ]
+  %143 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i197
+  %144 = load i8, ptr %143, align 1, !tbaa !9
+  %145 = and i8 %144, %141
+  %146 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i197
+  %147 = load i8, ptr %146, align 1, !tbaa !9
+  %148 = icmp eq i8 %145, %147
+  br i1 %148, label %nk_utf_decode_byte.exit34.i202, label %149
+
+149:                                              ; preds = %142
+  %indvars.iv.next.i30.i198 = add nuw nsw i64 %indvars.iv.i29.i197, 1
+  %exitcond.not.i31.i199 = icmp eq i64 %indvars.iv.next.i30.i198, 5
+  br i1 %exitcond.not.i31.i199, label %nk_utf_validate.exit.loopexit.i200, label %142, !llvm.loop !32
+
+nk_utf_decode_byte.exit34.i202:                   ; preds = %142
+  %.not27.i203 = icmp eq i64 %indvars.iv.i29.i197, 0
+  br i1 %.not27.i203, label %150, label %nk_utf_validate.exit.loopexit90.i204
+
+150:                                              ; preds = %nk_utf_decode_byte.exit34.i202
+  %151 = xor i8 %144, -1
+  %152 = and i8 %141, %151
+  %153 = zext i8 %152 to i32
+  %154 = shl i32 %.069.i196, 6
+  %155 = or i32 %154, %153
+  %indvars.iv.next.i206 = add nuw nsw i64 %indvars.iv.i195, 1
+  %exitcond.not.i207 = icmp eq i64 %indvars.iv.next.i206, %wide.trip.count.i193
+  br i1 %exitcond.not.i207, label %._crit_edge.loopexit.i208, label %.lr.ph.i194, !llvm.loop !33
+
+._crit_edge.loopexit.i208:                        ; preds = %150
+  %156 = icmp samesign ult i32 %139, %130
+  br i1 %156, label %nk_textedit_makeundo_replace.exit, label %157
+
+._crit_edge.i186:                                 ; preds = %.preheader.i185
+  br i1 %136, label %nk_textedit_makeundo_replace.exit, label %157
+
+157:                                              ; preds = %._crit_edge.i186, %._crit_edge.loopexit.i208
+  %.0.lcssa89.i187 = phi i32 [ %155, %._crit_edge.loopexit.i208 ], [ %134, %._crit_edge.i186 ]
+  store i32 %.0.lcssa89.i187, ptr %4, align 4, !tbaa !7
+  %158 = and i64 %indvars.iv.i.i178, 4294967295
+  %159 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !7
+  %.not.i.i188 = icmp ugt i32 %160, %.0.lcssa89.i187
+  br i1 %.not.i.i188, label %166, label %161
+
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %158
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = icmp uge i32 %.0.lcssa89.i187, %163
+  %165 = add i32 %.0.lcssa89.i187, -55296
+  %or.cond.i.i189 = icmp ult i32 %165, 2047
+  %or.cond15.i.i190 = or i1 %or.cond.i.i189, %164
+  br i1 %or.cond15.i.i190, label %166, label %nk_utf_decode.exit210
+
+166:                                              ; preds = %161, %157
+  store i32 65533, ptr %4, align 4, !tbaa !7
+  br label %nk_utf_decode.exit210
+
+nk_utf_validate.exit.loopexit.i200:               ; preds = %149
+  %indvars83.le101.i201 = trunc i64 %indvars.iv.i195 to i32
+  br label %nk_utf_decode.exit210
+
+nk_utf_validate.exit.loopexit90.i204:             ; preds = %nk_utf_decode_byte.exit34.i202
+  %indvars83.le.i205 = trunc i64 %indvars.iv.i195 to i32
+  br label %nk_utf_decode.exit210
+
+nk_utf_decode.exit210:                            ; preds = %161, %166, %nk_utf_validate.exit.loopexit.i200, %nk_utf_validate.exit.loopexit90.i204
+  %.promoted.i374 = phi i32 [ 65533, %166 ], [ %.0.lcssa89.i187, %161 ], [ 65533, %nk_utf_validate.exit.loopexit.i200 ], [ 65533, %nk_utf_validate.exit.loopexit90.i204 ]
+  %.023.i182 = phi i32 [ %130, %166 ], [ %130, %161 ], [ %indvars83.le101.i201, %nk_utf_validate.exit.loopexit.i200 ], [ %indvars83.le.i205, %nk_utf_validate.exit.loopexit90.i204 ]
+  %.not44.i.i.i = icmp eq i32 %.023.i182, 0
+  br i1 %.not44.i.i.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph.i.i13.preheader.i
+
+.lr.ph.i.i13.preheader.i:                         ; preds = %129, %nk_utf_decode_byte.exit.i183, %nk_utf_decode.exit210
+  %.promoted.i = phi i32 [ %.promoted.i374, %nk_utf_decode.exit210 ], [ 65533, %nk_utf_decode_byte.exit.i183 ], [ 65533, %129 ]
+  %.023.i182254 = phi i32 [ %.023.i182, %nk_utf_decode.exit210 ], [ 1, %nk_utf_decode_byte.exit.i183 ], [ 1, %129 ]
+  %.not.i34.i = icmp eq i32 %.023.i182254, %116
+  br i1 %.not.i34.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph35.i
+
+.lr.ph.i.i13.i:                                   ; preds = %184, %nk_utf_decode.exit.i, %nk_utf_decode_byte.exit.i.i
+  %.023.i60.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %184 ]
+  %167 = phi i32 [ %222, %nk_utf_decode.exit.i ], [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %184 ]
+  %168 = icmp eq i32 %173, %88
+  br i1 %168, label %nk_textedit_makeundo_replace.exit, label %169, !llvm.loop !87
+
+169:                                              ; preds = %.lr.ph.i.i13.i
+  %170 = add nuw nsw i32 %173, 1
+  %171 = add nsw i32 %.023.i60.i, %172
+  %.not.i.i59 = icmp eq i32 %171, %116
+  br i1 %.not.i.i59, label %nk_textedit_makeundo_replace.exit, label %.lr.ph35.i, !llvm.loop !87
+
+.lr.ph35.i:                                       ; preds = %.lr.ph.i.i13.preheader.i, %169
+  %172 = phi i32 [ %171, %169 ], [ %.023.i182254, %.lr.ph.i.i13.preheader.i ]
+  %173 = phi i32 [ %170, %169 ], [ 1, %.lr.ph.i.i13.preheader.i ]
+  %.pn.i = sext i32 %172 to i64
+  %174 = getelementptr inbounds i8, ptr %.fr44.i, i64 %.pn.i
+  %175 = sub i32 %116, %172
+  %176 = load i8, ptr %174, align 1, !tbaa !9
+  br label %177
+
+177:                                              ; preds = %184, %.lr.ph35.i
+  %indvars.iv86.i.i = phi i32 [ %indvars.iv.next87.i.i, %184 ], [ -2, %.lr.ph35.i ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %184 ], [ 0, %.lr.ph35.i ]
+  %178 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i
+  %179 = load i8, ptr %178, align 1, !tbaa !9
+  %180 = and i8 %179, %176
+  %181 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i
+  %182 = load i8, ptr %181, align 1, !tbaa !9
+  %183 = icmp eq i8 %180, %182
+  br i1 %183, label %nk_utf_decode_byte.exit.i.i, label %184
+
+184:                                              ; preds = %177
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
   %indvars.iv.next87.i.i = add nsw i32 %indvars.iv86.i.i, 1
-  br i1 %exitcond.not.i.i.i, label %nk_utf_decode.exit.i, label %134, !llvm.loop !32
+  br i1 %exitcond.not.i.i.i, label %.lr.ph.i.i13.i, label %177, !llvm.loop !32
 
-nk_utf_decode_byte.exit.i.i:                      ; preds = %134
-  %142 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %143 = add i32 %142, -1
-  %or.cond3.i.i = icmp ult i32 %143, 3
-  br i1 %or.cond3.i.i, label %.preheader.i.i, label %nk_utf_decode.exit.i
+nk_utf_decode_byte.exit.i.i:                      ; preds = %177
+  %185 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %186 = add i32 %185, -1
+  %or.cond3.i.i = icmp ult i32 %186, 3
+  br i1 %or.cond3.i.i, label %.preheader.i.i, label %.lr.ph.i.i13.i
 
 .preheader.i.i:                                   ; preds = %nk_utf_decode_byte.exit.i.i
-  %144 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %144, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+  %187 = xor i8 %179, -1
+  %188 = and i8 %176, %187
+  %189 = zext i8 %188 to i32
+  %190 = icmp sgt i32 %175, 1
+  %191 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
+  %192 = select i1 %190, i1 %191, i1 false
+  br i1 %192, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %umin.i.i = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i, i32 2)
-  %145 = add nuw nsw i32 %umin.i.i, 2
-  %wide.trip.count.i.i = zext nneg i32 %145 to i64
+  %193 = add nsw i32 %175, -2
+  %umin.i.i = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i, i32 %193)
+  %194 = add nuw nsw i32 %umin.i.i, 2
+  %wide.trip.count.i.i = zext nneg i32 %194 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %156, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i64 = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i65, %156 ]
-  %146 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv.i.i64
-  %147 = load i8, ptr %146, align 1, !tbaa !9
-  br label %148
+.lr.ph.i.i:                                       ; preds = %205, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i60 = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i61, %205 ]
+  %.069.i.i = phi i32 [ %189, %.lr.ph.preheader.i.i ], [ %210, %205 ]
+  %195 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv.i.i60
+  %196 = load i8, ptr %195, align 1, !tbaa !9
+  br label %197
 
-148:                                              ; preds = %155, %.lr.ph.i.i
-  %indvars.iv.i29.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i30.i.i, %155 ]
-  %149 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i
-  %150 = load i8, ptr %149, align 1, !tbaa !9
-  %151 = and i8 %150, %147
-  %152 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i
-  %153 = load i8, ptr %152, align 1, !tbaa !9
-  %154 = icmp eq i8 %151, %153
-  br i1 %154, label %nk_utf_decode_byte.exit34.i.i, label %155
+197:                                              ; preds = %204, %.lr.ph.i.i
+  %indvars.iv.i29.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i30.i.i, %204 ]
+  %198 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i
+  %199 = load i8, ptr %198, align 1, !tbaa !9
+  %200 = and i8 %199, %196
+  %201 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i
+  %202 = load i8, ptr %201, align 1, !tbaa !9
+  %203 = icmp eq i8 %200, %202
+  br i1 %203, label %nk_utf_decode_byte.exit34.i.i, label %204
 
-155:                                              ; preds = %148
+204:                                              ; preds = %197
   %indvars.iv.next.i30.i.i = add nuw nsw i64 %indvars.iv.i29.i.i, 1
   %exitcond.not.i31.i.i = icmp eq i64 %indvars.iv.next.i30.i.i, 5
-  br i1 %exitcond.not.i31.i.i, label %nk_utf_validate.exit.loopexit.i.i, label %148, !llvm.loop !32
+  br i1 %exitcond.not.i31.i.i, label %nk_utf_validate.exit.loopexit.i.i, label %197, !llvm.loop !32
 
-nk_utf_decode_byte.exit34.i.i:                    ; preds = %148
+nk_utf_decode_byte.exit34.i.i:                    ; preds = %197
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %156, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %205, label %nk_utf_validate.exit.loopexit90.i.i
 
-156:                                              ; preds = %nk_utf_decode_byte.exit34.i.i
-  %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
-  %exitcond.not.i.i66 = icmp eq i64 %indvars.iv.next.i.i65, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i66, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !33
+205:                                              ; preds = %nk_utf_decode_byte.exit34.i.i
+  %206 = xor i8 %199, -1
+  %207 = and i8 %196, %206
+  %208 = zext i8 %207 to i32
+  %209 = shl i32 %.069.i.i, 6
+  %210 = or i32 %209, %208
+  %indvars.iv.next.i.i61 = add nuw nsw i64 %indvars.iv.i.i60, 1
+  %exitcond.not.i.i62 = icmp eq i64 %indvars.iv.next.i.i61, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i62, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !33
 
-._crit_edge.loopexit.i.i:                         ; preds = %156
-  %157 = icmp samesign ult i32 %145, %142
-  br i1 %157, label %nk_utf_decode.exit.i, label %._crit_edge.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %205
+  %211 = icmp samesign ult i32 %194, %185
+  br i1 %211, label %nk_textedit_makeundo_replace.exit, label %212
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
+._crit_edge.i.i:                                  ; preds = %.preheader.i.i
+  br i1 %191, label %nk_textedit_makeundo_replace.exit, label %212
+
+212:                                              ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
+  %.0.lcssa89.i.i = phi i32 [ %210, %._crit_edge.loopexit.i.i ], [ %189, %._crit_edge.i.i ]
+  %213 = and i64 %indvars.iv.i.i.i, 4294967295
+  %214 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %213
+  %215 = load i32, ptr %214, align 4, !tbaa !7
+  %.not.i.i14.i = icmp ugt i32 %215, %.0.lcssa89.i.i
+  br i1 %.not.i.i14.i, label %221, label %216
+
+216:                                              ; preds = %212
+  %217 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %213
+  %218 = load i32, ptr %217, align 4, !tbaa !7
+  %219 = icmp uge i32 %.0.lcssa89.i.i, %218
+  %220 = add i32 %.0.lcssa89.i.i, -55296
+  %or.cond.i.i.i = icmp ult i32 %220, 2047
+  %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %219
+  br i1 %or.cond15.i.i.i, label %221, label %nk_utf_decode.exit.i
+
+221:                                              ; preds = %216, %212
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit.i.i:                ; preds = %155
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i64 to i32
+nk_utf_validate.exit.loopexit.i.i:                ; preds = %204
+  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i60 to i32
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
-  %indvars83.le.i.i = trunc i64 %indvars.iv.i.i64 to i32
+  %indvars83.le.i.i = trunc i64 %indvars.iv.i.i60 to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %141, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %nk_utf_decode_byte.exit.i.i
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %._crit_edge.loopexit.i.i ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ], [ %142, %._crit_edge.i.i ], [ 1, %141 ]
-  %158 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %130, ptr noundef nonnull %132, i32 noundef %.023.i.i)
-  %159 = load i32, ptr %66, align 8, !tbaa !1172
-  %160 = add nsw i32 %159, 1
+nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %221, %216
+  %222 = phi i32 [ 65533, %221 ], [ %.0.lcssa89.i.i, %216 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit90.i.i ]
+  %.023.i.i = phi i32 [ %185, %221 ], [ %185, %216 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ]
+  %.not.i.i.i = icmp eq i32 %.023.i.i, 0
+  br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i13.i, !llvm.loop !87
+
+nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i: ; preds = %nk_utf_decode.exit.i
+  br label %nk_textedit_makeundo_replace.exit, !llvm.loop !87
+
+nk_textedit_makeundo_replace.exit:                ; preds = %.lr.ph.i.i13.i, %169, %._crit_edge.loopexit.i.i, %._crit_edge.i.i, %nk_utf_decode.exit210, %._crit_edge.i186, %._crit_edge.loopexit.i208, %nk_textedit_createundo.exit.split.split.i, %nk_str_rune_at.exit.us.i, %nk_textedit_createundo.exit.split.split.us.i, %.lr.ph.i.i13.preheader.i, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i
+  %.sink.i = phi i32 [ %118, %nk_textedit_createundo.exit.split.split.us.i ], [ 0, %nk_str_rune_at.exit.us.i ], [ %222, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i ], [ %.promoted.i, %.lr.ph.i.i13.preheader.i ], [ 0, %nk_textedit_createundo.exit.split.split.i ], [ 65533, %._crit_edge.loopexit.i208 ], [ 65533, %._crit_edge.i186 ], [ %.promoted.i374, %nk_utf_decode.exit210 ], [ 65533, %._crit_edge.loopexit.i.i ], [ 65533, %._crit_edge.i.i ], [ %167, %169 ], [ %167, %.lr.ph.i.i13.i ]
+  %223 = sext i16 %103 to i64
+  %224 = getelementptr inbounds [999 x i32], ptr %76, i64 0, i64 %223
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  store i32 %.sink.i, ptr %224, align 4, !tbaa !7
+  %225 = load i32, ptr %66, align 8, !tbaa !1172
+  call void @nk_str_delete_runes(ptr noundef nonnull %67, i32 noundef %225, i32 noundef 1)
+  %.pre376 = load i32, ptr %66, align 8, !tbaa !1172
+  br label %.preheader.i64
+
+.preheader.i64:                                   ; preds = %91, %nk_textedit_makeundo_replace.exit
+  %226 = phi i32 [ %88, %91 ], [ %.pre376, %nk_textedit_makeundo_replace.exit ]
+  %227 = sext i32 %.0311 to i64
+  %228 = getelementptr inbounds i8, ptr %1, i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !9
+  br label %230
+
+230:                                              ; preds = %237, %.preheader.i64
+  %indvars.iv86.i.i66 = phi i32 [ %indvars.iv.next87.i.i70, %237 ], [ -2, %.preheader.i64 ]
+  %indvars.iv.i.i.i67 = phi i64 [ %indvars.iv.next.i.i.i68, %237 ], [ 0, %.preheader.i64 ]
+  %231 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i67
+  %232 = load i8, ptr %231, align 1, !tbaa !9
+  %233 = and i8 %232, %229
+  %234 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i67
+  %235 = load i8, ptr %234, align 1, !tbaa !9
+  %236 = icmp eq i8 %233, %235
+  br i1 %236, label %nk_utf_decode_byte.exit.i.i75, label %237
+
+237:                                              ; preds = %230
+  %indvars.iv.next.i.i.i68 = add nuw nsw i64 %indvars.iv.i.i.i67, 1
+  %exitcond.not.i.i.i69 = icmp eq i64 %indvars.iv.next.i.i.i68, 5
+  %indvars.iv.next87.i.i70 = add nsw i32 %indvars.iv86.i.i66, 1
+  br i1 %exitcond.not.i.i.i69, label %nk_utf_decode.exit.i71, label %230, !llvm.loop !32
+
+nk_utf_decode_byte.exit.i.i75:                    ; preds = %230
+  %238 = trunc nuw nsw i64 %indvars.iv.i.i.i67 to i32
+  %239 = add i32 %238, -1
+  %or.cond3.i.i76 = icmp ult i32 %239, 3
+  br i1 %or.cond3.i.i76, label %.preheader.i.i77, label %nk_utf_decode.exit.i71
+
+.preheader.i.i77:                                 ; preds = %nk_utf_decode_byte.exit.i.i75
+  %240 = icmp samesign ugt i64 %indvars.iv.i.i.i67, 1
+  br i1 %240, label %.lr.ph.preheader.i.i79, label %._crit_edge.i.i78
+
+.lr.ph.preheader.i.i79:                           ; preds = %.preheader.i.i77
+  %umin.i.i80 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i66, i32 2)
+  %241 = add nuw nsw i32 %umin.i.i80, 2
+  %wide.trip.count.i.i81 = zext nneg i32 %241 to i64
+  br label %.lr.ph.i.i82
+
+.lr.ph.i.i82:                                     ; preds = %252, %.lr.ph.preheader.i.i79
+  %indvars.iv.i.i83 = phi i64 [ 1, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i93, %252 ]
+  %242 = getelementptr inbounds nuw i8, ptr %228, i64 %indvars.iv.i.i83
+  %243 = load i8, ptr %242, align 1, !tbaa !9
+  br label %244
+
+244:                                              ; preds = %251, %.lr.ph.i.i82
+  %indvars.iv.i29.i.i84 = phi i64 [ 0, %.lr.ph.i.i82 ], [ %indvars.iv.next.i30.i.i85, %251 ]
+  %245 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i84
+  %246 = load i8, ptr %245, align 1, !tbaa !9
+  %247 = and i8 %246, %243
+  %248 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i84
+  %249 = load i8, ptr %248, align 1, !tbaa !9
+  %250 = icmp eq i8 %247, %249
+  br i1 %250, label %nk_utf_decode_byte.exit34.i.i89, label %251
+
+251:                                              ; preds = %244
+  %indvars.iv.next.i30.i.i85 = add nuw nsw i64 %indvars.iv.i29.i.i84, 1
+  %exitcond.not.i31.i.i86 = icmp eq i64 %indvars.iv.next.i30.i.i85, 5
+  br i1 %exitcond.not.i31.i.i86, label %nk_utf_validate.exit.loopexit.i.i87, label %244, !llvm.loop !32
+
+nk_utf_decode_byte.exit34.i.i89:                  ; preds = %244
+  %.not27.i.i90 = icmp eq i64 %indvars.iv.i29.i.i84, 0
+  br i1 %.not27.i.i90, label %252, label %nk_utf_validate.exit.loopexit90.i.i91
+
+252:                                              ; preds = %nk_utf_decode_byte.exit34.i.i89
+  %indvars.iv.next.i.i93 = add nuw nsw i64 %indvars.iv.i.i83, 1
+  %exitcond.not.i.i94 = icmp eq i64 %indvars.iv.next.i.i93, %wide.trip.count.i.i81
+  br i1 %exitcond.not.i.i94, label %._crit_edge.loopexit.i.i95, label %.lr.ph.i.i82, !llvm.loop !33
+
+._crit_edge.loopexit.i.i95:                       ; preds = %252
+  %253 = icmp samesign ult i32 %241, %238
+  br i1 %253, label %nk_utf_decode.exit.i71, label %._crit_edge.i.i78
+
+._crit_edge.i.i78:                                ; preds = %._crit_edge.loopexit.i.i95, %.preheader.i.i77
+  br label %nk_utf_decode.exit.i71
+
+nk_utf_validate.exit.loopexit.i.i87:              ; preds = %251
+  %indvars83.le101.i.i88 = trunc i64 %indvars.iv.i.i83 to i32
+  br label %nk_utf_decode.exit.i71
+
+nk_utf_validate.exit.loopexit90.i.i91:            ; preds = %nk_utf_decode_byte.exit34.i.i89
+  %indvars83.le.i.i92 = trunc i64 %indvars.iv.i.i83 to i32
+  br label %nk_utf_decode.exit.i71
+
+nk_utf_decode.exit.i71:                           ; preds = %237, %nk_utf_validate.exit.loopexit90.i.i91, %nk_utf_validate.exit.loopexit.i.i87, %._crit_edge.i.i78, %._crit_edge.loopexit.i.i95, %nk_utf_decode_byte.exit.i.i75
+  %.023.i.i72 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i75 ], [ 0, %._crit_edge.loopexit.i.i95 ], [ %indvars83.le101.i.i88, %nk_utf_validate.exit.loopexit.i.i87 ], [ %indvars83.le.i.i92, %nk_utf_validate.exit.loopexit90.i.i91 ], [ %238, %._crit_edge.i.i78 ], [ 1, %237 ]
+  %254 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %226, ptr noundef nonnull %228, i32 noundef %.023.i.i72)
+  %255 = load i32, ptr %66, align 8, !tbaa !1172
+  %256 = add nsw i32 %255, 1
   br label %.sink.split
 
-161:                                              ; preds = %84
-  %162 = load i32, ptr %65, align 8, !tbaa !1169
-  %163 = icmp sgt i32 %85, %162
-  br i1 %163, label %164, label %165
+257:                                              ; preds = %84
+  %258 = load i32, ptr %65, align 8, !tbaa !1169
+  %259 = icmp sgt i32 %85, %258
+  br i1 %259, label %260, label %261
 
-164:                                              ; preds = %161
-  store i32 %162, ptr %63, align 4, !tbaa !1170
-  br label %165
+260:                                              ; preds = %257
+  store i32 %258, ptr %63, align 4, !tbaa !1170
+  br label %261
 
-165:                                              ; preds = %164, %161
-  %166 = phi i32 [ %162, %164 ], [ %85, %161 ]
-  %167 = icmp sgt i32 %86, %162
-  br i1 %167, label %168, label %169
+261:                                              ; preds = %260, %257
+  %262 = phi i32 [ %258, %260 ], [ %85, %257 ]
+  %263 = icmp sgt i32 %86, %258
+  br i1 %263, label %264, label %265
 
-168:                                              ; preds = %165
-  store i32 %162, ptr %64, align 8, !tbaa !1171
-  br label %169
+264:                                              ; preds = %261
+  store i32 %258, ptr %64, align 8, !tbaa !1171
+  br label %265
 
-169:                                              ; preds = %168, %165
-  %170 = phi i32 [ %162, %168 ], [ %86, %165 ]
-  %171 = icmp eq i32 %166, %170
-  br i1 %171, label %172, label %._crit_edge
+265:                                              ; preds = %264, %261
+  %266 = phi i32 [ %258, %264 ], [ %86, %261 ]
+  %267 = icmp eq i32 %262, %266
+  br i1 %267, label %268, label %._crit_edge
 
-._crit_edge:                                      ; preds = %169
+._crit_edge:                                      ; preds = %265
   %.pre = load i32, ptr %66, align 8, !tbaa !1172
   br label %.thread
 
-172:                                              ; preds = %169
-  store i32 %166, ptr %66, align 8, !tbaa !1172
+268:                                              ; preds = %265
+  store i32 %262, ptr %66, align 8, !tbaa !1172
   br label %.thread
 
-.thread:                                          ; preds = %87, %._crit_edge, %172
-  %173 = phi i32 [ %166, %172 ], [ %.pre, %._crit_edge ], [ %88, %87 ]
-  %174 = phi i32 [ %162, %172 ], [ %162, %._crit_edge ], [ %89, %87 ]
-  %175 = phi i32 [ %166, %172 ], [ %170, %._crit_edge ], [ %85, %87 ]
-  %176 = phi i32 [ %166, %172 ], [ %166, %._crit_edge ], [ %85, %87 ]
-  %177 = icmp sgt i32 %173, %174
-  br i1 %177, label %178, label %nk_textedit_clamp.exit.i
+.thread:                                          ; preds = %87, %._crit_edge, %268
+  %269 = phi i32 [ %262, %268 ], [ %.pre, %._crit_edge ], [ %88, %87 ]
+  %270 = phi i32 [ %258, %268 ], [ %258, %._crit_edge ], [ %89, %87 ]
+  %271 = phi i32 [ %262, %268 ], [ %266, %._crit_edge ], [ %85, %87 ]
+  %272 = phi i32 [ %262, %268 ], [ %262, %._crit_edge ], [ %85, %87 ]
+  %273 = icmp sgt i32 %269, %270
+  br i1 %273, label %274, label %nk_textedit_clamp.exit.i
 
-178:                                              ; preds = %.thread
-  store i32 %174, ptr %66, align 8, !tbaa !1172
+274:                                              ; preds = %.thread
+  store i32 %270, ptr %66, align 8, !tbaa !1172
   br label %nk_textedit_clamp.exit.i
 
-nk_textedit_clamp.exit.i:                         ; preds = %178, %.thread
-  %179 = phi i32 [ %174, %178 ], [ %173, %.thread ]
-  %.not.i68 = icmp eq i32 %176, %175
-  br i1 %.not.i68, label %.preheader.i71, label %180
+nk_textedit_clamp.exit.i:                         ; preds = %274, %.thread
+  %275 = phi i32 [ %270, %274 ], [ %269, %.thread ]
+  %.not.i97 = icmp eq i32 %272, %271
+  br i1 %.not.i97, label %.preheader.i101, label %276
 
-180:                                              ; preds = %nk_textedit_clamp.exit.i
-  %181 = icmp slt i32 %176, %175
-  br i1 %181, label %182, label %185
+276:                                              ; preds = %nk_textedit_clamp.exit.i
+  %277 = icmp slt i32 %272, %271
+  br i1 %277, label %278, label %281
 
-182:                                              ; preds = %180
-  %183 = sub nsw i32 %175, %176
-  call void @nk_textedit_delete(ptr noundef nonnull %0, i32 noundef %176, i32 noundef %183)
-  %184 = load i32, ptr %63, align 4, !tbaa !1170
-  store i32 %184, ptr %64, align 8, !tbaa !1171
-  br label %188
+278:                                              ; preds = %276
+  %279 = sub nsw i32 %271, %272
+  call void @nk_textedit_delete(ptr noundef nonnull %0, i32 noundef %272, i32 noundef %279)
+  %280 = load i32, ptr %63, align 4, !tbaa !1170
+  store i32 %280, ptr %64, align 8, !tbaa !1171
+  br label %284
 
-185:                                              ; preds = %180
-  %186 = sub nsw i32 %176, %175
-  call void @nk_textedit_delete(ptr noundef nonnull %0, i32 noundef %175, i32 noundef %186)
-  %187 = load i32, ptr %64, align 8, !tbaa !1171
-  store i32 %187, ptr %63, align 4, !tbaa !1170
-  br label %188
+281:                                              ; preds = %276
+  %282 = sub nsw i32 %272, %271
+  call void @nk_textedit_delete(ptr noundef nonnull %0, i32 noundef %271, i32 noundef %282)
+  %283 = load i32, ptr %64, align 8, !tbaa !1171
+  store i32 %283, ptr %63, align 4, !tbaa !1170
+  br label %284
 
-188:                                              ; preds = %185, %182
-  %.sink.i = phi i32 [ %184, %182 ], [ %187, %185 ]
-  store i32 %.sink.i, ptr %66, align 8, !tbaa !1172
+284:                                              ; preds = %281, %278
+  %.sink.i98 = phi i32 [ %280, %278 ], [ %283, %281 ]
+  store i32 %.sink.i98, ptr %66, align 8, !tbaa !1172
   store i8 0, ptr %68, align 1, !tbaa !1168
-  br label %.preheader.i71
+  br label %.preheader.i101
 
-.preheader.i71:                                   ; preds = %188, %nk_textedit_clamp.exit.i
-  %189 = phi i32 [ %.sink.i, %188 ], [ %179, %nk_textedit_clamp.exit.i ]
-  %190 = sext i32 %.0181 to i64
-  %191 = getelementptr inbounds i8, ptr %1, i64 %190
-  %192 = load i8, ptr %191, align 1, !tbaa !9
-  br label %193
+.preheader.i101:                                  ; preds = %284, %nk_textedit_clamp.exit.i
+  %285 = phi i32 [ %.sink.i98, %284 ], [ %275, %nk_textedit_clamp.exit.i ]
+  %286 = sext i32 %.0311 to i64
+  %287 = getelementptr inbounds i8, ptr %1, i64 %286
+  %288 = load i8, ptr %287, align 1, !tbaa !9
+  br label %289
 
-193:                                              ; preds = %200, %.preheader.i71
-  %indvars.iv86.i.i75 = phi i32 [ %indvars.iv.next87.i.i79, %200 ], [ -2, %.preheader.i71 ]
-  %indvars.iv.i.i.i76 = phi i64 [ %indvars.iv.next.i.i.i77, %200 ], [ 0, %.preheader.i71 ]
-  %194 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i76
-  %195 = load i8, ptr %194, align 1, !tbaa !9
-  %196 = and i8 %195, %192
-  %197 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i76
-  %198 = load i8, ptr %197, align 1, !tbaa !9
-  %199 = icmp eq i8 %196, %198
-  br i1 %199, label %nk_utf_decode_byte.exit.i.i84, label %200
+289:                                              ; preds = %296, %.preheader.i101
+  %indvars.iv86.i.i105 = phi i32 [ %indvars.iv.next87.i.i109, %296 ], [ -2, %.preheader.i101 ]
+  %indvars.iv.i.i.i106 = phi i64 [ %indvars.iv.next.i.i.i107, %296 ], [ 0, %.preheader.i101 ]
+  %290 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i106
+  %291 = load i8, ptr %290, align 1, !tbaa !9
+  %292 = and i8 %291, %288
+  %293 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i106
+  %294 = load i8, ptr %293, align 1, !tbaa !9
+  %295 = icmp eq i8 %292, %294
+  br i1 %295, label %nk_utf_decode_byte.exit.i.i114, label %296
 
-200:                                              ; preds = %193
-  %indvars.iv.next.i.i.i77 = add nuw nsw i64 %indvars.iv.i.i.i76, 1
-  %exitcond.not.i.i.i78 = icmp eq i64 %indvars.iv.next.i.i.i77, 5
-  %indvars.iv.next87.i.i79 = add nsw i32 %indvars.iv86.i.i75, 1
-  br i1 %exitcond.not.i.i.i78, label %nk_utf_decode.exit.i80, label %193, !llvm.loop !32
+296:                                              ; preds = %289
+  %indvars.iv.next.i.i.i107 = add nuw nsw i64 %indvars.iv.i.i.i106, 1
+  %exitcond.not.i.i.i108 = icmp eq i64 %indvars.iv.next.i.i.i107, 5
+  %indvars.iv.next87.i.i109 = add nsw i32 %indvars.iv86.i.i105, 1
+  br i1 %exitcond.not.i.i.i108, label %nk_utf_decode.exit.i110, label %289, !llvm.loop !32
 
-nk_utf_decode_byte.exit.i.i84:                    ; preds = %193
-  %201 = trunc nuw nsw i64 %indvars.iv.i.i.i76 to i32
-  %202 = add i32 %201, -1
-  %or.cond3.i.i85 = icmp ult i32 %202, 3
-  br i1 %or.cond3.i.i85, label %.preheader.i.i86, label %nk_utf_decode.exit.i80
+nk_utf_decode_byte.exit.i.i114:                   ; preds = %289
+  %297 = trunc nuw nsw i64 %indvars.iv.i.i.i106 to i32
+  %298 = add i32 %297, -1
+  %or.cond3.i.i115 = icmp ult i32 %298, 3
+  br i1 %or.cond3.i.i115, label %.preheader.i.i116, label %nk_utf_decode.exit.i110
 
-.preheader.i.i86:                                 ; preds = %nk_utf_decode_byte.exit.i.i84
-  %203 = icmp samesign ugt i64 %indvars.iv.i.i.i76, 1
-  br i1 %203, label %.lr.ph.preheader.i.i88, label %._crit_edge.i.i87
+.preheader.i.i116:                                ; preds = %nk_utf_decode_byte.exit.i.i114
+  %299 = icmp samesign ugt i64 %indvars.iv.i.i.i106, 1
+  br i1 %299, label %.lr.ph.preheader.i.i118, label %._crit_edge.i.i117
 
-.lr.ph.preheader.i.i88:                           ; preds = %.preheader.i.i86
-  %umin.i.i89 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i75, i32 2)
-  %204 = add nuw nsw i32 %umin.i.i89, 2
-  %wide.trip.count.i.i90 = zext nneg i32 %204 to i64
-  br label %.lr.ph.i.i92
+.lr.ph.preheader.i.i118:                          ; preds = %.preheader.i.i116
+  %umin.i.i119 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i105, i32 2)
+  %300 = add nuw nsw i32 %umin.i.i119, 2
+  %wide.trip.count.i.i120 = zext nneg i32 %300 to i64
+  br label %.lr.ph.i.i122
 
-.lr.ph.i.i92:                                     ; preds = %215, %.lr.ph.preheader.i.i88
-  %indvars.iv.i.i93 = phi i64 [ 1, %.lr.ph.preheader.i.i88 ], [ %indvars.iv.next.i.i103, %215 ]
-  %205 = getelementptr inbounds nuw i8, ptr %191, i64 %indvars.iv.i.i93
-  %206 = load i8, ptr %205, align 1, !tbaa !9
-  br label %207
+.lr.ph.i.i122:                                    ; preds = %311, %.lr.ph.preheader.i.i118
+  %indvars.iv.i.i123 = phi i64 [ 1, %.lr.ph.preheader.i.i118 ], [ %indvars.iv.next.i.i133, %311 ]
+  %301 = getelementptr inbounds nuw i8, ptr %287, i64 %indvars.iv.i.i123
+  %302 = load i8, ptr %301, align 1, !tbaa !9
+  br label %303
 
-207:                                              ; preds = %214, %.lr.ph.i.i92
-  %indvars.iv.i29.i.i94 = phi i64 [ 0, %.lr.ph.i.i92 ], [ %indvars.iv.next.i30.i.i95, %214 ]
-  %208 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i94
-  %209 = load i8, ptr %208, align 1, !tbaa !9
-  %210 = and i8 %209, %206
-  %211 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i94
-  %212 = load i8, ptr %211, align 1, !tbaa !9
-  %213 = icmp eq i8 %210, %212
-  br i1 %213, label %nk_utf_decode_byte.exit34.i.i99, label %214
+303:                                              ; preds = %310, %.lr.ph.i.i122
+  %indvars.iv.i29.i.i124 = phi i64 [ 0, %.lr.ph.i.i122 ], [ %indvars.iv.next.i30.i.i125, %310 ]
+  %304 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i124
+  %305 = load i8, ptr %304, align 1, !tbaa !9
+  %306 = and i8 %305, %302
+  %307 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i124
+  %308 = load i8, ptr %307, align 1, !tbaa !9
+  %309 = icmp eq i8 %306, %308
+  br i1 %309, label %nk_utf_decode_byte.exit34.i.i129, label %310
 
-214:                                              ; preds = %207
-  %indvars.iv.next.i30.i.i95 = add nuw nsw i64 %indvars.iv.i29.i.i94, 1
-  %exitcond.not.i31.i.i96 = icmp eq i64 %indvars.iv.next.i30.i.i95, 5
-  br i1 %exitcond.not.i31.i.i96, label %nk_utf_validate.exit.loopexit.i.i97, label %207, !llvm.loop !32
+310:                                              ; preds = %303
+  %indvars.iv.next.i30.i.i125 = add nuw nsw i64 %indvars.iv.i29.i.i124, 1
+  %exitcond.not.i31.i.i126 = icmp eq i64 %indvars.iv.next.i30.i.i125, 5
+  br i1 %exitcond.not.i31.i.i126, label %nk_utf_validate.exit.loopexit.i.i127, label %303, !llvm.loop !32
 
-nk_utf_decode_byte.exit34.i.i99:                  ; preds = %207
-  %.not27.i.i100 = icmp eq i64 %indvars.iv.i29.i.i94, 0
-  br i1 %.not27.i.i100, label %215, label %nk_utf_validate.exit.loopexit90.i.i101
+nk_utf_decode_byte.exit34.i.i129:                 ; preds = %303
+  %.not27.i.i130 = icmp eq i64 %indvars.iv.i29.i.i124, 0
+  br i1 %.not27.i.i130, label %311, label %nk_utf_validate.exit.loopexit90.i.i131
 
-215:                                              ; preds = %nk_utf_decode_byte.exit34.i.i99
-  %indvars.iv.next.i.i103 = add nuw nsw i64 %indvars.iv.i.i93, 1
-  %exitcond.not.i.i104 = icmp eq i64 %indvars.iv.next.i.i103, %wide.trip.count.i.i90
-  br i1 %exitcond.not.i.i104, label %._crit_edge.loopexit.i.i105, label %.lr.ph.i.i92, !llvm.loop !33
+311:                                              ; preds = %nk_utf_decode_byte.exit34.i.i129
+  %indvars.iv.next.i.i133 = add nuw nsw i64 %indvars.iv.i.i123, 1
+  %exitcond.not.i.i134 = icmp eq i64 %indvars.iv.next.i.i133, %wide.trip.count.i.i120
+  br i1 %exitcond.not.i.i134, label %._crit_edge.loopexit.i.i135, label %.lr.ph.i.i122, !llvm.loop !33
 
-._crit_edge.loopexit.i.i105:                      ; preds = %215
-  %216 = icmp samesign ult i32 %204, %201
-  br i1 %216, label %nk_utf_decode.exit.i80, label %._crit_edge.i.i87
+._crit_edge.loopexit.i.i135:                      ; preds = %311
+  %312 = icmp samesign ult i32 %300, %297
+  br i1 %312, label %nk_utf_decode.exit.i110, label %._crit_edge.i.i117
 
-._crit_edge.i.i87:                                ; preds = %._crit_edge.loopexit.i.i105, %.preheader.i.i86
-  br label %nk_utf_decode.exit.i80
+._crit_edge.i.i117:                               ; preds = %._crit_edge.loopexit.i.i135, %.preheader.i.i116
+  br label %nk_utf_decode.exit.i110
 
-nk_utf_validate.exit.loopexit.i.i97:              ; preds = %214
-  %indvars83.le101.i.i98 = trunc i64 %indvars.iv.i.i93 to i32
-  br label %nk_utf_decode.exit.i80
+nk_utf_validate.exit.loopexit.i.i127:             ; preds = %310
+  %indvars83.le101.i.i128 = trunc i64 %indvars.iv.i.i123 to i32
+  br label %nk_utf_decode.exit.i110
 
-nk_utf_validate.exit.loopexit90.i.i101:           ; preds = %nk_utf_decode_byte.exit34.i.i99
-  %indvars83.le.i.i102 = trunc i64 %indvars.iv.i.i93 to i32
-  br label %nk_utf_decode.exit.i80
+nk_utf_validate.exit.loopexit90.i.i131:           ; preds = %nk_utf_decode_byte.exit34.i.i129
+  %indvars83.le.i.i132 = trunc i64 %indvars.iv.i.i123 to i32
+  br label %nk_utf_decode.exit.i110
 
-nk_utf_decode.exit.i80:                           ; preds = %200, %nk_utf_validate.exit.loopexit90.i.i101, %nk_utf_validate.exit.loopexit.i.i97, %._crit_edge.i.i87, %._crit_edge.loopexit.i.i105, %nk_utf_decode_byte.exit.i.i84
-  %.023.i.i81 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i84 ], [ 0, %._crit_edge.loopexit.i.i105 ], [ %indvars83.le101.i.i98, %nk_utf_validate.exit.loopexit.i.i97 ], [ %indvars83.le.i.i102, %nk_utf_validate.exit.loopexit90.i.i101 ], [ %201, %._crit_edge.i.i87 ], [ 1, %200 ]
-  %217 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %189, ptr noundef nonnull %191, i32 noundef %.023.i.i81)
-  %218 = load i32, ptr %66, align 8, !tbaa !1172
+nk_utf_decode.exit.i110:                          ; preds = %296, %nk_utf_validate.exit.loopexit90.i.i131, %nk_utf_validate.exit.loopexit.i.i127, %._crit_edge.i.i117, %._crit_edge.loopexit.i.i135, %nk_utf_decode_byte.exit.i.i114
+  %.023.i.i111 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i114 ], [ 0, %._crit_edge.loopexit.i.i135 ], [ %indvars83.le101.i.i128, %nk_utf_validate.exit.loopexit.i.i127 ], [ %indvars83.le.i.i132, %nk_utf_validate.exit.loopexit90.i.i131 ], [ %297, %._crit_edge.i.i117 ], [ 1, %296 ]
+  %313 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %285, ptr noundef nonnull %287, i32 noundef %.023.i.i111)
+  %314 = load i32, ptr %66, align 8, !tbaa !1172
   store i16 99, ptr %70, align 2, !tbaa !1157
   store i16 999, ptr %71, align 2, !tbaa !1158
-  %219 = load i16, ptr %72, align 8, !tbaa !1159
-  %220 = icmp eq i16 %219, 99
-  br i1 %220, label %221, label %222
+  %315 = load i16, ptr %72, align 8, !tbaa !1159
+  %316 = icmp eq i16 %315, 99
+  br i1 %316, label %317, label %318
 
-221:                                              ; preds = %nk_utf_decode.exit.i80
+317:                                              ; preds = %nk_utf_decode.exit.i110
   call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %69)
-  br label %222
+  br label %318
 
-222:                                              ; preds = %221, %nk_utf_decode.exit.i80
-  %223 = load i16, ptr %73, align 4, !tbaa !1160
-  %224 = icmp sgt i16 %223, 999
-  br i1 %224, label %.lr.ph.i.i.i107, label %nk_textedit_makeundo_insert.exit
+318:                                              ; preds = %317, %nk_utf_decode.exit.i110
+  %319 = load i16, ptr %73, align 4, !tbaa !1160
+  %320 = icmp sgt i16 %319, 999
+  br i1 %320, label %.lr.ph.i.i.i138, label %nk_textedit_makeundo_insert.exit
 
-.lr.ph.i.i.i107:                                  ; preds = %222, %.lr.ph.i.i.i107
+.lr.ph.i.i.i138:                                  ; preds = %318, %.lr.ph.i.i.i138
   call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %69)
-  %225 = load i16, ptr %73, align 4, !tbaa !1160
-  %226 = icmp sgt i16 %225, 999
-  br i1 %226, label %.lr.ph.i.i.i107, label %nk_textedit_makeundo_insert.exit, !llvm.loop !1161
+  %321 = load i16, ptr %73, align 4, !tbaa !1160
+  %322 = icmp sgt i16 %321, 999
+  br i1 %322, label %.lr.ph.i.i.i138, label %nk_textedit_makeundo_insert.exit, !llvm.loop !1161
 
-nk_textedit_makeundo_insert.exit:                 ; preds = %.lr.ph.i.i.i107, %222
-  %227 = load i16, ptr %72, align 4, !tbaa !1159
-  %228 = add i16 %227, 1
-  store i16 %228, ptr %72, align 4, !tbaa !1159
-  %229 = sext i16 %227 to i64
-  %230 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %69, i64 0, i64 %229
-  store i32 %218, ptr %230, align 4, !tbaa !1162
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  store i16 0, ptr %231, align 4, !tbaa !1164
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 6
-  store i16 1, ptr %232, align 2, !tbaa !1165
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store i16 -1, ptr %233, align 4, !tbaa !1166
-  %234 = load i32, ptr %66, align 8, !tbaa !1172
-  %235 = add nsw i32 %234, 1
-  %236 = load i32, ptr %65, align 8, !tbaa !1169
-  %. = call i32 @llvm.smin.i32(i32 %235, i32 %236)
+nk_textedit_makeundo_insert.exit:                 ; preds = %.lr.ph.i.i.i138, %318
+  %323 = load i16, ptr %72, align 4, !tbaa !1159
+  %324 = add i16 %323, 1
+  store i16 %324, ptr %72, align 4, !tbaa !1159
+  %325 = sext i16 %323 to i64
+  %326 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %69, i64 0, i64 %325
+  store i32 %314, ptr %326, align 4, !tbaa !1162
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
+  store i16 0, ptr %327, align 4, !tbaa !1164
+  %328 = getelementptr inbounds nuw i8, ptr %326, i64 6
+  store i16 1, ptr %328, align 2, !tbaa !1165
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  store i16 -1, ptr %329, align 4, !tbaa !1166
+  %330 = load i32, ptr %66, align 8, !tbaa !1172
+  %331 = add nsw i32 %330, 1
+  %332 = load i32, ptr %65, align 8, !tbaa !1169
+  %. = call i32 @llvm.smin.i32(i32 %331, i32 %332)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %nk_textedit_makeundo_insert.exit, %nk_utf_decode.exit.i
-  %.sink = phi i32 [ %160, %nk_utf_decode.exit.i ], [ %., %nk_textedit_makeundo_insert.exit ]
+.sink.split:                                      ; preds = %nk_textedit_makeundo_insert.exit, %nk_utf_decode.exit.i71
+  %.sink = phi i32 [ %256, %nk_utf_decode.exit.i71 ], [ %., %nk_textedit_makeundo_insert.exit ]
   store i32 %.sink, ptr %66, align 8, !tbaa !1172
   store i8 0, ptr %68, align 1, !tbaa !1168
-  br label %237
+  br label %333
 
-237:                                              ; preds = %.sink.split, %77, %82, %78
-  %238 = add nsw i32 %.0181, %.046180
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i8, ptr %1, i64 %239
-  %241 = sub i32 %2, %238
-  %.not.i108 = icmp eq i32 %2, %238
-  br i1 %.not.i108, label %.loopexit, label %242
+333:                                              ; preds = %.sink.split, %77, %82, %78
+  %334 = add nsw i32 %.0311, %.046310
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds i8, ptr %1, i64 %335
+  %337 = sub i32 %2, %334
+  %.not.i139 = icmp eq i32 %2, %334
+  br i1 %.not.i139, label %.loopexit, label %338
 
-242:                                              ; preds = %237
-  %243 = load i8, ptr %240, align 1, !tbaa !9
-  br label %244
+338:                                              ; preds = %333
+  %339 = load i8, ptr %336, align 1, !tbaa !9
+  br label %340
 
-244:                                              ; preds = %251, %242
-  %indvars.iv86.i110 = phi i32 [ %indvars.iv.next87.i114, %251 ], [ -2, %242 ]
-  %indvars.iv.i.i111 = phi i64 [ %indvars.iv.next.i.i112, %251 ], [ 0, %242 ]
-  %245 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i111
-  %246 = load i8, ptr %245, align 1, !tbaa !9
-  %247 = and i8 %246, %243
-  %248 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i111
-  %249 = load i8, ptr %248, align 1, !tbaa !9
-  %250 = icmp eq i8 %247, %249
-  br i1 %250, label %nk_utf_decode_byte.exit.i116, label %251
+340:                                              ; preds = %347, %338
+  %indvars.iv86.i141 = phi i32 [ %indvars.iv.next87.i145, %347 ], [ -2, %338 ]
+  %indvars.iv.i.i142 = phi i64 [ %indvars.iv.next.i.i143, %347 ], [ 0, %338 ]
+  %341 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i142
+  %342 = load i8, ptr %341, align 1, !tbaa !9
+  %343 = and i8 %342, %339
+  %344 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i142
+  %345 = load i8, ptr %344, align 1, !tbaa !9
+  %346 = icmp eq i8 %343, %345
+  br i1 %346, label %nk_utf_decode_byte.exit.i147, label %347
 
-251:                                              ; preds = %244
-  %indvars.iv.next.i.i112 = add nuw nsw i64 %indvars.iv.i.i111, 1
-  %exitcond.not.i.i113 = icmp eq i64 %indvars.iv.next.i.i112, 5
-  %indvars.iv.next87.i114 = add nsw i32 %indvars.iv86.i110, 1
-  br i1 %exitcond.not.i.i113, label %nk_utf_decode.exit143, label %244, !llvm.loop !32
+347:                                              ; preds = %340
+  %indvars.iv.next.i.i143 = add nuw nsw i64 %indvars.iv.i.i142, 1
+  %exitcond.not.i.i144 = icmp eq i64 %indvars.iv.next.i.i143, 5
+  %indvars.iv.next87.i145 = add nsw i32 %indvars.iv86.i141, 1
+  br i1 %exitcond.not.i.i144, label %nk_utf_decode.exit174, label %340, !llvm.loop !32
 
-nk_utf_decode_byte.exit.i116:                     ; preds = %244
-  %252 = trunc nuw nsw i64 %indvars.iv.i.i111 to i32
-  %253 = add i32 %252, -1
-  %or.cond3.i117 = icmp ult i32 %253, 3
-  br i1 %or.cond3.i117, label %.preheader.i118, label %nk_utf_decode.exit143
+nk_utf_decode_byte.exit.i147:                     ; preds = %340
+  %348 = trunc nuw nsw i64 %indvars.iv.i.i142 to i32
+  %349 = add i32 %348, -1
+  %or.cond3.i148 = icmp ult i32 %349, 3
+  br i1 %or.cond3.i148, label %.preheader.i149, label %nk_utf_decode.exit174
 
-.preheader.i118:                                  ; preds = %nk_utf_decode_byte.exit.i116
-  %254 = xor i8 %246, -1
-  %255 = and i8 %243, %254
-  %256 = zext i8 %255 to i32
-  %257 = icmp sgt i32 %241, 1
-  %258 = icmp samesign ugt i64 %indvars.iv.i.i111, 1
-  %259 = select i1 %257, i1 %258, i1 false
-  br i1 %259, label %.lr.ph.preheader.i124, label %._crit_edge.i119
+.preheader.i149:                                  ; preds = %nk_utf_decode_byte.exit.i147
+  %350 = xor i8 %342, -1
+  %351 = and i8 %339, %350
+  %352 = zext i8 %351 to i32
+  %353 = icmp sgt i32 %337, 1
+  %354 = icmp samesign ugt i64 %indvars.iv.i.i142, 1
+  %355 = select i1 %353, i1 %354, i1 false
+  br i1 %355, label %.lr.ph.preheader.i155, label %._crit_edge.i150
 
-.lr.ph.preheader.i124:                            ; preds = %.preheader.i118
-  %260 = add nsw i32 %241, -2
-  %umin.i125 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i110, i32 %260)
-  %261 = add nuw nsw i32 %umin.i125, 2
-  %wide.trip.count.i126 = zext nneg i32 %261 to i64
-  br label %.lr.ph.i127
+.lr.ph.preheader.i155:                            ; preds = %.preheader.i149
+  %356 = add nsw i32 %337, -2
+  %umin.i156 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i141, i32 %356)
+  %357 = add nuw nsw i32 %umin.i156, 2
+  %wide.trip.count.i157 = zext nneg i32 %357 to i64
+  br label %.lr.ph.i158
 
-.lr.ph.i127:                                      ; preds = %272, %.lr.ph.preheader.i124
-  %indvars.iv.i128 = phi i64 [ 1, %.lr.ph.preheader.i124 ], [ %indvars.iv.next.i139, %272 ]
-  %.069.i129 = phi i32 [ %256, %.lr.ph.preheader.i124 ], [ %277, %272 ]
-  %262 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv.i128
-  %263 = load i8, ptr %262, align 1, !tbaa !9
-  br label %264
+.lr.ph.i158:                                      ; preds = %368, %.lr.ph.preheader.i155
+  %indvars.iv.i159 = phi i64 [ 1, %.lr.ph.preheader.i155 ], [ %indvars.iv.next.i170, %368 ]
+  %.069.i160 = phi i32 [ %352, %.lr.ph.preheader.i155 ], [ %373, %368 ]
+  %358 = getelementptr inbounds nuw i8, ptr %336, i64 %indvars.iv.i159
+  %359 = load i8, ptr %358, align 1, !tbaa !9
+  br label %360
 
-264:                                              ; preds = %271, %.lr.ph.i127
-  %indvars.iv.i29.i130 = phi i64 [ 0, %.lr.ph.i127 ], [ %indvars.iv.next.i30.i131, %271 ]
-  %265 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i130
-  %266 = load i8, ptr %265, align 1, !tbaa !9
-  %267 = and i8 %266, %263
-  %268 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i130
-  %269 = load i8, ptr %268, align 1, !tbaa !9
-  %270 = icmp eq i8 %267, %269
-  br i1 %270, label %nk_utf_decode_byte.exit34.i135, label %271
+360:                                              ; preds = %367, %.lr.ph.i158
+  %indvars.iv.i29.i161 = phi i64 [ 0, %.lr.ph.i158 ], [ %indvars.iv.next.i30.i162, %367 ]
+  %361 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i161
+  %362 = load i8, ptr %361, align 1, !tbaa !9
+  %363 = and i8 %362, %359
+  %364 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i161
+  %365 = load i8, ptr %364, align 1, !tbaa !9
+  %366 = icmp eq i8 %363, %365
+  br i1 %366, label %nk_utf_decode_byte.exit34.i166, label %367
 
-271:                                              ; preds = %264
-  %indvars.iv.next.i30.i131 = add nuw nsw i64 %indvars.iv.i29.i130, 1
-  %exitcond.not.i31.i132 = icmp eq i64 %indvars.iv.next.i30.i131, 5
-  br i1 %exitcond.not.i31.i132, label %nk_utf_validate.exit.loopexit.i133, label %264, !llvm.loop !32
+367:                                              ; preds = %360
+  %indvars.iv.next.i30.i162 = add nuw nsw i64 %indvars.iv.i29.i161, 1
+  %exitcond.not.i31.i163 = icmp eq i64 %indvars.iv.next.i30.i162, 5
+  br i1 %exitcond.not.i31.i163, label %nk_utf_validate.exit.loopexit.i164, label %360, !llvm.loop !32
 
-nk_utf_decode_byte.exit34.i135:                   ; preds = %264
-  %.not27.i136 = icmp eq i64 %indvars.iv.i29.i130, 0
-  br i1 %.not27.i136, label %272, label %nk_utf_validate.exit.loopexit90.i137
+nk_utf_decode_byte.exit34.i166:                   ; preds = %360
+  %.not27.i167 = icmp eq i64 %indvars.iv.i29.i161, 0
+  br i1 %.not27.i167, label %368, label %nk_utf_validate.exit.loopexit90.i168
 
-272:                                              ; preds = %nk_utf_decode_byte.exit34.i135
-  %273 = xor i8 %266, -1
-  %274 = and i8 %263, %273
-  %275 = zext i8 %274 to i32
-  %276 = shl i32 %.069.i129, 6
-  %277 = or i32 %276, %275
-  %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i128, 1
-  %exitcond.not.i140 = icmp eq i64 %indvars.iv.next.i139, %wide.trip.count.i126
-  br i1 %exitcond.not.i140, label %._crit_edge.loopexit.i141, label %.lr.ph.i127, !llvm.loop !33
+368:                                              ; preds = %nk_utf_decode_byte.exit34.i166
+  %369 = xor i8 %362, -1
+  %370 = and i8 %359, %369
+  %371 = zext i8 %370 to i32
+  %372 = shl i32 %.069.i160, 6
+  %373 = or i32 %372, %371
+  %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i159, 1
+  %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, %wide.trip.count.i157
+  br i1 %exitcond.not.i171, label %._crit_edge.loopexit.i172, label %.lr.ph.i158, !llvm.loop !33
 
-._crit_edge.loopexit.i141:                        ; preds = %272
-  %278 = icmp samesign ult i32 %261, %252
-  br i1 %278, label %.loopexit, label %279
+._crit_edge.loopexit.i172:                        ; preds = %368
+  %374 = icmp samesign ult i32 %357, %348
+  br i1 %374, label %.loopexit, label %375
 
-._crit_edge.i119:                                 ; preds = %.preheader.i118
-  br i1 %258, label %.loopexit, label %279
+._crit_edge.i150:                                 ; preds = %.preheader.i149
+  br i1 %354, label %.loopexit, label %375
 
-279:                                              ; preds = %._crit_edge.i119, %._crit_edge.loopexit.i141
-  %.0.lcssa89.i120 = phi i32 [ %277, %._crit_edge.loopexit.i141 ], [ %256, %._crit_edge.i119 ]
-  %280 = and i64 %indvars.iv.i.i111, 4294967295
-  %281 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %280
-  %282 = load i32, ptr %281, align 4, !tbaa !7
-  %.not.i.i121 = icmp ugt i32 %282, %.0.lcssa89.i120
-  br i1 %.not.i.i121, label %288, label %283
+375:                                              ; preds = %._crit_edge.i150, %._crit_edge.loopexit.i172
+  %.0.lcssa89.i151 = phi i32 [ %373, %._crit_edge.loopexit.i172 ], [ %352, %._crit_edge.i150 ]
+  %376 = and i64 %indvars.iv.i.i142, 4294967295
+  %377 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %376
+  %378 = load i32, ptr %377, align 4, !tbaa !7
+  %.not.i.i152 = icmp ugt i32 %378, %.0.lcssa89.i151
+  br i1 %.not.i.i152, label %384, label %379
 
-283:                                              ; preds = %279
-  %284 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %280
-  %285 = load i32, ptr %284, align 4, !tbaa !7
-  %286 = icmp uge i32 %.0.lcssa89.i120, %285
-  %287 = add i32 %.0.lcssa89.i120, -55296
-  %or.cond.i.i122 = icmp ult i32 %287, 2047
-  %or.cond15.i.i123 = or i1 %or.cond.i.i122, %286
-  br i1 %or.cond15.i.i123, label %288, label %nk_utf_decode.exit143
+379:                                              ; preds = %375
+  %380 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %376
+  %381 = load i32, ptr %380, align 4, !tbaa !7
+  %382 = icmp uge i32 %.0.lcssa89.i151, %381
+  %383 = add i32 %.0.lcssa89.i151, -55296
+  %or.cond.i.i153 = icmp ult i32 %383, 2047
+  %or.cond15.i.i154 = or i1 %or.cond.i.i153, %382
+  br i1 %or.cond15.i.i154, label %384, label %nk_utf_decode.exit174
 
-288:                                              ; preds = %283, %279
-  br label %nk_utf_decode.exit143
+384:                                              ; preds = %379, %375
+  br label %nk_utf_decode.exit174
 
-nk_utf_validate.exit.loopexit.i133:               ; preds = %271
-  %indvars83.le101.i134 = trunc i64 %indvars.iv.i128 to i32
-  br label %nk_utf_decode.exit143
+nk_utf_validate.exit.loopexit.i164:               ; preds = %367
+  %indvars83.le101.i165 = trunc i64 %indvars.iv.i159 to i32
+  br label %nk_utf_decode.exit174
 
-nk_utf_validate.exit.loopexit90.i137:             ; preds = %nk_utf_decode_byte.exit34.i135
-  %indvars83.le.i138 = trunc i64 %indvars.iv.i128 to i32
-  br label %nk_utf_decode.exit143
+nk_utf_validate.exit.loopexit90.i168:             ; preds = %nk_utf_decode_byte.exit34.i166
+  %indvars83.le.i169 = trunc i64 %indvars.iv.i159 to i32
+  br label %nk_utf_decode.exit174
 
-nk_utf_decode.exit143:                            ; preds = %251, %nk_utf_decode_byte.exit.i116, %283, %288, %nk_utf_validate.exit.loopexit.i133, %nk_utf_validate.exit.loopexit90.i137
-  %.2 = phi i32 [ 65533, %288 ], [ %.0.lcssa89.i120, %283 ], [ 65533, %nk_utf_validate.exit.loopexit90.i137 ], [ 65533, %nk_utf_validate.exit.loopexit.i133 ], [ 65533, %nk_utf_decode_byte.exit.i116 ], [ 65533, %251 ]
-  %.023.i115 = phi i32 [ %252, %288 ], [ %252, %283 ], [ %indvars83.le.i138, %nk_utf_validate.exit.loopexit90.i137 ], [ %indvars83.le101.i134, %nk_utf_validate.exit.loopexit.i133 ], [ 1, %nk_utf_decode_byte.exit.i116 ], [ 1, %251 ]
-  %289 = icmp slt i32 %238, %2
-  %290 = icmp ne i32 %.023.i115, 0
-  %291 = and i1 %290, %289
-  br i1 %291, label %77, label %.loopexit, !llvm.loop !1177
+nk_utf_decode.exit174:                            ; preds = %347, %nk_utf_decode_byte.exit.i147, %379, %384, %nk_utf_validate.exit.loopexit.i164, %nk_utf_validate.exit.loopexit90.i168
+  %.2 = phi i32 [ 65533, %384 ], [ %.0.lcssa89.i151, %379 ], [ 65533, %nk_utf_validate.exit.loopexit90.i168 ], [ 65533, %nk_utf_validate.exit.loopexit.i164 ], [ 65533, %nk_utf_decode_byte.exit.i147 ], [ 65533, %347 ]
+  %.023.i146 = phi i32 [ %348, %384 ], [ %348, %379 ], [ %indvars83.le.i169, %nk_utf_validate.exit.loopexit90.i168 ], [ %indvars83.le101.i165, %nk_utf_validate.exit.loopexit.i164 ], [ 1, %nk_utf_decode_byte.exit.i147 ], [ 1, %347 ]
+  %385 = icmp slt i32 %334, %2
+  %386 = icmp ne i32 %.023.i146, 0
+  %387 = and i1 %386, %385
+  br i1 %387, label %77, label %.loopexit, !llvm.loop !1177
 
-.loopexit:                                        ; preds = %._crit_edge.i119, %._crit_edge.loopexit.i141, %237, %nk_utf_decode.exit143, %._crit_edge.i, %._crit_edge.loopexit.i, %nk_utf_decode.exit, %3, %7
+.loopexit:                                        ; preds = %._crit_edge.i150, %._crit_edge.loopexit.i172, %333, %nk_utf_decode.exit174, %._crit_edge.i, %._crit_edge.loopexit.i, %nk_utf_decode.exit, %3, %7
   ret void
 }
 

@@ -234,10 +234,10 @@ json_create_config.exit:                          ; preds = %36
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 1141
   store i8 117, ptr %48, align 1, !tbaa !25
   tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.98) #12
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %json_create_config.exit, %.critedge.i
-  %.01619.i = phi ptr [ %52, %.critedge.i ], [ @__const.lua_cjson_new.reg, %json_create_config.exit ]
+.preheader.i:                                     ; preds = %json_create_config.exit, %.preheader.i
+  %.01619.i = phi ptr [ %52, %.preheader.i ], [ @__const.lua_cjson_new.reg, %json_create_config.exit ]
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #12
   %49 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -247,9 +247,9 @@ json_create_config.exit:                          ; preds = %36
   %52 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !28
   %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %luaL_setfuncs.exit, label %.critedge.i, !llvm.loop !29
+  br i1 %.not.i, label %luaL_setfuncs.exit, label %.preheader.i, !llvm.loop !29
 
-luaL_setfuncs.exit:                               ; preds = %.critedge.i
+luaL_setfuncs.exit:                               ; preds = %.preheader.i
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
   tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef null) #12
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11) #12

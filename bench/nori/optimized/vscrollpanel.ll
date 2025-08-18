@@ -81,7 +81,7 @@ define hidden void @_ZN7nanogui12VScrollPanel14perform_layoutEP10NVGcontext(ptr 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %27, %.sroa.1.0.extract.trunc
-  br i1 %28, label %29, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
+  br i1 %28, label %29, label %.preheader
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -106,7 +106,7 @@ define hidden void @_ZN7nanogui12VScrollPanel14perform_layoutEP10NVGcontext(ptr 
   store i64 %.sroa.013.0.insert.insert, ptr %41, align 8
   br label %46
 
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %18
+.preheader:                                       ; preds = %18
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 0, ptr %42, align 8
   %.sroa_idx12 = getelementptr inbounds nuw i8, ptr %19, i64 44
@@ -118,7 +118,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %18
   store float 0.000000e+00, ptr %45, align 8
   br label %46
 
-46:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %29
+46:                                               ; preds = %.preheader, %29
   %47 = load ptr, ptr %19, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
@@ -163,7 +163,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %2
   %.sroa.26.0.extract.shift = and i64 %12, -4294967296
   %13 = add i64 %12, 12
   %14 = and i64 %13, 4294967295
-  %15 = or disjoint i64 %14, %.sroa.26.0.extract.shift
+  %15 = or disjoint i64 %.sroa.26.0.extract.shift, %14
   br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %2, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge

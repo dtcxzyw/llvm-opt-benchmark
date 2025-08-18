@@ -209,7 +209,6 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef range(i32
   %2 = alloca %struct.mpc_lintsrc, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 71776119061218052, ptr %2, align 8, !annotation !8
   store i8 0, ptr %1, align 4
   %3 = icmp samesign ugt i32 %0, 4
   %4 = select i1 %3, i8 16, i8 1
@@ -241,9 +240,12 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef range(i32
   call fastcc void @MP_processor_info(ptr noundef nonnull %1) #12
   store i8 1, ptr %22, align 1
   call fastcc void @MP_processor_info(ptr noundef nonnull %1) #12
+  store i64 71776119061217284, ptr %2, align 8, !annotation !8
   tail call fastcc void @construct_ioapic_table(i32 noundef %0) #12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  store i8 3, ptr %23, align 1
+  store i8 0, ptr %24, align 1
   call fastcc void @MP_lintsrc_info(ptr noundef nonnull %2) #12
   store i8 1, ptr %23, align 1
   store i8 1, ptr %24, align 1

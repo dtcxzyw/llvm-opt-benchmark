@@ -114,27 +114,27 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %7
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %7
   %.sroa.0.0.i = phi ptr [ null, %7 ], [ %13, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.critedge.lr.ph.i, label %.sink.split
+  br i1 %15, label %.preheader.lr.ph.i, label %.sink.split
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %16 = load ptr, ptr %0, align 8, !tbaa !11
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = load ptr, ptr %3, align 8, !tbaa !11
   %wide.trip.count.i = and i64 %9, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %19 = getelementptr i32, ptr %16, i64 %indvars.iv.i
-  %20 = load i32, ptr %19, align 4, !tbaa !12
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !12
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %21 = load i32, ptr %19, align 4, !tbaa !12
+  %22 = load i32, ptr %20, align 4, !tbaa !12
   %23 = sext i32 %22 to i64
   %24 = getelementptr i32, ptr %18, i64 %23
-  store i32 %20, ptr %24, align 4, !tbaa !12
+  store i32 %21, ptr %24, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split, label %.critedge.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.sink.split, label %.preheader.i, !llvm.loop !14
 
 25:                                               ; preds = %.noexc24.i22.invoke, %32, %6
   %26 = landingpad { ptr, i32 }
@@ -180,30 +180,30 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i21: ; preds = %34
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i21, %34
   %.sroa.0.0.i14 = phi ptr [ null, %34 ], [ %39, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i21 ]
   %42 = icmp sgt i32 %36, 0
-  br i1 %42, label %.critedge.lr.ph.i15, label %.sink.split
+  br i1 %42, label %.preheader.lr.ph.i15, label %.sink.split
 
-.critedge.lr.ph.i15:                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13
+.preheader.lr.ph.i15:                             ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13
   %43 = load ptr, ptr %0, align 8, !tbaa !11
   %44 = load ptr, ptr %5, align 8, !tbaa !11
   %45 = load ptr, ptr %3, align 8, !tbaa !11
   %wide.trip.count.i16 = and i64 %35, 2147483647
-  br label %.critedge.i17
+  br label %.preheader.i17
 
-.critedge.i17:                                    ; preds = %.critedge.i17, %.critedge.lr.ph.i15
-  %indvars.iv.i18 = phi i64 [ 0, %.critedge.lr.ph.i15 ], [ %indvars.iv.next.i19, %.critedge.i17 ]
+.preheader.i17:                                   ; preds = %.preheader.i17, %.preheader.lr.ph.i15
+  %indvars.iv.i18 = phi i64 [ 0, %.preheader.lr.ph.i15 ], [ %indvars.iv.next.i19, %.preheader.i17 ]
   %46 = getelementptr i32, ptr %43, i64 %indvars.iv.i18
-  %47 = load i32, ptr %46, align 4, !tbaa !12
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i18
-  %49 = load i32, ptr %48, align 4, !tbaa !12
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i18
+  %48 = load i32, ptr %46, align 4, !tbaa !12
+  %49 = load i32, ptr %47, align 4, !tbaa !12
   %50 = sext i32 %49 to i64
   %51 = getelementptr i32, ptr %45, i64 %50
-  store i32 %47, ptr %51, align 4, !tbaa !12
+  store i32 %48, ptr %51, align 4, !tbaa !12
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i16
-  br i1 %exitcond.not.i20, label %.sink.split, label %.critedge.i17, !llvm.loop !14
+  br i1 %exitcond.not.i20, label %.sink.split, label %.preheader.i17, !llvm.loop !14
 
-.sink.split:                                      ; preds = %.critedge.i17, %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
-  %.sroa.0.0.i14.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i14, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13 ], [ %.sroa.0.0.i, %.critedge.i ], [ %.sroa.0.0.i14, %.critedge.i17 ]
+.sink.split:                                      ; preds = %.preheader.i17, %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+  %.sroa.0.0.i14.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i14, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i13 ], [ %.sroa.0.0.i, %.preheader.i ], [ %.sroa.0.0.i14, %.preheader.i17 ]
   call void @free(ptr noundef %.sroa.0.0.i14.sink) #17
   br label %52
 
@@ -1261,29 +1261,29 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %_ZN5E
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %.sroa.0.0.i = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit ], [ %8, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %11 = icmp sgt i32 %5, 0
-  br i1 %11, label %.critedge.lr.ph.i, label %.loopexit
+  br i1 %11, label %.preheader.lr.ph.i, label %.loopexit
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %12 = load ptr, ptr %0, align 8, !tbaa !11
   %13 = load ptr, ptr %1, align 8, !tbaa !11
   %14 = load ptr, ptr %2, align 8, !tbaa !11
   %wide.trip.count.i = and i64 %4, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %15 = getelementptr i32, ptr %12, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !12
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 4, !tbaa !12
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %17 = load i32, ptr %15, align 4, !tbaa !12
+  %18 = load i32, ptr %16, align 4, !tbaa !12
   %19 = sext i32 %18 to i64
   %20 = getelementptr i32, ptr %14, i64 %19
-  store i32 %16, ptr %20, align 4, !tbaa !12
+  store i32 %17, ptr %20, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.critedge.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.loopexit:                                        ; preds = %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   tail call void @free(ptr noundef %.sroa.0.0.i) #17
   ret void
 }
@@ -1313,29 +1313,29 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %_ZN5E
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %.sroa.0.0.i = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit ], [ %8, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %11 = icmp sgt i32 %5, 0
-  br i1 %11, label %.critedge.lr.ph.i, label %.loopexit
+  br i1 %11, label %.preheader.lr.ph.i, label %.loopexit
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = load ptr, ptr %1, align 8, !tbaa !11
   %14 = load ptr, ptr %2, align 8, !tbaa !27
   %wide.trip.count.i = and i64 %4, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %15 = getelementptr double, ptr %12, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !28
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 4, !tbaa !12
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr double, ptr %14, i64 %19
-  store double %16, ptr %20, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %17 = load i32, ptr %16, align 4, !tbaa !12
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr double, ptr %14, i64 %18
+  %20 = load double, ptr %15, align 8, !tbaa !28
+  store double %20, ptr %19, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.critedge.i, !llvm.loop !85
+  br i1 %exitcond.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !85
 
-.loopexit:                                        ; preds = %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.loopexit:                                        ; preds = %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   tail call void @free(ptr noundef %.sroa.0.0.i) #17
   ret void
 }
@@ -1994,27 +1994,27 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %7
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %7
   %.sroa.0.0.i = phi ptr [ null, %7 ], [ %13, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.critedge.lr.ph.i, label %.sink.split
+  br i1 %15, label %.preheader.lr.ph.i, label %.sink.split
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %16 = load ptr, ptr %0, align 8, !tbaa !27
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i = and i64 %9, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %19 = getelementptr double, ptr %16, i64 %indvars.iv.i
-  %20 = load double, ptr %19, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr double, ptr %18, i64 %23
-  store double %20, ptr %24, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr double, ptr %18, i64 %22
+  %24 = load double, ptr %19, align 8, !tbaa !28
+  store double %24, ptr %23, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split, label %.critedge.i, !llvm.loop !96
+  br i1 %exitcond.not.i, label %.sink.split, label %.preheader.i, !llvm.loop !96
 
 25:                                               ; preds = %.noexc24.i20.invoke, %32, %6
   %26 = landingpad { ptr, i32 }
@@ -2060,31 +2060,31 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i: ; preds = %34
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i, %34
   %.sroa.0.0.i13 = phi ptr [ null, %34 ], [ %39, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i ]
   %42 = icmp sgt i32 %36, 0
-  br i1 %42, label %.critedge.lr.ph.i14, label %.sink.split
+  br i1 %42, label %.preheader.lr.ph.i14, label %.sink.split
 
-.critedge.lr.ph.i14:                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i14:                             ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %43 = load ptr, ptr %0, align 8, !tbaa !27
   %44 = load ptr, ptr %5, align 8, !tbaa !27
   %45 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i15 = and i64 %35, 2147483647
-  br label %.critedge.i16
+  br label %.preheader.i16
 
-.critedge.i16:                                    ; preds = %.critedge.i16, %.critedge.lr.ph.i14
-  %indvars.iv.i17 = phi i64 [ 0, %.critedge.lr.ph.i14 ], [ %indvars.iv.next.i18, %.critedge.i16 ]
+.preheader.i16:                                   ; preds = %.preheader.i16, %.preheader.lr.ph.i14
+  %indvars.iv.i17 = phi i64 [ 0, %.preheader.lr.ph.i14 ], [ %indvars.iv.next.i18, %.preheader.i16 ]
   %46 = getelementptr double, ptr %43, i64 %indvars.iv.i17
-  %47 = load double, ptr %46, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i17
-  %49 = load double, ptr %48, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i17
+  %48 = load double, ptr %46, align 8, !tbaa !28
+  %49 = load double, ptr %47, align 8, !tbaa !28
   %50 = fptosi double %49 to i32
   %51 = sext i32 %50 to i64
   %52 = getelementptr double, ptr %45, i64 %51
-  store double %47, ptr %52, align 8, !tbaa !28
+  store double %48, ptr %52, align 8, !tbaa !28
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i15
-  br i1 %exitcond.not.i19, label %.sink.split, label %.critedge.i16, !llvm.loop !97
+  br i1 %exitcond.not.i19, label %.sink.split, label %.preheader.i16, !llvm.loop !97
 
-.sink.split:                                      ; preds = %.critedge.i16, %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
-  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.critedge.i ], [ %.sroa.0.0.i13, %.critedge.i16 ]
+.sink.split:                                      ; preds = %.preheader.i16, %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.preheader.i ], [ %.sroa.0.0.i13, %.preheader.i16 ]
   call void @free(ptr noundef %.sroa.0.0.i13.sink) #17
   br label %53
 
@@ -2554,27 +2554,27 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %7
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %7
   %.sroa.0.0.i = phi ptr [ null, %7 ], [ %13, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.critedge.lr.ph.i, label %.sink.split
+  br i1 %15, label %.preheader.lr.ph.i, label %.sink.split
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %16 = load ptr, ptr %0, align 8, !tbaa !27
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i = and i64 %9, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %19 = getelementptr double, ptr %16, i64 %indvars.iv.i
-  %20 = load double, ptr %19, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr double, ptr %18, i64 %23
-  store double %20, ptr %24, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr double, ptr %18, i64 %22
+  %24 = load double, ptr %19, align 8, !tbaa !28
+  store double %24, ptr %23, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split, label %.critedge.i, !llvm.loop !96
+  br i1 %exitcond.not.i, label %.sink.split, label %.preheader.i, !llvm.loop !96
 
 25:                                               ; preds = %.noexc24.i20.invoke, %32, %6
   %26 = landingpad { ptr, i32 }
@@ -2620,31 +2620,31 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i: ; preds = %34
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i, %34
   %.sroa.0.0.i13 = phi ptr [ null, %34 ], [ %39, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i ]
   %42 = icmp sgt i32 %36, 0
-  br i1 %42, label %.critedge.lr.ph.i14, label %.sink.split
+  br i1 %42, label %.preheader.lr.ph.i14, label %.sink.split
 
-.critedge.lr.ph.i14:                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i14:                             ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %43 = load ptr, ptr %0, align 8, !tbaa !27
   %44 = load ptr, ptr %5, align 8, !tbaa !27
   %45 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i15 = and i64 %35, 2147483647
-  br label %.critedge.i16
+  br label %.preheader.i16
 
-.critedge.i16:                                    ; preds = %.critedge.i16, %.critedge.lr.ph.i14
-  %indvars.iv.i17 = phi i64 [ 0, %.critedge.lr.ph.i14 ], [ %indvars.iv.next.i18, %.critedge.i16 ]
+.preheader.i16:                                   ; preds = %.preheader.i16, %.preheader.lr.ph.i14
+  %indvars.iv.i17 = phi i64 [ 0, %.preheader.lr.ph.i14 ], [ %indvars.iv.next.i18, %.preheader.i16 ]
   %46 = getelementptr double, ptr %43, i64 %indvars.iv.i17
-  %47 = load double, ptr %46, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i17
-  %49 = load double, ptr %48, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i17
+  %48 = load double, ptr %46, align 8, !tbaa !28
+  %49 = load double, ptr %47, align 8, !tbaa !28
   %50 = fptosi double %49 to i32
   %51 = sext i32 %50 to i64
   %52 = getelementptr double, ptr %45, i64 %51
-  store double %47, ptr %52, align 8, !tbaa !28
+  store double %48, ptr %52, align 8, !tbaa !28
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i15
-  br i1 %exitcond.not.i19, label %.sink.split, label %.critedge.i16, !llvm.loop !97
+  br i1 %exitcond.not.i19, label %.sink.split, label %.preheader.i16, !llvm.loop !97
 
-.sink.split:                                      ; preds = %.critedge.i16, %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
-  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.critedge.i ], [ %.sroa.0.0.i13, %.critedge.i16 ]
+.sink.split:                                      ; preds = %.preheader.i16, %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.preheader.i ], [ %.sroa.0.0.i13, %.preheader.i16 ]
   call void @free(ptr noundef %.sroa.0.0.i13.sink) #17
   br label %53
 
@@ -4066,28 +4066,28 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %7
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i, %7
   %.sroa.0.0.i = phi ptr [ null, %7 ], [ %13, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i ]
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.critedge.lr.ph.i, label %.sink.split
+  br i1 %15, label %.preheader.lr.ph.i, label %.sink.split
 
-.critedge.lr.ph.i:                                ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %16 = load ptr, ptr %0, align 8, !tbaa !27
   %17 = load ptr, ptr %1, align 8, !tbaa !135
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i = and i64 %9, 2147483647
-  br label %.critedge.i
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %.critedge.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %20 = getelementptr double, ptr %16, i64 %indvars.iv.i
-  %21 = load double, ptr %20, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
-  %23 = load i32, ptr %22, align 4, !tbaa !12
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr double, ptr %19, i64 %24
-  store double %21, ptr %25, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %22 = load i32, ptr %21, align 4, !tbaa !12
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr double, ptr %19, i64 %23
+  %25 = load double, ptr %20, align 8, !tbaa !28
+  store double %25, ptr %24, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split, label %.critedge.i, !llvm.loop !138
+  br i1 %exitcond.not.i, label %.sink.split, label %.preheader.i, !llvm.loop !138
 
 26:                                               ; preds = %.noexc24.i20.invoke, %33, %6
   %27 = landingpad { ptr, i32 }
@@ -4133,31 +4133,31 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i: ; preds = %35
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i, %35
   %.sroa.0.0.i13 = phi ptr [ null, %35 ], [ %40, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i ]
   %43 = icmp sgt i32 %37, 0
-  br i1 %43, label %.critedge.lr.ph.i14, label %.sink.split
+  br i1 %43, label %.preheader.lr.ph.i14, label %.sink.split
 
-.critedge.lr.ph.i14:                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+.preheader.lr.ph.i14:                             ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
   %44 = load ptr, ptr %0, align 8, !tbaa !27
   %45 = load ptr, ptr %5, align 8, !tbaa !27
   %46 = load ptr, ptr %3, align 8, !tbaa !27
   %wide.trip.count.i15 = and i64 %36, 2147483647
-  br label %.critedge.i16
+  br label %.preheader.i16
 
-.critedge.i16:                                    ; preds = %.critedge.i16, %.critedge.lr.ph.i14
-  %indvars.iv.i17 = phi i64 [ 0, %.critedge.lr.ph.i14 ], [ %indvars.iv.next.i18, %.critedge.i16 ]
+.preheader.i16:                                   ; preds = %.preheader.i16, %.preheader.lr.ph.i14
+  %indvars.iv.i17 = phi i64 [ 0, %.preheader.lr.ph.i14 ], [ %indvars.iv.next.i18, %.preheader.i16 ]
   %47 = getelementptr double, ptr %44, i64 %indvars.iv.i17
-  %48 = load double, ptr %47, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i17
-  %50 = load double, ptr %49, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i17
+  %49 = load double, ptr %47, align 8, !tbaa !28
+  %50 = load double, ptr %48, align 8, !tbaa !28
   %51 = fptosi double %50 to i32
   %52 = sext i32 %51 to i64
   %53 = getelementptr double, ptr %46, i64 %52
-  store double %48, ptr %53, align 8, !tbaa !28
+  store double %49, ptr %53, align 8, !tbaa !28
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i15
-  br i1 %exitcond.not.i19, label %.sink.split, label %.critedge.i16, !llvm.loop !139
+  br i1 %exitcond.not.i19, label %.sink.split, label %.preheader.i16, !llvm.loop !139
 
-.sink.split:                                      ; preds = %.critedge.i16, %.critedge.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
-  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.critedge.i ], [ %.sroa.0.0.i13, %.critedge.i16 ]
+.sink.split:                                      ; preds = %.preheader.i16, %.preheader.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i
+  %.sroa.0.0.i13.sink = phi ptr [ %.sroa.0.0.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.i ], [ %.sroa.0.0.i, %.preheader.i ], [ %.sroa.0.0.i13, %.preheader.i16 ]
   call void @free(ptr noundef %.sroa.0.0.i13.sink) #17
   br label %54
 

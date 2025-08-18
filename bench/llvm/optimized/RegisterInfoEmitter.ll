@@ -8923,11 +8923,11 @@ _ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i411: ; preds = %875, 
   br i1 %886, label %_ZL10diffEncodeRN4llvm11SmallVectorIsLj4EEENS_15SparseBitVectorILj128EEE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i411
-  %.not15.i = icmp ugt i64 %883, 1
+  %.not16.i = icmp ugt i64 %883, 1
   %887 = and i64 %883, 2
-  %.not716.i = icmp eq i64 %887, 0
-  %or.cond17.i = and i1 %.not15.i, %.not716.i
-  br i1 %or.cond17.i, label %.lr.ph.i936, label %.critedge.i
+  %.not717.i = icmp eq i64 %887, 0
+  %or.cond18.i = and i1 %.not16.i, %.not717.i
+  br i1 %or.cond18.i, label %.lr.ph.i936, label %.critedge.i
 
 .lr.ph.i936:                                      ; preds = %.preheader.i, %.lr.ph.i936
   %888 = phi i32 [ %891, %.lr.ph.i936 ], [ %882, %.preheader.i ]
@@ -8947,8 +8947,8 @@ _ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i411: ; preds = %875, 
 
 .critedge.i:                                      ; preds = %..critedge_crit_edge.i, %.preheader.i
   %893 = phi i32 [ %891, %..critedge_crit_edge.i ], [ %882, %.preheader.i ]
-  %.lcssa13.i = phi i64 [ %890, %..critedge_crit_edge.i ], [ %884, %.preheader.i ]
-  %.not8.i931 = icmp eq i64 %.lcssa13.i, 0
+  %.lcssa14.i = phi i64 [ %890, %..critedge_crit_edge.i ], [ %884, %.preheader.i ]
+  %.not8.i931 = icmp eq i64 %.lcssa14.i, 0
   br i1 %.not8.i931, label %894, label %_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit.backedge
 
 _ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit.backedge: ; preds = %.critedge.i, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i935, %943
@@ -8976,37 +8976,36 @@ _ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZero
   %909 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %906, i1 true)
   %910 = trunc nuw nsw i64 %909 to i32
   %911 = or disjoint i32 %908, %910
-  br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
+  br label %920
 
 912:                                              ; preds = %894
-  %913 = icmp samesign ult i32 %897, 64
-  br i1 %913, label %914, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i
+  %913 = getelementptr inbounds nuw i8, ptr %895, i64 32
+  %914 = load i64, ptr %913, align 8
+  %.fr.i.i = freeze i64 %914
+  %.not22.i.i = icmp ne i64 %.fr.i.i, 0
+  %915 = icmp samesign ult i32 %897, 64
+  %or.cond.i.i = select i1 %.not22.i.i, i1 %915, i1 false
+  br i1 %or.cond.i.i, label %916, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, !llvm.loop !532
 
-914:                                              ; preds = %912
-  %915 = getelementptr inbounds nuw i8, ptr %895, i64 32
-  %916 = load i64, ptr %915, align 8, !tbaa !53
-  %.not22.i.i = icmp eq i64 %916, 0
-  br i1 %.not22.i.i, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, label %917, !llvm.loop !532
+916:                                              ; preds = %912
+  %917 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr.i.i, i1 true)
+  %918 = trunc nuw nsw i64 %917 to i32
+  %919 = or disjoint i32 %918, 64
+  br label %920
 
-917:                                              ; preds = %914
-  %918 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %916, i1 true)
-  %919 = trunc nuw nsw i64 %918 to i32
-  %920 = or disjoint i32 %919, 64
-  br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
-
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %917, %907
-  %.018.i.i = phi i32 [ %911, %907 ], [ %920, %917 ]
+920:                                              ; preds = %916, %907
+  %.018.i.ph.i = phi i32 [ %919, %916 ], [ %911, %907 ]
   %921 = icmp eq i32 %897, 0
-  br i1 %921, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, label %943
+  br i1 %921, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, label %943
 
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, %914, %912
+_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %920, %912
   %922 = load ptr, ptr %895, align 8, !tbaa !186
   store ptr %922, ptr %242, align 8, !tbaa !531
   %923 = load ptr, ptr %241, align 8, !tbaa !512
   %924 = icmp eq ptr %922, %923
   br i1 %924, label %_ZL10diffEncodeRN4llvm11SmallVectorIsLj4EEENS_15SparseBitVectorILj128EEE.exit, label %925
 
-925:                                              ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i
+925:                                              ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
   %926 = getelementptr inbounds nuw i8, ptr %922, i64 16
   %927 = load i32, ptr %926, align 8, !tbaa !524
   %928 = getelementptr inbounds nuw i8, ptr %922, i64 24
@@ -9041,26 +9040,26 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i935: ; preds = %92
   store i64 %942, ptr %244, align 8, !tbaa !528
   br label %_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit.backedge
 
-943:                                              ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i
-  %.018.i.frozen.i = freeze i32 %.018.i.i
-  %944 = lshr i32 %.018.i.frozen.i, 6
+943:                                              ; preds = %920
+  %.018.i.ph.frozen.i = freeze i32 %.018.i.ph.i
+  %944 = lshr i32 %.018.i.ph.frozen.i, 6
   store i32 %944, ptr %245, align 4, !tbaa !520
   %945 = zext nneg i32 %944 to i64
   %946 = getelementptr inbounds nuw [2 x i64], ptr %900, i64 0, i64 %945
   %947 = load i64, ptr %946, align 8, !tbaa !53
-  %.urem11.i = add i32 %.018.i.frozen.i, -64
-  %.cmp12.i = icmp ult i32 %.018.i.frozen.i, 64
-  %948 = select i1 %.cmp12.i, i32 %.018.i.frozen.i, i32 %.urem11.i
+  %.urem12.i = add i32 %.018.i.ph.frozen.i, -64
+  %.cmp13.i = icmp ult i32 %.018.i.ph.frozen.i, 64
+  %948 = select i1 %.cmp13.i, i32 %.018.i.ph.frozen.i, i32 %.urem12.i
   %949 = zext nneg i32 %948 to i64
   %950 = lshr i64 %947, %949
   store i64 %950, ptr %244, align 8, !tbaa !528
   %951 = load i32, ptr %896, align 8, !tbaa !524
   %952 = shl i32 %951, 7
-  %953 = add nuw i32 %952, %.018.i.frozen.i
+  %953 = add nuw i32 %952, %.018.i.ph.frozen.i
   store i32 %953, ptr %243, align 8, !tbaa !527
   br label %_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit.backedge
 
-_ZL10diffEncodeRN4llvm11SmallVectorIsLj4EEENS_15SparseBitVectorILj128EEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i411, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i
+_ZL10diffEncodeRN4llvm11SmallVectorIsLj4EEENS_15SparseBitVectorILj128EEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIsLb1EE9push_backEs.exit.i411, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4llvm21SequenceToOffsetTableINS_11SmallVectorIsLj4EEESt4lessIsEE3addERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(32) %835)
   %954 = load ptr, ptr %23, align 8, !tbaa !186
@@ -37314,19 +37313,19 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
 .preheader:                                       ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted = load i64, ptr %4, align 8, !tbaa !528
-  %.not15 = icmp ne i64 %.promoted, 0
+  %.not16 = icmp ne i64 %.promoted, 0
   %5 = and i64 %.promoted, 1
-  %.not716 = icmp eq i64 %5, 0
-  %or.cond17 = and i1 %.not15, %.not716
-  br i1 %or.cond17, label %.lr.ph, label %.critedge
+  %.not717 = icmp eq i64 %5, 0
+  %or.cond18 = and i1 %.not16, %.not717
+  br i1 %or.cond18, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted20 = load i32, ptr %6, align 8, !tbaa !527
+  %.promoted21 = load i32, ptr %6, align 8, !tbaa !527
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
-  %8 = phi i32 [ %.promoted20, %.lr.ph ], [ %11, %7 ]
+  %8 = phi i32 [ %.promoted21, %.lr.ph ], [ %11, %7 ]
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %10, %7 ]
   %10 = lshr exact i64 %9, 1
   %11 = add i32 %8, 1
@@ -37342,8 +37341,8 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.preheader
-  %.lcssa13 = phi i64 [ %10, %..critedge_crit_edge ], [ %.promoted, %.preheader ]
-  %.not8 = icmp eq i64 %.lcssa13, 0
+  %.lcssa14 = phi i64 [ %10, %..critedge_crit_edge ], [ %.promoted, %.preheader ]
+  %.not8 = icmp eq i64 %.lcssa14, 0
   br i1 %.not8, label %13, label %80
 
 13:                                               ; preds = %.critedge
@@ -37370,30 +37369,29 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %28, i1 true)
   %32 = trunc nuw nsw i64 %31 to i32
   %33 = or disjoint i32 %30, %32
-  br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
+  br label %42
 
 34:                                               ; preds = %13
-  %35 = icmp samesign ult i32 %19, 64
-  br i1 %35, label %36, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %36 = load i64, ptr %35, align 8
+  %.fr.i = freeze i64 %36
+  %.not22.i = icmp ne i64 %.fr.i, 0
+  %37 = icmp samesign ult i32 %19, 64
+  %or.cond.i = select i1 %.not22.i, i1 %37, i1 false
+  br i1 %or.cond.i, label %38, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit, !llvm.loop !532
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %38 = load i64, ptr %37, align 8, !tbaa !53
-  %.not22.i = icmp eq i64 %38, 0
-  br i1 %.not22.i, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread, label %39, !llvm.loop !532
+38:                                               ; preds = %34
+  %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr.i, i1 true)
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = or disjoint i32 %40, 64
+  br label %42
 
-39:                                               ; preds = %36
-  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %38, i1 true)
-  %41 = trunc nuw nsw i64 %40 to i32
-  %42 = or disjoint i32 %41, 64
-  br label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %39, %29
-  %.018.i = phi i32 [ %33, %29 ], [ %42, %39 ]
+42:                                               ; preds = %29, %38
+  %.018.i.ph = phi i32 [ %41, %38 ], [ %33, %29 ]
   %43 = icmp eq i32 %19, 0
-  br i1 %43, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread, label %68
+  br i1 %43, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit, label %68
 
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread: ; preds = %36, %34, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
+_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   %44 = load ptr, ptr %15, align 8, !tbaa !186
   store ptr %44, ptr %14, align 8, !tbaa !531
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -37403,11 +37401,11 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread: ; preds = %36
   %48 = icmp eq ptr %44, %47
   br i1 %48, label %49, label %50
 
-49:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread
+49:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
   store i8 1, ptr %0, align 8, !tbaa !523
   br label %80
 
-50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread
+50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !524
   %53 = shl i32 %52, 7
@@ -37442,23 +37440,23 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   store i64 %67, ptr %4, align 8, !tbaa !528
   br label %80
 
-68:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-  %.018.i.frozen = freeze i32 %.018.i
-  %69 = lshr i32 %.018.i.frozen, 6
+68:                                               ; preds = %42
+  %.018.i.ph.frozen = freeze i32 %.018.i.ph
+  %69 = lshr i32 %.018.i.ph.frozen, 6
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %69, ptr %70, align 4, !tbaa !520
   %71 = zext nneg i32 %69 to i64
   %72 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !53
-  %.urem11 = add i32 %.018.i.frozen, -64
-  %.cmp12 = icmp ult i32 %.018.i.frozen, 64
-  %74 = select i1 %.cmp12, i32 %.018.i.frozen, i32 %.urem11
+  %.urem12 = add i32 %.018.i.ph.frozen, -64
+  %.cmp13 = icmp ult i32 %.018.i.ph.frozen, 64
+  %74 = select i1 %.cmp13, i32 %.018.i.ph.frozen, i32 %.urem12
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
   store i64 %76, ptr %4, align 8, !tbaa !528
   %77 = load i32, ptr %16, align 8, !tbaa !524
   %78 = shl i32 %77, 7
-  %79 = add nuw i32 %78, %.018.i.frozen
+  %79 = add nuw i32 %78, %.018.i.ph.frozen
   store i32 %79, ptr %17, align 8, !tbaa !527
   br label %80
 

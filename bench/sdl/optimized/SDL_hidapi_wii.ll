@@ -1015,7 +1015,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   br i1 %exitcond.not.i.i, label %.sink.split.i.i.i, label %26, !llvm.loop !12
 
 .sink.split.i.i.i:                                ; preds = %26, %.preheader35.i.i, %2
-  %.sink4.i.i.i = phi i8 [ 50, %.preheader35.i.i ], [ 48, %2 ], [ 50, %26 ]
+  %.sink4.i.i.i = phi i8 [ 48, %2 ], [ 50, %.preheader35.i.i ], [ 50, %26 ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 43
   %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
   %37 = trunc nuw i8 %36 to i1

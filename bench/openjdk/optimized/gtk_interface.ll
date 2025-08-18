@@ -59,16 +59,16 @@ define hidden range(i32 0, 2) i32 @gtk_load(ptr noundef %0, i32 noundef %1, i32 
 
 ._crit_edge.i.i:                                  ; preds = %11
   %.not.i.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not.i.i, label %get_libs_order.exit.i.preheader, label %.critedge.i.i
+  br i1 %.not.i.i, label %get_libs_order.exit.i.preheader, label %.preheader.i.i
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %18, ptr %19, align 8
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %10, align 8
   br label %get_libs_order.exit.i.preheader
 
-get_libs_order.exit.i.preheader:                  ; preds = %.critedge.i.i, %._crit_edge.i.i
+get_libs_order.exit.i.preheader:                  ; preds = %.preheader.i.i, %._crit_edge.i.i
   br label %get_libs_order.exit.i
 
 get_libs_order.exit.i:                            ; preds = %get_libs_order.exit.i.preheader, %29
@@ -166,16 +166,16 @@ get_libs_order.exit.thread:                       ; preds = %51
 
 ._crit_edge.i:                                    ; preds = %56
   %.not.i41 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not.i41, label %get_libs_order.exit, label %.critedge.i
+  br i1 %.not.i41, label %get_libs_order.exit, label %.preheader.i
 
-.critedge.i:                                      ; preds = %._crit_edge.i
-  %63 = load ptr, ptr %55, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %63, ptr %64, align 8
+.preheader.i:                                     ; preds = %._crit_edge.i
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %64 = load ptr, ptr %55, align 8
+  store ptr %64, ptr %63, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %55, align 8
   br label %get_libs_order.exit
 
-get_libs_order.exit:                              ; preds = %._crit_edge.i, %.critedge.i
+get_libs_order.exit:                              ; preds = %._crit_edge.i, %.preheader.i
   %65 = load ptr, ptr @gtk, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.lr.ph, label %.critedge
@@ -318,16 +318,16 @@ define hidden range(i32 0, 2) i32 @gtk_check_version(i32 noundef %0) local_unnam
 
 ._crit_edge.i.i:                                  ; preds = %8
   %.not.i.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not.i.i, label %get_libs_order.exit.i.preheader, label %.critedge.i.i
+  br i1 %.not.i.i, label %get_libs_order.exit.i.preheader, label %.preheader.i.i
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %15, ptr %16, align 8
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %15, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %7, align 8
   br label %get_libs_order.exit.i.preheader
 
-get_libs_order.exit.i.preheader:                  ; preds = %.critedge.i.i, %._crit_edge.i.i
+get_libs_order.exit.i.preheader:                  ; preds = %.preheader.i.i, %._crit_edge.i.i
   br label %get_libs_order.exit.i
 
 get_libs_order.exit.i:                            ; preds = %get_libs_order.exit.i.preheader, %26
@@ -393,16 +393,16 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
 
 ._crit_edge.i.i8:                                 ; preds = %37
   %.not.i.i9 = icmp eq i32 %spec.select.i.i7, 0
-  br i1 %.not.i.i9, label %get_libs_order.exit.i11.preheader, label %.critedge.i.i10
+  br i1 %.not.i.i9, label %get_libs_order.exit.i11.preheader, label %.preheader.i.i10
 
-.critedge.i.i10:                                  ; preds = %._crit_edge.i.i8
-  %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %44, ptr %45, align 8
+.preheader.i.i10:                                 ; preds = %._crit_edge.i.i8
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %45 = load ptr, ptr %36, align 8
+  store ptr %45, ptr %44, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %36, align 8
   br label %get_libs_order.exit.i11.preheader
 
-get_libs_order.exit.i11.preheader:                ; preds = %.critedge.i.i10, %._crit_edge.i.i8
+get_libs_order.exit.i11.preheader:                ; preds = %.preheader.i.i10, %._crit_edge.i.i8
   br label %get_libs_order.exit.i11
 
 get_libs_order.exit.i11:                          ; preds = %get_libs_order.exit.i11.preheader, %53

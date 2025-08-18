@@ -6189,7 +6189,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %6 = trunc nuw i64 %.pre.i.i to i1
   br i1 %6, label %7, label %10
 
-7:                                                ; preds = %.critedge.i.i, %2
+7:                                                ; preds = %.critedge, %2
   %8 = tail call noundef align 8 ptr @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h7d57d586ec13a0a4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %9, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h993635d6580f0848E.exit"
@@ -6216,16 +6216,16 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %.val.i.i.i.i = load ptr, ptr %11, align 8, !noalias !779, !nonnull !3, !align !30, !noundef !3
   %17 = load i32, ptr %.val.i.i.i.i, align 8, !range !12, !noalias !780, !noundef !3
   %18 = icmp eq i32 %17, 29
-  br i1 %18, label %19, label %.critedge.i.i
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 8
   %21 = tail call { ptr, ptr } @"_ZN15ruff_python_ast5nodes55_$LT$impl$u20$ruff_python_ast..generated..ExprTuple$GT$4iter17hf196d479878389eeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %20), !noalias !780
   %22 = extractvalue { ptr, ptr } %21, 0
   %23 = extractvalue { ptr, ptr } %21, 1
-  br label %.critedge.i.i
+  br label %.critedge
 
-.critedge.i.i:                                    ; preds = %19, %15
+.critedge:                                        ; preds = %19, %15
   %.sroa.5.1.ph.i.i = phi ptr [ null, %15 ], [ %22, %19 ]
   %.sroa.7.1.ph.i.i = phi ptr [ %.val.i.i.i.i, %15 ], [ %23, %19 ]
   store i64 1, ptr %1, align 8, !alias.scope !783
@@ -6249,7 +6249,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   store i64 0, ptr %24, align 8, !alias.scope !784
   br label %31
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h993635d6580f0848E.exit": ; preds = %27, %7
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h993635d6580f0848E.exit": ; preds = %7, %27
   %.sroa.0.0.i.i = phi ptr [ %29, %27 ], [ %8, %7 ]
   tail call fastcc void @"_ZN71_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..clone..Clone$GT$5clone17h98e4da29782d1ac8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 %.sroa.0.0.i.i)
   br label %32

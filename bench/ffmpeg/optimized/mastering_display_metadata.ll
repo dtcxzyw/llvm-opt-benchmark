@@ -19,8 +19,8 @@ define noalias ptr @av_mastering_display_metadata_alloc() local_unnamed_addr #0 
   store i32 1, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 4, !tbaa !4
-  %.sroa.22.0..sroa_idx.i.c.i = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 1, ptr %.sroa.22.0..sroa_idx.i.c.i, align 4, !tbaa !4
+  %.sroa.22.0..sroa_idx.i.i.c = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 1, ptr %.sroa.22.0..sroa_idx.i.i.c, align 4, !tbaa !4
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next17.i.i, 3
   br i1 %exitcond.not.i.i, label %get_defaults.exit.i, label %.preheader.i.i, !llvm.loop !8

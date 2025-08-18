@@ -400,21 +400,21 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 168
   %47 = load ptr, ptr %46, align 8, !tbaa !97, !noalias !98
-  %48 = getelementptr inbounds %"struct.pbrt::Float4", ptr %47, i64 %19
-  %.sroa.0.0.copyload.i.i.i.i32.i.i.i = load <2 x float>, ptr %48, align 16, !noalias !98
-  %.sroa.2.0..0..sroa_idx.i.i.i.i33.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 176
+  %49 = load ptr, ptr %48, align 8, !tbaa !99, !noalias !98
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %51 = getelementptr inbounds %"struct.pbrt::Float4", ptr %47, i64 %19
+  %.sroa.0.0.copyload.i.i.i.i32.i.i.i = load <2 x float>, ptr %51, align 16, !noalias !98
+  %.sroa.2.0..0..sroa_idx.i.i.i.i33.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.2.0.copyload.i.i.i.i34.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i33.i.i.i, align 8, !tbaa !84, !noalias !98
-  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  %50 = load ptr, ptr %49, align 8, !tbaa !99, !noalias !98
-  %51 = getelementptr inbounds %"struct.pbrt::Float4", ptr %50, i64 %19
-  %.sroa.0.0.copyload.i16.i.i.i.i.i.i = load <2 x float>, ptr %51, align 16, !noalias !98
-  %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %52 = getelementptr inbounds %"struct.pbrt::Float4", ptr %49, i64 %19
+  %.sroa.0.0.copyload.i16.i.i.i.i.i.i = load <2 x float>, ptr %52, align 16, !noalias !98
+  %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i.i, align 8, !tbaa !84, !noalias !98
-  %52 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i32.i.i.i, ptr %15, align 8, !tbaa !85, !alias.scope !98
-  %.sroa.424.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store <2 x float> %.sroa.2.0.copyload.i.i.i.i34.i.i.i, ptr %.sroa.424.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !85, !alias.scope !98
-  store <2 x float> %.sroa.0.0.copyload.i16.i.i.i.i.i.i, ptr %52, align 8, !tbaa !85, !alias.scope !98
+  %.sroa.425.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store <2 x float> %.sroa.2.0.copyload.i.i.i.i34.i.i.i, ptr %.sroa.425.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !85, !alias.scope !98
+  store <2 x float> %.sroa.0.0.copyload.i16.i.i.i.i.i.i, ptr %50, align 8, !tbaa !85, !alias.scope !98
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store <2 x float> %.sroa.2.0.copyload.i18.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !85, !alias.scope !98
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 128

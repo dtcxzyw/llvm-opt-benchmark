@@ -1298,146 +1298,145 @@ declare noundef ptr @_ZN5folly29exchangeCurrentAsyncStackRootEPNS_14AsyncStackRo
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZZN5folly6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
-  %1 = alloca %class.anon.85, align 8
-  %2 = load ptr, ptr %0, align 8, !tbaa !99
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 464
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  br label %.backedge
+  %2 = alloca %class.anon.85, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 456
+  br label %.preheader
 
-.backedge:                                        ; preds = %.backedge.backedge, %.critedge
-  %7 = load ptr, ptr %3, align 8, !tbaa !174
-  %.not.i.i = icmp eq ptr %7, null
-  %8 = icmp eq ptr %7, %3
-  %9 = or i1 %.not.i.i, %8
-  br i1 %9, label %18, label %10
+.preheader:                                       ; preds = %.preheader.backedge, %1
+  %8 = load ptr, ptr %4, align 8, !tbaa !174
+  %.not.i.i = icmp eq ptr %8, null
+  %9 = icmp eq ptr %8, %4
+  %10 = or i1 %.not.i.i, %9
+  br i1 %10, label %19, label %11
 
-10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %7, i64 -896
-  %12 = load ptr, ptr %7, align 8, !tbaa !174
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !175
-  store ptr %12, ptr %14, align 8, !tbaa !174
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !175
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  invoke void @_ZN5folly6fibers12FiberManager13runReadyFiberEPNS0_5FiberE(ptr noundef nonnull align 16 dereferenceable(577) %2, ptr noundef nonnull %11)
-          to label %.backedge.backedge unwind label %16
+11:                                               ; preds = %.preheader
+  %12 = getelementptr inbounds i8, ptr %8, i64 -896
+  %13 = load ptr, ptr %8, align 8, !tbaa !174
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !175
+  store ptr %13, ptr %15, align 8, !tbaa !174
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !175
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  invoke void @_ZN5folly6fibers12FiberManager13runReadyFiberEPNS0_5FiberE(ptr noundef nonnull align 16 dereferenceable(577) %3, ptr noundef nonnull %12)
+          to label %.preheader.backedge unwind label %17
 
-.backedge.backedge:                               ; preds = %10, %37
-  br label %.backedge, !llvm.loop !197
+.preheader.backedge:                              ; preds = %11, %38
+  br label %.preheader, !llvm.loop !197
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %11
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26
 
-18:                                               ; preds = %.backedge
-  %19 = atomicrmw xchg ptr %4, i64 0 acq_rel, align 8
-  %.not.i.not = icmp eq i64 %19, 0
+19:                                               ; preds = %.preheader
+  %20 = atomicrmw xchg ptr %5, i64 0 acq_rel, align 8
+  %.not.i.not = icmp eq i64 %20, 0
   br i1 %.not.i.not, label %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %18
-  %.0.i.i.i = inttoptr i64 %19 to ptr
+.lr.ph.i.preheader.i:                             ; preds = %19
+  %.0.i.i.i = inttoptr i64 %20 to ptr
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.010.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %.0.i.i.i, %.lr.ph.i.preheader.i ]
+  %.010.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %.0.i.i.i, %.lr.ph.i.preheader.i ]
   %.079.i.i = phi ptr [ %.010.i.i, %.lr.ph.i.i ], [ null, %.lr.ph.i.preheader.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 256
-  %21 = load ptr, ptr %20, align 8, !tbaa !104
-  store ptr %.079.i.i, ptr %20, align 8, !tbaa !104
-  %.not.i.i14 = icmp eq ptr %21, null
+  %21 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 256
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
+  store ptr %.079.i.i, ptr %21, align 8, !tbaa !104
+  %.not.i.i14 = icmp eq ptr %22, null
   br i1 %.not.i.i14, label %.lr.ph.i8.i, label %.lr.ph.i.i, !llvm.loop !198
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i.i, %.noexc
-  %.07.i.i = phi ptr [ %23, %.noexc ], [ %.010.i.i, %.lr.ph.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 256
-  %23 = load ptr, ptr %22, align 8, !tbaa !104
-  store ptr null, ptr %22, align 8, !tbaa !104
-  invoke void @_ZN5folly6fibers12FiberManager13runReadyFiberEPNS0_5FiberE(ptr noundef nonnull align 16 dereferenceable(577) %2, ptr noundef nonnull %.07.i.i)
-          to label %.noexc unwind label %26
+  %.07.i.i = phi ptr [ %24, %.noexc ], [ %.010.i.i, %.lr.ph.i.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 256
+  %24 = load ptr, ptr %23, align 8, !tbaa !104
+  store ptr null, ptr %23, align 8, !tbaa !104
+  invoke void @_ZN5folly6fibers12FiberManager13runReadyFiberEPNS0_5FiberE(ptr noundef nonnull align 16 dereferenceable(577) %3, ptr noundef nonnull %.07.i.i)
+          to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %.lr.ph.i8.i
-  %.not.i9.i = icmp eq ptr %23, null
+  %.not.i9.i = icmp eq ptr %24, null
   br i1 %.not.i9.i, label %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit, label %.lr.ph.i8.i, !llvm.loop !199
 
 _ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit: ; preds = %.noexc
-  %24 = load i64, ptr %5, align 16, !tbaa !36
-  %25 = add nsw i64 %24, 1
-  store i64 %25, ptr %5, align 16, !tbaa !36
+  %25 = load i64, ptr %6, align 16, !tbaa !36
+  %26 = add nsw i64 %25, 1
+  store i64 %26, ptr %6, align 16, !tbaa !36
   br label %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread
 
-26:                                               ; preds = %.lr.ph.i8.i
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %.lr.ph.i8.i
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26
 
-_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread: ; preds = %18, %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store ptr %2, ptr %1, align 8, !tbaa !200
-  %28 = atomicrmw xchg ptr %6, i64 0 acq_rel, align 8
-  %.not.i15.not = icmp eq i64 %28, 0
+_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread: ; preds = %19, %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store ptr %3, ptr %2, align 8, !tbaa !200
+  %29 = atomicrmw xchg ptr %7, i64 0 acq_rel, align 8
+  %.not.i15.not = icmp eq i64 %29, 0
   br i1 %.not.i15.not, label %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit.thread, label %.lr.ph.i.preheader.i16
 
 _ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit.thread: ; preds = %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %38
 
 .lr.ph.i.preheader.i16:                           ; preds = %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEE9sweepOnceIZZNS1_12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS2_E_EEbOT_.exit.thread
-  %.0.i.i.i17 = inttoptr i64 %28 to ptr
+  %.0.i.i.i17 = inttoptr i64 %29 to ptr
   br label %.lr.ph.i.i18
 
 .lr.ph.i.i18:                                     ; preds = %.lr.ph.i.i18, %.lr.ph.i.preheader.i16
-  %.010.i.i19 = phi ptr [ %30, %.lr.ph.i.i18 ], [ %.0.i.i.i17, %.lr.ph.i.preheader.i16 ]
+  %.010.i.i19 = phi ptr [ %31, %.lr.ph.i.i18 ], [ %.0.i.i.i17, %.lr.ph.i.preheader.i16 ]
   %.079.i.i20 = phi ptr [ %.010.i.i19, %.lr.ph.i.i18 ], [ null, %.lr.ph.i.preheader.i16 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.010.i.i19, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !202
-  store ptr %.079.i.i20, ptr %29, align 8, !tbaa !202
-  %.not.i.i21 = icmp eq ptr %30, null
+  %30 = getelementptr inbounds nuw i8, ptr %.010.i.i19, i64 88
+  %31 = load ptr, ptr %30, align 8, !tbaa !202
+  store ptr %.079.i.i20, ptr %30, align 8, !tbaa !202
+  %.not.i.i21 = icmp eq ptr %31, null
   br i1 %.not.i.i21, label %.lr.ph.i8.i22, label %.lr.ph.i.i18, !llvm.loop !203
 
 .lr.ph.i8.i22:                                    ; preds = %.lr.ph.i.i18, %.noexc25
-  %.07.i.i23 = phi ptr [ %32, %.noexc25 ], [ %.010.i.i19, %.lr.ph.i.i18 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i23, i64 88
-  %32 = load ptr, ptr %31, align 8, !tbaa !202
-  store ptr null, ptr %31, align 8, !tbaa !202
-  invoke void @_ZZZN5folly6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvENKUlPNS1_10RemoteTaskEE_clES4_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.07.i.i23)
-          to label %.noexc25 unwind label %35
+  %.07.i.i23 = phi ptr [ %33, %.noexc25 ], [ %.010.i.i19, %.lr.ph.i.i18 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.07.i.i23, i64 88
+  %33 = load ptr, ptr %32, align 8, !tbaa !202
+  store ptr null, ptr %32, align 8, !tbaa !202
+  invoke void @_ZZZN5folly6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvENKUlPNS1_10RemoteTaskEE_clES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.07.i.i23)
+          to label %.noexc25 unwind label %36
 
 .noexc25:                                         ; preds = %.lr.ph.i8.i22
-  %.not.i9.i24 = icmp eq ptr %32, null
+  %.not.i9.i24 = icmp eq ptr %33, null
   br i1 %.not.i9.i24, label %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit, label %.lr.ph.i8.i22, !llvm.loop !204
 
 _ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit: ; preds = %.noexc25
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %33 = load i64, ptr %5, align 16, !tbaa !36
-  %34 = add nsw i64 %33, 1
-  store i64 %34, ptr %5, align 16, !tbaa !36
-  br label %37
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %34 = load i64, ptr %6, align 16, !tbaa !36
+  %35 = add nsw i64 %34, 1
+  store i64 %35, ptr %6, align 16, !tbaa !36
+  br label %38
 
-35:                                               ; preds = %.lr.ph.i8.i22
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %.lr.ph.i8.i22
+  %37 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26
 
-37:                                               ; preds = %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit.thread, %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit
-  %38 = or i64 %28, %19
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit, label %.backedge.backedge
+38:                                               ; preds = %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit.thread, %_ZN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEE9sweepOnceIZZNS2_20loopUntilNoReadyImplEvENKUlvE_clEvEUlPS3_E_EEbOT_.exit
+  %39 = or i64 %29, %20
+  %.not = icmp eq i64 %39, 0
+  br i1 %.not, label %_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit, label %.preheader.backedge
 
-_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit: ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i8 0, ptr %39, align 16, !tbaa !205
+_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit: ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i8 0, ptr %40, align 16, !tbaa !205
   ret void
 
-_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26: ; preds = %26, %35, %16
-  %.pn12 = phi { ptr, i32 } [ %17, %16 ], [ %36, %35 ], [ %27, %26 ]
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store i8 0, ptr %40, align 16, !tbaa !205
+_ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26: ; preds = %27, %36, %17
+  %.pn12 = phi { ptr, i32 } [ %18, %17 ], [ %37, %36 ], [ %28, %27 ]
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i8 0, ptr %41, align 16, !tbaa !205
   resume { ptr, i32 } %.pn12
 }
 

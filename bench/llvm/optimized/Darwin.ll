@@ -27628,19 +27628,19 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %switch.early.test, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains6Darwin22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(4136) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i32, ptr %1, align 8, !tbaa !79
-  %3 = icmp eq i32 %2, 38
-  %4 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #23
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = or i64 %5, 405511
+  %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #23
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = or i64 %4, 405511
+  %6 = icmp eq i32 %2, 38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3964
   %8 = load i32, ptr %7, align 4, !tbaa !474
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
   %10 = icmp eq i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3968
   %12 = load i32, ptr %11, align 8
@@ -27648,18 +27648,18 @@ _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit: ; preds = %_ZN5
   %14 = select i1 %10, i1 %13, i1 false
   br i1 %14, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, label %16
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
   %15 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(4136) %0, i32 noundef 10, i32 noundef 9, i32 noundef 0)
   br i1 %15, label %_ZN5clang13SanitizerMaskoRERKS0_.exit23, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge
 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge: ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
   %.pre = load i32, ptr %7, align 4, !tbaa !474
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 3968
-  %.pre69 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre52 = load i32, ptr %.phi.trans.insert, align 8
   br label %16
 
 16:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
-  %17 = phi i32 [ %.pre69, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %12, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
+  %17 = phi i32 [ %.pre52, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %12, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
   %18 = phi i32 [ %.pre, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %8, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
   %.off.i = add i32 %18, -1
   %switch.i = icmp ult i32 %.off.i, 2
@@ -27670,12 +27670,12 @@ _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edg
   %23 = trunc i64 %22 to i32
   %24 = icmp ult i32 %23, 5
   %or.cond = select i1 %20, i1 %24, i1 false
-  %25 = or i64 %5, 17592186449927
-  %spec.select = select i1 %or.cond, i64 %6, i64 %25
+  %25 = or i64 %4, 17592186449927
+  %spec.select = select i1 %or.cond, i64 %5, i64 %25
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit23
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit23:          ; preds = %16, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
-  %.sroa.0.0 = phi i64 [ %6, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread ], [ %spec.select, %16 ]
+  %.sroa.0.0 = phi i64 [ %5, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread ], [ %spec.select, %16 ]
   switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit33 [
     i32 38, label %26
     i32 3, label %26
@@ -27684,7 +27684,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit23:          ; preds = %16, %_ZNK5clang6dri
 26:                                               ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit23, %_ZN5clang13SanitizerMaskoRERKS0_.exit23
   %27 = load i32, ptr %7, align 4, !tbaa !474
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24
+  br i1 %28, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread.critedge, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24
 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24: ; preds = %26
   %29 = icmp eq i32 %27, 1
@@ -27692,32 +27692,49 @@ _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24: ; preds = %26
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2
   %33 = select i1 %29, i1 %32, i1 false
-  br i1 %33, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread, label %34
+  br i1 %33, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge, label %34
 
 34:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24
   %35 = icmp eq i32 %31, 1
   %36 = icmp ult i32 %27, 4
-  %or.cond57 = select i1 %36, i1 %35, i1 false
+  %or.cond48 = select i1 %36, i1 %35, i1 false
+  br i1 %or.cond48, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge: ; preds = %34, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24
   %37 = or i64 %.sroa.0.0, 32768
-  %spec.select73 = select i1 %or.cond57, i64 %37, i64 %.sroa.0.0
+  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %0, i64 3968
+  %.pre54 = load i32, ptr %.phi.trans.insert53, align 8
+  br label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29
+
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge, %34
+  %.sroa.0.3 = phi i64 [ %37, %_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge ], [ %.sroa.0.0, %34 ]
+  %38 = phi i32 [ %.pre54, %_ZN5clang13SanitizerMaskoRERKS0_.exit28._ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29_crit_edge ], [ %31, %34 ]
+  %39 = icmp eq i32 %27, 1
+  %40 = icmp eq i32 %38, 2
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread, label %.critedge
+
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread.critedge: ; preds = %26
+  %42 = or i64 %.sroa.0.0, 32768
+  br label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread
+
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread: ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread.critedge, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29
+  %.sroa.0.4 = phi i64 [ %42, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread.critedge ], [ %.sroa.0.3, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29 ]
+  %43 = or i64 %.sroa.0.4, 16384
   br label %.critedge
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread: ; preds = %26, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit24
-  %38 = or i64 %.sroa.0.0, 49152
-  br label %.critedge
-
-.critedge:                                        ; preds = %34, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread
-  %.sroa.0.1 = phi i64 [ %38, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread ], [ %spec.select73, %34 ]
-  %39 = or i64 %.sroa.0.1, 65536
-  %spec.select74 = select i1 %3, i64 %39, i64 %.sroa.0.1
+.critedge:                                        ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29
+  %.sroa.0.1 = phi i64 [ %43, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29.thread ], [ %.sroa.0.3, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit29 ]
+  %44 = or i64 %.sroa.0.1, 65536
+  %spec.select61 = select i1 %6, i64 %44, i64 %.sroa.0.1
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit33
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit33:          ; preds = %.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit23
-  %.sroa.0.3 = phi i64 [ %.sroa.0.0, %_ZN5clang13SanitizerMaskoRERKS0_.exit23 ], [ %spec.select74, %.critedge ]
-  %40 = extractvalue { i64, i64 } %4, 1
-  %41 = or i64 %40, 64
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.3, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %41, 1
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %_ZN5clang13SanitizerMaskoRERKS0_.exit23 ], [ %spec.select61, %.critedge ]
+  %45 = extractvalue { i64, i64 } %3, 1
+  %46 = or i64 %45, 64
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %46, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

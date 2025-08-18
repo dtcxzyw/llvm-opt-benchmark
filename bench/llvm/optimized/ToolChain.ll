@@ -17876,7 +17876,7 @@ define dso_local { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitize
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !90
   switch i32 %3, label %4 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
+    i32 38, label %_ZNK4llvm6Triple9isAArch64Ei.exit
     i32 1, label %.fold.split
     i32 3, label %.fold.split
     i32 4, label %.fold.split
@@ -17894,36 +17894,49 @@ define dso_local { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitize
   br label %4
 
 4:                                                ; preds = %1, %.fold.split
-  %.sroa.063.1 = phi i64 [ 7024330081014644736, %1 ], [ 7025455980921487360, %.fold.split ]
+  %.sroa.063.0 = phi i64 [ 7024330081014644736, %1 ], [ 7025455980921487360, %.fold.split ]
   %.off.i.i = add i32 %3, -3
   %switch.i.i = icmp ult i32 %.off.i.i, 3
-  br i1 %switch.i.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread, label %13
+  br i1 %switch.i.i, label %5, label %10
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread:   ; preds = %4
-  %5 = icmp eq i32 %3, 5
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 13
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  %9 = or disjoint i64 %.sroa.063.1, 288230376151711744
-  %.sroa.063.3 = select i1 %or.cond.i, i64 %.sroa.063.1, i64 %9
-  %10 = icmp eq i32 %3, 5
-  %11 = icmp eq i32 %7, 13
-  %or.cond.i52 = select i1 %10, i1 true, i1 %11
-  %12 = or disjoint i64 %.sroa.063.3, 448
-  %spec.select83 = select i1 %or.cond.i52, i64 %.sroa.063.3, i64 %12
+5:                                                ; preds = %4
+  %6 = icmp eq i32 %3, 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 13
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread, label %_ZNK4llvm6Triple9isAArch64Ei.exit
+
+10:                                               ; preds = %4
+  %11 = add i32 %3, -27
+  %spec.select.i46 = icmp ult i32 %11, 2
+  br i1 %spec.select.i46, label %_ZNK4llvm6Triple9isAArch64Ei.exit, label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
+
+_ZNK4llvm6Triple9isAArch64Ei.exit:                ; preds = %1, %10, %5
+  %.sroa.063.2 = phi i64 [ %.sroa.063.0, %5 ], [ %.sroa.063.0, %10 ], [ 7025455980921487360, %1 ]
+  %12 = or i64 %.sroa.063.2, 288230376151711744
+  %.off.i.i49 = add nsw i32 %3, -3
+  %switch.i.i50 = icmp samesign ult i32 %.off.i.i49, 3
+  br i1 %switch.i.i50, label %_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge, label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge: ; preds = %_ZNK4llvm6Triple9isAArch64Ei.exit
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.pre = load i32, ptr %.phi.trans.insert, align 8
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread:   ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge, %5
+  %.sroa.063.3 = phi i64 [ %.sroa.063.0, %5 ], [ %12, %_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge ]
+  %13 = phi i32 [ %8, %5 ], [ %.pre, %_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge ]
+  %14 = icmp eq i32 %3, 5
+  %15 = icmp eq i32 %13, 13
+  %or.cond.i52 = select i1 %14, i1 true, i1 %15
+  %16 = or i64 %.sroa.063.3, 448
+  %spec.select = select i1 %or.cond.i52, i64 %.sroa.063.3, i64 %16
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
 
-13:                                               ; preds = %4
-  %14 = add i32 %3, -27
-  %spec.select.i46 = icmp ult i32 %14, 2
-  %15 = or disjoint i64 %.sroa.063.1, 288230376151711744
-  %spec.select = select i1 %spec.select.i46, i64 %15, i64 %.sroa.063.1
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit55:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread, %13, %1
-  %.sroa.063.2 = phi i64 [ %spec.select, %13 ], [ 7313686357073199104, %1 ], [ %spec.select83, %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.063.2, 0
+_ZN5clang13SanitizerMaskoRERKS0_.exit55:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread, %10, %_ZNK4llvm6Triple9isAArch64Ei.exit
+  %.sroa.063.1 = phi i64 [ %12, %_ZNK4llvm6Triple9isAArch64Ei.exit ], [ %.sroa.063.0, %10 ], [ %spec.select, %_ZN5clang13SanitizerMaskoRERKS0_.exit48.thread ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.063.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 137, 1
   ret { i64, i64 } %.fca.1.insert
 }

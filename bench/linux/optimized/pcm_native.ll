@@ -485,38 +485,39 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br i1 %33, label %.thread16, label %36
 
 36:                                               ; preds = %35
-  %37 = trunc nuw nsw i64 %26 to i32
-  %38 = shl nuw nsw i32 1, %37
-  %39 = and i32 %8, %38
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %63, label %.critedge
+  %37 = load i32, ptr %7, align 8
+  %38 = trunc nuw nsw i64 %26 to i32
+  %39 = shl nuw nsw i32 1, %38
+  %40 = and i32 %37, %39
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %63, label %.preheader23.preheader.critedge
 
-.critedge:                                        ; preds = %36
-  %41 = getelementptr [3 x %struct.snd_mask], ptr %22, i64 0, i64 %26
+.preheader23.preheader.critedge:                  ; preds = %36
+  %42 = getelementptr [3 x %struct.snd_mask], ptr %22, i64 0, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef align 4 dereferenceable(32) %27, i64 32, i1 false)
-  %42 = load i32, ptr %41, align 4
-  %43 = load i32, ptr %27, align 4
-  %44 = and i32 %43, %42
-  store i32 %44, ptr %27, align 4
-  %45 = getelementptr i8, ptr %41, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = getelementptr i8, ptr %27, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = and i32 %48, %46
-  store i32 %49, ptr %47, align 4
-  br label %50
+  %43 = load i32, ptr %42, align 4
+  %44 = load i32, ptr %27, align 4
+  %45 = and i32 %44, %43
+  store i32 %45, ptr %27, align 4
+  %46 = getelementptr i8, ptr %42, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr i8, ptr %27, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, %47
+  store i32 %50, ptr %48, align 4
+  br label %.preheader23
 
-50:                                               ; preds = %.critedge, %50
-  %51 = phi i1 [ false, %50 ], [ true, %.critedge ]
-  %52 = phi i64 [ 1, %50 ], [ 0, %.critedge ]
+.preheader23:                                     ; preds = %.preheader23.preheader.critedge, %.preheader23
+  %51 = phi i1 [ false, %.preheader23 ], [ true, %.preheader23.preheader.critedge ]
+  %52 = phi i64 [ 1, %.preheader23 ], [ 0, %.preheader23.preheader.critedge ]
   %53 = getelementptr [8 x i32], ptr %27, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   %56 = and i1 %51, %55
-  br i1 %56, label %50, label %57, !llvm.loop !8
+  br i1 %56, label %.preheader23, label %57, !llvm.loop !8
 
-57:                                               ; preds = %50
+57:                                               ; preds = %.preheader23
   br i1 %55, label %.thread, label %58
 
 .thread:                                          ; preds = %57
@@ -531,7 +532,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
 
 60:                                               ; preds = %58
   %61 = load i32, ptr %24, align 4
-  %62 = or i32 %61, %38
+  %62 = or i32 %61, %39
   store i32 %62, ptr %24, align 4
   br label %63
 
@@ -704,11 +705,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   %171 = phi i8 [ 1, %163 ], [ %122, %159 ], [ %122, %157 ]
   %172 = add i32 %123, 1
   store i32 %123, ptr %137, align 4
-  %.pre33 = load i32, ptr %98, align 8
+  %.pre34 = load i32, ptr %98, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %139, %170, %132, %128
-  %173 = phi i32 [ %.pre33, %170 ], [ %120, %128 ], [ %120, %132 ], [ %120, %139 ]
+  %173 = phi i32 [ %.pre34, %170 ], [ %120, %128 ], [ %120, %132 ], [ %120, %139 ]
   %174 = phi i32 [ %172, %170 ], [ %123, %128 ], [ %123, %132 ], [ %123, %139 ]
   %175 = phi i8 [ %171, %170 ], [ %122, %128 ], [ %122, %132 ], [ %122, %139 ]
   %176 = add nuw nsw i64 %121, 1
@@ -5961,6 +5962,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   %12 = getelementptr i8, ptr %0, i64 36
   store i64 -1, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %14
 
 14:                                               ; preds = %38, %2
@@ -6001,46 +6003,45 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
 38:                                               ; preds = %33, %30, %24, %14
   %39 = add nuw nsw i32 %15, 1
   %40 = icmp eq i32 %39, 53
-  br i1 %40, label %.critedge, label %14, !llvm.loop !57
+  br i1 %40, label %.preheader.preheader.critedge, label %14, !llvm.loop !57
 
-.critedge:                                        ; preds = %38
+.preheader.preheader.critedge:                    ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef align 4 dereferenceable(32) %12, i64 32, i1 false)
   %41 = load i32, ptr %4, align 8
   %42 = load i32, ptr %12, align 4
   %43 = and i32 %42, %41
   store i32 %43, ptr %12, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = getelementptr i8, ptr %0, i64 40
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, %45
-  store i32 %48, ptr %46, align 4
-  br label %49
+  %44 = load i32, ptr %.sroa.gep2, align 4
+  %45 = getelementptr i8, ptr %0, i64 40
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, %44
+  store i32 %47, ptr %45, align 4
+  br label %.preheader
 
-49:                                               ; preds = %.critedge, %49
-  %50 = phi i1 [ false, %49 ], [ true, %.critedge ]
-  %51 = phi i64 [ 1, %49 ], [ 0, %.critedge ]
-  %52 = getelementptr [8 x i32], ptr %12, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, 0
-  %55 = and i1 %50, %54
-  br i1 %55, label %49, label %56, !llvm.loop !8
+.preheader:                                       ; preds = %.preheader.preheader.critedge, %.preheader
+  %48 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader.critedge ]
+  %49 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader.critedge ]
+  %50 = getelementptr [8 x i32], ptr %12, i64 0, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  %53 = and i1 %48, %52
+  br i1 %53, label %.preheader, label %54, !llvm.loop !8
 
-56:                                               ; preds = %49
-  br i1 %54, label %61, label %57
+54:                                               ; preds = %.preheader
+  br i1 %52, label %59, label %55
 
-57:                                               ; preds = %56
-  %58 = call i32 @bcmp(ptr noundef dereferenceable(8) %12, ptr noundef nonnull dereferenceable(8) %3, i64 8)
-  %59 = icmp ne i32 %58, 0
-  %60 = zext i1 %59 to i32
-  br label %61
+55:                                               ; preds = %54
+  %56 = call i32 @bcmp(ptr noundef dereferenceable(8) %12, ptr noundef nonnull dereferenceable(8) %3, i64 8)
+  %57 = icmp ne i32 %56, 0
+  %58 = zext i1 %57 to i32
+  br label %59
 
-61:                                               ; preds = %57, %56
-  %62 = phi i32 [ %60, %57 ], [ -22, %56 ]
+59:                                               ; preds = %55, %54
+  %60 = phi i32 [ %58, %55 ], [ -22, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %62
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6334,9 +6335,9 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_subformats(ptr noundef ca
   %31 = phi i32 [ %24, %23 ], [ %9, %7 ], [ %29, %25 ]
   %32 = add nuw nsw i32 %8, 1
   %33 = icmp eq i32 %32, 53
-  br i1 %33, label %.critedge, label %7, !llvm.loop !59
+  br i1 %33, label %.preheader.preheader.critedge, label %7, !llvm.loop !59
 
-.critedge:                                        ; preds = %30
+.preheader.preheader.critedge:                    ; preds = %30
   %34 = getelementptr i8, ptr %0, i64 68
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef align 4 dereferenceable(32) %34, i64 32, i1 false)
@@ -6345,30 +6346,30 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_subformats(ptr noundef ca
   store i32 %36, ptr %34, align 4
   %37 = getelementptr i8, ptr %0, i64 72
   store i32 0, ptr %37, align 4
-  br label %38
+  br label %.preheader
 
-38:                                               ; preds = %.critedge, %38
-  %39 = phi i1 [ false, %38 ], [ true, %.critedge ]
-  %40 = phi i64 [ 1, %38 ], [ 0, %.critedge ]
-  %41 = getelementptr [8 x i32], ptr %34, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 0
-  %44 = and i1 %39, %43
-  br i1 %44, label %38, label %45, !llvm.loop !8
+.preheader:                                       ; preds = %.preheader.preheader.critedge, %.preheader
+  %38 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader.critedge ]
+  %39 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader.critedge ]
+  %40 = getelementptr [8 x i32], ptr %34, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, 0
+  %43 = and i1 %38, %42
+  br i1 %43, label %.preheader, label %44, !llvm.loop !8
 
-45:                                               ; preds = %38
-  br i1 %43, label %50, label %46
+44:                                               ; preds = %.preheader
+  br i1 %42, label %49, label %45
 
-46:                                               ; preds = %45
-  %47 = call i32 @bcmp(ptr noundef dereferenceable(8) %34, ptr noundef nonnull dereferenceable(8) %3, i64 8)
-  %48 = icmp ne i32 %47, 0
-  %49 = zext i1 %48 to i32
-  br label %50
+45:                                               ; preds = %44
+  %46 = call i32 @bcmp(ptr noundef dereferenceable(8) %34, ptr noundef nonnull dereferenceable(8) %3, i64 8)
+  %47 = icmp ne i32 %46, 0
+  %48 = zext i1 %47 to i32
+  br label %49
 
-50:                                               ; preds = %46, %45
-  %51 = phi i32 [ %49, %46 ], [ -22, %45 ]
+49:                                               ; preds = %45, %44
+  %50 = phi i32 [ %48, %45 ], [ -22, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %51
+  ret i32 %50
 }
 
 ; Function Attrs: null_pointer_is_valid

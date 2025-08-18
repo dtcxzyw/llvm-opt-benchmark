@@ -266,9 +266,9 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %21 = load i64, ptr %11, align 8, !alias.scope !81, !noalias !77, !noundef !9
   %22 = load i64, ptr %12, align 8, !alias.scope !81, !noalias !77, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  store i64 %22, ptr %13, align 8, !alias.scope !84, !noalias !87
   %23 = add i64 %15, %21
   store i64 %23, ptr %5, align 8, !alias.scope !84, !noalias !87
-  store i64 %22, ptr %13, align 8, !alias.scope !84, !noalias !87
   br label %14
 
 24:                                               ; preds = %17, %18, %19

@@ -1610,48 +1610,48 @@ define internal fastcc void @port_send_version_negotiation(ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %21 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef 1024, i64 noundef 0) #11
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %40, label %22
+  br i1 %.not, label %.loopexit, label %22
 
 22:                                               ; preds = %3
   %23 = load i8, ptr %14, align 8, !tbaa !219
   %24 = zext i8 %23 to i64
   %25 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %7, i64 noundef %24, ptr noundef nonnull %6, ptr noundef null) #11
   %.not7 = icmp eq i32 %25, 0
-  br i1 %.not7, label %40, label %26
+  br i1 %.not7, label %.loopexit, label %.preheader
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %8, align 4, !tbaa !212
-  %28 = call noundef i32 @llvm.bswap.i32(i32 %27)
-  %29 = zext i32 %28 to i64
-  %30 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %7, i64 noundef %29, i64 noundef 4) #11
-  %.not11 = icmp eq i32 %30, 0
-  br i1 %.not11, label %40, label %.critedge
+.preheader:                                       ; preds = %22
+  %26 = load i32, ptr %8, align 4, !tbaa !212
+  %27 = call noundef i32 @llvm.bswap.i32(i32 %26)
+  %28 = zext i32 %27 to i64
+  %29 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %7, i64 noundef %28, i64 noundef 4) #11
+  %.not11 = icmp eq i32 %29, 0
+  br i1 %.not11, label %.loopexit, label %.critedge, !llvm.loop !220
 
-.critedge:                                        ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %7, ptr noundef nonnull %31) #11
-  %.not8 = icmp eq i32 %32, 0
-  br i1 %.not8, label %40, label %33
+.critedge:                                        ; preds = %.preheader
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %31 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %7, ptr noundef nonnull %30) #11
+  %.not8 = icmp eq i32 %31, 0
+  br i1 %.not8, label %.loopexit, label %32
 
-33:                                               ; preds = %.critedge
-  %34 = call i32 @WPACKET_finish(ptr noundef nonnull %7) #11
-  %.not9 = icmp eq i32 %34, 0
-  br i1 %.not9, label %40, label %35
+32:                                               ; preds = %.critedge
+  %33 = call i32 @WPACKET_finish(ptr noundef nonnull %7) #11
+  %.not9 = icmp eq i32 %33, 0
+  br i1 %.not9, label %.loopexit, label %34
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %37 = load ptr, ptr %36, align 8, !tbaa !59
-  %38 = call i32 @BIO_sendmmsg(ptr noundef %37, ptr noundef nonnull %4, i64 noundef 40, i64 noundef 1, i64 noundef 0, ptr noundef nonnull %9) #11
-  %.not10 = icmp eq i32 %38, 0
-  br i1 %.not10, label %39, label %40
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %37 = call i32 @BIO_sendmmsg(ptr noundef %36, ptr noundef nonnull %4, i64 noundef 40, i64 noundef 1, i64 noundef 0, ptr noundef nonnull %9) #11
+  %.not10 = icmp eq i32 %37, 0
+  br i1 %.not10, label %38, label %.loopexit
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1241, ptr noundef nonnull @__func__.port_send_version_negotiation) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 387, ptr noundef nonnull @.str.3) #11
-  br label %40
+  br label %.loopexit
 
-40:                                               ; preds = %35, %39, %33, %.critedge, %26, %22, %3
+.loopexit:                                        ; preds = %.preheader, %34, %38, %32, %.critedge, %22, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1703,11 +1703,11 @@ define internal fastcc void @port_send_retry(ptr noundef readonly captures(none)
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %24, ptr noundef nonnull align 8 dereferenceable(21) %23, i64 21, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i8 1, ptr %25, align 8, !tbaa !220
+  store i8 1, ptr %25, align 8, !tbaa !221
   %26 = call i64 @ossl_time_now() #11
   store i64 %26, ptr %13, align 8, !tbaa !195
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store ptr null, ptr %27, align 8, !tbaa !222
+  store ptr null, ptr %27, align 8, !tbaa !223
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %28, ptr noundef nonnull readonly align 8 dereferenceable(21) %4, i64 21, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -1716,13 +1716,13 @@ define internal fastcc void @port_send_retry(ptr noundef readonly captures(none)
   br i1 %.not.i, label %generate_token.exit.thread, label %31
 
 31:                                               ; preds = %21
-  %32 = load i64, ptr %29, align 8, !tbaa !223
+  %32 = load i64, ptr %29, align 8, !tbaa !224
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %generate_token.exit.thread, label %34
 
 34:                                               ; preds = %31
   %35 = call noalias ptr @CRYPTO_malloc(i64 noundef %32, ptr noundef nonnull @.str, i32 noundef 824) #11
-  store ptr %35, ptr %27, align 8, !tbaa !222
+  store ptr %35, ptr %27, align 8, !tbaa !223
   %36 = icmp eq ptr %35, null
   br i1 %36, label %generate_token.exit.thread, label %37
 
@@ -1732,7 +1732,7 @@ define internal fastcc void @port_send_retry(ptr noundef readonly captures(none)
   br i1 %.not17.i, label %generate_token.exit.thread, label %39
 
 generate_token.exit.thread:                       ; preds = %21, %31, %34, %37
-  %.val.i = load ptr, ptr %27, align 8, !tbaa !222
+  %.val.i = load ptr, ptr %27, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val.i, ptr noundef nonnull @.str, i32 noundef 798) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %encrypt_validation_token.exit.thread
@@ -1774,7 +1774,7 @@ encrypt_validation_token.exit:                    ; preds = %48
   %60 = load i64, ptr %11, align 8
   %61 = icmp ugt i64 %60, 15
   %or.cond23 = select i1 %.not20, i1 %61, i1 false
-  br i1 %or.cond23, label %62, label %encrypt_validation_token.exit.thread, !prof !224
+  br i1 %or.cond23, label %62, label %encrypt_validation_token.exit.thread, !prof !225
 
 62:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %14, ptr noundef nonnull align 1 dereferenceable(21) %15, i64 21, i1 false), !tbaa.struct !211
@@ -1801,10 +1801,10 @@ encrypt_validation_token.exit:                    ; preds = %48
 77:                                               ; preds = %62
   %78 = load ptr, ptr %68, align 8, !tbaa !214
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr %78, ptr %79, align 8, !tbaa !225
+  store ptr %78, ptr %79, align 8, !tbaa !226
   %80 = load i64, ptr %67, align 8, !tbaa !213
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store i64 %80, ptr %81, align 8, !tbaa !226
+  store i64 %80, ptr %81, align 8, !tbaa !227
   store ptr %6, ptr %5, align 16, !tbaa !215
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %82, align 16, !tbaa !218
@@ -1847,7 +1847,7 @@ encrypt_validation_token.exit:                    ; preds = %48
 
 encrypt_validation_token.exit.thread:             ; preds = %48, %41, %generate_token.exit.thread, %98, %102, %95, %91, %86, %77, %62, %39, %encrypt_validation_token.exit, %57, %3
   %103 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %.val = load ptr, ptr %103, align 8, !tbaa !222
+  %.val = load ptr, ptr %103, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val, ptr noundef nonnull @.str, i32 noundef 798) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 0, 2) i32 @port_validate_token(ptr noundef nonn
   store i8 0, ptr %5, align 1, !tbaa !198
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load i64, ptr %13, align 8, !tbaa !226
+  %14 = load i64, ptr %13, align 8, !tbaa !227
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   %17 = tail call i32 @EVP_CIPHER_CTX_get_tag_length(ptr noundef %16) #11
@@ -1901,8 +1901,8 @@ define internal fastcc range(i32 0, 2) i32 @port_validate_token(ptr noundef nonn
   br i1 %or.cond, label %decrypt_validation_token.exit.thread, label %31
 
 31:                                               ; preds = %24
-  %32 = load ptr, ptr %12, align 8, !tbaa !225
-  %33 = load i64, ptr %13, align 8, !tbaa !226
+  %32 = load ptr, ptr %12, align 8, !tbaa !226
+  %33 = load i64, ptr %13, align 8, !tbaa !227
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !212
   %34 = load ptr, ptr %15, align 8, !tbaa !56
@@ -1965,7 +1965,7 @@ decrypt_validation_token.exit48:                  ; preds = %59
 
 67:                                               ; preds = %decrypt_validation_token.exit48
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr null, ptr %68, align 8, !tbaa !222
+  store ptr null, ptr %68, align 8, !tbaa !223
   %or.cond121.i = icmp eq i64 %33, %44
   br i1 %or.cond121.i, label %parse_validation_token.exit.thread, label %69
 
@@ -2001,7 +2001,7 @@ decrypt_validation_token.exit48:                  ; preds = %59
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %82
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %80, ptr %87, align 8, !tbaa !227
+  store i8 %80, ptr %87, align 8, !tbaa !228
   %88 = icmp ugt i8 %80, 20
   br i1 %88, label %parse_validation_token.exit.thread, label %89
 
@@ -2021,7 +2021,7 @@ decrypt_validation_token.exit48:                  ; preds = %59
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 29
-  store i8 %92, ptr %98, align 1, !tbaa !228
+  store i8 %92, ptr %98, align 1, !tbaa !229
   %99 = icmp ugt i8 %92, 20
   br i1 %99, label %parse_validation_token.exit.thread, label %PACKET_copy_bytes.exit58.i
 
@@ -2050,13 +2050,13 @@ PACKET_copy_bytes.exit58.i:                       ; preds = %97
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.081.0.i, i64 1
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %109, ptr %113, align 8, !tbaa !223
+  store i64 %109, ptr %113, align 8, !tbaa !224
   %114 = icmp eq i8 %107, 0
   br i1 %114, label %parse_validation_token.exit.thread, label %115
 
 115:                                              ; preds = %111
   %116 = call noalias ptr @CRYPTO_malloc(i64 noundef %109, ptr noundef nonnull @.str, i32 noundef 1023) #11
-  store ptr %116, ptr %68, align 8, !tbaa !222
+  store ptr %116, ptr %68, align 8, !tbaa !223
   %117 = icmp eq ptr %116, null
   br i1 %117, label %parse_validation_token.exit.thread, label %118
 
@@ -2066,7 +2066,7 @@ PACKET_copy_bytes.exit58.i:                       ; preds = %97
   br i1 %.not37.i50, label %parse_validation_token.exit, label %parse_validation_token.exit.thread
 
 parse_validation_token.exit.thread:               ; preds = %67, %69, %78, %79, %84, %89, %91, %97, %104, %106, %111, %115, %118
-  %.val.i = load ptr, ptr %68, align 8, !tbaa !222
+  %.val.i = load ptr, ptr %68, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val.i, ptr noundef nonnull @.str, i32 noundef 798) #11
   br label %decrypt_validation_token.exit.thread
 
@@ -2076,7 +2076,7 @@ parse_validation_token.exit:                      ; preds = %118
 
 120:                                              ; preds = %parse_validation_token.exit
   %..i9.i = sub nuw i64 %11, %75
-  %121 = load i8, ptr %70, align 8, !tbaa !220
+  %121 = load i8, ptr %70, align 8, !tbaa !221
   %122 = icmp ne i8 %121, 0
   %123 = icmp ugt i64 %..i9.i, 10999999999
   %or.cond3 = select i1 %122, i1 %123, i1 false
@@ -2190,7 +2190,7 @@ define internal fastcc void @port_bind_channel(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %.027, i64 216
-  %16 = load ptr, ptr %15, align 8, !tbaa !229
+  %16 = load ptr, ptr %15, align 8, !tbaa !230
   tail call void @ossl_quic_tx_packetiser_set_validated(ptr noundef %16) #11
   %17 = tail call i32 @ossl_quic_bind_channel(ptr noundef nonnull %.027, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not25 = icmp eq i32 %17, 0
@@ -2275,7 +2275,7 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
 
 15:                                               ; preds = %12
   store i8 8, ptr %4, align 8, !tbaa !209
-  %16 = load ptr, ptr %0, align 8, !tbaa !230
+  %16 = load ptr, ptr %0, align 8, !tbaa !231
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -2296,11 +2296,11 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %25, ptr noundef nonnull align 8 dereferenceable(21) %24, i64 21, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i8 0, ptr %26, align 8, !tbaa !220
+  store i8 0, ptr %26, align 8, !tbaa !221
   %27 = call i64 @ossl_time_now() #11
   store i64 %27, ptr %5, align 8, !tbaa !195
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr null, ptr %28, align 8, !tbaa !222
+  store ptr null, ptr %28, align 8, !tbaa !223
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %29, ptr noundef nonnull readonly align 8 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !211
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2309,13 +2309,13 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
   br i1 %.not.i, label %generate_token.exit.thread, label %32
 
 32:                                               ; preds = %22
-  %33 = load i64, ptr %30, align 8, !tbaa !223
+  %33 = load i64, ptr %30, align 8, !tbaa !224
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %generate_token.exit.thread, label %35
 
 35:                                               ; preds = %32
   %36 = call noalias ptr @CRYPTO_malloc(i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 824) #11
-  store ptr %36, ptr %28, align 8, !tbaa !222
+  store ptr %36, ptr %28, align 8, !tbaa !223
   %37 = icmp eq ptr %36, null
   br i1 %37, label %generate_token.exit.thread, label %38
 
@@ -2325,7 +2325,7 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
   br i1 %.not17.i, label %generate_token.exit.thread, label %40
 
 generate_token.exit.thread:                       ; preds = %22, %32, %35, %38
-  %.val.i = load ptr, ptr %28, align 8, !tbaa !222
+  %.val.i = load ptr, ptr %28, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val.i, ptr noundef nonnull @.str, i32 noundef 798) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %encrypt_validation_token.exit.thread
@@ -2337,7 +2337,7 @@ generate_token.exit.thread:                       ; preds = %22, %32, %35, %38
   br i1 %.not16, label %encrypt_validation_token.exit.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %0, align 8, !tbaa !230
+  %43 = load ptr, ptr %0, align 8, !tbaa !231
   %44 = load i64, ptr %8, align 8, !tbaa !195
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %46 = load ptr, ptr %45, align 8, !tbaa !56
@@ -2362,27 +2362,27 @@ encrypt_validation_token.exit:                    ; preds = %50
   br i1 %58, label %encrypt_validation_token.exit.thread, label %59
 
 59:                                               ; preds = %encrypt_validation_token.exit
-  %60 = load ptr, ptr %0, align 8, !tbaa !230
+  %60 = load ptr, ptr %0, align 8, !tbaa !231
   %61 = load i64, ptr %8, align 8, !tbaa !195
   %62 = call fastcc i32 @encrypt_validation_token(ptr noundef %60, ptr noundef %6, i64 noundef %61, ptr noundef nonnull %13, ptr noundef %7)
   %.not17 = icmp ne i32 %62, 0
   %63 = load i64, ptr %7, align 8
   %64 = icmp ugt i64 %63, 15
   %or.cond19 = select i1 %.not17, i1 %64, i1 false
-  br i1 %or.cond19, label %65, label %encrypt_validation_token.exit.thread, !prof !224
+  br i1 %or.cond19, label %65, label %encrypt_validation_token.exit.thread, !prof !225
 
 encrypt_validation_token.exit.thread:             ; preds = %50, %42, %generate_token.exit.thread, %59, %encrypt_validation_token.exit, %40
   call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 1416) #11
-  %.val = load ptr, ptr %28, align 8, !tbaa !222
+  %.val = load ptr, ptr %28, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val, ptr noundef nonnull @.str, i32 noundef 798) #11
   br label %68
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %13, ptr %66, align 8, !tbaa !231
+  store ptr %13, ptr %66, align 8, !tbaa !232
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %63, ptr %67, align 8, !tbaa !232
-  %.val20 = load ptr, ptr %28, align 8, !tbaa !222
+  store i64 %63, ptr %67, align 8, !tbaa !233
+  %.val20 = load ptr, ptr %28, align 8, !tbaa !223
   call void @CRYPTO_free(ptr noundef %.val20, ptr noundef nonnull @.str, i32 noundef 798) #11
   br label %68
 
@@ -2428,7 +2428,7 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load i8, ptr %8, align 8, !tbaa !220
+  %9 = load i8, ptr %8, align 8, !tbaa !221
   %switch = icmp ult i8 %9, 2
   br i1 %switch, label %10, label %50
 
@@ -2438,7 +2438,7 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
   br i1 %.not26, label %45, label %12
 
 12:                                               ; preds = %10
-  %13 = load i8, ptr %8, align 8, !tbaa !220
+  %13 = load i8, ptr %8, align 8, !tbaa !221
   %14 = zext i8 %13 to i32
   %15 = call i32 @WPACKET_memset(ptr noundef nonnull %4, i32 noundef %14, i64 noundef 1) #11
   %.not27 = icmp eq i32 %15, 0
@@ -2450,14 +2450,14 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
   br i1 %.not28, label %45, label %18
 
 18:                                               ; preds = %16
-  %19 = load i8, ptr %8, align 8, !tbaa !220
+  %19 = load i8, ptr %8, align 8, !tbaa !221
   %.not29 = icmp eq i8 %19, 0
   br i1 %.not29, label %32, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %23 = load i8, ptr %21, align 8, !tbaa !227
+  %23 = load i8, ptr %21, align 8, !tbaa !228
   %24 = zext i8 %23 to i64
   %25 = call i32 @WPACKET_sub_memcpy__(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef %24, i64 noundef 1) #11
   %.not30 = icmp eq i32 %25, 0
@@ -2466,7 +2466,7 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %29 = load i8, ptr %27, align 1, !tbaa !228
+  %29 = load i8, ptr %27, align 1, !tbaa !229
   %30 = zext i8 %29 to i64
   %31 = call i32 @WPACKET_sub_memcpy__(ptr noundef nonnull %4, ptr noundef nonnull %28, i64 noundef %30, i64 noundef 1) #11
   %.not31 = icmp eq i32 %31, 0
@@ -2474,9 +2474,9 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
 
 32:                                               ; preds = %26, %18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !222
+  %34 = load ptr, ptr %33, align 8, !tbaa !223
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load i64, ptr %35, align 8, !tbaa !223
+  %36 = load i64, ptr %35, align 8, !tbaa !224
   %37 = call i32 @WPACKET_sub_memcpy__(ptr noundef nonnull %4, ptr noundef %34, i64 noundef %36, i64 noundef 1) #11
   %.not32 = icmp eq i32 %37, 0
   br i1 %.not32, label %45, label %38
@@ -2502,7 +2502,7 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !233
+  %48 = load ptr, ptr %47, align 8, !tbaa !234
   %49 = load i64, ptr %2, align 8, !tbaa !195
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %48, i64 %49, i1 false)
   br label %.sink.split
@@ -2912,18 +2912,19 @@ attributes #11 = { nounwind }
 !217 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
 !218 = !{!216, !217, i64 16}
 !219 = !{!208, !7, i64 8}
-!220 = !{!221, !7, i64 72}
-!221 = !{!"validation_token", !42, i64 0, !86, i64 8, !86, i64 29, !19, i64 56, !38, i64 64, !7, i64 72}
-!222 = !{!221, !38, i64 64}
-!223 = !{!221, !19, i64 56}
-!224 = !{!"branch_weights", i32 2000, i32 2002}
-!225 = !{!208, !38, i64 56}
-!226 = !{!208, !19, i64 64}
-!227 = !{!221, !7, i64 8}
-!228 = !{!221, !7, i64 29}
-!229 = !{!63, !68, i64 216}
-!230 = !{!63, !14, i64 0}
-!231 = !{!63, !38, i64 88}
-!232 = !{!63, !19, i64 96}
-!233 = !{!234, !38, i64 8}
-!234 = !{!"buf_mem_st", !19, i64 0, !38, i64 8, !19, i64 16, !19, i64 24}
+!220 = distinct !{!220, !92}
+!221 = !{!222, !7, i64 72}
+!222 = !{!"validation_token", !42, i64 0, !86, i64 8, !86, i64 29, !19, i64 56, !38, i64 64, !7, i64 72}
+!223 = !{!222, !38, i64 64}
+!224 = !{!222, !19, i64 56}
+!225 = !{!"branch_weights", i32 2000, i32 2002}
+!226 = !{!208, !38, i64 56}
+!227 = !{!208, !19, i64 64}
+!228 = !{!222, !7, i64 8}
+!229 = !{!222, !7, i64 29}
+!230 = !{!63, !68, i64 216}
+!231 = !{!63, !14, i64 0}
+!232 = !{!63, !38, i64 88}
+!233 = !{!63, !19, i64 96}
+!234 = !{!235, !38, i64 8}
+!235 = !{!"buf_mem_st", !19, i64 0, !38, i64 8, !19, i64 16, !19, i64 24}

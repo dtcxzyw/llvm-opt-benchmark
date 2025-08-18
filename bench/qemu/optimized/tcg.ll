@@ -3593,7 +3593,7 @@ find_first_bit.exit:                              ; preds = %10
   %32 = and i64 %26, 30064771072
   %33 = icmp eq i64 %32, 0
   tail call void @llvm.assume(i1 %33)
-  br label %67
+  br label %68
 
 34:                                               ; preds = %2
   %35 = icmp eq i32 %1, 1
@@ -3635,43 +3635,43 @@ tcg_temp_alloc.exit:                              ; preds = %switch.lookup
   %49 = zext nneg i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 32
   %51 = or disjoint i64 %47, %50
-  br i1 %switch.masked, label %52, label %.critedge
+  br i1 %switch.masked, label %52, label %56
 
 52:                                               ; preds = %tcg_temp_alloc.exit
   %53 = shl nuw nsw i64 %46, 24
   %54 = or disjoint i64 %51, %53
   %55 = or disjoint i64 %54, 549755813888
   store i64 %55, ptr %45, align 8
-  br label %67
+  br label %68
 
-.critedge:                                        ; preds = %tcg_temp_alloc.exit
-  %56 = or disjoint i64 %51, 549772591104
-  store i64 %56, ptr %45, align 8
-  %57 = load i32, ptr %38, align 8
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %38, align 8
-  %59 = icmp sgt i32 %57, 511
-  br i1 %59, label %60, label %tcg_temp_alloc.exit50
+56:                                               ; preds = %tcg_temp_alloc.exit
+  %57 = or disjoint i64 %51, 549772591104
+  store i64 %57, ptr %45, align 8
+  %58 = load i32, ptr %38, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %38, align 8
+  %60 = icmp sgt i32 %58, 511
+  br i1 %60, label %61, label %tcg_temp_alloc.exit50
 
-60:                                               ; preds = %.critedge
+61:                                               ; preds = %56
   tail call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %4) #32
   unreachable
 
-tcg_temp_alloc.exit50:                            ; preds = %.critedge
-  %61 = sext i32 %57 to i64
-  %.idx = mul nsw i64 %61, 56
-  %62 = getelementptr inbounds i8, ptr %43, i64 %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %62, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
-  %63 = add nsw i64 %.idx61, 56
-  %64 = icmp eq i64 %.idx, %63
-  tail call void @llvm.assume(i1 %64)
-  %65 = or disjoint i64 %47, %50
-  %66 = or disjoint i64 %65, 1649284218880
-  store i64 %66, ptr %62, align 8
-  br label %67
+tcg_temp_alloc.exit50:                            ; preds = %56
+  %62 = sext i32 %58 to i64
+  %.idx = mul nsw i64 %62, 56
+  %63 = getelementptr inbounds i8, ptr %43, i64 %.idx
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %63, i8 noundef 0, i64 noundef 56, i1 noundef false) #30
+  %64 = add nsw i64 %.idx61, 56
+  %65 = icmp eq i64 %.idx, %64
+  tail call void @llvm.assume(i1 %65)
+  %66 = or disjoint i64 %47, %50
+  %67 = or disjoint i64 %66, 1649284218880
+  store i64 %67, ptr %63, align 8
+  br label %68
 
-67:                                               ; preds = %find_first_bit.exit, %52, %tcg_temp_alloc.exit50
-  %.1 = phi ptr [ %25, %find_first_bit.exit ], [ %45, %tcg_temp_alloc.exit50 ], [ %45, %52 ]
+68:                                               ; preds = %tcg_temp_alloc.exit50, %find_first_bit.exit, %52
+  %.1 = phi ptr [ %25, %find_first_bit.exit ], [ %45, %52 ], [ %45, %tcg_temp_alloc.exit50 ]
   ret ptr %.1
 }
 
@@ -15215,103 +15215,93 @@ default.unreachable:                              ; preds = %1
 .thread:                                          ; preds = %18
   %19 = and i64 %.sink, -280375465082881
   store i64 %19, ptr %2, align 8
-  br label %66
+  br label %57
 
 .lr.ph:                                           ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %21
 
-21:                                               ; preds = %.lr.ph, %52
-  %.094.in = phi i32 [ %4, %.lr.ph ], [ %.094, %52 ]
-  %.sroa.0.093 = phi i32 [ 0, %.lr.ph ], [ %55, %52 ]
-  %.sroa.20.092 = phi i32 [ 0, %.lr.ph ], [ %54, %52 ]
-  %.sroa.8.091 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
+21:                                               ; preds = %.lr.ph, %layout_arg_normal_n.exit
+  %.094.in = phi i32 [ %4, %.lr.ph ], [ %.094, %layout_arg_normal_n.exit ]
+  %.sroa.0.093 = phi i32 [ 0, %.lr.ph ], [ %46, %layout_arg_normal_n.exit ]
+  %.sroa.20.092 = phi i32 [ 0, %.lr.ph ], [ %45, %layout_arg_normal_n.exit ]
+  %.sroa.8.091 = phi i32 [ 0, %.lr.ph ], [ %44, %layout_arg_normal_n.exit ]
   %.094 = lshr i32 %.094.in, 3
   %22 = and i32 %.094, 7
   switch i32 %22, label %23 [
-    i32 2, label %24
-    i32 3, label %24
-    i32 4, label %32
-    i32 5, label %32
-    i32 6, label %32
-    i32 7, label %layout_arg_normal_n.exit.critedge
+    i32 2, label %layout_arg_normal_n.exit.sink.split
+    i32 3, label %layout_arg_normal_n.exit.sink.split
+    i32 4, label %layout_arg_normal_n.exit.sink.split
+    i32 5, label %layout_arg_normal_n.exit.sink.split
+    i32 6, label %layout_arg_normal_n.exit.sink.split
+    i32 7, label %layout_arg_normal_n.exit.loopexit.critedge
   ]
 
 23:                                               ; preds = %21
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 1398, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #31
   unreachable
 
-24:                                               ; preds = %21, %21
-  %25 = sext i32 %.sroa.8.091 to i64
-  %26 = getelementptr inbounds [14 x %struct.TCGCallArgumentLoc], ptr %20, i64 0, i64 %25
-  %27 = shl i32 %.sroa.20.092, 8
-  %28 = and i32 %27, 65280
-  %29 = shl i32 %.sroa.0.093, 24
-  %30 = and i32 %29, 251658240
-  %31 = or disjoint i32 %30, %28
-  store i32 %31, ptr %26, align 4
-  br label %52
+layout_arg_normal_n.exit.loopexit.critedge:       ; preds = %21
+  %24 = sext i32 %.sroa.8.091 to i64
+  %25 = getelementptr inbounds [14 x %struct.TCGCallArgumentLoc], ptr %20, i64 0, i64 %24
+  %26 = shl i32 %.sroa.0.093, 24
+  %27 = and i32 %26, 251658240
+  %28 = shl i32 %.sroa.20.092, 8
+  %29 = and i32 %28, 65280
+  %30 = or disjoint i32 %27, %29
+  store i32 %30, ptr %25, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %32 = shl i32 %.sroa.20.092, 8
+  %33 = add i32 %32, 256
+  %34 = and i32 %33, 65280
+  %35 = or disjoint i32 %27, %34
+  %36 = or disjoint i32 %35, 268435456
+  store i32 %36, ptr %31, align 4
+  br label %layout_arg_normal_n.exit
 
-32:                                               ; preds = %21, %21, %21
-  %33 = sext i32 %.sroa.8.091 to i64
-  %34 = getelementptr inbounds [14 x %struct.TCGCallArgumentLoc], ptr %20, i64 0, i64 %33
-  %35 = shl i32 %.sroa.20.092, 8
-  %36 = and i32 %35, 65280
-  %37 = shl i32 %.sroa.0.093, 24
-  %38 = and i32 %37, 251658240
-  %39 = or disjoint i32 %38, %36
-  store i32 %39, ptr %34, align 4
-  br label %52
+layout_arg_normal_n.exit.sink.split:              ; preds = %21, %21, %21, %21, %21
+  %37 = sext i32 %.sroa.8.091 to i64
+  %38 = getelementptr inbounds [14 x %struct.TCGCallArgumentLoc], ptr %20, i64 0, i64 %37
+  %39 = shl i32 %.sroa.20.092, 8
+  %40 = and i32 %39, 65280
+  %41 = shl i32 %.sroa.0.093, 24
+  %42 = and i32 %41, 251658240
+  %43 = or disjoint i32 %42, %40
+  store i32 %43, ptr %38, align 4
+  br label %layout_arg_normal_n.exit
 
-layout_arg_normal_n.exit.critedge:                ; preds = %21
-  %40 = sext i32 %.sroa.8.091 to i64
-  %41 = getelementptr inbounds [14 x %struct.TCGCallArgumentLoc], ptr %20, i64 0, i64 %40
-  %42 = shl i32 %.sroa.0.093, 24
-  %43 = and i32 %42, 251658240
-  %44 = shl i32 %.sroa.20.092, 8
-  %45 = and i32 %44, 65280
-  %46 = or disjoint i32 %43, %45
-  store i32 %46, ptr %41, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %48 = add i32 %44, 256
-  %49 = and i32 %48, 65280
-  %50 = or disjoint i32 %43, %49
-  %51 = or disjoint i32 %50, 268435456
-  store i32 %51, ptr %47, align 4
-  br label %52
-
-52:                                               ; preds = %layout_arg_normal_n.exit.critedge, %32, %24
-  %.sink101 = phi i32 [ 2, %layout_arg_normal_n.exit.critedge ], [ 1, %32 ], [ 1, %24 ]
-  %53 = add i32 %.sroa.8.091, %.sink101
-  %54 = add i32 %.sroa.20.092, %.sink101
-  %55 = add nuw nsw i32 %.sroa.0.093, 1
+layout_arg_normal_n.exit:                         ; preds = %layout_arg_normal_n.exit.loopexit.critedge, %layout_arg_normal_n.exit.sink.split
+  %.sink101 = phi i32 [ 1, %layout_arg_normal_n.exit.sink.split ], [ 2, %layout_arg_normal_n.exit.loopexit.critedge ]
+  %44 = add i32 %.sroa.8.091, %.sink101
+  %45 = add i32 %.sroa.20.092, %.sink101
+  %46 = add nuw nsw i32 %.sroa.0.093, 1
   %.not = icmp ult i32 %.094.in, 64
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %52
+._crit_edge:                                      ; preds = %layout_arg_normal_n.exit
   %.pre = load i64, ptr %2, align 8
-  %56 = and i32 %53, 255
-  %57 = zext nneg i32 %56 to i64
-  %58 = shl nuw nsw i64 %57, 40
-  %59 = and i64 %.pre, -280375465082881
-  %60 = or disjoint i64 %59, %58
-  store i64 %60, ptr %2, align 8
-  %61 = icmp ult i32 %53, 15
-  br i1 %61, label %63, label %62
+  %47 = and i32 %44, 255
+  %48 = zext nneg i32 %47 to i64
+  %49 = shl nuw nsw i64 %48, 40
+  %50 = and i64 %.pre, -280375465082881
+  %51 = or disjoint i64 %50, %49
+  store i64 %51, ptr %2, align 8
+  %52 = icmp ult i32 %44, 15
+  br i1 %52, label %54, label %53
 
-62:                                               ; preds = %._crit_edge
+53:                                               ; preds = %._crit_edge
   tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.4, i32 noundef 1459, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #31
   unreachable
 
-63:                                               ; preds = %._crit_edge
-  %64 = icmp slt i32 %54, 23
-  br i1 %64, label %66, label %65
+54:                                               ; preds = %._crit_edge
+  %55 = icmp slt i32 %45, 23
+  br i1 %55, label %57, label %56
 
-65:                                               ; preds = %63
+56:                                               ; preds = %54
   tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.4, i32 noundef 1461, ptr noundef nonnull @__PRETTY_FUNCTION__.init_call_layout) #31
   unreachable
 
-66:                                               ; preds = %.thread, %63
+57:                                               ; preds = %.thread, %54
   ret void
 }
 

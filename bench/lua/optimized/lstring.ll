@@ -658,46 +658,46 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %9 = zext nneg i32 %5 to i64
   %10 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %8, i64 0, i64 %9
-  br label %12
+  br label %16
 
-11:                                               ; preds = %22
-  br i1 %13, label %12, label %.critedge
+11:                                               ; preds = %26
+  br i1 %17, label %16, label %.preheader
 
-12:                                               ; preds = %2, %11
-  %13 = phi i1 [ true, %2 ], [ false, %11 ]
+.preheader:                                       ; preds = %11
+  %12 = load ptr, ptr %10, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %12, ptr %13, align 8, !tbaa !30
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %15 = icmp ult i64 %14, 41
+  br i1 %15, label %30, label %32
+
+16:                                               ; preds = %2, %11
+  %17 = phi i1 [ true, %2 ], [ false, %11 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 11
-  %17 = load i8, ptr %16, align 1, !tbaa !39
-  %18 = icmp sgt i8 %17, -1
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br i1 %18, label %22, label %20
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 11
+  %21 = load i8, ptr %20, align 1, !tbaa !39
+  %22 = icmp sgt i8 %21, -1
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %22, label %26, label %24
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %19, align 8, !tbaa !7
-  br label %22
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %23, align 8, !tbaa !7
+  br label %26
 
-22:                                               ; preds = %12, %20
-  %23 = phi ptr [ %21, %20 ], [ %19, %12 ]
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23) #15
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.loopexit, label %11
+26:                                               ; preds = %16, %24
+  %27 = phi ptr [ %25, %24 ], [ %23, %16 ]
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %27) #15
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.loopexit, label %11
 
-.critedge:                                        ; preds = %11
-  %26 = load ptr, ptr %10, align 8, !tbaa !30
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %26, ptr %27, align 8, !tbaa !30
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
-  %29 = icmp ult i64 %28, 41
-  br i1 %29, label %30, label %32
-
-30:                                               ; preds = %.critedge
-  %31 = tail call fastcc ptr @internshrstr(ptr noundef %0, ptr noundef nonnull readonly %1, i64 noundef %28)
+30:                                               ; preds = %.preheader
+  %31 = tail call fastcc ptr @internshrstr(ptr noundef %0, ptr noundef nonnull readonly %1, i64 noundef %14)
   br label %luaS_newlstr.exit
 
-32:                                               ; preds = %.critedge
-  %33 = icmp ugt i64 %28, 9223372036854775758
+32:                                               ; preds = %.preheader
+  %33 = icmp ugt i64 %14, 9223372036854775758
   br i1 %33, label %34, label %35, !prof !32
 
 34:                                               ; preds = %32
@@ -705,7 +705,7 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   unreachable
 
 35:                                               ; preds = %32
-  %36 = add nuw nsw i64 %28, 33
+  %36 = add nuw nsw i64 %14, 33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %38 = load i32, ptr %37, align 8, !tbaa !38
   %39 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef %36) #13
@@ -714,15 +714,15 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 10
   store i8 0, ptr %41, align 2, !tbaa !13
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 %28, ptr %42, align 8, !tbaa !4
+  store i64 %14, ptr %42, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 11
   store i8 -1, ptr %43, align 1, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %44, ptr %45, align 8, !tbaa !7
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %14
   store i8 0, ptr %46, align 1, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %1, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %1, i64 %14, i1 false)
   br label %luaS_newlstr.exit
 
 luaS_newlstr.exit:                                ; preds = %30, %35
@@ -730,8 +730,8 @@ luaS_newlstr.exit:                                ; preds = %30, %35
   store ptr %.0.i, ptr %10, align 8, !tbaa !30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %luaS_newlstr.exit
-  %.0 = phi ptr [ %.0.i, %luaS_newlstr.exit ], [ %15, %22 ]
+.loopexit:                                        ; preds = %26, %luaS_newlstr.exit
+  %.0 = phi ptr [ %.0.i, %luaS_newlstr.exit ], [ %19, %26 ]
   ret ptr %.0
 }
 

@@ -18217,14 +18217,14 @@ define hidden void @"_ZN4core3ptr137drop_in_place$LT$either..Either$LT$$u5b$synt
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = icmp eq i64 %6, 2
-  br i1 %9, label %.critedge.i, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11) #28
-          to label %.critedge.i unwind label %12
+          to label %.critedge unwind label %12
 
-.critedge.i:                                      ; preds = %10, %7
+.critedge:                                        ; preds = %10, %7
   resume { ptr, i32 } %8
 
 12:                                               ; preds = %10
@@ -23151,14 +23151,14 @@ define hidden void @"_ZN4core3ptr165drop_in_place$LT$core..option..Option$LT$eit
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = icmp eq i64 %6, 2
-  br i1 %9, label %.critedge.i.i, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11) #28
-          to label %.critedge.i.i unwind label %12
+          to label %.critedge unwind label %12
 
-.critedge.i.i:                                    ; preds = %10, %7
+.critedge:                                        ; preds = %10, %7
   resume { ptr, i32 } %8
 
 12:                                               ; preds = %10

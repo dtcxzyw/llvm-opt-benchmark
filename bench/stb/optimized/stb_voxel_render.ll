@@ -3017,13 +3017,13 @@ define void @stbvox_bring_up_to_date(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef initializes((604, 608)) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %3 = load i32, ptr %2, align 4, !tbaa !86
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %stbvox_bring_up_to_date.exit, label %.critedge48
+  br i1 %.not.i, label %stbvox_bring_up_to_date.exit, label %.critedge68
 
-.critedge48:                                      ; preds = %1
+.critedge68:                                      ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i32 1, ptr %4, align 8, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -3037,7 +3037,7 @@ define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef initializes((604, 608))
   store i32 0, ptr %2, align 4, !tbaa !86
   br label %stbvox_bring_up_to_date.exit
 
-stbvox_bring_up_to_date.exit:                     ; preds = %1, %.critedge48
+stbvox_bring_up_to_date.exit:                     ; preds = %1, %.critedge68
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store i32 0, ptr %9, align 4, !tbaa !67
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -3103,58 +3103,58 @@ stbvox_bring_up_to_date.exit._crit_edge:          ; preds = %stbvox_bring_up_to_
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %42 = load i32, ptr %41, align 8, !tbaa !95
   %43 = icmp slt i32 %40, %42
-  br i1 %43, label %.lr.ph55, label %.loopexit
+  br i1 %43, label %.lr.ph53, label %.loopexit
 
-.lr.ph55:                                         ; preds = %39
+.lr.ph53:                                         ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %47 = load i32, ptr %44, align 8, !tbaa !91
   %48 = load i32, ptr %45, align 4, !tbaa !93
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph55.split, label %.loopexit
+  br i1 %49, label %.lr.ph53.split, label %.loopexit
 
-.lr.ph55.split:                                   ; preds = %.lr.ph55, %._crit_edge
-  %50 = phi i32 [ %62, %._crit_edge ], [ %42, %.lr.ph55 ]
-  %51 = phi i32 [ %63, %._crit_edge ], [ %48, %.lr.ph55 ]
-  %.04153 = phi i32 [ %64, %._crit_edge ], [ %40, %.lr.ph55 ]
+.lr.ph53.split:                                   ; preds = %.lr.ph53, %._crit_edge
+  %50 = phi i32 [ %62, %._crit_edge ], [ %42, %.lr.ph53 ]
+  %51 = phi i32 [ %63, %._crit_edge ], [ %48, %.lr.ph53 ]
+  %.04151 = phi i32 [ %64, %._crit_edge ], [ %40, %.lr.ph53 ]
   %52 = load i32, ptr %44, align 8, !tbaa !91
   %53 = icmp slt i32 %52, %51
   br i1 %53, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph55.split, %58
-  %.052 = phi i32 [ %59, %58 ], [ %52, %.lr.ph55.split ]
+.lr.ph:                                           ; preds = %.lr.ph53.split, %58
+  %.050 = phi i32 [ %59, %58 ], [ %52, %.lr.ph53.split ]
   %54 = load i32, ptr %46, align 4, !tbaa !92
-  tail call void @stbvox_make_mesh_for_column(ptr noundef nonnull %0, i32 noundef %.04153, i32 noundef %.052, i32 noundef %54)
+  tail call void @stbvox_make_mesh_for_column(ptr noundef nonnull %0, i32 noundef %.04151, i32 noundef %.050, i32 noundef %54)
   %55 = load i32, ptr %9, align 4, !tbaa !67
   %.not45 = icmp eq i32 %55, 0
   br i1 %.not45, label %58, label %56
 
 56:                                               ; preds = %.lr.ph
-  store i32 %.04153, ptr %10, align 8, !tbaa !88
+  store i32 %.04151, ptr %10, align 8, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %.052, ptr %57, align 4, !tbaa !90
+  store i32 %.050, ptr %57, align 4, !tbaa !90
   br label %.loopexit
 
 58:                                               ; preds = %.lr.ph
-  %59 = add nsw i32 %.052, 1
+  %59 = add nsw i32 %.050, 1
   %60 = load i32, ptr %45, align 4, !tbaa !93
   %61 = icmp slt i32 %59, %60
   br i1 %61, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %58
-  %.pre60 = load i32, ptr %41, align 8, !tbaa !95
+  %.pre58 = load i32, ptr %41, align 8, !tbaa !95
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph55.split
-  %62 = phi i32 [ %.pre60, %._crit_edge.loopexit ], [ %50, %.lr.ph55.split ]
-  %63 = phi i32 [ %60, %._crit_edge.loopexit ], [ %51, %.lr.ph55.split ]
-  %64 = add nsw i32 %.04153, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph53.split
+  %62 = phi i32 [ %.pre58, %._crit_edge.loopexit ], [ %50, %.lr.ph53.split ]
+  %63 = phi i32 [ %60, %._crit_edge.loopexit ], [ %51, %.lr.ph53.split ]
+  %64 = add nsw i32 %.04151, 1
   %65 = icmp slt i32 %64, %62
-  br i1 %65, label %.lr.ph55.split, label %.loopexit, !llvm.loop !97
+  br i1 %65, label %.lr.ph53.split, label %.loopexit, !llvm.loop !97
 
-.loopexit:                                        ; preds = %35, %._crit_edge, %.lr.ph55, %39, %stbvox_bring_up_to_date.exit._crit_edge, %56
-  %.042 = phi i32 [ 0, %56 ], [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 1, %39 ], [ 1, %.lr.ph55 ], [ 1, %._crit_edge ], [ 0, %35 ]
+.loopexit:                                        ; preds = %35, %._crit_edge, %.lr.ph53, %39, %stbvox_bring_up_to_date.exit._crit_edge, %56
+  %.042 = phi i32 [ 0, %56 ], [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 1, %39 ], [ 1, %.lr.ph53 ], [ 1, %._crit_edge ], [ 0, %35 ]
   ret i32 %.042
 }
 
@@ -3197,8 +3197,8 @@ stbvox_build_default_palette.exit:                ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbvox_get_buffer_count(ptr noundef captures(none) %0) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @stbvox_get_buffer_count(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %3 = load i32, ptr %2, align 4, !tbaa !86
   %.not.i = icmp eq i32 %3, 0
@@ -3228,7 +3228,7 @@ stbvox_bring_up_to_date.exit:                     ; preds = %.stbvox_bring_up_to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbvox_get_buffer_size_per_quad(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
+define i32 @stbvox_get_buffer_size_per_quad(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %4
@@ -3237,7 +3237,7 @@ define i32 @stbvox_get_buffer_size_per_quad(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_reset_buffers(ptr noundef writeonly captures(none) initializes((608, 656), (704, 752)) %0) local_unnamed_addr #12 {
+define void @stbvox_reset_buffers(ptr noundef writeonly captures(none) initializes((608, 656), (704, 752)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !tbaa !10
@@ -3245,8 +3245,8 @@ define void @stbvox_reset_buffers(ptr noundef writeonly captures(none) initializ
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbvox_set_buffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbvox_set_buffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %7 = load i32, ptr %6, align 4, !tbaa !86
   %.not.i = icmp eq i32 %7, 0
@@ -3291,14 +3291,14 @@ stbvox_bring_up_to_date.exit:                     ; preds = %5, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_default_mesh(ptr noundef writeonly captures(none) initializes((392, 396)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @stbvox_set_default_mesh(ptr noundef writeonly captures(none) initializes((392, 396)) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 %1, ptr %3, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbvox_get_quad_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
+define i32 @stbvox_get_quad_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [2 x [3 x ptr]], ptr %3, i64 0, i64 %4
@@ -3319,12 +3319,12 @@ define i32 @stbvox_get_quad_count(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #13 {
+define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_input_range(ptr noundef writeonly captures(none) initializes((344, 380)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #12 {
+define void @stbvox_set_input_range(ptr noundef writeonly captures(none) initializes((344, 380)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #11 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 %1, ptr %8, align 4, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -3347,7 +3347,7 @@ define void @stbvox_set_input_range(ptr noundef writeonly captures(none) initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbvox_get_transform(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 36)) %1) local_unnamed_addr #10 {
+define void @stbvox_get_transform(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 36)) %1) local_unnamed_addr #13 {
   store float 1.000000e+00, ptr %1, align 4, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 1.000000e+00, ptr %3, align 4, !tbaa !6
@@ -3384,7 +3384,7 @@ define void @stbvox_get_transform(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbvox_get_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #10 {
+define void @stbvox_get_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load i32, ptr %3, align 8, !tbaa !99
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -3430,7 +3430,7 @@ define void @stbvox_get_bounds(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_mesh_coordinates(ptr noundef writeonly captures(none) initializes((592, 604)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
+define void @stbvox_set_mesh_coordinates(ptr noundef writeonly captures(none) initializes((592, 604)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i32 %1, ptr %5, align 8, !tbaa !99
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -3518,10 +3518,10 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 

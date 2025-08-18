@@ -18625,23 +18625,23 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$$u5b$core..option..
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = icmp eq i64 %4, 2
-  br i1 %12, label %.critedge, label %13
+  br i1 %12, label %._crit_edge, label %.lr.ph
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i64, ptr %14, align 8, !range !55, !alias.scope !1225, !noundef !3
-  %16 = icmp eq i64 %15, -9223372036854775808
-  br i1 %16, label %.critedge, label %17
+.lr.ph:                                           ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load i64, ptr %13, align 8, !range !55, !alias.scope !1225, !noundef !3
+  %15 = icmp eq i64 %14, -9223372036854775808
+  br i1 %15, label %._crit_edge, label %16
 
-17:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha85cb5bd8c72c164E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14)
-          to label %.critedge unwind label %18
+16:                                               ; preds = %.lr.ph
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha85cb5bd8c72c164E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
+          to label %._crit_edge unwind label %17
 
-.critedge:                                        ; preds = %13, %17, %10
+._crit_edge:                                      ; preds = %.lr.ph, %16, %10
   resume { ptr, i32 } %11
 
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
   unreachable

@@ -4487,19 +4487,19 @@ accel_unlock_all.exit:                            ; preds = %35, %49
   store i64 0, ptr %89, align 8, !tbaa !50
   %.pre.i.i = load i32, ptr %64, align 8, !tbaa !251
   %90 = icmp sgt i32 %.pre.i.i, 0
-  br i1 %90, label %.critedge60.i.preheader.i, label %accel_is_inactive.exit.thread
+  br i1 %90, label %.critedge.preheader, label %accel_is_inactive.exit.thread
 
-.critedge60.i.preheader.i:                        ; preds = %84
+.critedge.preheader:                              ; preds = %84
   %91 = tail call ptr @__errno_location() #28
-  br label %.critedge60.i.i
+  br label %.critedge
 
-.critedge60.i.i:                                  ; preds = %118, %.critedge60.i.preheader.i
+.critedge:                                        ; preds = %.critedge.preheader, %118
   store i32 0, ptr %91, align 4, !tbaa !59
   br label %92
 
-92:                                               ; preds = %105, %.critedge60.i.i
-  %93 = phi i32 [ 9, %.critedge60.i.i ], [ %107, %105 ]
-  %.02144.i.i = phi i32 [ 15, %.critedge60.i.i ], [ 9, %105 ]
+92:                                               ; preds = %105, %.critedge
+  %93 = phi i32 [ 9, %.critedge ], [ %107, %105 ]
+  %.02144.i.i = phi i32 [ 15, %.critedge ], [ 9, %105 ]
   %94 = load i32, ptr %64, align 8, !tbaa !251
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %94) #26
   %95 = load i32, ptr %64, align 8, !tbaa !251
@@ -4571,18 +4571,18 @@ accel_unlock_all.exit:                            ; preds = %35, %49
   %121 = load i32, ptr %64, align 8
   %122 = icmp slt i32 %121, 1
   %or.cond.i = select i1 %120, i1 true, i1 %122
-  br i1 %or.cond.i, label %accel_is_inactive.exit.thread, label %.critedge60.i.i
+  br i1 %or.cond.i, label %accel_is_inactive.exit.thread, label %.critedge
 
 kill_all_lockers.exit.sink.split.i:               ; preds = %.critedge.i.i, %68
-  %.sink.i = phi ptr [ %69, %68 ], [ %91, %.critedge.i.i ]
+  %.lcssa14.sink18.i = phi ptr [ %69, %68 ], [ %91, %.critedge.i.i ]
   %.str.38.sink.i = phi ptr [ @.str.30, %68 ], [ @.str.38, %.critedge.i.i ]
-  %123 = load i32, ptr %.sink.i, align 4, !tbaa !59
+  %123 = load i32, ptr %.lcssa14.sink18.i, align 4, !tbaa !59
   %124 = call ptr @strerror(i32 noundef %123) #26
-  %125 = load i32, ptr %.sink.i, align 4, !tbaa !59
+  %125 = load i32, ptr %.lcssa14.sink18.i, align 4, !tbaa !59
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 4, ptr noundef nonnull %.str.38.sink.i, ptr noundef %124, i32 noundef %125) #26
   br label %accel_is_inactive.exit.thread
 
-accel_is_inactive.exit.thread:                    ; preds = %118, %79, %75, %73, %84, %kill_all_lockers.exit.sink.split.i
+accel_is_inactive.exit.thread:                    ; preds = %118, %84, %79, %75, %73, %kill_all_lockers.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %189
 
@@ -4834,8 +4834,8 @@ accel_restart_leave.exit:                         ; preds = %168, %184
   br i1 %.not13.i17, label %.thread.sink.split, label %.lr.ph.i15
 
 .thread.sink.split:                               ; preds = %246, %226, %231, %211
-  %.sink31 = phi i8 [ 0, %211 ], [ 1, %231 ], [ 0, %226 ], [ 1, %246 ]
-  store i8 %.sink31, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4, !tbaa !260
+  %.sink40 = phi i8 [ 0, %211 ], [ 1, %231 ], [ 0, %226 ], [ 1, %246 ]
+  store i8 %.sink40, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4, !tbaa !260
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %206, %228

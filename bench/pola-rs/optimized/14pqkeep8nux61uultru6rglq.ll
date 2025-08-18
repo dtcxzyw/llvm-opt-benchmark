@@ -166,7 +166,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..datatypes..ArrowDataType$u3b$$u20$2$u5d$$GT$17he18256125d667916E"(ptr noalias noundef align 8 dereferenceable(64) %5) #17
-          to label %43 unwind label %33, !noalias !43
+          to label %.loopexit.i unwind label %33, !noalias !43
 
 .preheader.i.i.i:                                 ; preds = %"_ZN11polars_json4json12infer_schema12coerce_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h17757a7efdc7b9aeE.exit.i.i", %24
   %.sroa.0.0.i.i.i.i = phi i64 [ %26, %24 ], [ 0, %"_ZN11polars_json4json12infer_schema12coerce_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h17757a7efdc7b9aeE.exit.i.i" ]
@@ -183,11 +183,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = icmp eq i64 %26, 2
-  br i1 %29, label %43, label %30
+  br i1 %29, label %.loopexit.i, label %30
 
 30:                                               ; preds = %27
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %17) #17
-          to label %43 unwind label %31, !noalias !43
+          to label %.loopexit.i unwind label %31, !noalias !43
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
@@ -205,7 +205,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %7) #17
-          to label %43 unwind label %37, !noalias !36
+          to label %.loopexit.i unwind label %37, !noalias !36
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -227,8 +227,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !28
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19f1943f05132be6E.exit"
 
-43:                                               ; preds = %35, %30, %27, %21
-  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %30 ], [ %28, %27 ], [ %22, %21 ]
+.loopexit.i:                                      ; preds = %27, %30, %35, %21
+  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %28, %30 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19f1943f05132be6E.exit": ; preds = %18, %42
@@ -2546,7 +2546,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$$u5b$polars_arrow..datatypes..ArrowDataType$u3b$$u20$2$u5d$$GT$17he18256125d667916E"(ptr noalias noundef align 8 dereferenceable(64) %5) #17
-          to label %43 unwind label %33, !noalias !514
+          to label %.loopexit.i unwind label %33, !noalias !514
 
 .preheader.i.i.i:                                 ; preds = %"_ZN11polars_json4json12infer_schema12coerce_dtype28_$u7b$$u7b$closure$u7d$$u7d$17hc57acb9ed4d9ee23E.exit.i.i", %24
   %.sroa.0.0.i.i.i.i = phi i64 [ %26, %24 ], [ 0, %"_ZN11polars_json4json12infer_schema12coerce_dtype28_$u7b$$u7b$closure$u7d$$u7d$17hc57acb9ed4d9ee23E.exit.i.i" ]
@@ -2563,11 +2563,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = icmp eq i64 %26, 2
-  br i1 %29, label %43, label %30
+  br i1 %29, label %.loopexit.i, label %30
 
 30:                                               ; preds = %27
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %17) #17
-          to label %43 unwind label %31, !noalias !514
+          to label %.loopexit.i unwind label %31, !noalias !514
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
@@ -2585,7 +2585,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %7) #17
-          to label %43 unwind label %37, !noalias !510
+          to label %.loopexit.i unwind label %37, !noalias !510
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -2607,8 +2607,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !507
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h445159697a327406E.exit"
 
-43:                                               ; preds = %35, %30, %27, %21
-  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %30 ], [ %28, %27 ], [ %22, %21 ]
+.loopexit.i:                                      ; preds = %27, %30, %35, %21
+  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %28, %30 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h445159697a327406E.exit": ; preds = %18, %42

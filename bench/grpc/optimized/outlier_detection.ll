@@ -845,72 +845,72 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef ptr @_ZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsE(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %10, !prof !3
+  br i1 %3, label %4, label %9, !prof !3
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %10, label %6
+  br i1 %.not, label %9, label %.critedge
 
-6:                                                ; preds = %4
-  %7 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #37
-          to label %8 unwind label %12
+.critedge:                                        ; preds = %4
+  %6 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #37
+          to label %7 unwind label %11
 
-8:                                                ; preds = %6
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfig19SuccessRateEjectionELm4EvEE, i64 16), ptr %7, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %9, align 8
-  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.534.0..sroa_idx, align 8
-  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i8 1, ptr %.sroa.635.0..sroa_idx, align 2
-  %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @.str, ptr %.sroa.837.0..sroa_idx, align 8
-  %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %.sroa.938.0..sroa_idx, align 8
-  %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1039.0..sroa_idx, align 8
-  %.sroa.1140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 4, ptr %.sroa.1140.0..sroa_idx, align 8
-  %.sroa.1241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
-  store i8 1, ptr %.sroa.1241.0..sroa_idx, align 2
-  %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr @.str.1, ptr %.sroa.1443.0..sroa_idx, align 8
-  %.sroa.1544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr null, ptr %.sroa.1544.0..sroa_idx, align 8
-  %.sroa.1645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1645.0..sroa_idx, align 8
-  %.sroa.1746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 8, ptr %.sroa.1746.0..sroa_idx, align 8
-  %.sroa.1847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i8 1, ptr %.sroa.1847.0..sroa_idx, align 2
-  %.sroa.2049.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr @.str.2, ptr %.sroa.2049.0..sroa_idx, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr null, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 12, ptr %.sroa.23.0..sroa_idx, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
-  store i8 1, ptr %.sroa.24.0..sroa_idx, align 2
-  %.sroa.2550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr @.str.3, ptr %.sroa.2550.0..sroa_idx, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store ptr null, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !7
-  store ptr %7, ptr @_ZZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !9
+7:                                                ; preds = %.critedge
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfig19SuccessRateEjectionELm4EvEE, i64 16), ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %8, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i16 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 18
+  store i8 1, ptr %.sroa.3.0..sroa_idx, align 2
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @.str, ptr %.sroa.531.0..sroa_idx, align 8
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.632.0..sroa_idx, align 8
+  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.733.0..sroa_idx, align 8
+  %.sroa.834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i16 4, ptr %.sroa.834.0..sroa_idx, align 8
+  %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 50
+  store i8 1, ptr %.sroa.935.0..sroa_idx, align 2
+  %.sroa.1136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr @.str.1, ptr %.sroa.1136.0..sroa_idx, align 8
+  %.sroa.1237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr null, ptr %.sroa.1237.0..sroa_idx, align 8
+  %.sroa.1338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1338.0..sroa_idx, align 8
+  %.sroa.1439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i16 8, ptr %.sroa.1439.0..sroa_idx, align 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 82
+  store i8 1, ptr %.sroa.15.0..sroa_idx, align 2
+  %.sroa.1640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store ptr @.str.2, ptr %.sroa.1640.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 96
+  store ptr null, ptr %.sroa.17.0..sroa_idx, align 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.520.0..sroa_idx, align 8
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store i16 12, ptr %.sroa.621.0..sroa_idx, align 8
+  %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 114
+  store i8 1, ptr %.sroa.722.0..sroa_idx, align 2
+  %.sroa.824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store ptr @.str.3, ptr %.sroa.824.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !7
+  store ptr %6, ptr @_ZZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !9
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  br label %10
+  br label %9
 
-10:                                               ; preds = %8, %4, %1
-  %11 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !9
-  ret ptr %11
+9:                                                ; preds = %7, %4, %1
+  %10 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !9
+  ret ptr %10
 
-12:                                               ; preds = %6
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %.critedge
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig19SuccessRateEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: nofree nounwind
@@ -992,72 +992,72 @@ define linkonce_odr void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr n
 define noundef ptr @_ZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsE(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %10, !prof !3
+  br i1 %3, label %4, label %9, !prof !3
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %10, label %6
+  br i1 %.not, label %9, label %.critedge
 
-6:                                                ; preds = %4
-  %7 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #37
-          to label %8 unwind label %12
+.critedge:                                        ; preds = %4
+  %6 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #37
+          to label %7 unwind label %11
 
-8:                                                ; preds = %6
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfig25FailurePercentageEjectionELm4EvEE, i64 16), ptr %7, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %9, align 8
-  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.534.0..sroa_idx, align 8
-  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i8 1, ptr %.sroa.635.0..sroa_idx, align 2
-  %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @.str.6, ptr %.sroa.837.0..sroa_idx, align 8
-  %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %.sroa.938.0..sroa_idx, align 8
-  %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1039.0..sroa_idx, align 8
-  %.sroa.1140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 4, ptr %.sroa.1140.0..sroa_idx, align 8
-  %.sroa.1241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
-  store i8 1, ptr %.sroa.1241.0..sroa_idx, align 2
-  %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr @.str.1, ptr %.sroa.1443.0..sroa_idx, align 8
-  %.sroa.1544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr null, ptr %.sroa.1544.0..sroa_idx, align 8
-  %.sroa.1645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1645.0..sroa_idx, align 8
-  %.sroa.1746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 8, ptr %.sroa.1746.0..sroa_idx, align 8
-  %.sroa.1847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i8 1, ptr %.sroa.1847.0..sroa_idx, align 2
-  %.sroa.2049.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr @.str.2, ptr %.sroa.2049.0..sroa_idx, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr null, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 12, ptr %.sroa.23.0..sroa_idx, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
-  store i8 1, ptr %.sroa.24.0..sroa_idx, align 2
-  %.sroa.2550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr @.str.3, ptr %.sroa.2550.0..sroa_idx, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store ptr null, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !7
-  store ptr %7, ptr @_ZZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !18
+7:                                                ; preds = %.critedge
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfig25FailurePercentageEjectionELm4EvEE, i64 16), ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %8, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i16 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 18
+  store i8 1, ptr %.sroa.3.0..sroa_idx, align 2
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @.str.6, ptr %.sroa.531.0..sroa_idx, align 8
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.632.0..sroa_idx, align 8
+  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.733.0..sroa_idx, align 8
+  %.sroa.834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i16 4, ptr %.sroa.834.0..sroa_idx, align 8
+  %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 50
+  store i8 1, ptr %.sroa.935.0..sroa_idx, align 2
+  %.sroa.1136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr @.str.1, ptr %.sroa.1136.0..sroa_idx, align 8
+  %.sroa.1237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr null, ptr %.sroa.1237.0..sroa_idx, align 8
+  %.sroa.1338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.1338.0..sroa_idx, align 8
+  %.sroa.1439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i16 8, ptr %.sroa.1439.0..sroa_idx, align 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 82
+  store i8 1, ptr %.sroa.15.0..sroa_idx, align 2
+  %.sroa.1640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store ptr @.str.2, ptr %.sroa.1640.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 96
+  store ptr null, ptr %.sroa.17.0..sroa_idx, align 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.520.0..sroa_idx, align 8
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store i16 12, ptr %.sroa.621.0..sroa_idx, align 8
+  %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 114
+  store i8 1, ptr %.sroa.722.0..sroa_idx, align 2
+  %.sroa.824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store ptr @.str.3, ptr %.sroa.824.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !7
+  store ptr %6, ptr @_ZZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !18
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  br label %10
+  br label %9
 
-10:                                               ; preds = %8, %4, %1
-  %11 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !18
-  ret ptr %11
+9:                                                ; preds = %7, %4, %1
+  %10 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !18
+  ret ptr %10
 
-12:                                               ; preds = %6
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %.critedge
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig25FailurePercentageEjection10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1144,92 +1144,92 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit9: ; preds = %21
 define noundef ptr @_ZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsE(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %10, !prof !3
+  br i1 %3, label %4, label %9, !prof !3
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #36
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %10, label %6
+  br i1 %.not, label %9, label %.critedge
 
-6:                                                ; preds = %4
-  %7 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #37
-          to label %8 unwind label %12
+.critedge:                                        ; preds = %4
+  %6 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #37
+          to label %7 unwind label %11
 
-8:                                                ; preds = %6
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfigELm6EvEE, i64 16), ptr %7, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %9, align 8
-  %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.584.0..sroa_idx, align 8
-  %.sroa.685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i8 1, ptr %.sroa.685.0..sroa_idx, align 2
-  %.sroa.887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @.str.8, ptr %.sroa.887.0..sroa_idx, align 8
-  %.sroa.988.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %.sroa.988.0..sroa_idx, align 8
-  %.sroa.1089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.1089.0..sroa_idx, align 8
-  %.sroa.1190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 8, ptr %.sroa.1190.0..sroa_idx, align 8
-  %.sroa.1291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
-  store i8 1, ptr %.sroa.1291.0..sroa_idx, align 2
-  %.sroa.1493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr @.str.9, ptr %.sroa.1493.0..sroa_idx, align 8
-  %.sroa.1594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr null, ptr %.sroa.1594.0..sroa_idx, align 8
-  %.sroa.1695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.1695.0..sroa_idx, align 8
-  %.sroa.1796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 16, ptr %.sroa.1796.0..sroa_idx, align 8
-  %.sroa.1897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
-  store i8 1, ptr %.sroa.1897.0..sroa_idx, align 2
-  %.sroa.2099.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr @.str.10, ptr %.sroa.2099.0..sroa_idx, align 8
-  %.sroa.21100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr null, ptr %.sroa.21100.0..sroa_idx, align 8
-  %.sroa.22101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.22101.0..sroa_idx, align 8
-  %.sroa.23102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 24, ptr %.sroa.23102.0..sroa_idx, align 8
-  %.sroa.24103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
-  store i8 1, ptr %.sroa.24103.0..sroa_idx, align 2
-  %.sroa.26105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr @.str.11, ptr %.sroa.26105.0..sroa_idx, align 8
-  %.sroa.27106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store ptr null, ptr %.sroa.27106.0..sroa_idx, align 8
-  %.sroa.28107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 136
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_22OutlierDetectionConfig19SuccessRateEjectionEEEEE6value_E, ptr %.sroa.28107.0..sroa_idx, align 8
-  %.sroa.29108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 144
-  store i16 28, ptr %.sroa.29108.0..sroa_idx, align 8
-  %.sroa.30109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 146
-  store i8 1, ptr %.sroa.30109.0..sroa_idx, align 2
-  %.sroa.32111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store ptr @.str.12, ptr %.sroa.32111.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store ptr null, ptr %.sroa.33.0..sroa_idx, align 8
-  %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 168
-  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_22OutlierDetectionConfig25FailurePercentageEjectionEEEEE6value_E, ptr %.sroa.34.0..sroa_idx, align 8
-  %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store i16 48, ptr %.sroa.35.0..sroa_idx, align 8
-  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 178
-  store i8 1, ptr %.sroa.36.0..sroa_idx, align 2
-  %.sroa.37112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 184
-  store ptr @.str.13, ptr %.sroa.37112.0..sroa_idx, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store ptr null, ptr %.sroa.38.0..sroa_idx, align 8, !tbaa !7
-  store ptr %7, ptr @_ZZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !23
+7:                                                ; preds = %.critedge
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22OutlierDetectionConfigELm6EvEE, i64 16), ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %8, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i16 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 18
+  store i8 1, ptr %.sroa.3.0..sroa_idx, align 2
+  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @.str.8, ptr %.sroa.559.0..sroa_idx, align 8
+  %.sroa.660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.660.0..sroa_idx, align 8
+  %.sroa.761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.761.0..sroa_idx, align 8
+  %.sroa.862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i16 8, ptr %.sroa.862.0..sroa_idx, align 8
+  %.sroa.963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 50
+  store i8 1, ptr %.sroa.963.0..sroa_idx, align 2
+  %.sroa.1164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr @.str.9, ptr %.sroa.1164.0..sroa_idx, align 8
+  %.sroa.1265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr null, ptr %.sroa.1265.0..sroa_idx, align 8
+  %.sroa.1366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.1366.0..sroa_idx, align 8
+  %.sroa.1467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i16 16, ptr %.sroa.1467.0..sroa_idx, align 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 82
+  store i8 1, ptr %.sroa.15.0..sroa_idx, align 2
+  %.sroa.1669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store ptr @.str.10, ptr %.sroa.1669.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  store ptr null, ptr %.sroa.17.0..sroa_idx70, align 8
+  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, ptr %.sroa.541.0..sroa_idx, align 8
+  %.sroa.642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store i16 24, ptr %.sroa.642.0..sroa_idx, align 8
+  %.sroa.743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 114
+  store i8 1, ptr %.sroa.743.0..sroa_idx, align 2
+  %.sroa.945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store ptr @.str.11, ptr %.sroa.945.0..sroa_idx, align 8
+  %.sroa.1046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store ptr null, ptr %.sroa.1046.0..sroa_idx, align 8
+  %.sroa.1147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_22OutlierDetectionConfig19SuccessRateEjectionEEEEE6value_E, ptr %.sroa.1147.0..sroa_idx, align 8
+  %.sroa.1248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 144
+  store i16 28, ptr %.sroa.1248.0..sroa_idx, align 8
+  %.sroa.1349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 146
+  store i8 1, ptr %.sroa.1349.0..sroa_idx, align 2
+  %.sroa.1551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 152
+  store ptr @.str.12, ptr %.sroa.1551.0..sroa_idx, align 8
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 160
+  store ptr null, ptr %.sroa.16.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 168
+  store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_22OutlierDetectionConfig25FailurePercentageEjectionEEEEE6value_E, ptr %.sroa.17.0..sroa_idx, align 8
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 176
+  store i16 48, ptr %.sroa.18.0..sroa_idx, align 8
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 178
+  store i8 1, ptr %.sroa.19.0..sroa_idx, align 2
+  %.sroa.2052.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store ptr @.str.13, ptr %.sroa.2052.0..sroa_idx, align 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 192
+  store ptr null, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !7
+  store ptr %6, ptr @_ZZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  br label %10
+  br label %9
 
-10:                                               ; preds = %8, %4, %1
-  %11 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !23
-  ret ptr %11
+9:                                                ; preds = %7, %4, %1
+  %10 = load ptr, ptr @_ZZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8, !tbaa !23
+  ret ptr %10
 
-12:                                               ; preds = %6
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %.critedge
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core22OutlierDetectionConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #36
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable

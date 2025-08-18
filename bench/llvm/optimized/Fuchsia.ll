@@ -3,6 +3,7 @@ source_filename = "bench/llvm/original/Fuchsia.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%"class.clang::SanitizerMask" = type { [2 x i64] }
 %"class.std::unique_ptr.127" = type { %"struct.std::__uniq_ptr_data.128" }
 %"struct.std::__uniq_ptr_data.128" = type { %"class.std::__uniq_ptr_impl.129" }
 %"class.std::__uniq_ptr_impl.129" = type { %"class.std::tuple.130" }
@@ -25,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.clang::driver::SanitizerArgs" = type { %"struct.clang::SanitizerSet", %"struct.clang::SanitizerSet", %"struct.clang::SanitizerSet", %"struct.clang::SanitizerSet", %"class.clang::SanitizerMaskCutoffs", %"class.std::vector.46", %"class.std::vector.46", %"class.std::vector.46", %"class.std::vector.46", %"class.std::vector.46", i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, %"class.std::__cxx11::basic_string" }
 %"struct.clang::SanitizerSet" = type { %"class.clang::SanitizerMask" }
-%"class.clang::SanitizerMask" = type { [2 x i64] }
 %"class.clang::SanitizerMaskCutoffs" = type { %"class.std::vector.83" }
 %"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
 %"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
@@ -233,6 +233,10 @@ $_ZN5clang6driver8MultilibC2EOS1_ = comdat any
 
 $_ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15insert_one_implIRKS6_EEPS6_SB_OT_ = comdat any
 
+$_ZN5clang13SanitizerKind9SafeStackE = comdat any
+
+$_ZN5clang13SanitizerKind15ShadowCallStackE = comdat any
+
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 @.str = private unnamed_addr constant [3 x i8] c"-z\00", align 1
@@ -298,6 +302,8 @@ $_ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 @.str.60 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.61 = private unnamed_addr constant [6 x i8] c"-lc++\00", align 1
 @.str.62 = private unnamed_addr constant [18 x i8] c"-lc++experimental\00", align 1
+@_ZN5clang13SanitizerKind9SafeStackE = linkonce_odr local_unnamed_addr constant %"class.clang::SanitizerMask" { [2 x i64] [i64 144115188075855872, i64 0] }, comdat, align 8
+@_ZN5clang13SanitizerKind15ShadowCallStackE = linkonce_odr local_unnamed_addr constant %"class.clang::SanitizerMask" { [2 x i64] [i64 288230376151711744, i64 0] }, comdat, align 8
 @_ZTVN5clang6driver5tools7fuchsia13StaticLibToolE = hidden unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr null, ptr @_ZN5clang6driver4ToolD2Ev, ptr @_ZN5clang6driver5tools7fuchsia13StaticLibToolD0Ev, ptr @_ZNK5clang6driver4Tool22hasIntegratedAssemblerEv, ptr @_ZNK5clang6driver4Tool20hasIntegratedBackendEv, ptr @_ZNK5clang6driver4Tool9canEmitIREv, ptr @_ZNK5clang6driver5tools7fuchsia13StaticLibTool16hasIntegratedCPPEv, ptr @_ZNK5clang6driver5tools7fuchsia13StaticLibTool9isLinkJobEv, ptr @_ZNK5clang6driver4Tool13isDsymutilJobEv, ptr @_ZNK5clang6driver4Tool18hasGoodDiagnosticsEv, ptr @_ZNK5clang6driver5tools7fuchsia13StaticLibTool12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc, ptr @_ZNK5clang6driver4Tool27ConstructJobMultipleOutputsERNS0_11CompilationERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEESC_RKNS7_3opt7ArgListEPKc] }, align 8
 @_ZTVN5clang6driver5tools7fuchsia6LinkerE = hidden unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr null, ptr @_ZN5clang6driver4ToolD2Ev, ptr @_ZN5clang6driver5tools7fuchsia6LinkerD0Ev, ptr @_ZNK5clang6driver4Tool22hasIntegratedAssemblerEv, ptr @_ZNK5clang6driver4Tool20hasIntegratedBackendEv, ptr @_ZNK5clang6driver4Tool9canEmitIREv, ptr @_ZNK5clang6driver5tools7fuchsia6Linker16hasIntegratedCPPEv, ptr @_ZNK5clang6driver5tools7fuchsia6Linker9isLinkJobEv, ptr @_ZNK5clang6driver4Tool13isDsymutilJobEv, ptr @_ZNK5clang6driver4Tool18hasGoodDiagnosticsEv, ptr @_ZNK5clang6driver5tools7fuchsia6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKc, ptr @_ZNK5clang6driver4Tool27ConstructJobMultipleOutputsERNS0_11CompilationERKNS0_9JobActionERKN4llvm11SmallVectorINS0_9InputInfoELj4EEESC_RKNS7_3opt7ArgListEPKc] }, align 8
 @.str.63 = private unnamed_addr constant [2 x i8] c"@\00", align 1
@@ -5921,7 +5927,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit7: ; preds = %24, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7Fuchsia22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
   %1 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #18
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -5939,19 +5945,21 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7Fuchsia20getDefaultSan
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !95
   switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit [
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
+    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
+    i32 38, label %.preheader
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %1, %1
+.preheader:                                       ; preds = %1
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split: ; preds = %1, %1, %.preheader
+  %_ZN5clang13SanitizerKind9SafeStackE.sink = phi ptr [ @_ZN5clang13SanitizerKind9SafeStackE, %.preheader ], [ @_ZN5clang13SanitizerKind15ShadowCallStackE, %1 ], [ @_ZN5clang13SanitizerKind15ShadowCallStackE, %1 ]
+  %4 = load i64, ptr %_ZN5clang13SanitizerKind9SafeStackE.sink, align 8, !tbaa !97
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5:  ; preds = %1
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit:            ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %1
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 288230376151711744, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ 144115188075855872, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge5 ]
+_ZN5clang13SanitizerMaskoRERKS0_.exit:            ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split, %1
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %4, %_ZN5clang13SanitizerMaskoRERKS0_.exit.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

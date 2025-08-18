@@ -871,7 +871,7 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   %25 = and i32 %19, 48
   %26 = icmp eq i32 %25, 48
   %27 = or i1 %26, %24
-  br i1 %27, label %28, label %.critedge
+  br i1 %27, label %28, label %.preheader.preheader.critedge
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr %6, align 8
@@ -880,9 +880,9 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr i8, ptr %31, i64 12
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #11, !srcloc !6
-  br label %.critedge
+  br label %.preheader.preheader.critedge
 
-.critedge:                                        ; preds = %28, %1
+.preheader.preheader.critedge:                    ; preds = %28, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -900,43 +900,43 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   %38 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
   store i8 1, ptr %3, align 8
   %39 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
-  br label %40
+  br label %.preheader
 
-40:                                               ; preds = %.critedge, %40
-  %41 = phi i32 [ %44, %40 ], [ 0, %.critedge ]
-  %42 = trunc i32 %41 to i8
-  store i8 %42, ptr %4, align 8
-  %43 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !16
-  %44 = add nuw nsw i32 %41, 1
-  %45 = icmp eq i32 %44, 5
-  br i1 %45, label %46, label %40, !llvm.loop !17
+.preheader:                                       ; preds = %.preheader.preheader.critedge, %.preheader
+  %40 = phi i32 [ %43, %.preheader ], [ 0, %.preheader.preheader.critedge ]
+  %41 = trunc i32 %40 to i8
+  store i8 %41, ptr %4, align 8
+  %42 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !16
+  %43 = add nuw nsw i32 %40, 1
+  %44 = icmp eq i32 %43, 5
+  br i1 %44, label %45, label %.preheader, !llvm.loop !17
 
-46:                                               ; preds = %40
+45:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %47 = getelementptr i8, ptr %0, i64 1304
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %56, label %50
+  %46 = getelementptr i8, ptr %0, i64 1304
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %55, label %49
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %56, label %54
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %55, label %53
 
-54:                                               ; preds = %50
-  %55 = call i32 %52(ptr noundef %5) #11
-  br label %56
+53:                                               ; preds = %49
+  %54 = call i32 %51(ptr noundef %5) #11
+  br label %55
 
-56:                                               ; preds = %54, %50, %46
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr i8, ptr %57, i64 4
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %58) #11, !srcloc !5
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr i8, ptr %59, i64 4
-  %61 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #11, !srcloc !6
+55:                                               ; preds = %53, %49, %45
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr i8, ptr %56, i64 4
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %57) #11, !srcloc !5
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr i8, ptr %58, i64 4
+  %60 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59) #11, !srcloc !6
   ret i32 0
 }
 

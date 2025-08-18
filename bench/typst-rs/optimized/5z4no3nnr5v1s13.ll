@@ -31273,7 +31273,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.llvm.1285002842107180981
   br i1 %or.cond.not.i.i.i.us28, label %select.unfold.us29, label %.loopexit
 
 select.unfold.us29:                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26"
-  br i1 %.not.i.us32, label %.loopexit.loopexit51.critedge, label %.split22.us, !llvm.loop !6218
+  br i1 %.not.i.us32, label %.loopexit.loopexit1.critedge, label %.split22.us, !llvm.loop !6218
 
 .split.us.i.i.i.loopexit.us:                      ; preds = %38
   store i64 %7, ptr %5, align 8, !alias.scope !6210, !noalias !6211
@@ -31392,14 +31392,14 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6202)
   br label %.loopexit
 
-.loopexit.loopexit51.critedge:                    ; preds = %select.unfold.us29
+.loopexit.loopexit1.critedge:                     ; preds = %select.unfold.us29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6201)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6202)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i", %.split.split, %.split.split.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26", %.loopexit.loopexit51.critedge, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us", %.split.us, %.loopexit.loopexit.critedge, %.split22.us
-  %.sroa.3.0 = phi i64 [ %.us-phi, %.split22.us ], [ undef, %.loopexit.loopexit.critedge ], [ undef, %.split.us ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us" ], [ undef, %.loopexit.loopexit51.critedge ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26" ], [ undef, %.split.split.us ], [ undef, %.split.split ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %.split22.us ], [ null, %.loopexit.loopexit.critedge ], [ null, %.split.us ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us" ], [ null, %.loopexit.loopexit51.critedge ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26" ], [ null, %.split.split.us ], [ null, %.split.split ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i" ]
+.loopexit:                                        ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i", %.split.split, %.split.split.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26", %.loopexit.loopexit1.critedge, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us", %.split.us, %.loopexit.loopexit.critedge, %.split22.us
+  %.sroa.3.0 = phi i64 [ %.us-phi, %.split22.us ], [ undef, %.loopexit.loopexit.critedge ], [ undef, %.split.us ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us" ], [ undef, %.loopexit.loopexit1.critedge ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26" ], [ undef, %.split.split.us ], [ undef, %.split.split ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %.split22.us ], [ null, %.loopexit.loopexit.critedge ], [ null, %.split.us ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us" ], [ null, %.loopexit.loopexit1.critedge ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.us26" ], [ null, %.split.split.us ], [ null, %.split.split ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i" ]
   %77 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %78 = insertvalue { ptr, i64 } %77, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %78

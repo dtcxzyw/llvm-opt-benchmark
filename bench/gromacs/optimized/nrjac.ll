@@ -602,10 +602,10 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 25:                                               ; preds = %19
   %26 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, i64 noundef 3, i64 noundef 8)
   %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 76, i64 noundef 3, i64 noundef 8)
-  br label %.preheader205.i
+  br label %.preheader206.i
 
-.preheader205.i:                                  ; preds = %.preheader205.i, %25
-  %indvar.i = phi i64 [ 0, %25 ], [ %indvar.next.i, %.preheader205.i ]
+.preheader206.i:                                  ; preds = %.preheader206.i, %25
+  %indvar.i = phi i64 [ 0, %25 ], [ %indvar.next.i, %.preheader206.i ]
   %28 = mul nuw nsw i64 %indvar.i, 24
   %scevgep.i = getelementptr nuw i8, ptr %4, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false), !tbaa !9
@@ -614,15 +614,15 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   store double 1.000000e+00, ptr %30, align 8, !tbaa !9
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader204.i, label %.preheader205.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %.preheader205.i, label %.preheader206.i, !llvm.loop !38
 
-.preheader203.i:                                  ; preds = %.preheader204.i
+.preheader204.i:                                  ; preds = %.preheader205.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %.preheader202.i
+  br label %.preheader203.i
 
-.preheader204.i:                                  ; preds = %.preheader205.i, %.preheader204.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader204.i ], [ 0, %.preheader205.i ]
+.preheader205.i:                                  ; preds = %.preheader206.i, %.preheader205.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader205.i ], [ 0, %.preheader206.i ]
   %33 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw [3 x double], ptr %33, i64 0, i64 %indvars.iv.i
   %35 = load double, ptr %34, align 8, !tbaa !9
@@ -633,71 +633,71 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %38 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %38, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond249.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond249.not.i, label %.preheader203.i, label %.preheader204.i, !llvm.loop !39
+  %exitcond252.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond252.not.i, label %.preheader204.i, label %.preheader205.i, !llvm.loop !39
 
-.preheader202.i:                                  ; preds = %160, %.preheader203.i
-  %.0152237.i = phi i32 [ 1, %.preheader203.i ], [ %161, %160 ]
-  %.0153236.i = phi i32 [ 0, %.preheader203.i ], [ %.3156.i, %160 ]
+.preheader203.i:                                  ; preds = %159, %.preheader204.i
+  %.0152240.i = phi i32 [ 1, %.preheader204.i ], [ %160, %159 ]
+  %.0153239.i = phi i32 [ 0, %.preheader204.i ], [ %.3156.i, %159 ]
   br label %.lr.ph.i
 
-.loopexit200.i:                                   ; preds = %40
-  %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next251.i, 3
+.loopexit201.i:                                   ; preds = %40
+  %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next254.i, 3
   br i1 %exitcond.not, label %45, label %.lr.ph.i, !llvm.loop !40
 
-.lr.ph.i:                                         ; preds = %.loopexit200.i, %.preheader202.i
-  %indvars.iv256.i = phi i64 [ 0, %.preheader202.i ], [ 1, %.loopexit200.i ]
-  %indvars.iv250.i = phi i64 [ 1, %.preheader202.i ], [ %indvars.iv.next251.i, %.loopexit200.i ]
-  %.0165212.i = phi double [ 0.000000e+00, %.preheader202.i ], [ %44, %.loopexit200.i ]
-  %39 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv256.i
+.lr.ph.i:                                         ; preds = %.loopexit201.i, %.preheader203.i
+  %indvars.iv259.i = phi i64 [ 0, %.preheader203.i ], [ 1, %.loopexit201.i ]
+  %indvars.iv253.i = phi i64 [ 1, %.preheader203.i ], [ %indvars.iv.next254.i, %.loopexit201.i ]
+  %.0165213.i = phi double [ 0.000000e+00, %.preheader203.i ], [ %44, %.loopexit201.i ]
+  %39 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv259.i
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i
-  %indvars.iv252.i = phi i64 [ %indvars.iv250.i, %.lr.ph.i ], [ %indvars.iv.next253.i, %40 ]
-  %.1166210.i = phi double [ %.0165212.i, %.lr.ph.i ], [ %44, %40 ]
-  %41 = getelementptr inbounds nuw [3 x double], ptr %39, i64 0, i64 %indvars.iv252.i
+  %indvars.iv255.i = phi i64 [ %indvars.iv253.i, %.lr.ph.i ], [ %indvars.iv.next256.i, %40 ]
+  %.1166211.i = phi double [ %.0165213.i, %.lr.ph.i ], [ %44, %40 ]
+  %41 = getelementptr inbounds nuw [3 x double], ptr %39, i64 0, i64 %indvars.iv255.i
   %42 = load double, ptr %41, align 8, !tbaa !9
   %43 = tail call noundef double @llvm.fabs.f64(double %42)
-  %44 = fadd double %.1166210.i, %43
-  %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
-  %exitcond255.not.i = icmp eq i64 %indvars.iv.next253.i, 3
-  br i1 %exitcond255.not.i, label %.loopexit200.i, label %40, !llvm.loop !41
+  %44 = fadd double %.1166211.i, %43
+  %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 1
+  %exitcond258.not.i = icmp eq i64 %indvars.iv.next256.i, 3
+  br i1 %exitcond258.not.i, label %.loopexit201.i, label %40, !llvm.loop !41
 
-45:                                               ; preds = %.loopexit200.i
+45:                                               ; preds = %.loopexit201.i
   %46 = fcmp oeq double %44, 0.000000e+00
   br i1 %46, label %_ZL6jacobiIN3gmx8ArrayRefINS0_11BasicVectorIdEEEEEiT_iPdS5_.exit, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp samesign ult i32 %.0152237.i, 4
+  %48 = icmp samesign ult i32 %.0152240.i, 4
   %49 = fmul double %44, 2.000000e-01
   %50 = fdiv double %49, 9.000000e+00
   %.0164.i = select i1 %48, double %50, double 0.000000e+00
-  %51 = icmp samesign ugt i32 %.0152237.i, 4
-  br label %.lr.ph231.i
+  %51 = icmp samesign ugt i32 %.0152240.i, 4
+  br label %.lr.ph234.i
 
-.loopexit.i:                                      ; preds = %153
-  %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
-  %exitcond17.not = icmp eq i64 %indvars.iv.next264.i, 3
-  br i1 %exitcond17.not, label %.preheader201.i, label %.lr.ph231.i, !llvm.loop !42
+.loopexit.i:                                      ; preds = %152
+  %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
+  %exitcond17.not = icmp eq i64 %indvars.iv.next267.i, 3
+  br i1 %exitcond17.not, label %.preheader202.i, label %.lr.ph234.i, !llvm.loop !42
 
-.lr.ph231.i:                                      ; preds = %.loopexit.i, %47
+.lr.ph234.i:                                      ; preds = %.loopexit.i, %47
   %52 = phi i1 [ false, %47 ], [ true, %.loopexit.i ]
-  %indvars.iv269.i = phi i64 [ 0, %47 ], [ 1, %.loopexit.i ]
-  %indvars.iv263.i = phi i64 [ 1, %47 ], [ %indvars.iv.next264.i, %.loopexit.i ]
-  %.1154234.i = phi i32 [ %.0153236.i, %47 ], [ %.3156.i, %.loopexit.i ]
-  %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
-  %53 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv269.i
-  %54 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv269.i
-  %55 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv269.i
-  %56 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv269.i, i32 0, i64 1
-  %57 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv269.i, i32 0, i64 2
+  %indvars.iv272.i = phi i64 [ 0, %47 ], [ 1, %.loopexit.i ]
+  %indvars.iv266.i = phi i64 [ 1, %47 ], [ %indvars.iv.next267.i, %.loopexit.i ]
+  %.1154237.i = phi i32 [ %.0153239.i, %47 ], [ %.3156.i, %.loopexit.i ]
+  %indvars.iv.next273.i = add nuw nsw i64 %indvars.iv272.i, 1
+  %53 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i
+  %54 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv272.i
+  %55 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv272.i
+  %56 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i, i32 0, i64 1
+  %57 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i, i32 0, i64 2
   br label %58
 
-58:                                               ; preds = %153, %.lr.ph231.i
-  %indvars.iv265.i = phi i64 [ %indvars.iv263.i, %.lr.ph231.i ], [ %indvars.iv.next266.i, %153 ]
-  %.2155230.i = phi i32 [ %.1154234.i, %.lr.ph231.i ], [ %.3156.i, %153 ]
-  %59 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv265.i
+58:                                               ; preds = %152, %.lr.ph234.i
+  %indvars.iv268.i = phi i64 [ %indvars.iv266.i, %.lr.ph234.i ], [ %indvars.iv.next269.i, %152 ]
+  %.2155233.i = phi i32 [ %.1154237.i, %.lr.ph234.i ], [ %.3156.i, %152 ]
+  %59 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv268.i
   %60 = load double, ptr %59, align 8, !tbaa !9
   %61 = tail call noundef double @llvm.fabs.f64(double %60)
   %62 = fmul double %61, 1.000000e+02
@@ -711,7 +711,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv265.i
+  %69 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv268.i
   %70 = load double, ptr %69, align 8, !tbaa !9
   %71 = tail call noundef double @llvm.fabs.f64(double %70)
   %72 = fadd double %62, %71
@@ -720,14 +720,14 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 74:                                               ; preds = %68
   store double 0.000000e+00, ptr %59, align 8, !tbaa !9
-  br label %153
+  br label %152
 
 75:                                               ; preds = %68, %63, %58
   %76 = fcmp ogt double %61, %.0164.i
-  br i1 %76, label %77, label %153
+  br i1 %76, label %77, label %152
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv265.i
+  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv268.i
   %79 = load double, ptr %78, align 8, !tbaa !9
   %80 = load double, ptr %54, align 8, !tbaa !9
   %81 = fsub double %79, %80
@@ -767,7 +767,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %104 = load double, ptr %55, align 8, !tbaa !9
   %105 = fsub double %104, %103
   store double %105, ptr %55, align 8, !tbaa !9
-  %106 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv265.i
+  %106 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv268.i
   %107 = load double, ptr %106, align 8, !tbaa !9
   %108 = fadd double %103, %107
   store double %108, ptr %106, align 8, !tbaa !9
@@ -778,11 +778,11 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %112 = fadd double %103, %111
   store double %112, ptr %78, align 8, !tbaa !9
   store double 0.000000e+00, ptr %59, align 8, !tbaa !9
-  br i1 %52, label %.lr.ph214.split.i, label %.preheader.i
+  br i1 %52, label %.lr.ph215.split.i, label %.preheader200.i
 
-.lr.ph214.split.i:                                ; preds = %97
+.lr.ph215.split.i:                                ; preds = %97
   %113 = fneg double %100
-  %114 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv265.i
+  %114 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv268.i
   %115 = load double, ptr %31, align 8, !tbaa !9
   %116 = load double, ptr %114, align 8, !tbaa !9
   %117 = tail call double @llvm.fmuladd.f64(double %115, double %102, double %116)
@@ -792,119 +792,119 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %120 = tail call double @llvm.fmuladd.f64(double %119, double %102, double %115)
   %121 = tail call double @llvm.fmuladd.f64(double %100, double %120, double %116)
   store double %121, ptr %114, align 8, !tbaa !9
-  br label %.preheader.i
+  br label %.preheader200.i
 
-.preheader.i:                                     ; preds = %.lr.ph214.split.i, %97
-  %122 = icmp samesign ult i64 %indvars.iv.next270.i, %indvars.iv265.i
-  br i1 %122, label %.lr.ph219.split.i, label %129
+.preheader200.i:                                  ; preds = %.lr.ph215.split.i, %97
+  %122 = icmp samesign ult i64 %indvars.iv.next273.i, %indvars.iv268.i
+  br i1 %122, label %.lr.ph220.split.i, label %129
 
-.lr.ph219.split.i:                                ; preds = %.preheader.i
-  %.promoted221.i = load double, ptr %32, align 8, !tbaa !9
+.lr.ph220.split.i:                                ; preds = %.preheader200.i
+  %.promoted222.i = load double, ptr %32, align 8, !tbaa !9
   %.promoted.i = load double, ptr %56, align 8, !tbaa !9
   %123 = fneg double %100
-  %124 = tail call double @llvm.fmuladd.f64(double %.promoted.i, double %102, double %.promoted221.i)
+  %124 = tail call double @llvm.fmuladd.f64(double %.promoted.i, double %102, double %.promoted222.i)
   %125 = tail call double @llvm.fmuladd.f64(double %123, double %124, double %.promoted.i)
-  %126 = fneg double %.promoted221.i
+  %126 = fneg double %.promoted222.i
   %127 = tail call double @llvm.fmuladd.f64(double %126, double %102, double %.promoted.i)
-  %128 = tail call double @llvm.fmuladd.f64(double %100, double %127, double %.promoted221.i)
+  %128 = tail call double @llvm.fmuladd.f64(double %100, double %127, double %.promoted222.i)
   store double %125, ptr %56, align 8, !tbaa !9
   store double %128, ptr %32, align 8, !tbaa !9
   br label %129
 
-129:                                              ; preds = %.lr.ph219.split.i, %.preheader.i
-  %.not.i = icmp eq i64 %indvars.iv265.i, 2
-  br i1 %.not.i, label %._crit_edge.i, label %.critedge.i
+129:                                              ; preds = %.lr.ph220.split.i, %.preheader200.i
+  %.not.i = icmp eq i64 %indvars.iv268.i, 2
+  br i1 %.not.i, label %..preheader_crit_edge.i, label %.lr.ph230.i
 
-._crit_edge.i:                                    ; preds = %129
+..preheader_crit_edge.i:                          ; preds = %129
   %.pre.i = fneg double %100
-  br label %139
+  br label %.preheader.i
 
-.critedge.i:                                      ; preds = %129
-  %130 = load double, ptr %57, align 8, !tbaa !9
-  %131 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv265.i, i32 0, i64 2
-  %132 = load double, ptr %131, align 8, !tbaa !9
-  %133 = tail call double @llvm.fmuladd.f64(double %130, double %102, double %132)
-  %134 = fneg double %100
-  %135 = tail call double @llvm.fmuladd.f64(double %134, double %133, double %130)
+.lr.ph230.i:                                      ; preds = %129
+  %130 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv268.i, i32 0, i64 2
+  %131 = fneg double %100
+  %132 = load double, ptr %57, align 8, !tbaa !9
+  %133 = load double, ptr %130, align 8, !tbaa !9
+  %134 = tail call double @llvm.fmuladd.f64(double %132, double %102, double %133)
+  %135 = tail call double @llvm.fmuladd.f64(double %131, double %134, double %132)
   store double %135, ptr %57, align 8, !tbaa !9
-  %136 = fneg double %132
-  %137 = tail call double @llvm.fmuladd.f64(double %136, double %102, double %130)
-  %138 = tail call double @llvm.fmuladd.f64(double %100, double %137, double %132)
-  store double %138, ptr %131, align 8, !tbaa !9
+  %136 = fneg double %133
+  %137 = tail call double @llvm.fmuladd.f64(double %136, double %102, double %132)
+  %138 = tail call double @llvm.fmuladd.f64(double %100, double %137, double %133)
+  store double %138, ptr %130, align 8, !tbaa !9
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.lr.ph230.i, %..preheader_crit_edge.i
+  %.pre-phi.i = phi double [ %.pre.i, %..preheader_crit_edge.i ], [ %131, %.lr.ph230.i ]
   br label %139
 
-139:                                              ; preds = %.critedge.i, %._crit_edge.i
-  %.pre-phi.i = phi double [ %.pre.i, %._crit_edge.i ], [ %134, %.critedge.i ]
-  br label %140
+139:                                              ; preds = %139, %.preheader.i
+  %indvars.iv262.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next263.i, %139 ]
+  %140 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv262.i
+  %141 = getelementptr inbounds nuw [3 x double], ptr %140, i64 0, i64 %indvars.iv272.i
+  %142 = load double, ptr %141, align 8, !tbaa !9
+  %143 = getelementptr inbounds nuw [3 x double], ptr %140, i64 0, i64 %indvars.iv268.i
+  %144 = load double, ptr %143, align 8, !tbaa !9
+  %145 = tail call double @llvm.fmuladd.f64(double %142, double %102, double %144)
+  %146 = tail call double @llvm.fmuladd.f64(double %.pre-phi.i, double %145, double %142)
+  store double %146, ptr %141, align 8, !tbaa !9
+  %147 = fneg double %144
+  %148 = tail call double @llvm.fmuladd.f64(double %147, double %102, double %142)
+  %149 = tail call double @llvm.fmuladd.f64(double %100, double %148, double %144)
+  store double %149, ptr %143, align 8, !tbaa !9
+  %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
+  %exitcond265.not.i = icmp eq i64 %indvars.iv.next263.i, 3
+  br i1 %exitcond265.not.i, label %150, label %139, !llvm.loop !43
 
-140:                                              ; preds = %140, %139
-  %indvars.iv259.i = phi i64 [ 0, %139 ], [ %indvars.iv.next260.i, %140 ]
-  %141 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv259.i
-  %142 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv269.i
-  %143 = load double, ptr %142, align 8, !tbaa !9
-  %144 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv265.i
-  %145 = load double, ptr %144, align 8, !tbaa !9
-  %146 = tail call double @llvm.fmuladd.f64(double %143, double %102, double %145)
-  %147 = tail call double @llvm.fmuladd.f64(double %.pre-phi.i, double %146, double %143)
-  store double %147, ptr %142, align 8, !tbaa !9
-  %148 = fneg double %145
-  %149 = tail call double @llvm.fmuladd.f64(double %148, double %102, double %143)
-  %150 = tail call double @llvm.fmuladd.f64(double %100, double %149, double %145)
-  store double %150, ptr %144, align 8, !tbaa !9
-  %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
-  %exitcond262.not.i = icmp eq i64 %indvars.iv.next260.i, 3
-  br i1 %exitcond262.not.i, label %151, label %140, !llvm.loop !43
+150:                                              ; preds = %139
+  %151 = add nsw i32 %.2155233.i, 1
+  br label %152
 
-151:                                              ; preds = %140
-  %152 = add nsw i32 %.2155230.i, 1
-  br label %153
+152:                                              ; preds = %150, %75, %74
+  %.3156.i = phi i32 [ %.2155233.i, %74 ], [ %151, %150 ], [ %.2155233.i, %75 ]
+  %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
+  %exitcond271.not.i = icmp eq i64 %indvars.iv.next269.i, 3
+  br i1 %exitcond271.not.i, label %.loopexit.i, label %58, !llvm.loop !44
 
-153:                                              ; preds = %151, %75, %74
-  %.3156.i = phi i32 [ %.2155230.i, %74 ], [ %152, %151 ], [ %.2155230.i, %75 ]
-  %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
-  %exitcond268.not.i = icmp eq i64 %indvars.iv.next266.i, 3
-  br i1 %exitcond268.not.i, label %.loopexit.i, label %58, !llvm.loop !44
+.preheader202.i:                                  ; preds = %.loopexit.i, %.preheader202.i
+  %indvars.iv275.i = phi i64 [ %indvars.iv.next276.i, %.preheader202.i ], [ 0, %.loopexit.i ]
+  %153 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv275.i
+  %154 = load double, ptr %153, align 8, !tbaa !9
+  %155 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv275.i
+  %156 = load double, ptr %155, align 8, !tbaa !9
+  %157 = fadd double %154, %156
+  store double %157, ptr %155, align 8, !tbaa !9
+  %158 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv275.i
+  store double %157, ptr %158, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %153, align 8, !tbaa !9
+  %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
+  %exitcond278.not.i = icmp eq i64 %indvars.iv.next276.i, 3
+  br i1 %exitcond278.not.i, label %159, label %.preheader202.i, !llvm.loop !45
 
-.preheader201.i:                                  ; preds = %.loopexit.i, %.preheader201.i
-  %indvars.iv272.i = phi i64 [ %indvars.iv.next273.i, %.preheader201.i ], [ 0, %.loopexit.i ]
-  %154 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv272.i
-  %155 = load double, ptr %154, align 8, !tbaa !9
-  %156 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv272.i
-  %157 = load double, ptr %156, align 8, !tbaa !9
-  %158 = fadd double %155, %157
-  store double %158, ptr %156, align 8, !tbaa !9
-  %159 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv272.i
-  store double %158, ptr %159, align 8, !tbaa !9
-  store double 0.000000e+00, ptr %154, align 8, !tbaa !9
-  %indvars.iv.next273.i = add nuw nsw i64 %indvars.iv272.i, 1
-  %exitcond275.not.i = icmp eq i64 %indvars.iv.next273.i, 3
-  br i1 %exitcond275.not.i, label %160, label %.preheader201.i, !llvm.loop !45
+159:                                              ; preds = %.preheader202.i
+  %160 = add nuw nsw i32 %.0152240.i, 1
+  %exitcond279.not.i = icmp eq i32 %160, 51
+  br i1 %exitcond279.not.i, label %161, label %.preheader203.i, !llvm.loop !46
 
-160:                                              ; preds = %.preheader201.i
-  %161 = add nuw nsw i32 %.0152237.i, 1
-  %exitcond276.not.i = icmp eq i32 %161, 51
-  br i1 %exitcond276.not.i, label %162, label %.preheader202.i, !llvm.loop !46
-
-162:                                              ; preds = %160
+161:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(120) @.str.1, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 177, ptr noundef nonnull @.str.3) #13
-          to label %163 unwind label %164
+          to label %162 unwind label %163
 
-163:                                              ; preds = %162
+162:                                              ; preds = %161
   unreachable
 
-164:                                              ; preds = %162
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %161
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %165
+  resume { ptr, i32 } %164
 
 _ZL6jacobiIN3gmx8ArrayRefINS0_11BasicVectorIdEEEEEiT_iPdS5_.exit: ; preds = %45
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %27)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef %26)
-  ret i32 %.0153236.i
+  ret i32 %.0153239.i
 }
 
 ; Function Attrs: noreturn

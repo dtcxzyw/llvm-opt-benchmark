@@ -3655,11 +3655,11 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %40, %54, %29, %20
   %56 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %3, i64 %.0.i15
   store ptr %.0.i.i, ptr %56, align 8, !tbaa !40
   %57 = add nuw nsw i64 %.0.i15, 1
-  %exitcond21.not = icmp eq i64 %57, %2
-  br i1 %exitcond21.not, label %tcache_bin_flush_metadata_visitor.exit.critedge, label %10, !llvm.loop !185
+  %exitcond22.not = icmp eq i64 %57, %2
+  br i1 %exitcond22.not, label %.lr.ph17, label %10, !llvm.loop !185
 
-tcache_bin_flush_metadata_visitor.exit.critedge:  ; preds = %rtree_leaf_elm_lookup.exit.i, %tcache_bin_flush_metadata_visitor.exit.critedge
-  %.025.i16 = phi i64 [ %67, %tcache_bin_flush_metadata_visitor.exit.critedge ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
+.lr.ph17:                                         ; preds = %rtree_leaf_elm_lookup.exit.i, %.lr.ph17
+  %.025.i16 = phi i64 [ %68, %.lr.ph17 ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %58 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %3, i64 %.025.i16
   %59 = load ptr, ptr %58, align 8, !tbaa !40
   %60 = load atomic i64, ptr %59 monotonic, align 8, !noalias !186
@@ -3668,15 +3668,16 @@ tcache_bin_flush_metadata_visitor.exit.critedge:  ; preds = %rtree_leaf_elm_look
   %63 = and i64 %62, -128
   %64 = inttoptr i64 %63 to ptr
   store ptr %64, ptr %58, align 8, !tbaa !40
-  tail call void @llvm.prefetch.p0(ptr %64, i32 1, i32 3, i32 1)
-  %65 = or disjoint i64 %63, 64
-  %66 = inttoptr i64 %65 to ptr
-  tail call void @llvm.prefetch.p0(ptr nonnull %66, i32 1, i32 3, i32 1)
-  %67 = add nuw nsw i64 %.025.i16, 1
-  %exitcond22.not = icmp eq i64 %67, %2
-  br i1 %exitcond22.not, label %emap_edata_lookup_batch.exit, label %tcache_bin_flush_metadata_visitor.exit.critedge, !llvm.loop !189
+  %65 = inttoptr i64 %63 to ptr
+  tail call void @llvm.prefetch.p0(ptr %65, i32 1, i32 3, i32 1)
+  %66 = or disjoint i64 %63, 64
+  %67 = inttoptr i64 %66 to ptr
+  tail call void @llvm.prefetch.p0(ptr nonnull %67, i32 1, i32 3, i32 1)
+  %68 = add nuw nsw i64 %.025.i16, 1
+  %exitcond23.not = icmp eq i64 %68, %2
+  br i1 %exitcond23.not, label %emap_edata_lookup_batch.exit, label %.lr.ph17, !llvm.loop !189
 
-emap_edata_lookup_batch.exit:                     ; preds = %tcache_bin_flush_metadata_visitor.exit.critedge, %4
+emap_edata_lookup_batch.exit:                     ; preds = %.lr.ph17, %4
   ret void
 }
 

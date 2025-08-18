@@ -4108,7 +4108,7 @@ define internal fastcc void @intel_sdvo_write_sdvox(ptr noundef readonly capture
   %16 = tail call i32 %15(ptr noundef nonnull %10, i32 %13, i1 noundef zeroext false) #13
   %17 = load i32, ptr %4, align 8
   %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %51
+  br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %8, align 8
@@ -4117,7 +4117,7 @@ define internal fastcc void @intel_sdvo_write_sdvox(ptr noundef readonly capture
   %22 = load i32, ptr %8, align 8
   %23 = load ptr, ptr %14, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %10, i32 %22, i1 noundef zeroext false) #13
-  br label %51
+  br label %.loopexit
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -4130,13 +4130,13 @@ define internal fastcc void @intel_sdvo_write_sdvox(ptr noundef readonly capture
 
 32:                                               ; preds = %25
   %33 = tail call i32 %31(ptr noundef nonnull %29, i32 397664, i1 noundef zeroext true) #13
-  br label %.critedge
+  br label %.loopexit.loopexit.critedge
 
 34:                                               ; preds = %25
   %35 = tail call i32 %31(ptr noundef nonnull %29, i32 397632, i1 noundef zeroext true) #13
-  br label %.critedge
+  br label %.loopexit.loopexit.critedge
 
-.critedge:                                        ; preds = %34, %32
+.loopexit.loopexit.critedge:                      ; preds = %34, %32
   %36 = phi i32 [ %33, %32 ], [ %1, %34 ]
   %37 = phi i32 [ %1, %32 ], [ %35, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 7544
@@ -4156,9 +4156,9 @@ define internal fastcc void @intel_sdvo_write_sdvox(ptr noundef readonly capture
   tail call void %48(ptr noundef nonnull %29, i32 397664, i32 noundef %36, i1 noundef zeroext true) #13
   %49 = load ptr, ptr %30, align 8
   %50 = tail call i32 %49(ptr noundef nonnull %29, i32 397664, i1 noundef zeroext false) #13
-  br label %51
+  br label %.loopexit
 
-51:                                               ; preds = %.critedge, %19, %7
+.loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %19, %7
   ret void
 }
 

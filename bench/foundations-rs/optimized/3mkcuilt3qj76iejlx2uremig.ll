@@ -2416,7 +2416,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %.pre = load i8, ptr %11, align 1, !range !27
   %16 = trunc nuw i8 %.pre to i1
-  br i1 %16, label %.critedge92, label %18
+  br i1 %16, label %.critedge95, label %18
 
 ._crit_edge:                                      ; preds = %46, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 553
@@ -2431,18 +2431,18 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.not57 = icmp eq i64 %20, %19
   br i1 %.not57, label %34, label %36
 
-.critedge92:                                      ; preds = %46, %.lr.ph
+.critedge95:                                      ; preds = %46, %.lr.ph
   %21 = load i8, ptr %12, align 8, !range !27, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %.critedge92
+23:                                               ; preds = %.critedge95
   call void @"_ZN113_$LT$tokio_util..codec..length_delimited..LengthDelimitedCodec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17hd80a99e19b057f6cE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   %24 = load i64, ptr %4, align 8, !range !8, !noundef !4
   %25 = trunc nuw i64 %24 to i1
   br i1 %25, label %29, label %31
 
-26:                                               ; preds = %.critedge92
+26:                                               ; preds = %.critedge95
   call void @_ZN10tokio_util5codec7decoder7Decoder10decode_eof17h81291a8a7e2136ccE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   %27 = load i64, ptr %5, align 8, !range !8, !noundef !4
   %28 = trunc nuw i64 %27 to i1
@@ -2523,7 +2523,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   store i8 1, ptr %11, align 1
   %47 = load i8, ptr %8, align 2, !range !27, !noundef !4
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %._crit_edge, label %.critedge92
+  br i1 %48, label %._crit_edge, label %.critedge95
 
 49:                                               ; preds = %40, %.thread59, %50, %56, %33, %45, %._crit_edge
   ret void
@@ -2588,7 +2588,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %.pre = load i8, ptr %11, align 1, !range !27
   %16 = trunc nuw i8 %.pre to i1
-  br i1 %16, label %.critedge92, label %18
+  br i1 %16, label %.critedge95, label %18
 
 ._crit_edge:                                      ; preds = %46, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 433
@@ -2603,18 +2603,18 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.not57 = icmp eq i64 %20, %19
   br i1 %.not57, label %34, label %36
 
-.critedge92:                                      ; preds = %46, %.lr.ph
+.critedge95:                                      ; preds = %46, %.lr.ph
   %21 = load i8, ptr %12, align 8, !range !27, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %.critedge92
+23:                                               ; preds = %.critedge95
   call void @"_ZN113_$LT$tokio_util..codec..length_delimited..LengthDelimitedCodec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17hd80a99e19b057f6cE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   %24 = load i64, ptr %4, align 8, !range !8, !noundef !4
   %25 = trunc nuw i64 %24 to i1
   br i1 %25, label %29, label %31
 
-26:                                               ; preds = %.critedge92
+26:                                               ; preds = %.critedge95
   call void @_ZN10tokio_util5codec7decoder7Decoder10decode_eof17h81291a8a7e2136ccE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   %27 = load i64, ptr %5, align 8, !range !8, !noundef !4
   %28 = trunc nuw i64 %27 to i1
@@ -2695,7 +2695,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   store i8 1, ptr %11, align 1
   %47 = load i8, ptr %8, align 2, !range !27, !noundef !4
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %._crit_edge, label %.critedge92
+  br i1 %48, label %._crit_edge, label %.critedge95
 
 49:                                               ; preds = %40, %.thread59, %50, %56, %33, %45, %._crit_edge
   ret void
@@ -2760,7 +2760,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %.pre = load i8, ptr %11, align 1, !range !27
   %16 = trunc nuw i8 %.pre to i1
-  br i1 %16, label %.critedge92, label %18
+  br i1 %16, label %.critedge95, label %18
 
 ._crit_edge:                                      ; preds = %46, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 441
@@ -2775,18 +2775,18 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.not57 = icmp eq i64 %20, %19
   br i1 %.not57, label %34, label %36
 
-.critedge92:                                      ; preds = %46, %.lr.ph
+.critedge95:                                      ; preds = %46, %.lr.ph
   %21 = load i8, ptr %12, align 8, !range !27, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %.critedge92
+23:                                               ; preds = %.critedge95
   call void @"_ZN113_$LT$tokio_util..codec..length_delimited..LengthDelimitedCodec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17hd80a99e19b057f6cE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   %24 = load i64, ptr %4, align 8, !range !8, !noundef !4
   %25 = trunc nuw i64 %24 to i1
   br i1 %25, label %29, label %31
 
-26:                                               ; preds = %.critedge92
+26:                                               ; preds = %.critedge95
   call void @_ZN10tokio_util5codec7decoder7Decoder10decode_eof17h81291a8a7e2136ccE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   %27 = load i64, ptr %5, align 8, !range !8, !noundef !4
   %28 = trunc nuw i64 %27 to i1
@@ -2867,7 +2867,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   store i8 1, ptr %11, align 1
   %47 = load i8, ptr %8, align 2, !range !27, !noundef !4
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %._crit_edge, label %.critedge92
+  br i1 %48, label %._crit_edge, label %.critedge95
 
 49:                                               ; preds = %40, %.thread59, %50, %56, %33, %45, %._crit_edge
   ret void

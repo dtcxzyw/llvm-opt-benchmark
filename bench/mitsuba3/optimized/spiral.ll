@@ -42,9 +42,9 @@ $_ZN7mitsuba6SpiralD0Ev = comdat any
 
 @_ZN7mitsuba6SpiralC1ERKNS_6VectorIjLm2EEES4_jj = unnamed_addr alias void (ptr, ptr, ptr, i32, i32), ptr @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(116) initializes((0, 12), (16, 116)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr noundef nonnull align 8 captures(none) dereferenceable(116) initializes((0, 12), (16, 72), (100, 108)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7mitsuba6SpiralE, i64 16), ptr %0, align 8
@@ -62,16 +62,16 @@ define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr noundef nonnull 
   store i32 %3, ptr %12, align 8
   %13 = add i32 %3, -1
   %14 = load i32, ptr %1, align 4
-  %15 = add i32 %14, %13
+  %15 = add i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = add i32 %17, %13
+  %18 = add i32 %13, %17
   %19 = udiv i32 %15, %3
   %20 = udiv i32 %18, %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %19, ptr %21, align 8
-  %.sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %20, ptr %.sroa_idx42, align 4
+  %.sroa_idx45 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %20, ptr %.sroa_idx45, align 4
   %22 = mul i32 %20, %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %22, ptr %23, align 8
@@ -79,26 +79,27 @@ define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr noundef nonnull 
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %25, align 8
-  %26 = lshr i32 %19, 1
-  %27 = lshr i32 %20, 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.29.0.insert.ext.i = zext nneg i32 %27 to i64
-  %.sroa.29.0.insert.shift.i = shl nuw nsw i64 %.sroa.29.0.insert.ext.i, 32
-  %.sroa.08.0.insert.ext.i = zext nneg i32 %26 to i64
-  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.29.0.insert.shift.i, %.sroa.08.0.insert.ext.i
-  store i64 %.sroa.08.0.insert.insert.i, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 1, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 1, ptr %30, align 8
+  %26 = load i32, ptr %21, align 8
+  %27 = lshr i32 %26, 1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %29 = load i32, ptr %28, align 4
+  %30 = lshr i32 %29, 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %27, ptr %31, align 8
+  %.sroa_idx12.i = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %30, ptr %.sroa_idx12.i, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 1, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 1, ptr %33, align 8
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7mitsuba6Spiral5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(116) initializes((80, 96), (108, 116)) %0) local_unnamed_addr #0 align 2 {
-_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4div_ERKS3_.exit.critedge:
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN7mitsuba6Spiral5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(116) initializes((88, 96)) %0) local_unnamed_addr #0 align 2 {
+_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %1, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -110,11 +111,9 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4div_ERKS3_.exit.critedge:
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.29.0.insert.ext = zext nneg i32 %8 to i64
-  %.sroa.29.0.insert.shift = shl nuw nsw i64 %.sroa.29.0.insert.ext, 32
-  %.sroa.08.0.insert.ext = zext nneg i32 %5 to i64
-  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.29.0.insert.shift, %.sroa.08.0.insert.ext
-  store i64 %.sroa.08.0.insert.insert, ptr %9, align 8
+  store i32 %5, ptr %9, align 8
+  %.sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %8, ptr %.sroa_idx12, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -136,187 +135,186 @@ define void @_ZN7mitsuba6Spiral10next_blockEv(ptr dead_on_unwind noalias writabl
   %8 = icmp eq i32 %5, %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %10 = load i32, ptr %9, align 4
-  br i1 %8, label %11, label %..critedge_crit_edge
-
-..critedge_crit_edge:                             ; preds = %2
-  %.phi.trans.insert215 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.pre216 = load i32, ptr %.phi.trans.insert215, align 8
-  %.phi.trans.insert217 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %.pre218 = load i32, ptr %.phi.trans.insert217, align 4
-  br label %.critedge
+  br i1 %8, label %11, label %._crit_edge
 
 11:                                               ; preds = %2
   %12 = icmp ugt i32 %10, 1
-  br i1 %12, label %13, label %25
+  br i1 %12, label %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge, label %.preheader
 
-13:                                               ; preds = %11
-  %14 = add i32 %10, -1
-  store i32 %14, ptr %9, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %17 = load i32, ptr %16, align 8
-  %18 = lshr i32 %17, 1
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %20 = load i32, ptr %19, align 4
-  %21 = lshr i32 %20, 1
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.29.0.insert.ext.i = zext nneg i32 %21 to i64
-  %.sroa.29.0.insert.shift.i = shl nuw nsw i64 %.sroa.29.0.insert.ext.i, 32
-  %.sroa.08.0.insert.ext.i = zext nneg i32 %18 to i64
-  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.29.0.insert.shift.i, %.sroa.08.0.insert.ext.i
-  store i64 %.sroa.08.0.insert.insert.i, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 1, ptr %24, align 8
-  br label %.critedge
+_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge: ; preds = %11
+  %13 = add i32 %10, -1
+  store i32 %13, ptr %9, align 4
+  store i32 0, ptr %4, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %16 = load i32, ptr %15, align 8
+  %17 = lshr i32 %16, 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %19 = load i32, ptr %18, align 4
+  %20 = lshr i32 %19, 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i32 %17, ptr %21, align 8
+  %.sroa_idx12.i = getelementptr inbounds nuw i8, ptr %1, i64 84
+  store i32 %20, ptr %.sroa_idx12.i, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  store i32 1, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 1, ptr %23, align 8
+  br label %._crit_edge
 
-25:                                               ; preds = %11
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %26, align 4
-  br label %96
+.preheader:                                       ; preds = %11
+  store i32 0, ptr %0, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %26, align 4
+  br label %_ZNSt3__15tupleIJN7mitsuba6VectorIiLm2EEENS2_IjLm2EEEjEEC2B8ne190000IJiijETnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENS5_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSB_.exit
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %13
-  %.promoted213 = phi i32 [ %21, %13 ], [ %.pre218, %..critedge_crit_edge ]
-  %27 = phi i32 [ %18, %13 ], [ %.pre216, %..critedge_crit_edge ]
-  %28 = phi i32 [ %14, %13 ], [ %10, %..critedge_crit_edge ]
-  %29 = phi i32 [ 0, %13 ], [ %5, %..critedge_crit_edge ]
-  %30 = add i32 %28, -1
-  %31 = mul i32 %30, %7
-  %32 = add i32 %31, %29
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %36 = load i32, ptr %34, align 8
-  %37 = mul i32 %36, %27
-  %38 = mul i32 %36, %.promoted213
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %40 = load i32, ptr %39, align 8
-  %41 = sub i32 %40, %37
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %43 = load i32, ptr %42, align 4
-  %44 = sub i32 %43, %38
-  %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %41, i32 %36)
-  %..i.i.c = tail call noundef i32 @llvm.umin.i32(i32 %44, i32 %36)
-  %45 = add i32 %29, 1
-  store i32 %45, ptr %4, align 4
-  %.not = icmp eq i32 %45, %7
-  br i1 %.not, label %.critedge208, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
+._crit_edge:                                      ; preds = %2, %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge
+  %27 = phi i32 [ %13, %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge ], [ %10, %2 ]
+  %28 = phi i32 [ 0, %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.i.critedge ], [ %5, %2 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %34 = load i32, ptr %33, align 8
+  %35 = mul i32 %34, %30
+  %36 = mul i32 %34, %32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %38 = load i32, ptr %37, align 8
+  %39 = sub i32 %38, %35
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %41 = load i32, ptr %40, align 4
+  %42 = sub i32 %41, %36
+  %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %39, i32 %34)
+  %..i.i.c = tail call noundef i32 @llvm.umin.i32(i32 %42, i32 %34)
+  %43 = add i32 %27, -1
+  %44 = mul i32 %43, %7
+  %45 = add i32 %44, %28
+  %46 = add i32 %28, 1
+  store i32 %46, ptr %4, align 4
+  %.not = icmp eq i32 %46, %7
+  br i1 %.not, label %.loopexit, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader: ; preds = %.critedge
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %51 = load i32, ptr %50, align 4
-  %.promoted = load i32, ptr %46, align 8
-  %.promoted211 = load i32, ptr %33, align 8
-  %.promoted212 = load i32, ptr %47, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.promoted214 = load i32, ptr %52, align 8
-  %.promoted231 = load i32, ptr %35, align 4
-  %.promoted232 = load i32, ptr %33, align 8
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader: ; preds = %._crit_edge
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.promoted = load i32, ptr %47, align 8
+  %.promoted227 = load i32, ptr %29, align 8
+  %.promoted228 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %.promoted229 = load i32, ptr %50, align 4
+  %.promoted230 = load i32, ptr %51, align 8
+  %52 = load i32, ptr %49, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %54 = load i32, ptr %53, align 4
+  %.promoted256 = load i32, ptr %50, align 4
+  %.promoted257 = load i32, ptr %29, align 8
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader, %.critedge221
-  %53 = phi i32 [ %.promoted232, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge221 ]
-  %54 = phi i32 [ %.promoted231, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge221 ]
-  %55 = phi i32 [ %.promoted214, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %.critedge221 ]
-  %56 = phi i32 [ %.promoted213, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %71, %.critedge221 ]
-  %57 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %81, %.critedge221 ]
-  %58 = phi i32 [ %.promoted211, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %72, %.critedge221 ]
-  %59 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %82, %.critedge221 ]
-  switch i32 %59, label %68 [
-    i32 0, label %60
-    i32 1, label %62
-    i32 2, label %64
-    i32 3, label %66
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
+  %55 = phi i32 [ %.promoted257, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %71, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %56 = phi i32 [ %.promoted256, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %72, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %57 = phi i32 [ %.promoted230, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %82, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %58 = phi i32 [ %.promoted229, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %73, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %59 = phi i32 [ %.promoted228, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %83, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %60 = phi i32 [ %.promoted227, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %74, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  %61 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %84, %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge ]
+  switch i32 %61, label %70 [
+    i32 0, label %62
+    i32 1, label %64
+    i32 2, label %66
+    i32 3, label %68
   ]
-
-60:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %61 = add nsw i32 %58, 1
-  store i32 %61, ptr %33, align 8
-  br label %68
 
 62:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %63 = add nsw i32 %56, 1
-  store i32 %63, ptr %35, align 4
-  br label %68
+  %63 = add nsw i32 %60, 1
+  store i32 %63, ptr %29, align 8
+  br label %70
 
 64:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %65 = add nsw i32 %58, -1
-  store i32 %65, ptr %33, align 8
-  br label %68
+  %65 = add nsw i32 %58, 1
+  store i32 %65, ptr %50, align 4
+  br label %70
 
 66:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %67 = add nsw i32 %56, -1
-  store i32 %67, ptr %35, align 4
-  br label %68
+  %67 = add nsw i32 %60, -1
+  store i32 %67, ptr %29, align 8
+  br label %70
 
-68:                                               ; preds = %66, %64, %62, %60, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %69 = phi i32 [ %53, %66 ], [ %65, %64 ], [ %53, %62 ], [ %61, %60 ], [ %53, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %70 = phi i32 [ %67, %66 ], [ %54, %64 ], [ %63, %62 ], [ %54, %60 ], [ %54, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %71 = phi i32 [ %67, %66 ], [ %56, %64 ], [ %63, %62 ], [ %56, %60 ], [ %56, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %72 = phi i32 [ %58, %66 ], [ %65, %64 ], [ %58, %62 ], [ %61, %60 ], [ %58, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %73 = add i32 %57, -1
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %.critedge221
+68:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
+  %69 = add nsw i32 %58, -1
+  store i32 %69, ptr %50, align 4
+  br label %70
 
-75:                                               ; preds = %68
-  %76 = add nsw i32 %59, 1
-  %77 = srem i32 %76, 4
-  store i32 %77, ptr %46, align 8
-  switch i32 %77, label %.critedge221 [
-    i32 2, label %78
-    i32 0, label %78
+70:                                               ; preds = %68, %66, %64, %62, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
+  %71 = phi i32 [ %55, %68 ], [ %67, %66 ], [ %55, %64 ], [ %63, %62 ], [ %55, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %72 = phi i32 [ %69, %68 ], [ %56, %66 ], [ %65, %64 ], [ %56, %62 ], [ %56, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %73 = phi i32 [ %69, %68 ], [ %58, %66 ], [ %65, %64 ], [ %58, %62 ], [ %58, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %74 = phi i32 [ %60, %68 ], [ %67, %66 ], [ %60, %64 ], [ %63, %62 ], [ %60, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %75 = add i32 %59, -1
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
+
+77:                                               ; preds = %70
+  %78 = add nsw i32 %61, 1
+  %79 = srem i32 %78, 4
+  store i32 %79, ptr %47, align 8
+  switch i32 %79, label %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge [
+    i32 2, label %80
+    i32 0, label %80
   ]
 
-78:                                               ; preds = %75, %75
-  %79 = add i32 %55, 1
-  store i32 %79, ptr %52, align 8
-  br label %.critedge221
+80:                                               ; preds = %77, %77
+  %81 = add i32 %57, 1
+  store i32 %81, ptr %51, align 8
+  br label %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
 
-.critedge221:                                     ; preds = %78, %75, %68
-  %80 = phi i32 [ %55, %68 ], [ %55, %75 ], [ %79, %78 ]
-  %81 = phi i32 [ %73, %68 ], [ %55, %75 ], [ %79, %78 ]
-  %82 = phi i32 [ %59, %68 ], [ %77, %75 ], [ %77, %78 ]
-  %83 = icmp uge i32 %72, %49
-  %84 = icmp uge i32 %71, %51
-  %.sroa.0142.0.extract.trunc = icmp slt i32 %69, 0
-  %.sroa.2143.0.extract.trunc = icmp slt i32 %70, 0
-  %85 = or i1 %83, %.sroa.0142.0.extract.trunc
-  %86 = or i1 %84, %.sroa.2143.0.extract.trunc
-  %or.cond = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.critedge208.loopexit, !llvm.loop !4
+_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge: ; preds = %80, %77, %70
+  %82 = phi i32 [ %57, %70 ], [ %57, %77 ], [ %81, %80 ]
+  %83 = phi i32 [ %75, %70 ], [ %57, %77 ], [ %81, %80 ]
+  %84 = phi i32 [ %61, %70 ], [ %79, %77 ], [ %79, %80 ]
+  %85 = icmp slt i32 %71, 0
+  %86 = icmp slt i32 %72, 0
+  %87 = icmp uge i32 %71, %52
+  %88 = icmp uge i32 %72, %54
+  %89 = or i1 %85, %87
+  %90 = or i1 %86, %88
+  %or.cond = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.loopexit.loopexit, !llvm.loop !4
 
-.critedge208.loopexit:                            ; preds = %.critedge221
-  store i32 %81, ptr %47, align 4
-  br label %.critedge208
+.loopexit.loopexit:                               ; preds = %_ZN7mitsuba5PointIiLm2EECI2N5drjit15StaticArrayImplIiLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
+  store i32 %83, ptr %48, align 4
+  br label %.loopexit
 
-.critedge208:                                     ; preds = %.critedge208.loopexit, %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %88 = load i32, ptr %87, align 8
-  %89 = add i32 %88, %37
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, %38
-  store i32 %89, ptr %0, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %92, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0152.sroa.2.0.insert.ext = zext i32 %..i.i.c to i64
-  %.sroa.0152.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0152.sroa.2.0.insert.ext, 32
-  %.sroa.0152.sroa.0.0.insert.ext = zext i32 %..i.i to i64
-  %.sroa.0152.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0152.sroa.2.0.insert.shift, %.sroa.0152.sroa.0.0.insert.ext
-  store i64 %.sroa.0152.sroa.0.0.insert.insert, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %32, ptr %95, align 4
-  br label %96
+.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %92 = load i32, ptr %91, align 8
+  %93 = add i32 %92, %35
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %95, %36
+  store i32 %93, ptr %0, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %96, ptr %97, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0168.sroa.2.0.insert.ext = zext i32 %..i.i.c to i64
+  %.sroa.0168.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0168.sroa.2.0.insert.ext, 32
+  %.sroa.0168.sroa.0.0.insert.ext = zext i32 %..i.i to i64
+  %.sroa.0168.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0168.sroa.2.0.insert.shift, %.sroa.0168.sroa.0.0.insert.ext
+  store i64 %.sroa.0168.sroa.0.0.insert.insert, ptr %98, align 4
+  br label %_ZNSt3__15tupleIJN7mitsuba6VectorIiLm2EEENS2_IjLm2EEEjEEC2B8ne190000IJiijETnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENS5_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSB_.exit
 
-96:                                               ; preds = %.critedge208, %25
+_ZNSt3__15tupleIJN7mitsuba6VectorIiLm2EEENS2_IjLm2EEEjEEC2B8ne190000IJiijETnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENS5_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSB_.exit: ; preds = %.preheader, %.loopexit
+  %.sink = phi i32 [ %45, %.loopexit ], [ -1, %.preheader ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %99, align 4
   tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 }
@@ -546,7 +544,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

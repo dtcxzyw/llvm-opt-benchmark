@@ -2176,7 +2176,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %347
 
 454:                                              ; preds = %448
   %455 = getelementptr inbounds nuw i8, ptr %451, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %451, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %451, i8 0, i64 176, i1 false)
   br label %456
 
 456:                                              ; preds = %456, %454
@@ -2186,9 +2186,9 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %347
   store float 1.000000e+00, ptr %458, align 4
   %459 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %459, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %456, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i, label %456, !llvm.loop !29
 
-_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %456
+_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %456
   %460 = getelementptr inbounds nuw i8, ptr %451, i64 116
   store i32 2147483647, ptr %460, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 120
@@ -2199,12 +2199,12 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   store i32 -2147483648, ptr %.sroa_idx4.i.i.i.i.i.i.i, align 4
   %462 = getelementptr inbounds nuw i8, ptr %451, i64 132
   store i32 2147483647, ptr %462, align 4
-  %.sroa_idx6.i2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 136
-  store i32 2147483647, ptr %.sroa_idx6.i2.i.i.i.i.i.i, align 4
+  %.sroa_idx6.i11.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 136
+  store i32 2147483647, ptr %.sroa_idx6.i11.i.i.i.i.i.i, align 4
   %463 = getelementptr inbounds nuw i8, ptr %451, i64 140
   store i32 -2147483648, ptr %463, align 4
-  %.sroa_idx4.i3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 144
-  store i32 -2147483648, ptr %.sroa_idx4.i3.i.i.i.i.i.i, align 4
+  %.sroa_idx4.i14.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 144
+  store i32 -2147483648, ptr %.sroa_idx4.i14.i.i.i.i.i.i, align 4
   %464 = getelementptr inbounds nuw i8, ptr %451, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %464, i8 0, i64 24, i1 false)
   %465 = getelementptr inbounds nuw i8, ptr %451, i64 176
@@ -2214,8 +2214,8 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   %467 = invoke noundef ptr @_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %44)
           to label %468 unwind label %517
 
-468:                                              ; preds = %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, %466
-  %.0.i200 = phi ptr [ %465, %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i ], [ %467, %466 ]
+468:                                              ; preds = %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i, %466
+  %.0.i200 = phi ptr [ %465, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i ], [ %467, %466 ]
   store ptr %.0.i200, ptr %356, align 8
   %469 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNK7Imf_2_59InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %450)
           to label %470 unwind label %519
@@ -10791,7 +10791,7 @@ _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; 
   %24 = getelementptr inbounds i8, ptr %storemerge.i, i64 %8
   %25 = getelementptr inbounds nuw %"struct.tev::ImageData", ptr %storemerge.i, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %24, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %24, i8 0, i64 176, i1 false)
   br label %27
 
 27:                                               ; preds = %27, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit
@@ -10801,101 +10801,101 @@ _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; 
   store float 1.000000e+00, ptr %29, align 4
   %30 = add nuw nsw i64 %.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %30, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %31, label %27, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i, label %27, !llvm.loop !29
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 116
-  store i32 2147483647, ptr %32, align 4
+_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i:       ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 116
+  store i32 2147483647, ptr %31, align 4
   %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i32 2147483647, ptr %.sroa_idx6.i.i.i.i.i, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 124
-  store i32 -2147483648, ptr %33, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 124
+  store i32 -2147483648, ptr %32, align 4
   %.sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 128
   store i32 -2147483648, ptr %.sroa_idx4.i.i.i.i.i, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 132
-  store i32 2147483647, ptr %34, align 4
-  %.sroa_idx6.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 136
-  store i32 2147483647, ptr %.sroa_idx6.i2.i.i.i.i, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %24, i64 140
-  store i32 -2147483648, ptr %35, align 4
-  %.sroa_idx4.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 144
-  store i32 -2147483648, ptr %.sroa_idx4.i3.i.i.i.i, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %24, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 132
+  store i32 2147483647, ptr %33, align 4
+  %.sroa_idx6.i11.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 136
+  store i32 2147483647, ptr %.sroa_idx6.i11.i.i.i.i, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 140
+  store i32 -2147483648, ptr %34, align 4
+  %.sroa_idx4.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 144
+  store i32 -2147483648, ptr %.sroa_idx4.i14.i.i.i.i, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 176
   %.neg.i = sdiv exact i64 %8, -176
-  %38 = getelementptr inbounds %"struct.tev::ImageData", ptr %24, i64 %.neg.i
+  %37 = getelementptr inbounds %"struct.tev::ImageData", ptr %24, i64 %.neg.i
   %.not29.i.i = icmp eq ptr %5, %4
   br i1 %.not29.i.i, label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.031.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %5, %31 ]
-  %.02830.i.i = phi ptr [ %62, %.lr.ph.i.i ], [ %38, %31 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %42 = load ptr, ptr %.031.i.i, align 8
-  store ptr %42, ptr %.02830.i.i, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %39, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 16
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %40, align 8
+.lr.ph.i.i:                                       ; preds = %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i, %.lr.ph.i.i
+  %.031.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %5, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i ]
+  %.02830.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %37, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  %41 = load ptr, ptr %.031.i.i, align 8
+  store ptr %41, ptr %.02830.i.i, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 8
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %38, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 16
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %.031.i.i, i8 0, i64 24, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 24
-  %49 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 32
-  %50 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 40
-  %51 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  %52 = load ptr, ptr %48, align 8
-  store ptr %52, ptr %47, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 32
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %49, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 40
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %50, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %57, ptr noundef nonnull align 8 dereferenceable(100) %58, i64 100, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 152
-  %60 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 176
-  %62 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 176
-  %.not.i.i = icmp eq ptr %61, %4
+  %46 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %51 = load ptr, ptr %47, align 8
+  store ptr %51, ptr %46, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 32
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %48, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 40
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %49, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %56, ptr noundef nonnull align 8 dereferenceable(100) %57, i64 100, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 176
+  %61 = getelementptr inbounds nuw i8, ptr %.02830.i.i, i64 176
+  %.not.i.i = icmp eq ptr %60, %4
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !342
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %5, %.lr.ph.i.i ]
+  %.06.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i ], [ %5, %.lr.ph.i.i ]
   tail call void @_ZN3tev9ImageDataD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.06.i.i.i) #23
-  %63 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 176
-  %.not.i.i.i = icmp eq ptr %63, %4
+  %62 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 176
+  %.not.i.i.i = icmp eq ptr %62, %4
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !343
 
 _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
 
-_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %31
-  %64 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %5, %31 ]
-  store ptr %38, ptr %0, align 8
-  store ptr %37, ptr %3, align 8
+_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i
+  %63 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %5, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i ]
+  store ptr %37, ptr %0, align 8
+  store ptr %36, ptr %3, align 8
   store ptr %25, ptr %2, align 8
-  %.not.i4 = icmp eq ptr %64, null
-  br i1 %.not.i4, label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit, label %65
+  %.not.i4 = icmp eq ptr %63, null
+  br i1 %.not.i4, label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit, label %64
 
-65:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %64) #24
+64:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #24
   br label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %65
-  ret ptr %37
+_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %64
+  ret ptr %36
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
@@ -55494,7 +55494,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %329
 
 437:                                              ; preds = %431
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %434, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %434, i8 0, i64 176, i1 false)
   br label %439
 
 439:                                              ; preds = %439, %437
@@ -55504,9 +55504,9 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %329
   store float 1.000000e+00, ptr %441, align 4
   %442 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %442, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, label %439, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i, label %439, !llvm.loop !29
 
-_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i: ; preds = %439
+_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %439
   %443 = getelementptr inbounds nuw i8, ptr %434, i64 116
   store i32 2147483647, ptr %443, align 4
   %.sroa_idx6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 120
@@ -55517,12 +55517,12 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   store i32 -2147483648, ptr %.sroa_idx4.i.i.i.i.i.i.i, align 4
   %445 = getelementptr inbounds nuw i8, ptr %434, i64 132
   store i32 2147483647, ptr %445, align 4
-  %.sroa_idx6.i2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 136
-  store i32 2147483647, ptr %.sroa_idx6.i2.i.i.i.i.i.i, align 4
+  %.sroa_idx6.i11.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 136
+  store i32 2147483647, ptr %.sroa_idx6.i11.i.i.i.i.i.i, align 4
   %446 = getelementptr inbounds nuw i8, ptr %434, i64 140
   store i32 -2147483648, ptr %446, align 4
-  %.sroa_idx4.i3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 144
-  store i32 -2147483648, ptr %.sroa_idx4.i3.i.i.i.i.i.i, align 4
+  %.sroa_idx4.i14.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 144
+  store i32 -2147483648, ptr %.sroa_idx4.i14.i.i.i.i.i.i, align 4
   %447 = getelementptr inbounds nuw i8, ptr %434, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %447, i8 0, i64 24, i1 false)
   %448 = getelementptr inbounds nuw i8, ptr %434, i64 176
@@ -55532,8 +55532,8 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8n
   %450 = invoke noundef ptr @_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %35)
           to label %451 unwind label %500
 
-451:                                              ; preds = %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i, %449
-  %.0.i191 = phi ptr [ %448, %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE22__construct_one_at_endB8ne190000IJEEEvDpOT_.exit.i ], [ %450, %449 ]
+451:                                              ; preds = %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i, %449
+  %.0.i191 = phi ptr [ %448, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i ], [ %450, %449 ]
   store ptr %.0.i191, ptr %339, align 8
   %452 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNK7Imf_2_59InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %433)
           to label %453 unwind label %502

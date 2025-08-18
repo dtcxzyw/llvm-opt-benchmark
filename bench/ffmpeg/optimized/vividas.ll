@@ -223,18 +223,18 @@ decode_key.exit91:                                ; preds = %52
   %99 = call i32 @avio_r8(ptr noundef nonnull %3) #9
   %100 = call i64 @avio_seek(ptr noundef nonnull %3, i64 noundef %97, i32 noundef 0) #9
   %.not.i = icmp eq i32 %99, 1
-  br i1 %.not.i, label %.critedge218.i, label %101
+  br i1 %.not.i, label %.preheader218.i, label %101
 
 101:                                              ; preds = %._crit_edge234.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %99) #9
   br label %track_header.exit.thread
 
-.critedge218.i:                                   ; preds = %._crit_edge234.i
+.preheader218.i:                                  ; preds = %._crit_edge234.i
   %102 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #9
   %.not192.not.i = icmp eq ptr %102, null
   br i1 %.not192.not.i, label %track_header.exit.thread, label %103
 
-103:                                              ; preds = %.critedge218.i
+103:                                              ; preds = %.preheader218.i
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 0, ptr %104, align 4, !tbaa !37
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -484,8 +484,8 @@ decode_key.exit91:                                ; preds = %52
   %227 = icmp slt i32 %139, %226
   br i1 %227, label %.lr.ph251.i, label %.loopexit, !llvm.loop !60
 
-track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.ph.i, %.lr.ph251.i, %157, %138, %101, %.thread196.i, %.critedge218.i
-  %.2.i.ph = phi i32 [ -12, %.critedge218.i ], [ %.10.i, %.thread196.i ], [ -1163346256, %101 ], [ -12, %.lr.ph251.i ], [ -1094995529, %157 ], [ -1094995529, %138 ], [ -541478725, %.lr.ph.i ], [ -541478725, %.lr.ph233.i ]
+track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.ph.i, %.lr.ph251.i, %157, %138, %101, %.thread196.i, %.preheader218.i
+  %.2.i.ph = phi i32 [ -12, %.preheader218.i ], [ %.10.i, %.thread196.i ], [ -1163346256, %101 ], [ -12, %.lr.ph251.i ], [ -1094995529, %157 ], [ -1094995529, %138 ], [ -541478725, %.lr.ph.i ], [ -541478725, %.lr.ph233.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %77) #9
   br label %.thread

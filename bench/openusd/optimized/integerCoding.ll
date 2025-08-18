@@ -1091,20 +1091,20 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %.lr.ph.preheader.i.i
-  %.074.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
-  %.05373.i.i = phi i32 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
-  %32 = load i8, ptr %.05871.i.i, align 1
+  %.070.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
+  %.04969.i.i = phi i32 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.05068.i.i = phi ptr [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %.05467.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
+  %.05566.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.05467.i.i, i64 1
+  %32 = load i8, ptr %.05467.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i.i
-  %.160.i.i = phi ptr [ %.05970.i.i, %.lr.ph.i.i ], [ %48, %46 ]
-  %.155.i.i = phi ptr [ %.05472.i.i, %.lr.ph.i.i ], [ %.256.i.i, %46 ]
-  %.1.i.i = phi i32 [ %.05373.i.i, %.lr.ph.i.i ], [ %47, %46 ]
+  %.156.i.i = phi ptr [ %.05566.i.i, %.lr.ph.i.i ], [ %48, %46 ]
+  %.151.i.i = phi ptr [ %.05068.i.i, %.lr.ph.i.i ], [ %.252.i.i, %46 ]
+  %.1.i.i = phi i32 [ %.04969.i.i, %.lr.ph.i.i ], [ %47, %46 ]
   %.016.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %49, %46 ]
   %35 = shl nuw nsw i32 %.016.i.i.i, 1
   %36 = lshr i32 %33, %35
@@ -1119,183 +1119,183 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 .unreachabledefault:                              ; preds = %34
   unreachable
 
-default.unreachable:                              ; preds = %64, %83, %52
+default.unreachable:                              ; preds = %61, %80, %52
   unreachable
 
 38:                                               ; preds = %34
-  %.0.copyload.i.i.i.i = load i8, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 1
+  %.0.copyload.i.i.i.i = load i8, ptr %.151.i.i, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 1
   %40 = sext i8 %.0.copyload.i.i.i.i to i32
   br label %46
 
 41:                                               ; preds = %34
-  %.0.copyload.i14.i.i.i = load i16, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
+  %.0.copyload.i14.i.i.i = load i16, ptr %.151.i.i, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 2
   %43 = sext i16 %.0.copyload.i14.i.i.i to i32
   br label %46
 
 44:                                               ; preds = %34
-  %.0.copyload.i15.i.i.i = load i32, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
+  %.0.copyload.i15.i.i.i = load i32, ptr %.151.i.i, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 4
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.252.i.i = phi ptr [ %.151.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
   %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add nsw i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
-  store i32 %47, ptr %.160.i.i, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %.156.i.i, i64 4
+  store i32 %47, ptr %.156.i.i, align 4
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
   br i1 %.not.i.i16.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, label %34, !llvm.loop !23
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %46
-  %50 = add i64 %.074.i.i, -4
+  %50 = add i64 %.070.i.i, -4
   %51 = icmp ugt i64 %50, 3
   br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !24
 
 ._crit_edge.i.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %21
-  %.059.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.058.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %26, %21 ], [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.053.lcssa.i.i = phi i32 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.055.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.050.lcssa.i.i = phi ptr [ %26, %21 ], [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.049.lcssa.i.i = phi i32 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %3, %21 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   switch i64 %.0.lcssa.i.i, label %._crit_edge.unreachabledefault.i.i [
-    i64 3, label %80
+    i64 3, label %77
     i64 1, label %52
-    i64 2, label %61
+    i64 2, label %58
     i64 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i
   ]
 
 52:                                               ; preds = %._crit_edge.i.i
-  %53 = load i8, ptr %.058.lcssa.i.i, align 1
+  %53 = load i8, ptr %.054.lcssa.i.i, align 1
   %54 = and i8 %53, 3
   switch i8 %54, label %default.unreachable [
     i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
-    i8 1, label %55
-    i8 2, label %57
-    i8 3, label %59
+    i8 1, label %.split.us18.i.i.i
+    i8 2, label %.split.us19.i.i.i
+    i8 3, label %.split.us20.i.i.i
   ]
 
-55:                                               ; preds = %52
-  %.0.copyload.i.i14.i.i = load i8, ptr %.054.lcssa.i.i, align 1
-  %56 = sext i8 %.0.copyload.i.i14.i.i to i32
+.split.us18.i.i.i:                                ; preds = %52
+  %.0.copyload.i.us.i.i.i = load i8, ptr %.050.lcssa.i.i, align 1
+  %55 = sext i8 %.0.copyload.i.us.i.i.i to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-57:                                               ; preds = %52
-  %.0.copyload.i14.i13.i.i = load i16, ptr %.054.lcssa.i.i, align 1
-  %58 = sext i16 %.0.copyload.i14.i13.i.i to i32
+.split.us19.i.i.i:                                ; preds = %52
+  %.0.copyload.i14.us.i.i.i = load i16, ptr %.050.lcssa.i.i, align 1
+  %56 = sext i16 %.0.copyload.i14.us.i.i.i to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-59:                                               ; preds = %52
-  %.0.copyload.i15.i11.i.i = load i32, ptr %.054.lcssa.i.i, align 1
+.split.us20.i.i.i:                                ; preds = %52
+  %.0.copyload.i15.us.i.i.i = load i32, ptr %.050.lcssa.i.i, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %59, %57, %55, %52
-  %.0.copyload.i15.sink.i12.i.i = phi i32 [ %.0.copyload.i15.i11.i.i, %59 ], [ %58, %57 ], [ %56, %55 ], [ %.0.copyload.i.i.i, %52 ]
-  %60 = add nsw i32 %.0.copyload.i15.sink.i12.i.i, %.053.lcssa.i.i
-  store i32 %60, ptr %.059.lcssa.i.i, align 4
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %.split.us20.i.i.i, %.split.us19.i.i.i, %.split.us18.i.i.i, %52
+  %.sink26.i.i.i = phi i32 [ %55, %.split.us18.i.i.i ], [ %56, %.split.us19.i.i.i ], [ %.0.copyload.i15.us.i.i.i, %.split.us20.i.i.i ], [ %.0.copyload.i.i.i, %52 ]
+  %57 = add nsw i32 %.sink26.i.i.i, %.049.lcssa.i.i
+  store i32 %57, ptr %.055.lcssa.i.i, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i
 
-61:                                               ; preds = %._crit_edge.i.i
-  %62 = load i8, ptr %.058.lcssa.i.i, align 1
-  %63 = zext i8 %62 to i32
-  br label %64
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = load i8, ptr %.054.lcssa.i.i, align 1
+  %60 = zext i8 %59 to i32
+  br label %61
 
-64:                                               ; preds = %76, %61
-  %.261.i.i = phi ptr [ %.059.lcssa.i.i, %61 ], [ %78, %76 ]
-  %.357.i.i = phi ptr [ %.054.lcssa.i.i, %61 ], [ %.4.i.i, %76 ]
-  %.2.i.i = phi i32 [ %.053.lcssa.i.i, %61 ], [ %77, %76 ]
-  %.016.i15.i.i = phi i32 [ 0, %61 ], [ %79, %76 ]
-  %65 = shl nuw nsw i32 %.016.i15.i.i, 1
-  %66 = lshr i32 %63, %65
-  %67 = and i32 %66, 3
-  switch i32 %67, label %default.unreachable [
-    i32 0, label %76
-    i32 1, label %68
-    i32 2, label %71
-    i32 3, label %74
+61:                                               ; preds = %73, %58
+  %.257.i.i = phi ptr [ %.055.lcssa.i.i, %58 ], [ %75, %73 ]
+  %.353.i.i = phi ptr [ %.050.lcssa.i.i, %58 ], [ %.4.i.i, %73 ]
+  %.2.i.i = phi i32 [ %.049.lcssa.i.i, %58 ], [ %74, %73 ]
+  %.016.i11.i.i = phi i32 [ 0, %58 ], [ %76, %73 ]
+  %62 = shl nuw nsw i32 %.016.i11.i.i, 1
+  %63 = lshr i32 %60, %62
+  %64 = and i32 %63, 3
+  switch i32 %64, label %default.unreachable [
+    i32 0, label %73
+    i32 1, label %65
+    i32 2, label %68
+    i32 3, label %71
   ]
 
-68:                                               ; preds = %64
-  %.0.copyload.i.i20.i.i = load i8, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 1
-  %70 = sext i8 %.0.copyload.i.i20.i.i to i32
-  br label %76
+65:                                               ; preds = %61
+  %.0.copyload.i.i16.i.i = load i8, ptr %.353.i.i, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 1
+  %67 = sext i8 %.0.copyload.i.i16.i.i to i32
+  br label %73
 
-71:                                               ; preds = %64
-  %.0.copyload.i14.i19.i.i = load i16, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
-  %73 = sext i16 %.0.copyload.i14.i19.i.i to i32
-  br label %76
+68:                                               ; preds = %61
+  %.0.copyload.i14.i15.i.i = load i16, ptr %.353.i.i, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 2
+  %70 = sext i16 %.0.copyload.i14.i15.i.i to i32
+  br label %73
 
-74:                                               ; preds = %64
-  %.0.copyload.i15.i16.i.i = load i32, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
-  br label %76
+71:                                               ; preds = %61
+  %.0.copyload.i15.i12.i.i = load i32, ptr %.353.i.i, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 4
+  br label %73
 
-76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
-  %77 = add nsw i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
-  store i32 %77, ptr %.261.i.i, align 4
-  %79 = add nuw nsw i32 %.016.i15.i.i, 1
-  %.not.i18.i.i = icmp eq i32 %79, 2
-  br i1 %.not.i18.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i, label %64, !llvm.loop !25
+73:                                               ; preds = %71, %68, %65, %61
+  %.4.i.i = phi ptr [ %.353.i.i, %61 ], [ %66, %65 ], [ %69, %68 ], [ %72, %71 ]
+  %.0.copyload.i15.sink.i13.i.i = phi i32 [ %.0.copyload.i.i.i, %61 ], [ %67, %65 ], [ %70, %68 ], [ %.0.copyload.i15.i12.i.i, %71 ]
+  %74 = add nsw i32 %.0.copyload.i15.sink.i13.i.i, %.2.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 4
+  store i32 %74, ptr %.257.i.i, align 4
+  %76 = add nuw nsw i32 %.016.i11.i.i, 1
+  %.not.i14.i.i = icmp eq i32 %76, 2
+  br i1 %.not.i14.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i, label %61, !llvm.loop !25
 
-80:                                               ; preds = %._crit_edge.i.i
-  %81 = load i8, ptr %.058.lcssa.i.i, align 1
-  %82 = zext i8 %81 to i32
-  br label %83
+77:                                               ; preds = %._crit_edge.i.i
+  %78 = load i8, ptr %.054.lcssa.i.i, align 1
+  %79 = zext i8 %78 to i32
+  br label %80
 
-83:                                               ; preds = %95, %80
-  %.362.i.i = phi ptr [ %.059.lcssa.i.i, %80 ], [ %97, %95 ]
-  %.5.i.i = phi ptr [ %.054.lcssa.i.i, %80 ], [ %.6.i.i, %95 ]
-  %.3.i.i = phi i32 [ %.053.lcssa.i.i, %80 ], [ %96, %95 ]
-  %.016.i22.i.i = phi i32 [ 0, %80 ], [ %98, %95 ]
-  %84 = shl nuw nsw i32 %.016.i22.i.i, 1
-  %85 = lshr i32 %82, %84
-  %86 = and i32 %85, 3
-  switch i32 %86, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %87
-    i32 2, label %90
-    i32 3, label %93
+80:                                               ; preds = %92, %77
+  %.358.i.i = phi ptr [ %.055.lcssa.i.i, %77 ], [ %94, %92 ]
+  %.5.i.i = phi ptr [ %.050.lcssa.i.i, %77 ], [ %.6.i.i, %92 ]
+  %.3.i.i = phi i32 [ %.049.lcssa.i.i, %77 ], [ %93, %92 ]
+  %.016.i18.i.i = phi i32 [ 0, %77 ], [ %95, %92 ]
+  %81 = shl nuw nsw i32 %.016.i18.i.i, 1
+  %82 = lshr i32 %79, %81
+  %83 = and i32 %82, 3
+  switch i32 %83, label %default.unreachable [
+    i32 0, label %92
+    i32 1, label %84
+    i32 2, label %87
+    i32 3, label %90
   ]
 
-87:                                               ; preds = %83
-  %.0.copyload.i.i27.i.i = load i8, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
-  %89 = sext i8 %.0.copyload.i.i27.i.i to i32
-  br label %95
+84:                                               ; preds = %80
+  %.0.copyload.i.i23.i.i = load i8, ptr %.5.i.i, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
+  %86 = sext i8 %.0.copyload.i.i23.i.i to i32
+  br label %92
 
-90:                                               ; preds = %83
-  %.0.copyload.i14.i26.i.i = load i16, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
-  %92 = sext i16 %.0.copyload.i14.i26.i.i to i32
-  br label %95
+87:                                               ; preds = %80
+  %.0.copyload.i14.i22.i.i = load i16, ptr %.5.i.i, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
+  %89 = sext i16 %.0.copyload.i14.i22.i.i to i32
+  br label %92
 
-93:                                               ; preds = %83
-  %.0.copyload.i15.i23.i.i = load i32, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
-  br label %95
+90:                                               ; preds = %80
+  %.0.copyload.i15.i19.i.i = load i32, ptr %.5.i.i, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
+  br label %92
 
-95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
-  %96 = add nsw i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
-  store i32 %96, ptr %.362.i.i, align 4
-  %98 = add nuw nsw i32 %.016.i22.i.i, 1
-  %.not.i25.i.i = icmp eq i32 %98, 3
-  br i1 %.not.i25.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i, label %83, !llvm.loop !26
+92:                                               ; preds = %90, %87, %84, %80
+  %.6.i.i = phi ptr [ %.5.i.i, %80 ], [ %85, %84 ], [ %88, %87 ], [ %91, %90 ]
+  %.0.copyload.i15.sink.i20.i.i = phi i32 [ %.0.copyload.i.i.i, %80 ], [ %86, %84 ], [ %89, %87 ], [ %.0.copyload.i15.i19.i.i, %90 ]
+  %93 = add nsw i32 %.0.copyload.i15.sink.i20.i.i, %.3.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.358.i.i, i64 4
+  store i32 %93, ptr %.358.i.i, align 4
+  %95 = add nuw nsw i32 %.016.i18.i.i, 1
+  %.not.i21.i.i = icmp eq i32 %95, 3
+  br i1 %.not.i21.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i, label %80, !llvm.loop !26
 
 ._crit_edge.unreachabledefault.i.i:               ; preds = %._crit_edge.i.i
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i: ; preds = %76, %95, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
-  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %95 ], [ %3, %76 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIiEEmPKcmPT_.exit.i: ; preds = %73, %92, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
+  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %92 ], [ %3, %73 ]
   %.not.i17.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i17.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_DecompressIntegersINS_22Usd_IntegerCompressionEiEEmPKcmPT0_mPc.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i18.i
 
@@ -1371,20 +1371,20 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %.lr.ph.preheader.i.i
-  %.074.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
-  %.05373.i.i = phi i32 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
-  %32 = load i8, ptr %.05871.i.i, align 1
+  %.070.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
+  %.04969.i.i = phi i32 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.05068.i.i = phi ptr [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %.05467.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
+  %.05566.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.05467.i.i, i64 1
+  %32 = load i8, ptr %.05467.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i.i
-  %.160.i.i = phi ptr [ %.05970.i.i, %.lr.ph.i.i ], [ %48, %46 ]
-  %.155.i.i = phi ptr [ %.05472.i.i, %.lr.ph.i.i ], [ %.256.i.i, %46 ]
-  %.1.i.i = phi i32 [ %.05373.i.i, %.lr.ph.i.i ], [ %47, %46 ]
+  %.156.i.i = phi ptr [ %.05566.i.i, %.lr.ph.i.i ], [ %48, %46 ]
+  %.151.i.i = phi ptr [ %.05068.i.i, %.lr.ph.i.i ], [ %.252.i.i, %46 ]
+  %.1.i.i = phi i32 [ %.04969.i.i, %.lr.ph.i.i ], [ %47, %46 ]
   %.016.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %49, %46 ]
   %35 = shl nuw nsw i32 %.016.i.i.i, 1
   %36 = lshr i32 %33, %35
@@ -1399,183 +1399,183 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 .unreachabledefault:                              ; preds = %34
   unreachable
 
-default.unreachable:                              ; preds = %64, %83, %52
+default.unreachable:                              ; preds = %61, %80, %52
   unreachable
 
 38:                                               ; preds = %34
-  %.0.copyload.i.i.i.i = load i8, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 1
+  %.0.copyload.i.i.i.i = load i8, ptr %.151.i.i, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 1
   %40 = sext i8 %.0.copyload.i.i.i.i to i32
   br label %46
 
 41:                                               ; preds = %34
-  %.0.copyload.i14.i.i.i = load i16, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
+  %.0.copyload.i14.i.i.i = load i16, ptr %.151.i.i, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 2
   %43 = sext i16 %.0.copyload.i14.i.i.i to i32
   br label %46
 
 44:                                               ; preds = %34
-  %.0.copyload.i15.i.i.i = load i32, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
+  %.0.copyload.i15.i.i.i = load i32, ptr %.151.i.i, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 4
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.252.i.i = phi ptr [ %.151.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
   %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
-  store i32 %47, ptr %.160.i.i, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %.156.i.i, i64 4
+  store i32 %47, ptr %.156.i.i, align 4
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
   br i1 %.not.i.i16.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, label %34, !llvm.loop !27
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %46
-  %50 = add i64 %.074.i.i, -4
+  %50 = add i64 %.070.i.i, -4
   %51 = icmp ugt i64 %50, 3
   br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
 
 ._crit_edge.i.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %21
-  %.059.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.058.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %26, %21 ], [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.053.lcssa.i.i = phi i32 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.055.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.050.lcssa.i.i = phi ptr [ %26, %21 ], [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.049.lcssa.i.i = phi i32 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %3, %21 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   switch i64 %.0.lcssa.i.i, label %._crit_edge.unreachabledefault.i.i [
-    i64 3, label %80
+    i64 3, label %77
     i64 1, label %52
-    i64 2, label %61
+    i64 2, label %58
     i64 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i
   ]
 
 52:                                               ; preds = %._crit_edge.i.i
-  %53 = load i8, ptr %.058.lcssa.i.i, align 1
+  %53 = load i8, ptr %.054.lcssa.i.i, align 1
   %54 = and i8 %53, 3
   switch i8 %54, label %default.unreachable [
     i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
-    i8 1, label %55
-    i8 2, label %57
-    i8 3, label %59
+    i8 1, label %.split.us18.i.i.i
+    i8 2, label %.split.us19.i.i.i
+    i8 3, label %.split.us20.i.i.i
   ]
 
-55:                                               ; preds = %52
-  %.0.copyload.i.i14.i.i = load i8, ptr %.054.lcssa.i.i, align 1
-  %56 = sext i8 %.0.copyload.i.i14.i.i to i32
+.split.us18.i.i.i:                                ; preds = %52
+  %.0.copyload.i.us.i.i.i = load i8, ptr %.050.lcssa.i.i, align 1
+  %55 = sext i8 %.0.copyload.i.us.i.i.i to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-57:                                               ; preds = %52
-  %.0.copyload.i14.i13.i.i = load i16, ptr %.054.lcssa.i.i, align 1
-  %58 = sext i16 %.0.copyload.i14.i13.i.i to i32
+.split.us19.i.i.i:                                ; preds = %52
+  %.0.copyload.i14.us.i.i.i = load i16, ptr %.050.lcssa.i.i, align 1
+  %56 = sext i16 %.0.copyload.i14.us.i.i.i to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-59:                                               ; preds = %52
-  %.0.copyload.i15.i11.i.i = load i32, ptr %.054.lcssa.i.i, align 1
+.split.us20.i.i.i:                                ; preds = %52
+  %.0.copyload.i15.us.i.i.i = load i32, ptr %.050.lcssa.i.i, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %59, %57, %55, %52
-  %.0.copyload.i15.sink.i12.i.i = phi i32 [ %.0.copyload.i15.i11.i.i, %59 ], [ %58, %57 ], [ %56, %55 ], [ %.0.copyload.i.i.i, %52 ]
-  %60 = add i32 %.0.copyload.i15.sink.i12.i.i, %.053.lcssa.i.i
-  store i32 %60, ptr %.059.lcssa.i.i, align 4
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %.split.us20.i.i.i, %.split.us19.i.i.i, %.split.us18.i.i.i, %52
+  %.sink26.i.i.i = phi i32 [ %55, %.split.us18.i.i.i ], [ %56, %.split.us19.i.i.i ], [ %.0.copyload.i15.us.i.i.i, %.split.us20.i.i.i ], [ %.0.copyload.i.i.i, %52 ]
+  %57 = add i32 %.sink26.i.i.i, %.049.lcssa.i.i
+  store i32 %57, ptr %.055.lcssa.i.i, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i
 
-61:                                               ; preds = %._crit_edge.i.i
-  %62 = load i8, ptr %.058.lcssa.i.i, align 1
-  %63 = zext i8 %62 to i32
-  br label %64
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = load i8, ptr %.054.lcssa.i.i, align 1
+  %60 = zext i8 %59 to i32
+  br label %61
 
-64:                                               ; preds = %76, %61
-  %.261.i.i = phi ptr [ %.059.lcssa.i.i, %61 ], [ %78, %76 ]
-  %.357.i.i = phi ptr [ %.054.lcssa.i.i, %61 ], [ %.4.i.i, %76 ]
-  %.2.i.i = phi i32 [ %.053.lcssa.i.i, %61 ], [ %77, %76 ]
-  %.016.i15.i.i = phi i32 [ 0, %61 ], [ %79, %76 ]
-  %65 = shl nuw nsw i32 %.016.i15.i.i, 1
-  %66 = lshr i32 %63, %65
-  %67 = and i32 %66, 3
-  switch i32 %67, label %default.unreachable [
-    i32 0, label %76
-    i32 1, label %68
-    i32 2, label %71
-    i32 3, label %74
+61:                                               ; preds = %73, %58
+  %.257.i.i = phi ptr [ %.055.lcssa.i.i, %58 ], [ %75, %73 ]
+  %.353.i.i = phi ptr [ %.050.lcssa.i.i, %58 ], [ %.4.i.i, %73 ]
+  %.2.i.i = phi i32 [ %.049.lcssa.i.i, %58 ], [ %74, %73 ]
+  %.016.i11.i.i = phi i32 [ 0, %58 ], [ %76, %73 ]
+  %62 = shl nuw nsw i32 %.016.i11.i.i, 1
+  %63 = lshr i32 %60, %62
+  %64 = and i32 %63, 3
+  switch i32 %64, label %default.unreachable [
+    i32 0, label %73
+    i32 1, label %65
+    i32 2, label %68
+    i32 3, label %71
   ]
 
-68:                                               ; preds = %64
-  %.0.copyload.i.i20.i.i = load i8, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 1
-  %70 = sext i8 %.0.copyload.i.i20.i.i to i32
-  br label %76
+65:                                               ; preds = %61
+  %.0.copyload.i.i16.i.i = load i8, ptr %.353.i.i, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 1
+  %67 = sext i8 %.0.copyload.i.i16.i.i to i32
+  br label %73
 
-71:                                               ; preds = %64
-  %.0.copyload.i14.i19.i.i = load i16, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
-  %73 = sext i16 %.0.copyload.i14.i19.i.i to i32
-  br label %76
+68:                                               ; preds = %61
+  %.0.copyload.i14.i15.i.i = load i16, ptr %.353.i.i, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 2
+  %70 = sext i16 %.0.copyload.i14.i15.i.i to i32
+  br label %73
 
-74:                                               ; preds = %64
-  %.0.copyload.i15.i16.i.i = load i32, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
-  br label %76
+71:                                               ; preds = %61
+  %.0.copyload.i15.i12.i.i = load i32, ptr %.353.i.i, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 4
+  br label %73
 
-76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
-  %77 = add i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
-  store i32 %77, ptr %.261.i.i, align 4
-  %79 = add nuw nsw i32 %.016.i15.i.i, 1
-  %.not.i18.i.i = icmp eq i32 %79, 2
-  br i1 %.not.i18.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i, label %64, !llvm.loop !29
+73:                                               ; preds = %71, %68, %65, %61
+  %.4.i.i = phi ptr [ %.353.i.i, %61 ], [ %66, %65 ], [ %69, %68 ], [ %72, %71 ]
+  %.0.copyload.i15.sink.i13.i.i = phi i32 [ %.0.copyload.i.i.i, %61 ], [ %67, %65 ], [ %70, %68 ], [ %.0.copyload.i15.i12.i.i, %71 ]
+  %74 = add i32 %.0.copyload.i15.sink.i13.i.i, %.2.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 4
+  store i32 %74, ptr %.257.i.i, align 4
+  %76 = add nuw nsw i32 %.016.i11.i.i, 1
+  %.not.i14.i.i = icmp eq i32 %76, 2
+  br i1 %.not.i14.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i, label %61, !llvm.loop !29
 
-80:                                               ; preds = %._crit_edge.i.i
-  %81 = load i8, ptr %.058.lcssa.i.i, align 1
-  %82 = zext i8 %81 to i32
-  br label %83
+77:                                               ; preds = %._crit_edge.i.i
+  %78 = load i8, ptr %.054.lcssa.i.i, align 1
+  %79 = zext i8 %78 to i32
+  br label %80
 
-83:                                               ; preds = %95, %80
-  %.362.i.i = phi ptr [ %.059.lcssa.i.i, %80 ], [ %97, %95 ]
-  %.5.i.i = phi ptr [ %.054.lcssa.i.i, %80 ], [ %.6.i.i, %95 ]
-  %.3.i.i = phi i32 [ %.053.lcssa.i.i, %80 ], [ %96, %95 ]
-  %.016.i22.i.i = phi i32 [ 0, %80 ], [ %98, %95 ]
-  %84 = shl nuw nsw i32 %.016.i22.i.i, 1
-  %85 = lshr i32 %82, %84
-  %86 = and i32 %85, 3
-  switch i32 %86, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %87
-    i32 2, label %90
-    i32 3, label %93
+80:                                               ; preds = %92, %77
+  %.358.i.i = phi ptr [ %.055.lcssa.i.i, %77 ], [ %94, %92 ]
+  %.5.i.i = phi ptr [ %.050.lcssa.i.i, %77 ], [ %.6.i.i, %92 ]
+  %.3.i.i = phi i32 [ %.049.lcssa.i.i, %77 ], [ %93, %92 ]
+  %.016.i18.i.i = phi i32 [ 0, %77 ], [ %95, %92 ]
+  %81 = shl nuw nsw i32 %.016.i18.i.i, 1
+  %82 = lshr i32 %79, %81
+  %83 = and i32 %82, 3
+  switch i32 %83, label %default.unreachable [
+    i32 0, label %92
+    i32 1, label %84
+    i32 2, label %87
+    i32 3, label %90
   ]
 
-87:                                               ; preds = %83
-  %.0.copyload.i.i27.i.i = load i8, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
-  %89 = sext i8 %.0.copyload.i.i27.i.i to i32
-  br label %95
+84:                                               ; preds = %80
+  %.0.copyload.i.i23.i.i = load i8, ptr %.5.i.i, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
+  %86 = sext i8 %.0.copyload.i.i23.i.i to i32
+  br label %92
 
-90:                                               ; preds = %83
-  %.0.copyload.i14.i26.i.i = load i16, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
-  %92 = sext i16 %.0.copyload.i14.i26.i.i to i32
-  br label %95
+87:                                               ; preds = %80
+  %.0.copyload.i14.i22.i.i = load i16, ptr %.5.i.i, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
+  %89 = sext i16 %.0.copyload.i14.i22.i.i to i32
+  br label %92
 
-93:                                               ; preds = %83
-  %.0.copyload.i15.i23.i.i = load i32, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
-  br label %95
+90:                                               ; preds = %80
+  %.0.copyload.i15.i19.i.i = load i32, ptr %.5.i.i, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
+  br label %92
 
-95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
-  %96 = add i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
-  store i32 %96, ptr %.362.i.i, align 4
-  %98 = add nuw nsw i32 %.016.i22.i.i, 1
-  %.not.i25.i.i = icmp eq i32 %98, 3
-  br i1 %.not.i25.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i, label %83, !llvm.loop !30
+92:                                               ; preds = %90, %87, %84, %80
+  %.6.i.i = phi ptr [ %.5.i.i, %80 ], [ %85, %84 ], [ %88, %87 ], [ %91, %90 ]
+  %.0.copyload.i15.sink.i20.i.i = phi i32 [ %.0.copyload.i.i.i, %80 ], [ %86, %84 ], [ %89, %87 ], [ %.0.copyload.i15.i19.i.i, %90 ]
+  %93 = add i32 %.0.copyload.i15.sink.i20.i.i, %.3.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.358.i.i, i64 4
+  store i32 %93, ptr %.358.i.i, align 4
+  %95 = add nuw nsw i32 %.016.i18.i.i, 1
+  %.not.i21.i.i = icmp eq i32 %95, 3
+  br i1 %.not.i21.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i, label %80, !llvm.loop !30
 
 ._crit_edge.unreachabledefault.i.i:               ; preds = %._crit_edge.i.i
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i: ; preds = %76, %95, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
-  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %95 ], [ %3, %76 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIjEEmPKcmPT_.exit.i: ; preds = %73, %92, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
+  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %92 ], [ %3, %73 ]
   %.not.i17.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i17.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_DecompressIntegersINS_22Usd_IntegerCompressionEjEEmPKcmPT0_mPc.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i18.i
 
@@ -2602,20 +2602,20 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %.lr.ph.preheader.i.i
-  %.074.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
-  %.05373.i.i = phi i64 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
-  %32 = load i8, ptr %.05871.i.i, align 1
+  %.070.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
+  %.04969.i.i = phi i64 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.05068.i.i = phi ptr [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %.05467.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
+  %.05566.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.05467.i.i, i64 1
+  %32 = load i8, ptr %.05467.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i.i
-  %.160.i.i = phi ptr [ %.05970.i.i, %.lr.ph.i.i ], [ %48, %46 ]
-  %.155.i.i = phi ptr [ %.05472.i.i, %.lr.ph.i.i ], [ %.256.i.i, %46 ]
-  %.1.i.i = phi i64 [ %.05373.i.i, %.lr.ph.i.i ], [ %47, %46 ]
+  %.156.i.i = phi ptr [ %.05566.i.i, %.lr.ph.i.i ], [ %48, %46 ]
+  %.151.i.i = phi ptr [ %.05068.i.i, %.lr.ph.i.i ], [ %.252.i.i, %46 ]
+  %.1.i.i = phi i64 [ %.04969.i.i, %.lr.ph.i.i ], [ %47, %46 ]
   %.016.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %49, %46 ]
   %35 = shl nuw nsw i32 %.016.i.i.i, 1
   %36 = lshr i32 %33, %35
@@ -2630,183 +2630,183 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 .unreachabledefault:                              ; preds = %34
   unreachable
 
-default.unreachable:                              ; preds = %64, %83, %52
+default.unreachable:                              ; preds = %61, %80, %52
   unreachable
 
 38:                                               ; preds = %34
-  %.0.copyload.i.i.i.i = load i16, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
+  %.0.copyload.i.i.i.i = load i16, ptr %.151.i.i, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 2
   %40 = sext i16 %.0.copyload.i.i.i.i to i64
   br label %46
 
 41:                                               ; preds = %34
-  %.0.copyload.i14.i.i.i = load i32, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
+  %.0.copyload.i14.i.i.i = load i32, ptr %.151.i.i, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 4
   %43 = sext i32 %.0.copyload.i14.i.i.i to i64
   br label %46
 
 44:                                               ; preds = %34
-  %.0.copyload.i15.i.i.i = load i64, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 8
+  %.0.copyload.i15.i.i.i = load i64, ptr %.151.i.i, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 8
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.252.i.i = phi ptr [ %.151.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
   %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add nsw i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
-  store i64 %47, ptr %.160.i.i, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %.156.i.i, i64 8
+  store i64 %47, ptr %.156.i.i, align 8
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
   br i1 %.not.i.i16.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, label %34, !llvm.loop !48
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %46
-  %50 = add i64 %.074.i.i, -4
+  %50 = add i64 %.070.i.i, -4
   %51 = icmp ugt i64 %50, 3
   br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %21
-  %.059.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.058.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %26, %21 ], [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.053.lcssa.i.i = phi i64 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.055.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.050.lcssa.i.i = phi ptr [ %26, %21 ], [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.049.lcssa.i.i = phi i64 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %3, %21 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   switch i64 %.0.lcssa.i.i, label %._crit_edge.unreachabledefault.i.i [
-    i64 3, label %80
+    i64 3, label %77
     i64 1, label %52
-    i64 2, label %61
+    i64 2, label %58
     i64 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i
   ]
 
 52:                                               ; preds = %._crit_edge.i.i
-  %53 = load i8, ptr %.058.lcssa.i.i, align 1
+  %53 = load i8, ptr %.054.lcssa.i.i, align 1
   %54 = and i8 %53, 3
   switch i8 %54, label %default.unreachable [
     i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
-    i8 1, label %55
-    i8 2, label %57
-    i8 3, label %59
+    i8 1, label %.split.us18.i.i.i
+    i8 2, label %.split.us19.i.i.i
+    i8 3, label %.split.us20.i.i.i
   ]
 
-55:                                               ; preds = %52
-  %.0.copyload.i.i14.i.i = load i16, ptr %.054.lcssa.i.i, align 1
-  %56 = sext i16 %.0.copyload.i.i14.i.i to i64
+.split.us18.i.i.i:                                ; preds = %52
+  %.0.copyload.i.us.i.i.i = load i16, ptr %.050.lcssa.i.i, align 1
+  %55 = sext i16 %.0.copyload.i.us.i.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-57:                                               ; preds = %52
-  %.0.copyload.i14.i13.i.i = load i32, ptr %.054.lcssa.i.i, align 1
-  %58 = sext i32 %.0.copyload.i14.i13.i.i to i64
+.split.us19.i.i.i:                                ; preds = %52
+  %.0.copyload.i14.us.i.i.i = load i32, ptr %.050.lcssa.i.i, align 1
+  %56 = sext i32 %.0.copyload.i14.us.i.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-59:                                               ; preds = %52
-  %.0.copyload.i15.i11.i.i = load i64, ptr %.054.lcssa.i.i, align 1
+.split.us20.i.i.i:                                ; preds = %52
+  %.0.copyload.i15.us.i.i.i = load i64, ptr %.050.lcssa.i.i, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %59, %57, %55, %52
-  %.0.copyload.i15.sink.i12.i.i = phi i64 [ %.0.copyload.i15.i11.i.i, %59 ], [ %58, %57 ], [ %56, %55 ], [ %.0.copyload.i.i.i, %52 ]
-  %60 = add nsw i64 %.0.copyload.i15.sink.i12.i.i, %.053.lcssa.i.i
-  store i64 %60, ptr %.059.lcssa.i.i, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %.split.us20.i.i.i, %.split.us19.i.i.i, %.split.us18.i.i.i, %52
+  %.sink26.i.i.i = phi i64 [ %55, %.split.us18.i.i.i ], [ %56, %.split.us19.i.i.i ], [ %.0.copyload.i15.us.i.i.i, %.split.us20.i.i.i ], [ %.0.copyload.i.i.i, %52 ]
+  %57 = add nsw i64 %.sink26.i.i.i, %.049.lcssa.i.i
+  store i64 %57, ptr %.055.lcssa.i.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i
 
-61:                                               ; preds = %._crit_edge.i.i
-  %62 = load i8, ptr %.058.lcssa.i.i, align 1
-  %63 = zext i8 %62 to i32
-  br label %64
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = load i8, ptr %.054.lcssa.i.i, align 1
+  %60 = zext i8 %59 to i32
+  br label %61
 
-64:                                               ; preds = %76, %61
-  %.261.i.i = phi ptr [ %.059.lcssa.i.i, %61 ], [ %78, %76 ]
-  %.357.i.i = phi ptr [ %.054.lcssa.i.i, %61 ], [ %.4.i.i, %76 ]
-  %.2.i.i = phi i64 [ %.053.lcssa.i.i, %61 ], [ %77, %76 ]
-  %.016.i15.i.i = phi i32 [ 0, %61 ], [ %79, %76 ]
-  %65 = shl nuw nsw i32 %.016.i15.i.i, 1
-  %66 = lshr i32 %63, %65
-  %67 = and i32 %66, 3
-  switch i32 %67, label %default.unreachable [
-    i32 0, label %76
-    i32 1, label %68
-    i32 2, label %71
-    i32 3, label %74
+61:                                               ; preds = %73, %58
+  %.257.i.i = phi ptr [ %.055.lcssa.i.i, %58 ], [ %75, %73 ]
+  %.353.i.i = phi ptr [ %.050.lcssa.i.i, %58 ], [ %.4.i.i, %73 ]
+  %.2.i.i = phi i64 [ %.049.lcssa.i.i, %58 ], [ %74, %73 ]
+  %.016.i11.i.i = phi i32 [ 0, %58 ], [ %76, %73 ]
+  %62 = shl nuw nsw i32 %.016.i11.i.i, 1
+  %63 = lshr i32 %60, %62
+  %64 = and i32 %63, 3
+  switch i32 %64, label %default.unreachable [
+    i32 0, label %73
+    i32 1, label %65
+    i32 2, label %68
+    i32 3, label %71
   ]
 
-68:                                               ; preds = %64
-  %.0.copyload.i.i20.i.i = load i16, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
-  %70 = sext i16 %.0.copyload.i.i20.i.i to i64
-  br label %76
+65:                                               ; preds = %61
+  %.0.copyload.i.i16.i.i = load i16, ptr %.353.i.i, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 2
+  %67 = sext i16 %.0.copyload.i.i16.i.i to i64
+  br label %73
 
-71:                                               ; preds = %64
-  %.0.copyload.i14.i19.i.i = load i32, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
-  %73 = sext i32 %.0.copyload.i14.i19.i.i to i64
-  br label %76
+68:                                               ; preds = %61
+  %.0.copyload.i14.i15.i.i = load i32, ptr %.353.i.i, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 4
+  %70 = sext i32 %.0.copyload.i14.i15.i.i to i64
+  br label %73
 
-74:                                               ; preds = %64
-  %.0.copyload.i15.i16.i.i = load i64, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 8
-  br label %76
+71:                                               ; preds = %61
+  %.0.copyload.i15.i12.i.i = load i64, ptr %.353.i.i, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 8
+  br label %73
 
-76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
-  %77 = add nsw i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
-  store i64 %77, ptr %.261.i.i, align 8
-  %79 = add nuw nsw i32 %.016.i15.i.i, 1
-  %.not.i18.i.i = icmp eq i32 %79, 2
-  br i1 %.not.i18.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i, label %64, !llvm.loop !50
+73:                                               ; preds = %71, %68, %65, %61
+  %.4.i.i = phi ptr [ %.353.i.i, %61 ], [ %66, %65 ], [ %69, %68 ], [ %72, %71 ]
+  %.0.copyload.i15.sink.i13.i.i = phi i64 [ %.0.copyload.i.i.i, %61 ], [ %67, %65 ], [ %70, %68 ], [ %.0.copyload.i15.i12.i.i, %71 ]
+  %74 = add nsw i64 %.0.copyload.i15.sink.i13.i.i, %.2.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 8
+  store i64 %74, ptr %.257.i.i, align 8
+  %76 = add nuw nsw i32 %.016.i11.i.i, 1
+  %.not.i14.i.i = icmp eq i32 %76, 2
+  br i1 %.not.i14.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i, label %61, !llvm.loop !50
 
-80:                                               ; preds = %._crit_edge.i.i
-  %81 = load i8, ptr %.058.lcssa.i.i, align 1
-  %82 = zext i8 %81 to i32
-  br label %83
+77:                                               ; preds = %._crit_edge.i.i
+  %78 = load i8, ptr %.054.lcssa.i.i, align 1
+  %79 = zext i8 %78 to i32
+  br label %80
 
-83:                                               ; preds = %95, %80
-  %.362.i.i = phi ptr [ %.059.lcssa.i.i, %80 ], [ %97, %95 ]
-  %.5.i.i = phi ptr [ %.054.lcssa.i.i, %80 ], [ %.6.i.i, %95 ]
-  %.3.i.i = phi i64 [ %.053.lcssa.i.i, %80 ], [ %96, %95 ]
-  %.016.i22.i.i = phi i32 [ 0, %80 ], [ %98, %95 ]
-  %84 = shl nuw nsw i32 %.016.i22.i.i, 1
-  %85 = lshr i32 %82, %84
-  %86 = and i32 %85, 3
-  switch i32 %86, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %87
-    i32 2, label %90
-    i32 3, label %93
+80:                                               ; preds = %92, %77
+  %.358.i.i = phi ptr [ %.055.lcssa.i.i, %77 ], [ %94, %92 ]
+  %.5.i.i = phi ptr [ %.050.lcssa.i.i, %77 ], [ %.6.i.i, %92 ]
+  %.3.i.i = phi i64 [ %.049.lcssa.i.i, %77 ], [ %93, %92 ]
+  %.016.i18.i.i = phi i32 [ 0, %77 ], [ %95, %92 ]
+  %81 = shl nuw nsw i32 %.016.i18.i.i, 1
+  %82 = lshr i32 %79, %81
+  %83 = and i32 %82, 3
+  switch i32 %83, label %default.unreachable [
+    i32 0, label %92
+    i32 1, label %84
+    i32 2, label %87
+    i32 3, label %90
   ]
 
-87:                                               ; preds = %83
-  %.0.copyload.i.i27.i.i = load i16, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
-  %89 = sext i16 %.0.copyload.i.i27.i.i to i64
-  br label %95
+84:                                               ; preds = %80
+  %.0.copyload.i.i23.i.i = load i16, ptr %.5.i.i, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
+  %86 = sext i16 %.0.copyload.i.i23.i.i to i64
+  br label %92
 
-90:                                               ; preds = %83
-  %.0.copyload.i14.i26.i.i = load i32, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
-  %92 = sext i32 %.0.copyload.i14.i26.i.i to i64
-  br label %95
+87:                                               ; preds = %80
+  %.0.copyload.i14.i22.i.i = load i32, ptr %.5.i.i, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
+  %89 = sext i32 %.0.copyload.i14.i22.i.i to i64
+  br label %92
 
-93:                                               ; preds = %83
-  %.0.copyload.i15.i23.i.i = load i64, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
-  br label %95
+90:                                               ; preds = %80
+  %.0.copyload.i15.i19.i.i = load i64, ptr %.5.i.i, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
+  br label %92
 
-95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
-  %96 = add nsw i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
-  store i64 %96, ptr %.362.i.i, align 8
-  %98 = add nuw nsw i32 %.016.i22.i.i, 1
-  %.not.i25.i.i = icmp eq i32 %98, 3
-  br i1 %.not.i25.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i, label %83, !llvm.loop !51
+92:                                               ; preds = %90, %87, %84, %80
+  %.6.i.i = phi ptr [ %.5.i.i, %80 ], [ %85, %84 ], [ %88, %87 ], [ %91, %90 ]
+  %.0.copyload.i15.sink.i20.i.i = phi i64 [ %.0.copyload.i.i.i, %80 ], [ %86, %84 ], [ %89, %87 ], [ %.0.copyload.i15.i19.i.i, %90 ]
+  %93 = add nsw i64 %.0.copyload.i15.sink.i20.i.i, %.3.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.358.i.i, i64 8
+  store i64 %93, ptr %.358.i.i, align 8
+  %95 = add nuw nsw i32 %.016.i18.i.i, 1
+  %.not.i21.i.i = icmp eq i32 %95, 3
+  br i1 %.not.i21.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i, label %80, !llvm.loop !51
 
 ._crit_edge.unreachabledefault.i.i:               ; preds = %._crit_edge.i.i
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i: ; preds = %76, %95, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
-  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %95 ], [ %3, %76 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersIlEEmPKcmPT_.exit.i: ; preds = %73, %92, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
+  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %92 ], [ %3, %73 ]
   %.not.i17.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i17.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_DecompressIntegersINS_24Usd_IntegerCompression64ElEEmPKcmPT0_mPc.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i18.i
 
@@ -2882,20 +2882,20 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %.lr.ph.preheader.i.i
-  %.074.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
-  %.05373.i.i = phi i64 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
-  %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
-  %32 = load i8, ptr %.05871.i.i, align 1
+  %.070.i.i = phi i64 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %.lr.ph.preheader.i.i ]
+  %.04969.i.i = phi i64 [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.05068.i.i = phi ptr [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %.05467.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
+  %.05566.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.05467.i.i, i64 1
+  %32 = load i8, ptr %.05467.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
 
 34:                                               ; preds = %46, %.lr.ph.i.i
-  %.160.i.i = phi ptr [ %.05970.i.i, %.lr.ph.i.i ], [ %48, %46 ]
-  %.155.i.i = phi ptr [ %.05472.i.i, %.lr.ph.i.i ], [ %.256.i.i, %46 ]
-  %.1.i.i = phi i64 [ %.05373.i.i, %.lr.ph.i.i ], [ %47, %46 ]
+  %.156.i.i = phi ptr [ %.05566.i.i, %.lr.ph.i.i ], [ %48, %46 ]
+  %.151.i.i = phi ptr [ %.05068.i.i, %.lr.ph.i.i ], [ %.252.i.i, %46 ]
+  %.1.i.i = phi i64 [ %.04969.i.i, %.lr.ph.i.i ], [ %47, %46 ]
   %.016.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %49, %46 ]
   %35 = shl nuw nsw i32 %.016.i.i.i, 1
   %36 = lshr i32 %33, %35
@@ -2910,183 +2910,183 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 .unreachabledefault:                              ; preds = %34
   unreachable
 
-default.unreachable:                              ; preds = %64, %83, %52
+default.unreachable:                              ; preds = %61, %80, %52
   unreachable
 
 38:                                               ; preds = %34
-  %.0.copyload.i.i.i.i = load i16, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
+  %.0.copyload.i.i.i.i = load i16, ptr %.151.i.i, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 2
   %40 = sext i16 %.0.copyload.i.i.i.i to i64
   br label %46
 
 41:                                               ; preds = %34
-  %.0.copyload.i14.i.i.i = load i32, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
+  %.0.copyload.i14.i.i.i = load i32, ptr %.151.i.i, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 4
   %43 = sext i32 %.0.copyload.i14.i.i.i to i64
   br label %46
 
 44:                                               ; preds = %34
-  %.0.copyload.i15.i.i.i = load i64, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 8
+  %.0.copyload.i15.i.i.i = load i64, ptr %.151.i.i, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 8
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.252.i.i = phi ptr [ %.151.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
   %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
-  store i64 %47, ptr %.160.i.i, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %.156.i.i, i64 8
+  store i64 %47, ptr %.156.i.i, align 8
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
   br i1 %.not.i.i16.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, label %34, !llvm.loop !52
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %46
-  %50 = add i64 %.074.i.i, -4
+  %50 = add i64 %.070.i.i, -4
   %51 = icmp ugt i64 %50, 3
   br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !53
 
 ._crit_edge.i.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %21
-  %.059.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.058.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %26, %21 ], [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
-  %.053.lcssa.i.i = phi i64 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.055.lcssa.i.i = phi ptr [ %2, %21 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %22, %21 ], [ %scevgep.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.050.lcssa.i.i = phi ptr [ %26, %21 ], [ %.252.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
+  %.049.lcssa.i.i = phi i64 [ 0, %21 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %3, %21 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ]
   switch i64 %.0.lcssa.i.i, label %._crit_edge.unreachabledefault.i.i [
-    i64 3, label %80
+    i64 3, label %77
     i64 1, label %52
-    i64 2, label %61
+    i64 2, label %58
     i64 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i
   ]
 
 52:                                               ; preds = %._crit_edge.i.i
-  %53 = load i8, ptr %.058.lcssa.i.i, align 1
+  %53 = load i8, ptr %.054.lcssa.i.i, align 1
   %54 = and i8 %53, 3
   switch i8 %54, label %default.unreachable [
     i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
-    i8 1, label %55
-    i8 2, label %57
-    i8 3, label %59
+    i8 1, label %.split.us18.i.i.i
+    i8 2, label %.split.us19.i.i.i
+    i8 3, label %.split.us20.i.i.i
   ]
 
-55:                                               ; preds = %52
-  %.0.copyload.i.i14.i.i = load i16, ptr %.054.lcssa.i.i, align 1
-  %56 = sext i16 %.0.copyload.i.i14.i.i to i64
+.split.us18.i.i.i:                                ; preds = %52
+  %.0.copyload.i.us.i.i.i = load i16, ptr %.050.lcssa.i.i, align 1
+  %55 = sext i16 %.0.copyload.i.us.i.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-57:                                               ; preds = %52
-  %.0.copyload.i14.i13.i.i = load i32, ptr %.054.lcssa.i.i, align 1
-  %58 = sext i32 %.0.copyload.i14.i13.i.i to i64
+.split.us19.i.i.i:                                ; preds = %52
+  %.0.copyload.i14.us.i.i.i = load i32, ptr %.050.lcssa.i.i, align 1
+  %56 = sext i32 %.0.copyload.i14.us.i.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-59:                                               ; preds = %52
-  %.0.copyload.i15.i11.i.i = load i64, ptr %.054.lcssa.i.i, align 1
+.split.us20.i.i.i:                                ; preds = %52
+  %.0.copyload.i15.us.i.i.i = load i64, ptr %.050.lcssa.i.i, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %59, %57, %55, %52
-  %.0.copyload.i15.sink.i12.i.i = phi i64 [ %.0.copyload.i15.i11.i.i, %59 ], [ %58, %57 ], [ %56, %55 ], [ %.0.copyload.i.i.i, %52 ]
-  %60 = add i64 %.0.copyload.i15.sink.i12.i.i, %.053.lcssa.i.i
-  store i64 %60, ptr %.059.lcssa.i.i, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i: ; preds = %.split.us20.i.i.i, %.split.us19.i.i.i, %.split.us18.i.i.i, %52
+  %.sink26.i.i.i = phi i64 [ %55, %.split.us18.i.i.i ], [ %56, %.split.us19.i.i.i ], [ %.0.copyload.i15.us.i.i.i, %.split.us20.i.i.i ], [ %.0.copyload.i.i.i, %52 ]
+  %57 = add i64 %.sink26.i.i.i, %.049.lcssa.i.i
+  store i64 %57, ptr %.055.lcssa.i.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i
 
-61:                                               ; preds = %._crit_edge.i.i
-  %62 = load i8, ptr %.058.lcssa.i.i, align 1
-  %63 = zext i8 %62 to i32
-  br label %64
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = load i8, ptr %.054.lcssa.i.i, align 1
+  %60 = zext i8 %59 to i32
+  br label %61
 
-64:                                               ; preds = %76, %61
-  %.261.i.i = phi ptr [ %.059.lcssa.i.i, %61 ], [ %78, %76 ]
-  %.357.i.i = phi ptr [ %.054.lcssa.i.i, %61 ], [ %.4.i.i, %76 ]
-  %.2.i.i = phi i64 [ %.053.lcssa.i.i, %61 ], [ %77, %76 ]
-  %.016.i15.i.i = phi i32 [ 0, %61 ], [ %79, %76 ]
-  %65 = shl nuw nsw i32 %.016.i15.i.i, 1
-  %66 = lshr i32 %63, %65
-  %67 = and i32 %66, 3
-  switch i32 %67, label %default.unreachable [
-    i32 0, label %76
-    i32 1, label %68
-    i32 2, label %71
-    i32 3, label %74
+61:                                               ; preds = %73, %58
+  %.257.i.i = phi ptr [ %.055.lcssa.i.i, %58 ], [ %75, %73 ]
+  %.353.i.i = phi ptr [ %.050.lcssa.i.i, %58 ], [ %.4.i.i, %73 ]
+  %.2.i.i = phi i64 [ %.049.lcssa.i.i, %58 ], [ %74, %73 ]
+  %.016.i11.i.i = phi i32 [ 0, %58 ], [ %76, %73 ]
+  %62 = shl nuw nsw i32 %.016.i11.i.i, 1
+  %63 = lshr i32 %60, %62
+  %64 = and i32 %63, 3
+  switch i32 %64, label %default.unreachable [
+    i32 0, label %73
+    i32 1, label %65
+    i32 2, label %68
+    i32 3, label %71
   ]
 
-68:                                               ; preds = %64
-  %.0.copyload.i.i20.i.i = load i16, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
-  %70 = sext i16 %.0.copyload.i.i20.i.i to i64
-  br label %76
+65:                                               ; preds = %61
+  %.0.copyload.i.i16.i.i = load i16, ptr %.353.i.i, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 2
+  %67 = sext i16 %.0.copyload.i.i16.i.i to i64
+  br label %73
 
-71:                                               ; preds = %64
-  %.0.copyload.i14.i19.i.i = load i32, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
-  %73 = sext i32 %.0.copyload.i14.i19.i.i to i64
-  br label %76
+68:                                               ; preds = %61
+  %.0.copyload.i14.i15.i.i = load i32, ptr %.353.i.i, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 4
+  %70 = sext i32 %.0.copyload.i14.i15.i.i to i64
+  br label %73
 
-74:                                               ; preds = %64
-  %.0.copyload.i15.i16.i.i = load i64, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 8
-  br label %76
+71:                                               ; preds = %61
+  %.0.copyload.i15.i12.i.i = load i64, ptr %.353.i.i, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 8
+  br label %73
 
-76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
-  %77 = add i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
-  store i64 %77, ptr %.261.i.i, align 8
-  %79 = add nuw nsw i32 %.016.i15.i.i, 1
-  %.not.i18.i.i = icmp eq i32 %79, 2
-  br i1 %.not.i18.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i, label %64, !llvm.loop !54
+73:                                               ; preds = %71, %68, %65, %61
+  %.4.i.i = phi ptr [ %.353.i.i, %61 ], [ %66, %65 ], [ %69, %68 ], [ %72, %71 ]
+  %.0.copyload.i15.sink.i13.i.i = phi i64 [ %.0.copyload.i.i.i, %61 ], [ %67, %65 ], [ %70, %68 ], [ %.0.copyload.i15.i12.i.i, %71 ]
+  %74 = add i64 %.0.copyload.i15.sink.i13.i.i, %.2.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 8
+  store i64 %74, ptr %.257.i.i, align 8
+  %76 = add nuw nsw i32 %.016.i11.i.i, 1
+  %.not.i14.i.i = icmp eq i32 %76, 2
+  br i1 %.not.i14.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i, label %61, !llvm.loop !54
 
-80:                                               ; preds = %._crit_edge.i.i
-  %81 = load i8, ptr %.058.lcssa.i.i, align 1
-  %82 = zext i8 %81 to i32
-  br label %83
+77:                                               ; preds = %._crit_edge.i.i
+  %78 = load i8, ptr %.054.lcssa.i.i, align 1
+  %79 = zext i8 %78 to i32
+  br label %80
 
-83:                                               ; preds = %95, %80
-  %.362.i.i = phi ptr [ %.059.lcssa.i.i, %80 ], [ %97, %95 ]
-  %.5.i.i = phi ptr [ %.054.lcssa.i.i, %80 ], [ %.6.i.i, %95 ]
-  %.3.i.i = phi i64 [ %.053.lcssa.i.i, %80 ], [ %96, %95 ]
-  %.016.i22.i.i = phi i32 [ 0, %80 ], [ %98, %95 ]
-  %84 = shl nuw nsw i32 %.016.i22.i.i, 1
-  %85 = lshr i32 %82, %84
-  %86 = and i32 %85, 3
-  switch i32 %86, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %87
-    i32 2, label %90
-    i32 3, label %93
+80:                                               ; preds = %92, %77
+  %.358.i.i = phi ptr [ %.055.lcssa.i.i, %77 ], [ %94, %92 ]
+  %.5.i.i = phi ptr [ %.050.lcssa.i.i, %77 ], [ %.6.i.i, %92 ]
+  %.3.i.i = phi i64 [ %.049.lcssa.i.i, %77 ], [ %93, %92 ]
+  %.016.i18.i.i = phi i32 [ 0, %77 ], [ %95, %92 ]
+  %81 = shl nuw nsw i32 %.016.i18.i.i, 1
+  %82 = lshr i32 %79, %81
+  %83 = and i32 %82, 3
+  switch i32 %83, label %default.unreachable [
+    i32 0, label %92
+    i32 1, label %84
+    i32 2, label %87
+    i32 3, label %90
   ]
 
-87:                                               ; preds = %83
-  %.0.copyload.i.i27.i.i = load i16, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
-  %89 = sext i16 %.0.copyload.i.i27.i.i to i64
-  br label %95
+84:                                               ; preds = %80
+  %.0.copyload.i.i23.i.i = load i16, ptr %.5.i.i, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
+  %86 = sext i16 %.0.copyload.i.i23.i.i to i64
+  br label %92
 
-90:                                               ; preds = %83
-  %.0.copyload.i14.i26.i.i = load i32, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
-  %92 = sext i32 %.0.copyload.i14.i26.i.i to i64
-  br label %95
+87:                                               ; preds = %80
+  %.0.copyload.i14.i22.i.i = load i32, ptr %.5.i.i, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
+  %89 = sext i32 %.0.copyload.i14.i22.i.i to i64
+  br label %92
 
-93:                                               ; preds = %83
-  %.0.copyload.i15.i23.i.i = load i64, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
-  br label %95
+90:                                               ; preds = %80
+  %.0.copyload.i15.i19.i.i = load i64, ptr %.5.i.i, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
+  br label %92
 
-95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
-  %96 = add i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
-  store i64 %96, ptr %.362.i.i, align 8
-  %98 = add nuw nsw i32 %.016.i22.i.i, 1
-  %.not.i25.i.i = icmp eq i32 %98, 3
-  br i1 %.not.i25.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i, label %83, !llvm.loop !55
+92:                                               ; preds = %90, %87, %84, %80
+  %.6.i.i = phi ptr [ %.5.i.i, %80 ], [ %85, %84 ], [ %88, %87 ], [ %91, %90 ]
+  %.0.copyload.i15.sink.i20.i.i = phi i64 [ %.0.copyload.i.i.i, %80 ], [ %86, %84 ], [ %89, %87 ], [ %.0.copyload.i15.i19.i.i, %90 ]
+  %93 = add i64 %.0.copyload.i15.sink.i20.i.i, %.3.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.358.i.i, i64 8
+  store i64 %93, ptr %.358.i.i, align 8
+  %95 = add nuw nsw i32 %.016.i18.i.i, 1
+  %.not.i21.i.i = icmp eq i32 %95, 3
+  br i1 %.not.i21.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i, label %80, !llvm.loop !55
 
 ._crit_edge.unreachabledefault.i.i:               ; preds = %._crit_edge.i.i
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i: ; preds = %76, %95, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
-  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %95 ], [ %3, %76 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_DecodeIntegersImEEmPKcmPT_.exit.i: ; preds = %73, %92, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i, %._crit_edge.i.i, %19
+  %.0.i = phi i64 [ 0, %19 ], [ %3, %._crit_edge.i.i ], [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %3, %92 ], [ %3, %73 ]
   %.not.i17.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i17.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_DecompressIntegersINS_24Usd_IntegerCompression64EmEEmPKcmPT0_mPc.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i18.i
 

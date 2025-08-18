@@ -1316,9 +1316,9 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   %4 = alloca [4 x i32], align 16
   %5 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %.preheader29, label %.preheader
+  br i1 %.not.i.i, label %.preheader30, label %.preheader
 
-.preheader29:                                     ; preds = %.thread.i.i, %0
+.preheader30:                                     ; preds = %.thread.i.i, %0
   br label %13
 
 .preheader:                                       ; preds = %0, %10
@@ -1333,16 +1333,16 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
 
 .thread.i.i:                                      ; preds = %.preheader
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
-  br label %.preheader29
+  br label %.preheader30
 
 10:                                               ; preds = %.preheader
   %11 = add i64 %9, %.013.i.i
   %12 = icmp ult i64 %11, 24
   br i1 %12, label %.preheader, label %ruby_fill_random_bytes.exit.thread, !llvm.loop !27
 
-13:                                               ; preds = %.preheader29, %14
-  %.014.i.i = phi i64 [ %18, %14 ], [ 24, %.preheader29 ]
-  %.012.i.i = phi ptr [ %17, %14 ], [ @hash_salt, %.preheader29 ]
+13:                                               ; preds = %.preheader30, %14
+  %.014.i.i = phi i64 [ %18, %14 ], [ 24, %.preheader30 ]
+  %.012.i.i = phi ptr [ %17, %14 ], [ @hash_salt, %.preheader30 ]
   %.not.i8.i = icmp eq i64 %.014.i.i, 0
   br i1 %.not.i8.i, label %ruby_fill_random_bytes.exit.thread, label %14
 
@@ -1352,9 +1352,9 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   %.not16.i9.i = icmp eq i32 %16, 0
   %17 = getelementptr i8, ptr %.012.i.i, i64 %15
   %18 = sub i64 %.014.i.i, %15
-  br i1 %.not16.i9.i, label %13, label %.critedge, !llvm.loop !28
+  br i1 %.not16.i9.i, label %13, label %ruby_fill_random_bytes.exit, !llvm.loop !28
 
-.critedge:                                        ; preds = %14
+ruby_fill_random_bytes.exit:                      ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -1398,206 +1398,206 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i32 19650218, ptr %3, align 8, !tbaa !22
-  br label %49
+  br label %110
 
-49:                                               ; preds = %49, %.critedge
-  %50 = phi i32 [ 19650218, %.critedge ], [ %55, %49 ]
-  %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ %indvars.iv.next.i.i, %49 ]
-  %51 = lshr i32 %50, 30
-  %52 = xor i32 %51, %50
-  %53 = mul i32 %52, 1812433253
-  %54 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %55 = add i32 %53, %54
-  %56 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store i32 %55, ptr %56, align 4, !tbaa !22
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
-  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %49, !llvm.loop !67
-
-init_genrand.exit.i:                              ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 2504
-  store i32 1, ptr %57, align 8, !tbaa !20
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store ptr %58, ptr %58, align 8, !tbaa !21
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 2492
-  br label %60
-
-60:                                               ; preds = %82, %init_genrand.exit.i
-  %.051.i = phi i32 [ 624, %init_genrand.exit.i ], [ %83, %82 ]
-  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %82 ]
-  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %82 ]
-  %61 = sext i32 %.04349.i to i64
-  %62 = getelementptr [624 x i32], ptr %3, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !22
-  %64 = add i32 %.04349.i, -1
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr [624 x i32], ptr %3, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !22
-  %68 = lshr i32 %67, 30
-  %69 = xor i32 %68, %67
-  %70 = mul i32 %69, 1664525
-  %71 = xor i32 %70, %63
-  %72 = sext i32 %.04250.i to i64
-  %73 = getelementptr i32, ptr %4, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !22
-  %75 = add i32 %74, %.04250.i
-  %76 = add i32 %75, %71
-  store i32 %76, ptr %62, align 4, !tbaa !22
-  %77 = add i32 %.04349.i, 1
-  %78 = add i32 %.04250.i, 1
-  %79 = icmp sgt i32 %77, 623
-  br i1 %79, label %80, label %82
-
-80:                                               ; preds = %60
-  %81 = load i32, ptr %59, align 4, !tbaa !22
-  store i32 %81, ptr %3, align 8, !tbaa !22
-  br label %82
-
-82:                                               ; preds = %80, %60
-  %.144.i = phi i32 [ 1, %80 ], [ %77, %60 ]
-  %.not48.i = icmp slt i32 %78, 4
-  %spec.store.select.i = select i1 %.not48.i, i32 %78, i32 0
-  %83 = add nsw i32 %.051.i, -1
-  %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %.preheader.i, label %60, !llvm.loop !68
-
-.preheader.i:                                     ; preds = %82, %100
-  %.153.i = phi i32 [ %101, %100 ], [ 623, %82 ]
-  %.252.i = phi i32 [ %.3.i, %100 ], [ %.144.i, %82 ]
-  %84 = sext i32 %.252.i to i64
-  %85 = getelementptr [624 x i32], ptr %3, i64 0, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !22
-  %87 = add i32 %.252.i, -1
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr [624 x i32], ptr %3, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !22
-  %91 = lshr i32 %90, 30
-  %92 = xor i32 %91, %90
-  %93 = mul i32 %92, 1566083941
-  %94 = xor i32 %93, %86
-  %95 = sub i32 %94, %.252.i
-  store i32 %95, ptr %85, align 4, !tbaa !22
-  %96 = add i32 %.252.i, 1
-  %97 = icmp sgt i32 %96, 623
-  br i1 %97, label %98, label %100
-
-98:                                               ; preds = %.preheader.i
-  %99 = load i32, ptr %59, align 4, !tbaa !22
-  store i32 %99, ptr %3, align 8, !tbaa !22
-  br label %100
-
-100:                                              ; preds = %98, %.preheader.i
-  %.3.i = phi i32 [ 1, %98 ], [ %96, %.preheader.i ]
-  %101 = add nsw i32 %.153.i, -1
-  %.not47.i = icmp eq i32 %101, 0
-  br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !69
-
-init_by_array.exit:                               ; preds = %100
-  store i32 -2147483648, ptr %3, align 8, !tbaa !22
-  call void @__explicit_bzero_chk(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 16) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.promoted = load ptr, ptr %58, align 8
-  br label %102
-
-102:                                              ; preds = %genrand_int32.exit, %init_by_array.exit
-  %103 = phi ptr [ %.promoted, %init_by_array.exit ], [ %151, %genrand_int32.exit ]
+49:                                               ; preds = %genrand_int32.exit, %init_by_array.exit
+  %.pre.i9 = phi ptr [ %.phi.trans.insert.i.promoted, %init_by_array.exit ], [ %97, %genrand_int32.exit ]
   %indvars.iv.i = phi i64 [ 0, %init_by_array.exit ], [ %indvars.iv.next.i, %genrand_int32.exit ]
-  %104 = load i32, ptr %57, align 8, !tbaa !20
-  %105 = add i32 %104, -1
-  store i32 %105, ptr %57, align 8, !tbaa !20
-  %106 = icmp slt i32 %105, 1
-  br i1 %106, label %107, label %genrand_int32.exit
+  %50 = load i32, ptr %118, align 8, !tbaa !20
+  %51 = add i32 %50, -1
+  store i32 %51, ptr %118, align 8, !tbaa !20
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %53, label %genrand_int32.exit
 
-107:                                              ; preds = %102
-  store i32 624, ptr %57, align 8, !tbaa !20
+53:                                               ; preds = %49
+  store i32 624, ptr %118, align 8, !tbaa !20
   %.pre.i.i = load i32, ptr %3, align 8, !tbaa !22
-  br label %108
+  br label %54
 
-108:                                              ; preds = %108, %107
-  %109 = phi i32 [ %.pre.i.i, %107 ], [ %115, %108 ]
-  %110 = phi i32 [ 227, %107 ], [ %123, %108 ]
-  %.02230.i.i = phi ptr [ %3, %107 ], [ %114, %108 ]
-  %111 = getelementptr i8, ptr %.02230.i.i, i64 1588
-  %112 = load i32, ptr %111, align 4, !tbaa !22
-  %113 = and i32 %109, -2147483648
-  %114 = getelementptr i8, ptr %.02230.i.i, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !22
-  %116 = and i32 %115, 2147483646
-  %117 = or disjoint i32 %116, %113
-  %118 = lshr exact i32 %117, 1
-  %119 = and i32 %115, 1
-  %.not29.i.i = icmp eq i32 %119, 0
-  %120 = select i1 %.not29.i.i, i32 0, i32 -1727483681
-  %121 = xor i32 %120, %112
-  %122 = xor i32 %121, %118
-  store i32 %122, ptr %.02230.i.i, align 4, !tbaa !22
-  %123 = add nsw i32 %110, -1
-  %.not.i.i2 = icmp eq i32 %123, 0
-  br i1 %.not.i.i2, label %.preheader.i.i, label %108, !llvm.loop !23
+54:                                               ; preds = %54, %53
+  %55 = phi i32 [ %.pre.i.i, %53 ], [ %61, %54 ]
+  %56 = phi i32 [ 227, %53 ], [ %69, %54 ]
+  %.02230.i.i = phi ptr [ %3, %53 ], [ %60, %54 ]
+  %57 = getelementptr i8, ptr %.02230.i.i, i64 1588
+  %58 = load i32, ptr %57, align 4, !tbaa !22
+  %59 = and i32 %55, -2147483648
+  %60 = getelementptr i8, ptr %.02230.i.i, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !22
+  %62 = and i32 %61, 2147483646
+  %63 = or disjoint i32 %62, %59
+  %64 = lshr exact i32 %63, 1
+  %65 = and i32 %61, 1
+  %.not29.i.i = icmp eq i32 %65, 0
+  %66 = select i1 %.not29.i.i, i32 0, i32 -1727483681
+  %67 = xor i32 %66, %58
+  %68 = xor i32 %67, %64
+  store i32 %68, ptr %.02230.i.i, align 4, !tbaa !22
+  %69 = add nsw i32 %56, -1
+  %.not.i.i2 = icmp eq i32 %69, 0
+  br i1 %.not.i.i2, label %.preheader.i.i, label %54, !llvm.loop !23
 
-.preheader.i.i:                                   ; preds = %108, %.preheader.i.i
-  %124 = phi i32 [ %130, %.preheader.i.i ], [ %115, %108 ]
-  %125 = phi i32 [ %138, %.preheader.i.i ], [ 396, %108 ]
-  %.12331.i.i = phi ptr [ %129, %.preheader.i.i ], [ %114, %108 ]
-  %126 = getelementptr i8, ptr %.12331.i.i, i64 -908
-  %127 = load i32, ptr %126, align 4, !tbaa !22
-  %128 = and i32 %124, -2147483648
-  %129 = getelementptr i8, ptr %.12331.i.i, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !22
-  %131 = and i32 %130, 2147483646
-  %132 = or disjoint i32 %131, %128
-  %133 = lshr exact i32 %132, 1
-  %134 = and i32 %130, 1
-  %.not28.i.i = icmp eq i32 %134, 0
-  %135 = select i1 %.not28.i.i, i32 0, i32 -1727483681
-  %136 = xor i32 %135, %127
-  %137 = xor i32 %136, %133
-  store i32 %137, ptr %.12331.i.i, align 4, !tbaa !22
-  %138 = add nsw i32 %125, -1
-  %.not26.i.i = icmp eq i32 %138, 0
+.preheader.i.i:                                   ; preds = %54, %.preheader.i.i
+  %70 = phi i32 [ %76, %.preheader.i.i ], [ %61, %54 ]
+  %71 = phi i32 [ %84, %.preheader.i.i ], [ 396, %54 ]
+  %.12331.i.i = phi ptr [ %75, %.preheader.i.i ], [ %60, %54 ]
+  %72 = getelementptr i8, ptr %.12331.i.i, i64 -908
+  %73 = load i32, ptr %72, align 4, !tbaa !22
+  %74 = and i32 %70, -2147483648
+  %75 = getelementptr i8, ptr %.12331.i.i, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !22
+  %77 = and i32 %76, 2147483646
+  %78 = or disjoint i32 %77, %74
+  %79 = lshr exact i32 %78, 1
+  %80 = and i32 %76, 1
+  %.not28.i.i = icmp eq i32 %80, 0
+  %81 = select i1 %.not28.i.i, i32 0, i32 -1727483681
+  %82 = xor i32 %81, %73
+  %83 = xor i32 %82, %79
+  store i32 %83, ptr %.12331.i.i, align 4, !tbaa !22
+  %84 = add nsw i32 %71, -1
+  %.not26.i.i = icmp eq i32 %84, 0
   br i1 %.not26.i.i, label %next_state.exit.i, label %.preheader.i.i, !llvm.loop !25
 
 next_state.exit.i:                                ; preds = %.preheader.i.i
-  %139 = getelementptr i8, ptr %.12331.i.i, i64 -904
-  %140 = load i32, ptr %139, align 4, !tbaa !22
-  %141 = and i32 %130, -2147483648
-  %142 = load i32, ptr %3, align 8, !tbaa !22
-  %143 = and i32 %142, 2147483646
-  %144 = or disjoint i32 %143, %141
-  %145 = lshr exact i32 %144, 1
-  %146 = and i32 %142, 1
-  %.not27.i.i = icmp eq i32 %146, 0
-  %147 = select i1 %.not27.i.i, i32 0, i32 -1727483681
-  %148 = xor i32 %147, %140
-  %149 = xor i32 %148, %145
-  store i32 %149, ptr %129, align 4, !tbaa !22
+  %85 = getelementptr i8, ptr %.12331.i.i, i64 -904
+  %86 = load i32, ptr %85, align 4, !tbaa !22
+  %87 = and i32 %76, -2147483648
+  %88 = load i32, ptr %3, align 8, !tbaa !22
+  %89 = and i32 %88, 2147483646
+  %90 = or disjoint i32 %89, %87
+  %91 = lshr exact i32 %90, 1
+  %92 = and i32 %88, 1
+  %.not27.i.i = icmp eq i32 %92, 0
+  %93 = select i1 %.not27.i.i, i32 0, i32 -1727483681
+  %94 = xor i32 %93, %86
+  %95 = xor i32 %94, %91
+  store i32 %95, ptr %75, align 4, !tbaa !22
   br label %genrand_int32.exit
 
-genrand_int32.exit:                               ; preds = %102, %next_state.exit.i
-  %150 = phi ptr [ %3, %next_state.exit.i ], [ %103, %102 ]
-  %151 = getelementptr i8, ptr %150, i64 4
-  %152 = load i32, ptr %150, align 4, !tbaa !22
-  %153 = lshr i32 %152, 11
-  %154 = xor i32 %153, %152
-  %155 = shl i32 %154, 7
-  %156 = and i32 %155, -1658038656
-  %157 = xor i32 %156, %154
-  %158 = shl i32 %157, 15
-  %159 = and i32 %158, -272236544
-  %160 = xor i32 %159, %157
-  %161 = lshr i32 %160, 18
-  %162 = xor i32 %161, %160
-  %163 = getelementptr [6 x i32], ptr @hash_salt, i64 0, i64 %indvars.iv.i
-  store i32 %162, ptr %163, align 4, !tbaa !53
+genrand_int32.exit:                               ; preds = %49, %next_state.exit.i
+  %96 = phi ptr [ %3, %next_state.exit.i ], [ %.pre.i9, %49 ]
+  %97 = getelementptr i8, ptr %96, i64 4
+  %98 = load i32, ptr %96, align 4, !tbaa !22
+  %99 = lshr i32 %98, 11
+  %100 = xor i32 %99, %98
+  %101 = shl i32 %100, 7
+  %102 = and i32 %101, -1658038656
+  %103 = xor i32 %102, %100
+  %104 = shl i32 %103, 15
+  %105 = and i32 %104, -272236544
+  %106 = xor i32 %105, %103
+  %107 = lshr i32 %106, 18
+  %108 = xor i32 %107, %106
+  %109 = getelementptr [6 x i32], ptr @hash_salt, i64 0, i64 %indvars.iv.i
+  store i32 %108, ptr %109, align 4, !tbaa !53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %init_hash_salt.exit, label %102, !llvm.loop !70
+  br i1 %exitcond.not.i, label %init_hash_salt.exit, label %49, !llvm.loop !67
 
 init_hash_salt.exit:                              ; preds = %genrand_int32.exit
-  store ptr %151, ptr %58, align 8, !tbaa !21
+  store ptr %97, ptr %119, align 8, !tbaa !21
   call void @__explicit_bzero_chk(ptr noundef nonnull %3, i64 noundef 2512, i64 noundef 2512) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ruby_fill_random_bytes.exit.thread
+
+110:                                              ; preds = %110, %ruby_fill_random_bytes.exit
+  %111 = phi i32 [ 19650218, %ruby_fill_random_bytes.exit ], [ %116, %110 ]
+  %indvars.iv.i.i = phi i64 [ 1, %ruby_fill_random_bytes.exit ], [ %indvars.iv.next.i.i, %110 ]
+  %112 = lshr i32 %111, 30
+  %113 = xor i32 %112, %111
+  %114 = mul i32 %113, 1812433253
+  %115 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %116 = add i32 %114, %115
+  %117 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
+  store i32 %116, ptr %117, align 4, !tbaa !22
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
+  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %110, !llvm.loop !68
+
+init_genrand.exit.i:                              ; preds = %110
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 2504
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 2496
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 2492
+  store i32 1, ptr %118, align 8, !tbaa !20
+  store ptr %119, ptr %119, align 8, !tbaa !21
+  br label %121
+
+121:                                              ; preds = %143, %init_genrand.exit.i
+  %.051.i = phi i32 [ 624, %init_genrand.exit.i ], [ %144, %143 ]
+  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %143 ]
+  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %143 ]
+  %122 = sext i32 %.04349.i to i64
+  %123 = getelementptr [624 x i32], ptr %3, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !22
+  %125 = add i32 %.04349.i, -1
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr [624 x i32], ptr %3, i64 0, i64 %126
+  %128 = load i32, ptr %127, align 4, !tbaa !22
+  %129 = lshr i32 %128, 30
+  %130 = xor i32 %129, %128
+  %131 = mul i32 %130, 1664525
+  %132 = xor i32 %131, %124
+  %133 = sext i32 %.04250.i to i64
+  %134 = getelementptr i32, ptr %4, i64 %133
+  %135 = load i32, ptr %134, align 4, !tbaa !22
+  %136 = add i32 %135, %.04250.i
+  %137 = add i32 %136, %132
+  store i32 %137, ptr %123, align 4, !tbaa !22
+  %138 = add i32 %.04349.i, 1
+  %139 = add i32 %.04250.i, 1
+  %140 = icmp sgt i32 %138, 623
+  br i1 %140, label %141, label %143
+
+141:                                              ; preds = %121
+  %142 = load i32, ptr %120, align 4, !tbaa !22
+  store i32 %142, ptr %3, align 8, !tbaa !22
+  br label %143
+
+143:                                              ; preds = %141, %121
+  %.144.i = phi i32 [ 1, %141 ], [ %138, %121 ]
+  %.not48.i = icmp slt i32 %139, 4
+  %spec.store.select.i = select i1 %.not48.i, i32 %139, i32 0
+  %144 = add nsw i32 %.051.i, -1
+  %.not.i = icmp eq i32 %144, 0
+  br i1 %.not.i, label %.preheader.i, label %121, !llvm.loop !69
+
+.preheader.i:                                     ; preds = %143, %161
+  %.153.i = phi i32 [ %162, %161 ], [ 623, %143 ]
+  %.252.i = phi i32 [ %.3.i, %161 ], [ %.144.i, %143 ]
+  %145 = sext i32 %.252.i to i64
+  %146 = getelementptr [624 x i32], ptr %3, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !22
+  %148 = add i32 %.252.i, -1
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr [624 x i32], ptr %3, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !22
+  %152 = lshr i32 %151, 30
+  %153 = xor i32 %152, %151
+  %154 = mul i32 %153, 1566083941
+  %155 = xor i32 %154, %147
+  %156 = sub i32 %155, %.252.i
+  store i32 %156, ptr %146, align 4, !tbaa !22
+  %157 = add i32 %.252.i, 1
+  %158 = icmp sgt i32 %157, 623
+  br i1 %158, label %159, label %161
+
+159:                                              ; preds = %.preheader.i
+  %160 = load i32, ptr %120, align 4, !tbaa !22
+  store i32 %160, ptr %3, align 8, !tbaa !22
+  br label %161
+
+161:                                              ; preds = %159, %.preheader.i
+  %.3.i = phi i32 [ 1, %159 ], [ %157, %.preheader.i ]
+  %162 = add nsw i32 %.153.i, -1
+  %.not47.i = icmp eq i32 %162, 0
+  br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !70
+
+init_by_array.exit:                               ; preds = %161
+  store i32 -2147483648, ptr %3, align 8, !tbaa !22
+  call void @__explicit_bzero_chk(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 16) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %.phi.trans.insert.i.promoted = load ptr, ptr %119, align 8
+  br label %49
 
 ruby_fill_random_bytes.exit.thread:               ; preds = %10, %13, %init_hash_salt.exit
   ret void
@@ -2583,66 +2583,65 @@ rand_mt_start.exit:                               ; preds = %default_rand.exit.r
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_seed(i64 %0) #0 {
-.critedge:
-  %1 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
-  %.not.i.i.i = icmp eq i32 %2, 0
+  %2 = alloca [5 x i32], align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %3 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
+  %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %.preheader, label %.preheader.i
 
-.preheader:                                       ; preds = %.thread.i.i.i, %.critedge
-  br label %10
+.preheader:                                       ; preds = %.thread.i.i.i, %1
+  br label %11
 
-.preheader.i:                                     ; preds = %.critedge, %7
-  %.013.i.i.i = phi i64 [ %8, %7 ], [ 0, %.critedge ]
-  %3 = call ptr @rb_errno_ptr() #23
-  store i32 0, ptr %3, align 4, !tbaa !22
-  %4 = getelementptr i8, ptr %1, i64 %.013.i.i.i
-  %5 = sub nuw nsw i64 16, %.013.i.i.i
-  %6 = call i64 @getrandom(ptr noundef %4, i64 noundef %5, i32 noundef 1) #23
-  %.not17.i.i.i = icmp eq i64 %6, -1
-  br i1 %.not17.i.i.i, label %.thread.i.i.i, label %7
+.preheader.i:                                     ; preds = %1, %8
+  %.013.i.i.i = phi i64 [ %9, %8 ], [ 0, %1 ]
+  %4 = call ptr @rb_errno_ptr() #23
+  store i32 0, ptr %4, align 4, !tbaa !22
+  %5 = getelementptr i8, ptr %2, i64 %.013.i.i.i
+  %6 = sub nuw nsw i64 16, %.013.i.i.i
+  %7 = call i64 @getrandom(ptr noundef %5, i64 noundef %6, i32 noundef 1) #23
+  %.not17.i.i.i = icmp eq i64 %7, -1
+  br i1 %.not17.i.i.i, label %.thread.i.i.i, label %8
 
 .thread.i.i.i:                                    ; preds = %.preheader.i
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
   br label %.preheader
 
-7:                                                ; preds = %.preheader.i
-  %8 = add i64 %6, %.013.i.i.i
-  %9 = icmp ult i64 %8, 16
-  br i1 %9, label %.preheader.i, label %fill_random_seed.exit, !llvm.loop !27
+8:                                                ; preds = %.preheader.i
+  %9 = add i64 %7, %.013.i.i.i
+  %10 = icmp ult i64 %9, 16
+  br i1 %10, label %.preheader.i, label %fill_random_seed.exit, !llvm.loop !27
 
-10:                                               ; preds = %.preheader, %11
-  %.014.i.i.i = phi i64 [ %15, %11 ], [ 16, %.preheader ]
-  %.012.i.i.i = phi ptr [ %14, %11 ], [ %1, %.preheader ]
+11:                                               ; preds = %.preheader, %12
+  %.014.i.i.i = phi i64 [ %16, %12 ], [ 16, %.preheader ]
+  %.012.i.i.i = phi ptr [ %15, %12 ], [ %2, %.preheader ]
   %.not.i8.i.i = icmp eq i64 %.014.i.i.i, 0
-  br i1 %.not.i8.i.i, label %fill_random_seed.exit, label %11
+  br i1 %.not.i8.i.i, label %fill_random_seed.exit, label %12
 
-11:                                               ; preds = %10
-  %12 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
-  %13 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %12) #23
-  %.not16.i9.i.i = icmp eq i32 %13, 0
-  %14 = getelementptr i8, ptr %.012.i.i.i, i64 %12
-  %15 = sub i64 %.014.i.i.i, %12
-  br i1 %.not16.i9.i.i, label %10, label %fill_random_seed.exit, !llvm.loop !28
+12:                                               ; preds = %11
+  %13 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
+  %14 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %13) #23
+  %.not16.i9.i.i = icmp eq i32 %14, 0
+  %15 = getelementptr i8, ptr %.012.i.i.i, i64 %13
+  %16 = sub i64 %.014.i.i.i, %13
+  br i1 %.not16.i9.i.i, label %11, label %fill_random_seed.exit, !llvm.loop !28
 
-fill_random_seed.exit:                            ; preds = %7, %10, %11
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !22
-  %18 = icmp ult i32 %17, 2
-  br i1 %18, label %19, label %make_seed_value.exit
+fill_random_seed.exit:                            ; preds = %8, %11, %12
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !22
+  %19 = icmp ult i32 %18, 2
+  br i1 %19, label %20, label %make_seed_value.exit
 
-19:                                               ; preds = %fill_random_seed.exit
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %20, align 16, !tbaa !22
+20:                                               ; preds = %fill_random_seed.exit
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 1, ptr %21, align 16, !tbaa !22
   br label %make_seed_value.exit
 
-make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %19
-  %.0.i = phi i64 [ 5, %19 ], [ 4, %fill_random_seed.exit ]
-  %21 = call i64 @rb_integer_unpack(ptr noundef nonnull %1, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  call void @__explicit_bzero_chk(ptr noundef nonnull %1, i64 noundef 16, i64 noundef 20) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i64 %21
+make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %20
+  %.0.i = phi i64 [ 5, %20 ], [ 4, %fill_random_seed.exit ]
+  %22 = call i64 @rb_integer_unpack(ptr noundef nonnull %2, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  call void @__explicit_bzero_chk(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 20) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  ret i64 %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2951,7 +2950,7 @@ define internal void @rand_mt_init(ptr noundef initializes((8, 12)) %0, ptr noun
   store i32 %11, ptr %12, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
-  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %5, !llvm.loop !67
+  br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %5, !llvm.loop !68
 
 init_genrand.exit.i:                              ; preds = %5
   %13 = trunc i64 %2 to i32
@@ -3000,7 +2999,7 @@ init_genrand.exit.i:                              ; preds = %5
   %spec.store.select.i = select i1 %.not48.i, i32 %36, i32 0
   %41 = add nsw i32 %.051.i, -1
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %.preheader.i, label %18, !llvm.loop !68
+  br i1 %.not.i, label %.preheader.i, label %18, !llvm.loop !69
 
 .preheader.i:                                     ; preds = %40, %58
   %.153.i = phi i32 [ %59, %58 ], [ 623, %40 ]
@@ -3031,7 +3030,7 @@ init_genrand.exit.i:                              ; preds = %5
   %.3.i = phi i32 [ 1, %56 ], [ %54, %.preheader.i ]
   %59 = add nsw i32 %.153.i, -1
   %.not47.i = icmp eq i32 %59, 0
-  br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !69
+  br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !70
 
 init_by_array.exit:                               ; preds = %58
   store i32 -2147483648, ptr %4, align 8, !tbaa !22
@@ -3056,7 +3055,7 @@ define internal void @rand_mt_init_int32(ptr noundef initializes((8, 12)) %0, i3
   store i32 %10, ptr %11, align 4, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %init_genrand.exit, label %4, !llvm.loop !67
+  br i1 %exitcond.not.i, label %init_genrand.exit, label %4, !llvm.loop !68
 
 init_genrand.exit:                                ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2512

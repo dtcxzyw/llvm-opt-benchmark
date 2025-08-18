@@ -31772,9 +31772,9 @@ common.resume:                                    ; preds = %491, %.body, %460, 
 
 319:                                              ; preds = %.noexc134.i, %312
   %320 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i, %.noexc134.i ], [ %315, %312 ]
-  br i1 %313, label %.critedge.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he69e724858cd0876E.exit.i.i.i.i.i.i.i"
+  br i1 %313, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he69e724858cd0876E.exit.i.i.i.i.i.i.i"
 
-.critedge.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %319
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %319
   %321 = load ptr, ptr %183, align 8, !alias.scope !7070, !noalias !6901, !nonnull !11, !noundef !11
   %322 = getelementptr inbounds i8, ptr %321, i64 %320
   store i8 %.sroa.629.0191.i.i.i.i.i.i.i, ptr %322, align 1, !noalias !7075
@@ -31789,8 +31789,8 @@ common.resume:                                    ; preds = %491, %.body, %460, 
   %.pre.i.i.i.i.i.i.i.i.i = load i64, ptr %181, align 8, !alias.scope !7070, !noalias !6901
   br label %319
 
-"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he69e724858cd0876E.exit.i.i.i.i.i.i.i": ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i.i, %319
-  %.val4.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %323, %.critedge.i.i.i.i.i.i.i.i.i.i.i ], [ %320, %319 ]
+"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he69e724858cd0876E.exit.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %319
+  %.val4.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %323, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %320, %319 ]
   store i64 %.val4.i.i.i.i.i.i.i.i.i.i.i, ptr %181, align 8, !alias.scope !7070, !noalias !7084
   %325 = load i64, ptr %53, align 8, !alias.scope !7085, !noalias !6901, !noundef !11
   %326 = add i64 %325, 1

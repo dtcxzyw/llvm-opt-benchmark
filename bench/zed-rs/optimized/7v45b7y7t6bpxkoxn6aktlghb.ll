@@ -43396,8 +43396,8 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$multi_buffer..BufferState$GT
   invoke void @"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17hda017d6ea61909f4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41) #34
           to label %common.resume unwind label %42
 
-common.resume:                                    ; preds = %26, %37, %40
-  %common.resume.op = phi { ptr, i32 } [ %38, %40 ], [ %38, %37 ], [ %.pn2, %26 ]
+common.resume:                                    ; preds = %37, %40, %26
+  %common.resume.op = phi { ptr, i32 } [ %.pn2, %26 ], [ %38, %40 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %40

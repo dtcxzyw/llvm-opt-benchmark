@@ -32,7 +32,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %.pre = load i8, ptr %11, align 1, !range !3
   %16 = trunc nuw i8 %.pre to i1
-  br i1 %16, label %.critedge101, label %18
+  br i1 %16, label %.critedge104, label %18
 
 ._crit_edge:                                      ; preds = %55, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 433
@@ -47,18 +47,18 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.not57 = icmp eq i64 %20, %19
   br i1 %.not57, label %43, label %45
 
-.critedge101:                                     ; preds = %55, %.lr.ph
+.critedge104:                                     ; preds = %55, %.lr.ph
   %21 = load i8, ptr %12, align 8, !range !3, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %.critedge101
+23:                                               ; preds = %.critedge104
   call void @"_ZN113_$LT$tokio_util..codec..length_delimited..LengthDelimitedCodec$u20$as$u20$tokio_util..codec..decoder..Decoder$GT$6decode17h49a9adfb275dfd6bE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   %24 = load i64, ptr %5, align 8, !range !5, !noundef !4
   %25 = trunc nuw i64 %24 to i1
   br i1 %25, label %38, label %40
 
-26:                                               ; preds = %.critedge101
+26:                                               ; preds = %.critedge104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !9
@@ -164,7 +164,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   store i8 1, ptr %11, align 1
   %56 = load i8, ptr %8, align 2, !range !3, !noundef !4
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %._crit_edge, label %.critedge101
+  br i1 %57, label %._crit_edge, label %.critedge104
 
 58:                                               ; preds = %49, %.thread66, %59, %62, %42, %54, %._crit_edge
   ret void

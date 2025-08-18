@@ -542,7 +542,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %24 = icmp eq i32 %10, %9
   br i1 %24, label %.split.us.preheader, label %.split
 
-.split.us.preheader:                              ; preds = %41, %17
+.split.us.preheader:                              ; preds = %17, %41
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %29

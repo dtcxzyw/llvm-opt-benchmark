@@ -3040,16 +3040,16 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7Solaris22getSupportedS
   %4 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #15
   %5 = extractvalue { i64, i64 } %4, 0
   switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit6 [
-    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-    i32 29, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
+    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+    i32 29, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %1, %1
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge: ; preds = %1, %1
   %6 = or i64 %5, 7
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit6
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit6:           ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %1
-  %.sroa.0.0 = phi i64 [ %5, %1 ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ]
+_ZN5clang13SanitizerMaskoRERKS0_.exit6:           ; preds = %1, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+  %.sroa.0.0 = phi i64 [ %5, %1 ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge ]
   %7 = extractvalue { i64, i64 } %4, 1
   %8 = or i64 %.sroa.0.0, 144132780261900288
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %8, 0

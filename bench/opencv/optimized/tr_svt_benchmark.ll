@@ -2034,11 +2034,11 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi2EEEEE8allocateERS3_m.exit.i.i.i.i..noexc
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 %509
   store ptr %516, ptr %168, align 8, !tbaa !125
   %.not11.i.i.i.i.i = icmp eq ptr %514, %513
-  br i1 %.not11.i.i.i.i.i, label %.loopexit457, label %.lr.ph.i.i.i.i.i
+  br i1 %.not11.i.i.i.i.i, label %.loopexit457, label %.preheader.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.noexc344, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %522, %.lr.ph.i.i.i.i.i ], [ %515, %.noexc344 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %521, %.lr.ph.i.i.i.i.i ], [ %514, %.noexc344 ]
+.preheader.i.i.i.i.i:                             ; preds = %.noexc344, %.preheader.i.i.i.i.i
+  %.013.i.i.i.i.i = phi ptr [ %522, %.preheader.i.i.i.i.i ], [ %515, %.noexc344 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %521, %.preheader.i.i.i.i.i ], [ %514, %.noexc344 ]
   %517 = load i32, ptr %.sroa.08.012.i.i.i.i.i, align 4, !tbaa !31
   store i32 %517, ptr %.013.i.i.i.i.i, align 4, !tbaa !31
   %518 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 4
@@ -2048,10 +2048,10 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi2EEEEE8allocateERS3_m.exit.i.i.i.i..noexc
   %521 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
   %522 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %521, %513
-  br i1 %.not.i.i.i.i.i, label %.loopexit457, label %.lr.ph.i.i.i.i.i, !llvm.loop !126
+  br i1 %.not.i.i.i.i.i, label %.loopexit457, label %.preheader.i.i.i.i.i, !llvm.loop !126
 
-.loopexit457:                                     ; preds = %.lr.ph.i.i.i.i.i, %.noexc344
-  %.0.lcssa.i.i.i.i.i342 = phi ptr [ %515, %.noexc344 ], [ %522, %.lr.ph.i.i.i.i.i ]
+.loopexit457:                                     ; preds = %.preheader.i.i.i.i.i, %.noexc344
+  %.0.lcssa.i.i.i.i.i342 = phi ptr [ %515, %.noexc344 ], [ %522, %.preheader.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i342, ptr %167, align 8, !tbaa !27
   invoke void @_Z7er_drawRSt6vectorIN2cv3MatESaIS1_EERS_IS_INS0_4text6ERStatESaIS6_EESaIS8_EES_INS0_3VecIiLi2EEESaISD_EERS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(96) %37)
           to label %523 unwind label %600

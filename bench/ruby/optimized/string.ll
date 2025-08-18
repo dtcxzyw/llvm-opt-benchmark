@@ -37936,16 +37936,16 @@ define internal fastcc i32 @trnext(ptr noundef nonnull captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.pr = load i32, ptr %0, align 8, !tbaa !1038
   %4 = icmp eq i32 %.pr, 0
-  br i1 %4, label %8, label %.preheader
+  br i1 %4, label %8, label %.preheader.lr.ph
 
-.preheader:                                       ; preds = %2
+.preheader.lr.ph:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %6, align 4, !tbaa !1039
   br label %60
 
-8:                                                ; preds = %.critedge, %2
+8:                                                ; preds = %._crit_edge, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !1032
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -38035,8 +38035,8 @@ define internal fastcc i32 @trnext(ptr noundef nonnull captures(none) %0, ptr no
   %59 = load i32, ptr %26, align 4, !tbaa !1039
   br label %73
 
-60:                                               ; preds = %.preheader, %68
-  %61 = phi i32 [ %.pre, %.preheader ], [ %66, %68 ]
+60:                                               ; preds = %.preheader.lr.ph, %68
+  %61 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %66, %68 ]
   %62 = load ptr, ptr %5, align 8, !tbaa !332
   %63 = add i32 %61, 1
   store i32 %63, ptr %6, align 4, !tbaa !1039
@@ -38048,9 +38048,9 @@ define internal fastcc i32 @trnext(ptr noundef nonnull captures(none) %0, ptr no
 
 68:                                               ; preds = %60
   %69 = icmp eq i32 %66, %67
-  br i1 %69, label %.critedge, label %60, !llvm.loop !1053
+  br i1 %69, label %._crit_edge, label %60, !llvm.loop !1053
 
-.critedge:                                        ; preds = %68
+._crit_edge:                                      ; preds = %68
   store i32 0, ptr %0, align 8, !tbaa !1038
   br label %8
 

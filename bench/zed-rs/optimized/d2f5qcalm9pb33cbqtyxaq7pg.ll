@@ -2979,8 +2979,8 @@ switch.lookup:
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h568195a07d5bab21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87) #25
           to label %common.resume unwind label %118
 
-common.resume:                                    ; preds = %98, %125, %.body, %53, %114, %117
-  %common.resume.op = phi { ptr, i32 } [ %115, %117 ], [ %115, %114 ], [ %126, %125 ], [ %99, %98 ], [ %54, %53 ], [ %eh.lpad-body, %.body ]
+common.resume:                                    ; preds = %114, %117, %98, %125, %.body, %53
+  %common.resume.op = phi { ptr, i32 } [ %126, %125 ], [ %99, %98 ], [ %54, %53 ], [ %eh.lpad-body, %.body ], [ %115, %117 ], [ %115, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 118:                                              ; preds = %117

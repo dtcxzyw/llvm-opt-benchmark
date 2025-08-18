@@ -7521,14 +7521,14 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h38e36197bdb438f9E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 {
   %2 = alloca { ptr, [1 x i64] }, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1956
-  %3 = tail call fastcc { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b11f7b878743034E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-  %4 = extractvalue { ptr, ptr } %3, 0
-  %5 = extractvalue { ptr, ptr } %3, 1
-  store ptr %4, ptr %2, align 8, !noalias !1956
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8, !noalias !1956
-  %.not.i = icmp eq ptr %4, null
+  %4 = tail call fastcc { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b11f7b878743034E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  %5 = extractvalue { ptr, ptr } %4, 0
+  %6 = extractvalue { ptr, ptr } %4, 1
+  store ptr %5, ptr %2, align 8, !noalias !1956
+  store ptr %6, ptr %3, align 8, !noalias !1956
+  %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5125af9b9498d1c8E.exit, label %7
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5125af9b9498d1c8E.exit: ; preds = %1

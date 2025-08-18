@@ -2586,9 +2586,11 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .preheader3.i:                                    ; preds = %98
   %102 = add nsw i32 %41, -1
   %spec.select.i = call i32 @llvm.smax.i32(i32 %91, i32 0)
+  %spec.select1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %102)
   %spec.select1.i.c = call i32 @llvm.smin.i32(i32 %95, i32 %102)
   %103 = add nsw i32 %43, -1
   %spec.select69.i = call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %spec.select2.i = call i32 @llvm.smin.i32(i32 %spec.select69.i, i32 %103)
   %spec.select2.i.c = call i32 @llvm.smin.i32(i32 %97, i32 %103)
   %.not64.i = icmp slt i32 %spec.select.i, %spec.select1.i.c
   %.not65.i = icmp slt i32 %spec.select69.i, %spec.select2.i.c
@@ -2596,8 +2598,6 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %or.cond, label %104, label %106
 
 104:                                              ; preds = %.preheader3.i
-  %spec.select2.i = call i32 @llvm.smin.i32(i32 %spec.select69.i, i32 %103)
-  %spec.select1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %105 = load i32, ptr %40, align 4, !tbaa !207
   br label %111
@@ -2636,10 +2636,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph115.split.split.us.i:                       ; preds = %.lr.ph115.split.i
   %invariant.gep.i = getelementptr float, ptr %2, i64 %117
   %118 = sext i32 %.072.i to i64
-  %119 = add nsw i32 %.081.i, 1
+  %119 = add i32 %.081.i, 1
   %120 = sext i32 %.0.i to i64
   %121 = sext i32 %115 to i64
-  %122 = add nsw i32 %.070.i, 1
+  %122 = add i32 %.070.i, 1
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.split.us.us.i, %.lr.ph115.split.split.us.i
@@ -2683,10 +2683,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %131 = load i32, ptr %116, align 4, !tbaa !135
   %132 = icmp eq i32 %131, 0
   %133 = sext i32 %.072.i to i64
-  %134 = add nsw i32 %.081.i, 1
+  %134 = add i32 %.081.i, 1
   %135 = sext i32 %.0.i to i64
   %136 = sext i32 %115 to i64
-  %137 = add nsw i32 %.070.i, 1
+  %137 = add i32 %.070.i, 1
   br i1 %132, label %.lr.ph.us129.i, label %.lr.ph.i
 
 .lr.ph.us129.i:                                   ; preds = %.lr.ph115.split.split.i, %._crit_edge.split.split.us.us.i

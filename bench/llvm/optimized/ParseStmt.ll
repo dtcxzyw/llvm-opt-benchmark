@@ -14760,110 +14760,109 @@ _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread: ; preds = %2, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6Parser36ParseCompoundStatementLeadingPragmasEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
-.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %.critedge2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %.critedge
 
-.critedge2:                                       ; preds = %.critedge2.backedge, %.critedge
-  %2 = load i16, ptr %1, align 8, !tbaa !96
-  switch i16 %2, label %21 [
-    i16 423, label %3
-    i16 424, label %4
-    i16 428, label %5
-    i16 429, label %6
-    i16 430, label %7
-    i16 431, label %8
-    i16 432, label %9
-    i16 442, label %10
-    i16 433, label %11
-    i16 449, label %12
-    i16 434, label %13
-    i16 435, label %13
-    i16 436, label %14
-    i16 437, label %15
-    i16 438, label %16
-    i16 439, label %17
-    i16 441, label %18
-    i16 440, label %19
-    i16 427, label %20
+.critedge:                                        ; preds = %.critedge.backedge, %1
+  %3 = load i16, ptr %2, align 8, !tbaa !96
+  switch i16 %3, label %22 [
+    i16 423, label %4
+    i16 424, label %5
+    i16 428, label %6
+    i16 429, label %7
+    i16 430, label %8
+    i16 431, label %9
+    i16 432, label %10
+    i16 442, label %11
+    i16 433, label %12
+    i16 449, label %13
+    i16 434, label %14
+    i16 435, label %14
+    i16 436, label %15
+    i16 437, label %16
+    i16 438, label %17
+    i16 439, label %18
+    i16 441, label %19
+    i16 440, label %20
+    i16 427, label %21
   ]
 
-3:                                                ; preds = %.critedge2
+4:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser22HandlePragmaVisibilityEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-4:                                                ; preds = %.critedge2
+5:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser16HandlePragmaPackEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-5:                                                ; preds = %.critedge2
+6:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser20HandlePragmaMSStructEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-6:                                                ; preds = %.critedge2
+7:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser17HandlePragmaAlignEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-7:                                                ; preds = %.critedge2
+8:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser16HandlePragmaWeakEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-8:                                                ; preds = %.critedge2
+9:                                                ; preds = %.critedge
   tail call void @_ZN5clang6Parser21HandlePragmaWeakAliasEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-9:                                                ; preds = %.critedge2
+10:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser27HandlePragmaRedefineExtnameEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-10:                                               ; preds = %.critedge2
+11:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser27HandlePragmaOpenCLExtensionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-11:                                               ; preds = %.critedge2
+12:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser22HandlePragmaFPContractEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-12:                                               ; preds = %.critedge2
+13:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser14HandlePragmaFPEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-13:                                               ; preds = %.critedge2, %.critedge2
+14:                                               ; preds = %.critedge, %.critedge
   tail call void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-14:                                               ; preds = %.critedge2
+15:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser21HandlePragmaFEnvRoundEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-15:                                               ; preds = %.critedge2
+16:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser26HandlePragmaCXLimitedRangeEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-16:                                               ; preds = %.critedge2
+17:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser24HandlePragmaFloatControlEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-17:                                               ; preds = %.critedge2
+18:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser31HandlePragmaMSPointersToMembersEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-18:                                               ; preds = %.critedge2
+19:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser20HandlePragmaMSPragmaEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-19:                                               ; preds = %.critedge2
+20:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser22HandlePragmaMSVtorDispEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-20:                                               ; preds = %.critedge2
+21:                                               ; preds = %.critedge
   tail call void @_ZN5clang6Parser16HandlePragmaDumpEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #16
-  br label %.critedge2.backedge
+  br label %.critedge.backedge
 
-.critedge2.backedge:                              ; preds = %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  br label %.critedge2
+.critedge.backedge:                               ; preds = %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
+  br label %.critedge
 
-21:                                               ; preds = %.critedge2
+22:                                               ; preds = %.critedge
   ret void
 }
 

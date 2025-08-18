@@ -14712,9 +14712,9 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458
   %28 = load ptr, ptr %6, align 8, !alias.scope !394, !noalias !397, !nonnull !4, !align !5, !noundef !4
   %29 = load i64, ptr %28, align 8, !range !208, !noalias !399, !noundef !4
   %30 = invoke i64 @_ZN5salsa8revision22OptionalAtomicRevision3new17he0d810b5f77b2311E(i64 noundef %29)
-          to label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i" unwind label %42, !noalias !399
+          to label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.critedge" unwind label %42, !noalias !399
 
-"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i": ; preds = %20
+"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.critedge": ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !394, !noalias !397, !nonnull !4, !align !5, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -14726,7 +14726,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458
   %37 = invoke i64 @"_ZN8thin_vec16ThinVec$LT$T$GT$13with_capacity17he63a6ccf7b1c3c3dE"(i64 noundef 0)
           to label %48 unwind label %38, !noalias !399
 
-38:                                               ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i"
+38:                                               ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.critedge"
   %39 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr463drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$C$ty_python_semantic..semantic_index..expression..ExpressionKind$C$countme..Count$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$RP$$GT$17h8a92f21a7c524f5dE"(ptr noalias noundef align 8 dereferenceable(48) %5) #31
@@ -14751,7 +14751,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458
   %47 = extractvalue { i8, i1 } %46, 1
   br i1 %47, label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17he6573769dd02e027E.exit13", label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17he6573769dd02e027E.exit13.sink.split", !prof !217
 
-48:                                               ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i"
+48:                                               ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.critedge"
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !399
   %50 = getelementptr inbounds nuw { { { [13 x i64] } } }, ptr %27, i64 %18
@@ -42876,9 +42876,9 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   %123 = load ptr, ptr %18, align 8, !alias.scope !2613, !noalias !2616, !nonnull !4, !align !5, !noundef !4
   %124 = load i64, ptr %123, align 8, !range !208, !noalias !2618, !noundef !4
   %125 = invoke i64 @_ZN5salsa8revision22OptionalAtomicRevision3new17he0d810b5f77b2311E(i64 noundef %124)
-          to label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i.i" unwind label %136, !noalias !2618
+          to label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.i.critedge" unwind label %136, !noalias !2618
 
-"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i.i": ; preds = %122
+"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.i.critedge": ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %127 = load ptr, ptr %126, align 8, !alias.scope !2613, !noalias !2616, !nonnull !4, !align !5, !noundef !4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -42889,7 +42889,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   %131 = invoke i64 @"_ZN8thin_vec16ThinVec$LT$T$GT$13with_capacity17he63a6ccf7b1c3c3dE"(i64 noundef 0)
           to label %140 unwind label %132, !noalias !2618
 
-132:                                              ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i.i"
+132:                                              ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.i.critedge"
   %133 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr463drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$C$ty_python_semantic..semantic_index..expression..ExpressionKind$C$countme..Count$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$RP$$GT$17h8a92f21a7c524f5dE"(ptr noalias noundef align 8 dereferenceable(48) %17) #31
@@ -42911,7 +42911,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 139:                                              ; preds = %117
   unreachable
 
-140:                                              ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i.i"
+140:                                              ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.i.critedge"
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2619
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2612
   invoke void @"_ZN4core3ptr115drop_in_place$LT$salsa..tracked_struct..Value$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$GT$17h6c15a09694db2c19E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %109)
@@ -43308,15 +43308,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   %258 = getelementptr inbounds nuw i8, ptr %242, i64 96
   %259 = load i8, ptr %258, align 8, !range !209, !noalias !2634, !noundef !4
   %260 = icmp samesign ult i8 %93, %259
-  br i1 %260, label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i", label %._crit_edge.i.i.i
+  br i1 %260, label %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.critedge", label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i", %257
+._crit_edge.i.i.i:                                ; preds = %"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.critedge", %257
   store i8 %93, ptr %258, align 8, !noalias !2634
   %261 = call noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %244, i64 noundef range(i64 1, 0) %99)
   %.not.i5.i.i = icmp eq i64 %261, 0
   br i1 %.not.i5.i.i, label %.noexc13, label %.noexc8.i.i, !prof !217
 
-"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.critedge.i.i.i": ; preds = %257
+"_ZN18ty_python_semantic14semantic_index10expression1_125_$LT$impl$u20$salsa..tracked_struct..Configuration$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$13new_revisions17hddc6ef390d601c0cE.exit.i.i.i.critedge": ; preds = %257
   store i64 %91, ptr %252, align 8, !noalias !2634
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %242, i64 24
   store i64 %91, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !2634

@@ -1062,27 +1062,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %205 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %206 = load ptr, ptr %205, align 8, !tbaa !168
   %207 = getelementptr inbounds %"struct.pbrt::Float4", ptr %206, i64 %31
-  %208 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  %208 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %207, i8 0, i64 16, i1 false)
-  %209 = load ptr, ptr %208, align 8, !tbaa !169
-  %210 = getelementptr inbounds %"struct.pbrt::Float4", ptr %209, i64 %31
-  %211 = load <4 x float>, ptr %15, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %211, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %212 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %213 = load <4 x float>, ptr %212, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %213, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %210, align 16
-  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %211 = load ptr, ptr %210, align 8, !tbaa !169
+  %212 = getelementptr inbounds %"struct.pbrt::Float4", ptr %211, i64 %31
+  %213 = load <4 x float>, ptr %15, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %213, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %214 = load <4 x float>, ptr %208, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %214, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %212, align 16
+  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
-  %214 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %215 = load ptr, ptr %214, align 8, !tbaa !170
-  %216 = getelementptr inbounds %"struct.pbrt::Float4", ptr %215, i64 %31
-  %217 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %218 = load <4 x float>, ptr %217, align 16
+  %215 = getelementptr inbounds nuw i8, ptr %17, i64 176
+  %216 = load ptr, ptr %215, align 8, !tbaa !170
+  %217 = getelementptr inbounds %"struct.pbrt::Float4", ptr %216, i64 %31
+  %218 = load <4 x float>, ptr %209, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %218, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %218, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %216, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %216, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %217, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %217, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %219 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %220 = load ptr, ptr %219, align 8, !tbaa !171
@@ -1246,7 +1246,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %341 = getelementptr inbounds %"struct.pbrt::Float4", ptr %340, i64 %296
   %342 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %342, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %343 = load <4 x float>, ptr %212, align 8
+  %343 = load <4 x float>, ptr %208, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %343, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %341, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %341, i64 8
@@ -1254,7 +1254,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %344 = getelementptr inbounds nuw i8, ptr %290, i64 128
   %345 = load ptr, ptr %344, align 8, !tbaa !170
   %346 = getelementptr inbounds %"struct.pbrt::Float4", ptr %345, i64 %296
-  %347 = load <4 x float>, ptr %217, align 16
+  %347 = load <4 x float>, ptr %209, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i48, ptr %346, align 16
@@ -4975,27 +4975,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %207 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %208 = load ptr, ptr %207, align 8, !tbaa !168
   %209 = getelementptr inbounds %"struct.pbrt::Float4", ptr %208, i64 %29
-  %210 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %210 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %209, i8 0, i64 16, i1 false)
-  %211 = load ptr, ptr %210, align 8, !tbaa !169
-  %212 = getelementptr inbounds %"struct.pbrt::Float4", ptr %211, i64 %29
-  %213 = load <4 x float>, ptr %10, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %213, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %214 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %215 = load <4 x float>, ptr %214, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %215, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %212, align 16
-  %.sroa.2.0..0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %213 = load ptr, ptr %212, align 8, !tbaa !169
+  %214 = getelementptr inbounds %"struct.pbrt::Float4", ptr %213, i64 %29
+  %215 = load <4 x float>, ptr %10, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %215, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %216 = load <4 x float>, ptr %210, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %216, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %214, align 16
+  %.sroa.2.0..0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i37, align 8, !tbaa !104
-  %216 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %217 = load ptr, ptr %216, align 8, !tbaa !170
-  %218 = getelementptr inbounds %"struct.pbrt::Float4", ptr %217, i64 %29
-  %219 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %220 = load <4 x float>, ptr %219, align 16
+  %217 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %218 = load ptr, ptr %217, align 8, !tbaa !170
+  %219 = getelementptr inbounds %"struct.pbrt::Float4", ptr %218, i64 %29
+  %220 = load <4 x float>, ptr %211, align 16
   %.sroa.0.4.vec.insert.i38 = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i39 = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i38, ptr %218, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %218, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i38, ptr %219, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %219, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i39, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %221 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %222 = load float, ptr %221, align 4, !tbaa !348
@@ -5161,7 +5161,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %345 = getelementptr inbounds %"struct.pbrt::Float4", ptr %344, i64 %300
   %346 = load <4 x float>, ptr %10, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %346, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %347 = load <4 x float>, ptr %214, align 8
+  %347 = load <4 x float>, ptr %210, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %345, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i45 = getelementptr inbounds nuw i8, ptr %345, i64 8
@@ -5169,7 +5169,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %348 = getelementptr inbounds nuw i8, ptr %294, i64 128
   %349 = load ptr, ptr %348, align 8, !tbaa !170
   %350 = getelementptr inbounds %"struct.pbrt::Float4", ptr %349, i64 %300
-  %351 = load <4 x float>, ptr %219, align 16
+  %351 = load <4 x float>, ptr %211, align 16
   %.sroa.0.4.vec.insert.i.i46 = shufflevector <4 x float> %351, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i47 = shufflevector <4 x float> %351, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i46, ptr %350, align 16
@@ -5988,27 +5988,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %230 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %231 = load ptr, ptr %230, align 8, !tbaa !168
   %232 = getelementptr inbounds %"struct.pbrt::Float4", ptr %231, i64 %31
-  %233 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  %233 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, i8 0, i64 16, i1 false)
-  %234 = load ptr, ptr %233, align 8, !tbaa !169
-  %235 = getelementptr inbounds %"struct.pbrt::Float4", ptr %234, i64 %31
-  %236 = load <4 x float>, ptr %15, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %236, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %237 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %238 = load <4 x float>, ptr %237, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %238, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %235, align 16
-  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %236 = load ptr, ptr %235, align 8, !tbaa !169
+  %237 = getelementptr inbounds %"struct.pbrt::Float4", ptr %236, i64 %31
+  %238 = load <4 x float>, ptr %15, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %238, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %239 = load <4 x float>, ptr %233, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %239, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %237, align 16
+  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
-  %239 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %240 = load ptr, ptr %239, align 8, !tbaa !170
-  %241 = getelementptr inbounds %"struct.pbrt::Float4", ptr %240, i64 %31
-  %242 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %243 = load <4 x float>, ptr %242, align 16
+  %240 = getelementptr inbounds nuw i8, ptr %17, i64 176
+  %241 = load ptr, ptr %240, align 8, !tbaa !170
+  %242 = getelementptr inbounds %"struct.pbrt::Float4", ptr %241, i64 %31
+  %243 = load <4 x float>, ptr %234, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %243, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %243, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %241, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %241, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %242, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %242, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %244 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %245 = load ptr, ptr %244, align 8, !tbaa !171
@@ -6172,7 +6172,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %366 = getelementptr inbounds %"struct.pbrt::Float4", ptr %365, i64 %321
   %367 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %367, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %368 = load <4 x float>, ptr %237, align 8
+  %368 = load <4 x float>, ptr %233, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %368, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %366, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %366, i64 8
@@ -6180,7 +6180,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %369 = getelementptr inbounds nuw i8, ptr %315, i64 128
   %370 = load ptr, ptr %369, align 8, !tbaa !170
   %371 = getelementptr inbounds %"struct.pbrt::Float4", ptr %370, i64 %321
-  %372 = load <4 x float>, ptr %242, align 16
+  %372 = load <4 x float>, ptr %234, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i48, ptr %371, align 16
@@ -7037,27 +7037,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %162 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %163 = load ptr, ptr %162, align 8, !tbaa !168
   %164 = getelementptr inbounds %"struct.pbrt::Float4", ptr %163, i64 %29
-  %165 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %165 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %164, i8 0, i64 16, i1 false)
-  %166 = load ptr, ptr %165, align 8, !tbaa !169
-  %167 = getelementptr inbounds %"struct.pbrt::Float4", ptr %166, i64 %29
-  %168 = load <4 x float>, ptr %11, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %168, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %169 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %170 = load <4 x float>, ptr %169, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %170, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %167, align 16
-  %.sroa.2.0..0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !169
+  %169 = getelementptr inbounds %"struct.pbrt::Float4", ptr %168, i64 %29
+  %170 = load <4 x float>, ptr %11, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %170, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %171 = load <4 x float>, ptr %165, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %171, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %169, align 16
+  %.sroa.2.0..0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i37, align 8, !tbaa !104
-  %171 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %172 = load ptr, ptr %171, align 8, !tbaa !170
-  %173 = getelementptr inbounds %"struct.pbrt::Float4", ptr %172, i64 %29
-  %174 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %175 = load <4 x float>, ptr %174, align 16
+  %172 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %173 = load ptr, ptr %172, align 8, !tbaa !170
+  %174 = getelementptr inbounds %"struct.pbrt::Float4", ptr %173, i64 %29
+  %175 = load <4 x float>, ptr %166, align 16
   %.sroa.0.4.vec.insert.i38 = shufflevector <4 x float> %175, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i39 = shufflevector <4 x float> %175, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i38, ptr %173, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i38, ptr %174, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %174, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i39, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %176 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %177 = load float, ptr %176, align 4, !tbaa !348
@@ -7223,7 +7223,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %300 = getelementptr inbounds %"struct.pbrt::Float4", ptr %299, i64 %255
   %301 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %301, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %302 = load <4 x float>, ptr %169, align 8
+  %302 = load <4 x float>, ptr %165, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %302, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %300, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i45 = getelementptr inbounds nuw i8, ptr %300, i64 8
@@ -7231,7 +7231,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %303 = getelementptr inbounds nuw i8, ptr %249, i64 128
   %304 = load ptr, ptr %303, align 8, !tbaa !170
   %305 = getelementptr inbounds %"struct.pbrt::Float4", ptr %304, i64 %255
-  %306 = load <4 x float>, ptr %174, align 16
+  %306 = load <4 x float>, ptr %166, align 16
   %.sroa.0.4.vec.insert.i.i46 = shufflevector <4 x float> %306, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i47 = shufflevector <4 x float> %306, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i46, ptr %305, align 16
@@ -8368,27 +8368,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %185 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %186 = load ptr, ptr %185, align 8, !tbaa !168
   %187 = getelementptr inbounds %"struct.pbrt::Float4", ptr %186, i64 %31
-  %188 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  %188 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %187, i8 0, i64 16, i1 false)
-  %189 = load ptr, ptr %188, align 8, !tbaa !169
-  %190 = getelementptr inbounds %"struct.pbrt::Float4", ptr %189, i64 %31
-  %191 = load <4 x float>, ptr %15, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %191, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %192 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %193 = load <4 x float>, ptr %192, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %193, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %190, align 16
-  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %191 = load ptr, ptr %190, align 8, !tbaa !169
+  %192 = getelementptr inbounds %"struct.pbrt::Float4", ptr %191, i64 %31
+  %193 = load <4 x float>, ptr %15, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %193, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %194 = load <4 x float>, ptr %188, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %194, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %192, align 16
+  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
-  %194 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %195 = load ptr, ptr %194, align 8, !tbaa !170
-  %196 = getelementptr inbounds %"struct.pbrt::Float4", ptr %195, i64 %31
-  %197 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %198 = load <4 x float>, ptr %197, align 16
+  %195 = getelementptr inbounds nuw i8, ptr %17, i64 176
+  %196 = load ptr, ptr %195, align 8, !tbaa !170
+  %197 = getelementptr inbounds %"struct.pbrt::Float4", ptr %196, i64 %31
+  %198 = load <4 x float>, ptr %189, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %198, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %198, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %196, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %196, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %197, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %197, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %200 = load ptr, ptr %199, align 8, !tbaa !171
@@ -8552,7 +8552,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %321 = getelementptr inbounds %"struct.pbrt::Float4", ptr %320, i64 %276
   %322 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %322, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %323 = load <4 x float>, ptr %192, align 8
+  %323 = load <4 x float>, ptr %188, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %323, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %321, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %321, i64 8
@@ -8560,7 +8560,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %324 = getelementptr inbounds nuw i8, ptr %270, i64 128
   %325 = load ptr, ptr %324, align 8, !tbaa !170
   %326 = getelementptr inbounds %"struct.pbrt::Float4", ptr %325, i64 %276
-  %327 = load <4 x float>, ptr %197, align 16
+  %327 = load <4 x float>, ptr %189, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %327, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %327, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i48, ptr %326, align 16
@@ -9622,27 +9622,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %197 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %198 = load ptr, ptr %197, align 8, !tbaa !168
   %199 = getelementptr inbounds %"struct.pbrt::Float4", ptr %198, i64 %29
-  %200 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %200 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %199, i8 0, i64 16, i1 false)
-  %201 = load ptr, ptr %200, align 8, !tbaa !169
-  %202 = getelementptr inbounds %"struct.pbrt::Float4", ptr %201, i64 %29
-  %203 = load <4 x float>, ptr %11, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %203, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %204 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %205 = load <4 x float>, ptr %204, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %205, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %202, align 16
-  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %203 = load ptr, ptr %202, align 8, !tbaa !169
+  %204 = getelementptr inbounds %"struct.pbrt::Float4", ptr %203, i64 %29
+  %205 = load <4 x float>, ptr %11, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %205, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %206 = load <4 x float>, ptr %200, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %206, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %204, align 16
+  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
-  %206 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %207 = load ptr, ptr %206, align 8, !tbaa !170
-  %208 = getelementptr inbounds %"struct.pbrt::Float4", ptr %207, i64 %29
-  %209 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %210 = load <4 x float>, ptr %209, align 16
+  %207 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %208 = load ptr, ptr %207, align 8, !tbaa !170
+  %209 = getelementptr inbounds %"struct.pbrt::Float4", ptr %208, i64 %29
+  %210 = load <4 x float>, ptr %201, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %210, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %210, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %208, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %208, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %209, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %209, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %211 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %212 = load float, ptr %211, align 4, !tbaa !348
@@ -9808,7 +9808,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %335 = getelementptr inbounds %"struct.pbrt::Float4", ptr %334, i64 %290
   %336 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %336, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %337 = load <4 x float>, ptr %204, align 8
+  %337 = load <4 x float>, ptr %200, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %337, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %335, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %335, i64 8
@@ -9816,7 +9816,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %338 = getelementptr inbounds nuw i8, ptr %284, i64 128
   %339 = load ptr, ptr %338, align 8, !tbaa !170
   %340 = getelementptr inbounds %"struct.pbrt::Float4", ptr %339, i64 %290
-  %341 = load <4 x float>, ptr %209, align 16
+  %341 = load <4 x float>, ptr %201, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %341, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %341, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i48, ptr %340, align 16
@@ -10877,27 +10877,27 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %222 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %223 = load ptr, ptr %222, align 8, !tbaa !168
   %224 = getelementptr inbounds %"struct.pbrt::Float4", ptr %223, i64 %31
-  %225 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  %225 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %224, i8 0, i64 16, i1 false)
-  %226 = load ptr, ptr %225, align 8, !tbaa !169
-  %227 = getelementptr inbounds %"struct.pbrt::Float4", ptr %226, i64 %31
-  %228 = load <4 x float>, ptr %15, align 16
-  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %228, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %229 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %230 = load <4 x float>, ptr %229, align 8
-  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %230, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %227, align 16
-  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %228 = load ptr, ptr %227, align 8, !tbaa !169
+  %229 = getelementptr inbounds %"struct.pbrt::Float4", ptr %228, i64 %31
+  %230 = load <4 x float>, ptr %15, align 16
+  %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %230, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %231 = load <4 x float>, ptr %225, align 8
+  %.sroa.35.12.vec.insert.i = shufflevector <4 x float> %231, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x float> %.sroa.03.4.vec.insert.i, ptr %229, align 16
+  %.sroa.2.0..0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
-  %231 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %232 = load ptr, ptr %231, align 8, !tbaa !170
-  %233 = getelementptr inbounds %"struct.pbrt::Float4", ptr %232, i64 %31
-  %234 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %235 = load <4 x float>, ptr %234, align 16
+  %232 = getelementptr inbounds nuw i8, ptr %17, i64 176
+  %233 = load ptr, ptr %232, align 8, !tbaa !170
+  %234 = getelementptr inbounds %"struct.pbrt::Float4", ptr %233, i64 %31
+  %235 = load <4 x float>, ptr %226, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %235, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %235, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %233, align 16
-  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %233, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i40, ptr %234, align 16
+  %.sroa.2.0..0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %234, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %236 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %237 = load ptr, ptr %236, align 8, !tbaa !171
@@ -11061,7 +11061,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %358 = getelementptr inbounds %"struct.pbrt::Float4", ptr %357, i64 %313
   %359 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %359, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %360 = load <4 x float>, ptr %229, align 8
+  %360 = load <4 x float>, ptr %225, align 8
   %.sroa.35.12.vec.insert.i.i = shufflevector <4 x float> %360, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.03.4.vec.insert.i.i, ptr %358, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i47 = getelementptr inbounds nuw i8, ptr %358, i64 8
@@ -11069,7 +11069,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %361 = getelementptr inbounds nuw i8, ptr %307, i64 128
   %362 = load ptr, ptr %361, align 8, !tbaa !170
   %363 = getelementptr inbounds %"struct.pbrt::Float4", ptr %362, i64 %313
-  %364 = load <4 x float>, ptr %234, align 16
+  %364 = load <4 x float>, ptr %226, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %364, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %364, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i48, ptr %363, align 16

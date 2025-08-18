@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgrinit() local_unnamed_addr #0 {
-.critedge:
   tail call void @mdinit() #11
   tail call void @on_proc_exit(ptr noundef nonnull @smgrshutdown, i64 noundef 0) #11
   ret void
@@ -30,7 +29,6 @@ declare void @on_proc_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @smgrshutdown(i32 %0, i64 %1) #2 {
-.critedge:
   ret void
 }
 

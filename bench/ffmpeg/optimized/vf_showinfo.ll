@@ -305,7 +305,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 39:                                               ; preds = %2, %121
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %121 ]
-  %.0178356 = phi i32 [ 0, %2 ], [ %.2180.lcssa, %121 ]
+  %.0178355 = phi i32 [ 0, %2 ], [ %.2180.lcssa, %121 ]
   %40 = load i32, ptr %30, align 8, !tbaa !36
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %.critedge, label %41
@@ -354,24 +354,24 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %67 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
   %68 = load i32, ptr %45, align 4, !tbaa !39
   %69 = sext i32 %68 to i64
-  %.promoted322 = load i32, ptr %62, align 4, !tbaa !39
-  %.promoted324 = load i32, ptr %67, align 4, !tbaa !39
+  %.promoted321 = load i32, ptr %62, align 4, !tbaa !39
+  %.promoted323 = load i32, ptr %67, align 4, !tbaa !39
   br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %update_sample_stats.exit.us
-  %70 = phi i32 [ %71, %update_sample_stats.exit.us ], [ %.promoted322, %.lr.ph ]
-  %.2180321.us = phi i32 [ %72, %update_sample_stats.exit.us ], [ %.0178356, %.lr.ph ]
-  %.0182320.us = phi i32 [ %84, %update_sample_stats.exit.us ], [ 0, %.lr.ph ]
-  %.0187319.us = phi ptr [ %83, %update_sample_stats.exit.us ], [ %43, %.lr.ph ]
-  %71 = tail call i32 @av_adler32_update(i32 noundef %70, ptr noundef %.0187319.us, i64 noundef %63) #12
-  %72 = tail call i32 @av_adler32_update(i32 noundef %.2180321.us, ptr noundef %.0187319.us, i64 noundef %63) #12
+  %70 = phi i32 [ %71, %update_sample_stats.exit.us ], [ %.promoted321, %.lr.ph ]
+  %.2180320.us = phi i32 [ %72, %update_sample_stats.exit.us ], [ %.0178355, %.lr.ph ]
+  %.0182319.us = phi i32 [ %84, %update_sample_stats.exit.us ], [ 0, %.lr.ph ]
+  %.0187318.us = phi ptr [ %83, %update_sample_stats.exit.us ], [ %43, %.lr.ph ]
+  %71 = tail call i32 @av_adler32_update(i32 noundef %70, ptr noundef %.0187318.us, i64 noundef %63) #12
+  %72 = tail call i32 @av_adler32_update(i32 noundef %.2180320.us, ptr noundef %.0187318.us, i64 noundef %63) #12
   br i1 %.not.i.i, label %update_sample_stats.exit.us, label %.lr.ph.i.i.preheader.us
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %.lr.ph.i.i.us
-  %73 = phi i64 [ %82, %.lr.ph.i.i.us ], [ %.promoted317.us, %.lr.ph.i.i.preheader.us ]
-  %74 = phi i64 [ %78, %.lr.ph.i.i.us ], [ %.promoted315.us, %.lr.ph.i.i.preheader.us ]
+  %73 = phi i64 [ %82, %.lr.ph.i.i.us ], [ %.promoted316.us, %.lr.ph.i.i.preheader.us ]
+  %74 = phi i64 [ %78, %.lr.ph.i.i.us ], [ %.promoted314.us, %.lr.ph.i.i.preheader.us ]
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ], [ 0, %.lr.ph.i.i.preheader.us ]
-  %75 = getelementptr inbounds nuw i8, ptr %.0187319.us, i64 %indvars.iv.i.i.us
+  %75 = getelementptr inbounds nuw i8, ptr %.0187318.us, i64 %indvars.iv.i.i.us
   %76 = load i8, ptr %75, align 1, !tbaa !47
   %77 = zext i8 %76 to i64
   %78 = add nsw i64 %74, %77
@@ -384,14 +384,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not.i.i.us, label %update_sample_stats.exit.loopexit.us, label %.lr.ph.i.i.us, !llvm.loop !48
 
 update_sample_stats.exit.us:                      ; preds = %update_sample_stats.exit.loopexit.us, %.lr.ph.split.us
-  %83 = getelementptr inbounds i8, ptr %.0187319.us, i64 %69
-  %84 = add nuw nsw i32 %.0182320.us, 1
+  %83 = getelementptr inbounds i8, ptr %.0187318.us, i64 %69
+  %84 = add nuw nsw i32 %.0182319.us, 1
   %exitcond390.not = icmp eq i32 %84, %54
   br i1 %exitcond390.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !50
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
-  %.promoted315.us = load i64, ptr %64, align 8, !tbaa !52
-  %.promoted317.us = load i64, ptr %65, align 8, !tbaa !52
+  %.promoted314.us = load i64, ptr %64, align 8, !tbaa !52
+  %.promoted316.us = load i64, ptr %65, align 8, !tbaa !52
   br label %.lr.ph.i.i.us
 
 update_sample_stats.exit.loopexit.us:             ; preds = %.lr.ph.i.i.us
@@ -401,41 +401,41 @@ update_sample_stats.exit.loopexit.us:             ; preds = %.lr.ph.i.i.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not21.i.i = icmp samesign ult i32 %58, 2
-  br i1 %.not21.i.i, label %update_sample_stats.exit.us331, label %.lr.ph.split.split
+  br i1 %.not21.i.i, label %update_sample_stats.exit.us330, label %.lr.ph.split.split
 
-update_sample_stats.exit.us331:                   ; preds = %.lr.ph.split, %update_sample_stats.exit.us331
-  %85 = phi i32 [ %86, %update_sample_stats.exit.us331 ], [ %.promoted322, %.lr.ph.split ]
-  %.2180321.us328 = phi i32 [ %87, %update_sample_stats.exit.us331 ], [ %.0178356, %.lr.ph.split ]
-  %.0182320.us329 = phi i32 [ %89, %update_sample_stats.exit.us331 ], [ 0, %.lr.ph.split ]
-  %.0187319.us330 = phi ptr [ %88, %update_sample_stats.exit.us331 ], [ %43, %.lr.ph.split ]
-  %86 = tail call i32 @av_adler32_update(i32 noundef %85, ptr noundef %.0187319.us330, i64 noundef %63) #12
-  %87 = tail call i32 @av_adler32_update(i32 noundef %.2180321.us328, ptr noundef %.0187319.us330, i64 noundef %63) #12
-  %88 = getelementptr inbounds i8, ptr %.0187319.us330, i64 %69
-  %89 = add nuw nsw i32 %.0182320.us329, 1
+update_sample_stats.exit.us330:                   ; preds = %.lr.ph.split, %update_sample_stats.exit.us330
+  %85 = phi i32 [ %86, %update_sample_stats.exit.us330 ], [ %.promoted321, %.lr.ph.split ]
+  %.2180320.us327 = phi i32 [ %87, %update_sample_stats.exit.us330 ], [ %.0178355, %.lr.ph.split ]
+  %.0182319.us328 = phi i32 [ %89, %update_sample_stats.exit.us330 ], [ 0, %.lr.ph.split ]
+  %.0187318.us329 = phi ptr [ %88, %update_sample_stats.exit.us330 ], [ %43, %.lr.ph.split ]
+  %86 = tail call i32 @av_adler32_update(i32 noundef %85, ptr noundef %.0187318.us329, i64 noundef %63) #12
+  %87 = tail call i32 @av_adler32_update(i32 noundef %.2180320.us327, ptr noundef %.0187318.us329, i64 noundef %63) #12
+  %88 = getelementptr inbounds i8, ptr %.0187318.us329, i64 %69
+  %89 = add nuw nsw i32 %.0182319.us328, 1
   %exitcond389.not = icmp eq i32 %89, %54
-  br i1 %exitcond389.not, label %._crit_edge, label %update_sample_stats.exit.us331, !llvm.loop !53
+  br i1 %exitcond389.not, label %._crit_edge, label %update_sample_stats.exit.us330, !llvm.loop !53
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.promoted351 = load i64, ptr %64, align 8, !tbaa !52
-  %.promoted353 = load i64, ptr %65, align 8, !tbaa !52
+  %.promoted350 = load i64, ptr %64, align 8, !tbaa !52
+  %.promoted352 = load i64, ptr %65, align 8, !tbaa !52
   br i1 %.not.i10.i, label %.lr.ph.i9.i.us, label %.lr.ph.i9.i
 
-.lr.ph.i9.i.us:                                   ; preds = %.lr.ph.split.split, %update_sample_stats.exit.loopexit304.us
-  %.lcssa314.us354 = phi i64 [ %102, %update_sample_stats.exit.loopexit304.us ], [ %.promoted353, %.lr.ph.split.split ]
-  %.lcssa312.us352 = phi i64 [ %98, %update_sample_stats.exit.loopexit304.us ], [ %.promoted351, %.lr.ph.split.split ]
-  %90 = phi i32 [ %91, %update_sample_stats.exit.loopexit304.us ], [ %.promoted322, %.lr.ph.split.split ]
-  %.2180321.us338 = phi i32 [ %92, %update_sample_stats.exit.loopexit304.us ], [ %.0178356, %.lr.ph.split.split ]
-  %.0182320.us339 = phi i32 [ %104, %update_sample_stats.exit.loopexit304.us ], [ 0, %.lr.ph.split.split ]
-  %.0187319.us340 = phi ptr [ %103, %update_sample_stats.exit.loopexit304.us ], [ %43, %.lr.ph.split.split ]
-  %91 = tail call i32 @av_adler32_update(i32 noundef %90, ptr noundef %.0187319.us340, i64 noundef %63) #12
-  %92 = tail call i32 @av_adler32_update(i32 noundef %.2180321.us338, ptr noundef %.0187319.us340, i64 noundef %63) #12
+.lr.ph.i9.i.us:                                   ; preds = %.lr.ph.split.split, %update_sample_stats.exit.loopexit303.us
+  %.lcssa313.us353 = phi i64 [ %102, %update_sample_stats.exit.loopexit303.us ], [ %.promoted352, %.lr.ph.split.split ]
+  %.lcssa311.us351 = phi i64 [ %98, %update_sample_stats.exit.loopexit303.us ], [ %.promoted350, %.lr.ph.split.split ]
+  %90 = phi i32 [ %91, %update_sample_stats.exit.loopexit303.us ], [ %.promoted321, %.lr.ph.split.split ]
+  %.2180320.us337 = phi i32 [ %92, %update_sample_stats.exit.loopexit303.us ], [ %.0178355, %.lr.ph.split.split ]
+  %.0182319.us338 = phi i32 [ %104, %update_sample_stats.exit.loopexit303.us ], [ 0, %.lr.ph.split.split ]
+  %.0187318.us339 = phi ptr [ %103, %update_sample_stats.exit.loopexit303.us ], [ %43, %.lr.ph.split.split ]
+  %91 = tail call i32 @av_adler32_update(i32 noundef %90, ptr noundef %.0187318.us339, i64 noundef %63) #12
+  %92 = tail call i32 @av_adler32_update(i32 noundef %.2180320.us337, ptr noundef %.0187318.us339, i64 noundef %63) #12
   br label %.lr.ph.split.us.i.i.us
 
 .lr.ph.split.us.i.i.us:                           ; preds = %.lr.ph.i9.i.us, %.lr.ph.split.us.i.i.us
-  %93 = phi i64 [ %102, %.lr.ph.split.us.i.i.us ], [ %.lcssa314.us354, %.lr.ph.i9.i.us ]
-  %94 = phi i64 [ %98, %.lr.ph.split.us.i.i.us ], [ %.lcssa312.us352, %.lr.ph.i9.i.us ]
+  %93 = phi i64 [ %102, %.lr.ph.split.us.i.i.us ], [ %.lcssa313.us353, %.lr.ph.i9.i.us ]
+  %94 = phi i64 [ %98, %.lr.ph.split.us.i.i.us ], [ %.lcssa311.us351, %.lr.ph.i9.i.us ]
   %indvars.iv24.i.i.us = phi i64 [ %indvars.iv.next25.i.i.us, %.lr.ph.split.us.i.i.us ], [ 0, %.lr.ph.i9.i.us ]
-  %95 = getelementptr inbounds nuw i16, ptr %.0187319.us340, i64 %indvars.iv24.i.i.us
+  %95 = getelementptr inbounds nuw i16, ptr %.0187318.us339, i64 %indvars.iv24.i.i.us
   %96 = load i16, ptr %95, align 2, !tbaa !54
   %97 = zext i16 %96 to i64
   %98 = add nsw i64 %94, %97
@@ -445,30 +445,30 @@ update_sample_stats.exit.us331:                   ; preds = %.lr.ph.split, %upda
   %102 = add nsw i64 %93, %101
   %indvars.iv.next25.i.i.us = add nuw nsw i64 %indvars.iv24.i.i.us, 1
   %exitcond28.not.i.i.us = icmp eq i64 %indvars.iv.next25.i.i.us, %wide.trip.count27.i.i
-  br i1 %exitcond28.not.i.i.us, label %update_sample_stats.exit.loopexit304.us, label %.lr.ph.split.us.i.i.us, !llvm.loop !56
+  br i1 %exitcond28.not.i.i.us, label %update_sample_stats.exit.loopexit303.us, label %.lr.ph.split.us.i.i.us, !llvm.loop !56
 
-update_sample_stats.exit.loopexit304.us:          ; preds = %.lr.ph.split.us.i.i.us
-  %103 = getelementptr inbounds i8, ptr %.0187319.us340, i64 %69
-  %104 = add nuw nsw i32 %.0182320.us339, 1
+update_sample_stats.exit.loopexit303.us:          ; preds = %.lr.ph.split.us.i.i.us
+  %103 = getelementptr inbounds i8, ptr %.0187318.us339, i64 %69
+  %104 = add nuw nsw i32 %.0182319.us338, 1
   %exitcond388.not = icmp eq i32 %104, %54
   br i1 %exitcond388.not, label %._crit_edge.sink.split, label %.lr.ph.i9.i.us, !llvm.loop !57
 
-.lr.ph.i9.i:                                      ; preds = %.lr.ph.split.split, %update_sample_stats.exit.loopexit305
-  %.lcssa310350 = phi i64 [ %118, %update_sample_stats.exit.loopexit305 ], [ %.promoted353, %.lr.ph.split.split ]
-  %.lcssa308349 = phi i64 [ %114, %update_sample_stats.exit.loopexit305 ], [ %.promoted351, %.lr.ph.split.split ]
-  %105 = phi i32 [ %106, %update_sample_stats.exit.loopexit305 ], [ %.promoted322, %.lr.ph.split.split ]
-  %.2180321 = phi i32 [ %107, %update_sample_stats.exit.loopexit305 ], [ %.0178356, %.lr.ph.split.split ]
-  %.0182320 = phi i32 [ %120, %update_sample_stats.exit.loopexit305 ], [ 0, %.lr.ph.split.split ]
-  %.0187319 = phi ptr [ %119, %update_sample_stats.exit.loopexit305 ], [ %43, %.lr.ph.split.split ]
-  %106 = tail call i32 @av_adler32_update(i32 noundef %105, ptr noundef %.0187319, i64 noundef %63) #12
-  %107 = tail call i32 @av_adler32_update(i32 noundef %.2180321, ptr noundef %.0187319, i64 noundef %63) #12
+.lr.ph.i9.i:                                      ; preds = %.lr.ph.split.split, %update_sample_stats.exit.loopexit304
+  %.lcssa309349 = phi i64 [ %118, %update_sample_stats.exit.loopexit304 ], [ %.promoted352, %.lr.ph.split.split ]
+  %.lcssa307348 = phi i64 [ %114, %update_sample_stats.exit.loopexit304 ], [ %.promoted350, %.lr.ph.split.split ]
+  %105 = phi i32 [ %106, %update_sample_stats.exit.loopexit304 ], [ %.promoted321, %.lr.ph.split.split ]
+  %.2180320 = phi i32 [ %107, %update_sample_stats.exit.loopexit304 ], [ %.0178355, %.lr.ph.split.split ]
+  %.0182319 = phi i32 [ %120, %update_sample_stats.exit.loopexit304 ], [ 0, %.lr.ph.split.split ]
+  %.0187318 = phi ptr [ %119, %update_sample_stats.exit.loopexit304 ], [ %43, %.lr.ph.split.split ]
+  %106 = tail call i32 @av_adler32_update(i32 noundef %105, ptr noundef %.0187318, i64 noundef %63) #12
+  %107 = tail call i32 @av_adler32_update(i32 noundef %.2180320, ptr noundef %.0187318, i64 noundef %63) #12
   br label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.split.i.i
-  %108 = phi i64 [ %118, %.lr.ph.split.i.i ], [ %.lcssa310350, %.lr.ph.i9.i ]
-  %109 = phi i64 [ %114, %.lr.ph.split.i.i ], [ %.lcssa308349, %.lr.ph.i9.i ]
+  %108 = phi i64 [ %118, %.lr.ph.split.i.i ], [ %.lcssa309349, %.lr.ph.i9.i ]
+  %109 = phi i64 [ %114, %.lr.ph.split.i.i ], [ %.lcssa307348, %.lr.ph.i9.i ]
   %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i12.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i9.i ]
-  %110 = getelementptr inbounds nuw i16, ptr %.0187319, i64 %indvars.iv.i11.i
+  %110 = getelementptr inbounds nuw i16, ptr %.0187318, i64 %indvars.iv.i11.i
   %111 = load i16, ptr %110, align 2, !tbaa !54
   %112 = tail call i16 @llvm.bswap.i16(i16 %111)
   %113 = zext i16 %112 to i64
@@ -479,40 +479,40 @@ update_sample_stats.exit.loopexit304.us:          ; preds = %.lr.ph.split.us.i.i
   %118 = add nsw i64 %108, %117
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, %wide.trip.count27.i.i
-  br i1 %exitcond.not.i13.i, label %update_sample_stats.exit.loopexit305, label %.lr.ph.split.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i13.i, label %update_sample_stats.exit.loopexit304, label %.lr.ph.split.i.i, !llvm.loop !58
 
-update_sample_stats.exit.loopexit305:             ; preds = %.lr.ph.split.i.i
-  %119 = getelementptr inbounds i8, ptr %.0187319, i64 %69
-  %120 = add nuw nsw i32 %.0182320, 1
+update_sample_stats.exit.loopexit304:             ; preds = %.lr.ph.split.i.i
+  %119 = getelementptr inbounds i8, ptr %.0187318, i64 %69
+  %120 = add nuw nsw i32 %.0182319, 1
   %exitcond.not = icmp eq i32 %120, %54
   br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.i9.i, !llvm.loop !59
 
-._crit_edge.sink.split:                           ; preds = %update_sample_stats.exit.loopexit305, %update_sample_stats.exit.loopexit304.us
-  %.lcssa419.lcssa.sink = phi i64 [ %98, %update_sample_stats.exit.loopexit304.us ], [ %114, %update_sample_stats.exit.loopexit305 ]
-  %.lcssa418.lcssa.sink = phi i64 [ %102, %update_sample_stats.exit.loopexit304.us ], [ %118, %update_sample_stats.exit.loopexit305 ]
-  %.us-phi326.ph = phi i32 [ %91, %update_sample_stats.exit.loopexit304.us ], [ %106, %update_sample_stats.exit.loopexit305 ]
-  %.us-phi327.ph = phi i32 [ %92, %update_sample_stats.exit.loopexit304.us ], [ %107, %update_sample_stats.exit.loopexit305 ]
-  store i64 %.lcssa419.lcssa.sink, ptr %64, align 8, !tbaa !52
-  store i64 %.lcssa418.lcssa.sink, ptr %65, align 8, !tbaa !52
+._crit_edge.sink.split:                           ; preds = %update_sample_stats.exit.loopexit304, %update_sample_stats.exit.loopexit303.us
+  %.lcssa420.lcssa.sink = phi i64 [ %98, %update_sample_stats.exit.loopexit303.us ], [ %114, %update_sample_stats.exit.loopexit304 ]
+  %.lcssa419.lcssa.sink = phi i64 [ %102, %update_sample_stats.exit.loopexit303.us ], [ %118, %update_sample_stats.exit.loopexit304 ]
+  %.us-phi325.ph = phi i32 [ %91, %update_sample_stats.exit.loopexit303.us ], [ %106, %update_sample_stats.exit.loopexit304 ]
+  %.us-phi326.ph = phi i32 [ %92, %update_sample_stats.exit.loopexit303.us ], [ %107, %update_sample_stats.exit.loopexit304 ]
+  store i64 %.lcssa420.lcssa.sink, ptr %64, align 8, !tbaa !52
+  store i64 %.lcssa419.lcssa.sink, ptr %65, align 8, !tbaa !52
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %update_sample_stats.exit.us331, %update_sample_stats.exit.us, %._crit_edge.sink.split
-  %.us-phi326 = phi i32 [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %71, %update_sample_stats.exit.us ], [ %86, %update_sample_stats.exit.us331 ]
-  %.us-phi327 = phi i32 [ %.us-phi327.ph, %._crit_edge.sink.split ], [ %72, %update_sample_stats.exit.us ], [ %87, %update_sample_stats.exit.us331 ]
+._crit_edge:                                      ; preds = %update_sample_stats.exit.us330, %update_sample_stats.exit.us, %._crit_edge.sink.split
+  %.us-phi325 = phi i32 [ %.us-phi325.ph, %._crit_edge.sink.split ], [ %71, %update_sample_stats.exit.us ], [ %86, %update_sample_stats.exit.us330 ]
+  %.us-phi326 = phi i32 [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %72, %update_sample_stats.exit.us ], [ %87, %update_sample_stats.exit.us330 ]
   %.pn = mul i32 %54, %59
-  %.us-phi = add i32 %.promoted324, %.pn
-  store i32 %.us-phi326, ptr %62, align 4, !tbaa !39
+  %.us-phi = add i32 %.promoted323, %.pn
+  store i32 %.us-phi325, ptr %62, align 4, !tbaa !39
   store i32 %.us-phi, ptr %67, align 4, !tbaa !39
   br label %121
 
 121:                                              ; preds = %._crit_edge, %.preheader
-  %.2180.lcssa = phi i32 [ %.us-phi327, %._crit_edge ], [ %.0178356, %.preheader ]
+  %.2180.lcssa = phi i32 [ %.us-phi326, %._crit_edge ], [ %.0178355, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond392.not, label %.critedge, label %39, !llvm.loop !60
 
 .critedge:                                        ; preds = %41, %39, %121, %44
-  %.0178.lcssa = phi i32 [ %.0178356, %41 ], [ %.0178356, %39 ], [ %.2180.lcssa, %121 ], [ %.0178356, %44 ]
+  %.0178.lcssa = phi i32 [ %.0178355, %41 ], [ %.0178355, %39 ], [ %.2180.lcssa, %121 ], [ %.0178355, %44 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %123 = load i64, ptr %122, align 8, !tbaa !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
@@ -679,15 +679,15 @@ av_ts_make_string.exit:                           ; preds = %127, %128
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %211 = load i32, ptr %210, align 8, !tbaa !75
   %212 = icmp sgt i32 %211, 0
-  br i1 %212, label %.lr.ph362, label %._crit_edge363
+  br i1 %212, label %.lr.ph361, label %._crit_edge362
 
-.lr.ph362:                                        ; preds = %209
+.lr.ph361:                                        ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %215
 
-215:                                              ; preds = %.lr.ph362, %dump_spherical.exit
-  %indvars.iv405 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next406, %dump_spherical.exit ]
+215:                                              ; preds = %.lr.ph361, %dump_spherical.exit
+  %indvars.iv405 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next406, %dump_spherical.exit ]
   %216 = load ptr, ptr %213, align 8, !tbaa !76
   %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv405
   %218 = load ptr, ptr %217, align 8, !tbaa !77
@@ -2940,9 +2940,9 @@ dump_spherical.exit:                              ; preds = %.critedge.i, %.loop
   %1382 = load i32, ptr %210, align 8, !tbaa !75
   %1383 = sext i32 %1382 to i64
   %1384 = icmp slt i64 %indvars.iv.next406, %1383
-  br i1 %1384, label %215, label %._crit_edge363, !llvm.loop !293
+  br i1 %1384, label %215, label %._crit_edge362, !llvm.loop !293
 
-._crit_edge363:                                   ; preds = %dump_spherical.exit, %209
+._crit_edge362:                                   ; preds = %dump_spherical.exit, %209
   %1385 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %1386 = load i32, ptr %1385, align 8, !tbaa !294
   %1387 = call ptr @av_color_range_name(i32 noundef %1386) #11
@@ -2958,12 +2958,12 @@ dump_spherical.exit:                              ; preds = %.critedge.i, %.loop
   %.not.i295 = icmp eq ptr %1387, null
   br i1 %.not.i295, label %1400, label %1397
 
-1397:                                             ; preds = %._crit_edge363
+1397:                                             ; preds = %._crit_edge362
   %1398 = load i32, ptr %1385, align 8, !tbaa !294
   %1399 = icmp eq i32 %1398, 0
   br i1 %1399, label %1400, label %1401
 
-1400:                                             ; preds = %1397, %._crit_edge363
+1400:                                             ; preds = %1397, %._crit_edge362
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.216) #11
   br label %1402
 

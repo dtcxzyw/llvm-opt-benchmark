@@ -3391,13 +3391,13 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha0fcfd9cfac81f64E.llvm.5495058782197839064.exit": ; preds = %3, %12
   %17 = icmp eq i64 %1, 1
-  br i1 %17, label %.critedge.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064.exit
+  br i1 %17, label %.lr.ph.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064.exit
 
-.critedge.i.i.i:                                  ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha0fcfd9cfac81f64E.llvm.5495058782197839064.exit"
+.lr.ph.i.i.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha0fcfd9cfac81f64E.llvm.5495058782197839064.exit"
   %18 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2899cce363af8dc0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %2), !noalias !917
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha0fcfd9cfac81f64E.llvm.5495058782197839064.exit", %.critedge.i.i.i
+_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha0fcfd9cfac81f64E.llvm.5495058782197839064.exit", %.lr.ph.i.i.i
   ret void
 }
 
@@ -13806,13 +13806,13 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4e707cffb3
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h5393b1872c3c2d9aE.llvm.5495058782197839064(i64 noundef %0, i64 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq i64 %0, 1
-  br i1 %4, label %.critedge.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9d3362de26204511E.exit"
+  br i1 %4, label %.lr.ph.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9d3362de26204511E.exit"
 
-.critedge.i.i:                                    ; preds = %3
+.lr.ph.i.i:                                       ; preds = %3
   %5 = tail call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2899cce363af8dc0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %1), !noalias !3952
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9d3362de26204511E.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9d3362de26204511E.exit": ; preds = %3, %.critedge.i.i
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9d3362de26204511E.exit": ; preds = %3, %.lr.ph.i.i
   ret void
 }
 

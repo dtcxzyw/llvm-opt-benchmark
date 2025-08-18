@@ -10864,463 +10864,469 @@ Gia_ManSortUnates.exit.critedge:                  ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %103 = load ptr, ptr %102, align 8, !tbaa !70
-  %104 = load ptr, ptr %80, align 8, !tbaa !78
-  %105 = load ptr, ptr %92, align 8, !tbaa !69
-  %106 = load ptr, ptr %101, align 8, !tbaa !69
-  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %104, ptr noundef readonly %99, i32 noundef %100, ptr noundef %105, ptr noundef %106, ptr noundef %103)
-  %107 = load ptr, ptr %79, align 8, !tbaa !78
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %109 = load ptr, ptr %108, align 8, !tbaa !69
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %111 = load ptr, ptr %110, align 8, !tbaa !69
-  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %107, ptr noundef readonly %99, i32 noundef %100, ptr noundef %109, ptr noundef %111, ptr noundef %103)
-  %112 = load ptr, ptr %4, align 8, !tbaa !77
-  %113 = load i32, ptr %0, align 8, !tbaa !66
-  %114 = load i32, ptr %7, align 8, !tbaa !91
-  %115 = tail call i32 @Gia_ManFindTwoUnate(ptr noundef nonnull %79, ptr noundef %112, i32 noundef %113, ptr noundef nonnull %92, ptr noundef nonnull %101, i32 noundef %114)
-  %116 = icmp sgt i32 %115, -1
-  br i1 %116, label %117, label %129
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %105 = load ptr, ptr %104, align 8, !tbaa !78
+  %106 = load ptr, ptr %92, align 8, !tbaa !69
+  %107 = load ptr, ptr %101, align 8, !tbaa !69
+  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %105, ptr noundef readonly %99, i32 noundef %100, ptr noundef %106, ptr noundef %107, ptr noundef %103)
+  %108 = load ptr, ptr %79, align 8, !tbaa !78
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %110 = load ptr, ptr %109, align 8, !tbaa !69
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %112 = load ptr, ptr %111, align 8, !tbaa !69
+  tail call void @Gia_ManSortUnatesInt(ptr poison, ptr noundef %108, ptr noundef readonly %99, i32 noundef %100, ptr noundef %110, ptr noundef %112, ptr noundef %103)
+  %113 = load ptr, ptr %4, align 8, !tbaa !77
+  %114 = load i32, ptr %0, align 8, !tbaa !66
+  %115 = load i32, ptr %7, align 8, !tbaa !91
+  %116 = tail call i32 @Gia_ManFindTwoUnate(ptr noundef nonnull %79, ptr noundef %113, i32 noundef %114, ptr noundef nonnull %92, ptr noundef nonnull %101, i32 noundef %115)
+  %117 = icmp sgt i32 %116, -1
+  br i1 %117, label %118, label %130
 
-117:                                              ; preds = %Gia_ManSortUnates.exit.critedge
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %119 = load ptr, ptr %118, align 8, !tbaa !72
-  %120 = getelementptr i8, ptr %119, i64 4
-  %.val316 = load i32, ptr %120, align 4, !tbaa !28
-  %121 = sdiv i32 %.val316, 2
-  %122 = add nsw i32 %121, %.val331
-  %123 = and i32 %115, 1
-  %124 = lshr i32 %115, 1
-  %125 = and i32 %124, 32767
-  %126 = lshr i32 %115, 16
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %119, i32 noundef %125, i32 noundef %126)
-  %127 = shl nsw i32 %122, 1
-  %128 = or disjoint i32 %127, %123
+118:                                              ; preds = %Gia_ManSortUnates.exit.critedge
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %120 = load ptr, ptr %119, align 8, !tbaa !72
+  %121 = getelementptr i8, ptr %120, i64 4
+  %.val316 = load i32, ptr %121, align 4, !tbaa !28
+  %122 = sdiv i32 %.val316, 2
+  %123 = add nsw i32 %122, %.val331
+  %124 = and i32 %116, 1
+  %125 = lshr i32 %116, 1
+  %126 = and i32 %125, 32767
+  %127 = lshr i32 %116, 16
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %120, i32 noundef %126, i32 noundef %127)
+  %128 = shl nsw i32 %123, 1
+  %129 = or disjoint i32 %128, %124
   br label %Abc_TtIsConst0.exit.thread
 
-129:                                              ; preds = %Gia_ManSortUnates.exit.critedge
-  %130 = load ptr, ptr %93, align 8, !tbaa !69
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %132 = load ptr, ptr %131, align 8, !tbaa !69
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %134 = load ptr, ptr %133, align 8, !tbaa !71
-  %135 = getelementptr i8, ptr %130, i64 4
-  %.val326 = load i32, ptr %135, align 4, !tbaa !28
-  %136 = getelementptr i8, ptr %130, i64 8
-  %.val327 = load ptr, ptr %136, align 8, !tbaa !30
-  %137 = getelementptr i8, ptr %132, i64 4
-  %.val328 = load i32, ptr %137, align 4, !tbaa !28
-  %138 = getelementptr i8, ptr %132, i64 8
-  %.val329 = load ptr, ptr %138, align 8, !tbaa !30
-  tail call fastcc void @Vec_IntTwoFindCommon(i32 %.val326, ptr %.val327, i32 %.val328, ptr %.val329, ptr noundef %134)
+130:                                              ; preds = %Gia_ManSortUnates.exit.critedge
+  %131 = load ptr, ptr %93, align 8, !tbaa !69
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %133 = load ptr, ptr %132, align 8, !tbaa !69
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %135 = load ptr, ptr %134, align 8, !tbaa !71
+  %136 = getelementptr i8, ptr %131, i64 4
+  %.val326 = load i32, ptr %136, align 4, !tbaa !28
+  %137 = getelementptr i8, ptr %131, i64 8
+  %.val327 = load ptr, ptr %137, align 8, !tbaa !30
+  %138 = getelementptr i8, ptr %133, i64 4
+  %.val328 = load i32, ptr %138, align 4, !tbaa !28
+  %139 = getelementptr i8, ptr %133, i64 8
+  %.val329 = load ptr, ptr %139, align 8, !tbaa !30
+  tail call fastcc void @Vec_IntTwoFindCommon(i32 %.val326, ptr %.val327, i32 %.val328, ptr %.val329, ptr noundef %135)
   %.not287 = icmp eq i32 %2, 0
-  br i1 %.not287, label %141, label %139
+  br i1 %.not287, label %142, label %140
 
-139:                                              ; preds = %129
-  %140 = tail call i32 @Gia_ManResubPerformMux_rec(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
+140:                                              ; preds = %130
+  %141 = tail call i32 @Gia_ManResubPerformMux_rec(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
   br label %Abc_TtIsConst0.exit.thread
 
-141:                                              ; preds = %129
-  %142 = load ptr, ptr %133, align 8, !tbaa !71
-  %143 = getelementptr i8, ptr %142, i64 4
-  %.val315 = load i32, ptr %143, align 4, !tbaa !28
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %145 = load i32, ptr %144, align 8, !tbaa !87
-  %146 = icmp sgt i32 %.val315, %145
-  br i1 %146, label %147, label %148
+142:                                              ; preds = %130
+  %143 = load ptr, ptr %134, align 8, !tbaa !71
+  %144 = getelementptr i8, ptr %143, i64 4
+  %.val315 = load i32, ptr %144, align 4, !tbaa !28
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %146 = load i32, ptr %145, align 8, !tbaa !87
+  %147 = icmp sgt i32 %.val315, %146
+  br i1 %147, label %148, label %149
 
-147:                                              ; preds = %141
-  store i32 %145, ptr %143, align 4, !tbaa !28
-  br label %148
+148:                                              ; preds = %142
+  store i32 %146, ptr %144, align 4, !tbaa !28
+  br label %149
 
-148:                                              ; preds = %147, %141
-  %.val314 = phi i32 [ %145, %147 ], [ %.val315, %141 ]
-  %149 = load i32, ptr %7, align 8, !tbaa !91
-  %.not288 = icmp eq i32 %149, 0
-  br i1 %.not288, label %152, label %150
+149:                                              ; preds = %148, %142
+  %.val314 = phi i32 [ %146, %148 ], [ %.val315, %142 ]
+  %150 = load i32, ptr %7, align 8, !tbaa !91
+  %.not288 = icmp eq i32 %150, 0
+  br i1 %.not288, label %153, label %151
 
-150:                                              ; preds = %148
-  %151 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %.val314)
-  br label %152
+151:                                              ; preds = %149
+  %152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %.val314)
+  br label %153
 
-152:                                              ; preds = %150, %148
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %154 = load i32, ptr %153, align 8, !tbaa !89
-  %.not289 = icmp eq i32 %154, 0
-  br i1 %.not289, label %175, label %155
+153:                                              ; preds = %151, %149
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %155 = load i32, ptr %154, align 8, !tbaa !89
+  %.not289 = icmp eq i32 %155, 0
+  br i1 %.not289, label %176, label %156
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %4, align 8, !tbaa !77
-  %157 = load i32, ptr %0, align 8, !tbaa !66
-  %158 = load ptr, ptr %133, align 8, !tbaa !71
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %160 = load i32, ptr %7, align 8, !tbaa !91
-  %161 = tail call i32 @Gia_ManFindXor(ptr noundef nonnull %79, ptr noundef %156, i32 noundef %157, ptr noundef %158, ptr noundef nonnull %159, i32 noundef %160)
-  %162 = icmp sgt i32 %161, -1
-  br i1 %162, label %163, label %175
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %4, align 8, !tbaa !77
+  %158 = load i32, ptr %0, align 8, !tbaa !66
+  %159 = load ptr, ptr %134, align 8, !tbaa !71
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %161 = load i32, ptr %7, align 8, !tbaa !91
+  %162 = tail call i32 @Gia_ManFindXor(ptr noundef nonnull %79, ptr noundef %157, i32 noundef %158, ptr noundef %159, ptr noundef nonnull %160, i32 noundef %161)
+  %163 = icmp sgt i32 %162, -1
+  br i1 %163, label %164, label %176
 
-163:                                              ; preds = %155
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %165 = load ptr, ptr %164, align 8, !tbaa !72
-  %166 = getelementptr i8, ptr %165, i64 4
-  %.val313 = load i32, ptr %166, align 4, !tbaa !28
-  %167 = sdiv i32 %.val313, 2
-  %168 = add nsw i32 %167, %.val331
-  %169 = and i32 %161, 1
-  %170 = lshr i32 %161, 1
-  %171 = and i32 %170, 32767
-  %172 = lshr i32 %161, 16
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %165, i32 noundef %171, i32 noundef %172)
-  %173 = shl nsw i32 %168, 1
-  %174 = or disjoint i32 %173, %169
+164:                                              ; preds = %156
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %166 = load ptr, ptr %165, align 8, !tbaa !72
+  %167 = getelementptr i8, ptr %166, i64 4
+  %.val313 = load i32, ptr %167, align 4, !tbaa !28
+  %168 = sdiv i32 %.val313, 2
+  %169 = add nsw i32 %168, %.val331
+  %170 = and i32 %162, 1
+  %171 = lshr i32 %162, 1
+  %172 = and i32 %171, 32767
+  %173 = lshr i32 %162, 16
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %166, i32 noundef %172, i32 noundef %173)
+  %174 = shl nsw i32 %169, 1
+  %175 = or disjoint i32 %174, %170
   br label %Abc_TtIsConst0.exit.thread
 
-175:                                              ; preds = %155, %152
-  %176 = icmp eq i32 %1, 1
-  br i1 %176, label %Abc_TtIsConst0.exit.thread, label %Gia_ManSortPairs.exit.critedge
+176:                                              ; preds = %156, %153
+  %177 = icmp eq i32 %1, 1
+  br i1 %177, label %Abc_TtIsConst0.exit.thread, label %Gia_ManSortPairs.exit.critedge
 
-Gia_ManSortPairs.exit.critedge:                   ; preds = %175
-  %177 = load ptr, ptr %4, align 8, !tbaa !77
-  %178 = load i32, ptr %0, align 8, !tbaa !66
-  %179 = load ptr, ptr %133, align 8, !tbaa !71
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %181 = load i32, ptr %7, align 8, !tbaa !91
-  tail call void @Gia_ManFindUnatePairs(ptr noundef nonnull %79, ptr noundef %177, i32 noundef %178, ptr noundef %179, ptr noundef nonnull %180, i32 noundef %181)
-  %182 = load ptr, ptr %4, align 8, !tbaa !77
-  %183 = load i32, ptr %0, align 8, !tbaa !66
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %185 = load ptr, ptr %102, align 8, !tbaa !70
-  %186 = load ptr, ptr %80, align 8, !tbaa !78
-  %187 = load ptr, ptr %180, align 8, !tbaa !69
-  %188 = load ptr, ptr %184, align 8, !tbaa !69
-  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %186, ptr noundef readonly %182, i32 noundef %183, ptr noundef %187, ptr noundef %188, ptr noundef %185)
-  %189 = load ptr, ptr %79, align 8, !tbaa !78
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %191 = load ptr, ptr %190, align 8, !tbaa !69
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 128
+Gia_ManSortPairs.exit.critedge:                   ; preds = %176
+  %178 = load ptr, ptr %4, align 8, !tbaa !77
+  %179 = load i32, ptr %0, align 8, !tbaa !66
+  %180 = load ptr, ptr %134, align 8, !tbaa !71
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %182 = load i32, ptr %7, align 8, !tbaa !91
+  tail call void @Gia_ManFindUnatePairs(ptr noundef nonnull %79, ptr noundef %178, i32 noundef %179, ptr noundef %180, ptr noundef nonnull %181, i32 noundef %182)
+  %183 = load ptr, ptr %4, align 8, !tbaa !77
+  %184 = load i32, ptr %0, align 8, !tbaa !66
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %186 = load ptr, ptr %102, align 8, !tbaa !70
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %188 = load ptr, ptr %187, align 8, !tbaa !78
+  %189 = load ptr, ptr %181, align 8, !tbaa !69
+  %190 = load ptr, ptr %185, align 8, !tbaa !69
+  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %188, ptr noundef readonly %183, i32 noundef %184, ptr noundef %189, ptr noundef %190, ptr noundef %186)
+  %191 = load ptr, ptr %79, align 8, !tbaa !78
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %193 = load ptr, ptr %192, align 8, !tbaa !69
-  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %189, ptr noundef readonly %182, i32 noundef %183, ptr noundef %191, ptr noundef %193, ptr noundef %185)
-  %194 = load ptr, ptr %4, align 8, !tbaa !77
-  %195 = load i32, ptr %0, align 8, !tbaa !66
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %197 = load ptr, ptr %196, align 8, !tbaa !79
-  %198 = tail call i32 @Gia_ManFindDivGate(ptr noundef nonnull %79, ptr noundef %194, i32 noundef %195, ptr noundef nonnull %92, ptr noundef nonnull %180, ptr noundef nonnull %101, ptr noundef nonnull %184, ptr noundef %197)
-  %199 = icmp sgt i32 %198, -1
-  br i1 %199, label %200, label %229
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %195 = load ptr, ptr %194, align 8, !tbaa !69
+  tail call void @Gia_ManSortPairsInt(ptr poison, ptr noundef %191, ptr noundef readonly %183, i32 noundef %184, ptr noundef %193, ptr noundef %195, ptr noundef %186)
+  %196 = load ptr, ptr %4, align 8, !tbaa !77
+  %197 = load i32, ptr %0, align 8, !tbaa !66
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %199 = load ptr, ptr %198, align 8, !tbaa !79
+  %200 = tail call i32 @Gia_ManFindDivGate(ptr noundef nonnull %79, ptr noundef %196, i32 noundef %197, ptr noundef nonnull %92, ptr noundef nonnull %181, ptr noundef nonnull %101, ptr noundef nonnull %185, ptr noundef %199)
+  %201 = icmp sgt i32 %200, -1
+  br i1 %201, label %202, label %231
 
-200:                                              ; preds = %Gia_ManSortPairs.exit.critedge
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %202 = load ptr, ptr %201, align 8, !tbaa !72
-  %203 = getelementptr i8, ptr %202, i64 4
-  %.val312 = load i32, ptr %203, align 4, !tbaa !28
-  %204 = sdiv i32 %.val312, 2
-  %205 = add nsw i32 %204, %.val331
-  %206 = and i32 %198, 1
-  %207 = lshr i32 %198, 1
-  %208 = and i32 %207, 32767
-  %209 = lshr i32 %198, 16
-  %210 = xor i32 %206, 1
-  %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw [2 x ptr], ptr %180, i64 0, i64 %211
-  %213 = load ptr, ptr %212, align 8, !tbaa !69
-  %214 = lshr i32 %198, 17
-  %215 = getelementptr i8, ptr %213, i64 8
-  %.val325 = load ptr, ptr %215, align 8, !tbaa !30
-  %216 = zext nneg i32 %214 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %.val325, i64 %216
-  %218 = load i32, ptr %217, align 4, !tbaa !31
-  %219 = xor i32 %218, %209
-  %220 = and i32 %219, 1
-  %221 = lshr i32 %218, 1
-  %222 = and i32 %221, 32767
-  %223 = ashr i32 %218, 16
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %202, i32 noundef %222, i32 noundef %223)
-  %224 = load ptr, ptr %201, align 8, !tbaa !72
-  %225 = shl i32 %205, 1
-  %226 = or disjoint i32 %220, %225
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %224, i32 noundef %208, i32 noundef %226)
-  %227 = add i32 %225, 2
-  %228 = or disjoint i32 %227, %206
+202:                                              ; preds = %Gia_ManSortPairs.exit.critedge
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %204 = load ptr, ptr %203, align 8, !tbaa !72
+  %205 = getelementptr i8, ptr %204, i64 4
+  %.val312 = load i32, ptr %205, align 4, !tbaa !28
+  %206 = sdiv i32 %.val312, 2
+  %207 = add nsw i32 %206, %.val331
+  %208 = and i32 %200, 1
+  %209 = lshr i32 %200, 1
+  %210 = and i32 %209, 32767
+  %211 = lshr i32 %200, 16
+  %212 = xor i32 %208, 1
+  %213 = zext nneg i32 %212 to i64
+  %214 = getelementptr inbounds nuw [2 x ptr], ptr %181, i64 0, i64 %213
+  %215 = load ptr, ptr %214, align 8, !tbaa !69
+  %216 = lshr i32 %200, 17
+  %217 = getelementptr i8, ptr %215, i64 8
+  %.val325 = load ptr, ptr %217, align 8, !tbaa !30
+  %218 = zext nneg i32 %216 to i64
+  %219 = getelementptr inbounds nuw i32, ptr %.val325, i64 %218
+  %220 = load i32, ptr %219, align 4, !tbaa !31
+  %221 = xor i32 %220, %211
+  %222 = and i32 %221, 1
+  %223 = lshr i32 %220, 1
+  %224 = and i32 %223, 32767
+  %225 = ashr i32 %220, 16
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %204, i32 noundef %224, i32 noundef %225)
+  %226 = load ptr, ptr %203, align 8, !tbaa !72
+  %227 = shl i32 %207, 1
+  %228 = or disjoint i32 %222, %227
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %226, i32 noundef %210, i32 noundef %228)
+  %229 = add i32 %227, 2
+  %230 = or disjoint i32 %229, %208
   br label %Abc_TtIsConst0.exit.thread
 
-229:                                              ; preds = %Gia_ManSortPairs.exit.critedge
-  %230 = icmp sgt i32 %1, 2
-  br i1 %230, label %231, label %280
+231:                                              ; preds = %Gia_ManSortPairs.exit.critedge
+  %232 = icmp sgt i32 %1, 2
+  br i1 %232, label %233, label %282
 
-231:                                              ; preds = %229
-  %232 = load ptr, ptr %4, align 8, !tbaa !77
-  %233 = load i32, ptr %0, align 8, !tbaa !66
-  %234 = load ptr, ptr %196, align 8, !tbaa !79
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %236 = load ptr, ptr %235, align 8, !tbaa !80
-  %237 = tail call i32 @Gia_ManFindGateGate(ptr noundef nonnull %79, ptr noundef %232, i32 noundef %233, ptr noundef nonnull %180, ptr noundef nonnull %184, ptr noundef %234, ptr noundef %236)
-  %238 = icmp sgt i32 %237, -1
-  br i1 %238, label %239, label %280
+233:                                              ; preds = %231
+  %234 = load ptr, ptr %4, align 8, !tbaa !77
+  %235 = load i32, ptr %0, align 8, !tbaa !66
+  %236 = load ptr, ptr %198, align 8, !tbaa !79
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %238 = load ptr, ptr %237, align 8, !tbaa !80
+  %239 = tail call i32 @Gia_ManFindGateGate(ptr noundef nonnull %79, ptr noundef %234, i32 noundef %235, ptr noundef nonnull %181, ptr noundef nonnull %185, ptr noundef %236, ptr noundef %238)
+  %240 = icmp sgt i32 %239, -1
+  br i1 %240, label %241, label %282
 
-239:                                              ; preds = %231
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %241 = load ptr, ptr %240, align 8, !tbaa !72
-  %242 = getelementptr i8, ptr %241, i64 4
-  %.val311 = load i32, ptr %242, align 4, !tbaa !28
-  %243 = sdiv i32 %.val311, 2
-  %244 = add nsw i32 %243, %.val331
-  %245 = and i32 %237, 1
-  %246 = lshr i32 %237, 1
-  %247 = lshr i32 %237, 16
-  %248 = xor i32 %245, 1
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [2 x ptr], ptr %180, i64 0, i64 %249
-  %251 = load ptr, ptr %250, align 8, !tbaa !69
-  %252 = lshr i32 %237, 2
-  %253 = and i32 %252, 16383
-  %254 = getelementptr i8, ptr %251, i64 8
-  %.val324 = load ptr, ptr %254, align 8, !tbaa !30
-  %255 = zext nneg i32 %253 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %.val324, i64 %255
-  %257 = load i32, ptr %256, align 4, !tbaa !31
-  %258 = xor i32 %257, %246
-  %259 = and i32 %258, 1
-  %260 = lshr i32 %257, 1
-  %261 = and i32 %260, 32767
-  %262 = ashr i32 %257, 16
-  %263 = lshr i32 %237, 17
-  %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %.val324, i64 %264
-  %266 = load i32, ptr %265, align 4, !tbaa !31
-  %267 = xor i32 %266, %247
-  %268 = and i32 %267, 1
-  %269 = lshr i32 %266, 1
-  %270 = and i32 %269, 32767
-  %271 = ashr i32 %266, 16
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %241, i32 noundef %261, i32 noundef %262)
-  %272 = load ptr, ptr %240, align 8, !tbaa !72
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %272, i32 noundef %270, i32 noundef %271)
-  %273 = load ptr, ptr %240, align 8, !tbaa !72
-  %274 = shl i32 %244, 1
-  %275 = or disjoint i32 %259, %274
-  %276 = add i32 %274, 2
-  %277 = or disjoint i32 %268, %276
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %273, i32 noundef %275, i32 noundef %277)
-  %278 = add i32 %274, 4
-  %279 = or disjoint i32 %278, %245
+241:                                              ; preds = %233
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %243 = load ptr, ptr %242, align 8, !tbaa !72
+  %244 = getelementptr i8, ptr %243, i64 4
+  %.val311 = load i32, ptr %244, align 4, !tbaa !28
+  %245 = sdiv i32 %.val311, 2
+  %246 = add nsw i32 %245, %.val331
+  %247 = and i32 %239, 1
+  %248 = lshr i32 %239, 1
+  %249 = lshr i32 %239, 16
+  %250 = xor i32 %247, 1
+  %251 = zext nneg i32 %250 to i64
+  %252 = getelementptr inbounds nuw [2 x ptr], ptr %181, i64 0, i64 %251
+  %253 = load ptr, ptr %252, align 8, !tbaa !69
+  %254 = lshr i32 %239, 2
+  %255 = and i32 %254, 16383
+  %256 = getelementptr i8, ptr %253, i64 8
+  %.val324 = load ptr, ptr %256, align 8, !tbaa !30
+  %257 = zext nneg i32 %255 to i64
+  %258 = getelementptr inbounds nuw i32, ptr %.val324, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !31
+  %260 = xor i32 %259, %248
+  %261 = and i32 %260, 1
+  %262 = lshr i32 %259, 1
+  %263 = and i32 %262, 32767
+  %264 = ashr i32 %259, 16
+  %265 = lshr i32 %239, 17
+  %266 = zext nneg i32 %265 to i64
+  %267 = getelementptr inbounds nuw i32, ptr %.val324, i64 %266
+  %268 = load i32, ptr %267, align 4, !tbaa !31
+  %269 = xor i32 %268, %249
+  %270 = and i32 %269, 1
+  %271 = lshr i32 %268, 1
+  %272 = and i32 %271, 32767
+  %273 = ashr i32 %268, 16
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %243, i32 noundef %263, i32 noundef %264)
+  %274 = load ptr, ptr %242, align 8, !tbaa !72
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %274, i32 noundef %272, i32 noundef %273)
+  %275 = load ptr, ptr %242, align 8, !tbaa !72
+  %276 = shl i32 %246, 1
+  %277 = or disjoint i32 %261, %276
+  %278 = add i32 %276, 2
+  %279 = or disjoint i32 %270, %278
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %275, i32 noundef %277, i32 noundef %279)
+  %280 = add i32 %276, 4
+  %281 = or disjoint i32 %280, %247
   br label %Abc_TtIsConst0.exit.thread
 
-280:                                              ; preds = %231, %229
-  %281 = load ptr, ptr %92, align 8, !tbaa !69
-  %282 = getelementptr i8, ptr %281, i64 4
-  %.val310 = load i32, ptr %282, align 4, !tbaa !28
-  %283 = load ptr, ptr %108, align 8, !tbaa !69
+282:                                              ; preds = %233, %231
+  %283 = load ptr, ptr %92, align 8, !tbaa !69
   %284 = getelementptr i8, ptr %283, i64 4
-  %.val309 = load i32, ptr %284, align 4, !tbaa !28
-  %285 = add nsw i32 %.val309, %.val310
-  %286 = load ptr, ptr %180, align 8, !tbaa !69
+  %.val310 = load i32, ptr %284, align 4, !tbaa !28
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %286 = load ptr, ptr %285, align 8, !tbaa !69
   %287 = getelementptr i8, ptr %286, i64 4
-  %.val308 = load i32, ptr %287, align 4, !tbaa !28
-  %288 = add nsw i32 %285, %.val308
-  %289 = load ptr, ptr %190, align 8, !tbaa !69
+  %.val309 = load i32, ptr %287, align 4, !tbaa !28
+  %288 = add nsw i32 %.val309, %.val310
+  %289 = load ptr, ptr %181, align 8, !tbaa !69
   %290 = getelementptr i8, ptr %289, i64 4
-  %.val307 = load i32, ptr %290, align 4, !tbaa !28
-  %291 = sub i32 0, %.val307
-  %292 = icmp eq i32 %288, %291
-  br i1 %292, label %Abc_TtIsConst0.exit.thread, label %293
+  %.val308 = load i32, ptr %290, align 4, !tbaa !28
+  %291 = add nsw i32 %288, %.val308
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %293 = load ptr, ptr %292, align 8, !tbaa !69
+  %294 = getelementptr i8, ptr %293, i64 4
+  %.val307 = load i32, ptr %294, align 4, !tbaa !28
+  %295 = sub i32 0, %.val307
+  %296 = icmp eq i32 %291, %295
+  br i1 %296, label %Abc_TtIsConst0.exit.thread, label %297
 
-293:                                              ; preds = %280
-  %294 = load ptr, ptr %101, align 8, !tbaa !69
-  %295 = getelementptr i8, ptr %294, i64 4
-  %.val306 = load i32, ptr %295, align 4, !tbaa !28
+297:                                              ; preds = %282
+  %298 = load ptr, ptr %101, align 8, !tbaa !69
+  %299 = getelementptr i8, ptr %298, i64 4
+  %.val306 = load i32, ptr %299, align 4, !tbaa !28
   %.not290 = icmp eq i32 %.val306, 0
-  br i1 %.not290, label %299, label %296
+  br i1 %.not290, label %303, label %300
 
-296:                                              ; preds = %293
-  %297 = getelementptr i8, ptr %294, i64 8
-  %.val322 = load ptr, ptr %297, align 8, !tbaa !30
-  %298 = load i32, ptr %.val322, align 4, !tbaa !31
-  br label %299
+300:                                              ; preds = %297
+  %301 = getelementptr i8, ptr %298, i64 8
+  %.val322 = load ptr, ptr %301, align 8, !tbaa !30
+  %302 = load i32, ptr %.val322, align 4, !tbaa !31
+  br label %303
 
-299:                                              ; preds = %293, %296
-  %300 = phi i32 [ %298, %296 ], [ 0, %293 ]
-  %301 = load ptr, ptr %110, align 8, !tbaa !69
-  %302 = getelementptr i8, ptr %301, i64 4
-  %.val305 = load i32, ptr %302, align 4, !tbaa !28
+303:                                              ; preds = %297, %300
+  %304 = phi i32 [ %302, %300 ], [ 0, %297 ]
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %306 = load ptr, ptr %305, align 8, !tbaa !69
+  %307 = getelementptr i8, ptr %306, i64 4
+  %.val305 = load i32, ptr %307, align 4, !tbaa !28
   %.not291 = icmp eq i32 %.val305, 0
-  br i1 %.not291, label %306, label %303
+  br i1 %.not291, label %311, label %308
 
-303:                                              ; preds = %299
-  %304 = getelementptr i8, ptr %301, i64 8
-  %.val321 = load ptr, ptr %304, align 8, !tbaa !30
-  %305 = load i32, ptr %.val321, align 4, !tbaa !31
-  br label %306
+308:                                              ; preds = %303
+  %309 = getelementptr i8, ptr %306, i64 8
+  %.val321 = load ptr, ptr %309, align 8, !tbaa !30
+  %310 = load i32, ptr %.val321, align 4, !tbaa !31
+  br label %311
 
-306:                                              ; preds = %299, %303
-  %307 = phi i32 [ %305, %303 ], [ 0, %299 ]
-  %308 = load ptr, ptr %184, align 8, !tbaa !69
-  %309 = getelementptr i8, ptr %308, i64 4
-  %.val304 = load i32, ptr %309, align 4, !tbaa !28
+311:                                              ; preds = %303, %308
+  %312 = phi i32 [ %310, %308 ], [ 0, %303 ]
+  %313 = load ptr, ptr %185, align 8, !tbaa !69
+  %314 = getelementptr i8, ptr %313, i64 4
+  %.val304 = load i32, ptr %314, align 4, !tbaa !28
   %.not292 = icmp eq i32 %.val304, 0
-  br i1 %.not292, label %313, label %310
+  br i1 %.not292, label %318, label %315
 
-310:                                              ; preds = %306
-  %311 = getelementptr i8, ptr %308, i64 8
-  %.val320 = load ptr, ptr %311, align 8, !tbaa !30
-  %312 = load i32, ptr %.val320, align 4, !tbaa !31
-  br label %313
+315:                                              ; preds = %311
+  %316 = getelementptr i8, ptr %313, i64 8
+  %.val320 = load ptr, ptr %316, align 8, !tbaa !30
+  %317 = load i32, ptr %.val320, align 4, !tbaa !31
+  br label %318
 
-313:                                              ; preds = %306, %310
-  %314 = phi i32 [ %312, %310 ], [ 0, %306 ]
-  %315 = load ptr, ptr %192, align 8, !tbaa !69
-  %316 = getelementptr i8, ptr %315, i64 4
-  %.val303 = load i32, ptr %316, align 4, !tbaa !28
+318:                                              ; preds = %311, %315
+  %319 = phi i32 [ %317, %315 ], [ 0, %311 ]
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %321 = load ptr, ptr %320, align 8, !tbaa !69
+  %322 = getelementptr i8, ptr %321, i64 4
+  %.val303 = load i32, ptr %322, align 4, !tbaa !28
   %.not293 = icmp eq i32 %.val303, 0
-  br i1 %.not293, label %320, label %317
+  br i1 %.not293, label %326, label %323
 
-317:                                              ; preds = %313
-  %318 = getelementptr i8, ptr %315, i64 8
-  %.val319 = load ptr, ptr %318, align 8, !tbaa !30
-  %319 = load i32, ptr %.val319, align 4, !tbaa !31
-  br label %320
+323:                                              ; preds = %318
+  %324 = getelementptr i8, ptr %321, i64 8
+  %.val319 = load ptr, ptr %324, align 8, !tbaa !30
+  %325 = load i32, ptr %.val319, align 4, !tbaa !31
+  br label %326
 
-320:                                              ; preds = %313, %317
-  %321 = phi i32 [ %319, %317 ], [ 0, %313 ]
-  %322 = tail call noundef i32 @llvm.smax.i32(i32 %300, i32 %307)
-  %323 = tail call noundef i32 @llvm.smax.i32(i32 %314, i32 %321)
-  %324 = tail call noundef i32 @llvm.smax.i32(i32 %322, i32 %323)
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %Abc_TtIsConst0.exit.thread, label %326
+326:                                              ; preds = %318, %323
+  %327 = phi i32 [ %325, %323 ], [ 0, %318 ]
+  %328 = tail call noundef i32 @llvm.smax.i32(i32 %304, i32 %312)
+  %329 = tail call noundef i32 @llvm.smax.i32(i32 %319, i32 %327)
+  %330 = tail call noundef i32 @llvm.smax.i32(i32 %328, i32 %329)
+  %331 = icmp eq i32 %330, 0
+  br i1 %331, label %Abc_TtIsConst0.exit.thread, label %332
 
-326:                                              ; preds = %320
-  %327 = sdiv i32 %323, 2
-  %328 = icmp sgt i32 %322, %327
-  br i1 %328, label %329, label %374
+332:                                              ; preds = %326
+  %333 = sdiv i32 %329, 2
+  %334 = icmp sgt i32 %328, %333
+  br i1 %334, label %335, label %380
 
-329:                                              ; preds = %326
-  %330 = icmp sgt i32 %1, 1
-  br i1 %330, label %331, label %Abc_TtIsConst0.exit.thread
+335:                                              ; preds = %332
+  %336 = icmp sgt i32 %1, 1
+  br i1 %336, label %337, label %Abc_TtIsConst0.exit.thread
 
-331:                                              ; preds = %329
-  %332 = icmp sge i32 %300, %307
-  %333 = zext i1 %332 to i32
-  %334 = xor i1 %332, true
-  %335 = zext i1 %334 to i64
-  %336 = getelementptr inbounds nuw [2 x ptr], ptr %92, i64 0, i64 %335
-  %337 = load ptr, ptr %336, align 8, !tbaa !69
-  %338 = getelementptr i8, ptr %337, i64 8
-  %.val318 = load ptr, ptr %338, align 8, !tbaa !30
-  %339 = load i32, ptr %.val318, align 4, !tbaa !31
-  %340 = and i32 %339, 1
-  %341 = load ptr, ptr %4, align 8, !tbaa !77
-  %342 = ashr i32 %339, 1
-  %343 = getelementptr i8, ptr %341, i64 8
-  %.val330 = load ptr, ptr %343, align 8, !tbaa !76
-  %344 = sext i32 %342 to i64
-  %345 = getelementptr inbounds ptr, ptr %.val330, i64 %344
-  %346 = load ptr, ptr %345, align 8, !tbaa !93
-  %347 = zext i1 %332 to i64
-  %348 = getelementptr inbounds nuw [2 x ptr], ptr %79, i64 0, i64 %347
-  %349 = load ptr, ptr %348, align 8, !tbaa !78
-  %350 = load i32, ptr %0, align 8, !tbaa !66
-  %351 = xor i32 %340, 1
-  tail call fastcc void @Abc_TtAndSharp(ptr noundef %349, ptr noundef %349, ptr noundef %346, i32 noundef %350, i32 noundef %351)
-  %352 = load i32, ptr %7, align 8, !tbaa !91
-  %.not297 = icmp eq i32 %352, 0
-  br i1 %.not297, label %354, label %353
+337:                                              ; preds = %335
+  %338 = icmp sge i32 %304, %312
+  %339 = zext i1 %338 to i32
+  %340 = xor i1 %338, true
+  %341 = zext i1 %340 to i64
+  %342 = getelementptr inbounds nuw [2 x ptr], ptr %92, i64 0, i64 %341
+  %343 = load ptr, ptr %342, align 8, !tbaa !69
+  %344 = getelementptr i8, ptr %343, i64 8
+  %.val318 = load ptr, ptr %344, align 8, !tbaa !30
+  %345 = load i32, ptr %.val318, align 4, !tbaa !31
+  %346 = and i32 %345, 1
+  %347 = load ptr, ptr %4, align 8, !tbaa !77
+  %348 = ashr i32 %345, 1
+  %349 = getelementptr i8, ptr %347, i64 8
+  %.val330 = load ptr, ptr %349, align 8, !tbaa !76
+  %350 = sext i32 %348 to i64
+  %351 = getelementptr inbounds ptr, ptr %.val330, i64 %350
+  %352 = load ptr, ptr %351, align 8, !tbaa !93
+  %353 = zext i1 %338 to i64
+  %354 = getelementptr inbounds nuw [2 x ptr], ptr %79, i64 0, i64 %353
+  %355 = load ptr, ptr %354, align 8, !tbaa !78
+  %356 = load i32, ptr %0, align 8, !tbaa !66
+  %357 = xor i32 %346, 1
+  tail call fastcc void @Abc_TtAndSharp(ptr noundef %355, ptr noundef %355, ptr noundef %352, i32 noundef %356, i32 noundef %357)
+  %358 = load i32, ptr %7, align 8, !tbaa !91
+  %.not297 = icmp eq i32 %358, 0
+  br i1 %.not297, label %360, label %359
 
-353:                                              ; preds = %331
+359:                                              ; preds = %337
   %putchar298 = tail call i32 @putchar(i32 10)
-  br label %354
+  br label %360
 
-354:                                              ; preds = %353, %331
-  %355 = add nsw i32 %1, -1
-  %356 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef nonnull %0, i32 noundef %355, i32 noundef 0)
-  %357 = icmp slt i32 %356, 0
-  br i1 %357, label %Abc_TtIsConst0.exit.thread, label %358
+360:                                              ; preds = %359, %337
+  %361 = add nsw i32 %1, -1
+  %362 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef nonnull %0, i32 noundef %361, i32 noundef 0)
+  %363 = icmp slt i32 %362, 0
+  br i1 %363, label %Abc_TtIsConst0.exit.thread, label %364
 
-358:                                              ; preds = %354
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %360 = load ptr, ptr %359, align 8, !tbaa !72
-  %361 = getelementptr i8, ptr %360, i64 4
-  %.val302 = load i32, ptr %361, align 4, !tbaa !28
-  %362 = sdiv i32 %.val302, 2
-  %363 = add nsw i32 %362, %.val331
-  %364 = icmp slt i32 %339, %356
-  br i1 %364, label %365, label %368
+364:                                              ; preds = %360
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %366 = load ptr, ptr %365, align 8, !tbaa !72
+  %367 = getelementptr i8, ptr %366, i64 4
+  %.val302 = load i32, ptr %367, align 4, !tbaa !28
+  %368 = sdiv i32 %.val302, 2
+  %369 = add nsw i32 %368, %.val331
+  %370 = icmp slt i32 %345, %362
+  br i1 %370, label %371, label %374
 
-365:                                              ; preds = %358
-  %366 = xor i32 %339, 1
-  %367 = xor i32 %356, %333
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %360, i32 noundef %366, i32 noundef %367)
-  br label %371
+371:                                              ; preds = %364
+  %372 = xor i32 %345, 1
+  %373 = xor i32 %362, %339
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %366, i32 noundef %372, i32 noundef %373)
+  br label %377
 
-368:                                              ; preds = %358
-  %369 = xor i32 %356, %333
-  %370 = xor i32 %339, 1
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %360, i32 noundef %369, i32 noundef %370)
-  br label %371
+374:                                              ; preds = %364
+  %375 = xor i32 %362, %339
+  %376 = xor i32 %345, 1
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %366, i32 noundef %375, i32 noundef %376)
+  br label %377
 
-371:                                              ; preds = %365, %368
-  %372 = shl nsw i32 %363, 1
-  %373 = or disjoint i32 %372, %333
+377:                                              ; preds = %371, %374
+  %378 = shl nsw i32 %369, 1
+  %379 = or disjoint i32 %378, %339
   br label %Abc_TtIsConst0.exit.thread
 
-374:                                              ; preds = %326
-  br i1 %230, label %375, label %Abc_TtIsConst0.exit.thread
+380:                                              ; preds = %332
+  br i1 %232, label %381, label %Abc_TtIsConst0.exit.thread
 
-375:                                              ; preds = %374
-  %376 = icmp sge i32 %314, %321
-  %377 = zext i1 %376 to i32
-  %378 = xor i1 %376, true
-  %379 = zext i1 %378 to i64
-  %380 = getelementptr inbounds nuw [2 x ptr], ptr %180, i64 0, i64 %379
-  %381 = load ptr, ptr %380, align 8, !tbaa !69
-  %382 = getelementptr i8, ptr %381, i64 8
-  %.val317 = load ptr, ptr %382, align 8, !tbaa !30
-  %383 = load i32, ptr %.val317, align 4, !tbaa !31
-  %384 = and i32 %383, 1
-  %385 = load ptr, ptr %4, align 8, !tbaa !77
-  %386 = load i32, ptr %0, align 8, !tbaa !66
-  %387 = load ptr, ptr %196, align 8, !tbaa !79
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %383, ptr noundef %385, i32 noundef %386, ptr noundef %387)
-  %388 = zext i1 %376 to i64
-  %389 = getelementptr inbounds nuw [2 x ptr], ptr %79, i64 0, i64 %388
-  %390 = load ptr, ptr %389, align 8, !tbaa !78
-  %391 = load ptr, ptr %196, align 8, !tbaa !79
+381:                                              ; preds = %380
+  %382 = icmp sge i32 %319, %327
+  %383 = zext i1 %382 to i32
+  %384 = xor i1 %382, true
+  %385 = zext i1 %384 to i64
+  %386 = getelementptr inbounds nuw [2 x ptr], ptr %181, i64 0, i64 %385
+  %387 = load ptr, ptr %386, align 8, !tbaa !69
+  %388 = getelementptr i8, ptr %387, i64 8
+  %.val317 = load ptr, ptr %388, align 8, !tbaa !30
+  %389 = load i32, ptr %.val317, align 4, !tbaa !31
+  %390 = and i32 %389, 1
+  %391 = load ptr, ptr %4, align 8, !tbaa !77
   %392 = load i32, ptr %0, align 8, !tbaa !66
-  %393 = xor i32 %384, 1
-  tail call fastcc void @Abc_TtAndSharp(ptr noundef %390, ptr noundef %390, ptr noundef %391, i32 noundef %392, i32 noundef %393)
-  %394 = load i32, ptr %7, align 8, !tbaa !91
-  %.not295 = icmp eq i32 %394, 0
-  br i1 %.not295, label %396, label %395
+  %393 = load ptr, ptr %198, align 8, !tbaa !79
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %389, ptr noundef %391, i32 noundef %392, ptr noundef %393)
+  %394 = zext i1 %382 to i64
+  %395 = getelementptr inbounds nuw [2 x ptr], ptr %79, i64 0, i64 %394
+  %396 = load ptr, ptr %395, align 8, !tbaa !78
+  %397 = load ptr, ptr %198, align 8, !tbaa !79
+  %398 = load i32, ptr %0, align 8, !tbaa !66
+  %399 = xor i32 %390, 1
+  tail call fastcc void @Abc_TtAndSharp(ptr noundef %396, ptr noundef %396, ptr noundef %397, i32 noundef %398, i32 noundef %399)
+  %400 = load i32, ptr %7, align 8, !tbaa !91
+  %.not295 = icmp eq i32 %400, 0
+  br i1 %.not295, label %402, label %401
 
-395:                                              ; preds = %375
+401:                                              ; preds = %381
   %putchar = tail call i32 @putchar(i32 10)
-  br label %396
+  br label %402
 
-396:                                              ; preds = %395, %375
-  %397 = add nsw i32 %1, -2
-  %398 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef nonnull %0, i32 noundef %397, i32 noundef 0)
-  %399 = icmp slt i32 %398, 0
-  br i1 %399, label %Abc_TtIsConst0.exit.thread, label %400
+402:                                              ; preds = %401, %381
+  %403 = add nsw i32 %1, -2
+  %404 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef nonnull %0, i32 noundef %403, i32 noundef 0)
+  %405 = icmp slt i32 %404, 0
+  br i1 %405, label %Abc_TtIsConst0.exit.thread, label %406
 
-400:                                              ; preds = %396
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %402 = load ptr, ptr %401, align 8, !tbaa !72
-  %403 = getelementptr i8, ptr %402, i64 4
-  %.val = load i32, ptr %403, align 4, !tbaa !28
-  %404 = sdiv i32 %.val, 2
-  %405 = add nsw i32 %404, %.val331
-  %406 = lshr i32 %383, 1
-  %407 = and i32 %406, 32767
-  %408 = ashr i32 %383, 16
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %402, i32 noundef %407, i32 noundef %408)
-  %409 = load ptr, ptr %401, align 8, !tbaa !72
-  %410 = xor i32 %398, %377
-  %411 = shl i32 %405, 1
-  %412 = or disjoint i32 %411, %393
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %409, i32 noundef %410, i32 noundef %412)
-  %413 = add i32 %411, 2
-  %414 = or disjoint i32 %413, %377
+406:                                              ; preds = %402
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %408 = load ptr, ptr %407, align 8, !tbaa !72
+  %409 = getelementptr i8, ptr %408, i64 4
+  %.val = load i32, ptr %409, align 4, !tbaa !28
+  %410 = sdiv i32 %.val, 2
+  %411 = add nsw i32 %410, %.val331
+  %412 = lshr i32 %389, 1
+  %413 = and i32 %412, 32767
+  %414 = ashr i32 %389, 16
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %408, i32 noundef %413, i32 noundef %414)
+  %415 = load ptr, ptr %407, align 8, !tbaa !72
+  %416 = xor i32 %404, %383
+  %417 = shl i32 %411, 1
+  %418 = or disjoint i32 %417, %399
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %415, i32 noundef %416, i32 noundef %418)
+  %419 = add i32 %417, 2
+  %420 = or disjoint i32 %419, %383
   br label %Abc_TtIsConst0.exit.thread
 
-Abc_TtIsConst0.exit.thread:                       ; preds = %84, %88, %396, %354, %78, %374, %400, %329, %371, %320, %280, %175, %97, %Abc_TtIsConst0.exit357, %239, %200, %163, %139, %117
-  %.0 = phi i32 [ %128, %117 ], [ %140, %139 ], [ %174, %163 ], [ %228, %200 ], [ %279, %239 ], [ %373, %371 ], [ %414, %400 ], [ %95, %Abc_TtIsConst0.exit357 ], [ -1, %97 ], [ -1, %175 ], [ -1, %280 ], [ -1, %320 ], [ -1, %329 ], [ -1, %374 ], [ 0, %78 ], [ -1, %354 ], [ -1, %396 ], [ 1, %88 ], [ 0, %84 ]
+Abc_TtIsConst0.exit.thread:                       ; preds = %84, %88, %402, %360, %78, %380, %406, %335, %377, %326, %282, %176, %97, %Abc_TtIsConst0.exit357, %241, %202, %164, %140, %118
+  %.0 = phi i32 [ %129, %118 ], [ %141, %140 ], [ %175, %164 ], [ %230, %202 ], [ %281, %241 ], [ %379, %377 ], [ %420, %406 ], [ %95, %Abc_TtIsConst0.exit357 ], [ -1, %97 ], [ -1, %176 ], [ -1, %282 ], [ -1, %326 ], [ -1, %335 ], [ -1, %380 ], [ 0, %78 ], [ -1, %360 ], [ -1, %402 ], [ 1, %88 ], [ 0, %84 ]
   ret i32 %.0
 }
 

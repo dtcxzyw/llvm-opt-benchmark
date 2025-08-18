@@ -17800,193 +17800,195 @@ define internal noalias noundef ptr @nt_start(ptr noundef initializes((24, 28)) 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i32, ptr %13, align 8, !tbaa !81
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.critedge.preheader, label %23
+  br i1 %.not, label %15, label %18
 
-.critedge.preheader:                              ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %16 = load ptr, ptr %15, align 8, !tbaa !98
-  store ptr null, ptr %16, align 8, !tbaa !238
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
-  br label %.critedge
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %17 = load ptr, ptr %16, align 8, !tbaa !98
+  store ptr null, ptr %17, align 8, !tbaa !238
+  br label %18
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !237
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !52
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 288
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  store ptr %29, ptr %30, align 8, !tbaa !83
-  store ptr %29, ptr %29, align 8, !tbaa !84
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !74
-  %.not8.i = icmp eq ptr %32, null
-  br i1 %.not8.i, label %ruby_thread_set_native.exit, label %33
+18:                                               ; preds = %15, %1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
+  br i1 %.not, label %.critedge, label %25
 
-33:                                               ; preds = %23
-  tail call void @rb_current_ec_set(ptr noundef nonnull %32) #16
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 384
-  store ptr %32, ptr %34, align 8, !tbaa !96
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !237
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  store ptr %31, ptr %32, align 8, !tbaa !83
+  store ptr %31, ptr %31, align 8, !tbaa !84
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %.not8.i = icmp eq ptr %34, null
+  br i1 %.not8.i, label %ruby_thread_set_native.exit, label %35
+
+35:                                               ; preds = %25
+  tail call void @rb_current_ec_set(ptr noundef nonnull %34) #16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 384
+  store ptr %34, ptr %36, align 8, !tbaa !96
   br label %ruby_thread_set_native.exit
 
-ruby_thread_set_native.exit:                      ; preds = %23, %33
-  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
-  store ptr %25, ptr %35, align 8, !tbaa !59
-  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #16
-  %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %37
+ruby_thread_set_native.exit:                      ; preds = %25, %35
+  store ptr %27, ptr %24, align 8, !tbaa !59
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %30) #16
+  %.not.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %38
 
-37:                                               ; preds = %ruby_thread_set_native.exit
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %36) #37
+38:                                               ; preds = %ruby_thread_set_native.exit
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %37) #37
   unreachable
 
 thread_sched_lock_.exit:                          ; preds = %ruby_thread_set_native.exit
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 328
-  %39 = load ptr, ptr %38, align 8, !tbaa !85
-  %40 = icmp eq ptr %39, %25
-  br i1 %40, label %41, label %47
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 328
+  %40 = load ptr, ptr %39, align 8, !tbaa !85
+  %41 = icmp eq ptr %40, %27
+  br i1 %41, label %42, label %48
 
-41:                                               ; preds = %thread_sched_lock_.exit
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !53
-  %44 = getelementptr inbounds nuw i8, ptr %27, i64 344
-  %45 = load ptr, ptr %44, align 8, !tbaa !54
-  %.not.i39 = icmp eq ptr %45, %44
-  %46 = select i1 %.not.i39, ptr null, ptr %25
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %28, ptr noundef %43, ptr noundef nonnull %25, ptr noundef null, ptr noundef %46)
-  br label %47
+42:                                               ; preds = %thread_sched_lock_.exit
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !53
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 344
+  %46 = load ptr, ptr %45, align 8, !tbaa !54
+  %.not.i39 = icmp eq ptr %46, %45
+  %47 = select i1 %.not.i39, ptr null, ptr %27
+  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %30, ptr noundef %44, ptr noundef nonnull %27, ptr noundef null, ptr noundef %47)
+  br label %48
 
-47:                                               ; preds = %41, %thread_sched_lock_.exit
-  tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %28, ptr noundef nonnull %25, i1 noundef zeroext false)
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #16
-  %.not.i.i40 = icmp eq i32 %48, 0
-  br i1 %.not.i.i40, label %thread_sched_unlock_.exit, label %49
+48:                                               ; preds = %42, %thread_sched_lock_.exit
+  tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %30, ptr noundef nonnull %27, i1 noundef zeroext false)
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #16
+  %.not.i.i40 = icmp eq i32 %49, 0
+  br i1 %.not.i.i40, label %thread_sched_unlock_.exit, label %50
 
-49:                                               ; preds = %47
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %48) #37
+50:                                               ; preds = %48
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %49) #37
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %47
+thread_sched_unlock_.exit:                        ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !147
-  call fastcc void @native_thread_init_stack(ptr noundef nonnull %25, ptr noundef nonnull %2)
-  call fastcc void @thread_start_func_2(ptr noundef nonnull %25)
+  call fastcc void @native_thread_init_stack(ptr noundef nonnull %27, ptr noundef nonnull %2)
+  call fastcc void @thread_start_func_2(ptr noundef nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.critedge:                                        ; preds = %.critedge.preheader, %thread_sched_unlock_.exit45
-  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #16
-  %.not.i.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %51
+.critedge:                                        ; preds = %18, %thread_sched_unlock_.exit45
+  %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %19) #16
+  %.not.i.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %52
 
-51:                                               ; preds = %.critedge
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %50) #37
+52:                                               ; preds = %.critedge
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %51) #37
   unreachable
 
 ractor_sched_lock_.exit.i:                        ; preds = %.critedge, %ccan_list_pop_.exit.thread.i
-  %52 = load ptr, ptr %18, align 8, !tbaa !54
-  %.not.i.i41 = icmp eq ptr %52, %18
+  %53 = load ptr, ptr %20, align 8, !tbaa !54
+  %.not.i.i41 = icmp eq ptr %53, %20
   br i1 %.not.i.i41, label %ccan_list_pop_.exit.thread.i, label %ccan_list_pop_.exit.i
 
 ccan_list_pop_.exit.i:                            ; preds = %ractor_sched_lock_.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !83
-  %55 = load ptr, ptr %52, align 8, !tbaa !84
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %54, ptr %56, align 8, !tbaa !83
-  store ptr %55, ptr %54, align 8, !tbaa !84
-  %57 = getelementptr i8, ptr %52, i64 -368
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %ccan_list_pop_.exit.thread.i, label %61
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !83
+  %56 = load ptr, ptr %53, align 8, !tbaa !84
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store ptr %55, ptr %57, align 8, !tbaa !83
+  store ptr %56, ptr %55, align 8, !tbaa !84
+  %58 = getelementptr i8, ptr %53, i64 -368
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %ccan_list_pop_.exit.thread.i, label %62
 
 ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit.i, %ractor_sched_lock_.exit.i
-  %59 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %19, ptr noundef nonnull %17) #16
-  %.not.i14.i = icmp eq i32 %59, 0
-  br i1 %.not.i14.i, label %ractor_sched_lock_.exit.i, label %60, !llvm.loop !438
+  %60 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %21, ptr noundef nonnull %19) #16
+  %.not.i14.i = icmp eq i32 %60, 0
+  br i1 %.not.i14.i, label %ractor_sched_lock_.exit.i, label %61, !llvm.loop !438
 
-60:                                               ; preds = %ccan_list_pop_.exit.thread.i
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.14, i32 noundef %59) #37
+61:                                               ; preds = %ccan_list_pop_.exit.thread.i
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.14, i32 noundef %60) #37
   unreachable
 
-61:                                               ; preds = %ccan_list_pop_.exit.i
-  %62 = load i32, ptr %20, align 8, !tbaa !413
-  %63 = add i32 %62, -1
-  store i32 %63, ptr %20, align 8, !tbaa !413
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #16
-  %.not.i.i15.i = icmp eq i32 %64, 0
-  br i1 %.not.i.i15.i, label %ractor_sched_deq.exit, label %65
+62:                                               ; preds = %ccan_list_pop_.exit.i
+  %63 = load i32, ptr %22, align 8, !tbaa !413
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %22, align 8, !tbaa !413
+  %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #16
+  %.not.i.i15.i = icmp eq i32 %65, 0
+  br i1 %.not.i.i15.i, label %ractor_sched_deq.exit, label %66
 
-65:                                               ; preds = %61
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %64) #37
+66:                                               ; preds = %62
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %65) #37
   unreachable
 
-ractor_sched_deq.exit:                            ; preds = %61
-  %66 = getelementptr i8, ptr %52, i64 -80
-  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %66) #16
-  %.not.i.i42 = icmp eq i32 %67, 0
-  br i1 %.not.i.i42, label %thread_sched_lock_.exit43, label %68
+ractor_sched_deq.exit:                            ; preds = %62
+  %67 = getelementptr i8, ptr %53, i64 -80
+  %68 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %67) #16
+  %.not.i.i42 = icmp eq i32 %68, 0
+  br i1 %.not.i.i42, label %thread_sched_lock_.exit43, label %69
 
-68:                                               ; preds = %ractor_sched_deq.exit
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %67) #37
+69:                                               ; preds = %ractor_sched_deq.exit
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %68) #37
   unreachable
 
 thread_sched_lock_.exit43:                        ; preds = %ractor_sched_deq.exit
-  %69 = getelementptr i8, ptr %52, i64 -40
-  %70 = load ptr, ptr %69, align 8, !tbaa !85
-  %.not37 = icmp eq ptr %70, null
-  br i1 %.not37, label %88, label %71
+  %70 = getelementptr i8, ptr %53, i64 -40
+  %71 = load ptr, ptr %70, align 8, !tbaa !85
+  %.not37 = icmp eq ptr %71, null
+  br i1 %.not37, label %89, label %72
 
-71:                                               ; preds = %thread_sched_lock_.exit43
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !80
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %88
+72:                                               ; preds = %thread_sched_lock_.exit43
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %74 = load ptr, ptr %73, align 8, !tbaa !80
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %89
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %21, align 8, !tbaa !98
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 64
-  store ptr %77, ptr %78, align 8, !tbaa !83
-  store ptr %77, ptr %77, align 8, !tbaa !84
-  %79 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !74
-  %.not8.i.i = icmp eq ptr %80, null
-  br i1 %.not8.i.i, label %thread_sched_switch0.exit, label %81
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %23, align 8, !tbaa !98
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  store ptr %78, ptr %79, align 8, !tbaa !83
+  store ptr %78, ptr %78, align 8, !tbaa !84
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 48
+  %81 = load ptr, ptr %80, align 8, !tbaa !74
+  %.not8.i.i = icmp eq ptr %81, null
+  br i1 %.not8.i.i, label %thread_sched_switch0.exit, label %82
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !52
-  tail call void @rb_current_ec_set(ptr noundef nonnull %80) #16
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 384
-  store ptr %80, ptr %84, align 8, !tbaa !96
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !52
+  tail call void @rb_current_ec_set(ptr noundef nonnull %81) #16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 384
+  store ptr %81, ptr %85, align 8, !tbaa !96
   br label %thread_sched_switch0.exit
 
-thread_sched_switch0.exit:                        ; preds = %75, %81
-  store ptr %70, ptr %22, align 8, !tbaa !59
-  store ptr %0, ptr %72, align 8, !tbaa !80
-  %85 = getelementptr inbounds nuw i8, ptr %70, i64 192
-  %86 = load ptr, ptr %85, align 8, !tbaa !97
-  %87 = tail call ptr @coroutine_transfer(ptr noundef %76, ptr noundef %86) #16
-  br label %88
+thread_sched_switch0.exit:                        ; preds = %76, %82
+  store ptr %71, ptr %24, align 8, !tbaa !59
+  store ptr %0, ptr %73, align 8, !tbaa !80
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 192
+  %87 = load ptr, ptr %86, align 8, !tbaa !97
+  %88 = tail call ptr @coroutine_transfer(ptr noundef %77, ptr noundef %87) #16
+  br label %89
 
-88:                                               ; preds = %thread_sched_lock_.exit43, %71, %thread_sched_switch0.exit
-  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #16
-  %.not.i.i44 = icmp eq i32 %89, 0
-  br i1 %.not.i.i44, label %thread_sched_unlock_.exit45, label %90
+89:                                               ; preds = %thread_sched_lock_.exit43, %72, %thread_sched_switch0.exit
+  %90 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %67) #16
+  %.not.i.i44 = icmp eq i32 %90, 0
+  br i1 %.not.i.i44, label %thread_sched_unlock_.exit45, label %91
 
-90:                                               ; preds = %88
-  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %89) #37
+91:                                               ; preds = %89
+  tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %90) #37
   unreachable
 
-thread_sched_unlock_.exit45:                      ; preds = %88
-  %91 = load i32, ptr %13, align 8, !tbaa !81
-  %.not38 = icmp eq i32 %91, 0
+thread_sched_unlock_.exit45:                      ; preds = %89
+  %92 = load i32, ptr %13, align 8, !tbaa !81
+  %.not38 = icmp eq i32 %92, 0
   br i1 %.not38, label %.critedge, label %.loopexit
 
 .loopexit:                                        ; preds = %thread_sched_unlock_.exit45, %thread_sched_unlock_.exit

@@ -305,6 +305,7 @@ define weak_odr noundef float @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr <2 x float> @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11eval_1_gradERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1, i1 noundef zeroext %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIdTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge:
   ret <2 x float> zeroinitializer
 }
 

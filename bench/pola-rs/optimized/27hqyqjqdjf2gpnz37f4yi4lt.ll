@@ -11429,17 +11429,17 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$$u5b$T$
 define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..ArcInner$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$$GT$17heee26464fee79456E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2213)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2216)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2219)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2222)
-  %3 = load ptr, ptr %2, align 8, !alias.scope !2225, !nonnull !3, !noundef !3
-  %4 = load i64, ptr %3, align 8, !range !61, !noalias !2225, !noundef !3
+  %3 = load ptr, ptr %2, align 8, !alias.scope !2216, !nonnull !3, !noundef !3
+  %4 = load i64, ptr %3, align 8, !range !61, !noalias !2216, !noundef !3
   %5 = icmp eq i64 %4, 3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2223)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2224)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2225)
   br i1 %5, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h51361770c9918760E.exit", label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2225
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2216
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h51361770c9918760E.exit", !prof !5
 
@@ -183955,16 +183955,16 @@ attributes #28 = { cold "function-inline-cost-multiplier"="2" }
 !2213 = !{!2214}
 !2214 = distinct !{!2214, !2215, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h51361770c9918760E: argument 0"}
 !2215 = distinct !{!2215, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17h51361770c9918760E"}
-!2216 = !{!2217}
-!2217 = distinct !{!2217, !2218, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h2f1c9d09c60e085aE: argument 0"}
-!2218 = distinct !{!2218, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h2f1c9d09c60e085aE"}
-!2219 = !{!2220}
-!2220 = distinct !{!2220, !2221, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h5f9f35b00421952eE: argument 0"}
-!2221 = distinct !{!2221, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h5f9f35b00421952eE"}
-!2222 = !{!2223}
-!2223 = distinct !{!2223, !2224, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hae012527d1753089E: argument 0"}
-!2224 = distinct !{!2224, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hae012527d1753089E"}
-!2225 = !{!2223, !2220, !2217, !2214}
+!2216 = !{!2217, !2219, !2221, !2214}
+!2217 = distinct !{!2217, !2218, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hae012527d1753089E: argument 0"}
+!2218 = distinct !{!2218, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hae012527d1753089E"}
+!2219 = distinct !{!2219, !2220, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h5f9f35b00421952eE: argument 0"}
+!2220 = distinct !{!2220, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h5f9f35b00421952eE"}
+!2221 = distinct !{!2221, !2222, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h2f1c9d09c60e085aE: argument 0"}
+!2222 = distinct !{!2222, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h2f1c9d09c60e085aE"}
+!2223 = !{!2221}
+!2224 = !{!2219}
+!2225 = !{!2217}
 !2226 = !{!2227, !2229, !2231, !2233, !2235}
 !2227 = distinct !{!2227, !2228, !"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb2bae26536c80678E: argument 0"}
 !2228 = distinct !{!2228, !"_ZN65_$LT$compact_str..repr..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb2bae26536c80678E"}

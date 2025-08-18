@@ -1359,18 +1359,21 @@ define internal fastcc void @pred_regular_blk(ptr noundef %0, i32 noundef range(
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %40 = mul nsw i32 %25, %20
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %43 = icmp sgt i32 %25, 0
-  %44 = icmp sgt i32 %20, 0
-  %45 = icmp sgt i32 %19, 0
-  br i1 %45, label %.preheader, label %.loopexit
+  %41 = icmp sgt i32 %25, 0
+  %42 = icmp sgt i32 %20, 0
+  %43 = icmp sgt i32 %19, 0
+  br i1 %43, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %46 = phi i32 [ %50, %._crit_edge ], [ %24, %.preheader.lr.ph ]
-  %47 = phi i32 [ %51, %._crit_edge ], [ %19, %.preheader.lr.ph ]
-  %.048 = phi i32 [ %52, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.04047 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+.preheader.preheader:                             ; preds = %.preheader.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
+  %46 = phi i32 [ %50, %._crit_edge ], [ %24, %.preheader.preheader ]
+  %47 = phi i32 [ %51, %._crit_edge ], [ %19, %.preheader.preheader ]
+  %.048 = phi i32 [ %52, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %.04047 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader.preheader ]
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph, label %._crit_edge
 
@@ -1610,7 +1613,7 @@ define internal fastcc void @pred_regular_blk(ptr noundef %0, i32 noundef range(
   %159 = and i32 %.us-phi139.i.i, -5
   %160 = icmp ne i32 %159, 0
   %or.cond7.i.i = select i1 %or.cond3.i.i, i1 %160, i1 false
-  br i1 %or.cond7.i.i, label %161, label %.loopexit.i.i.critedge
+  br i1 %or.cond7.i.i, label %161, label %.loopexit.i.i.loopexit.critedge
 
 161:                                              ; preds = %153
   %162 = sext i32 %.us-phi139.i.i to i64
@@ -1719,36 +1722,36 @@ parametric_mv_refine.exit.i.i:                    ; preds = %191, %177, %175, %1
 parametric_mv_refine.exit132.i.i:                 ; preds = %217, %203, %201, %parametric_mv_refine.exit.i.i
   %.034.i131.i.i = phi i32 [ %.135.i130.i.i, %217 ], [ 0, %parametric_mv_refine.exit.i.i ], [ -8, %201 ], [ 8, %203 ]
   %219 = add nsw i32 %.034.i131.i.i, %157
-  br label %.loopexit.i.i.critedge
+  br label %.loopexit.i.i.loopexit.critedge
 
-.loopexit.i.i.critedge:                           ; preds = %parametric_mv_refine.exit132.i.i, %153
+.loopexit.i.i.loopexit.critedge:                  ; preds = %parametric_mv_refine.exit132.i.i, %153
   %.sroa.6.0.i.i = phi i32 [ %219, %parametric_mv_refine.exit132.i.i ], [ %157, %153 ]
   %.sroa.0.0.i.i = phi i32 [ %193, %parametric_mv_refine.exit132.i.i ], [ %155, %153 ]
   %220 = load i32, ptr %7, align 8, !tbaa !104
-  %221 = add nsw i32 %220, %.sroa.0.0.i.i
+  %221 = add nsw i32 %.sroa.0.0.i.i, %220
   store i32 %221, ptr %7, align 8, !tbaa !104
-  %222 = load i32, ptr %41, align 4, !tbaa !106
+  %222 = load i32, ptr %44, align 4, !tbaa !106
   %223 = add nsw i32 %222, %.sroa.6.0.i.i
-  store i32 %223, ptr %41, align 4, !tbaa !106
+  store i32 %223, ptr %44, align 4, !tbaa !106
   call void @ff_vvc_clip_mv(ptr noundef nonnull %7) #6
   %224 = load i32, ptr %indvars.iv.i27.i.sroa.gep38, align 8, !tbaa !104
   %225 = sub i32 %224, %.sroa.0.0.i.i
   store i32 %225, ptr %indvars.iv.i27.i.sroa.gep38, align 8, !tbaa !104
-  %226 = load i32, ptr %42, align 4, !tbaa !106
+  %226 = load i32, ptr %45, align 4, !tbaa !106
   %227 = sub i32 %226, %.sroa.6.0.i.i
-  store i32 %227, ptr %42, align 4, !tbaa !106
+  store i32 %227, ptr %45, align 4, !tbaa !106
   call void @ff_vvc_clip_mv(ptr noundef nonnull %indvars.iv.i27.i.sroa.gep38) #6
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.loopexit.i.i.critedge, %97
-  %.0111.i.i = phi i32 [ %102, %97 ], [ %.us-phi.i.i, %.loopexit.i.i.critedge ]
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.loopexit.critedge, %97
+  %.0111.i.i = phi i32 [ %102, %97 ], [ %.us-phi.i.i, %.loopexit.i.i.loopexit.critedge ]
   %228 = icmp slt i32 %.0111.i.i, %factor.op.mul.reass
   %spec.select41 = select i1 %228, i32 0, i32 %spec.select
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   %229 = add nsw i32 %59, %25
-  br i1 %43, label %.preheader.lr.ph.i.i, label %.sink.split.i
+  br i1 %41, label %.preheader.lr.ph.i.i, label %.sink.split.i
 
 .preheader.lr.ph.i.i:                             ; preds = %.loopexit.i.i
   %230 = getelementptr inbounds nuw i8, ptr %63, i64 1936
@@ -1756,7 +1759,7 @@ parametric_mv_refine.exit132.i.i:                 ; preds = %217, %203, %201, %p
   %232 = add nsw i32 %57, %20
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 4048
   %234 = getelementptr inbounds nuw i8, ptr %63, i64 18952
-  br i1 %44, label %.preheader.us.i.i, label %.sink.split.i
+  br i1 %42, label %.preheader.us.i.i, label %.sink.split.i
 
 .preheader.us.i.i:                                ; preds = %.preheader.lr.ph.i.i, %._crit_edge.us.i.i
   %.018.us.i.i = phi i32 [ %249, %._crit_edge.us.i.i ], [ %59, %.preheader.lr.ph.i.i ]

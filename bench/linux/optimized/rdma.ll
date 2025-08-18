@@ -622,14 +622,14 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr readnone c
   %19 = getelementptr i8, ptr %.fr13, i64 -24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %11
-  br i1 %21, label %.split.loop.exit5.split.loop.exit17, label %14, !llvm.loop !5
+  br i1 %21, label %.split.loop.exit5.split.loop.exit19, label %14, !llvm.loop !5
 
-.split.loop.exit5.split.loop.exit17:              ; preds = %18
+.split.loop.exit5.split.loop.exit19:              ; preds = %18
   %22 = getelementptr i8, ptr %.fr13, i64 -24
   br label %.split.loop.exit5
 
-.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit17
-  %.fr12 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit17 ], [ null, %14 ]
+.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit19
+  %.fr12 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit19 ], [ null, %14 ]
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96

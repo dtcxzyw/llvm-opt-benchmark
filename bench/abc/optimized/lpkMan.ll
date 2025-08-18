@@ -183,118 +183,118 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   store ptr %71, ptr %75, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.critedge, label %70, !llvm.loop !44
+  br i1 %exitcond.not, label %76, label %70, !llvm.loop !44
 
-.critedge:                                        ; preds = %70
-  %76 = tail call ptr @Kit_DsdManAlloc(i32 noundef %38, i32 noundef 64) #6
-  %77 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241776
-  store ptr %76, ptr %77, align 8, !tbaa !45
-  %78 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 0, ptr %79, align 4, !tbaa !35
-  store i32 32768, ptr %78, align 8, !tbaa !38
-  %80 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #5
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %80, ptr %81, align 8, !tbaa !39
-  %82 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240920
-  store ptr %78, ptr %82, align 8, !tbaa !46
-  %83 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store i32 0, ptr %84, align 4, !tbaa !35
-  store i32 256, ptr %83, align 8, !tbaa !38
-  %85 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #5
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %85, ptr %86, align 8, !tbaa !39
-  %87 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240928
-  store ptr %83, ptr %87, align 8, !tbaa !47
-  %88 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  store i32 0, ptr %89, align 4, !tbaa !35
-  store i32 256, ptr %88, align 8, !tbaa !38
-  %90 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #5
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %90, ptr %91, align 8, !tbaa !39
-  %92 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240936
-  store ptr %88, ptr %92, align 8, !tbaa !48
-  %93 = load i32, ptr %3, align 4, !tbaa !19
-  %94 = icmp slt i32 %93, 6
-  %95 = add nsw i32 %93, -5
-  %96 = shl nuw i32 1, %95
-  %97 = select i1 %94, i32 1, i32 %96
-  %98 = shl nsw i32 %97, 5
-  %99 = sext i32 %98 to i64
-  %100 = shl nsw i64 %99, 2
-  %101 = tail call noalias ptr @malloc(i64 noundef %100) #5
-  %102 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241072
-  store ptr %101, ptr %102, align 8, !tbaa !49
-  %103 = sext i32 %97 to i64
-  %104 = getelementptr inbounds i32, ptr %101, i64 %103
-  %105 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241200
-  store ptr %104, ptr %105, align 8, !tbaa !49
-  %106 = getelementptr inbounds i32, ptr %104, i64 %103
+76:                                               ; preds = %70
+  %77 = tail call ptr @Kit_DsdManAlloc(i32 noundef %38, i32 noundef 64) #6
+  %78 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241776
+  store ptr %77, ptr %78, align 8, !tbaa !45
+  %79 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store i32 0, ptr %80, align 4, !tbaa !35
+  store i32 32768, ptr %79, align 8, !tbaa !38
+  %81 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #5
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %81, ptr %82, align 8, !tbaa !39
+  %83 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240920
+  store ptr %79, ptr %83, align 8, !tbaa !46
+  %84 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 0, ptr %85, align 4, !tbaa !35
+  store i32 256, ptr %84, align 8, !tbaa !38
+  %86 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #5
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %86, ptr %87, align 8, !tbaa !39
+  %88 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240928
+  store ptr %84, ptr %88, align 8, !tbaa !47
+  %89 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #5
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  store i32 0, ptr %90, align 4, !tbaa !35
+  store i32 256, ptr %89, align 8, !tbaa !38
+  %91 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #5
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store ptr %91, ptr %92, align 8, !tbaa !39
+  %93 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240936
+  store ptr %89, ptr %93, align 8, !tbaa !48
+  %94 = load i32, ptr %3, align 4, !tbaa !19
+  %95 = icmp slt i32 %94, 6
+  %96 = add nsw i32 %94, -5
+  %97 = shl nuw i32 1, %96
+  %98 = select i1 %95, i32 1, i32 %97
+  %99 = shl nsw i32 %98, 5
+  %100 = sext i32 %99 to i64
+  %101 = shl nsw i64 %100, 2
+  %102 = tail call noalias ptr @malloc(i64 noundef %101) #5
+  %103 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241072
+  store ptr %102, ptr %103, align 8, !tbaa !49
+  %104 = sext i32 %98 to i64
+  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241200
+  store ptr %105, ptr %106, align 8, !tbaa !49
   %107 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241208
-  store ptr %106, ptr %107, align 8, !tbaa !49
-  %108 = shl nsw i32 %97, 1
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %104, i64 %109
-  %111 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241328
-  store ptr %110, ptr %111, align 8, !tbaa !49
-  %112 = select i1 %94, i32 0, i32 %95
-  br label %113
+  %108 = getelementptr inbounds i32, ptr %105, i64 %104
+  store ptr %108, ptr %107, align 8, !tbaa !49
+  %109 = shl nsw i32 %98, 1
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i32, ptr %105, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241328
+  store ptr %111, ptr %112, align 8, !tbaa !49
+  %113 = select i1 %95, i32 0, i32 %96
+  br label %114
 
-113:                                              ; preds = %.critedge, %113
-  %indvars.iv70 = phi i64 [ 1, %.critedge ], [ %indvars.iv.next71, %113 ]
-  %114 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %115 = shl i32 %114, %112
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %110, i64 %116
-  %118 = getelementptr inbounds nuw [16 x ptr], ptr %111, i64 0, i64 %indvars.iv70
-  store ptr %117, ptr %118, align 8, !tbaa !49
+114:                                              ; preds = %76, %114
+  %indvars.iv70 = phi i64 [ 1, %76 ], [ %indvars.iv.next71, %114 ]
+  %115 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %116 = shl i32 %115, %113
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i32, ptr %111, i64 %117
+  %119 = getelementptr inbounds nuw [16 x ptr], ptr %112, i64 0, i64 %indvars.iv70
+  store ptr %118, ptr %119, align 8, !tbaa !49
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %119, label %113, !llvm.loop !50
+  br i1 %exitcond73.not, label %120, label %114, !llvm.loop !50
 
-119:                                              ; preds = %113
-  %120 = shl nsw i32 %97, 2
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %110, i64 %121
-  %123 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241456
-  store ptr %122, ptr %123, align 8, !tbaa !49
-  br label %124
+120:                                              ; preds = %114
+  %121 = shl nsw i32 %98, 2
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i32, ptr %111, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241456
+  store ptr %123, ptr %124, align 8, !tbaa !49
+  br label %125
 
-124:                                              ; preds = %119, %124
-  %indvars.iv74 = phi i64 [ 1, %119 ], [ %indvars.iv.next75, %124 ]
-  %125 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %126 = shl i32 %125, %112
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %122, i64 %127
-  %129 = getelementptr inbounds nuw [16 x ptr], ptr %123, i64 0, i64 %indvars.iv74
-  store ptr %128, ptr %129, align 8, !tbaa !49
+125:                                              ; preds = %120, %125
+  %indvars.iv74 = phi i64 [ 1, %120 ], [ %indvars.iv.next75, %125 ]
+  %126 = trunc nuw nsw i64 %indvars.iv74 to i32
+  %127 = shl i32 %126, %113
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i32, ptr %123, i64 %128
+  %130 = getelementptr inbounds nuw [16 x ptr], ptr %124, i64 0, i64 %indvars.iv74
+  store ptr %129, ptr %130, align 8, !tbaa !49
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 8
-  br i1 %exitcond77.not, label %130, label %124, !llvm.loop !51
+  br i1 %exitcond77.not, label %131, label %125, !llvm.loop !51
 
-130:                                              ; preds = %124
-  %131 = shl nsw i32 %97, 3
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %122, i64 %132
-  %134 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241584
-  store ptr %133, ptr %134, align 8, !tbaa !49
-  br label %135
+131:                                              ; preds = %125
+  %132 = shl nsw i32 %98, 3
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i32, ptr %123, i64 %133
+  %135 = getelementptr inbounds nuw i8, ptr %calloc, i64 8241584
+  store ptr %134, ptr %135, align 8, !tbaa !49
+  br label %136
 
-135:                                              ; preds = %130, %135
-  %indvars.iv78 = phi i64 [ 1, %130 ], [ %indvars.iv.next79, %135 ]
-  %136 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %137 = shl i32 %136, %112
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %133, i64 %138
-  %140 = getelementptr inbounds nuw [16 x ptr], ptr %134, i64 0, i64 %indvars.iv78
-  store ptr %139, ptr %140, align 8, !tbaa !49
+136:                                              ; preds = %131, %136
+  %indvars.iv78 = phi i64 [ 1, %131 ], [ %indvars.iv.next79, %136 ]
+  %137 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %138 = shl i32 %137, %113
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds i32, ptr %134, i64 %139
+  %141 = getelementptr inbounds nuw [16 x ptr], ptr %135, i64 0, i64 %indvars.iv78
+  store ptr %140, ptr %141, align 8, !tbaa !49
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 16
-  br i1 %exitcond81.not, label %141, label %135, !llvm.loop !52
+  br i1 %exitcond81.not, label %142, label %136, !llvm.loop !52
 
-141:                                              ; preds = %135
+142:                                              ; preds = %136
   ret ptr %calloc
 }
 

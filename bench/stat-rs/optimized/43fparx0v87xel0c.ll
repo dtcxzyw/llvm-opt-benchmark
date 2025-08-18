@@ -648,19 +648,19 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %32 = getelementptr double, ptr %31, i64 %30
   %33 = getelementptr double, ptr %32, i64 %16
   %.not.i = icmp eq i64 %28, %16
-  br i1 %.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.preheader.us.i
 
-.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %.sroa.05.012.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %27 ]
-  %34 = add nuw i64 %.sroa.05.012.i, 1
-  %35 = getelementptr double, ptr %33, i64 %.sroa.05.012.i
+.preheader.us.i:                                  ; preds = %27, %.preheader.us.i
+  %.sroa.05.012.us.i = phi i64 [ %34, %.preheader.us.i ], [ 0, %27 ]
+  %34 = add nuw i64 %.sroa.05.012.us.i, 1
+  %35 = getelementptr double, ptr %33, i64 %.sroa.05.012.us.i
   %36 = load double, ptr %35, align 8, !alias.scope !98, !noalias !101, !noundef !4
   %37 = fdiv double %36, %.mux
   store double %37, ptr %35, align 8, !alias.scope !98, !noalias !101
   %exitcond.not.i = icmp eq i64 %34, %29
-  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.lr.ph.i
+  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.preheader.us.i
 
-"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit": ; preds = %.lr.ph.i, %27
+"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit": ; preds = %.preheader.us.i, %27
   %exitcond66.not = icmp eq i64 %16, %.val24
   br i1 %exitcond66.not, label %._crit_edge64, label %15
 

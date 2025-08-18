@@ -1315,7 +1315,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit.thread: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %.sroa.306.0.ph = phi i8 [ 0, %4 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.not.i.i1441097 = icmp ult i64 %1, 16
+  %.not.i.i1441095 = icmp ult i64 %1, 16
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
@@ -1328,7 +1328,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i146:   ; preds = %_ZN4llvm12StringSwi
   br i1 %11, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146
-  %.not.i.i1441099 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ %.not.i.i1441097, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit.thread ]
+  %.not.i.i1441097 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ %.not.i.i1441095, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit.thread ]
   %.sroa.306.1 = phi i8 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ %.sroa.306.0.ph, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit.thread ]
   %12 = trunc nuw i8 %.sroa.306.1 to i1
   %.not.i.i151 = icmp ult i64 %1, 17
@@ -1341,8 +1341,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i153:   ; preds = %_ZN4llvm12StringSwi
   br i1 %13, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit157
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit157: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153
-  %.not.i.i1511496 = phi i1 [ %.not.i.i151, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i151, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
-  %.not.i.i14410991495 = phi i1 [ %.not.i.i1441099, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i1441099, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
+  %.not.i.i1511494 = phi i1 [ %.not.i.i151, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i151, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
+  %.not.i.i14410971493 = phi i1 [ %.not.i.i1441097, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i1441097, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
   %.sroa.306.2 = phi i8 [ %.sroa.306.1, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 0, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
   %14 = trunc nuw i8 %.sroa.306.2 to i1
   %.not.i.i158 = icmp ult i64 %1, 15
@@ -1367,7 +1367,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i167:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit171: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit164, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167
   %18 = trunc nuw i8 %.sroa.306.2 to i1
-  %or.cond.i173 = or i1 %.not.i.i1511496, %18
+  %or.cond.i173 = or i1 %.not.i.i1511494, %18
   br i1 %or.cond.i173, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit178, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i174
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i174:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit171
@@ -1406,23 +1406,23 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i195:   ; preds = %_ZN4llvm12StringSwi
   %bcmp.i.i196 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %0, ptr noundef nonnull dereferenceable(15) @.str.83, i64 15)
   %25 = icmp eq i32 %bcmp.i.i196, 0
   %spec.select = select i1 %25, i64 256, i64 1
-  %spec.select1464 = zext i1 %25 to i8
+  %spec.select1462 = zext i1 %25 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit199
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit199: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i195, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192
-  %.not.i.i179115011601180 = phi i1 [ %.not.i.i179, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
-  %.not.i.i16511261134114911611179 = phi i1 [ %.not.i.i165, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
-  %.not.i.i158111511231137114611641176 = phi i1 [ %.not.i.i158, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
-  %.not.i.i18611651175 = phi i1 [ %.not.i.i186, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
+  %.not.i.i179114811581178 = phi i1 [ %.not.i.i179, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
+  %.not.i.i16511241132114711591177 = phi i1 [ %.not.i.i165, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
+  %.not.i.i158111311211135114411621174 = phi i1 [ %.not.i.i158, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
+  %.not.i.i18611631173 = phi i1 [ %.not.i.i186, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
   %.sroa.154.8 = phi i64 [ 1, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ %spec.select, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
-  %.sroa.306.8 = phi i8 [ %.sroa.306.2, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ %spec.select1464, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
+  %.sroa.306.8 = phi i8 [ %.sroa.306.2, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit192 ], [ %spec.select1462, %_ZNK4llvm9StringRef11starts_withES0_.exit.i195 ]
   %26 = trunc nuw i8 %.sroa.306.8 to i1
   %.not.i.i200 = icmp ult i64 %1, 7
   %or.cond.i201 = or i1 %.not.i.i200, %26
   br i1 %or.cond.i201, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit206, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i202
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i202:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit199
-  %spec.select1465 = select i1 %2, i64 512, i64 0
+  %spec.select1463 = select i1 %2, i64 512, i64 0
   %bcmp.i.i203 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) @.str.84, i64 7)
   %27 = icmp eq i32 %bcmp.i.i203, 0
   br i1 %27, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit206
@@ -1460,7 +1460,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i223:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit227: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit220, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223
   %34 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i229 = or i1 %.not.i.i158111511231137114611641176, %34
+  %or.cond.i229 = or i1 %.not.i.i158111311211135114411621174, %34
   br i1 %or.cond.i229, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit234, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i230
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i230:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit227
@@ -1491,7 +1491,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i244:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit248: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit241, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244
   %40 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i250 = or i1 %.not.i.i16511261134114911611179, %40
+  %or.cond.i250 = or i1 %.not.i.i16511241132114711591177, %40
   br i1 %or.cond.i250, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit255, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i251
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i251:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit248
@@ -1522,7 +1522,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i265:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit269: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit262, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265
   %46 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i271 = or i1 %.not.i.i16511261134114911611179, %46
+  %or.cond.i271 = or i1 %.not.i.i16511241132114711591177, %46
   br i1 %or.cond.i271, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit276, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i272
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i272:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit269
@@ -1532,7 +1532,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i272:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit276: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit269, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272
   %48 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i278 = or i1 %.not.i.i179115011601180, %48
+  %or.cond.i278 = or i1 %.not.i.i179114811581178, %48
   br i1 %or.cond.i278, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit283, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i279
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i279:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit276
@@ -1636,7 +1636,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i342:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit346: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit339, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342
   %68 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i348 = or i1 %.not.i.i14410991495, %68
+  %or.cond.i348 = or i1 %.not.i.i14410971493, %68
   br i1 %or.cond.i348, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit353, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i349
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i349:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit346
@@ -1663,30 +1663,30 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
 _ZNK4llvm9StringRef11starts_withES0_.exit.i363:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360
   %bcmp.i.i364 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %0, ptr noundef nonnull dereferenceable(19) @.str.107, i64 19)
   %73 = icmp eq i32 %bcmp.i.i364, 0
-  %spec.select1466 = select i1 %73, i64 4294967296, i64 %.sroa.154.8
-  %spec.select1467 = zext i1 %73 to i8
+  %spec.select1464 = select i1 %73, i64 4294967296, i64 %.sroa.154.8
+  %spec.select1465 = zext i1 %73 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit367
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit367: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i363, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360
-  %.not.i.i33313061314132813371354 = phi i1 [ %.not.i.i333, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
-  %.not.i.i2351198120312081214122212281236124212501256126512751284129413041316132613391352 = phi i1 [ %.not.i.i235, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
-  %.not.i.i2561215122112291235124312491257126412761283129513031317132513401351 = phi i1 [ %.not.i.i256, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
-  %.not.i.i35413411350 = phi i1 [ %.not.i.i354, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
-  %.sroa.154.32 = phi i64 [ %.sroa.154.8, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ %spec.select1466, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
-  %.sroa.306.32 = phi i8 [ %.sroa.306.8, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ %spec.select1467, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.not.i.i33313041312132613351352 = phi i1 [ %.not.i.i333, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.not.i.i2351196120112061212122012261234124012481254126312731282129213021314132413371350 = phi i1 [ %.not.i.i235, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.not.i.i2561213121912271233124112471255126212741281129313011315132313381349 = phi i1 [ %.not.i.i256, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.not.i.i35413391348 = phi i1 [ %.not.i.i354, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.sroa.154.32 = phi i64 [ %.sroa.154.8, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ %spec.select1464, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
+  %.sroa.306.32 = phi i8 [ %.sroa.306.8, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit360 ], [ %spec.select1465, %_ZNK4llvm9StringRef11starts_withES0_.exit.i363 ]
   %74 = trunc nuw i8 %.sroa.306.32 to i1
-  %or.cond.i369 = or i1 %.not.i.i18611651175, %74
+  %or.cond.i369 = or i1 %.not.i.i18611631173, %74
   br i1 %or.cond.i369, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i370
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i370:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit367
-  %spec.select1468 = select i1 %2, i64 8589934592, i64 0
+  %spec.select1466 = select i1 %2, i64 8589934592, i64 0
   %bcmp.i.i371 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) @.str.108, i64 12)
   %75 = icmp eq i32 %bcmp.i.i371, 0
   br i1 %75, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit367, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370
   %76 = trunc nuw i8 %.sroa.306.32 to i1
-  %or.cond.i376 = or i1 %.not.i.i18611651175, %76
+  %or.cond.i376 = or i1 %.not.i.i18611631173, %76
   br i1 %or.cond.i376, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit381, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i377
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i377:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374
@@ -1696,7 +1696,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i377:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit381: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377
   %78 = trunc nuw i8 %.sroa.306.32 to i1
-  %or.cond.i383 = or i1 %.not.i.i1511496, %78
+  %or.cond.i383 = or i1 %.not.i.i1511494, %78
   br i1 %or.cond.i383, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit388, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i384
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i384:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit381
@@ -1738,26 +1738,26 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i405:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit402, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405
   %86 = trunc nuw i8 %.sroa.306.32 to i1
-  %or.cond.i411 = or i1 %.not.i.i158111511231137114611641176, %86
+  %or.cond.i411 = or i1 %.not.i.i158111311211135114411621174, %86
   br i1 %or.cond.i411, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit416, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i412
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i412:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409
   %bcmp.i.i413 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %0, ptr noundef nonnull dereferenceable(15) @.str.114, i64 15)
   %87 = icmp eq i32 %bcmp.i.i413, 0
-  %spec.select1469 = select i1 %87, i64 549755813888, i64 %.sroa.154.32
-  %spec.select1470 = zext i1 %87 to i8
+  %spec.select1467 = select i1 %87, i64 549755813888, i64 %.sroa.154.32
+  %spec.select1468 = zext i1 %87 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit416
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit416: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i412, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409
-  %.sroa.154.39 = phi i64 [ %.sroa.154.32, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409 ], [ %spec.select1469, %_ZNK4llvm9StringRef11starts_withES0_.exit.i412 ]
-  %.sroa.306.39 = phi i8 [ %.sroa.306.32, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409 ], [ %spec.select1470, %_ZNK4llvm9StringRef11starts_withES0_.exit.i412 ]
+  %.sroa.154.39 = phi i64 [ %.sroa.154.32, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409 ], [ %spec.select1467, %_ZNK4llvm9StringRef11starts_withES0_.exit.i412 ]
+  %.sroa.306.39 = phi i8 [ %.sroa.306.32, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit409 ], [ %spec.select1468, %_ZNK4llvm9StringRef11starts_withES0_.exit.i412 ]
   %88 = trunc nuw i8 %.sroa.306.39 to i1
   %.not.i.i417 = icmp ult i64 %1, 6
   %or.cond.i418 = or i1 %.not.i.i417, %88
   br i1 %or.cond.i418, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit423, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i419
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i419:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit416
-  %spec.select1471 = select i1 %2, i64 1099511627776, i64 0
+  %spec.select1469 = select i1 %2, i64 1099511627776, i64 0
   %bcmp.i.i420 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %0, ptr noundef nonnull dereferenceable(6) @.str.115, i64 6)
   %89 = icmp eq i32 %bcmp.i.i420, 0
   br i1 %89, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit423
@@ -1775,7 +1775,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i426:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit430: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit423, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426
   %92 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i432 = or i1 %.not.i.i18611651175, %92
+  %or.cond.i432 = or i1 %.not.i.i18611631173, %92
   br i1 %or.cond.i432, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit437, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i433
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i433:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit430
@@ -1785,7 +1785,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i433:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit437: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit430, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433
   %94 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i439 = or i1 %.not.i.i16511261134114911611179, %94
+  %or.cond.i439 = or i1 %.not.i.i16511241132114711591177, %94
   br i1 %or.cond.i439, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit444, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i440
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i440:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit437
@@ -1795,7 +1795,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i440:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit444: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit437, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440
   %96 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i446 = or i1 %.not.i.i2351198120312081214122212281236124212501256126512751284129413041316132613391352, %96
+  %or.cond.i446 = or i1 %.not.i.i2351196120112061212122012261234124012481254126312731282129213021314132413371350, %96
   br i1 %or.cond.i446, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit451, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i447
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i447:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit444
@@ -1825,7 +1825,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i461:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit465: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit458, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461
   %102 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i467 = or i1 %.not.i.i2561215122112291235124312491257126412761283129513031317132513401351, %102
+  %or.cond.i467 = or i1 %.not.i.i2561213121912271233124112471255126212741281129313011315132313381349, %102
   br i1 %or.cond.i467, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i468
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i468:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit465
@@ -1835,7 +1835,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i468:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit465, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468
   %104 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i474 = or i1 %.not.i.i14410991495, %104
+  %or.cond.i474 = or i1 %.not.i.i14410971493, %104
   br i1 %or.cond.i474, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i475
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i475:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472
@@ -1845,7 +1845,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i475:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475
   %106 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i481 = or i1 %.not.i.i1511496, %106
+  %or.cond.i481 = or i1 %.not.i.i1511494, %106
   br i1 %or.cond.i481, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit486, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i482
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i482:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479
@@ -1855,7 +1855,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i482:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit486: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482
   %108 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i488 = or i1 %.not.i.i16511261134114911611179, %108
+  %or.cond.i488 = or i1 %.not.i.i16511241132114711591177, %108
   br i1 %or.cond.i488, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit493, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i489
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i489:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit486
@@ -1875,7 +1875,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i496:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit500: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit493, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496
   %112 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i502 = or i1 %.not.i.i35413411350, %112
+  %or.cond.i502 = or i1 %.not.i.i35413391348, %112
   br i1 %or.cond.i502, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit507, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i503
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i503:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit500
@@ -1895,33 +1895,33 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i510:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit507, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510
   %116 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i516 = or i1 %.not.i.i16511261134114911611179, %116
+  %or.cond.i516 = or i1 %.not.i.i16511241132114711591177, %116
   br i1 %or.cond.i516, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit521, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i517
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i517:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514
   %bcmp.i.i518 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %0, ptr noundef nonnull dereferenceable(10) @.str.129, i64 10)
   %117 = icmp eq i32 %bcmp.i.i518, 0
-  %spec.select1472 = select i1 %117, i64 18014398509481984, i64 %.sroa.154.39
-  %spec.select1473 = zext i1 %117 to i8
+  %spec.select1470 = select i1 %117, i64 18014398509481984, i64 %.sroa.154.39
+  %spec.select1471 = zext i1 %117 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit521
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit521: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i517, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514
-  %.sroa.154.54 = phi i64 [ %.sroa.154.39, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514 ], [ %spec.select1472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i517 ]
-  %.sroa.306.54 = phi i8 [ %.sroa.306.39, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514 ], [ %spec.select1473, %_ZNK4llvm9StringRef11starts_withES0_.exit.i517 ]
+  %.sroa.154.54 = phi i64 [ %.sroa.154.39, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514 ], [ %spec.select1470, %_ZNK4llvm9StringRef11starts_withES0_.exit.i517 ]
+  %.sroa.306.54 = phi i8 [ %.sroa.306.39, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit514 ], [ %spec.select1471, %_ZNK4llvm9StringRef11starts_withES0_.exit.i517 ]
   %118 = trunc nuw i8 %.sroa.306.54 to i1
   %.not.i.i522 = icmp ult i64 %1, 4
   %or.cond.i523 = or i1 %.not.i.i522, %118
   br i1 %or.cond.i523, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit528, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i524
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i524:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit521
-  %spec.select1474 = select i1 %2, i64 36028797018963968, i64 0
+  %spec.select1472 = select i1 %2, i64 36028797018963968, i64 0
   %bcmp.i.i525 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.130, i64 4)
   %119 = icmp eq i32 %bcmp.i.i525, 0
   br i1 %119, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit528
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit528: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit521, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524
   %120 = trunc nuw i8 %.sroa.306.54 to i1
-  %or.cond.i530 = or i1 %.not.i.i2351198120312081214122212281236124212501256126512751284129413041316132613391352, %120
+  %or.cond.i530 = or i1 %.not.i.i2351196120112061212122012261234124012481254126312731282129213021314132413371350, %120
   br i1 %or.cond.i530, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit535, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i531
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i531:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit528
@@ -1941,40 +1941,40 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i538:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit535, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538
   %124 = trunc nuw i8 %.sroa.306.54 to i1
-  %or.cond.i544 = or i1 %.not.i.i33313061314132813371354, %124
+  %or.cond.i544 = or i1 %.not.i.i33313041312132613351352, %124
   br i1 %or.cond.i544, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i545
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i545:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542
   %bcmp.i.i546 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %0, ptr noundef nonnull dereferenceable(18) @.str.133, i64 18)
   %125 = icmp eq i32 %bcmp.i.i546, 0
-  %spec.select1475 = select i1 %125, i64 288230376151711744, i64 %.sroa.154.54
-  %spec.select1476 = zext i1 %125 to i8
+  %spec.select1473 = select i1 %125, i64 288230376151711744, i64 %.sroa.154.54
+  %spec.select1474 = zext i1 %125 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i545, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542
-  %.sroa.154.58 = phi i64 [ %.sroa.154.54, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542 ], [ %spec.select1475, %_ZNK4llvm9StringRef11starts_withES0_.exit.i545 ]
-  %.sroa.306.58 = phi i8 [ %.sroa.306.54, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542 ], [ %spec.select1476, %_ZNK4llvm9StringRef11starts_withES0_.exit.i545 ]
+  %.sroa.154.58 = phi i64 [ %.sroa.154.54, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542 ], [ %spec.select1473, %_ZNK4llvm9StringRef11starts_withES0_.exit.i545 ]
+  %.sroa.306.58 = phi i8 [ %.sroa.306.54, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit542 ], [ %spec.select1474, %_ZNK4llvm9StringRef11starts_withES0_.exit.i545 ]
   %126 = trunc nuw i8 %.sroa.306.58 to i1
-  %or.cond.i551 = or i1 %.not.i.i16511261134114911611179, %126
+  %or.cond.i551 = or i1 %.not.i.i16511241132114711591177, %126
   br i1 %or.cond.i551, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit556, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i552
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i552:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549
-  %spec.select1477 = select i1 %2, i64 576460752303423488, i64 0
+  %spec.select1475 = select i1 %2, i64 576460752303423488, i64 0
   %bcmp.i.i553 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %0, ptr noundef nonnull dereferenceable(10) @.str.134, i64 10)
   %127 = icmp eq i32 %bcmp.i.i553, 0
-  %spec.select1478 = select i1 %127, i64 %spec.select1477, i64 %.sroa.154.58
-  %spec.select1479 = zext i1 %127 to i8
+  %spec.select1476 = select i1 %127, i64 %spec.select1475, i64 %.sroa.154.58
+  %spec.select1477 = zext i1 %127 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit556
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit556: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i552, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549
-  %.sroa.154.59 = phi i64 [ %.sroa.154.58, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549 ], [ %spec.select1478, %_ZNK4llvm9StringRef11starts_withES0_.exit.i552 ]
-  %.sroa.306.59 = phi i8 [ %.sroa.306.58, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549 ], [ %spec.select1479, %_ZNK4llvm9StringRef11starts_withES0_.exit.i552 ]
+  %.sroa.154.59 = phi i64 [ %.sroa.154.58, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549 ], [ %spec.select1476, %_ZNK4llvm9StringRef11starts_withES0_.exit.i552 ]
+  %.sroa.306.59 = phi i8 [ %.sroa.306.58, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit549 ], [ %spec.select1477, %_ZNK4llvm9StringRef11starts_withES0_.exit.i552 ]
   %128 = trunc nuw i8 %.sroa.306.59 to i1
-  %or.cond.i558 = or i1 %.not.i.i158111511231137114611641176, %128
+  %or.cond.i558 = or i1 %.not.i.i158111311211135114411621174, %128
   br i1 %or.cond.i558, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit563, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i559
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i559:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit556
-  %spec.select1480 = select i1 %2, i64 1152921504606846976, i64 0
+  %spec.select1478 = select i1 %2, i64 1152921504606846976, i64 0
   %bcmp.i.i560 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %0, ptr noundef nonnull dereferenceable(15) @.str.135, i64 15)
   %129 = icmp eq i32 %bcmp.i.i560, 0
   br i1 %129, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit563
@@ -1999,20 +1999,20 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
 _ZNK4llvm9StringRef11starts_withES0_.exit.i573:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570
   %bcmp.i.i574 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(35) %0, ptr noundef nonnull dereferenceable(35) @.str.137, i64 35)
   %133 = icmp eq i32 %bcmp.i.i574, 0
-  %spec.select1481 = select i1 %133, i64 4611686018427387904, i64 %.sroa.154.59
-  %spec.select1482 = zext i1 %133 to i8
+  %spec.select1479 = select i1 %133, i64 4611686018427387904, i64 %.sroa.154.59
+  %spec.select1480 = zext i1 %133 to i8
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit577
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit577: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i573, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570
-  %.sroa.154.62 = phi i64 [ %.sroa.154.59, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570 ], [ %spec.select1481, %_ZNK4llvm9StringRef11starts_withES0_.exit.i573 ]
-  %.sroa.306.62 = phi i8 [ %.sroa.306.59, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570 ], [ %spec.select1482, %_ZNK4llvm9StringRef11starts_withES0_.exit.i573 ]
+  %.sroa.154.62 = phi i64 [ %.sroa.154.59, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570 ], [ %spec.select1479, %_ZNK4llvm9StringRef11starts_withES0_.exit.i573 ]
+  %.sroa.306.62 = phi i8 [ %.sroa.306.59, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit570 ], [ %spec.select1480, %_ZNK4llvm9StringRef11starts_withES0_.exit.i573 ]
   %134 = trunc nuw i8 %.sroa.306.62 to i1
   %.not.i.i578 = icmp ult i64 %1, 28
   %or.cond.i579 = or i1 %.not.i.i578, %134
   br i1 %or.cond.i579, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit584, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i580
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i580:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit577
-  %spec.select1483 = select i1 %2, i64 -9223372036854775808, i64 0
+  %spec.select1481 = select i1 %2, i64 -9223372036854775808, i64 0
   %bcmp.i.i581 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %0, ptr noundef nonnull dereferenceable(28) @.str.138, i64 28)
   %135 = icmp eq i32 %bcmp.i.i581, 0
   br i1 %135, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit584
@@ -2029,14 +2029,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i587:   ; preds = %_ZN4llvm12StringSwi
   br i1 %137, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit591
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit591: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit584, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587
-  %.not.i.i5851447 = phi i1 [ %.not.i.i585, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit584 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ]
+  %.not.i.i5851445 = phi i1 [ %.not.i.i585, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit584 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ]
   %138 = trunc nuw i8 %.sroa.306.62 to i1
   %.not.i.i592 = icmp ult i64 %1, 41
   %or.cond.i593 = or i1 %.not.i.i592, %138
   br i1 %or.cond.i593, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit598, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i594
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i594:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit591
-  %spec.select1484 = select i1 %2, i64 2, i64 0
+  %spec.select1482 = select i1 %2, i64 2, i64 0
   %bcmp.i.i595 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(41) %0, ptr noundef nonnull dereferenceable(41) @.str.140, i64 41)
   %139 = icmp eq i32 %bcmp.i.i595, 0
   br i1 %139, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit598
@@ -2047,14 +2047,14 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
   br i1 %or.cond.i600, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit605, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i601
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i601:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit598
-  %spec.select1485 = select i1 %2, i64 4, i64 0
+  %spec.select1483 = select i1 %2, i64 4, i64 0
   %bcmp.i.i602 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %0, ptr noundef nonnull dereferenceable(28) @.str.141, i64 28)
   %141 = icmp eq i32 %bcmp.i.i602, 0
   br i1 %141, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit605
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit605: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit598, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601
   %142 = trunc nuw i8 %.sroa.306.62 to i1
-  %or.cond.i607 = or i1 %.not.i.i5851447, %142
+  %or.cond.i607 = or i1 %.not.i.i5851445, %142
   br i1 %or.cond.i607, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit612, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i608
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i608:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit605
@@ -2068,7 +2068,7 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
   br i1 %or.cond.i614, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit619, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i615
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i615:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit612
-  %spec.select1486 = select i1 %2, i64 16, i64 0
+  %spec.select1484 = select i1 %2, i64 16, i64 0
   %bcmp.i.i616 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) @.str.143, i64 20)
   %145 = icmp eq i32 %bcmp.i.i616, 0
   br i1 %145, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit619
@@ -2079,14 +2079,14 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
   br i1 %or.cond.i621, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit626, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i622
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i622:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit619
-  %spec.select1487 = select i1 %2, i64 32, i64 0
+  %spec.select1485 = select i1 %2, i64 32, i64 0
   %bcmp.i.i623 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.144, i64 8)
   %147 = icmp eq i32 %bcmp.i.i623, 0
   br i1 %147, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit626
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit626: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit619, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622
   %148 = trunc nuw i8 %.sroa.306.62 to i1
-  %or.cond.i628 = or i1 %.not.i.i16511261134114911611179, %148
+  %or.cond.i628 = or i1 %.not.i.i16511241132114711591177, %148
   br i1 %or.cond.i628, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit633, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i629
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i629:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit626
@@ -2096,7 +2096,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i629:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit633: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit626, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629
   %150 = trunc nuw i8 %.sroa.306.62 to i1
-  %or.cond.i635 = or i1 %.not.i.i179115011601180, %150
+  %or.cond.i635 = or i1 %.not.i.i179114811581178, %150
   br i1 %or.cond.i635, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit640, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i636
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i636:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit633
@@ -2110,7 +2110,7 @@ _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLitera
   br i1 %or.cond.i642, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit647, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i643
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i643:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit640
-  %spec.select1488 = select i1 %2, i64 256, i64 0
+  %spec.select1486 = select i1 %2, i64 256, i64 0
   %bcmp.i.i644 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) @.str.147, i64 7)
   %153 = icmp eq i32 %bcmp.i.i644, 0
   br i1 %153, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit647
@@ -2126,7 +2126,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i650:   ; preds = %_ZN4llvm12StringSwi
   br i1 %155, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit647, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650
-  %spec.select1489 = select i1 %2, i64 1024, i64 0
+  %spec.select1487 = select i1 %2, i64 1024, i64 0
   %156 = trunc nuw i8 %.sroa.306.62 to i1
   %or.cond.i656 = or i1 %.not.i.i522, %156
   br i1 %or.cond.i656, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i657
@@ -2140,15 +2140,15 @@ _ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_
   br label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i650, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659
-  %.sroa.154.74 = phi i64 [ %.sroa.154.62, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654 ], [ 0, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659 ], [ %.sroa.154.62, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601 ], [ 2305843009213693952, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566 ], [ %spec.select1480, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559 ], [ 144115188075855872, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538 ], [ 72057594037927936, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531 ], [ %spec.select1474, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524 ], [ 9007199254740992, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510 ], [ 4503599627370496, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503 ], [ 2251799813685248, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496 ], [ 1125899906842624, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489 ], [ 562949953421312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482 ], [ 281474976710656, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475 ], [ 140737488355328, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468 ], [ 70368744177664, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461 ], [ 35184372088832, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454 ], [ 17592186044416, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447 ], [ 8796093022208, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440 ], [ 4398046511104, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433 ], [ 2199023255552, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426 ], [ %spec.select1471, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419 ], [ 274877906944, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405 ], [ 2147483648, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356 ], [ 128, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188 ], [ 64, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181 ], [ 16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174 ], [ 8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160 ], [ 4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ 268435456, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335 ], [ 536870912, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342 ], [ 1073741824, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349 ], [ 16777216, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307 ], [ 33554432, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314 ], [ 67108864, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321 ], [ 134217728, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328 ], [ 131072, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258 ], [ 262144, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265 ], [ 524288, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272 ], [ 1048576, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279 ], [ 2097152, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286 ], [ 4194304, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293 ], [ 8388608, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300 ], [ 16384, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237 ], [ 32768, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244 ], [ 65536, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251 ], [ %spec.select1465, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202 ], [ 1024, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 2048, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216 ], [ 4096, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223 ], [ 8192, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230 ], [ 137438953472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398 ], [ %spec.select1468, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370 ], [ 17179869184, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377 ], [ 34359738368, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384 ], [ 68719476736, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391 ], [ %spec.select1483, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650 ]
-  %.sroa.230.74 = phi i64 [ 0, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654 ], [ %spec.select1489, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657 ], [ %spec.select1488, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643 ], [ 64, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629 ], [ %spec.select1487, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622 ], [ %spec.select1485, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ], [ %spec.select1484, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594 ], [ 8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608 ], [ %spec.select1486, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615 ], [ 128, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636 ], [ 512, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650 ]
+  %.sroa.154.74 = phi i64 [ %.sroa.154.62, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654 ], [ 0, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659 ], [ %.sroa.154.62, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601 ], [ 2305843009213693952, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566 ], [ %spec.select1478, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559 ], [ 144115188075855872, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538 ], [ 72057594037927936, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531 ], [ %spec.select1472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524 ], [ 9007199254740992, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510 ], [ 4503599627370496, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503 ], [ 2251799813685248, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496 ], [ 1125899906842624, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489 ], [ 562949953421312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482 ], [ 281474976710656, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475 ], [ 140737488355328, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468 ], [ 70368744177664, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461 ], [ 35184372088832, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454 ], [ 17592186044416, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447 ], [ 8796093022208, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440 ], [ 4398046511104, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433 ], [ 2199023255552, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426 ], [ %spec.select1469, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419 ], [ 274877906944, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405 ], [ 2147483648, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356 ], [ 128, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188 ], [ 64, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181 ], [ 16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174 ], [ 8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160 ], [ 4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ 268435456, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335 ], [ 536870912, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342 ], [ 1073741824, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349 ], [ 16777216, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307 ], [ 33554432, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314 ], [ 67108864, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321 ], [ 134217728, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328 ], [ 131072, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258 ], [ 262144, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265 ], [ 524288, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272 ], [ 1048576, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279 ], [ 2097152, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286 ], [ 4194304, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293 ], [ 8388608, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300 ], [ 16384, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237 ], [ 32768, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244 ], [ 65536, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251 ], [ %spec.select1463, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202 ], [ 1024, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 2048, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216 ], [ 4096, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223 ], [ 8192, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230 ], [ 137438953472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398 ], [ %spec.select1466, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370 ], [ 17179869184, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377 ], [ 34359738368, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384 ], [ 68719476736, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391 ], [ %spec.select1481, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650 ]
+  %.sroa.230.74 = phi i64 [ 0, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654 ], [ %spec.select1487, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657 ], [ %spec.select1486, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643 ], [ 64, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629 ], [ %spec.select1485, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622 ], [ %spec.select1483, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ], [ %spec.select1482, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594 ], [ 8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608 ], [ %spec.select1484, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615 ], [ 128, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636 ], [ 512, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650 ]
   %.sroa.306.74 = phi i8 [ %.sroa.306.62, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit654 ], [ 1, %_ZNSt8optionalIN5clang13SanitizerMaskEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit.i659 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i657 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i643 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i629 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i622 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i601 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i566 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i559 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i538 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i531 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i524 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i510 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i503 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i496 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i489 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i482 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i461 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i454 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i447 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i440 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i433 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i426 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i419 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i405 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i356 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i188 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i181 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i174 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i160 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i146 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i335 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i349 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i307 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i314 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i321 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i328 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i258 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i265 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i272 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i279 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i286 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i293 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i300 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i237 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i244 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i251 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i202 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i216 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i223 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i230 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i398 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i370 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i384 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i391 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i580 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i587 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i594 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i608 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i615 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i636 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i650 ]
   %158 = trunc nuw i8 %.sroa.306.74 to i1
   %.sroa.01.0.i = select i1 %158, i64 %.sroa.154.74, i64 0
   %.sroa.3.0.i = select i1 %158, i64 %.sroa.230.74, i64 0
   %159 = or i64 %.sroa.01.0.i, %.sroa.3.0.i
   %.not1.i = icmp eq i64 %159, 0
-  br i1 %.not1.i, label %239, label %160
+  br i1 %.not1.i, label %217, label %160
 
 160:                                              ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2197,135 +2197,84 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %163, %165
   %178 = fcmp ogt double %177, 1.000000e+00
   %.sroa.speculated = select i1 %178, double 1.000000e+00, double %177
   store double %.sroa.speculated, ptr %8, align 8, !tbaa !11
-  %179 = and i64 %.sroa.01.0.i, 512
-  %.not.i.not.i = icmp eq i64 %179, 0
-  %180 = or i64 %.sroa.01.0.i, 448
-  %spec.select.i = select i1 %.not.i.not.i, i64 %.sroa.01.0.i, i64 %180
-  %181 = and i64 %spec.select.i, 8589934592
-  %.not.i29.not.i = icmp eq i64 %181, 0
-  %182 = or i64 %spec.select.i, 7516192768
-  %.sroa.0124.1.i = select i1 %.not.i29.not.i, i64 %spec.select.i, i64 %182
-  %183 = and i64 %.sroa.0124.1.i, 1099511627776
-  %.not.i34.not.i = icmp eq i64 %183, 0
-  %184 = or i64 %.sroa.0124.1.i, 824633720832
-  %.sroa.0124.2.i = select i1 %.not.i34.not.i, i64 %.sroa.0124.1.i, i64 %184
-  %185 = and i64 %.sroa.0124.2.i, 36028797018963968
-  %.not.i39.not.i = icmp eq i64 %185, 0
-  %186 = or i64 %.sroa.0124.2.i, 35465847065542656
-  %.sroa.0124.3.i = select i1 %.not.i39.not.i, i64 %.sroa.0124.2.i, i64 %186
-  %187 = and i64 %.sroa.0124.3.i, 576460752303423488
-  %.not.i44.not.i = icmp eq i64 %187, 0
-  %188 = or i64 %.sroa.0124.3.i, 34068720254976
-  %.sroa.0124.4.i = select i1 %.not.i44.not.i, i64 %.sroa.0124.3.i, i64 %188
-  %189 = and i64 %.sroa.0124.4.i, 1152921504606846976
-  %.not.i49.not.i = icmp eq i64 %189, 0
-  %.sroa.0124.5.i = select i1 %.not.i49.not.i, i64 %.sroa.0124.4.i, i64 %188
-  %190 = or i64 %.sroa.0124.5.i, 6917529027641081856
-  %.not.i54.not159.i = icmp slt i64 %.sroa.0124.5.i, 0
-  %.sroa.0124.6.i = select i1 %.not.i54.not159.i, i64 %190, i64 %.sroa.0124.5.i
-  %191 = and i64 %.sroa.3.0.i, 2
-  %192 = shl nuw nsw i64 %191, 61
-  %.sroa.0124.7.i = or i64 %.sroa.0124.6.i, %192
-  %193 = lshr exact i64 %191, 1
-  %194 = and i64 %.sroa.3.0.i, 4
-  %.not125.i = icmp eq i64 %194, 0
-  %.sroa.0124.8.i = select i1 %.not125.i, i64 %.sroa.0124.7.i, i64 %190
-  %.sroa.27.1.v.i = select i1 %.not125.i, i64 %193, i64 1
-  %195 = and i64 %.sroa.3.0.i, 16
-  %.not126.i = icmp eq i64 %195, 0
-  %196 = or i64 %.sroa.0124.8.i, 6917529027641081856
-  %.sroa.0124.9.i = select i1 %.not126.i, i64 %.sroa.0124.8.i, i64 %196
-  %.sroa.27.2.v.i = select i1 %.not126.i, i64 %.sroa.27.1.v.i, i64 9
-  %197 = and i64 %.sroa.3.0.i, 32
-  %.not127.i = icmp eq i64 %197, 0
-  %198 = or i64 %.sroa.0124.9.i, 6917637604548542464
-  %.sroa.0124.10.i = select i1 %.not127.i, i64 %.sroa.0124.9.i, i64 %198
-  %199 = lshr exact i64 %197, 5
-  %200 = or i64 %199, %.sroa.27.2.v.i
-  %.sroa.27.3.i = or i64 %200, %.sroa.3.0.i
-  %201 = and i64 %.sroa.27.3.i, 256
-  %202 = shl nuw nsw i64 %201, 12
-  %.sroa.0124.11.i = or i64 %.sroa.0124.10.i, %202
-  %203 = lshr exact i64 %201, 1
-  %.sroa.27.4.i = or i64 %203, %.sroa.27.3.i
-  %.not129.i = icmp samesign ult i64 %.sroa.3.0.i, 1024
-  %.sroa.0124.12.i = select i1 %.not129.i, i64 %.sroa.0124.11.i, i64 -1
-  %.sroa.27.5.i = select i1 %.not129.i, i64 %.sroa.27.4.i, i64 -1
-  %204 = fcmp olt double %.sroa.speculated, 0x3E112E0BE0000000
-  br i1 %204, label %205, label %210
+  %179 = call { i64, i64 } @_ZN5clang21expandSanitizerGroupsENS_13SanitizerMaskE(i64 %.sroa.01.0.i, i64 %.sroa.3.0.i)
+  %180 = extractvalue { i64, i64 } %179, 0
+  %181 = extractvalue { i64, i64 } %179, 1
+  %182 = fcmp olt double %.sroa.speculated, 0x3E112E0BE0000000
+  br i1 %182, label %183, label %188
 
-205:                                              ; preds = %174
-  %206 = load ptr, ptr %3, align 8, !tbaa !3
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %208 = load ptr, ptr %207, align 8, !tbaa !3
-  %209 = icmp eq ptr %206, %208
-  br i1 %209, label %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit, label %210
+183:                                              ; preds = %174
+  %184 = load ptr, ptr %3, align 8, !tbaa !3
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %186 = load ptr, ptr %185, align 8, !tbaa !3
+  %187 = icmp eq ptr %184, %186
+  br i1 %187, label %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit, label %188
 
-210:                                              ; preds = %205, %174
-  %211 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %212
+188:                                              ; preds = %183, %174
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %190
 
-212:                                              ; preds = %238, %210
-  %indvars.iv.i = phi i64 [ 0, %210 ], [ %indvars.iv.next.i, %238 ]
-  %213 = icmp samesign ult i64 %indvars.iv.i, 64
-  %214 = and i64 %indvars.iv.i, 63
-  %215 = shl nuw i64 1, %214
-  %216 = select i1 %213, i64 %215, i64 0
-  %217 = select i1 %213, i64 0, i64 %215
-  %218 = and i64 %216, %.sroa.0124.12.i
-  %219 = and i64 %217, %.sroa.27.5.i
-  %.not.i.i665 = icmp ne i64 %218, 0
-  %220 = icmp ne i64 %219, 0
-  %221 = select i1 %.not.i.i665, i1 true, i1 %220
-  br i1 %221, label %222, label %238
+190:                                              ; preds = %216, %188
+  %indvars.iv.i = phi i64 [ 0, %188 ], [ %indvars.iv.next.i, %216 ]
+  %191 = icmp samesign ult i64 %indvars.iv.i, 64
+  %192 = and i64 %indvars.iv.i, 63
+  %193 = shl nuw i64 1, %192
+  %194 = select i1 %191, i64 %193, i64 0
+  %195 = select i1 %191, i64 0, i64 %193
+  %196 = and i64 %194, %180
+  %197 = and i64 %195, %181
+  %.not.i.i663 = icmp ne i64 %196, 0
+  %198 = icmp ne i64 %197, 0
+  %199 = select i1 %.not.i.i663, i1 true, i1 %198
+  br i1 %199, label %200, label %216
 
-222:                                              ; preds = %212
-  %223 = load ptr, ptr %211, align 8, !tbaa !8
-  %224 = load ptr, ptr %3, align 8, !tbaa !10
-  %225 = ptrtoint ptr %223 to i64
-  %226 = ptrtoint ptr %224 to i64
-  %227 = sub i64 %225, %226
-  %228 = ashr exact i64 %227, 3
-  %229 = icmp ult i64 %228, 75
-  br i1 %229, label %230, label %232
+200:                                              ; preds = %190
+  %201 = load ptr, ptr %189, align 8, !tbaa !8
+  %202 = load ptr, ptr %3, align 8, !tbaa !10
+  %203 = ptrtoint ptr %201 to i64
+  %204 = ptrtoint ptr %202 to i64
+  %205 = sub i64 %203, %204
+  %206 = ashr exact i64 %205, 3
+  %207 = icmp ult i64 %206, 75
+  br i1 %207, label %208, label %210
 
-230:                                              ; preds = %222
-  %231 = sub nuw nsw i64 75, %228
-  call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %231)
+208:                                              ; preds = %200
+  %209 = sub nuw nsw i64 75, %206
+  call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %209)
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !10
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
-232:                                              ; preds = %222
-  %.not.i = icmp eq i64 %227, 600
-  br i1 %.not.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %233
+210:                                              ; preds = %200
+  %.not.i = icmp eq i64 %205, 600
+  br i1 %.not.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %211
 
-233:                                              ; preds = %232
-  %234 = getelementptr inbounds nuw i8, ptr %224, i64 600
-  %.not.i.i.i = icmp eq ptr %223, %234
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %235
+211:                                              ; preds = %210
+  %212 = getelementptr inbounds nuw i8, ptr %202, i64 600
+  %.not.i.i.i = icmp eq ptr %201, %212
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %213
 
-235:                                              ; preds = %233
-  store ptr %234, ptr %211, align 8, !tbaa !8
+213:                                              ; preds = %211
+  store ptr %212, ptr %189, align 8, !tbaa !8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %235, %233, %232, %230
-  %236 = phi ptr [ %.pre.i, %230 ], [ %224, %232 ], [ %224, %233 ], [ %224, %235 ]
-  %237 = getelementptr inbounds nuw double, ptr %236, i64 %indvars.iv.i
-  store double %.sroa.speculated, ptr %237, align 8, !tbaa !11
-  br label %238
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %213, %211, %210, %208
+  %214 = phi ptr [ %.pre.i, %208 ], [ %202, %210 ], [ %202, %211 ], [ %202, %213 ]
+  %215 = getelementptr inbounds nuw double, ptr %214, i64 %indvars.iv.i
+  store double %.sroa.speculated, ptr %215, align 8, !tbaa !11
+  br label %216
 
-238:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, %212
+216:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, %190
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 75
-  br i1 %exitcond.not.i, label %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit, label %212, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit, label %190, !llvm.loop !13
 
-_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit: ; preds = %238, %205, %_ZNK4llvm9StringRef5splitEc.exit
+_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit: ; preds = %216, %183, %_ZNK4llvm9StringRef5splitEc.exit
   %.1 = xor i1 %173, true
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %239
+  br label %217
 
-239:                                              ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit
+217:                                              ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit
   %.0 = phi i1 [ %.1, %_ZN5clang20SanitizerMaskCutoffs3setENS_13SanitizerMaskEd.exit ], [ false, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661 ]
   ret i1 %.0
 }
@@ -2357,41 +2306,47 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit:
   %.sroa.0124.4 = select i1 %.not.i44.not, i64 %.sroa.0124.3, i64 %11
   %12 = and i64 %.sroa.0124.4, 1152921504606846976
   %.not.i49.not = icmp eq i64 %12, 0
-  %.sroa.0124.5 = select i1 %.not.i49.not, i64 %.sroa.0124.4, i64 %11
-  %13 = or i64 %.sroa.0124.5, 6917529027641081856
-  %.not.i54.not159 = icmp slt i64 %.sroa.0124.5, 0
-  %.sroa.0124.6 = select i1 %.not.i54.not159, i64 %13, i64 %.sroa.0124.5
-  %14 = and i64 %1, 2
-  %15 = shl nuw nsw i64 %14, 61
-  %.sroa.0124.7 = or i64 %.sroa.0124.6, %15
-  %16 = lshr exact i64 %14, 1
-  %17 = and i64 %1, 4
-  %.not125 = icmp eq i64 %17, 0
-  %.sroa.0124.8 = select i1 %.not125, i64 %.sroa.0124.7, i64 %13
-  %.sroa.27.1.v = select i1 %.not125, i64 %16, i64 1
-  %18 = and i64 %1, 16
-  %.not126 = icmp eq i64 %18, 0
-  %19 = or i64 %.sroa.0124.8, 6917529027641081856
-  %.sroa.0124.9 = select i1 %.not126, i64 %.sroa.0124.8, i64 %19
-  %.sroa.27.2.v = select i1 %.not126, i64 %.sroa.27.1.v, i64 9
-  %20 = and i64 %1, 32
-  %.not127 = icmp eq i64 %20, 0
-  %21 = or i64 %.sroa.0124.9, 6917637604548542464
-  %.sroa.0124.10 = select i1 %.not127, i64 %.sroa.0124.9, i64 %21
-  %22 = lshr exact i64 %20, 5
-  %23 = or i64 %.sroa.27.2.v, %22
-  %.sroa.27.3 = or i64 %23, %1
-  %24 = and i64 %.sroa.27.3, 256
-  %25 = shl nuw nsw i64 %24, 12
-  %.sroa.0124.11 = or i64 %.sroa.0124.10, %25
-  %26 = lshr exact i64 %24, 1
-  %.sroa.27.4 = or i64 %.sroa.27.3, %26
-  %27 = and i64 %.sroa.27.3, 1024
-  %.not129 = icmp eq i64 %27, 0
+  %13 = or i64 %.sroa.0124.4, 34068720254976
+  %.sroa.0124.5 = select i1 %.not.i49.not, i64 %.sroa.0124.4, i64 %13
+  %.not.i54.not = icmp sgt i64 %.sroa.0124.5, -1
+  %14 = or i64 %.sroa.0124.5, 6917529027641081856
+  %.sroa.0124.6 = select i1 %.not.i54.not, i64 %.sroa.0124.5, i64 %14
+  %15 = and i64 %1, 2
+  %.not = icmp eq i64 %15, 0
+  %16 = or i64 %.sroa.0124.6, 4611686018427387904
+  %17 = or i64 %1, 1
+  %.sroa.0124.7 = select i1 %.not, i64 %.sroa.0124.6, i64 %16
+  %.sroa.27.0 = select i1 %.not, i64 %1, i64 %17
+  %18 = and i64 %.sroa.27.0, 4
+  %.not125 = icmp eq i64 %18, 0
+  %19 = or i64 %.sroa.0124.7, 6917529027641081856
+  %20 = or i64 %.sroa.27.0, 1
+  %.sroa.0124.8 = select i1 %.not125, i64 %.sroa.0124.7, i64 %19
+  %.sroa.27.1 = select i1 %.not125, i64 %.sroa.27.0, i64 %20
+  %21 = and i64 %.sroa.27.1, 16
+  %.not126 = icmp eq i64 %21, 0
+  %22 = or i64 %.sroa.0124.8, 6917529027641081856
+  %23 = or i64 %.sroa.27.1, 9
+  %.sroa.0124.9 = select i1 %.not126, i64 %.sroa.0124.8, i64 %22
+  %.sroa.27.2 = select i1 %.not126, i64 %.sroa.27.1, i64 %23
+  %24 = and i64 %.sroa.27.2, 32
+  %.not127 = icmp eq i64 %24, 0
+  %25 = or i64 %.sroa.0124.9, 6917637604548542464
+  %26 = or i64 %.sroa.27.2, 1
+  %.sroa.0124.10 = select i1 %.not127, i64 %.sroa.0124.9, i64 %25
+  %.sroa.27.3 = select i1 %.not127, i64 %.sroa.27.2, i64 %26
+  %27 = and i64 %.sroa.27.3, 256
+  %.not128 = icmp eq i64 %27, 0
+  %28 = or i64 %.sroa.0124.10, 1048576
+  %29 = or i64 %.sroa.27.3, 128
+  %.sroa.0124.11 = select i1 %.not128, i64 %.sroa.0124.10, i64 %28
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload = select i1 %.not128, i64 %.sroa.27.3, i64 %29
+  %30 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload, 1024
+  %.not129 = icmp eq i64 %30, 0
   %.sroa.0124.12 = select i1 %.not129, i64 %.sroa.0124.11, i64 -1
-  %.sroa.27.5 = select i1 %.not129, i64 %.sroa.27.4, i64 -1
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.226.0.copyload = select i1 %.not129, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload, i64 -1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0124.12, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.27.5, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.226.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

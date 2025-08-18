@@ -5303,16 +5303,16 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE21PermutateVertexVectorERS
   store double %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %46 = load double, ptr %45, align 8
-  store double %46, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store double %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %51 = load i16, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i16 %51, ptr %52, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %50 = load double, ptr %45, align 8
+  store double %50, ptr %44, align 8
+  %51 = load double, ptr %46, align 8
+  store double %51, ptr %47, align 8
+  %52 = load i16, ptr %48, align 8
+  store i16 %52, ptr %49, align 8
   %53 = load double, ptr %22, align 8
   store double %53, ptr %21, align 8
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 8

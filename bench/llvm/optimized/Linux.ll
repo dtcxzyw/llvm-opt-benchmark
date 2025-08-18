@@ -9154,6 +9154,7 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains5Linux22getSupportedSan
   %4 = icmp eq i32 %3, 37
   %5 = icmp eq i32 %3, 38
   %6 = and i32 %3, -2
+  %spec.select.i = icmp eq i32 %6, 16
   %spec.select.i108 = icmp eq i32 %6, 18
   %7 = icmp eq i32 %3, 23
   br i1 %7, label %.thread173, label %8
@@ -9166,118 +9167,118 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains5Linux22getSupportedSan
 11:                                               ; preds = %8
   %12 = icmp eq i32 %3, 4
   switch i32 %3, label %.thread173 [
-    i32 1, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-    i32 35, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-    i32 2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
+    i32 1, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+    i32 35, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+    i32 2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
   ]
 
 .thread173:                                       ; preds = %11, %1, %8
   %13 = phi i1 [ true, %8 ], [ false, %1 ], [ %12, %11 ]
   %14 = phi i1 [ %9, %8 ], [ true, %1 ], [ %9, %11 ]
   %15 = icmp eq i32 %3, 36
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %11, %11, %11, %.thread173
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge: ; preds = %11, %11, %11, %.thread173
   %16 = phi i1 [ %12, %11 ], [ %13, %.thread173 ], [ %12, %11 ], [ %12, %11 ]
   %17 = phi i1 [ %9, %11 ], [ %14, %.thread173 ], [ %9, %11 ], [ %9, %11 ]
   %18 = phi i1 [ true, %11 ], [ %15, %.thread173 ], [ true, %11 ], [ true, %11 ]
-  %19 = freeze i1 %17
-  %20 = freeze i1 %16
-  %21 = icmp eq i32 %3, 14
-  %22 = icmp eq i32 %3, 28
-  %23 = icmp eq i32 %3, 32
-  %24 = icmp eq i32 %3, 12
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %26 = load i32, ptr %25, align 8, !tbaa !3
-  %27 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #17
-  %28 = extractvalue { i64, i64 } %27, 0
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i32, ptr %19, align 8, !tbaa !3
+  %21 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #17
+  %22 = extractvalue { i64, i64 } %21, 0
+  %23 = extractvalue { i64, i64 } %21, 1
+  %24 = freeze i1 %17
+  %25 = freeze i1 %16
+  %26 = icmp eq i32 %3, 14
+  %27 = icmp eq i32 %3, 28
+  %28 = icmp eq i32 %3, 32
+  %29 = icmp eq i32 %3, 12
+  %30 = icmp eq i32 %20, 17
   %or.cond = or i1 %5, %spec.select.i108
-  %or.cond3 = or i1 %or.cond, %20
-  br i1 %20, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge, label %switch.early.test175
+  %or.cond3 = or i1 %or.cond, %25
+  br i1 %25, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge, label %switch.early.test
 
-switch.early.test175:                             ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-  %29 = or i64 %28, 144132780262043663
+switch.early.test:                                ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+  %31 = or i64 %22, 144132780262043663
   switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge
-    i32 19, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge
-    i32 18, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge
-    i32 14, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge
+    i32 19, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge
+    i32 18, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge
+    i32 14, label %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge: ; preds = %switch.early.test175, %switch.early.test175, %switch.early.test175, %switch.early.test175, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-  %30 = or i64 %28, 144273517750398991
+_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+  %32 = or i64 %22, 144273517750398991
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit126
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit126:         ; preds = %switch.early.test175, %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge
-  %.sroa.0168.0 = phi i64 [ %30, %_ZN5clang13SanitizerMaskoRERKS0_.exit126.critedge ], [ %29, %switch.early.test175 ]
+_ZN5clang13SanitizerMaskoRERKS0_.exit126:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge, %switch.early.test
+  %.sroa.0168.0 = phi i64 [ %32, %_ZN5clang13SanitizerMaskoRERKS0_.exit126.loopexit.critedge ], [ %31, %switch.early.test ]
   %or.cond11 = or i1 %4, %or.cond3
   %or.cond13 = or i1 %18, %or.cond11
-  %or.cond15 = or i1 %19, %or.cond13
-  %or.cond17 = or i1 %22, %or.cond15
-  %or.cond19 = or i1 %23, %or.cond17
-  %or.cond21 = or i1 %24, %or.cond19
-  %or.cond23 = or i1 %21, %or.cond21
-  %31 = or i64 %.sroa.0168.0, 262144
-  %spec.select = select i1 %or.cond23, i64 %31, i64 %.sroa.0168.0
-  %or.cond29 = or i1 %or.cond3, %19
-  %or.cond31 = or i1 %23, %or.cond29
-  %or.cond33 = or i1 %21, %or.cond31
-  %or.cond35 = or i1 %22, %or.cond33
-  %32 = or i64 %spec.select, 32768
-  %.sroa.0168.2 = select i1 %or.cond35, i64 %32, i64 %spec.select
-  %or.cond37 = or i1 %5, %20
-  %33 = or i64 %.sroa.0168.2, 16384
-  %.sroa.0168.3 = select i1 %or.cond37, i64 %33, i64 %.sroa.0168.2
-  br i1 %19, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge, label %switch.early.test
+  %or.cond15 = or i1 %24, %or.cond13
+  %or.cond17 = or i1 %27, %or.cond15
+  %or.cond19 = or i1 %28, %or.cond17
+  %or.cond21 = or i1 %29, %or.cond19
+  %or.cond23 = or i1 %26, %or.cond21
+  %33 = or i64 %.sroa.0168.0, 262144
+  %spec.select = select i1 %or.cond23, i64 %33, i64 %.sroa.0168.0
+  %or.cond29 = or i1 %or.cond3, %24
+  %or.cond31 = or i1 %28, %or.cond29
+  %or.cond33 = or i1 %26, %or.cond31
+  %or.cond35 = or i1 %27, %or.cond33
+  %34 = or i64 %spec.select, 32768
+  %.sroa.0168.2 = select i1 %or.cond35, i64 %34, i64 %spec.select
+  %or.cond37 = or i1 %5, %25
+  %35 = or i64 %.sroa.0168.2, 16384
+  %.sroa.0168.3 = select i1 %or.cond37, i64 %35, i64 %.sroa.0168.2
+  br i1 %24, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge, label %switch.early.test174
 
-switch.early.test:                                ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit126
+switch.early.test174:                             ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit126
   switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge
-    i32 32, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge
+    i32 32, label %_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge: ; preds = %switch.early.test, %switch.early.test, %_ZN5clang13SanitizerMaskoRERKS0_.exit126
-  %34 = or i64 %.sroa.0168.3, 2048
+_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit126, %switch.early.test174, %switch.early.test174
+  %36 = or i64 %.sroa.0168.3, 2048
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit134
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit134:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge, %switch.early.test
-  %.sroa.0168.4 = phi i64 [ %34, %_ZN5clang13SanitizerMaskoRERKS0_.exit134.critedge ], [ %.sroa.0168.3, %switch.early.test ]
-  br i1 %20, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge, label %switch.early.test174
-
-switch.early.test174:                             ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit134
-  switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge
-    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge
-  ]
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge: ; preds = %switch.early.test174, %switch.early.test174, %_ZN5clang13SanitizerMaskoRERKS0_.exit134
-  %35 = or i64 %.sroa.0168.4, 16
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit138
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit138:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge, %switch.early.test174
-  %.sroa.0168.5 = phi i64 [ %35, %_ZN5clang13SanitizerMaskoRERKS0_.exit138.critedge ], [ %.sroa.0168.4, %switch.early.test174 ]
-  %spec.select.i = icmp eq i32 %6, 16
+_ZN5clang13SanitizerMaskoRERKS0_.exit134:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge, %switch.early.test174
+  %.sroa.0168.4 = phi i64 [ %36, %_ZN5clang13SanitizerMaskoRERKS0_.exit134.loopexit.critedge ], [ %.sroa.0168.3, %switch.early.test174 ]
   %or.cond49 = or i1 %spec.select.i, %or.cond11
   %or.cond51 = or i1 %18, %or.cond49
-  %or.cond53 = or i1 %19, %or.cond51
-  %or.cond55 = or i1 %24, %or.cond53
-  %or.cond57 = or i1 %21, %or.cond55
-  %or.cond59 = or i1 %22, %or.cond57
-  %36 = extractvalue { i64, i64 } %27, 1
-  %37 = or i64 %36, 512
-  %spec.select187 = select i1 %or.cond59, i64 %37, i64 %36
-  %38 = icmp eq i32 %26, 17
-  %spec.select188.v = select i1 %20, i64 32, i64 0
-  %spec.select188 = select i1 %5, i64 65568, i64 %spec.select188.v
-  %.sroa.0168.6 = or i64 %.sroa.0168.5, %spec.select188
-  %39 = or i64 %.sroa.0168.6, 1024
-  %spec.select189 = select i1 %38, i64 %.sroa.0168.6, i64 %39
-  %40 = load i32, ptr %2, align 8, !tbaa !19
-  %41 = icmp eq i32 %40, 23
-  %42 = and i64 %spec.select189, -67108865
-  %.sroa.0168.8 = select i1 %41, i64 %42, i64 %spec.select189
+  %or.cond53 = or i1 %24, %or.cond51
+  %or.cond55 = or i1 %29, %or.cond53
+  %or.cond57 = or i1 %26, %or.cond55
+  %or.cond59 = or i1 %27, %or.cond57
+  %37 = or i64 %23, 512
+  %spec.select194 = select i1 %or.cond59, i64 %37, i64 %23
+  br i1 %25, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge, label %switch.early.test175
+
+switch.early.test175:                             ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit134
+  switch i32 %3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138 [
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge
+    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge
+  ]
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit134, %switch.early.test175, %switch.early.test175
+  %38 = or i64 %.sroa.0168.4, 16
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit138
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit138:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge, %switch.early.test175
+  %.sroa.0168.5 = phi i64 [ %38, %_ZN5clang13SanitizerMaskoRERKS0_.exit138.loopexit.critedge ], [ %.sroa.0168.4, %switch.early.test175 ]
+  %39 = or i64 %.sroa.0168.5, 32
+  %40 = or i64 %.sroa.0168.5, 65568
+  %spec.select195 = select i1 %5, i64 %40, i64 %39
+  %.sroa.0168.6 = select i1 %or.cond37, i64 %spec.select195, i64 %.sroa.0168.5
+  %41 = or i64 %.sroa.0168.6, 1024
+  %spec.select196 = select i1 %30, i64 %.sroa.0168.6, i64 %41
+  %42 = load i32, ptr %2, align 8, !tbaa !19
+  %43 = icmp eq i32 %42, 23
+  %44 = and i64 %spec.select196, -67108865
+  %.sroa.0168.8 = select i1 %43, i64 %44, i64 %spec.select196
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0168.8, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %spec.select187, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %spec.select194, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

@@ -12701,25 +12701,25 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal20generic_product_implINS_
   %.pr.i.i.i.i.i.i = load i64, ptr %20, align 8, !tbaa !85
   %.pre8 = load ptr, ptr %6, align 8, !tbaa !77
   %23 = icmp sgt i64 %.pr.i.i.i.i.i.i, 0
-  br i1 %23, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_12CwiseUnaryOpINS4_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEES1_Li0EEEKNS_9ReplicateIS1_Lin1ELin1EEEEEEERKT_.exit
+  br i1 %23, label %.split.us.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_12CwiseUnaryOpINS4_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEES1_Li0EEEKNS_9ReplicateIS1_Lin1ELin1EEEEEEERKT_.exit
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %22
+.split.us.i.i.i.i.i.i.i:                          ; preds = %22
   %24 = load ptr, ptr %7, align 8, !tbaa !286
   %25 = load i64, ptr %14, align 8, !tbaa !127
   %26 = load ptr, ptr %12, align 8, !tbaa !286
   br label %27
 
-27:                                               ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %35, %27 ]
-  %28 = getelementptr double, ptr %.pre8, i64 %.09.i.i.i.i.i.i.i
-  %29 = getelementptr double, ptr %24, i64 %.09.i.i.i.i.i.i.i
-  %30 = srem i64 %.09.i.i.i.i.i.i.i, %25
+27:                                               ; preds = %27, %.split.us.i.i.i.i.i.i.i
+  %.09.us.i.i.i.i.i.i.i = phi i64 [ 0, %.split.us.i.i.i.i.i.i.i ], [ %35, %27 ]
+  %28 = getelementptr double, ptr %.pre8, i64 %.09.us.i.i.i.i.i.i.i
+  %29 = getelementptr double, ptr %24, i64 %.09.us.i.i.i.i.i.i.i
+  %30 = srem i64 %.09.us.i.i.i.i.i.i.i, %25
   %31 = getelementptr double, ptr %26, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !81
   %33 = load double, ptr %29, align 8, !tbaa !81
   %34 = fadd double %32, %33
   store double %34, ptr %28, align 8, !tbaa !81
-  %35 = add nuw nsw i64 %.09.i.i.i.i.i.i.i, 1
+  %35 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %35, %.pr.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_12CwiseUnaryOpINS4_18scalar_opposite_opIdEEKNS_12SparseMatrixIdLi0EiEEEES1_Li0EEEKNS_9ReplicateIS1_Lin1ELin1EEEEEEERKT_.exit, label %27, !llvm.loop !714
 

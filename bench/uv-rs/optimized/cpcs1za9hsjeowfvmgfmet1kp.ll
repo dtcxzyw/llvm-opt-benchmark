@@ -3812,7 +3812,7 @@ define hidden void @_ZN3std7process7Command3new17hdab3217945863fb1E(ptr dead_on_
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17hc6923e05e10e22a9E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-.critedge:
+_ZN3std7process7Command3arg17ha4def8ce578acde1E.llvm.9835181522389544895.exit:
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !alias.scope !1132, !nonnull !10, !noundef !10
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !1132

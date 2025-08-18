@@ -622,35 +622,34 @@ define internal { double, double } @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts(
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
-.critedge:
-  %3 = alloca %union.PJ_COORD, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3)
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 0
-  %8 = load i32, ptr %7, align 4, !tbaa !42
-  %9 = sitofp i32 %8 to double
-  %10 = fmul double %0, %9
-  %11 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 0
-  %12 = load i32, ptr %11, align 4, !tbaa !42
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %13
-  store double %10, ptr %14, align 8, !tbaa !47
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 1
-  %16 = load i32, ptr %15, align 4, !tbaa !42
-  %17 = sitofp i32 %16 to double
-  %18 = fmul double %1, %17
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 1
-  %20 = load i32, ptr %19, align 4, !tbaa !42
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %21
-  store double %18, ptr %22, align 8, !tbaa !47
-  %.sroa.07.0.copyload = load double, ptr %3, align 8, !tbaa !70
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %4 = alloca %union.PJ_COORD, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  br label %8
+
+8:                                                ; preds = %3, %8
+  %9 = phi i1 [ true, %3 ], [ false, %8 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi double [ %0, %3 ], [ %1, %8 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %8 ]
+  %10 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !42
+  %12 = sitofp i32 %11 to double
+  %13 = fmul double %indvars.iv.sroa.phi.sroa.speculated, %12
+  %14 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !42
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %16
+  store double %13, ptr %17, align 8, !tbaa !47
+  br i1 %9, label %8, label %18, !llvm.loop !76
+
+18:                                               ; preds = %8
+  %.sroa.07.0.copyload = load double, ptr %4, align 8, !tbaa !70
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.28.0.copyload = load double, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.07.0.copyload, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.28.0.copyload, 1
   ret { double, double } %.fca.1.insert
@@ -763,3 +762,4 @@ attributes #13 = { nounwind }
 !73 = !{!72, !14, i64 8}
 !74 = !{!72, !14, i64 16}
 !75 = distinct !{!75, !44}
+!76 = distinct !{!76, !44}

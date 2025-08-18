@@ -716,19 +716,19 @@ masks_form_is_in_roi.exit:                        ; preds = %91
   %110 = fmul reassoc nsz arcp contract afn float %70, %109
   %111 = sitofp i32 %.val.val269 to float
   %112 = fmul reassoc nsz arcp contract afn float %70, %111
-  %113 = load float, ptr %106, align 4, !tbaa !37
-  %114 = fmul reassoc nsz arcp contract afn float %110, %113
-  store float %114, ptr %15, align 16, !tbaa !37
-  %115 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !37
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %114 = load float, ptr %106, align 4, !tbaa !37
+  %115 = fmul reassoc nsz arcp contract afn float %110, %114
+  store float %115, ptr %15, align 16, !tbaa !37
+  %116 = load float, ptr %113, align 4, !tbaa !37
   %117 = fmul reassoc nsz arcp contract afn float %116, %112
   store float %117, ptr %42, align 4, !tbaa !37
   %118 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %119 = load float, ptr %118, align 8, !tbaa !37
-  %120 = fmul reassoc nsz arcp contract afn float %119, %110
-  store float %120, ptr %43, align 8, !tbaa !37
-  %121 = getelementptr inbounds nuw i8, ptr %66, i64 28
-  %122 = load float, ptr %121, align 4, !tbaa !37
+  %119 = getelementptr inbounds nuw i8, ptr %66, i64 28
+  %120 = load float, ptr %118, align 8, !tbaa !37
+  %121 = fmul reassoc nsz arcp contract afn float %120, %110
+  store float %121, ptr %43, align 8, !tbaa !37
+  %122 = load float, ptr %119, align 4, !tbaa !37
   %123 = fmul reassoc nsz arcp contract afn float %122, %112
   store float %123, ptr %44, align 4, !tbaa !37
   %124 = load ptr, ptr %45, align 8, !tbaa !11

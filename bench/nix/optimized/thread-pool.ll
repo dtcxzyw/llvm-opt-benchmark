@@ -1888,7 +1888,7 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.e
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(9) %53)
           to label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.backedge unwind label %.loopexit
 
-_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.backedge: ; preds = %109, %62, %_ZNSt15__exception_ptr13exception_ptraSERKS0_.exit, %.invoke
+_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.backedge: ; preds = %109, %.invoke, %62, %_ZNSt15__exception_ptr13exception_ptraSERKS0_.exit
   br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit
 
 110:                                              ; preds = %94

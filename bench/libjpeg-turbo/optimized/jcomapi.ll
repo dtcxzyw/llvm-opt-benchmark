@@ -8,9 +8,9 @@ define void @jpeg_abort(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %16, label %.critedge
+  br i1 %4, label %16, label %.preheader
 
-.critedge:                                        ; preds = %1
+.preheader:                                       ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   tail call void %6(ptr noundef nonnull %0, i32 noundef 1) #1
@@ -20,7 +20,7 @@ define void @jpeg_abort(ptr noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br i1 %.not, label %15, label %10
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.preheader
   store i32 200, ptr %9, align 4, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr null, ptr %11, align 8, !tbaa !17
@@ -30,7 +30,7 @@ define void @jpeg_abort(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %14, align 8, !tbaa !38
   br label %16
 
-15:                                               ; preds = %.critedge
+15:                                               ; preds = %.preheader
   store i32 100, ptr %9, align 4, !tbaa !16
   br label %16
 

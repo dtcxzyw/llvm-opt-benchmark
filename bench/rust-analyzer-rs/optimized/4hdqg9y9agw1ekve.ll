@@ -48701,12 +48701,12 @@ default.unreachable:                              ; preds = %373, %116
           to label %.noexc41.i unwind label %137, !noalias !12757
 
 .noexc41.i:                                       ; preds = %147
-  %149 = extractvalue { ptr, ptr } %148, 0
-  %150 = extractvalue { ptr, ptr } %148, 1
-  store ptr %149, ptr %61, align 8, !noalias !12759
-  %151 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %150, ptr %151, align 8, !noalias !12759
-  %.not.i.i.i = icmp eq ptr %149, null
+  %149 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %150 = extractvalue { ptr, ptr } %148, 0
+  %151 = extractvalue { ptr, ptr } %148, 1
+  store ptr %150, ptr %61, align 8, !noalias !12759
+  store ptr %151, ptr %149, align 8, !noalias !12759
+  %.not.i.i.i = icmp eq ptr %150, null
   br i1 %.not.i.i.i, label %.thread.i, label %152
 
 .thread.i:                                        ; preds = %.noexc41.i

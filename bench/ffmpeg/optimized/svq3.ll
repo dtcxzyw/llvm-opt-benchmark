@@ -3756,7 +3756,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_buffer(ptr noundef %0,
   %38 = getelementptr inbounds nuw [2 x ptr], ptr %14, i64 0, i64 %indvars.iv
   store ptr %37, ptr %38, align 8, !tbaa !114
   %.not44 = icmp eq ptr %37, null
-  br i1 %.not44, label %free_picture.exit.critedge, label %39
+  br i1 %.not44, label %.loopexit, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -3772,7 +3772,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_buffer(ptr noundef %0,
   %45 = zext i1 %.not45 to i32
   %46 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %42, i32 noundef %45) #12
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %free_picture.exit.critedge, label %48
+  br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %.thread49
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 1640
@@ -3793,7 +3793,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_buffer(ptr noundef %0,
 57:                                               ; preds = %51, %48
   br label %.thread
 
-free_picture.exit.critedge:                       ; preds = %35, %.thread49
+.loopexit:                                        ; preds = %35, %.thread49
   %.1 = phi i32 [ %46, %.thread49 ], [ -12, %35 ]
   tail call void @av_freep(ptr noundef nonnull %14) #12
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3804,8 +3804,8 @@ free_picture.exit.critedge:                       ; preds = %35, %.thread49
   tail call void @av_frame_unref(ptr noundef %60) #12
   br label %.thread
 
-.thread:                                          ; preds = %16, %51, %free_picture.exit.critedge, %57
-  %.139 = phi i32 [ %.1, %free_picture.exit.critedge ], [ 0, %57 ], [ -12, %51 ], [ -12, %16 ]
+.thread:                                          ; preds = %16, %51, %.loopexit, %57
+  %.139 = phi i32 [ %.1, %.loopexit ], [ 0, %57 ], [ -12, %51 ], [ -12, %16 ]
   ret i32 %.139
 }
 

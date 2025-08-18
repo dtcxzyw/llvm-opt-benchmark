@@ -1894,7 +1894,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3.i.i:               ; preds = %850, %_ZNSt6vectorI
   br label %_ZN10open_spiel14colored_trails5BoardD2Ev.exit.i
 
 _ZN10open_spiel14colored_trails5BoardD2Ev.exit.i: ; preds = %856, %_ZNSt6vectorIiSaIiEED2Ev.exit3.i.i
-  br i1 %823, label %862, label %117
+  br i1 %823, label %862, label %117, !llvm.loop !39
 
 861:                                              ; preds = %423, %421
   %.pn.i.i = phi { ptr, i32 } [ %424, %423 ], [ %422, %421 ]
@@ -1929,7 +1929,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   %872 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i = icmp eq i32 %872, %29
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %110, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %110, !llvm.loop !40
 
 873:                                              ; preds = %48, %45, %_ZNK4absl7debian214flags_internal9FlagValueIiLNS1_20FlagValueStorageKindE1EE3GetERKNS1_12SequenceLockERi.exit.i.i.i.i
   %874 = landingpad { ptr, i32 }
@@ -2188,7 +2188,7 @@ define linkonce_odr dso_local void @_ZN10open_spiel14colored_trails9TradeInfoD2E
   %16 = phi i64 [ %7, %6 ], [ %.pre.i.i.i.i, %12 ]
   %17 = add i64 %.07.i.i.i.i, 1
   %.not5.i.i.i.i = icmp eq i64 %17, %16
-  br i1 %.not5.i.i.i.i, label %._crit_edge.i.i.i.i, label %6, !llvm.loop !40
+  br i1 %.not5.i.i.i.i, label %._crit_edge.i.i.i.i, label %6, !llvm.loop !41
 
 ._crit_edge.i.i.i.i:                              ; preds = %15
   %18 = load ptr, ptr %2, align 8
@@ -2305,7 +2305,7 @@ _ZSt8_DestroyISt10unique_ptrIN10open_spiel14colored_trails5TradeESt14default_del
   store ptr null, ptr %.05.i.i.i, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %22, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel14colored_trails5TradeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel14colored_trails5TradeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !42
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel14colored_trails5TradeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN10open_spiel14colored_trails5TradeESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -2552,3 +2552,4 @@ attributes #18 = { noreturn nounwind }
 !39 = distinct !{!39, !22}
 !40 = distinct !{!40, !22}
 !41 = distinct !{!41, !22}
+!42 = distinct !{!42, !22}

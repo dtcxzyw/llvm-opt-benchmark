@@ -586,7 +586,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_config_color_diff_slots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-.critedge:
+.preheader:
   %2 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.259, ptr noundef %1, ptr noundef nonnull @.str) #33
   %3 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %2) #33
   br label %5
@@ -594,8 +594,8 @@ define dso_local void @list_config_color_diff_slots(ptr noundef %0, ptr noundef 
 4:                                                ; preds = %11
   ret void
 
-5:                                                ; preds = %.critedge, %11
-  %.012 = phi i64 [ 0, %.critedge ], [ %12, %11 ]
+5:                                                ; preds = %.preheader, %11
+  %.012 = phi i64 [ 0, %.preheader ], [ %12, %11 ]
   %6 = getelementptr inbounds nuw [23 x ptr], ptr @color_diff_slots, i64 0, i64 %.012
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %.not = icmp eq ptr %7, null

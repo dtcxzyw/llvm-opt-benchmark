@@ -341,7 +341,7 @@ gv_calloc.exit.i:                                 ; preds = %124
   br label %standardize.exit.i
 
 standardize.exit.i:                               ; preds = %152, %._crit_edge27.i.i
-  br i1 %.not.i, label %154, label %gv_calloc.exit173.i.i
+  br i1 %.not.i, label %154, label %gv_calloc.exit170.i.i
 
 154:                                              ; preds = %standardize.exit.i
   %155 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %145, i64 noundef 8) #14
@@ -358,7 +358,7 @@ standardize.exit.i:                               ; preds = %152, %._crit_edge27
 gv_calloc.exit.i.i:                               ; preds = %154
   %161 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %145, i64 noundef 8) #14
   %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %.split.us.i.i
+  br i1 %162, label %163, label %.lr.ph.i43.i
 
 163:                                              ; preds = %gv_calloc.exit.i.i
   %164 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -367,28 +367,28 @@ gv_calloc.exit.i.i:                               ; preds = %154
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
-gv_calloc.exit173.i.i:                            ; preds = %standardize.exit.i
+gv_calloc.exit170.i.i:                            ; preds = %standardize.exit.i
   %167 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
   %168 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
   br label %power_iteration_orthog.exit.i
 
-.split.us.i.i:                                    ; preds = %gv_calloc.exit.i.i
-  %wide.trip.count.i43.i = zext nneg i32 %1 to i64
+.lr.ph.i43.i:                                     ; preds = %gv_calloc.exit.i.i
+  %wide.trip.count.i44.i = zext nneg i32 %1 to i64
   br label %.lr.ph.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.split.us.i.i
-  %indvars.iv.i44.i = phi i64 [ 0, %.split.us.i.i ], [ %indvars.iv.i44.i.be, %.lr.ph.us.i.i.backedge ]
+.lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.lr.ph.i43.i
+  %indvars.iv.i45.i = phi i64 [ 0, %.lr.ph.i43.i ], [ %indvars.iv.i45.i.be, %.lr.ph.us.i.i.backedge ]
   %169 = tail call i32 @rand() #15
   %170 = srem i32 %169, 100
   %171 = sitofp i32 %170 to double
-  %172 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i44.i
+  %172 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i45.i
   store double %171, ptr %172, align 8, !tbaa !16
-  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
-  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, %wide.trip.count.i43.i
-  br i1 %exitcond.not.i46.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
+  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
+  %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i
+  br i1 %exitcond.not.i47.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
 
 .lr.ph.us.i.i.backedge:                           ; preds = %.lr.ph.us.i.i, %._crit_edge.us.i.i
-  %indvars.iv.i44.i.be = phi i64 [ %indvars.iv.next.i45.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %indvars.iv.i45.i.be = phi i64 [ %indvars.iv.next.i46.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
   br label %.lr.ph.us.i.i, !llvm.loop !32
 
 ._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i
@@ -403,14 +403,14 @@ gv_calloc.exit173.i.i:                            ; preds = %standardize.exit.i
   %177 = fsub double 1.000000e+00, %4
   %178 = fdiv double 1.000000e+00, %175
   tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %178, ptr noundef nonnull %3) #15
-  br label %.preheader.lr.ph.i.i47.i
+  br label %.preheader.us.i.preheader.i.i
 
-.preheader.lr.ph.i.i47.i:                         ; preds = %193, %.split182.us.i.i
+.preheader.us.i.preheader.i.i:                    ; preds = %193, %.split182.us.i.i
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %161) #15
   br label %.preheader.us.i.i48.i
 
-.preheader.us.i.i48.i:                            ; preds = %._crit_edge.us.i.i52.i, %.preheader.lr.ph.i.i47.i
-  %indvars.iv31.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i47.i ], [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i52.i ]
+.preheader.us.i.i48.i:                            ; preds = %._crit_edge.us.i.i52.i, %.preheader.us.i.preheader.i.i
+  %indvars.iv31.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i52.i ], [ 0, %.preheader.us.i.preheader.i.i ]
   %179 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv31.i.i.i
   %180 = load ptr, ptr %179, align 8, !tbaa !21
   br label %181
@@ -425,14 +425,14 @@ gv_calloc.exit173.i.i:                            ; preds = %standardize.exit.i
   %186 = load double, ptr %185, align 8, !tbaa !16
   %187 = tail call double @llvm.fmuladd.f64(double %184, double %186, double %.02125.us.i.i.i)
   %indvars.iv.next.i.i50.i = add nuw nsw i64 %indvars.iv.i.i49.i, 1
-  %exitcond.not.i.i51.i = icmp eq i64 %indvars.iv.next.i.i50.i, %wide.trip.count.i43.i
+  %exitcond.not.i.i51.i = icmp eq i64 %indvars.iv.next.i.i50.i, %wide.trip.count.i44.i
   br i1 %exitcond.not.i.i51.i, label %._crit_edge.us.i.i52.i, label %181, !llvm.loop !33
 
 ._crit_edge.us.i.i52.i:                           ; preds = %181
   %188 = getelementptr inbounds nuw double, ptr %155, i64 %indvars.iv31.i.i.i
   store double %187, ptr %188, align 8, !tbaa !16
   %indvars.iv.next32.i.i.i = add nuw nsw i64 %indvars.iv31.i.i.i, 1
-  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count.i43.i
+  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count.i44.i
   br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.i.i, label %.preheader.us.i.i48.i, !llvm.loop !34
 
 mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i52.i
@@ -442,7 +442,7 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %155, ptr noundef nonnull %3) #15
   %191 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
   %192 = fcmp olt double %191, 1.000000e-10
-  br i1 %192, label %.lr.ph.i54.i, label %193
+  br i1 %192, label %.lr.ph188.i.i, label %193
 
 193:                                              ; preds = %mat_mult_vec_orthog.exit.i.i
   %194 = fdiv double 1.000000e+00, %191
@@ -450,48 +450,48 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   %195 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %161) #15
   %196 = tail call double @llvm.fabs.f64(double %195)
   %197 = fcmp olt double %196, %177
-  br i1 %197, label %.preheader.lr.ph.i.i47.i, label %.critedge167.critedge.i.i, !llvm.loop !35
+  br i1 %197, label %.preheader.us.i.preheader.i.i, label %..loopexit172_crit_edge.i.i, !llvm.loop !35
 
-.critedge167.critedge.i.i:                        ; preds = %193
+..loopexit172_crit_edge.i.i:                      ; preds = %193
   %198 = fmul double %191, %195
   %199 = tail call double @llvm.fabs.f64(double %198)
   %200 = tail call double @llvm.sqrt.f64(double %199)
   br label %power_iteration_orthog.exit.i
 
-.lr.ph.i54.i:                                     ; preds = %mat_mult_vec_orthog.exit.i.i, %.lr.ph.i54.i
-  %indvars.iv190.i.i = phi i64 [ %indvars.iv.next191.i.i, %.lr.ph.i54.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
+.lr.ph188.i.i:                                    ; preds = %mat_mult_vec_orthog.exit.i.i, %.lr.ph188.i.i
+  %indvars.iv196.i.i = phi i64 [ %indvars.iv.next197.i.i, %.lr.ph188.i.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
   %201 = tail call i32 @rand() #15
   %202 = srem i32 %201, 100
   %203 = sitofp i32 %202 to double
-  %204 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv190.i.i
+  %204 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv196.i.i
   store double %203, ptr %204, align 8, !tbaa !16
-  %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
-  %exitcond194.not.i.i = icmp eq i64 %indvars.iv.next191.i.i, %wide.trip.count.i43.i
-  br i1 %exitcond194.not.i.i, label %.critedge.i.i, label %.lr.ph.i54.i, !llvm.loop !36
+  %indvars.iv.next197.i.i = add nuw nsw i64 %indvars.iv196.i.i, 1
+  %exitcond200.not.i.i = icmp eq i64 %indvars.iv.next197.i.i, %wide.trip.count.i44.i
+  br i1 %exitcond200.not.i.i, label %._crit_edge.us190.i.i, label %.lr.ph188.i.i, !llvm.loop !36
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i54.i
+._crit_edge.us190.i.i:                            ; preds = %.lr.ph188.i.i
   %205 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
   %206 = fdiv double 1.000000e+00, %205
   tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %206, ptr noundef nonnull %3) #15
   br label %power_iteration_orthog.exit.i
 
-power_iteration_orthog.exit.i:                    ; preds = %.critedge.i.i, %.critedge167.critedge.i.i, %gv_calloc.exit173.i.i
-  %sqrt.i = phi double [ %200, %.critedge167.critedge.i.i ], [ 0.000000e+00, %gv_calloc.exit173.i.i ], [ 0.000000e+00, %.critedge.i.i ]
-  %207 = phi ptr [ %161, %.critedge167.critedge.i.i ], [ %168, %gv_calloc.exit173.i.i ], [ %161, %.critedge.i.i ]
-  %208 = phi ptr [ %155, %.critedge167.critedge.i.i ], [ %167, %gv_calloc.exit173.i.i ], [ %155, %.critedge.i.i ]
+power_iteration_orthog.exit.i:                    ; preds = %._crit_edge.us190.i.i, %..loopexit172_crit_edge.i.i, %gv_calloc.exit170.i.i
+  %sqrt.us.i = phi double [ 0.000000e+00, %gv_calloc.exit170.i.i ], [ %200, %..loopexit172_crit_edge.i.i ], [ 0.000000e+00, %._crit_edge.us190.i.i ]
+  %207 = phi ptr [ %168, %gv_calloc.exit170.i.i ], [ %161, %..loopexit172_crit_edge.i.i ], [ %161, %._crit_edge.us190.i.i ]
+  %208 = phi ptr [ %167, %gv_calloc.exit170.i.i ], [ %155, %..loopexit172_crit_edge.i.i ], [ %155, %._crit_edge.us190.i.i ]
   tail call void @free(ptr noundef %208) #15
   tail call void @free(ptr noundef %207) #15
-  br i1 %.not.i, label %.lr.ph10.i, label %.thread.i231.critedge
+  br i1 %.not.i, label %power_iteration_orthog.exit.split.us.i, label %.thread.i231.critedge
 
-.lr.ph10.i:                                       ; preds = %power_iteration_orthog.exit.i
+power_iteration_orthog.exit.split.us.i:           ; preds = %power_iteration_orthog.exit.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %209
 
-209:                                              ; preds = %209, %.lr.ph10.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph10.i ], [ %indvars.iv.next.i, %209 ]
+209:                                              ; preds = %209, %power_iteration_orthog.exit.split.us.i
+  %indvars.iv.i = phi i64 [ 0, %power_iteration_orthog.exit.split.us.i ], [ %indvars.iv.next.i, %209 ]
   %210 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   %211 = load double, ptr %210, align 8, !tbaa !16
-  %212 = fmul double %sqrt.i, %211
+  %212 = fmul double %sqrt.us.i, %211
   store double %212, ptr %210, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

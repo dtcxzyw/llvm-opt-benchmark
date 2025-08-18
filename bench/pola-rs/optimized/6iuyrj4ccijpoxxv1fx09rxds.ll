@@ -44274,7 +44274,7 @@ define hidden { ptr, ptr } @_ZN13polars_stream14async_executor8Executor14try_ste
 .unreachabledefault:                              ; preds = %7
   unreachable
 
-default.unreachable99:                            ; preds = %17, %130
+default.unreachable99:                            ; preds = %17, %131
   unreachable
 
 9:                                                ; preds = %7
@@ -44332,187 +44332,187 @@ default.unreachable99:                            ; preds = %17, %130
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } }, { ptr, i8, [7 x i8] }, { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] } }, [8 x i64] }, ptr %31, i64 %1, i32 0, i32 2
-  %.promoted44 = load i64, ptr %2, align 8, !alias.scope !4342, !noalias !4345
+  %.promoted44 = load i64, ptr %2, align 8
   %.promoted = load i64, ptr %32, align 8, !alias.scope !4342, !noalias !4345
   %.promoted47 = load i64, ptr %33, align 8, !alias.scope !4342, !noalias !4345
   %.promoted49 = load i64, ptr %34, align 8, !alias.scope !4342, !noalias !4345
-  br label %.critedge
+  br label %37
 
 36:                                               ; preds = %19
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.376) #30
   unreachable
 
-.loopexit:                                        ; preds = %129
-  %exitcond.not = icmp eq i32 %37, 4
-  br i1 %exitcond.not, label %.loopexit28, label %.critedge
+.loopexit:                                        ; preds = %130
+  %exitcond.not = icmp eq i32 %38, 4
+  br i1 %exitcond.not, label %.loopexit28, label %37
 
-.critedge:                                        ; preds = %30, %.loopexit
-  %.sroa.010.071 = phi i32 [ 0, %30 ], [ %37, %.loopexit ]
-  %.promoted4570 = phi i64 [ %.promoted44, %30 ], [ %102, %.loopexit ]
-  %.promoted414669 = phi i64 [ %.promoted, %30 ], [ %104, %.loopexit ]
-  %.promoted424868 = phi i64 [ %.promoted47, %30 ], [ %101, %.loopexit ]
-  %.promoted435067 = phi i64 [ %.promoted49, %30 ], [ %103, %.loopexit ]
-  %37 = add nuw nsw i32 %.sroa.010.071, 1
-  br label %40
+37:                                               ; preds = %30, %.loopexit
+  %.sroa.010.071 = phi i32 [ 0, %30 ], [ %38, %.loopexit ]
+  %.promoted4570 = phi i64 [ %.promoted44, %30 ], [ %103, %.loopexit ]
+  %.promoted414669 = phi i64 [ %.promoted, %30 ], [ %105, %.loopexit ]
+  %.promoted424868 = phi i64 [ %.promoted47, %30 ], [ %102, %.loopexit ]
+  %.promoted435067 = phi i64 [ %.promoted49, %30 ], [ %104, %.loopexit ]
+  %38 = add nuw nsw i32 %.sroa.010.071, 1
+  br label %41
 
-.loopexit28:                                      ; preds = %.loopexit, %136, %24, %11
-  %.sroa.5.0 = phi ptr [ %140, %136 ], [ %28, %24 ], [ %15, %11 ], [ undef, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %138, %136 ], [ %26, %24 ], [ %13, %11 ], [ null, %.loopexit ]
-  %38 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %39 = insertvalue { ptr, ptr } %38, ptr %.sroa.5.0, 1
-  ret { ptr, ptr } %39
+.loopexit28:                                      ; preds = %.loopexit, %137, %24, %11
+  %.sroa.5.0 = phi ptr [ %141, %137 ], [ %28, %24 ], [ %15, %11 ], [ undef, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %139, %137 ], [ %26, %24 ], [ %13, %11 ], [ null, %.loopexit ]
+  %39 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %40 = insertvalue { ptr, ptr } %39, ptr %.sroa.5.0, 1
+  ret { ptr, ptr } %40
 
-40:                                               ; preds = %.critedge, %129
-  %41 = phi i64 [ %.promoted435067, %.critedge ], [ %103, %129 ]
-  %42 = phi i64 [ %.promoted424868, %.critedge ], [ %101, %129 ]
-  %43 = phi i64 [ %.promoted414669, %.critedge ], [ %104, %129 ]
-  %44 = phi i64 [ %.promoted4570, %.critedge ], [ %102, %129 ]
-  %45 = load i64, ptr %21, align 8, !noundef !4
-  %46 = icmp ult i64 %45, 72057594037927936
-  tail call void @llvm.assume(i1 %46)
-  %47 = trunc i64 %45 to i32
-  %48 = icmp ult i32 %47, 2
-  br i1 %48, label %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit, label %49
+41:                                               ; preds = %37, %130
+  %42 = phi i64 [ %.promoted435067, %37 ], [ %104, %130 ]
+  %43 = phi i64 [ %.promoted424868, %37 ], [ %102, %130 ]
+  %44 = phi i64 [ %.promoted414669, %37 ], [ %105, %130 ]
+  %45 = phi i64 [ %.promoted4570, %37 ], [ %103, %130 ]
+  %46 = load i64, ptr %21, align 8, !noundef !4
+  %47 = icmp ult i64 %46, 72057594037927936
+  tail call void @llvm.assume(i1 %47)
+  %48 = trunc i64 %46 to i32
+  %49 = icmp ult i32 %48, 2
+  br i1 %49, label %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit, label %50
 
-49:                                               ; preds = %40
-  %50 = add i32 %47, -1
-  %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
-  %52 = lshr i32 -1, %51
-  %53 = add i32 %52, 1
+50:                                               ; preds = %41
+  %51 = add i32 %48, -1
+  %52 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
+  %53 = lshr i32 -1, %52
+  %54 = add i32 %53, 1
   br label %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit
 
-_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit: ; preds = %40, %49
-  %.sroa.05.0.i = phi i32 [ %53, %49 ], [ 1, %40 ]
-  %54 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.05.0.i, i1 false)
-  %55 = lshr i32 %54, 1
-  %56 = add i32 %.sroa.05.0.i, -1
-  %57 = add i64 %43, %44
-  %58 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 23)
-  %59 = add i64 %58, %44
-  %60 = shl i64 %42, 17
-  %61 = xor i64 %41, %44
-  %62 = xor i64 %42, %43
-  %63 = xor i64 %61, %42
-  %64 = xor i64 %62, %44
-  %65 = xor i64 %61, %60
-  %66 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 45)
-  %67 = lshr i64 %59, 32
-  %68 = trunc nuw i64 %67 to i32
-  %69 = add i64 %66, %64
-  %70 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 23)
-  %71 = add i64 %70, %64
-  %72 = shl i64 %63, 17
-  %73 = xor i64 %65, %64
-  %74 = xor i64 %63, %66
-  %75 = xor i64 %73, %63
+_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit: ; preds = %41, %50
+  %.sroa.05.0.i = phi i32 [ %54, %50 ], [ 1, %41 ]
+  %55 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.05.0.i, i1 false)
+  %56 = lshr i32 %55, 1
+  %57 = add i32 %.sroa.05.0.i, -1
+  %58 = add i64 %44, %45
+  %59 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 23)
+  %60 = add i64 %59, %45
+  %61 = shl i64 %43, 17
+  %62 = xor i64 %42, %45
+  %63 = xor i64 %43, %44
+  %64 = xor i64 %62, %43
+  %65 = xor i64 %63, %45
+  %66 = xor i64 %62, %61
+  %67 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 45)
+  %68 = lshr i64 %60, 32
+  %69 = trunc nuw i64 %68 to i32
+  %70 = add i64 %67, %65
+  %71 = tail call i64 @llvm.fshl.i64(i64 %70, i64 %70, i64 23)
+  %72 = add i64 %71, %65
+  %73 = shl i64 %64, 17
+  %74 = xor i64 %66, %65
+  %75 = xor i64 %64, %67
   %76 = xor i64 %74, %64
-  %77 = xor i64 %73, %72
-  %78 = tail call i64 @llvm.fshl.i64(i64 %74, i64 %74, i64 45)
-  %79 = lshr i64 %71, 32
-  %80 = trunc nuw i64 %79 to i32
-  %81 = or i32 %80, 1
-  %82 = add i64 %78, %76
-  %83 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 23)
-  %84 = add i64 %83, %76
-  %85 = shl i64 %75, 17
-  %86 = xor i64 %77, %76
-  %87 = xor i64 %75, %78
-  %88 = xor i64 %86, %75
+  %77 = xor i64 %75, %65
+  %78 = xor i64 %74, %73
+  %79 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 45)
+  %80 = lshr i64 %72, 32
+  %81 = trunc nuw i64 %80 to i32
+  %82 = or i32 %81, 1
+  %83 = add i64 %79, %77
+  %84 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 23)
+  %85 = add i64 %84, %77
+  %86 = shl i64 %76, 17
+  %87 = xor i64 %78, %77
+  %88 = xor i64 %76, %79
   %89 = xor i64 %87, %76
-  %90 = xor i64 %86, %85
-  %91 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 45)
-  %92 = lshr i64 %84, 32
-  %93 = trunc nuw i64 %92 to i32
-  %94 = or i32 %93, 1
-  %95 = add i64 %91, %89
-  %96 = tail call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 23)
-  %97 = add i64 %96, %89
-  %98 = shl i64 %88, 17
-  %99 = xor i64 %90, %89
-  %100 = xor i64 %88, %91
-  %101 = xor i64 %99, %88
-  store i64 %101, ptr %33, align 8, !alias.scope !4347, !noalias !4345
+  %90 = xor i64 %88, %77
+  %91 = xor i64 %87, %86
+  %92 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 45)
+  %93 = lshr i64 %85, 32
+  %94 = trunc nuw i64 %93 to i32
+  %95 = or i32 %94, 1
+  %96 = add i64 %92, %90
+  %97 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 23)
+  %98 = add i64 %97, %90
+  %99 = shl i64 %89, 17
+  %100 = xor i64 %91, %90
+  %101 = xor i64 %89, %92
   %102 = xor i64 %100, %89
-  store i64 %102, ptr %2, align 8, !alias.scope !4347, !noalias !4345
-  %103 = xor i64 %99, %98
-  store i64 %103, ptr %34, align 8, !alias.scope !4347, !noalias !4345
-  %104 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 45)
-  store i64 %104, ptr %32, align 8, !alias.scope !4347, !noalias !4345
-  %105 = lshr i64 %97, 32
-  %106 = and i64 %45, 4294967295
-  %107 = mul nuw i64 %105, %106
-  %108 = lshr i64 %107, 32
-  %109 = trunc nuw i64 %108 to i32
-  br label %110
-
-110:                                              ; preds = %135, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit
-  %.sroa.019.0 = phi i32 [ 0, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit ], [ %114, %135 ]
-  %.sroa.01.1 = phi i1 [ false, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit ], [ %.sroa.01.2, %135 ]
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.sroa.05.0.i, i32 %.sroa.019.0)
+  store i64 %102, ptr %33, align 8, !alias.scope !4347, !noalias !4345
+  %103 = xor i64 %101, %90
+  store i64 %103, ptr %2, align 8, !alias.scope !4347, !noalias !4345
+  %104 = xor i64 %100, %99
+  store i64 %104, ptr %34, align 8, !alias.scope !4347, !noalias !4345
+  %105 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 45)
+  store i64 %105, ptr %32, align 8, !alias.scope !4347, !noalias !4345
+  %106 = lshr i64 %98, 32
+  %107 = and i64 %46, 4294967295
+  %108 = mul nuw i64 %106, %107
+  %109 = lshr i64 %108, 32
+  %110 = trunc nuw i64 %109 to i32
   br label %111
 
-111:                                              ; preds = %113, %110
-  %112 = phi i32 [ %114, %113 ], [ %.sroa.019.0, %110 ]
-  %exitcond.not.i = icmp eq i32 %112, %umax.i
-  br i1 %exitcond.not.i, label %129, label %113
+111:                                              ; preds = %136, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit
+  %.sroa.019.0 = phi i32 [ 0, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit ], [ %115, %136 ]
+  %.sroa.01.1 = phi i1 [ false, %_ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit ], [ %.sroa.01.2, %136 ]
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %.sroa.05.0.i, i32 %.sroa.019.0)
+  br label %112
 
-113:                                              ; preds = %111
-  %114 = add i32 %112, 1
-  %115 = add i32 %112, %68
-  %116 = mul i32 %115, %81
-  %117 = and i32 %116, %56
-  %118 = lshr i32 %117, %55
-  %119 = xor i32 %118, %116
-  %120 = mul i32 %119, %94
-  %121 = and i32 %120, %56
-  %122 = icmp ult i32 %121, %47
-  br i1 %122, label %123, label %111
+112:                                              ; preds = %114, %111
+  %113 = phi i32 [ %115, %114 ], [ %.sroa.019.0, %111 ]
+  %exitcond.not.i = icmp eq i32 %113, %umax.i
+  br i1 %exitcond.not.i, label %130, label %114
 
-123:                                              ; preds = %113
-  %124 = add i32 %121, %109
-  %.not = icmp ult i32 %124, %47
-  %125 = select i1 %.not, i32 0, i32 %47
-  %spec.select = sub nuw i32 %124, %125
-  %126 = zext i32 %spec.select to i64
-  %127 = load i64, ptr %21, align 8, !noundef !4
-  %128 = icmp ugt i64 %127, %126
-  br i1 %128, label %130, label %134
+114:                                              ; preds = %112
+  %115 = add i32 %113, 1
+  %116 = add i32 %113, %69
+  %117 = mul i32 %116, %82
+  %118 = and i32 %117, %57
+  %119 = lshr i32 %118, %56
+  %120 = xor i32 %119, %117
+  %121 = mul i32 %120, %95
+  %122 = and i32 %121, %57
+  %123 = icmp ult i32 %122, %48
+  br i1 %123, label %124, label %112
 
-129:                                              ; preds = %111
+124:                                              ; preds = %114
+  %125 = add i32 %122, %110
+  %.not = icmp ult i32 %125, %48
+  %126 = select i1 %.not, i32 0, i32 %48
+  %spec.select = sub nuw i32 %125, %126
+  %127 = zext i32 %spec.select to i64
+  %128 = load i64, ptr %21, align 8, !noundef !4
+  %129 = icmp ugt i64 %128, %127
+  br i1 %129, label %131, label %135
+
+130:                                              ; preds = %112
   tail call void @llvm.x86.sse2.pause() #24
-  br i1 %.sroa.01.1, label %40, label %.loopexit
+  br i1 %.sroa.01.1, label %41, label %.loopexit
 
-130:                                              ; preds = %123
-  %131 = load ptr, ptr %20, align 16, !nonnull !4, !noundef !4
+131:                                              ; preds = %124
+  %132 = load ptr, ptr %20, align 16, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %132 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } }, { ptr, i8, [7 x i8] }, { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] } }, [8 x i64] }, ptr %131, i64 %126, i32 0, i32 1
-  call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$30steal_batch_with_limit_and_pop17h4bd5a00ccce0753dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 %35, i64 noundef 32)
-  %133 = load i64, ptr %4, align 8, !range !493, !noundef !4
-  switch i64 %133, label %default.unreachable99 [
-    i64 0, label %135
-    i64 1, label %136
-    i64 2, label %141
+  %133 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } }, { ptr, i8, [7 x i8] }, { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] } }, [8 x i64] }, ptr %132, i64 %127, i32 0, i32 1
+  call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$30steal_batch_with_limit_and_pop17h4bd5a00ccce0753dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 %35, i64 noundef 32)
+  %134 = load i64, ptr %4, align 8, !range !493, !noundef !4
+  switch i64 %134, label %default.unreachable99 [
+    i64 0, label %136
+    i64 1, label %137
+    i64 2, label %142
   ]
 
-134:                                              ; preds = %123
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %126, i64 noundef %127, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.377) #30
+135:                                              ; preds = %124
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %127, i64 noundef %128, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.377) #30
   unreachable
 
-135:                                              ; preds = %141, %130
-  %.sroa.01.2 = phi i1 [ %.sroa.01.1, %130 ], [ true, %141 ]
+136:                                              ; preds = %142, %131
+  %.sroa.01.2 = phi i1 [ %.sroa.01.1, %131 ], [ true, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %110
+  br label %111
 
-136:                                              ; preds = %130
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %138 = load ptr, ptr %137, align 8, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !3, !noundef !4
+137:                                              ; preds = %131
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %141 = load ptr, ptr %140, align 8, !nonnull !4, !align !3, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit28
 
-141:                                              ; preds = %130
-  br label %135
+142:                                              ; preds = %131
+  br label %136
 }
 
 ; Function Attrs: nonlazybind uwtable

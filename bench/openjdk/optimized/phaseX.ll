@@ -10435,86 +10435,86 @@ define hidden void @_ZN13PhasePeephole12do_transformEv(ptr noundef nonnull reado
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %.critedge.lr.ph, label %._crit_edge
+  br i1 %6, label %.lr.ph24, label %._crit_edge25
 
-.critedge.lr.ph:                                  ; preds = %1
+.lr.ph24:                                         ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge
+  br label %8
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %.critedge19
-  %indvars.iv = phi i64 [ 1, %.critedge.lr.ph ], [ %indvars.iv.next, %.critedge19 ]
-  %8 = phi ptr [ %3, %.critedge.lr.ph ], [ %38, %.critedge19 ]
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load i32, ptr %13, align 8
-  %.0172125 = add i32 %14, -1
-  %.not202226 = icmp eq i32 %.0172125, 0
-  br i1 %.not202226, label %.critedge19, label %.lr.ph.lr.ph
+8:                                                ; preds = %.lr.ph24, %.loopexit
+  %indvars.iv29 = phi i64 [ 1, %.lr.ph24 ], [ %indvars.iv.next30, %.loopexit ]
+  %9 = phi ptr [ %3, %.lr.ph24 ], [ %42, %.loopexit ]
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv29
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %17 = load i32, ptr %14, align 8
+  %.0171836 = add i32 %17, -1
+  %.not2637 = icmp eq i32 %.0171836, 0
+  br i1 %.not2637, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.lr.ph:                                     ; preds = %.critedge
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
+._crit_edge.loopexit:                             ; preds = %32
+  %18 = load i32, ptr %14, align 8
+  %.01718 = add i32 %18, -1
+  %.not26 = icmp eq i32 %.01718, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph.preheader, !llvm.loop !75
+
+.lr.ph.preheader:                                 ; preds = %8, %._crit_edge.loopexit
+  %.0171838 = phi i32 [ %.01718, %._crit_edge.loopexit ], [ %.0171836, %8 ]
+  %19 = zext i32 %.0171838 to i64
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %30
-  %17 = load i32, ptr %13, align 8
-  %.01721 = add i32 %17, -1
-  %.not2022 = icmp eq i32 %.01721, 0
-  br i1 %.not2022, label %.critedge19, label %.lr.ph.backedge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
+  %20 = load i32, ptr %15, align 8
+  %21 = zext i32 %20 to i64
+  %22 = icmp ult i64 %indvars.iv, %21
+  br i1 %22, label %23, label %_ZNK5Block8get_nodeEj.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
-  %.01723 = phi i32 [ %.0172125, %.lr.ph.lr.ph ], [ %.01723.be, %.lr.ph.backedge ]
-  %18 = load i32, ptr %15, align 8
-  %19 = icmp ult i32 %.01723, %18
-  br i1 %19, label %20, label %_ZNK5Block8get_nodeEj.exit
-
-20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %16, align 8
-  %22 = zext i32 %.01723 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
+23:                                               ; preds = %.lr.ph
+  %24 = load ptr, ptr %16, align 8
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
   br label %_ZNK5Block8get_nodeEj.exit
 
-_ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %20
-  %25 = phi ptr [ %24, %20 ], [ null, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 3
-  %29 = icmp eq i32 %28, 2
-  br i1 %29, label %30, label %37
+_ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %23
+  %27 = phi ptr [ %26, %23 ], [ null, %.lr.ph ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 44
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, 3
+  %31 = icmp eq i32 %30, 2
+  br i1 %31, label %32, label %40
 
-30:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 320
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull %12, i32 noundef %.01723, ptr noundef %31, ptr noundef %32) #16
-  %.not = icmp eq i32 %36, -1
-  br i1 %.not, label %37, label %.loopexit
+32:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
+  %33 = load ptr, ptr %2, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %27, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 320
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc nuw i64 %indvars.iv to i32
+  %39 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull %13, i32 noundef %38, ptr noundef %33, ptr noundef %34) #16
+  %.not = icmp eq i32 %39, -1
+  br i1 %.not, label %40, label %._crit_edge.loopexit
 
-37:                                               ; preds = %_ZNK5Block8get_nodeEj.exit, %30
-  %.017 = add i32 %.01723, -1
-  %.not20 = icmp eq i32 %.017, 0
-  br i1 %.not20, label %.critedge19, label %.lr.ph.backedge
+40:                                               ; preds = %_ZNK5Block8get_nodeEj.exit, %32
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %41 = and i64 %indvars.iv.next, 4294967295
+  %.not27 = icmp eq i64 %41, 0
+  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
-.lr.ph.backedge:                                  ; preds = %37, %.loopexit
-  %.01723.be = phi i32 [ %.017, %37 ], [ %.01721, %.loopexit ]
-  br label %.lr.ph, !llvm.loop !75
+.loopexit:                                        ; preds = %._crit_edge.loopexit, %40, %8
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %44 = load i32, ptr %43, align 8
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ult i64 %indvars.iv.next30, %45
+  br i1 %46, label %8, label %._crit_edge25, !llvm.loop !77
 
-.critedge19:                                      ; preds = %.loopexit, %37, %.critedge
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  %42 = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %42, label %.critedge, label %._crit_edge, !llvm.loop !76
-
-._crit_edge:                                      ; preds = %.critedge19, %1
+._crit_edge25:                                    ; preds = %.loopexit, %1
   ret void
 }
 
@@ -11044,7 +11044,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %43, %31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %71 = icmp samesign ult i64 %indvars.iv.next.i.i, %64
   %or.cond.i.i = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond.i.i, label %65, label %_ZN4Node14find_prec_edgeEPS_.exit.thread.i, !llvm.loop !77
+  br i1 %or.cond.i.i, label %65, label %_ZN4Node14find_prec_edgeEPS_.exit.thread.i, !llvm.loop !78
 
 _ZN4Node14find_prec_edgeEPS_.exit.i:              ; preds = %65
   %.not.i25 = icmp eq i64 %indvars.iv.i.i, 4294967295
@@ -11126,7 +11126,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %99, %_ZN4Node7del_o
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = zext i32 %107 to i64
   %109 = icmp samesign ult i64 %indvars.iv.next, %108
-  br i1 %109, label %21, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %109, label %21, label %._crit_edge.loopexit, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %106
   %110 = zext i32 %.1 to i64
@@ -11137,7 +11137,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %99, %_ZN4Node7del_o
   %111 = sub nsw i64 0, %.018.lcssa
   %112 = getelementptr inbounds ptr, ptr %.01933, i64 %111
   %.not = icmp ult ptr %112, %4
-  br i1 %.not, label %._crit_edge36, label %15, !llvm.loop !79
+  br i1 %.not, label %._crit_edge36, label %15, !llvm.loop !80
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %2
   ret void
@@ -11774,3 +11774,4 @@ attributes #17 = { noreturn nounwind }
 !77 = distinct !{!77, !7}
 !78 = distinct !{!78, !7}
 !79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}

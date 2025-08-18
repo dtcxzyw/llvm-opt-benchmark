@@ -4480,9 +4480,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb510254
 
 10:                                               ; preds = %16, %3
   %11 = phi i64 [ %.pre, %16 ], [ %6, %3 ]
-  br i1 %1, label %.critedge.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hc2e60ba5a291d3dfE.exit
+  br i1 %1, label %.lr.ph.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hc2e60ba5a291d3dfE.exit
 
-.critedge.i.i:                                    ; preds = %10
+.lr.ph.i.i:                                       ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
@@ -4490,8 +4490,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb510254
   %15 = add i64 %11, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17hc2e60ba5a291d3dfE.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17hc2e60ba5a291d3dfE.exit: ; preds = %10, %.critedge.i.i
-  %.val4.i.i = phi i64 [ %15, %.critedge.i.i ], [ %11, %10 ]
+_ZN4core4iter6traits8iterator8Iterator8for_each17hc2e60ba5a291d3dfE.exit: ; preds = %10, %.lr.ph.i.i
+  %.val4.i.i = phi i64 [ %15, %.lr.ph.i.i ], [ %11, %10 ]
   store i64 %.val4.i.i, ptr %5, align 8, !noalias !939
   ret void
 
@@ -10720,9 +10720,9 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 
 10:                                               ; preds = %16, %3
   %11 = phi i64 [ %.pre.i, %16 ], [ %6, %3 ]
-  br i1 %1, label %.critedge.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb5102547b88406E.llvm.10327530529093878171.exit"
+  br i1 %1, label %.lr.ph.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb5102547b88406E.llvm.10327530529093878171.exit"
 
-.critedge.i.i.i:                                  ; preds = %10
+.lr.ph.i.i.i:                                     ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !2346, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
@@ -10735,8 +10735,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %.pre.i = load i64, ptr %5, align 8, !alias.scope !2346
   br label %10
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb5102547b88406E.llvm.10327530529093878171.exit": ; preds = %10, %.critedge.i.i.i
-  %.val4.i.i.i = phi i64 [ %15, %.critedge.i.i.i ], [ %11, %10 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafb5102547b88406E.llvm.10327530529093878171.exit": ; preds = %10, %.lr.ph.i.i.i
+  %.val4.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %11, %10 ]
   store i64 %.val4.i.i.i, ptr %5, align 8, !alias.scope !2346, !noalias !2358
   ret void
 }

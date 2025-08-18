@@ -662,7 +662,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load i8, ptr %87, align 8
   %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4mul_ERKS3_.exit.critedge
+  br i1 %89, label %90, label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -710,24 +710,24 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   %123 = or disjoint i32 %122, 1065353216
   %124 = bitcast i32 %123 to float
   %125 = fadd contract float %124, -1.000000e+00
-  br label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4mul_ERKS3_.exit.critedge
+  br label %_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge
 
-_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4mul_ERKS3_.exit.critedge: ; preds = %114, %84
+_ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge: ; preds = %114, %84
   %.077 = phi float [ %110, %114 ], [ 5.000000e-01, %84 ]
   %.0 = phi float [ %125, %114 ], [ 5.000000e-01, %84 ]
-  %126 = mul i32 %86, %.078
-  %127 = sub i32 %.0.i, %126
-  %128 = uitofp i32 %127 to float
-  %129 = fadd contract float %.077, %128
-  %130 = uitofp i32 %.078 to float
-  %131 = fadd contract float %.0, %130
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %133 = load float, ptr %132, align 8
-  %134 = fmul contract float %129, %133
-  %.sroa.0120.0.vec.insert = insertelement <2 x float> poison, float %134, i64 0
-  %135 = fmul contract float %131, %133
-  %.sroa.0120.4.vec.insert = insertelement <2 x float> %.sroa.0120.0.vec.insert, float %135, i64 1
-  ret <2 x float> %.sroa.0120.4.vec.insert
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %127 = load float, ptr %126, align 8
+  %128 = mul i32 %86, %.078
+  %129 = sub i32 %.0.i, %128
+  %130 = uitofp i32 %129 to float
+  %131 = fadd contract float %.077, %130
+  %132 = uitofp i32 %.078 to float
+  %133 = fadd contract float %.0, %132
+  %134 = fmul contract float %131, %127
+  %.sroa.0119.0.vec.insert = insertelement <2 x float> poison, float %134, i64 0
+  %135 = fmul contract float %133, %127
+  %.sroa.0119.4.vec.insert = insertelement <2 x float> %.sroa.0119.0.vec.insert, float %135, i64 1
+  ret <2 x float> %.sroa.0119.4.vec.insert
 }
 
 ; Function Attrs: mustprogress uwtable

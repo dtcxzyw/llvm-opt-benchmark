@@ -49,14 +49,14 @@ define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %0, ptr noundef readonl
 
 .thread27.i:                                      ; preds = %12, %6
   %17 = fcmp oeq double %7, 0.000000e+00
-  br i1 %17, label %18, label %.critedge.i.i.i
+  br i1 %17, label %18, label %.preheader.i.i.i
 
 18:                                               ; preds = %.thread27.i
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   br label %mainposition.exit.i.preheader
 
-.critedge.i.i.i:                                  ; preds = %.thread27.i
+.preheader.i.i.i:                                 ; preds = %.thread27.i
   %21 = bitcast double %7 to i64
   %.sroa.0.4.extract.shift.i.i.i = lshr i64 %21, 32
   %22 = add i64 %.sroa.0.4.extract.shift.i.i.i, %21
@@ -138,8 +138,8 @@ define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %0, ptr noundef readonl
   %84 = getelementptr inbounds nuw %struct.Node, ptr %73, i64 %83
   br label %mainposition.exit.i.preheader
 
-mainposition.exit.i.preheader:                    ; preds = %71, %57, %46, %33, %.critedge.i.i.i, %18
-  %.0.i.ph = phi ptr [ %32, %.critedge.i.i.i ], [ %20, %18 ], [ %70, %57 ], [ %56, %46 ], [ %45, %33 ], [ %84, %71 ]
+mainposition.exit.i.preheader:                    ; preds = %71, %57, %46, %33, %.preheader.i.i.i, %18
+  %.0.i.ph = phi ptr [ %32, %.preheader.i.i.i ], [ %20, %18 ], [ %70, %57 ], [ %56, %46 ], [ %45, %33 ], [ %84, %71 ]
   br label %mainposition.exit.i
 
 mainposition.exit.i:                              ; preds = %mainposition.exit.i.preheader, %109
@@ -396,13 +396,13 @@ setarrayvector.exit:                              ; preds = %.lr.ph.i, %26
   %50 = trunc nsw i64 %.pre to i32
   %51 = sitofp i32 %50 to double
   %52 = icmp eq i64 %.pre, 0
-  br i1 %52, label %53, label %.critedge.i.i
+  br i1 %52, label %53, label %.preheader.i.i
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %11, align 8, !tbaa !17
   br label %hashnum.exit.i.preheader
 
-.critedge.i.i:                                    ; preds = %49
+.preheader.i.i:                                   ; preds = %49
   %55 = bitcast double %51 to i64
   %.sroa.0.4.extract.shift.i.i = lshr i64 %55, 32
   %56 = add i64 %.sroa.0.4.extract.shift.i.i, %55
@@ -418,8 +418,8 @@ setarrayvector.exit:                              ; preds = %.lr.ph.i, %26
   %64 = getelementptr inbounds nuw %struct.Node, ptr %57, i64 %63
   br label %hashnum.exit.i.preheader
 
-hashnum.exit.i.preheader:                         ; preds = %.critedge.i.i, %53
-  %.0.i60.ph = phi ptr [ %64, %.critedge.i.i ], [ %54, %53 ]
+hashnum.exit.i.preheader:                         ; preds = %.preheader.i.i, %53
+  %.0.i60.ph = phi ptr [ %64, %.preheader.i.i ], [ %54, %53 ]
   br label %hashnum.exit.i
 
 hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preheader, %72
@@ -759,14 +759,14 @@ define hidden ptr @luaH_getnum(ptr noundef readonly captures(none) %0, i32 nound
 12:                                               ; preds = %2
   %13 = sitofp i32 %1 to double
   %14 = icmp eq i32 %1, 0
-  br i1 %14, label %15, label %.critedge.i
+  br i1 %14, label %15, label %.preheader.i
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   br label %hashnum.exit.preheader
 
-.critedge.i:                                      ; preds = %12
+.preheader.i:                                     ; preds = %12
   %18 = bitcast double %13 to i64
   %.sroa.0.4.extract.shift.i = lshr i64 %18, 32
   %19 = add i64 %.sroa.0.4.extract.shift.i, %18
@@ -784,8 +784,8 @@ define hidden ptr @luaH_getnum(ptr noundef readonly captures(none) %0, i32 nound
   %29 = getelementptr inbounds nuw %struct.Node, ptr %21, i64 %28
   br label %hashnum.exit.preheader
 
-hashnum.exit.preheader:                           ; preds = %15, %.critedge.i
-  %.0.ph = phi ptr [ %29, %.critedge.i ], [ %17, %15 ]
+hashnum.exit.preheader:                           ; preds = %15, %.preheader.i
+  %.0.ph = phi ptr [ %29, %.preheader.i ], [ %17, %15 ]
   br label %hashnum.exit
 
 hashnum.exit:                                     ; preds = %hashnum.exit.preheader, %37
@@ -922,14 +922,14 @@ luaH_getnum.exit.thread32:                        ; preds = %34
 
 43:                                               ; preds = %34
   %44 = icmp eq i32 %31, 0
-  br i1 %44, label %45, label %.critedge.i.i
+  br i1 %44, label %45, label %.preheader.i.i
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   br label %hashnum.exit.i.preheader
 
-.critedge.i.i:                                    ; preds = %43
+.preheader.i.i:                                   ; preds = %43
   %48 = bitcast double %32 to i64
   %.sroa.0.4.extract.shift.i.i = lshr i64 %48, 32
   %49 = add i64 %.sroa.0.4.extract.shift.i.i, %48
@@ -947,8 +947,8 @@ luaH_getnum.exit.thread32:                        ; preds = %34
   %59 = getelementptr inbounds nuw %struct.Node, ptr %51, i64 %58
   br label %hashnum.exit.i.preheader
 
-hashnum.exit.i.preheader:                         ; preds = %.critedge.i.i, %45
-  %.0.i21.ph = phi ptr [ %59, %.critedge.i.i ], [ %47, %45 ]
+hashnum.exit.i.preheader:                         ; preds = %.preheader.i.i, %45
+  %.0.i21.ph = phi ptr [ %59, %.preheader.i.i ], [ %47, %45 ]
   br label %hashnum.exit.i
 
 hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preheader, %67
@@ -972,14 +972,14 @@ hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preh
 
 .thread:                                          ; preds = %29
   %70 = fcmp oeq double %30, 0.000000e+00
-  br i1 %70, label %71, label %.critedge.i.i26
+  br i1 %70, label %71, label %.preheader.i.i26
 
 71:                                               ; preds = %.thread
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   br label %mainposition.exit.preheader
 
-.critedge.i.i26:                                  ; preds = %.thread
+.preheader.i.i26:                                 ; preds = %.thread
   %74 = bitcast double %30 to i64
   %.sroa.0.4.extract.shift.i.i27 = lshr i64 %74, 32
   %75 = add i64 %.sroa.0.4.extract.shift.i.i27, %74
@@ -1045,8 +1045,8 @@ hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preh
   %124 = getelementptr inbounds nuw %struct.Node, ptr %113, i64 %123
   br label %mainposition.exit.preheader
 
-mainposition.exit.preheader:                      ; preds = %71, %.critedge.i.i26, %86, %97, %111
-  %.0.ph = phi ptr [ %85, %.critedge.i.i26 ], [ %73, %71 ], [ %110, %97 ], [ %96, %86 ], [ %124, %111 ]
+mainposition.exit.preheader:                      ; preds = %71, %.preheader.i.i26, %86, %97, %111
+  %.0.ph = phi ptr [ %85, %.preheader.i.i26 ], [ %73, %71 ], [ %110, %97 ], [ %96, %86 ], [ %124, %111 ]
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %mainposition.exit.preheader, %127
@@ -1130,13 +1130,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 13:                                               ; preds = %tailrecurse
   %14 = load double, ptr %2, align 8, !tbaa !9
   %15 = fcmp oeq double %14, 0.000000e+00
-  br i1 %15, label %16, label %.critedge.i.i
+  br i1 %15, label %16, label %.preheader.i.i
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %6, align 8, !tbaa !17
   br label %mainposition.exit
 
-.critedge.i.i:                                    ; preds = %13
+.preheader.i.i:                                   ; preds = %13
   %18 = bitcast double %14 to i64
   %.sroa.0.4.extract.shift.i.i = lshr i64 %18, 32
   %19 = add i64 %.sroa.0.4.extract.shift.i.i, %18
@@ -1208,9 +1208,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %71 = getelementptr inbounds nuw %struct.Node, ptr %61, i64 %70
   br label %mainposition.exit
 
-mainposition.exit:                                ; preds = %16, %.critedge.i.i, %28, %39, %48, %60
-  %72 = phi ptr [ %61, %60 ], [ %29, %28 ], [ %40, %39 ], [ %49, %48 ], [ %17, %16 ], [ %20, %.critedge.i.i ]
-  %.0.i = phi ptr [ %71, %60 ], [ %38, %28 ], [ %47, %39 ], [ %59, %48 ], [ %17, %16 ], [ %27, %.critedge.i.i ]
+mainposition.exit:                                ; preds = %16, %.preheader.i.i, %28, %39, %48, %60
+  %72 = phi ptr [ %61, %60 ], [ %29, %28 ], [ %40, %39 ], [ %49, %48 ], [ %17, %16 ], [ %20, %.preheader.i.i ]
+  %.0.i = phi ptr [ %71, %60 ], [ %38, %28 ], [ %47, %39 ], [ %59, %48 ], [ %17, %16 ], [ %27, %.preheader.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !24
   %75 = icmp ne i32 %74, 0
@@ -1464,9 +1464,9 @@ getfreepos.exit:                                  ; preds = %82
 182:                                              ; preds = %getfreepos.exit
   %183 = load double, ptr %179, align 8, !tbaa !9
   %184 = fcmp oeq double %183, 0.000000e+00
-  br i1 %184, label %mainposition.exit67, label %.critedge.i.i62
+  br i1 %184, label %mainposition.exit67, label %.preheader.i.i62
 
-.critedge.i.i62:                                  ; preds = %182
+.preheader.i.i62:                                 ; preds = %182
   %185 = bitcast double %183 to i64
   %.sroa.0.4.extract.shift.i.i63 = lshr i64 %185, 32
   %186 = add i64 %.sroa.0.4.extract.shift.i.i63, %185
@@ -1533,8 +1533,8 @@ getfreepos.exit:                                  ; preds = %82
   %233 = getelementptr inbounds nuw %struct.Node, ptr %72, i64 %232
   br label %mainposition.exit67
 
-mainposition.exit67:                              ; preds = %182, %.critedge.i.i62, %194, %204, %212, %223
-  %.0.i59 = phi ptr [ %233, %223 ], [ %203, %194 ], [ %211, %204 ], [ %222, %212 ], [ %193, %.critedge.i.i62 ], [ %72, %182 ]
+mainposition.exit67:                              ; preds = %182, %.preheader.i.i62, %194, %204, %212, %223
+  %.0.i59 = phi ptr [ %233, %223 ], [ %203, %194 ], [ %211, %204 ], [ %222, %212 ], [ %193, %.preheader.i.i62 ], [ %72, %182 ]
   %.not = icmp eq ptr %.0.i59, %.0.i
   br i1 %.not, label %239, label %.preheader
 
@@ -1616,14 +1616,14 @@ define hidden ptr @luaH_setnum(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 14:                                               ; preds = %3
   %15 = sitofp i32 %2 to double
   %16 = icmp eq i32 %2, 0
-  br i1 %16, label %17, label %.critedge.i.i
+  br i1 %16, label %17, label %.preheader.i.i
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   br label %hashnum.exit.i.preheader
 
-.critedge.i.i:                                    ; preds = %14
+.preheader.i.i:                                   ; preds = %14
   %20 = bitcast double %15 to i64
   %.sroa.0.4.extract.shift.i.i = lshr i64 %20, 32
   %21 = add i64 %.sroa.0.4.extract.shift.i.i, %20
@@ -1641,8 +1641,8 @@ define hidden ptr @luaH_setnum(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %31 = getelementptr inbounds nuw %struct.Node, ptr %23, i64 %30
   br label %hashnum.exit.i.preheader
 
-hashnum.exit.i.preheader:                         ; preds = %.critedge.i.i, %17
-  %.0.i.ph = phi ptr [ %31, %.critedge.i.i ], [ %19, %17 ]
+hashnum.exit.i.preheader:                         ; preds = %.preheader.i.i, %17
+  %.0.i.ph = phi ptr [ %31, %.preheader.i.i ], [ %19, %17 ]
   br label %hashnum.exit.i
 
 hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preheader, %39
@@ -1807,9 +1807,9 @@ define hidden i32 @luaH_getn(ptr noundef readonly captures(none) %0) local_unnam
 36:                                               ; preds = %29
   %37 = sitofp i32 %.021.i to double
   %38 = icmp eq i32 %.021.i, 0
-  br i1 %38, label %hashnum.exit.i.i.preheader, label %.critedge.i.i.i
+  br i1 %38, label %hashnum.exit.i.i.preheader, label %.preheader.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %36
+.preheader.i.i.i:                                 ; preds = %36
   %39 = bitcast double %37 to i64
   %.sroa.0.4.extract.shift.i.i.i = lshr i64 %39, 32
   %40 = add i64 %.sroa.0.4.extract.shift.i.i.i, %39
@@ -1824,8 +1824,8 @@ define hidden i32 @luaH_getn(ptr noundef readonly captures(none) %0) local_unnam
   %47 = getelementptr inbounds nuw %struct.Node, ptr %23, i64 %46
   br label %hashnum.exit.i.i.preheader
 
-hashnum.exit.i.i.preheader:                       ; preds = %36, %.critedge.i.i.i
-  %.0.i.i.ph = phi ptr [ %23, %36 ], [ %47, %.critedge.i.i.i ]
+hashnum.exit.i.i.preheader:                       ; preds = %36, %.preheader.i.i.i
+  %.0.i.i.ph = phi ptr [ %23, %36 ], [ %47, %.preheader.i.i.i ]
   br label %hashnum.exit.i.i
 
 hashnum.exit.i.i:                                 ; preds = %hashnum.exit.i.i.preheader, %55
@@ -1879,9 +1879,9 @@ luaH_getnum.exit.i:                               ; preds = %55, %51, %32
 71:                                               ; preds = %.preheader46.i
   %72 = sitofp i32 %.1.i to double
   %73 = icmp eq i32 %.1.i, 0
-  br i1 %73, label %hashnum.exit.i30.i.preheader, label %.critedge.i.i26.i
+  br i1 %73, label %hashnum.exit.i30.i.preheader, label %.preheader.i.i26.i
 
-.critedge.i.i26.i:                                ; preds = %71
+.preheader.i.i26.i:                               ; preds = %71
   %74 = bitcast double %72 to i64
   %.sroa.0.4.extract.shift.i.i27.i = lshr i64 %74, 32
   %75 = add i64 %.sroa.0.4.extract.shift.i.i27.i, %74
@@ -1896,8 +1896,8 @@ luaH_getnum.exit.i:                               ; preds = %55, %51, %32
   %82 = getelementptr inbounds nuw %struct.Node, ptr %23, i64 %81
   br label %hashnum.exit.i30.i.preheader
 
-hashnum.exit.i30.i.preheader:                     ; preds = %71, %.critedge.i.i26.i
-  %.0.i32.i.ph = phi ptr [ %23, %71 ], [ %82, %.critedge.i.i26.i ]
+hashnum.exit.i30.i.preheader:                     ; preds = %71, %.preheader.i.i26.i
+  %.0.i32.i.ph = phi ptr [ %23, %71 ], [ %82, %.preheader.i.i26.i ]
   br label %hashnum.exit.i30.i
 
 hashnum.exit.i30.i:                               ; preds = %hashnum.exit.i30.i.preheader, %90
@@ -1945,9 +1945,9 @@ luaH_getnum.exit35.i:                             ; preds = %90, %86, %67
 104:                                              ; preds = %.lr.ph.i
   %105 = uitofp nneg i32 %97 to double
   %106 = icmp ult i32 %96, 2
-  br i1 %106, label %hashnum.exit.i40.i.preheader, label %.critedge.i.i36.i
+  br i1 %106, label %hashnum.exit.i40.i.preheader, label %.preheader.i.i36.i
 
-.critedge.i.i36.i:                                ; preds = %104
+.preheader.i.i36.i:                               ; preds = %104
   %107 = bitcast double %105 to i64
   %.sroa.0.4.extract.shift.i.i37.i = lshr i64 %107, 32
   %108 = add nuw i64 %.sroa.0.4.extract.shift.i.i37.i, %107
@@ -1962,8 +1962,8 @@ luaH_getnum.exit35.i:                             ; preds = %90, %86, %67
   %115 = getelementptr inbounds nuw %struct.Node, ptr %23, i64 %114
   br label %hashnum.exit.i40.i.preheader
 
-hashnum.exit.i40.i.preheader:                     ; preds = %104, %.critedge.i.i36.i
-  %.0.i42.i.ph = phi ptr [ %23, %104 ], [ %115, %.critedge.i.i36.i ]
+hashnum.exit.i40.i.preheader:                     ; preds = %104, %.preheader.i.i36.i
+  %.0.i42.i.ph = phi ptr [ %23, %104 ], [ %115, %.preheader.i.i36.i ]
   br label %hashnum.exit.i40.i
 
 hashnum.exit.i40.i:                               ; preds = %hashnum.exit.i40.i.preheader, %123

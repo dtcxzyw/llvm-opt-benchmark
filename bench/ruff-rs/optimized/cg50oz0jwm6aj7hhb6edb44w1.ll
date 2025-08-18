@@ -103362,7 +103362,7 @@ define hidden void @"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$
   %13 = trunc nuw i64 %.pre.i.i to i1
   br i1 %13, label %14, label %17
 
-14:                                               ; preds = %.critedge.i.i, %12
+14:                                               ; preds = %.critedge, %12
   %15 = call noundef range(i16 0, 922) i16 @"_ZN107_$LT$ruff_linter..registry..rule_set..RuleSetIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d6f39e3fea8547eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %6)
   %.not.i.i.i = icmp eq i16 %15, 921
   br i1 %.not.i.i.i, label %16, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafa5f55d81a02991E.exit"
@@ -103399,9 +103399,9 @@ define hidden void @"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$
   store ptr %25, ptr %7, align 8, !alias.scope !13106, !noalias !13109
   %26 = call noundef align 8 dereferenceable_or_null(120) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5154efcf5a22ec87E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %22), !noalias !13100
   %.not6.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not6.i.i.i.i.i, label %21, label %.critedge.i.i
+  br i1 %.not6.i.i.i.i.i, label %21, label %.critedge
 
-.critedge.i.i:                                    ; preds = %24
+.critedge:                                        ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13103
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i), !noalias !13110
   call void @"_ZN106_$LT$$RF$ruff_linter..registry..rule_set..RuleSet$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6af775b7c843f439E"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %.sroa.4.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %26)
@@ -103410,7 +103410,7 @@ define hidden void @"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i), !noalias !13110
   br label %14
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb237ef64ad094c5fE.exit.thread.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb237ef64ad094c5fE.exit.thread14.i.i", %17
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb237ef64ad094c5fE.exit.thread.i.i": ; preds = %17, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb237ef64ad094c5fE.exit.thread14.i.i"
   %27 = load i64, ptr %10, align 8, !range !102, !alias.scope !13111, !noundef !9
   %28 = trunc nuw i64 %27 to i1
   br i1 %28, label %29, label %.loopexit
@@ -103420,7 +103420,7 @@ define hidden void @"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$
   %.not.i8.i.i = icmp eq i16 %30, 921
   br i1 %.not.i8.i.i, label %.loopexit, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafa5f55d81a02991E.exit"
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafa5f55d81a02991E.exit": ; preds = %29, %14
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafa5f55d81a02991E.exit": ; preds = %14, %29
   %.sroa.0.0.i.i = phi i16 [ %30, %29 ], [ %15, %14 ]
   call void @_ZN11ruff_linter8registry8rule_set7RuleSet6insert17hbbcd9d224912ad6dE(ptr noalias noundef nonnull align 8 dereferenceable(120) %5, i16 noundef %.sroa.0.0.i.i)
   br label %12

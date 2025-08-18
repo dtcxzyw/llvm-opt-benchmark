@@ -3849,12 +3849,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2c9133a26
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.66.0.copyload = load i64, ptr %.sroa.66.0..sroa_idx, align 8
-  switch i64 %.val, label %.critedge.i.i.i [
+  switch i64 %.val, label %.lr.ph.i.i.i [
     i64 2, label %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
     i64 0, label %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
   ]
 
-.critedge.i.i.i:                                  ; preds = %22
+.lr.ph.i.i.i:                                     ; preds = %22
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %23
@@ -3862,21 +3862,21 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2c9133a26
   %27 = add i64 %23, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
 
-_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i: ; preds = %.critedge.i.i.i, %22, %22
-  %.sroa.4.0.i = phi i64 [ %23, %22 ], [ %27, %.critedge.i.i.i ], [ %23, %22 ]
-  switch i64 %.val4, label %.critedge.i18.i.i [
+_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i: ; preds = %.lr.ph.i.i.i, %22, %22
+  %.sroa.4.0.i = phi i64 [ %23, %22 ], [ %27, %.lr.ph.i.i.i ], [ %23, %22 ]
+  switch i64 %.val4, label %.lr.ph.i18.i.i [
     i64 2, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
     i64 0, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
   ]
 
-.critedge.i18.i.i:                                ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
+.lr.ph.i18.i.i:                                   ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
   %28 = getelementptr inbounds i64, ptr %25, i64 %.sroa.4.0.i
   store i64 %.sroa.66.0.copyload, ptr %28, align 8, !noalias !1273
   %29 = add i64 %.sroa.4.0.i, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i, %.critedge.i18.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
-  %.val14.sink.i.i = phi i64 [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ], [ %29, %.critedge.i18.i.i ], [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ]
+_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i, %.lr.ph.i18.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
+  %.val14.sink.i.i = phi i64 [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ], [ %29, %.lr.ph.i18.i.i ], [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ]
   store i64 %.val14.sink.i.i, ptr %12, align 8, !noalias !1280
   ret void
 

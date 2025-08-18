@@ -1329,7 +1329,7 @@ _Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %30 = load i32, ptr %29, align 4, !tbaa !40
   %31 = icmp eq i32 %30, 2
-  br i1 %31, label %32, label %.loopexit
+  br i1 %31, label %32, label %thread-pre-split._crit_edge
 
 32:                                               ; preds = %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1405,163 +1405,161 @@ thread-pre-split.preheader:                       ; preds = %53, %_ZSt8_DestroyI
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pr36.pre = load i32, ptr %29, align 4, !tbaa !40
   %59 = icmp eq i32 %.pr36.pre, 2
-  br i1 %59, label %.lr.ph, label %.loopexit
+  br i1 %59, label %.lr.ph.lr.ph, label %thread-pre-split._crit_edge
 
-.lr.ph:                                           ; preds = %thread-pre-split.preheader
+.lr.ph.lr.ph:                                     ; preds = %thread-pre-split.preheader
   %.not = icmp eq ptr %3, null
-  %60 = icmp eq i64 %2, 0
-  %61 = mul i64 %2, 1000
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br i1 %60, label %.lr.ph.split.us, label %.lr.ph.split
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %61 = icmp eq i64 %2, 0
+  %62 = mul i64 %2, 1000
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %.not, label %.lr.ph.us, label %.lr.ph.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %thread-pre-split.backedge.us
-  %.0.ph37.us = phi i64 [ %76, %thread-pre-split.backedge.us ], [ %17, %.lr.ph ]
-  br i1 %.not, label %67, label %65
-
-65:                                               ; preds = %.lr.ph.split.us
-  %66 = call noundef i32 %3()
-  %.not32.us = icmp eq i32 %66, 0
-  br i1 %.not32.us, label %67, label %.loopexit.sink.split
-
-67:                                               ; preds = %65, %.lr.ph.split.us
-  %68 = load ptr, ptr %20, align 8, !tbaa !25
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = sub i64 %19, %.0.ph37.us
-  %71 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %62, ptr noundef nonnull %69, i64 noundef %70)
+.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %thread-pre-split.backedge.us
+  %.0.ph37.us = phi i64 [ %74, %thread-pre-split.backedge.us ], [ %17, %.lr.ph.lr.ph ]
+  %65 = add i64 %.0.ph37.us, %62
+  %spec.select.us = call i64 @llvm.umin.i64(i64 %65, i64 %19)
+  %.026.us = select i1 %61, i64 %19, i64 %spec.select.us
+  %66 = load ptr, ptr %20, align 8, !tbaa !25
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %68 = sub i64 %.026.us, %.0.ph37.us
+  %69 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %63, ptr noundef nonnull %67, i64 noundef %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %72 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
-  %73 = load i64, ptr %8, align 8, !tbaa !61
-  %74 = mul i64 %73, 1000000
-  %75 = load i64, ptr %63, align 8, !tbaa !63
-  %76 = add i64 %74, %75
+  %70 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
+  %71 = load i64, ptr %8, align 8, !tbaa !61
+  %72 = mul i64 %71, 1000000
+  %73 = load i64, ptr %64, align 8, !tbaa !63
+  %74 = add i64 %72, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %77 = load i32, ptr %29, align 4, !tbaa !40
-  %78 = icmp ne i32 %77, 2
-  %.not33.us = icmp ult i64 %76, %19
-  %or.cond.us = or i1 %.not33.us, %78
-  br i1 %or.cond.us, label %thread-pre-split.backedge.us, label %.loopexit.sink.split.sink.split
+  %75 = load i32, ptr %29, align 4, !tbaa !40
+  %76 = icmp ne i32 %75, 2
+  %.not33.us = icmp ult i64 %74, %19
+  %or.cond.us = or i1 %.not33.us, %76
+  br i1 %or.cond.us, label %thread-pre-split.backedge.us, label %thread-pre-split._crit_edge.sink.split.sink.split
 
-thread-pre-split.backedge.us:                     ; preds = %67
-  %79 = icmp eq i32 %77, 2
-  br i1 %79, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !86
+thread-pre-split.backedge.us:                     ; preds = %.lr.ph.us
+  %77 = icmp eq i32 %75, 2
+  br i1 %77, label %.lr.ph.us, label %thread-pre-split._crit_edge, !llvm.loop !86
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+.lr.ph.lr.ph.split:                               ; preds = %.lr.ph.lr.ph
+  br i1 %61, label %.lr.ph.us38, label %.lr.ph
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %thread-pre-split.backedge.us41
-  %.0.ph37.us38 = phi i64 [ %89, %thread-pre-split.backedge.us41 ], [ %17, %.lr.ph.split ]
-  %80 = add i64 %.0.ph37.us38, %61
-  %spec.select.us = call i64 @llvm.umin.i64(i64 %80, i64 %19)
-  %81 = load ptr, ptr %20, align 8, !tbaa !25
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %83 = sub i64 %spec.select.us, %.0.ph37.us38
-  %84 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %62, ptr noundef nonnull %82, i64 noundef %83)
+.lr.ph.us38:                                      ; preds = %.lr.ph.lr.ph.split, %thread-pre-split.backedge.us44
+  %.0.ph37.us39 = phi i64 [ %87, %thread-pre-split.backedge.us44 ], [ %17, %.lr.ph.lr.ph.split ]
+  %78 = call noundef i32 %3()
+  %.not32.us = icmp eq i32 %78, 0
+  br i1 %.not32.us, label %.split.us40, label %thread-pre-split._crit_edge.sink.split
+
+.split.us40:                                      ; preds = %.lr.ph.us38
+  %79 = load ptr, ptr %20, align 8, !tbaa !25
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = sub i64 %19, %.0.ph37.us39
+  %82 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %63, ptr noundef nonnull %80, i64 noundef %81)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %85 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
-  %86 = load i64, ptr %8, align 8, !tbaa !61
-  %87 = mul i64 %86, 1000000
-  %88 = load i64, ptr %63, align 8, !tbaa !63
-  %89 = add i64 %87, %88
+  %83 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
+  %84 = load i64, ptr %8, align 8, !tbaa !61
+  %85 = mul i64 %84, 1000000
+  %86 = load i64, ptr %64, align 8, !tbaa !63
+  %87 = add i64 %85, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %90 = load i32, ptr %29, align 4, !tbaa !40
-  %91 = icmp ne i32 %90, 2
-  %.not33.us39 = icmp ult i64 %89, %19
-  %or.cond.us40 = or i1 %.not33.us39, %91
-  br i1 %or.cond.us40, label %thread-pre-split.backedge.us41, label %.loopexit.sink.split.sink.split
+  %88 = load i32, ptr %29, align 4, !tbaa !40
+  %89 = icmp ne i32 %88, 2
+  %.not33.us42 = icmp ult i64 %87, %19
+  %or.cond.us43 = or i1 %.not33.us42, %89
+  br i1 %or.cond.us43, label %thread-pre-split.backedge.us44, label %thread-pre-split._crit_edge.sink.split.sink.split
 
-thread-pre-split.backedge.us41:                   ; preds = %.lr.ph.split.split.us
-  %92 = icmp eq i32 %90, 2
-  br i1 %92, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !88
+thread-pre-split.backedge.us44:                   ; preds = %.split.us40
+  %90 = icmp eq i32 %88, 2
+  br i1 %90, label %.lr.ph.us38, label %thread-pre-split._crit_edge, !llvm.loop !88
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %thread-pre-split.backedge
-  %.0.ph37 = phi i64 [ %104, %thread-pre-split.backedge ], [ %17, %.lr.ph.split ]
-  %93 = call noundef i32 %3()
-  %.not32 = icmp eq i32 %93, 0
-  br i1 %.not32, label %94, label %.loopexit.sink.split
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph.split, %thread-pre-split.backedge
+  %.0.ph37 = phi i64 [ %101, %thread-pre-split.backedge ], [ %17, %.lr.ph.lr.ph.split ]
+  %91 = call noundef i32 %3()
+  %.not32 = icmp eq i32 %91, 0
+  br i1 %.not32, label %.split, label %thread-pre-split._crit_edge.sink.split
 
-94:                                               ; preds = %.lr.ph.split.split
-  %95 = add i64 %.0.ph37, %61
-  %spec.select = call i64 @llvm.umin.i64(i64 %95, i64 %19)
-  %96 = load ptr, ptr %20, align 8, !tbaa !25
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %98 = sub i64 %spec.select, %.0.ph37
-  %99 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %62, ptr noundef nonnull %97, i64 noundef %98)
+.split:                                           ; preds = %.lr.ph
+  %92 = add i64 %.0.ph37, %62
+  %spec.select = call i64 @llvm.umin.i64(i64 %92, i64 %19)
+  %93 = load ptr, ptr %20, align 8, !tbaa !25
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %95 = sub i64 %spec.select, %.0.ph37
+  %96 = call noundef i32 @_Z28toku_external_cond_timedwaitPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEPS_INS0_18TransactionDBMutexEEl(ptr noundef nonnull %63, ptr noundef nonnull %94, i64 noundef %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %100 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
-  %101 = load i64, ptr %8, align 8, !tbaa !61
-  %102 = mul i64 %101, 1000000
-  %103 = load i64, ptr %63, align 8, !tbaa !63
-  %104 = add i64 %102, %103
+  %97 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #22
+  %98 = load i64, ptr %8, align 8, !tbaa !61
+  %99 = mul i64 %98, 1000000
+  %100 = load i64, ptr %64, align 8, !tbaa !63
+  %101 = add i64 %99, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %105 = load i32, ptr %29, align 4, !tbaa !40
-  %106 = icmp ne i32 %105, 2
-  %.not33 = icmp ult i64 %104, %19
-  %or.cond = or i1 %.not33, %106
-  br i1 %or.cond, label %thread-pre-split.backedge, label %.loopexit.sink.split.sink.split
+  %102 = load i32, ptr %29, align 4, !tbaa !40
+  %103 = icmp ne i32 %102, 2
+  %.not33 = icmp ult i64 %101, %19
+  %or.cond = or i1 %.not33, %103
+  br i1 %or.cond, label %thread-pre-split.backedge, label %thread-pre-split._crit_edge.sink.split.sink.split
 
-thread-pre-split.backedge:                        ; preds = %94
-  %107 = icmp eq i32 %105, 2
-  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !89
+thread-pre-split.backedge:                        ; preds = %.split
+  %104 = icmp eq i32 %102, 2
+  br i1 %104, label %.lr.ph, label %thread-pre-split._crit_edge, !llvm.loop !89
 
-.loopexit.sink.split.sink.split:                  ; preds = %94, %.lr.ph.split.split.us, %67
-  %108 = load ptr, ptr %20, align 8, !tbaa !25
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 88
-  %110 = load i64, ptr %109, align 8, !tbaa !90
-  %111 = add i64 %110, 1
-  store i64 %111, ptr %109, align 8, !tbaa !90
-  br label %.loopexit.sink.split
+thread-pre-split._crit_edge.sink.split.sink.split: ; preds = %.split, %.split.us40, %.lr.ph.us
+  %105 = load ptr, ptr %20, align 8, !tbaa !25
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
+  %107 = load i64, ptr %106, align 8, !tbaa !90
+  %108 = add i64 %107, 1
+  store i64 %108, ptr %106, align 8, !tbaa !90
+  br label %thread-pre-split._crit_edge.sink.split
 
-.loopexit.sink.split:                             ; preds = %.lr.ph.split.split, %65, %.loopexit.sink.split.sink.split
+thread-pre-split._crit_edge.sink.split:           ; preds = %.lr.ph, %.lr.ph.us38, %thread-pre-split._crit_edge.sink.split.sink.split
   call void @_ZN4toku12lock_request25remove_from_lock_requestsEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
-  store i32 -30994, ptr %64, align 8, !tbaa !73
+  store i32 -30994, ptr %60, align 8, !tbaa !73
   store i32 3, ptr %29, align 4, !tbaa !40
-  br label %.loopexit
+  br label %thread-pre-split._crit_edge
 
-.loopexit:                                        ; preds = %thread-pre-split.backedge, %thread-pre-split.backedge.us41, %thread-pre-split.backedge.us, %.loopexit.sink.split, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit, %thread-pre-split.preheader
+thread-pre-split._crit_edge:                      ; preds = %thread-pre-split.backedge, %thread-pre-split.backedge.us44, %thread-pre-split.backedge.us, %thread-pre-split._crit_edge.sink.split, %_Z24toku_external_mutex_lockPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.exit, %thread-pre-split.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %112 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #22
-  %113 = load i64, ptr %7, align 8, !tbaa !61
-  %114 = mul i64 %113, 1000000
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %116 = load i64, ptr %115, align 8, !tbaa !63
+  %109 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #22
+  %110 = load i64, ptr %7, align 8, !tbaa !61
+  %111 = mul i64 %110, 1000000
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %113 = load i64, ptr %112, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %117 = sub i64 %116, %17
-  %118 = add i64 %117, %114
-  %119 = load ptr, ptr %20, align 8, !tbaa !25
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %121 = load i64, ptr %120, align 8, !tbaa !103
-  %122 = add i64 %121, 1
-  store i64 %122, ptr %120, align 8, !tbaa !103
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 64
-  %124 = load i64, ptr %123, align 8, !tbaa !104
-  %125 = add i64 %124, %118
-  store i64 %125, ptr %123, align 8, !tbaa !104
-  %126 = icmp ugt i64 %118, 999999
-  br i1 %126, label %127, label %134
+  %114 = sub i64 %113, %17
+  %115 = add i64 %114, %111
+  %116 = load ptr, ptr %20, align 8, !tbaa !25
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 56
+  %118 = load i64, ptr %117, align 8, !tbaa !103
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %117, align 8, !tbaa !103
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 64
+  %121 = load i64, ptr %120, align 8, !tbaa !104
+  %122 = add i64 %121, %115
+  store i64 %122, ptr %120, align 8, !tbaa !104
+  %123 = icmp ugt i64 %115, 999999
+  br i1 %123, label %124, label %131
 
-127:                                              ; preds = %.loopexit
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 72
-  %129 = load i64, ptr %128, align 8, !tbaa !105
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %128, align 8, !tbaa !105
-  %131 = getelementptr inbounds nuw i8, ptr %119, i64 80
-  %132 = load i64, ptr %131, align 8, !tbaa !106
-  %133 = add i64 %132, %118
-  store i64 %133, ptr %131, align 8, !tbaa !106
-  br label %134
+124:                                              ; preds = %thread-pre-split._crit_edge
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 72
+  %126 = load i64, ptr %125, align 8, !tbaa !105
+  %127 = add i64 %126, 1
+  store i64 %127, ptr %125, align 8, !tbaa !105
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 80
+  %129 = load i64, ptr %128, align 8, !tbaa !106
+  %130 = add i64 %129, %115
+  store i64 %130, ptr %128, align 8, !tbaa !106
+  br label %131
 
-134:                                              ; preds = %127, %.loopexit
-  %135 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %136 = load ptr, ptr %135, align 8, !tbaa !67
-  %137 = load ptr, ptr %136, align 8, !tbaa !32
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %139 = load ptr, ptr %138, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %136)
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %141 = load i32, ptr %140, align 8, !tbaa !73
-  ret i32 %141
+131:                                              ; preds = %124, %thread-pre-split._crit_edge
+  %132 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %133 = load ptr, ptr %132, align 8, !tbaa !67
+  %134 = load ptr, ptr %133, align 8, !tbaa !32
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %136 = load ptr, ptr %135, align 8
+  call void %136(ptr noundef nonnull align 8 dereferenceable(8) %133)
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %138 = load i32, ptr %137, align 8, !tbaa !73
+  ret i32 %138
 }
 
 ; Function Attrs: mustprogress uwtable

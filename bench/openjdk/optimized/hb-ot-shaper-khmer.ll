@@ -402,7 +402,7 @@ define internal noundef zeroext i1 @_ZL13reorder_khmerPK18hb_ot_shape_plan_tP9hb
   %5 = alloca %struct.hb_glyph_info_t, align 4
   %6 = alloca %struct.hb_glyph_info_t, align 4
   %7 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str)
-  br i1 %7, label %8, label %119
+  br i1 %7, label %8, label %120
 
 8:                                                ; preds = %3
   %9 = tail call noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font_tP11hb_buffer_tjjii(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 11, i32 noundef -1, i32 noundef -1)
@@ -451,7 +451,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
   %.val23.pre40 = phi i32 [ %11, %.lr.ph ], [ %.val23.pre41, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
   %.val2438 = phi ptr [ %.pre, %.lr.ph ], [ %.val24, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
   %.val2336 = phi i32 [ %11, %.lr.ph ], [ %.val23, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
-  %28 = phi i8 [ %.pre35, %.lr.ph ], [ %106, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
+  %28 = phi i8 [ %.pre35, %.lr.ph ], [ %107, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
   %.030 = phi i32 [ %24, %.lr.ph ], [ %.lcssa.i27, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
   %.02029 = phi i32 [ 0, %.lr.ph ], [ %.030, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
   %29 = zext i32 %.02029 to i64
@@ -514,7 +514,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
   %59 = icmp eq i8 %58, 4
   %60 = icmp ult i32 %.0727.i.i, 3
   %or.cond.i.i = select i1 %59, i1 %60, i1 false
-  br i1 %or.cond.i.i, label %61, label %93
+  br i1 %or.cond.i.i, label %61, label %94
 
 61:                                               ; preds = %54
   %62 = add nuw nsw i64 %indvars.iv22.i.i, 1
@@ -537,74 +537,75 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
   %74 = or i32 %73, %70
   store i32 %74, ptr %72, align 4
   %75 = load i32, ptr %.val.i, align 4
-  %76 = and i64 %62, 4294967295
-  %77 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val2438, i64 %76, i32 1
-  %78 = load i32, ptr %77, align 4
-  %79 = or i32 %78, %75
-  store i32 %79, ptr %77, align 4
-  %80 = add i32 %indvars24.i.i, 2
-  %81 = sub i32 %80, %.02029
-  %82 = icmp ult i32 %81, 2
-  br i1 %82, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, label %83
+  %76 = add i64 %indvars.iv22.i.i, 1
+  %77 = and i64 %76, 4294967295
+  %78 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val2438, i64 %77, i32 1
+  %79 = load i32, ptr %78, align 4
+  %80 = or i32 %79, %75
+  store i32 %80, ptr %78, align 4
+  %81 = add i32 %indvars24.i.i, 2
+  %82 = sub i32 %81, %.02029
+  %83 = icmp ult i32 %82, 2
+  br i1 %83, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, label %84
 
-83:                                               ; preds = %.preheader1.i.i
-  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.02029, i32 noundef %80)
+84:                                               ; preds = %.preheader1.i.i
+  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.02029, i32 noundef %81)
   br label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i
 
-_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i:     ; preds = %83, %.preheader1.i.i
+_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i:     ; preds = %84, %.preheader1.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %56, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %66, i64 20, i1 false)
-  %84 = sub i32 %indvars24.i.i, %.02029
-  %85 = zext i32 %84 to i64
-  %86 = mul nuw nsw i64 %85, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %44, i64 %86, i1 false)
+  %85 = sub i32 %indvars24.i.i, %.02029
+  %86 = zext i32 %85 to i64
+  %87 = mul nuw nsw i64 %86, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %44, i64 %87, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  %87 = load i32, ptr %48, align 4
-  %.not.i.i = icmp ne i32 %87, 0
-  %88 = icmp ult i32 %80, %.030
-  %or.cond10.i.i = and i1 %88, %.not.i.i
+  %88 = load i32, ptr %48, align 4
+  %.not.i.i = icmp ne i32 %88, 0
+  %89 = icmp ult i32 %81, %.030
+  %or.cond10.i.i = and i1 %89, %.not.i.i
   br i1 %or.cond10.i.i, label %.lr.ph6.i.i, label %.thread.i.i
 
 .lr.ph6.i.i:                                      ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, %.lr.ph6.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph6.i.i ], [ %55, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ]
-  %89 = load i32, ptr %48, align 4
-  %90 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val2438, i64 %indvars.iv17.i.i, i32 1
-  %91 = load i32, ptr %90, align 4
-  %92 = or i32 %91, %89
-  store i32 %92, ptr %90, align 4
+  %90 = load i32, ptr %48, align 4
+  %91 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val2438, i64 %indvars.iv17.i.i, i32 1
+  %92 = load i32, ptr %91, align 4
+  %93 = or i32 %92, %90
+  store i32 %93, ptr %91, align 4
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %lftr.wideiv20.i.i = trunc i64 %indvars.iv.next18.i.i to i32
   %exitcond21.not.i.i = icmp eq i32 %.030, %lftr.wideiv20.i.i
   br i1 %exitcond21.not.i.i, label %.thread.i.i, label %.lr.ph6.i.i, !llvm.loop !15
 
-93:                                               ; preds = %54
-  %94 = icmp eq i8 %58, 22
-  %95 = add nuw nsw i64 %indvars.iv22.i.i, 1
-  br i1 %94, label %96, label %.thread.i.i
+94:                                               ; preds = %54
+  %95 = icmp eq i8 %58, 22
+  %96 = add nuw nsw i64 %indvars.iv22.i.i, 1
+  br i1 %95, label %97, label %.thread.i.i
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   %reass.sub.i = sub i32 %indvars24.i.i, %.02029
-  %97 = add i32 %reass.sub.i, 1
-  %98 = icmp ult i32 %97, 2
-  br i1 %98, label %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i, label %99
+  %98 = add i32 %reass.sub.i, 1
+  %99 = icmp ult i32 %98, 2
+  br i1 %99, label %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i, label %100
 
-99:                                               ; preds = %96
-  %100 = trunc nuw i64 %95 to i32
-  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.02029, i32 noundef %100)
+100:                                              ; preds = %97
+  %101 = trunc nuw i64 %96 to i32
+  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.02029, i32 noundef %101)
   br label %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i
 
-_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i:   ; preds = %99, %96
+_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i:   ; preds = %100, %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %56, i64 20, i1 false)
-  %101 = zext i32 %reass.sub.i to i64
-  %102 = mul nuw nsw i64 %101, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 4 %44, i64 %102, i1 false)
+  %102 = zext i32 %reass.sub.i to i64
+  %103 = mul nuw nsw i64 %102, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 4 %44, i64 %103, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.lr.ph6.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i, %93, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, %64, %61
-  %indvars.iv.next23.pre-phi.i.i = phi i64 [ %62, %61 ], [ %62, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %62, %64 ], [ %95, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %95, %93 ], [ %62, %.lr.ph6.i.i ]
-  %.1.i.i = phi i32 [ %.0727.i.i, %61 ], [ 2, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %65, %64 ], [ %.0727.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %.0727.i.i, %93 ], [ 2, %.lr.ph6.i.i ]
+.thread.i.i:                                      ; preds = %.lr.ph6.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i, %94, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, %64, %61
+  %indvars.iv.next23.pre-phi.i.i = phi i64 [ %62, %61 ], [ %62, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %62, %64 ], [ %96, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %96, %94 ], [ %62, %.lr.ph6.i.i ]
+  %.1.i.i = phi i32 [ %.0727.i.i, %61 ], [ 2, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %65, %64 ], [ %.0727.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %.0727.i.i, %94 ], [ 2, %.lr.ph6.i.i ]
   %indvars.iv.next16.i.i = add i32 %indvars.iv15.i.i, 1
   %lftr.wideiv25.i.i = trunc i64 %indvars.iv.next23.pre-phi.i.i to i32
   %exitcond26.not.i.i = icmp eq i32 %.030, %lftr.wideiv25.i.i
@@ -628,44 +629,44 @@ _ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exi
   %.val23.pre41 = phi i32 [ %.val23.pre40, %27 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
   %.val24 = phi ptr [ %.val2438, %27 ], [ %.val24.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
   %.val23 = phi i32 [ %.val2336, %27 ], [ %.val23.pre, %_ZL26reorder_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit.i ]
-  %103 = zext i32 %.030 to i64
-  %104 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val24, i64 %103, i32 3
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 3
-  %106 = load i8, ptr %105, align 1
-  %107 = add i32 %.030, 1
-  %umax.i25 = tail call i32 @llvm.umax.i32(i32 %.val23, i32 %107)
-  %108 = add i32 %umax.i25, -1
-  br label %109
+  %104 = zext i32 %.030 to i64
+  %105 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val24, i64 %104, i32 3
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 3
+  %107 = load i8, ptr %106, align 1
+  %108 = add i32 %.030, 1
+  %umax.i25 = tail call i32 @llvm.umax.i32(i32 %.val23, i32 %108)
+  %109 = add i32 %umax.i25, -1
+  br label %110
 
-109:                                              ; preds = %110, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
-  %.0.i26 = phi i32 [ %.030, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit ], [ %111, %110 ]
-  %exitcond33.not = icmp eq i32 %.0.i26, %108
-  br i1 %exitcond33.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, label %110
+110:                                              ; preds = %111, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
+  %.0.i26 = phi i32 [ %.030, %_ZL22reorder_syllable_khmerPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit ], [ %112, %111 ]
+  %exitcond33.not = icmp eq i32 %.0.i26, %109
+  br i1 %exitcond33.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, label %111
 
-110:                                              ; preds = %109
-  %111 = add i32 %.0.i26, 1
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val24, i64 %112, i32 3
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 3
-  %115 = load i8, ptr %114, align 1
-  %116 = icmp eq i8 %106, %115
-  br i1 %116, label %109, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, !llvm.loop !12
+111:                                              ; preds = %110
+  %112 = add i32 %.0.i26, 1
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val24, i64 %113, i32 3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 3
+  %116 = load i8, ptr %115, align 1
+  %117 = icmp eq i8 %107, %116
+  br i1 %117, label %110, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, !llvm.loop !12
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit28:     ; preds = %109, %110
-  %.lcssa.i27 = phi i32 [ %umax.i25, %109 ], [ %111, %110 ]
-  %117 = icmp ult i32 %.030, %11
-  br i1 %117, label %27, label %._crit_edge, !llvm.loop !17
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit28:     ; preds = %110, %111
+  %.lcssa.i27 = phi i32 [ %umax.i25, %110 ], [ %112, %111 ]
+  %118 = icmp ult i32 %.030, %11
+  br i1 %118, label %27, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, %8
-  %118 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
-  br label %119
+  %119 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
+  br label %120
 
-119:                                              ; preds = %._crit_edge, %3
+120:                                              ; preds = %._crit_edge, %3
   %.021 = phi i1 [ %9, %._crit_edge ], [ false, %3 ]
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %121 = load i8, ptr %120, align 8
-  %122 = and i8 %121, -65
-  store i8 %122, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %122 = load i8, ptr %121, align 8
+  %123 = and i8 %122, -65
+  store i8 %123, ptr %121, align 8
   ret i1 %.021
 }
 

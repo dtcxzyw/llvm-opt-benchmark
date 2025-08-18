@@ -1171,13 +1171,13 @@ define hidden zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %0) loc
 19:                                               ; preds = %.thread
   %20 = tail call i32 @SDL_GetSandbox_REAL() #6
   %.not47 = icmp eq i32 %20, 0
-  br i1 %.not47, label %70, label %21
+  br i1 %.not47, label %69, label %21
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str.12, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %0, label %22, label %65
+  br i1 %0, label %22, label %64
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1199,7 +1199,7 @@ define hidden zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %0) loc
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 192), align 8
   %29 = tail call ptr %28(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15) #6
   %.not52 = icmp eq ptr %29, null
-  br i1 %.not52, label %64, label %30
+  br i1 %.not52, label %63, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 208), align 8
@@ -1214,155 +1214,154 @@ define hidden zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %0) loc
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 232), align 8
   %36 = call i32 %35(ptr noundef nonnull %8, i32 noundef 97, ptr noundef nonnull @.str.26, ptr noundef nonnull %2) #6
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %56, label %37
+  br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 
-37:                                               ; preds = %33
+.preheader.i.i:                                   ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.13, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.041, ptr %6, align 8
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 232), align 8
-  %39 = call i32 %38(ptr noundef nonnull %2, i32 noundef 101, ptr noundef null, ptr noundef nonnull %3) #6
-  %.not13.i.i = icmp eq i32 %39, 0
-  br i1 %.not13.i.i, label %.thread6.i.i, label %40
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 232), align 8
+  %38 = call i32 %37(ptr noundef nonnull %2, i32 noundef 101, ptr noundef null, ptr noundef nonnull %3) #6
+  %.not13.i.i = icmp eq i32 %38, 0
+  br i1 %.not13.i.i, label %.thread7.i.i, label %39
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 240), align 8
-  %42 = call i32 %41(ptr noundef nonnull %3, i32 noundef 115, ptr noundef nonnull %5) #6
-  %.not14.i.i = icmp eq i32 %42, 0
-  br i1 %.not14.i.i, label %.thread6.i.i, label %43
+39:                                               ; preds = %.preheader.i.i
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 240), align 8
+  %41 = call i32 %40(ptr noundef nonnull %3, i32 noundef 115, ptr noundef nonnull %5) #6
+  %.not14.i.i = icmp eq i32 %41, 0
+  br i1 %.not14.i.i, label %.thread7.i.i, label %42
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 232), align 8
-  %45 = call i32 %44(ptr noundef nonnull %3, i32 noundef 118, ptr noundef nonnull @.str.84, ptr noundef nonnull %4) #6
-  %.not15.i.i = icmp eq i32 %45, 0
-  br i1 %.not15.i.i, label %.thread6.i.i, label %46
+42:                                               ; preds = %39
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 232), align 8
+  %44 = call i32 %43(ptr noundef nonnull %3, i32 noundef 118, ptr noundef nonnull @.str.84, ptr noundef nonnull %4) #6
+  %.not15.i.i = icmp eq i32 %44, 0
+  br i1 %.not15.i.i, label %.thread7.i.i, label %45
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 240), align 8
-  %48 = call i32 %47(ptr noundef nonnull %4, i32 noundef 115, ptr noundef nonnull %6) #6
-  %.not16.i.i = icmp eq i32 %48, 0
-  br i1 %.not16.i.i, label %.thread6.i.i, label %49
+45:                                               ; preds = %42
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 240), align 8
+  %47 = call i32 %46(ptr noundef nonnull %4, i32 noundef 115, ptr noundef nonnull %6) #6
+  %.not16.i.i = icmp eq i32 %47, 0
+  br i1 %.not16.i.i, label %.thread7.i.i, label %48
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 248), align 8
-  %51 = call i32 %50(ptr noundef nonnull %3, ptr noundef nonnull %4) #6
-  %.not17.i.i = icmp eq i32 %51, 0
-  br i1 %.not17.i.i, label %.thread6.i.i, label %.critedge.i.i
+48:                                               ; preds = %45
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 248), align 8
+  %50 = call i32 %49(ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %.not17.i.i = icmp eq i32 %50, 0
+  br i1 %.not17.i.i, label %.thread7.i.i, label %51
 
-.thread6.i.i:                                     ; preds = %49, %46, %43, %40, %37
+.thread7.i.i:                                     ; preds = %48, %45, %42, %39, %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %56
+  br label %.loopexit
 
-.critedge.i.i:                                    ; preds = %49
+51:                                               ; preds = %48
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 248), align 8
   %53 = call i32 %52(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %.fr.i.i = freeze i32 %53
-  %.not18.not.i.i = icmp eq i32 %.fr.i.i, 0
+  %.not18.not.i.i = icmp eq i32 %53, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not18.not.i.i, label %56, label %.thread.i.i
+  br i1 %.not18.not.i.i, label %.loopexit, label %.thread5.i.i, !llvm.loop !5
 
-.thread.i.i:                                      ; preds = %.critedge.i.i
+.thread5.i.i:                                     ; preds = %51
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 248), align 8
   %55 = call i32 %54(ptr noundef nonnull %8, ptr noundef nonnull %2) #6
   %.not19.i.i = icmp eq i32 %55, 0
-  br i1 %.not19.i.i, label %56, label %57
+  br i1 %.not19.i.i, label %.loopexit, label %56
 
-56:                                               ; preds = %.thread.i.i, %.critedge.i.i, %.thread6.i.i, %33
+.loopexit:                                        ; preds = %51, %.thread5.i.i, %.thread7.i.i, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.sink.split
 
-57:                                               ; preds = %.thread.i.i
+56:                                               ; preds = %.thread5.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %58 = load ptr, ptr @dbus, align 8
-  %59 = call fastcc zeroext i1 @SDL_DBus_CallWithBasicReply(ptr noundef %58, ptr noundef %29, i32 noundef 111, ptr noundef nonnull %9)
-  br i1 %59, label %60, label %.sink.split
+  %57 = load ptr, ptr @dbus, align 8
+  %58 = call fastcc zeroext i1 @SDL_DBus_CallWithBasicReply(ptr noundef %57, ptr noundef %29, i32 noundef 111, ptr noundef nonnull %9)
+  br i1 %58, label %59, label %.sink.split
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %9, align 8
-  %62 = call noalias ptr @SDL_strdup_REAL(ptr noundef %61) #6
-  store ptr %62, ptr @inhibit_handle, align 8
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %9, align 8
+  %61 = call noalias ptr @SDL_strdup_REAL(ptr noundef %60) #6
+  store ptr %61, ptr @inhibit_handle, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %57, %60, %30, %56
-  %.1.ph = phi i1 [ false, %56 ], [ false, %30 ], [ true, %60 ], [ false, %57 ]
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 312), align 8
-  call void %63(ptr noundef nonnull %29) #6
-  br label %64
+.sink.split:                                      ; preds = %56, %59, %30, %.loopexit
+  %.1.ph = phi i1 [ false, %.loopexit ], [ false, %30 ], [ true, %59 ], [ false, %56 ]
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 312), align 8
+  call void %62(ptr noundef nonnull %29) #6
+  br label %63
 
-64:                                               ; preds = %.sink.split, %27
+63:                                               ; preds = %.sink.split, %27
   %.1 = phi i1 [ false, %27 ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread57
 
-65:                                               ; preds = %21
-  %66 = load ptr, ptr @inhibit_handle, align 8
-  %67 = tail call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallVoidMethod(ptr noundef nonnull @.str.9, ptr noundef %66, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0)
-  br i1 %67, label %68, label %.thread57
+64:                                               ; preds = %21
+  %65 = load ptr, ptr @inhibit_handle, align 8
+  %66 = tail call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallVoidMethod(ptr noundef nonnull @.str.9, ptr noundef %65, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0)
+  br i1 %66, label %67, label %.thread57
 
-.thread57:                                        ; preds = %64, %65
-  %.2.ph = phi i1 [ false, %65 ], [ %.1, %64 ]
+.thread57:                                        ; preds = %63, %64
+  %.2.ph = phi i1 [ false, %64 ], [ %.1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread61
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr @inhibit_handle, align 8
-  tail call void @SDL_free_REAL(ptr noundef %69) #6
+67:                                               ; preds = %64
+  %68 = load ptr, ptr @inhibit_handle, align 8
+  tail call void @SDL_free_REAL(ptr noundef %68) #6
   store ptr null, ptr @inhibit_handle, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread61
 
-70:                                               ; preds = %19
-  br i1 %0, label %71, label %81
+69:                                               ; preds = %19
+  br i1 %0, label %70, label %80
 
-71:                                               ; preds = %70
+70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %72 = tail call ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef nonnull @.str.18) #6
-  store ptr %72, ptr %10, align 8
+  %71 = tail call ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef nonnull @.str.18) #6
+  store ptr %71, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %73 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.14) #6
-  store ptr %73, ptr %11, align 8
-  %.not48 = icmp eq ptr %73, null
-  br i1 %.not48, label %76, label %74
+  %72 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.14) #6
+  store ptr %72, ptr %11, align 8
+  %.not48 = icmp eq ptr %72, null
+  br i1 %.not48, label %75, label %73
 
-74:                                               ; preds = %71
-  %75 = load i8, ptr %73, align 1
-  %.not49 = icmp eq i8 %75, 0
-  br i1 %.not49, label %76, label %77
+73:                                               ; preds = %70
+  %74 = load i8, ptr %72, align 1
+  %.not49 = icmp eq i8 %74, 0
+  br i1 %.not49, label %75, label %76
 
-76:                                               ; preds = %74, %71
+75:                                               ; preds = %73, %70
   store ptr @.str.8, ptr %11, align 8
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %74
-  %78 = call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallMethod(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i32 noundef 115, ptr noundef nonnull %10, i32 noundef 115, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @screensaver_cookie, i32 noundef 0)
-  %79 = load i32, ptr @screensaver_cookie, align 4
-  %80 = icmp ne i32 %79, 0
-  %.3 = select i1 %78, i1 %80, i1 false
+76:                                               ; preds = %75, %73
+  %77 = call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallMethod(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i32 noundef 115, ptr noundef nonnull %10, i32 noundef 115, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @screensaver_cookie, i32 noundef 0)
+  %78 = load i32, ptr @screensaver_cookie, align 4
+  %79 = icmp ne i32 %78, 0
+  %.3 = select i1 %77, i1 %79, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread61
 
-81:                                               ; preds = %70
-  %82 = tail call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallVoidMethod(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.19, i32 noundef 117, ptr noundef nonnull @screensaver_cookie, i32 noundef 0)
-  br i1 %82, label %83, label %.thread61
+80:                                               ; preds = %69
+  %81 = tail call zeroext i1 (ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallVoidMethod(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.19, i32 noundef 117, ptr noundef nonnull @screensaver_cookie, i32 noundef 0)
+  br i1 %81, label %82, label %.thread61
 
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   store i32 0, ptr @screensaver_cookie, align 4
   br label %.thread61
 
-.thread61:                                        ; preds = %81, %77, %68, %83, %.thread57, %.thread, %16, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %16 ], [ false, %.thread ], [ %.2.ph, %.thread57 ], [ true, %83 ], [ true, %68 ], [ false, %81 ], [ %.3, %77 ]
+.thread61:                                        ; preds = %80, %76, %67, %82, %.thread57, %.thread, %16, %17
+  %.0 = phi i1 [ true, %17 ], [ true, %16 ], [ false, %.thread ], [ %.2.ph, %.thread57 ], [ true, %82 ], [ true, %67 ], [ false, %80 ], [ %.3, %76 ]
   ret i1 %.0
 }
 
@@ -1395,7 +1394,7 @@ define hidden void @SDL_DBus_PumpEvents() local_unnamed_addr #0 {
   %10 = load ptr, ptr @dbus, align 8
   %11 = tail call i32 %9(ptr noundef %10) #6
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %0
   ret void
@@ -1692,7 +1691,7 @@ select.unfold:                                    ; preds = %13, %8
   br label %120
 
 68:                                               ; preds = %59
-  %.old3 = load i8, ptr %61, align 8, !range !6, !noundef !7
+  %.old3 = load i8, ptr %61, align 8, !range !7, !noundef !8
   %.old4 = trunc nuw i8 %.old3 to i1
   br i1 %.old4, label %.critedge, label %.preheader
 
@@ -1701,10 +1700,10 @@ select.unfold:                                    ; preds = %13, %8
   %70 = load ptr, ptr @dbus, align 8
   %71 = call i32 %69(ptr noundef %70, i32 noundef -1) #6
   %72 = icmp eq i32 %71, 0
-  %73 = load i8, ptr %61, align 8, !range !6
+  %73 = load i8, ptr %61, align 8, !range !7
   %74 = trunc nuw i8 %73 to i1
   %or.cond5 = select i1 %72, i1 true, i1 %74
-  br i1 %or.cond5, label %.critedge, label %.preheader, !llvm.loop !8
+  br i1 %or.cond5, label %.critedge, label %.preheader, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader, %68
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 40), align 8
@@ -1726,7 +1725,7 @@ select.unfold:                                    ; preds = %13, %8
   %84 = call i32 %82(ptr noundef %83, ptr noundef nonnull @SDL_DBus_CameraPortalMessageHandler, ptr noundef nonnull %1) #6
   %85 = load ptr, ptr %36, align 8
   call void @SDL_free_REAL(ptr noundef %85) #6
-  %86 = load i8, ptr %61, align 8, !range !6, !noundef !7
+  %86 = load i8, ptr %61, align 8, !range !7, !noundef !8
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %120
 
@@ -1941,6 +1940,7 @@ attributes #6 = { nounwind }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4}

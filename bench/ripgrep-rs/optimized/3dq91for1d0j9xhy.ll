@@ -558,11 +558,11 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume.sink.split:                         ; preds = %72, %32
-  %.sink67 = phi ptr [ %5, %32 ], [ %6, %72 ]
-  %.sink66 = phi i64 [ %35, %32 ], [ %75, %72 ]
+  %.sink68 = phi ptr [ %5, %32 ], [ %6, %72 ]
+  %.sink67 = phi i64 [ %35, %32 ], [ %75, %72 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %33, %32 ], [ %73, %72 ]
-  %29 = load ptr, ptr %.sink67, align 8, !nonnull !9, !noundef !9
-  tail call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef %.sink66, i64 noundef 1) #25, !noalias !9
+  %29 = load ptr, ptr %.sink68, align 8, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef %.sink67, i64 noundef 1) #25, !noalias !9
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %32, %72

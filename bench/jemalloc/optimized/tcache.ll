@@ -5423,11 +5423,11 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %38, %52, %27, %18
   %54 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %2, i64 %.0.i9
   store ptr %.0.i.i, ptr %54, align 8, !tbaa !56
   %55 = add nuw nsw i64 %.0.i9, 1
-  %exitcond15.not = icmp eq i64 %55, %1
-  br i1 %exitcond15.not, label %tcache_bin_flush_metadata_visitor.exit.critedge, label %8, !llvm.loop !215
+  %exitcond16.not = icmp eq i64 %55, %1
+  br i1 %exitcond16.not, label %.lr.ph11, label %8, !llvm.loop !215
 
-tcache_bin_flush_metadata_visitor.exit.critedge:  ; preds = %rtree_leaf_elm_lookup.exit.i, %tcache_bin_flush_metadata_visitor.exit.critedge
-  %.025.i10 = phi i64 [ %64, %tcache_bin_flush_metadata_visitor.exit.critedge ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
+.lr.ph11:                                         ; preds = %rtree_leaf_elm_lookup.exit.i, %.lr.ph11
+  %.025.i10 = phi i64 [ %64, %.lr.ph11 ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %56 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %2, i64 %.025.i10
   %57 = load ptr, ptr %56, align 8, !tbaa !56
   %58 = load atomic i64, ptr %57 monotonic, align 8, !noalias !216
@@ -5440,10 +5440,10 @@ tcache_bin_flush_metadata_visitor.exit.critedge:  ; preds = %rtree_leaf_elm_look
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %63, i32 1, i32 3, i32 1)
   %64 = add nuw nsw i64 %.025.i10, 1
-  %exitcond16.not = icmp eq i64 %64, %1
-  br i1 %exitcond16.not, label %emap_edata_lookup_batch.exit, label %tcache_bin_flush_metadata_visitor.exit.critedge, !llvm.loop !219
+  %exitcond17.not = icmp eq i64 %64, %1
+  br i1 %exitcond17.not, label %emap_edata_lookup_batch.exit, label %.lr.ph11, !llvm.loop !219
 
-emap_edata_lookup_batch.exit:                     ; preds = %tcache_bin_flush_metadata_visitor.exit.critedge, %3
+emap_edata_lookup_batch.exit:                     ; preds = %.lr.ph11, %3
   ret void
 }
 

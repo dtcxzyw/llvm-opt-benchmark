@@ -743,7 +743,7 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %13 = load i8, ptr %12, align 1, !tbaa !85, !range !54, !noundef !55
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %.critedge
+  br i1 %14, label %15, label %30
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 42
@@ -759,7 +759,7 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %.1 = phi float [ %11, %19 ], [ 0.000000e+00, %15 ]
   %21 = load i8, ptr @g_draw, align 8, !tbaa !87, !range !54, !noundef !55
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %.critedge
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -770,674 +770,674 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %28 = load i32, ptr %24, align 8, !tbaa !42
   %29 = add nsw i32 %28, %27
   store i32 %29, ptr %24, align 8, !tbaa !42
-  br label %.critedge
+  br label %30
 
-.critedge:                                        ; preds = %20, %23, %2
+30:                                               ; preds = %20, %23, %2
   %.0 = phi float [ %.1, %23 ], [ %.1, %20 ], [ %11, %2 ]
-  %30 = tail call { <2 x float>, <2 x float> } @_ZN6Camera13GetViewBoundsEv(ptr noundef nonnull align 4 dereferenceable(20) @g_camera)
-  %31 = extractvalue { <2 x float>, <2 x float> } %30, 0
-  %32 = extractvalue { <2 x float>, <2 x float> } %30, 1
-  store <2 x float> %31, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 144), align 8
-  store <2 x float> %32, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 152), align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load i8, ptr %33, align 4, !tbaa !88, !range !54, !noundef !55
-  store i8 %34, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 160), align 8, !tbaa !89
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %36 = load i8, ptr %35, align 1, !tbaa !90, !range !54, !noundef !55
-  store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 161), align 1, !tbaa !91
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %38 = load i8, ptr %37, align 2, !tbaa !92, !range !54, !noundef !55
-  store i8 %38, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 162), align 2, !tbaa !93
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %40 = load i8, ptr %39, align 1, !tbaa !94, !range !54, !noundef !55
-  store i8 %40, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 163), align 1, !tbaa !95
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %42 = load i8, ptr %41, align 4, !tbaa !96, !range !54, !noundef !55
-  store i8 %42, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 164), align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %44 = load i8, ptr %43, align 1, !tbaa !98, !range !54, !noundef !55
-  store i8 %44, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 165), align 1, !tbaa !99
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %46 = load i8, ptr %45, align 2, !tbaa !100, !range !54, !noundef !55
-  store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 166), align 2, !tbaa !101
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %48 = load i8, ptr %47, align 1, !tbaa !102, !range !54, !noundef !55
-  store i8 %48, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 167), align 1, !tbaa !103
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %50 = load i8, ptr %49, align 1, !tbaa !104, !range !54, !noundef !55
-  store i8 %50, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 168), align 8, !tbaa !105
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %52 = load i8, ptr %51, align 2, !tbaa !106, !range !54, !noundef !55
-  store i8 %52, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 169), align 1, !tbaa !107
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %54 = load i8, ptr %53, align 1, !tbaa !108, !range !54, !noundef !55
-  store i8 %54, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 170), align 2, !tbaa !109
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %56 = load i8, ptr %55, align 4, !tbaa !110, !range !54, !noundef !55
-  store i8 %56, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 171), align 1, !tbaa !111
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.041.0.copyload = load i32, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %59 = load i8, ptr %58, align 4, !tbaa !53, !range !54, !noundef !55
-  %60 = trunc nuw i8 %59 to i1
-  tail call void @b2World_EnableSleeping(i32 %.sroa.041.0.copyload, i1 noundef zeroext %60)
-  %.sroa.040.0.copyload = load i32, ptr %57, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %62 = load i8, ptr %61, align 2, !tbaa !112, !range !54, !noundef !55
-  %63 = trunc nuw i8 %62 to i1
-  tail call void @b2World_EnableWarmStarting(i32 %.sroa.040.0.copyload, i1 noundef zeroext %63)
-  %.sroa.039.0.copyload = load i32, ptr %57, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  %65 = load i8, ptr %64, align 1, !tbaa !113, !range !54, !noundef !55
-  %66 = trunc nuw i8 %65 to i1
-  tail call void @b2World_EnableContinuous(i32 %.sroa.039.0.copyload, i1 noundef zeroext %66)
-  %.sroa.036.0.copyload = load i32, ptr %57, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %68 = load i32, ptr %67, align 4, !tbaa !114
-  tail call void @b2World_Step(i32 %.sroa.036.0.copyload, float noundef %.0, i32 noundef %68)
+  %31 = tail call { <2 x float>, <2 x float> } @_ZN6Camera13GetViewBoundsEv(ptr noundef nonnull align 4 dereferenceable(20) @g_camera)
+  %32 = extractvalue { <2 x float>, <2 x float> } %31, 0
+  %33 = extractvalue { <2 x float>, <2 x float> } %31, 1
+  store <2 x float> %32, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 144), align 8
+  store <2 x float> %33, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 152), align 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %35 = load i8, ptr %34, align 4, !tbaa !88, !range !54, !noundef !55
+  store i8 %35, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 160), align 8, !tbaa !89
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %37 = load i8, ptr %36, align 1, !tbaa !90, !range !54, !noundef !55
+  store i8 %37, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 161), align 1, !tbaa !91
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %39 = load i8, ptr %38, align 2, !tbaa !92, !range !54, !noundef !55
+  store i8 %39, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 162), align 2, !tbaa !93
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 27
+  %41 = load i8, ptr %40, align 1, !tbaa !94, !range !54, !noundef !55
+  store i8 %41, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 163), align 1, !tbaa !95
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %43 = load i8, ptr %42, align 4, !tbaa !96, !range !54, !noundef !55
+  store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 164), align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %45 = load i8, ptr %44, align 1, !tbaa !98, !range !54, !noundef !55
+  store i8 %45, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 165), align 1, !tbaa !99
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %47 = load i8, ptr %46, align 2, !tbaa !100, !range !54, !noundef !55
+  store i8 %47, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 166), align 2, !tbaa !101
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %49 = load i8, ptr %48, align 1, !tbaa !102, !range !54, !noundef !55
+  store i8 %49, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 167), align 1, !tbaa !103
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %51 = load i8, ptr %50, align 1, !tbaa !104, !range !54, !noundef !55
+  store i8 %51, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 168), align 8, !tbaa !105
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %53 = load i8, ptr %52, align 2, !tbaa !106, !range !54, !noundef !55
+  store i8 %53, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 169), align 1, !tbaa !107
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 31
+  %55 = load i8, ptr %54, align 1, !tbaa !108, !range !54, !noundef !55
+  store i8 %55, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 170), align 2, !tbaa !109
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %57 = load i8, ptr %56, align 4, !tbaa !110, !range !54, !noundef !55
+  store i8 %57, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 171), align 1, !tbaa !111
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.sroa.041.0.copyload = load i32, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %60 = load i8, ptr %59, align 4, !tbaa !53, !range !54, !noundef !55
+  %61 = trunc nuw i8 %60 to i1
+  tail call void @b2World_EnableSleeping(i32 %.sroa.041.0.copyload, i1 noundef zeroext %61)
+  %.sroa.040.0.copyload = load i32, ptr %58, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 38
+  %63 = load i8, ptr %62, align 2, !tbaa !112, !range !54, !noundef !55
+  %64 = trunc nuw i8 %63 to i1
+  tail call void @b2World_EnableWarmStarting(i32 %.sroa.040.0.copyload, i1 noundef zeroext %64)
+  %.sroa.039.0.copyload = load i32, ptr %58, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  %66 = load i8, ptr %65, align 1, !tbaa !113, !range !54, !noundef !55
+  %67 = trunc nuw i8 %66 to i1
+  tail call void @b2World_EnableContinuous(i32 %.sroa.039.0.copyload, i1 noundef zeroext %67)
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.036.0.copyload = load i32, ptr %58, align 4
+  %70 = load i32, ptr %68, align 4, !tbaa !114
+  tail call void @b2World_Step(i32 %.sroa.036.0.copyload, float noundef %.0, i32 noundef %70)
   store i32 0, ptr %69, align 8, !tbaa !40
-  %.sroa.035.0.copyload = load i32, ptr %57, align 4
+  %.sroa.035.0.copyload = load i32, ptr %58, align 4
   tail call void @b2World_Draw(i32 %.sroa.035.0.copyload, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @g_draw, i64 72))
-  %70 = fcmp ogt float %.0, 0.000000e+00
-  br i1 %70, label %71, label %75
+  %71 = fcmp ogt float %.0, 0.000000e+00
+  br i1 %71, label %72, label %76
 
-71:                                               ; preds = %.critedge
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %73 = load i32, ptr %72, align 8, !tbaa !44
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %72, align 8, !tbaa !44
-  br label %75
+72:                                               ; preds = %30
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %74 = load i32, ptr %73, align 8, !tbaa !44
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %73, align 8, !tbaa !44
+  br label %76
 
-75:                                               ; preds = %71, %.critedge
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %77 = load i8, ptr %76, align 4, !tbaa !115, !range !54, !noundef !55
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %142
+76:                                               ; preds = %72, %30
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %78 = load i8, ptr %77, align 4, !tbaa !115, !range !54, !noundef !55
+  %79 = trunc nuw i8 %78 to i1
+  br i1 %79, label %80, label %143
 
-79:                                               ; preds = %75
+80:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.034.0.copyload = load i32, ptr %57, align 4
+  %.sroa.034.0.copyload = load i32, ptr %58, align 4
   call void @b2World_GetCounters(ptr dead_on_unwind nonnull writable sret(%struct.b2Counters) align 4 %3, i32 %.sroa.034.0.copyload)
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load i32, ptr %80, align 8, !tbaa !42
-  %82 = load i32, ptr %3, align 4, !tbaa !116
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %84 = load i32, ptr %83, align 4, !tbaa !118
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %86 = load i32, ptr %85, align 4, !tbaa !119
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %88 = load i32, ptr %87, align 4, !tbaa !120
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %81, ptr noundef nonnull @.str.2, i32 noundef %82, i32 noundef %84, i32 noundef %86, i32 noundef %88)
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %90 = load i32, ptr %89, align 4, !tbaa !43
-  %91 = load i32, ptr %80, align 8, !tbaa !42
-  %92 = add nsw i32 %91, %90
-  store i32 %92, ptr %80, align 8, !tbaa !42
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !121
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %96 = load i32, ptr %95, align 4, !tbaa !122
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %92, ptr noundef nonnull @.str.3, i32 noundef %94, i32 noundef %96)
-  %97 = load i32, ptr %89, align 4, !tbaa !43
-  %98 = load i32, ptr %80, align 8, !tbaa !42
-  %99 = add nsw i32 %98, %97
-  store i32 %99, ptr %80, align 8, !tbaa !42
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %101 = load i32, ptr %100, align 4, !tbaa !123
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %103 = load i32, ptr %102, align 4, !tbaa !124
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %99, ptr noundef nonnull @.str.4, i32 noundef %101, i32 noundef %103)
-  %104 = load i32, ptr %89, align 4, !tbaa !43
-  %105 = load i32, ptr %80, align 8, !tbaa !42
-  %106 = add nsw i32 %105, %104
-  store i32 %106, ptr %80, align 8, !tbaa !42
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %82 = load i32, ptr %81, align 8, !tbaa !42
+  %83 = load i32, ptr %3, align 4, !tbaa !116
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %85 = load i32, ptr %84, align 4, !tbaa !118
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %87 = load i32, ptr %86, align 4, !tbaa !119
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %89 = load i32, ptr %88, align 4, !tbaa !120
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %82, ptr noundef nonnull @.str.2, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %89)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %91 = load i32, ptr %90, align 4, !tbaa !43
+  %92 = load i32, ptr %81, align 8, !tbaa !42
+  %93 = add nsw i32 %92, %91
+  store i32 %93, ptr %81, align 8, !tbaa !42
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %95 = load i32, ptr %94, align 4, !tbaa !121
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %97 = load i32, ptr %96, align 4, !tbaa !122
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %93, ptr noundef nonnull @.str.3, i32 noundef %95, i32 noundef %97)
+  %98 = load i32, ptr %90, align 4, !tbaa !43
+  %99 = load i32, ptr %81, align 8, !tbaa !42
+  %100 = add nsw i32 %99, %98
+  store i32 %100, ptr %81, align 8, !tbaa !42
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %102 = load i32, ptr %101, align 4, !tbaa !123
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %104 = load i32, ptr %103, align 4, !tbaa !124
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %100, ptr noundef nonnull @.str.4, i32 noundef %102, i32 noundef %104)
+  %105 = load i32, ptr %90, align 4, !tbaa !43
+  %106 = load i32, ptr %81, align 8, !tbaa !42
+  %107 = add nsw i32 %106, %105
+  store i32 %107, ptr %81, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(247) %107, i8 0, i64 247, i1 false)
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(247) %108, i8 0, i64 247, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %131
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  br label %132
 
-109:                                              ; preds = %131
-  %110 = sext i32 %139 to i64
-  %111 = getelementptr inbounds i8, ptr %4, i64 %110
-  %112 = sub nsw i32 256, %139
-  %113 = sext i32 %112 to i64
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %111, i64 noundef %113, ptr noundef nonnull @.str.7, i32 noundef %141) #23
-  %115 = load i32, ptr %80, align 8, !tbaa !42
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %115, ptr noundef nonnull %4)
-  %116 = load i32, ptr %89, align 4, !tbaa !43
-  %117 = load i32, ptr %80, align 8, !tbaa !42
-  %118 = add nsw i32 %117, %116
-  store i32 %118, ptr %80, align 8, !tbaa !42
-  %119 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %120 = load i32, ptr %119, align 4, !tbaa !125
-  %121 = sdiv i32 %120, 1024
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %118, ptr noundef nonnull @.str.8, i32 noundef %121)
-  %122 = load i32, ptr %89, align 4, !tbaa !43
-  %123 = load i32, ptr %80, align 8, !tbaa !42
-  %124 = add nsw i32 %123, %122
-  store i32 %124, ptr %80, align 8, !tbaa !42
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %126 = load i32, ptr %125, align 4, !tbaa !126
-  %127 = sdiv i32 %126, 1024
-  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %124, ptr noundef nonnull @.str.9, i32 noundef %127)
-  %128 = load i32, ptr %89, align 4, !tbaa !43
-  %129 = load i32, ptr %80, align 8, !tbaa !42
-  %130 = add nsw i32 %129, %128
-  store i32 %130, ptr %80, align 8, !tbaa !42
+110:                                              ; preds = %132
+  %111 = sext i32 %140 to i64
+  %112 = getelementptr inbounds i8, ptr %4, i64 %111
+  %113 = sub nsw i32 256, %140
+  %114 = sext i32 %113 to i64
+  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %112, i64 noundef %114, ptr noundef nonnull @.str.7, i32 noundef %142) #23
+  %116 = load i32, ptr %81, align 8, !tbaa !42
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %116, ptr noundef nonnull %4)
+  %117 = load i32, ptr %90, align 4, !tbaa !43
+  %118 = load i32, ptr %81, align 8, !tbaa !42
+  %119 = add nsw i32 %118, %117
+  store i32 %119, ptr %81, align 8, !tbaa !42
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %121 = load i32, ptr %120, align 4, !tbaa !125
+  %122 = sdiv i32 %121, 1024
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %119, ptr noundef nonnull @.str.8, i32 noundef %122)
+  %123 = load i32, ptr %90, align 4, !tbaa !43
+  %124 = load i32, ptr %81, align 8, !tbaa !42
+  %125 = add nsw i32 %124, %123
+  store i32 %125, ptr %81, align 8, !tbaa !42
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %127 = load i32, ptr %126, align 4, !tbaa !126
+  %128 = sdiv i32 %127, 1024
+  call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %125, ptr noundef nonnull @.str.9, i32 noundef %128)
+  %129 = load i32, ptr %90, align 4, !tbaa !43
+  %130 = load i32, ptr %81, align 8, !tbaa !42
+  %131 = add nsw i32 %130, %129
+  store i32 %131, ptr %81, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %142
+  br label %143
 
-131:                                              ; preds = %79, %131
-  %indvars.iv = phi i64 [ 0, %79 ], [ %indvars.iv.next, %131 ]
-  %.07077 = phi i32 [ 0, %79 ], [ %141, %131 ]
-  %.07275 = phi i32 [ 8, %79 ], [ %139, %131 ]
-  %132 = sext i32 %.07275 to i64
-  %133 = getelementptr inbounds i8, ptr %4, i64 %132
-  %134 = sub nsw i32 256, %.07275
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds nuw [12 x i32], ptr %108, i64 0, i64 %indvars.iv
-  %137 = load i32, ptr %136, align 4, !tbaa !45
-  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %133, i64 noundef %135, ptr noundef nonnull @.str.6, i32 noundef %137) #23
-  %139 = add nsw i32 %138, %.07275
-  %140 = load i32, ptr %136, align 4, !tbaa !45
-  %141 = add nsw i32 %140, %.07077
+132:                                              ; preds = %80, %132
+  %indvars.iv = phi i64 [ 0, %80 ], [ %indvars.iv.next, %132 ]
+  %.07077 = phi i32 [ 0, %80 ], [ %142, %132 ]
+  %.07275 = phi i32 [ 8, %80 ], [ %140, %132 ]
+  %133 = sext i32 %.07275 to i64
+  %134 = getelementptr inbounds i8, ptr %4, i64 %133
+  %135 = sub nsw i32 256, %.07275
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds nuw [12 x i32], ptr %109, i64 0, i64 %indvars.iv
+  %138 = load i32, ptr %137, align 4, !tbaa !45
+  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %134, i64 noundef %136, ptr noundef nonnull @.str.6, i32 noundef %138) #23
+  %140 = add nsw i32 %139, %.07275
+  %141 = load i32, ptr %137, align 4, !tbaa !45
+  %142 = add nsw i32 %141, %.07077
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %109, label %131, !llvm.loop !127
+  br i1 %exitcond.not, label %110, label %132, !llvm.loop !127
 
-142:                                              ; preds = %109, %75
+143:                                              ; preds = %110, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.sroa.023.0.copyload = load i32, ptr %57, align 4
+  %.sroa.023.0.copyload = load i32, ptr %58, align 4
   call void @b2World_GetProfile(ptr dead_on_unwind nonnull writable sret(%struct.b2Profile) align 4 %5, i32 %.sroa.023.0.copyload)
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %144 = load float, ptr %143, align 8, !tbaa !128
-  %145 = load float, ptr %5, align 4, !tbaa !129
-  %146 = fcmp ogt float %144, %145
-  %147 = select i1 %146, float %144, float %145
-  store float %147, ptr %143, align 8, !tbaa !128
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %149 = load float, ptr %148, align 4, !tbaa !130
-  %150 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %151 = load float, ptr %150, align 4, !tbaa !131
-  %152 = fcmp ogt float %149, %151
-  %153 = select i1 %152, float %149, float %151
-  store float %153, ptr %148, align 4, !tbaa !130
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %155 = load float, ptr %154, align 8, !tbaa !132
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %157 = load float, ptr %156, align 4, !tbaa !133
-  %158 = fcmp ogt float %155, %157
-  %159 = select i1 %158, float %155, float %157
-  store float %159, ptr %154, align 8, !tbaa !132
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %161 = load float, ptr %160, align 4, !tbaa !134
-  %162 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %163 = load float, ptr %162, align 4, !tbaa !135
-  %164 = fcmp ogt float %161, %163
-  %165 = select i1 %164, float %161, float %163
-  store float %165, ptr %160, align 4, !tbaa !134
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %167 = load float, ptr %166, align 8, !tbaa !136
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %169 = load float, ptr %168, align 4, !tbaa !137
-  %170 = fcmp ogt float %167, %169
-  %171 = select i1 %170, float %167, float %169
-  store float %171, ptr %166, align 8, !tbaa !136
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %173 = load float, ptr %172, align 4, !tbaa !138
-  %174 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %175 = load float, ptr %174, align 4, !tbaa !139
-  %176 = fcmp ogt float %173, %175
-  %177 = select i1 %176, float %173, float %175
-  store float %177, ptr %172, align 4, !tbaa !138
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %179 = load float, ptr %178, align 8, !tbaa !140
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %181 = load float, ptr %180, align 4, !tbaa !141
-  %182 = fcmp ogt float %179, %181
-  %183 = select i1 %182, float %179, float %181
-  store float %183, ptr %178, align 8, !tbaa !140
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %185 = load float, ptr %184, align 4, !tbaa !142
-  %186 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %187 = load float, ptr %186, align 4, !tbaa !143
-  %188 = fcmp ogt float %185, %187
-  %189 = select i1 %188, float %185, float %187
-  store float %189, ptr %184, align 4, !tbaa !142
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %191 = load float, ptr %190, align 8, !tbaa !144
-  %192 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %193 = load float, ptr %192, align 4, !tbaa !145
-  %194 = fcmp ogt float %191, %193
-  %195 = select i1 %194, float %191, float %193
-  store float %195, ptr %190, align 8, !tbaa !144
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %197 = load float, ptr %196, align 4, !tbaa !146
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %199 = load float, ptr %198, align 4, !tbaa !147
-  %200 = fcmp ogt float %197, %199
-  %201 = select i1 %200, float %197, float %199
-  store float %201, ptr %196, align 4, !tbaa !146
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %203 = load float, ptr %202, align 8, !tbaa !148
-  %204 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %205 = load float, ptr %204, align 4, !tbaa !149
-  %206 = fcmp ogt float %203, %205
-  %207 = select i1 %206, float %203, float %205
-  store float %207, ptr %202, align 8, !tbaa !148
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %209 = load float, ptr %208, align 4, !tbaa !150
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %211 = load float, ptr %210, align 4, !tbaa !151
-  %212 = fcmp ogt float %209, %211
-  %213 = select i1 %212, float %209, float %211
-  store float %213, ptr %208, align 4, !tbaa !150
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %215 = load float, ptr %214, align 8, !tbaa !152
-  %216 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %217 = load float, ptr %216, align 4, !tbaa !153
-  %218 = fcmp ogt float %215, %217
-  %219 = select i1 %218, float %215, float %217
-  store float %219, ptr %214, align 8, !tbaa !152
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %221 = load float, ptr %220, align 4, !tbaa !154
-  %222 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %223 = load float, ptr %222, align 4, !tbaa !155
-  %224 = fcmp ogt float %221, %223
-  %225 = select i1 %224, float %221, float %223
-  store float %225, ptr %220, align 4, !tbaa !154
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %227 = load float, ptr %226, align 8, !tbaa !156
-  %228 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %229 = load float, ptr %228, align 4, !tbaa !157
-  %230 = fcmp ogt float %227, %229
-  %231 = select i1 %230, float %227, float %229
-  store float %231, ptr %226, align 8, !tbaa !156
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %233 = load float, ptr %232, align 8, !tbaa !158
-  %234 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %235 = load float, ptr %234, align 4, !tbaa !159
-  %236 = fcmp ogt float %233, %235
-  %237 = select i1 %236, float %233, float %235
-  store float %237, ptr %232, align 8, !tbaa !158
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %239 = load float, ptr %238, align 4, !tbaa !160
-  %240 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %241 = load float, ptr %240, align 4, !tbaa !161
-  %242 = fcmp ogt float %239, %241
-  %243 = select i1 %242, float %239, float %241
-  store float %243, ptr %238, align 4, !tbaa !160
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %245 = load float, ptr %244, align 4, !tbaa !162
-  %246 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %247 = load float, ptr %246, align 4, !tbaa !163
-  %248 = fcmp ogt float %245, %247
-  %249 = select i1 %248, float %245, float %247
-  store float %249, ptr %244, align 4, !tbaa !162
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %251 = load float, ptr %250, align 8, !tbaa !164
-  %252 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %253 = load float, ptr %252, align 4, !tbaa !165
-  %254 = fcmp ogt float %251, %253
-  %255 = select i1 %254, float %251, float %253
-  store float %255, ptr %250, align 8, !tbaa !164
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %257 = load float, ptr %256, align 4, !tbaa !166
-  %258 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %259 = load float, ptr %258, align 4, !tbaa !167
-  %260 = fcmp ogt float %257, %259
-  %261 = select i1 %260, float %257, float %259
-  store float %261, ptr %256, align 4, !tbaa !166
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %263 = load float, ptr %262, align 8, !tbaa !168
-  %264 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %265 = load float, ptr %264, align 4, !tbaa !169
-  %266 = fcmp ogt float %263, %265
-  %267 = select i1 %266, float %263, float %265
-  store float %267, ptr %262, align 8, !tbaa !168
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %269 = load float, ptr %268, align 4, !tbaa !170
-  %270 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %271 = load float, ptr %270, align 4, !tbaa !171
-  %272 = fcmp ogt float %269, %271
-  %273 = select i1 %272, float %269, float %271
-  store float %273, ptr %268, align 4, !tbaa !170
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %275 = load float, ptr %274, align 8, !tbaa !172
-  %276 = fadd float %145, %275
-  store float %276, ptr %274, align 8, !tbaa !172
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %278 = load float, ptr %277, align 4, !tbaa !173
-  %279 = fadd float %151, %278
-  store float %279, ptr %277, align 4, !tbaa !173
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %281 = load float, ptr %280, align 8, !tbaa !174
-  %282 = fadd float %157, %281
-  store float %282, ptr %280, align 8, !tbaa !174
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %284 = load float, ptr %283, align 4, !tbaa !175
-  %285 = fadd float %163, %284
-  store float %285, ptr %283, align 4, !tbaa !175
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %287 = load float, ptr %286, align 8, !tbaa !176
-  %288 = fadd float %169, %287
-  store float %288, ptr %286, align 8, !tbaa !176
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %290 = load float, ptr %289, align 4, !tbaa !177
-  %291 = fadd float %175, %290
-  store float %291, ptr %289, align 4, !tbaa !177
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %293 = load float, ptr %292, align 8, !tbaa !178
-  %294 = fadd float %181, %293
-  store float %294, ptr %292, align 8, !tbaa !178
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %296 = load float, ptr %295, align 4, !tbaa !179
-  %297 = fadd float %187, %296
-  store float %297, ptr %295, align 4, !tbaa !179
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %299 = load float, ptr %298, align 8, !tbaa !180
-  %300 = fadd float %193, %299
-  store float %300, ptr %298, align 8, !tbaa !180
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %302 = load float, ptr %301, align 4, !tbaa !181
-  %303 = fadd float %199, %302
-  store float %303, ptr %301, align 4, !tbaa !181
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %305 = load float, ptr %304, align 8, !tbaa !182
-  %306 = fadd float %205, %305
-  store float %306, ptr %304, align 8, !tbaa !182
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %308 = load float, ptr %307, align 4, !tbaa !183
-  %309 = fadd float %211, %308
-  store float %309, ptr %307, align 4, !tbaa !183
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %311 = load float, ptr %310, align 8, !tbaa !184
-  %312 = fadd float %217, %311
-  store float %312, ptr %310, align 8, !tbaa !184
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %314 = load float, ptr %313, align 4, !tbaa !185
-  %315 = fadd float %223, %314
-  store float %315, ptr %313, align 4, !tbaa !185
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %317 = load float, ptr %316, align 8, !tbaa !186
-  %318 = fadd float %229, %317
-  store float %318, ptr %316, align 8, !tbaa !186
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %320 = load float, ptr %319, align 8, !tbaa !187
-  %321 = fadd float %235, %320
-  store float %321, ptr %319, align 8, !tbaa !187
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %323 = load float, ptr %322, align 4, !tbaa !188
-  %324 = fadd float %241, %323
-  store float %324, ptr %322, align 4, !tbaa !188
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %326 = load float, ptr %325, align 4, !tbaa !189
-  %327 = fadd float %247, %326
-  store float %327, ptr %325, align 4, !tbaa !189
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %329 = load float, ptr %328, align 8, !tbaa !190
-  %330 = fadd float %253, %329
-  store float %330, ptr %328, align 8, !tbaa !190
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %332 = load float, ptr %331, align 4, !tbaa !191
-  %333 = fadd float %259, %332
-  store float %333, ptr %331, align 4, !tbaa !191
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %335 = load float, ptr %334, align 8, !tbaa !192
-  %336 = fadd float %265, %335
-  store float %336, ptr %334, align 8, !tbaa !192
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %338 = load float, ptr %337, align 4, !tbaa !193
-  %339 = fadd float %271, %338
-  store float %339, ptr %337, align 4, !tbaa !193
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %145 = load float, ptr %144, align 8, !tbaa !128
+  %146 = load float, ptr %5, align 4, !tbaa !129
+  %147 = fcmp ogt float %145, %146
+  %148 = select i1 %147, float %145, float %146
+  store float %148, ptr %144, align 8, !tbaa !128
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %150 = load float, ptr %149, align 4, !tbaa !130
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %152 = load float, ptr %151, align 4, !tbaa !131
+  %153 = fcmp ogt float %150, %152
+  %154 = select i1 %153, float %150, float %152
+  store float %154, ptr %149, align 4, !tbaa !130
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %156 = load float, ptr %155, align 8, !tbaa !132
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %158 = load float, ptr %157, align 4, !tbaa !133
+  %159 = fcmp ogt float %156, %158
+  %160 = select i1 %159, float %156, float %158
+  store float %160, ptr %155, align 8, !tbaa !132
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %162 = load float, ptr %161, align 4, !tbaa !134
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %164 = load float, ptr %163, align 4, !tbaa !135
+  %165 = fcmp ogt float %162, %164
+  %166 = select i1 %165, float %162, float %164
+  store float %166, ptr %161, align 4, !tbaa !134
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %168 = load float, ptr %167, align 8, !tbaa !136
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %170 = load float, ptr %169, align 4, !tbaa !137
+  %171 = fcmp ogt float %168, %170
+  %172 = select i1 %171, float %168, float %170
+  store float %172, ptr %167, align 8, !tbaa !136
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %174 = load float, ptr %173, align 4, !tbaa !138
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %176 = load float, ptr %175, align 4, !tbaa !139
+  %177 = fcmp ogt float %174, %176
+  %178 = select i1 %177, float %174, float %176
+  store float %178, ptr %173, align 4, !tbaa !138
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %180 = load float, ptr %179, align 8, !tbaa !140
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %182 = load float, ptr %181, align 4, !tbaa !141
+  %183 = fcmp ogt float %180, %182
+  %184 = select i1 %183, float %180, float %182
+  store float %184, ptr %179, align 8, !tbaa !140
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %186 = load float, ptr %185, align 4, !tbaa !142
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %188 = load float, ptr %187, align 4, !tbaa !143
+  %189 = fcmp ogt float %186, %188
+  %190 = select i1 %189, float %186, float %188
+  store float %190, ptr %185, align 4, !tbaa !142
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %192 = load float, ptr %191, align 8, !tbaa !144
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %194 = load float, ptr %193, align 4, !tbaa !145
+  %195 = fcmp ogt float %192, %194
+  %196 = select i1 %195, float %192, float %194
+  store float %196, ptr %191, align 8, !tbaa !144
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %198 = load float, ptr %197, align 4, !tbaa !146
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %200 = load float, ptr %199, align 4, !tbaa !147
+  %201 = fcmp ogt float %198, %200
+  %202 = select i1 %201, float %198, float %200
+  store float %202, ptr %197, align 4, !tbaa !146
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %204 = load float, ptr %203, align 8, !tbaa !148
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %206 = load float, ptr %205, align 4, !tbaa !149
+  %207 = fcmp ogt float %204, %206
+  %208 = select i1 %207, float %204, float %206
+  store float %208, ptr %203, align 8, !tbaa !148
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %210 = load float, ptr %209, align 4, !tbaa !150
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %212 = load float, ptr %211, align 4, !tbaa !151
+  %213 = fcmp ogt float %210, %212
+  %214 = select i1 %213, float %210, float %212
+  store float %214, ptr %209, align 4, !tbaa !150
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %216 = load float, ptr %215, align 8, !tbaa !152
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %218 = load float, ptr %217, align 4, !tbaa !153
+  %219 = fcmp ogt float %216, %218
+  %220 = select i1 %219, float %216, float %218
+  store float %220, ptr %215, align 8, !tbaa !152
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %222 = load float, ptr %221, align 4, !tbaa !154
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %224 = load float, ptr %223, align 4, !tbaa !155
+  %225 = fcmp ogt float %222, %224
+  %226 = select i1 %225, float %222, float %224
+  store float %226, ptr %221, align 4, !tbaa !154
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %228 = load float, ptr %227, align 8, !tbaa !156
+  %229 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %230 = load float, ptr %229, align 4, !tbaa !157
+  %231 = fcmp ogt float %228, %230
+  %232 = select i1 %231, float %228, float %230
+  store float %232, ptr %227, align 8, !tbaa !156
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %234 = load float, ptr %233, align 8, !tbaa !158
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %236 = load float, ptr %235, align 4, !tbaa !159
+  %237 = fcmp ogt float %234, %236
+  %238 = select i1 %237, float %234, float %236
+  store float %238, ptr %233, align 8, !tbaa !158
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %240 = load float, ptr %239, align 4, !tbaa !160
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %242 = load float, ptr %241, align 4, !tbaa !161
+  %243 = fcmp ogt float %240, %242
+  %244 = select i1 %243, float %240, float %242
+  store float %244, ptr %239, align 4, !tbaa !160
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %246 = load float, ptr %245, align 4, !tbaa !162
+  %247 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %248 = load float, ptr %247, align 4, !tbaa !163
+  %249 = fcmp ogt float %246, %248
+  %250 = select i1 %249, float %246, float %248
+  store float %250, ptr %245, align 4, !tbaa !162
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %252 = load float, ptr %251, align 8, !tbaa !164
+  %253 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %254 = load float, ptr %253, align 4, !tbaa !165
+  %255 = fcmp ogt float %252, %254
+  %256 = select i1 %255, float %252, float %254
+  store float %256, ptr %251, align 8, !tbaa !164
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %258 = load float, ptr %257, align 4, !tbaa !166
+  %259 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %260 = load float, ptr %259, align 4, !tbaa !167
+  %261 = fcmp ogt float %258, %260
+  %262 = select i1 %261, float %258, float %260
+  store float %262, ptr %257, align 4, !tbaa !166
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %264 = load float, ptr %263, align 8, !tbaa !168
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %266 = load float, ptr %265, align 4, !tbaa !169
+  %267 = fcmp ogt float %264, %266
+  %268 = select i1 %267, float %264, float %266
+  store float %268, ptr %263, align 8, !tbaa !168
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %270 = load float, ptr %269, align 4, !tbaa !170
+  %271 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %272 = load float, ptr %271, align 4, !tbaa !171
+  %273 = fcmp ogt float %270, %272
+  %274 = select i1 %273, float %270, float %272
+  store float %274, ptr %269, align 4, !tbaa !170
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %276 = load float, ptr %275, align 8, !tbaa !172
+  %277 = fadd float %146, %276
+  store float %277, ptr %275, align 8, !tbaa !172
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %279 = load float, ptr %278, align 4, !tbaa !173
+  %280 = fadd float %152, %279
+  store float %280, ptr %278, align 4, !tbaa !173
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %282 = load float, ptr %281, align 8, !tbaa !174
+  %283 = fadd float %158, %282
+  store float %283, ptr %281, align 8, !tbaa !174
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %285 = load float, ptr %284, align 4, !tbaa !175
+  %286 = fadd float %164, %285
+  store float %286, ptr %284, align 4, !tbaa !175
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %288 = load float, ptr %287, align 8, !tbaa !176
+  %289 = fadd float %170, %288
+  store float %289, ptr %287, align 8, !tbaa !176
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %291 = load float, ptr %290, align 4, !tbaa !177
+  %292 = fadd float %176, %291
+  store float %292, ptr %290, align 4, !tbaa !177
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %294 = load float, ptr %293, align 8, !tbaa !178
+  %295 = fadd float %182, %294
+  store float %295, ptr %293, align 8, !tbaa !178
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %297 = load float, ptr %296, align 4, !tbaa !179
+  %298 = fadd float %188, %297
+  store float %298, ptr %296, align 4, !tbaa !179
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %300 = load float, ptr %299, align 8, !tbaa !180
+  %301 = fadd float %194, %300
+  store float %301, ptr %299, align 8, !tbaa !180
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %303 = load float, ptr %302, align 4, !tbaa !181
+  %304 = fadd float %200, %303
+  store float %304, ptr %302, align 4, !tbaa !181
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %306 = load float, ptr %305, align 8, !tbaa !182
+  %307 = fadd float %206, %306
+  store float %307, ptr %305, align 8, !tbaa !182
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %309 = load float, ptr %308, align 4, !tbaa !183
+  %310 = fadd float %212, %309
+  store float %310, ptr %308, align 4, !tbaa !183
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %312 = load float, ptr %311, align 8, !tbaa !184
+  %313 = fadd float %218, %312
+  store float %313, ptr %311, align 8, !tbaa !184
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %315 = load float, ptr %314, align 4, !tbaa !185
+  %316 = fadd float %224, %315
+  store float %316, ptr %314, align 4, !tbaa !185
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %318 = load float, ptr %317, align 8, !tbaa !186
+  %319 = fadd float %230, %318
+  store float %319, ptr %317, align 8, !tbaa !186
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %321 = load float, ptr %320, align 8, !tbaa !187
+  %322 = fadd float %236, %321
+  store float %322, ptr %320, align 8, !tbaa !187
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %324 = load float, ptr %323, align 4, !tbaa !188
+  %325 = fadd float %242, %324
+  store float %325, ptr %323, align 4, !tbaa !188
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %327 = load float, ptr %326, align 4, !tbaa !189
+  %328 = fadd float %248, %327
+  store float %328, ptr %326, align 4, !tbaa !189
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %330 = load float, ptr %329, align 8, !tbaa !190
+  %331 = fadd float %254, %330
+  store float %331, ptr %329, align 8, !tbaa !190
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %333 = load float, ptr %332, align 4, !tbaa !191
+  %334 = fadd float %260, %333
+  store float %334, ptr %332, align 4, !tbaa !191
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %336 = load float, ptr %335, align 8, !tbaa !192
+  %337 = fadd float %266, %336
+  store float %337, ptr %335, align 8, !tbaa !192
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %339 = load float, ptr %338, align 4, !tbaa !193
+  %340 = fadd float %272, %339
+  store float %340, ptr %338, align 4, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  %341 = load i8, ptr %340, align 1, !tbaa !194, !range !54, !noundef !55
-  %342 = trunc nuw i8 %341 to i1
-  br i1 %342, label %343, label %526
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 37
+  %342 = load i8, ptr %341, align 1, !tbaa !194, !range !54, !noundef !55
+  %343 = trunc nuw i8 %342 to i1
+  br i1 %343, label %344, label %527
 
-343:                                              ; preds = %142
+344:                                              ; preds = %143
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.sroa.022.0.copyload = load i32, ptr %57, align 4
+  %.sroa.022.0.copyload = load i32, ptr %58, align 4
   call void @b2World_GetProfile(ptr dead_on_unwind nonnull writable sret(%struct.b2Profile) align 4 %6, i32 %.sroa.022.0.copyload)
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %345 = load i32, ptr %344, align 8, !tbaa !44
-  %346 = icmp sgt i32 %345, 0
-  br i1 %346, label %347, label %416
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %346 = load i32, ptr %345, align 8, !tbaa !44
+  %347 = icmp sgt i32 %346, 0
+  br i1 %347, label %348, label %417
 
-347:                                              ; preds = %343
-  %348 = uitofp nneg i32 %345 to float
-  %349 = fdiv float 1.000000e+00, %348
-  %350 = load float, ptr %274, align 8, !tbaa !172
-  %351 = fmul float %349, %350
-  %352 = load float, ptr %277, align 4, !tbaa !173
-  %353 = fmul float %349, %352
-  %354 = load float, ptr %280, align 8, !tbaa !174
-  %355 = fmul float %349, %354
-  %356 = load float, ptr %283, align 4, !tbaa !175
-  %357 = fmul float %349, %356
-  %358 = load float, ptr %286, align 8, !tbaa !176
-  %359 = fmul float %349, %358
-  %360 = load float, ptr %289, align 4, !tbaa !177
-  %361 = fmul float %349, %360
-  %362 = load float, ptr %292, align 8, !tbaa !178
-  %363 = fmul float %349, %362
-  %364 = load float, ptr %295, align 4, !tbaa !179
-  %365 = fmul float %349, %364
-  %366 = load float, ptr %298, align 8, !tbaa !180
-  %367 = fmul float %349, %366
-  %368 = load float, ptr %301, align 4, !tbaa !181
-  %369 = fmul float %349, %368
-  %370 = load float, ptr %304, align 8, !tbaa !182
-  %371 = fmul float %349, %370
-  %372 = load float, ptr %307, align 4, !tbaa !183
-  %373 = fmul float %349, %372
-  %374 = load float, ptr %310, align 8, !tbaa !184
-  %375 = fmul float %349, %374
-  %376 = load float, ptr %313, align 4, !tbaa !185
-  %377 = fmul float %349, %376
-  %378 = load float, ptr %316, align 8, !tbaa !186
-  %379 = fmul float %349, %378
-  %380 = load float, ptr %319, align 8, !tbaa !187
-  %381 = fmul float %349, %380
-  %382 = load float, ptr %322, align 4, !tbaa !188
-  %383 = fmul float %349, %382
-  %384 = load float, ptr %325, align 4, !tbaa !189
-  %385 = fmul float %349, %384
-  %386 = load float, ptr %328, align 8, !tbaa !190
-  %387 = fmul float %349, %386
-  %388 = load float, ptr %331, align 4, !tbaa !191
-  %389 = fmul float %349, %388
-  %390 = load float, ptr %334, align 8, !tbaa !192
-  %391 = fmul float %349, %390
-  %392 = load float, ptr %337, align 4, !tbaa !193
-  %393 = fmul float %349, %392
-  %394 = fpext float %351 to double
-  %395 = fpext float %353 to double
-  %396 = fpext float %355 to double
-  %397 = fpext float %357 to double
-  %398 = fpext float %359 to double
-  %399 = fpext float %361 to double
-  %400 = fpext float %363 to double
-  %401 = fpext float %365 to double
-  %402 = fpext float %367 to double
-  %403 = fpext float %369 to double
-  %404 = fpext float %371 to double
-  %405 = fpext float %373 to double
-  %406 = fpext float %375 to double
-  %407 = fpext float %377 to double
-  %408 = fpext float %379 to double
-  %409 = fpext float %383 to double
-  %410 = fpext float %381 to double
-  %411 = fpext float %385 to double
-  %412 = fpext float %387 to double
-  %413 = fpext float %391 to double
-  %414 = fpext float %389 to double
-  %415 = fpext float %393 to double
-  br label %416
+348:                                              ; preds = %344
+  %349 = uitofp nneg i32 %346 to float
+  %350 = fdiv float 1.000000e+00, %349
+  %351 = load float, ptr %275, align 8, !tbaa !172
+  %352 = fmul float %350, %351
+  %353 = load float, ptr %278, align 4, !tbaa !173
+  %354 = fmul float %350, %353
+  %355 = load float, ptr %281, align 8, !tbaa !174
+  %356 = fmul float %350, %355
+  %357 = load float, ptr %284, align 4, !tbaa !175
+  %358 = fmul float %350, %357
+  %359 = load float, ptr %287, align 8, !tbaa !176
+  %360 = fmul float %350, %359
+  %361 = load float, ptr %290, align 4, !tbaa !177
+  %362 = fmul float %350, %361
+  %363 = load float, ptr %293, align 8, !tbaa !178
+  %364 = fmul float %350, %363
+  %365 = load float, ptr %296, align 4, !tbaa !179
+  %366 = fmul float %350, %365
+  %367 = load float, ptr %299, align 8, !tbaa !180
+  %368 = fmul float %350, %367
+  %369 = load float, ptr %302, align 4, !tbaa !181
+  %370 = fmul float %350, %369
+  %371 = load float, ptr %305, align 8, !tbaa !182
+  %372 = fmul float %350, %371
+  %373 = load float, ptr %308, align 4, !tbaa !183
+  %374 = fmul float %350, %373
+  %375 = load float, ptr %311, align 8, !tbaa !184
+  %376 = fmul float %350, %375
+  %377 = load float, ptr %314, align 4, !tbaa !185
+  %378 = fmul float %350, %377
+  %379 = load float, ptr %317, align 8, !tbaa !186
+  %380 = fmul float %350, %379
+  %381 = load float, ptr %320, align 8, !tbaa !187
+  %382 = fmul float %350, %381
+  %383 = load float, ptr %323, align 4, !tbaa !188
+  %384 = fmul float %350, %383
+  %385 = load float, ptr %326, align 4, !tbaa !189
+  %386 = fmul float %350, %385
+  %387 = load float, ptr %329, align 8, !tbaa !190
+  %388 = fmul float %350, %387
+  %389 = load float, ptr %332, align 4, !tbaa !191
+  %390 = fmul float %350, %389
+  %391 = load float, ptr %335, align 8, !tbaa !192
+  %392 = fmul float %350, %391
+  %393 = load float, ptr %338, align 4, !tbaa !193
+  %394 = fmul float %350, %393
+  %395 = fpext float %352 to double
+  %396 = fpext float %354 to double
+  %397 = fpext float %356 to double
+  %398 = fpext float %358 to double
+  %399 = fpext float %360 to double
+  %400 = fpext float %362 to double
+  %401 = fpext float %364 to double
+  %402 = fpext float %366 to double
+  %403 = fpext float %368 to double
+  %404 = fpext float %370 to double
+  %405 = fpext float %372 to double
+  %406 = fpext float %374 to double
+  %407 = fpext float %376 to double
+  %408 = fpext float %378 to double
+  %409 = fpext float %380 to double
+  %410 = fpext float %384 to double
+  %411 = fpext float %382 to double
+  %412 = fpext float %386 to double
+  %413 = fpext float %388 to double
+  %414 = fpext float %392 to double
+  %415 = fpext float %390 to double
+  %416 = fpext float %394 to double
+  br label %417
 
-416:                                              ; preds = %347, %343
-  %.sroa.0.0 = phi double [ %394, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.5.0 = phi double [ %395, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.7.0 = phi double [ %396, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.9.0 = phi double [ %397, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.11.0 = phi double [ %398, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.13.0 = phi double [ %399, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.15.0 = phi double [ %400, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.17.0 = phi double [ %401, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.19.0 = phi double [ %402, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.21.0 = phi double [ %403, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.23.0 = phi double [ %404, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.25.0 = phi double [ %405, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.27.0 = phi double [ %406, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.29.0 = phi double [ %407, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.31.0 = phi double [ %408, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.33.0 = phi double [ %409, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.35.0 = phi double [ %410, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.37.0 = phi double [ %411, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.39.0 = phi double [ %412, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.41.0 = phi double [ %414, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.43.0 = phi double [ %413, %347 ], [ 0.000000e+00, %343 ]
-  %.sroa.45.0 = phi double [ %415, %347 ], [ 0.000000e+00, %343 ]
-  %417 = load float, ptr %6, align 4, !tbaa !129
-  %418 = fpext float %417 to double
-  %419 = load float, ptr %143, align 8, !tbaa !128
-  %420 = fpext float %419 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.10, double noundef %418, double noundef %.sroa.0.0, double noundef %420)
-  %421 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %422 = load float, ptr %421, align 4, !tbaa !131
-  %423 = fpext float %422 to double
-  %424 = load float, ptr %148, align 4, !tbaa !130
-  %425 = fpext float %424 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.11, double noundef %423, double noundef %.sroa.5.0, double noundef %425)
-  %426 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %427 = load float, ptr %426, align 4, !tbaa !133
-  %428 = fpext float %427 to double
-  %429 = load float, ptr %154, align 8, !tbaa !132
-  %430 = fpext float %429 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.12, double noundef %428, double noundef %.sroa.7.0, double noundef %430)
-  %431 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %432 = load float, ptr %431, align 4, !tbaa !135
-  %433 = fpext float %432 to double
-  %434 = load float, ptr %160, align 4, !tbaa !134
-  %435 = fpext float %434 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.13, double noundef %433, double noundef %.sroa.9.0, double noundef %435)
-  %436 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %437 = load float, ptr %436, align 4, !tbaa !137
-  %438 = fpext float %437 to double
-  %439 = load float, ptr %166, align 8, !tbaa !136
-  %440 = fpext float %439 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.14, double noundef %438, double noundef %.sroa.11.0, double noundef %440)
-  %441 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %442 = load float, ptr %441, align 4, !tbaa !139
-  %443 = fpext float %442 to double
-  %444 = load float, ptr %172, align 4, !tbaa !138
-  %445 = fpext float %444 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.15, double noundef %443, double noundef %.sroa.13.0, double noundef %445)
-  %446 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %447 = load float, ptr %446, align 4, !tbaa !141
-  %448 = fpext float %447 to double
-  %449 = load float, ptr %178, align 8, !tbaa !140
-  %450 = fpext float %449 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.16, double noundef %448, double noundef %.sroa.15.0, double noundef %450)
-  %451 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %452 = load float, ptr %451, align 4, !tbaa !143
-  %453 = fpext float %452 to double
-  %454 = load float, ptr %184, align 4, !tbaa !142
-  %455 = fpext float %454 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.17, double noundef %453, double noundef %.sroa.17.0, double noundef %455)
-  %456 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %457 = load float, ptr %456, align 4, !tbaa !145
-  %458 = fpext float %457 to double
-  %459 = load float, ptr %190, align 8, !tbaa !144
-  %460 = fpext float %459 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.18, double noundef %458, double noundef %.sroa.19.0, double noundef %460)
-  %461 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %462 = load float, ptr %461, align 4, !tbaa !147
-  %463 = fpext float %462 to double
-  %464 = load float, ptr %196, align 4, !tbaa !146
-  %465 = fpext float %464 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.19, double noundef %463, double noundef %.sroa.21.0, double noundef %465)
-  %466 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %467 = load float, ptr %466, align 4, !tbaa !149
-  %468 = fpext float %467 to double
-  %469 = load float, ptr %202, align 8, !tbaa !148
-  %470 = fpext float %469 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.20, double noundef %468, double noundef %.sroa.23.0, double noundef %470)
-  %471 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %472 = load float, ptr %471, align 4, !tbaa !151
-  %473 = fpext float %472 to double
-  %474 = load float, ptr %208, align 4, !tbaa !150
-  %475 = fpext float %474 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.21, double noundef %473, double noundef %.sroa.25.0, double noundef %475)
-  %476 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %477 = load float, ptr %476, align 4, !tbaa !153
-  %478 = fpext float %477 to double
-  %479 = load float, ptr %214, align 8, !tbaa !152
-  %480 = fpext float %479 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.22, double noundef %478, double noundef %.sroa.27.0, double noundef %480)
-  %481 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %482 = load float, ptr %481, align 4, !tbaa !155
-  %483 = fpext float %482 to double
-  %484 = load float, ptr %220, align 4, !tbaa !154
-  %485 = fpext float %484 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.23, double noundef %483, double noundef %.sroa.29.0, double noundef %485)
-  %486 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %487 = load float, ptr %486, align 4, !tbaa !157
-  %488 = fpext float %487 to double
-  %489 = load float, ptr %226, align 8, !tbaa !156
-  %490 = fpext float %489 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.24, double noundef %488, double noundef %.sroa.31.0, double noundef %490)
-  %491 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %492 = load float, ptr %491, align 4, !tbaa !161
-  %493 = fpext float %492 to double
-  %494 = load float, ptr %238, align 4, !tbaa !160
-  %495 = fpext float %494 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.25, double noundef %493, double noundef %.sroa.33.0, double noundef %495)
-  %496 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %497 = load float, ptr %496, align 4, !tbaa !159
-  %498 = fpext float %497 to double
-  %499 = load float, ptr %232, align 8, !tbaa !158
-  %500 = fpext float %499 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.26, double noundef %498, double noundef %.sroa.35.0, double noundef %500)
-  %501 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %502 = load float, ptr %501, align 4, !tbaa !163
-  %503 = fpext float %502 to double
-  %504 = load float, ptr %244, align 4, !tbaa !162
-  %505 = fpext float %504 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.27, double noundef %503, double noundef %.sroa.37.0, double noundef %505)
-  %506 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %507 = load float, ptr %506, align 4, !tbaa !165
-  %508 = fpext float %507 to double
-  %509 = load float, ptr %250, align 8, !tbaa !164
-  %510 = fpext float %509 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.28, double noundef %508, double noundef %.sroa.39.0, double noundef %510)
-  %511 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %512 = load float, ptr %511, align 4, !tbaa !169
-  %513 = fpext float %512 to double
-  %514 = load float, ptr %262, align 8, !tbaa !168
-  %515 = fpext float %514 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.29, double noundef %513, double noundef %.sroa.43.0, double noundef %515)
-  %516 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %517 = load float, ptr %516, align 4, !tbaa !167
-  %518 = fpext float %517 to double
-  %519 = load float, ptr %256, align 4, !tbaa !166
-  %520 = fpext float %519 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.30, double noundef %518, double noundef %.sroa.41.0, double noundef %520)
-  %521 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  %522 = load float, ptr %521, align 4, !tbaa !171
-  %523 = fpext float %522 to double
-  %524 = load float, ptr %268, align 4, !tbaa !170
-  %525 = fpext float %524 to double
-  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.31, double noundef %523, double noundef %.sroa.45.0, double noundef %525)
+417:                                              ; preds = %348, %344
+  %.sroa.0.0 = phi double [ %395, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.5.0 = phi double [ %396, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.7.0 = phi double [ %397, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.9.0 = phi double [ %398, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.11.0 = phi double [ %399, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.13.0 = phi double [ %400, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.15.0 = phi double [ %401, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.17.0 = phi double [ %402, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.19.0 = phi double [ %403, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.21.0 = phi double [ %404, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.23.0 = phi double [ %405, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.25.0 = phi double [ %406, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.27.0 = phi double [ %407, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.29.0 = phi double [ %408, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.31.0 = phi double [ %409, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.33.0 = phi double [ %410, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.35.0 = phi double [ %411, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.37.0 = phi double [ %412, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.39.0 = phi double [ %413, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.41.0 = phi double [ %415, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.43.0 = phi double [ %414, %348 ], [ 0.000000e+00, %344 ]
+  %.sroa.45.0 = phi double [ %416, %348 ], [ 0.000000e+00, %344 ]
+  %418 = load float, ptr %6, align 4, !tbaa !129
+  %419 = fpext float %418 to double
+  %420 = load float, ptr %144, align 8, !tbaa !128
+  %421 = fpext float %420 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.10, double noundef %419, double noundef %.sroa.0.0, double noundef %421)
+  %422 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %423 = load float, ptr %422, align 4, !tbaa !131
+  %424 = fpext float %423 to double
+  %425 = load float, ptr %149, align 4, !tbaa !130
+  %426 = fpext float %425 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.11, double noundef %424, double noundef %.sroa.5.0, double noundef %426)
+  %427 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %428 = load float, ptr %427, align 4, !tbaa !133
+  %429 = fpext float %428 to double
+  %430 = load float, ptr %155, align 8, !tbaa !132
+  %431 = fpext float %430 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.12, double noundef %429, double noundef %.sroa.7.0, double noundef %431)
+  %432 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %433 = load float, ptr %432, align 4, !tbaa !135
+  %434 = fpext float %433 to double
+  %435 = load float, ptr %161, align 4, !tbaa !134
+  %436 = fpext float %435 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.13, double noundef %434, double noundef %.sroa.9.0, double noundef %436)
+  %437 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %438 = load float, ptr %437, align 4, !tbaa !137
+  %439 = fpext float %438 to double
+  %440 = load float, ptr %167, align 8, !tbaa !136
+  %441 = fpext float %440 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.14, double noundef %439, double noundef %.sroa.11.0, double noundef %441)
+  %442 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %443 = load float, ptr %442, align 4, !tbaa !139
+  %444 = fpext float %443 to double
+  %445 = load float, ptr %173, align 4, !tbaa !138
+  %446 = fpext float %445 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.15, double noundef %444, double noundef %.sroa.13.0, double noundef %446)
+  %447 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %448 = load float, ptr %447, align 4, !tbaa !141
+  %449 = fpext float %448 to double
+  %450 = load float, ptr %179, align 8, !tbaa !140
+  %451 = fpext float %450 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.16, double noundef %449, double noundef %.sroa.15.0, double noundef %451)
+  %452 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %453 = load float, ptr %452, align 4, !tbaa !143
+  %454 = fpext float %453 to double
+  %455 = load float, ptr %185, align 4, !tbaa !142
+  %456 = fpext float %455 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.17, double noundef %454, double noundef %.sroa.17.0, double noundef %456)
+  %457 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %458 = load float, ptr %457, align 4, !tbaa !145
+  %459 = fpext float %458 to double
+  %460 = load float, ptr %191, align 8, !tbaa !144
+  %461 = fpext float %460 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.18, double noundef %459, double noundef %.sroa.19.0, double noundef %461)
+  %462 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %463 = load float, ptr %462, align 4, !tbaa !147
+  %464 = fpext float %463 to double
+  %465 = load float, ptr %197, align 4, !tbaa !146
+  %466 = fpext float %465 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.19, double noundef %464, double noundef %.sroa.21.0, double noundef %466)
+  %467 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %468 = load float, ptr %467, align 4, !tbaa !149
+  %469 = fpext float %468 to double
+  %470 = load float, ptr %203, align 8, !tbaa !148
+  %471 = fpext float %470 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.20, double noundef %469, double noundef %.sroa.23.0, double noundef %471)
+  %472 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %473 = load float, ptr %472, align 4, !tbaa !151
+  %474 = fpext float %473 to double
+  %475 = load float, ptr %209, align 4, !tbaa !150
+  %476 = fpext float %475 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.21, double noundef %474, double noundef %.sroa.25.0, double noundef %476)
+  %477 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %478 = load float, ptr %477, align 4, !tbaa !153
+  %479 = fpext float %478 to double
+  %480 = load float, ptr %215, align 8, !tbaa !152
+  %481 = fpext float %480 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.22, double noundef %479, double noundef %.sroa.27.0, double noundef %481)
+  %482 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %483 = load float, ptr %482, align 4, !tbaa !155
+  %484 = fpext float %483 to double
+  %485 = load float, ptr %221, align 4, !tbaa !154
+  %486 = fpext float %485 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.23, double noundef %484, double noundef %.sroa.29.0, double noundef %486)
+  %487 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %488 = load float, ptr %487, align 4, !tbaa !157
+  %489 = fpext float %488 to double
+  %490 = load float, ptr %227, align 8, !tbaa !156
+  %491 = fpext float %490 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.24, double noundef %489, double noundef %.sroa.31.0, double noundef %491)
+  %492 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  %493 = load float, ptr %492, align 4, !tbaa !161
+  %494 = fpext float %493 to double
+  %495 = load float, ptr %239, align 4, !tbaa !160
+  %496 = fpext float %495 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.25, double noundef %494, double noundef %.sroa.33.0, double noundef %496)
+  %497 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %498 = load float, ptr %497, align 4, !tbaa !159
+  %499 = fpext float %498 to double
+  %500 = load float, ptr %233, align 8, !tbaa !158
+  %501 = fpext float %500 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.26, double noundef %499, double noundef %.sroa.35.0, double noundef %501)
+  %502 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  %503 = load float, ptr %502, align 4, !tbaa !163
+  %504 = fpext float %503 to double
+  %505 = load float, ptr %245, align 4, !tbaa !162
+  %506 = fpext float %505 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.27, double noundef %504, double noundef %.sroa.37.0, double noundef %506)
+  %507 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %508 = load float, ptr %507, align 4, !tbaa !165
+  %509 = fpext float %508 to double
+  %510 = load float, ptr %251, align 8, !tbaa !164
+  %511 = fpext float %510 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.28, double noundef %509, double noundef %.sroa.39.0, double noundef %511)
+  %512 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %513 = load float, ptr %512, align 4, !tbaa !169
+  %514 = fpext float %513 to double
+  %515 = load float, ptr %263, align 8, !tbaa !168
+  %516 = fpext float %515 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.29, double noundef %514, double noundef %.sroa.43.0, double noundef %516)
+  %517 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %518 = load float, ptr %517, align 4, !tbaa !167
+  %519 = fpext float %518 to double
+  %520 = load float, ptr %257, align 4, !tbaa !166
+  %521 = fpext float %520 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.30, double noundef %519, double noundef %.sroa.41.0, double noundef %521)
+  %522 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %523 = load float, ptr %522, align 4, !tbaa !171
+  %524 = fpext float %523 to double
+  %525 = load float, ptr %269, align 4, !tbaa !170
+  %526 = fpext float %525 to double
+  call void (ptr, ptr, ...) @_ZN6Sample12DrawTextLineEPKcz(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull @.str.31, double noundef %524, double noundef %.sroa.45.0, double noundef %526)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %526
+  br label %527
 
-526:                                              ; preds = %416, %142
+527:                                              ; preds = %417, %143
   ret void
 }
 

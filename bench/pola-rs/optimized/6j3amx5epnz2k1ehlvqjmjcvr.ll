@@ -29,7 +29,7 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.sroa.0.08.i.i
   %10 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %9, align 8, !alias.scope !9, !nonnull !10, !noundef !10
-  tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #8, !noalias !9
+  tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #9, !noalias !9
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %"_ZN118_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17hfd2e4efd0db47bcaE.exit", label %8
 
@@ -40,12 +40,12 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26e6be6dc69473E(i64 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
-  %3 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #8
+  %3 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9e851e8db406e40476999d39becdbce6.6) #9
+  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9e851e8db406e40476999d39becdbce6.6) #10
           to label %6 unwind label %14
 
 6:                                                ; preds = %5
@@ -59,7 +59,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26
   store i64 %0, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = inttoptr i64 %0 to ptr
-  %9 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %8) #8
+  %9 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %8) #9
   store i64 1, ptr %2, align 8
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17hcad46319bdb34d22E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
@@ -68,7 +68,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %3) #8
+  call void @Py_DecRef(ptr noundef nonnull %3) #9
   br label %13
 
 12:                                               ; preds = %7
@@ -83,7 +83,9 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h3b26
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = inttoptr i64 %0 to ptr
-  tail call void @Py_DecRef(ptr noundef nonnull %16) #8
+  %17 = icmp ne i64 %0, 0
+  tail call void @llvm.assume(i1 %17)
+  tail call void @Py_DecRef(ptr noundef nonnull %16) #9
   br label %13
 }
 
@@ -199,11 +201,14 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef ptr @PyTuple_New(i64 noundef) unnamed_addr #0
 
 ; Function Attrs: noreturn nonlazybind uwtable
-declare void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
+declare void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17hcad46319bdb34d22E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
@@ -224,30 +229,31 @@ declare hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4a771c85c69509
 declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17he212956ac331a69eE"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

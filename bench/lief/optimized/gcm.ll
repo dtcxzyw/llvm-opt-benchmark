@@ -321,17 +321,17 @@ declare i64 @llvm.bswap.i64(i64) #5
 define internal fastcc void @gcm_mult(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 417
   %5 = load i8, ptr %4, align 1, !tbaa !7
-  switch i8 %5, label %66 [
+  switch i8 %5, label %64 [
     i8 2, label %6
-    i8 0, label %mbedtls_xor_no_simd.exit35.preheader.i.critedge
+    i8 0, label %mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge
   ]
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @mbedtls_aesni_gcm_mult(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %7) #11
-  br label %66
+  br label %64
 
-mbedtls_xor_no_simd.exit35.preheader.i.critedge:  ; preds = %3
+mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge: ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %10 = load i8, ptr %9, align 1, !tbaa !14
@@ -353,63 +353,63 @@ mbedtls_xor_no_simd.exit35.preheader.i.critedge:  ; preds = %3
   %26 = zext nneg i8 %12 to i64
   %27 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %26
   %.0.copyload.i.i = load i64, ptr %27, align 1
-  %28 = xor i64 %25, %.0.copyload.i.i
+  %28 = xor i64 %.0.copyload.i.i, %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.0.copyload.i.i.c = load i64, ptr %29, align 1
   %30 = xor i64 %.0.copyload.i.i.c, %19
   br label %mbedtls_xor_no_simd.exit35.preheader.i
 
-mbedtls_xor_no_simd.exit35.preheader.i:           ; preds = %mbedtls_xor_no_simd.exit35.preheader.i.critedge, %mbedtls_xor_no_simd.exit35.preheader.i
-  %31 = phi i64 [ %60, %mbedtls_xor_no_simd.exit35.preheader.i ], [ %28, %mbedtls_xor_no_simd.exit35.preheader.i.critedge ]
-  %32 = phi i64 [ %62, %mbedtls_xor_no_simd.exit35.preheader.i ], [ %30, %mbedtls_xor_no_simd.exit35.preheader.i.critedge ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %mbedtls_xor_no_simd.exit35.preheader.i ], [ 14, %mbedtls_xor_no_simd.exit35.preheader.i.critedge ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %34 = load i8, ptr %33, align 1, !tbaa !14
-  %35 = and i8 %34, 15
-  %36 = and i64 %32, 15
-  %37 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %32, i64 60)
-  %38 = lshr i64 %31, 4
-  %39 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %36
-  %40 = load i16, ptr %39, align 2, !tbaa !24
-  %41 = zext i16 %40 to i64
-  %42 = shl nuw i64 %41, 48
-  %43 = xor i64 %42, %38
-  %44 = zext nneg i8 %35 to i64
-  %45 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %44
-  %.0.copyload.i37.i = load i64, ptr %45, align 1
-  %46 = xor i64 %43, %.0.copyload.i37.i
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.0.copyload.i37.i.c = load i64, ptr %47, align 1
-  %48 = xor i64 %.0.copyload.i37.i.c, %37
-  %49 = lshr i8 %34, 4
-  %50 = and i64 %48, 15
-  %51 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %48, i64 60)
-  %52 = lshr i64 %46, 4
-  %53 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %50
-  %54 = load i16, ptr %53, align 2, !tbaa !24
-  %55 = zext i16 %54 to i64
-  %56 = shl nuw i64 %55, 48
-  %57 = xor i64 %56, %52
-  %58 = zext nneg i8 %49 to i64
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %58
-  %.0.copyload.i39.i = load i64, ptr %59, align 1
-  %60 = xor i64 %57, %.0.copyload.i39.i
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %.0.copyload.i39.i.c = load i64, ptr %61, align 1
-  %62 = xor i64 %.0.copyload.i39.i.c, %51
+mbedtls_xor_no_simd.exit35.preheader.i:           ; preds = %mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge, %mbedtls_xor_no_simd.exit35.preheader.i
+  %.sroa.0.0 = phi i64 [ %28, %mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge ], [ %58, %mbedtls_xor_no_simd.exit35.preheader.i ]
+  %.sroa.11.0 = phi i64 [ %30, %mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge ], [ %60, %mbedtls_xor_no_simd.exit35.preheader.i ]
+  %indvars.iv.i = phi i64 [ 14, %mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge ], [ %indvars.iv.next.i, %mbedtls_xor_no_simd.exit35.preheader.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
+  %32 = load i8, ptr %31, align 1, !tbaa !14
+  %33 = and i8 %32, 15
+  %34 = and i64 %.sroa.11.0, 15
+  %35 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0.0, i64 %.sroa.11.0, i64 60)
+  %36 = lshr i64 %.sroa.0.0, 4
+  %37 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %34
+  %38 = load i16, ptr %37, align 2, !tbaa !24
+  %39 = zext i16 %38 to i64
+  %40 = shl nuw i64 %39, 48
+  %41 = xor i64 %40, %36
+  %42 = zext nneg i8 %33 to i64
+  %43 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %42
+  %.0.copyload.i37.i = load i64, ptr %43, align 1
+  %44 = xor i64 %.0.copyload.i37.i, %41
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.0.copyload.i37.i.c = load i64, ptr %45, align 1
+  %46 = xor i64 %.0.copyload.i37.i.c, %35
+  %47 = lshr i8 %32, 4
+  %48 = and i64 %46, 15
+  %49 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %46, i64 60)
+  %50 = lshr i64 %44, 4
+  %51 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %48
+  %52 = load i16, ptr %51, align 2, !tbaa !24
+  %53 = zext i16 %52 to i64
+  %54 = shl nuw i64 %53, 48
+  %55 = xor i64 %54, %50
+  %56 = zext nneg i8 %47 to i64
+  %57 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %56
+  %.0.copyload.i39.i = load i64, ptr %57, align 1
+  %58 = xor i64 %.0.copyload.i39.i, %55
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %.0.copyload.i39.i.c = load i64, ptr %59, align 1
+  %60 = xor i64 %.0.copyload.i39.i.c, %49
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %gcm_mult_smalltable.exit, label %mbedtls_xor_no_simd.exit35.preheader.i, !llvm.loop !26
 
 gcm_mult_smalltable.exit:                         ; preds = %mbedtls_xor_no_simd.exit35.preheader.i
+  %61 = tail call i64 @llvm.bswap.i64(i64 %58)
+  store i64 %61, ptr %2, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = tail call i64 @llvm.bswap.i64(i64 %60)
-  store i64 %63, ptr %2, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %65 = tail call i64 @llvm.bswap.i64(i64 %62)
-  store i64 %65, ptr %64, align 1
-  br label %66
+  store i64 %63, ptr %62, align 1
+  br label %64
 
-66:                                               ; preds = %gcm_mult_smalltable.exit, %6, %3
+64:                                               ; preds = %gcm_mult_smalltable.exit, %6, %3
   ret void
 }
 

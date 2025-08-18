@@ -42075,97 +42075,95 @@ define hidden void @"_ZN16tracing_appender6worker15Worker$LT$T$GT$4work17h261050
   %trunc.i = trunc nuw i64 %8 to i1
   br i1 %trunc.i, label %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread", label %9
 
-"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread": ; preds = %2
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %._crit_edge
-
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !5549, !noalias !5552, !noundef !4
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge.critedge, label %12
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread", label %.loopexit52
 
-12:                                               ; preds = %9
+.loopexit52:                                      ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5554
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8, !range !379, !noalias !5554, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i", label %15
+  br i1 %.not.i.i.i.i.i, label %.lr.ph, label %15
 
-15:                                               ; preds = %12
+15:                                               ; preds = %.loopexit52
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8, !noalias !5554, !noundef !4
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i", label %19
+  br i1 %18, label %.lr.ph, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %4, align 8, !noalias !5554, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %17, i64 noundef %14) #40
-  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i"
+  br label %.lr.ph
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i": ; preds = %19, %15, %12
+"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread": ; preds = %2, %9
+  %.sink.i47.ph = phi i8 [ 1, %2 ], [ 3, %9 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %._crit_edge
+
+.lr.ph:                                           ; preds = %19, %15, %.loopexit52
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5554
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %25
-
-25:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i38", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$8try_recv17h911a261bfa6a1074E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, i64 %.val, ptr %.val28)
-  %26 = load i8, ptr %5, align 8, !range !855, !alias.scope !5565, !noalias !5568, !noundef !4
-  %trunc.i35 = trunc nuw i8 %26 to i1
-  br i1 %trunc.i35, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread", label %29
+  %25 = load i8, ptr %5, align 8, !range !855, !alias.scope !5565, !noalias !5568, !noundef !4
+  %trunc.i3557 = trunc nuw i8 %25 to i1
+  br i1 %trunc.i3557, label %"_ZN16tracing_appender6worker15Worker$LT$T$GT$15handle_try_recv17h543adddf77878d60E.exit", label %.lr.ph58
 
-._crit_edge.critedge:                             ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %._crit_edge
+.lr.ph58:                                         ; preds = %.lr.ph, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit"
+  %26 = load ptr, ptr %21, align 8, !alias.scope !5565, !noalias !5568, !noundef !4
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread", label %.loopexit
 
-._crit_edge.critedge55:                           ; preds = %29
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %._crit_edge
+"_ZN16tracing_appender6worker15Worker$LT$T$GT$15handle_try_recv17h543adddf77878d60E.exit": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit", %.lr.ph
+  %28 = load i8, ptr %24, align 1, !range !855, !alias.scope !5565, !noalias !5568, !noundef !4
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread"
 
-._crit_edge:                                      ; preds = %._crit_edge.critedge55, %._crit_edge.critedge, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread", %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread"
-  %.0.lcssa = phi i8 [ 1, %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread" ], [ %28, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread" ], [ 3, %._crit_edge.critedge ], [ 3, %._crit_edge.critedge55 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.0.lcssa, ptr %27, align 1
+.loopexit:                                        ; preds = %.lr.ph58
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5570
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
+  %29 = load i64, ptr %22, align 8, !range !379, !noalias !5570, !noundef !4
+  %.not.i.i.i.i.i38 = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i.i.i38, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit", label %31
+
+._crit_edge:                                      ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread", %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread"
+  %.0.lcssa = phi i8 [ %.sink.i47.ph, %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..RecvError$GT$$GT$17h01fa68d4b4eb0c50E.exit.thread" ], [ %.sroa.2.050.ph, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread" ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.0.lcssa, ptr %30, align 1
   store i8 0, ptr %0, align 8
   ret void
 
-"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread": ; preds = %25
-  %28 = load i8, ptr %24, align 1, !range !855, !alias.scope !5565, !noalias !5568, !noundef !4
+31:                                               ; preds = %.loopexit
+  %32 = load i64, ptr %23, align 8, !noalias !5570, !noundef !4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit", label %34
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %3, align 8, !noalias !5570, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %32, i64 noundef %29) #40
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit"
+
+"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit.thread": ; preds = %.lr.ph58, %"_ZN16tracing_appender6worker15Worker$LT$T$GT$15handle_try_recv17h543adddf77878d60E.exit"
+  %.sroa.2.050.ph = phi i8 [ %28, %"_ZN16tracing_appender6worker15Worker$LT$T$GT$15handle_try_recv17h543adddf77878d60E.exit" ], [ 3, %.lr.ph58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %21, align 8, !alias.scope !5565, !noalias !5568, !noundef !4
-  %.not54 = icmp eq ptr %30, null
-  br i1 %.not54, label %._crit_edge.critedge55, label %31
-
-31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5570
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
-  %32 = load i64, ptr %22, align 8, !range !379, !noalias !5570, !noundef !4
-  %.not.i.i.i.i.i37 = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i.i37, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i38", label %33
-
-33:                                               ; preds = %31
-  %34 = load i64, ptr %23, align 8, !noalias !5570, !noundef !4
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i38", label %36
-
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %3, align 8, !noalias !5570, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef %32) #40
-  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i38"
-
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3b937ca274ff308E.exit.i.i38": ; preds = %36, %33, %31
+"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$tracing_appender..Msg$C$crossbeam_channel..err..TryRecvError$GT$$GT$17hf661916556bf237bE.exit": ; preds = %.loopexit, %31, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5570
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call fastcc void @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$8try_recv17h911a261bfa6a1074E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, i64 %.val, ptr %.val28)
+  %36 = load i8, ptr %5, align 8, !range !855, !alias.scope !5565, !noalias !5568, !noundef !4
+  %trunc.i35 = trunc nuw i8 %36 to i1
+  br i1 %trunc.i35, label %"_ZN16tracing_appender6worker15Worker$LT$T$GT$15handle_try_recv17h543adddf77878d60E.exit", label %.lr.ph58
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -76,139 +76,162 @@ initIDs.exit:                                     ; preds = %29, %6
 39:                                               ; preds = %37, %35
   %40 = phi ptr [ %36, %35 ], [ %38, %37 ]
   %.not65 = icmp eq ptr %40, null
-  br i1 %.not65, label %88, label %41
+  br i1 %.not65, label %81, label %41
 
 41:                                               ; preds = %39
   %42 = select i1 %34, ptr %31, ptr null
-  %.not27.i = icmp eq ptr %42, null
-  br i1 %.not27.i, label %.thread, label %43
+  %43 = tail call fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef nonnull %40, ptr noundef %42, i8 noundef zeroext 1)
+  %.not67 = icmp eq ptr %43, null
+  br i1 %.not67, label %51, label %44
 
-43:                                               ; preds = %41
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #7
-  %45 = add i64 %44, 12
-  %46 = icmp ugt i64 %45, 4096
-  br i1 %46, label %findJniFunction.exit.thread, label %.thread
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1752
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 %47(ptr noundef nonnull %0, ptr noundef nonnull %7) #6
+  %49 = load ptr, ptr %7, align 8
+  %50 = call i32 %43(ptr noundef %49, ptr noundef null) #6
+  br label %51
 
-.thread:                                          ; preds = %41, %43
-  %47 = phi i64 [ %45, %43 ], [ 12, %41 ]
-  %48 = tail call noalias ptr @malloc(i64 noundef %47) #8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %findJniFunction.exit
+51:                                               ; preds = %41, %44
+  %.059 = phi i32 [ %50, %44 ], [ 65537, %41 ]
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr %54(ptr noundef nonnull %0) #6
+  %.not68 = icmp eq ptr %55, null
+  br i1 %.not68, label %65, label %56
 
-50:                                               ; preds = %.thread
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
-  br label %findJniFunction.exit.thread
-
-findJniFunction.exit:                             ; preds = %.thread
-  tail call void @buildJniFunctionName(ptr noundef nonnull @.str.8, ptr noundef %42, ptr noundef nonnull %48) #6
-  %51 = tail call ptr @JVM_FindLibraryEntry(ptr noundef nonnull %40, ptr noundef nonnull %48) #6
-  tail call void @free(ptr noundef nonnull %48) #6
-  %.not67 = icmp eq ptr %51, null
-  br i1 %.not67, label %findJniFunction.exit.thread, label %52
-
-52:                                               ; preds = %findJniFunction.exit
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1752
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %7) #6
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 %51(ptr noundef %57, ptr noundef null) #6
-  br label %findJniFunction.exit.thread
-
-findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFunction.exit, %52
-  %.059 = phi i32 [ %58, %52 ], [ 65537, %findJniFunction.exit ], [ 65537, %43 ], [ 65537, %50 ]
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr %61(ptr noundef nonnull %0) #6
-  %.not68 = icmp eq ptr %62, null
-  br i1 %.not68, label %72, label %63
-
-63:                                               ; preds = %findJniFunction.exit.thread
-  %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 136
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull %0) #6
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 104
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %62) #6
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
+  %59 = load ptr, ptr %58, align 8
+  call void %59(ptr noundef nonnull %0) #6
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %55) #6
   %.not71 = icmp eq i8 %4, 0
-  br i1 %.not71, label %71, label %105
+  br i1 %.not71, label %64, label %98
 
-71:                                               ; preds = %63
+64:                                               ; preds = %56
   call void @JVM_UnloadLibrary(ptr noundef nonnull %40) #6
-  br label %105
+  br label %98
 
-72:                                               ; preds = %findJniFunction.exit.thread
-  %73 = call zeroext i8 @JVM_IsSupportedJNIVersion(i32 noundef %.059) #6
-  %.not69 = icmp eq i8 %73, 0
-  %74 = icmp slt i32 %.059, 65544
-  %or.cond = select i1 %34, i1 %74, i1 false
+65:                                               ; preds = %51
+  %66 = call zeroext i8 @JVM_IsSupportedJNIVersion(i32 noundef %.059) #6
+  %.not69 = icmp eq i8 %66, 0
+  %67 = icmp slt i32 %.059, 65544
+  %or.cond = select i1 %34, i1 %67, i1 false
   %or.cond72 = select i1 %.not69, i1 true, i1 %or.cond
-  br i1 %or.cond72, label %75, label %78
+  br i1 %or.cond72, label %68, label %71
 
-75:                                               ; preds = %72
-  %76 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str, i32 noundef %.059, ptr noundef nonnull %31) #6
+68:                                               ; preds = %65
+  %69 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str, i32 noundef %.059, ptr noundef nonnull %31) #6
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
   %.not70 = icmp eq i8 %4, 0
-  br i1 %.not70, label %77, label %105
+  br i1 %.not70, label %70, label %98
 
-77:                                               ; preds = %75
+70:                                               ; preds = %68
   call void @JVM_UnloadLibrary(ptr noundef nonnull %40) #6
-  br label %105
+  br label %98
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 872
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr @jniVersionID, align 8
-  call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef %.059) #6
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 880
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr @handleID, align 8
-  %87 = ptrtoint ptr %40 to i64
-  call void %85(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %86, i64 noundef %87) #6
-  br label %105
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 872
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr @jniVersionID, align 8
+  call void %74(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %75, i32 noundef %.059) #6
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 880
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr @handleID, align 8
+  %80 = ptrtoint ptr %40 to i64
+  call void %78(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %79, i64 noundef %80) #6
+  br label %98
 
-88:                                               ; preds = %39
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call ptr %91(ptr noundef nonnull %0) #6
-  %.not66 = icmp eq ptr %92, null
-  br i1 %.not66, label %105, label %93
+81:                                               ; preds = %39
+  %82 = load ptr, ptr %0, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 120
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call ptr %84(ptr noundef nonnull %0) #6
+  %.not66 = icmp eq ptr %85, null
+  br i1 %.not66, label %98, label %86
 
-93:                                               ; preds = %88
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %0, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 136
+  %89 = load ptr, ptr %88, align 8
+  tail call void %89(ptr noundef nonnull %0) #6
+  %90 = load ptr, ptr %0, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 880
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr @handleID, align 8
+  tail call void %92(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %93, i64 noundef 0) #6
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 104
   %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull %0) #6
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 880
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr @handleID, align 8
-  tail call void %99(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %100, i64 noundef 0) #6
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 104
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %92) #6
-  br label %105
+  %97 = tail call i32 %96(ptr noundef nonnull %0, ptr noundef nonnull %85) #6
+  br label %98
 
-105:                                              ; preds = %88, %93, %75, %77, %63, %71, %78
-  %.058 = phi i8 [ 0, %63 ], [ 0, %71 ], [ 0, %75 ], [ 0, %77 ], [ 1, %78 ], [ 0, %93 ], [ 0, %88 ]
+98:                                               ; preds = %81, %86, %68, %70, %56, %64, %71
+  %.058 = phi i8 [ 0, %56 ], [ 0, %64 ], [ 0, %68 ], [ 0, %70 ], [ 1, %71 ], [ 0, %86 ], [ 0, %81 ]
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %31) #6
   br label %initIDs.exit.thread
 
-initIDs.exit.thread:                              ; preds = %23, %17, %11, %initIDs.exit, %105
-  %.0 = phi i8 [ %.058, %105 ], [ 0, %initIDs.exit ], [ 0, %11 ], [ 0, %17 ], [ 0, %23 ]
+initIDs.exit.thread:                              ; preds = %23, %17, %11, %initIDs.exit, %98
+  %.0 = phi i8 [ %.058, %98 ], [ 0, %initIDs.exit ], [ 0, %11 ], [ 0, %17 ], [ 0, %23 ]
   ret i8 %.0
 }
 
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @JVM_LoadLibrary(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
+  %.not = icmp eq i8 %3, 0
+  %.not27 = icmp eq ptr %2, null
+  %5 = select i1 %.not, ptr @.str.9, ptr @.str.8
+  %6 = select i1 %.not, i64 14, i64 12
+  br i1 %.not27, label %.split.us, label %.split
+
+.split.us:                                        ; preds = %4
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #7
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %.split30.us, label %.loopexit.loopexit
+
+.loopexit.loopexit:                               ; preds = %.split.us
+  tail call void @buildJniFunctionName(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %7) #6
+  %9 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %1, ptr noundef nonnull %7) #6
+  tail call void @free(ptr noundef nonnull %7) #6
+  br label %.loopexit
+
+.split:                                           ; preds = %4
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
+  %11 = add i64 %6, %10
+  %12 = icmp ugt i64 %11, 4096
+  br i1 %12, label %.loopexit, label %13
+
+13:                                               ; preds = %.split
+  %14 = tail call noalias ptr @malloc(i64 noundef %11) #7
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.split30.us, label %16
+
+.split30.us:                                      ; preds = %13, %.split.us
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
+  br label %.loopexit
+
+16:                                               ; preds = %13
+  tail call void @buildJniFunctionName(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %14) #6
+  %17 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %1, ptr noundef nonnull %14) #6
+  tail call void @free(ptr noundef nonnull %14) #6
+  br label %.loopexit, !llvm.loop !6
+
+.loopexit:                                        ; preds = %16, %.split, %.loopexit.loopexit, %.split30.us
+  %.1 = phi ptr [ null, %.split30.us ], [ %9, %.loopexit.loopexit ], [ null, %.split ], [ %17, %16 ]
+  ret ptr %.1
+}
 
 declare void @JVM_UnloadLibrary(ptr noundef) local_unnamed_addr #1
 
@@ -267,52 +290,31 @@ initIDs.exit:                                     ; preds = %27, %5
   %32 = inttoptr i64 %4 to ptr
   %.not18 = icmp eq i8 %3, 0
   %33 = select i1 %.not18, ptr null, ptr %29
-  br i1 %.not18, label %.thread, label %34
+  %34 = tail call fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef %32, ptr noundef %33, i8 noundef zeroext 0)
+  %.not19 = icmp eq ptr %34, null
+  br i1 %.not19, label %41, label %35
 
-34:                                               ; preds = %31
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #7
-  %36 = add i64 %35, 14
-  %37 = icmp ugt i64 %36, 4096
-  br i1 %37, label %findJniFunction.exit.thread.thread, label %.thread
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1752
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
+  %40 = load ptr, ptr %6, align 8
+  call void %34(ptr noundef %40, ptr noundef null) #6
+  br label %41
 
-.thread:                                          ; preds = %31, %34
-  %38 = phi i64 [ %36, %34 ], [ 14, %31 ]
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %findJniFunction.exit
+41:                                               ; preds = %35, %31
+  br i1 %.not18, label %42, label %43
 
-41:                                               ; preds = %.thread
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
-  br label %findJniFunction.exit.thread
-
-findJniFunction.exit:                             ; preds = %.thread
-  tail call void @buildJniFunctionName(ptr noundef nonnull @.str.9, ptr noundef %33, ptr noundef nonnull %39) #6
-  %42 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %32, ptr noundef nonnull %39) #6
-  tail call void @free(ptr noundef nonnull %39) #6
-  %.not19 = icmp eq ptr %42, null
-  br i1 %.not19, label %findJniFunction.exit.thread, label %43
-
-43:                                               ; preds = %findJniFunction.exit
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1752
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
-  %48 = load ptr, ptr %6, align 8
-  call void %42(ptr noundef %48, ptr noundef null) #6
-  br label %findJniFunction.exit.thread
-
-findJniFunction.exit.thread:                      ; preds = %41, %43, %findJniFunction.exit
-  br i1 %.not18, label %49, label %findJniFunction.exit.thread.thread
-
-49:                                               ; preds = %findJniFunction.exit.thread
+42:                                               ; preds = %41
   call void @JVM_UnloadLibrary(ptr noundef %32) #6
-  br label %findJniFunction.exit.thread.thread
+  br label %43
 
-findJniFunction.exit.thread.thread:               ; preds = %34, %49, %findJniFunction.exit.thread
+43:                                               ; preds = %42, %41
   call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %29) #6
   br label %initIDs.exit.thread
 
-initIDs.exit.thread:                              ; preds = %21, %15, %9, %initIDs.exit, %findJniFunction.exit.thread.thread
+initIDs.exit.thread:                              ; preds = %21, %15, %9, %initIDs.exit, %43
   ret void
 }
 
@@ -349,76 +351,76 @@ define ptr @Java_jdk_internal_loader_NativeLibraries_findBuiltinLib(ptr noundef 
 
 5:                                                ; preds = %3
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.2) #6
-  br label %36
+  br label %34
 
 6:                                                ; preds = %3
   %7 = tail call ptr (...) @getProcessHandle() #6
   store ptr %7, ptr @procHandle, align 8
   %8 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #6
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %36, label %10
+  br i1 %9, label %34, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %12 = icmp ult i64 %11, 7
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #6
-  br label %36
+  br label %34
 
 14:                                               ; preds = %10
   %15 = add i64 %11, 1
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #8
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
+  br i1 %17, label %18, label %.split.i
 
 18:                                               ; preds = %14
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #6
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
-  br label %36
+  br label %34
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %20) #6
+.split.i:                                         ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %19) #6
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #6
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #7
-  %23 = getelementptr i8, ptr %16, i64 %22
-  %24 = getelementptr i8, ptr %23, i64 -3
-  store i8 0, ptr %24, align 1
-  %25 = load ptr, ptr @procHandle, align 8
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #7
-  %27 = add i64 %26, 12
-  %28 = icmp ugt i64 %27, 4096
-  br i1 %28, label %findJniFunction.exit.thread, label %29
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
+  %22 = getelementptr i8, ptr %16, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -3
+  store i8 0, ptr %23, align 1
+  %24 = load ptr, ptr @procHandle, align 8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
+  %26 = add i64 %25, 12
+  %27 = icmp ugt i64 %26, 4096
+  br i1 %27, label %.loopexit, label %28
 
-29:                                               ; preds = %19
-  %30 = tail call noalias ptr @malloc(i64 noundef %27) #8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %findJniFunction.exit
+28:                                               ; preds = %.split.i
+  %29 = tail call noalias ptr @malloc(i64 noundef %26) #7
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.split30.us.i, label %31
 
-32:                                               ; preds = %29
+.split30.us.i:                                    ; preds = %28
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
-  br label %findJniFunction.exit.thread
+  br label %.loopexit
 
-findJniFunction.exit:                             ; preds = %29
-  tail call void @buildJniFunctionName(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %30) #6
-  %33 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %25, ptr noundef nonnull %30) #6
-  tail call void @free(ptr noundef nonnull %30) #6
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %findJniFunction.exit.thread, label %34
+31:                                               ; preds = %28
+  tail call void @buildJniFunctionName(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %29) #6
+  %32 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %24, ptr noundef nonnull %29) #6
+  tail call void @free(ptr noundef nonnull %29) #6
+  %.not28.i = icmp eq ptr %32, null
+  br i1 %.not28.i, label %.loopexit, label %findJniFunction.exit, !llvm.loop !6
 
-34:                                               ; preds = %findJniFunction.exit
-  %35 = tail call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %16) #6
+findJniFunction.exit:                             ; preds = %31
+  %33 = tail call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %16) #6
   tail call void @free(ptr noundef nonnull %16) #6
-  br label %36
+  br label %34
 
-findJniFunction.exit.thread:                      ; preds = %32, %19, %findJniFunction.exit
+.loopexit:                                        ; preds = %.split.i, %31, %.split30.us.i
   tail call void @free(ptr noundef nonnull %16) #6
-  br label %36
+  br label %34
 
-36:                                               ; preds = %6, %findJniFunction.exit.thread, %34, %18, %13, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ null, %18 ], [ %35, %34 ], [ null, %findJniFunction.exit.thread ], [ null, %6 ]
+34:                                               ; preds = %6, %.loopexit, %findJniFunction.exit, %18, %13, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ null, %18 ], [ %33, %findJniFunction.exit ], [ null, %.loopexit ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -451,8 +453,8 @@ attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind allocsize(0) }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -462,3 +464,5 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

@@ -44,7 +44,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
   %16 = select i1 %1, ptr null, ptr %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
-  br label %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
+  br label %.loopexit101
 
 18:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -57,13 +57,13 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %.promoted = load i32, ptr %22, align 4
-  %.promoted101 = load i32, ptr %23, align 4
+  %.promoted102 = load i32, ptr %23, align 4
   br label %24
 
 24:                                               ; preds = %18, %31
-  %.044102 = phi i32 [ 0, %18 ], [ %33, %31 ]
+  %.044103 = phi i32 [ 0, %18 ], [ %33, %31 ]
   %25 = phi i32 [ %.promoted, %18 ], [ %29, %31 ]
-  %26 = phi i32 [ %.promoted101, %18 ], [ %32, %31 ]
+  %26 = phi i32 [ %.promoted102, %18 ], [ %32, %31 ]
   %.not56 = icmp eq i32 %25, 0
   br i1 %.not56, label %28, label %27
 
@@ -82,11 +82,11 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
 
 31:                                               ; preds = %28, %30
   %32 = phi i32 [ -1, %28 ], [ 2, %30 ]
-  %33 = add nuw i32 %.044102, 1
+  %33 = add nuw i32 %.044103, 1
   %exitcond.not = icmp eq i32 %33, %5
-  br i1 %exitcond.not, label %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge, label %24, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit101, label %24, !llvm.loop !10
 
-_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge: ; preds = %31, %14
+.loopexit101:                                     ; preds = %31, %14
   %.04584 = phi ptr [ null, %14 ], [ %13, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -98,10 +98,10 @@ _ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge: ; preds = %31, %
   %.not54 = icmp eq ptr %8, null
   br i1 %.not54, label %81, label %.preheader
 
-.preheader:                                       ; preds = %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
+.preheader:                                       ; preds = %.loopexit101
   %40 = load ptr, ptr %8, align 8
-  %.not55103 = icmp eq ptr %40, null
-  br i1 %.not55103, label %.loopexit92, label %sub_0.lr.ph
+  %.not55104 = icmp eq ptr %40, null
+  br i1 %.not55104, label %.loopexit92, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -111,16 +111,16 @@ sub_0.lr.ph:                                      ; preds = %.preheader
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit
   %44 = phi ptr [ %40, %sub_0.lr.ph ], [ %80, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
-  %.046104 = phi ptr [ %8, %sub_0.lr.ph ], [ %79, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
+  %.046105 = phi ptr [ %8, %sub_0.lr.ph ], [ %79, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
   %45 = load i8, ptr %44, align 1
-  %.not106 = icmp eq i8 %45, 111
-  br i1 %.not106, label %sub_1, label %.tail.thread
+  %.not107 = icmp eq i8 %45, 111
+  br i1 %.not107, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
-  %.not107 = icmp eq i8 %47, 116
-  br i1 %.not107, label %.tail, label %.tail.thread
+  %.not108 = icmp eq i8 %47, 116
+  br i1 %.not108, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -214,12 +214,12 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
   br label %119
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit: ; preds = %.thread.i.i64, %.lr.ph.i.i60, %.thread.i.i, %.lr.ph.i.i, %.tail.thread
-  %79 = getelementptr inbounds nuw i8, ptr %.046104, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.046105, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not55 = icmp eq ptr %80, null
   br i1 %.not55, label %.loopexit92, label %sub_0, !llvm.loop !12
 
-81:                                               ; preds = %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
+81:                                               ; preds = %.loopexit101
   %82 = tail call noundef ptr @_Z15_hb_shapers_getv()
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 56

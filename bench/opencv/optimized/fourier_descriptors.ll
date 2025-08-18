@@ -4390,7 +4390,7 @@ _ZNK2cv11_InputArray6getMatEi.exit112:            ; preds = %181, %184
   %212 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %213 = load i32, ptr %212, align 8, !tbaa !54
   %214 = icmp sgt i32 %213, 1
-  br i1 %214, label %.lr.ph, label %.critedge
+  br i1 %214, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %201
   %215 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4530,14 +4530,14 @@ _ZNK2cv11_InputArray6getMatEi.exit112:            ; preds = %181, %184
   %312 = load i32, ptr %212, align 8, !tbaa !54
   %313 = sext i32 %312 to i64
   %314 = icmp slt i64 %indvars.iv.next, %313
-  br i1 %314, label %217, label %.critedge.loopexit, !llvm.loop !159
+  br i1 %314, label %217, label %._crit_edge.loopexit, !llvm.loop !159
 
-.critedge.loopexit:                               ; preds = %306
+._crit_edge.loopexit:                             ; preds = %306
   %.pre176 = load ptr, ptr %202, align 8, !tbaa !63
-  br label %.critedge
+  br label %._crit_edge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %201
-  %315 = phi ptr [ %.pre176, %.critedge.loopexit ], [ %203, %201 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %201
+  %315 = phi ptr [ %.pre176, %._crit_edge.loopexit ], [ %203, %201 ]
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
   %317 = load double, ptr %316, align 8, !tbaa !29
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 32
@@ -4570,7 +4570,7 @@ _ZNK2cv11_InputArray6getMatEi.exit112:            ; preds = %181, %184
   invoke void @_ZN2cv3dftERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 1, i32 noundef 0)
           to label %332 unwind label %360
 
-332:                                              ; preds = %.critedge
+332:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -4640,7 +4640,7 @@ _ZNSt6vectorIN2cv6Point_IdEESaIS2_EED2Ev.exit:    ; preds = %357, %359
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-360:                                              ; preds = %.critedge
+360:                                              ; preds = %._crit_edge
   %361 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

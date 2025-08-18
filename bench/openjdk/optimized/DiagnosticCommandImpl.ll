@@ -92,13 +92,13 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, i32 noundef %2, ptr noundef %17, ptr noundef null) #4
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %.preheader
+  br i1 %28, label %30, label %.preheader142
 
-.preheader:                                       ; preds = %23
+.preheader142:                                    ; preds = %23
   %29 = icmp sgt i32 %2, 0
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph.preheader:                                 ; preds = %.preheader142
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
@@ -129,9 +129,9 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %45 = tail call zeroext i8 %44(ptr noundef nonnull %0) #4
   %.not134 = icmp eq i8 %45, 0
   %46 = load ptr, ptr %0, align 8
-  br i1 %.not134, label %50, label %.critedge
+  br i1 %.not134, label %50, label %.preheader141
 
-.critedge:                                        ; preds = %.lr.ph
+.preheader141:                                    ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 160
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef null) #4
@@ -150,9 +150,9 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %59 = tail call zeroext i8 %58(ptr noundef nonnull %0) #4
   %.not135 = icmp eq i8 %59, 0
   %60 = load ptr, ptr %0, align 8
-  br i1 %.not135, label %64, label %.critedge140
+  br i1 %.not135, label %64, label %.preheader140
 
-.critedge140:                                     ; preds = %50
+.preheader140:                                    ; preds = %50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef null) #4
@@ -171,9 +171,9 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %73 = tail call zeroext i8 %72(ptr noundef nonnull %0) #4
   %.not136 = icmp eq i8 %73, 0
   %74 = load ptr, ptr %0, align 8
-  br i1 %.not136, label %78, label %.critedge142
+  br i1 %.not136, label %78, label %.preheader139
 
-.critedge142:                                     ; preds = %64
+.preheader139:                                    ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 160
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr %76(ptr noundef nonnull %0, ptr noundef null) #4
@@ -191,9 +191,9 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %86 = load ptr, ptr %85, align 8
   %87 = tail call zeroext i8 %86(ptr noundef nonnull %0) #4
   %.not137 = icmp eq i8 %87, 0
-  br i1 %.not137, label %92, label %.critedge144
+  br i1 %.not137, label %92, label %.preheader
 
-.critedge144:                                     ; preds = %78
+.preheader:                                       ; preds = %78
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 160
   %90 = load ptr, ptr %89, align 8
@@ -246,7 +246,7 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   tail call void @free(ptr noundef nonnull %6) #4
   br label %146
 
-._crit_edge:                                      ; preds = %31, %.preheader
+._crit_edge:                                      ; preds = %31, %.preheader142
   tail call void @free(ptr noundef %6) #4
   %125 = load ptr, ptr %0, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
@@ -276,8 +276,8 @@ define hidden ptr @getDiagnosticCommandArgumentInfoArray(ptr noundef %0, ptr nou
   %. = select i1 %.not133, ptr %141, ptr null
   br label %146
 
-146:                                              ; preds = %133, %._crit_edge, %124, %112, %.critedge144, %.critedge142, %.critedge140, %.critedge, %30, %22, %9
-  %.0127 = phi ptr [ null, %9 ], [ null, %22 ], [ null, %30 ], [ null, %.critedge ], [ null, %.critedge140 ], [ null, %.critedge142 ], [ null, %.critedge144 ], [ null, %112 ], [ null, %124 ], [ null, %._crit_edge ], [ %., %133 ]
+146:                                              ; preds = %133, %._crit_edge, %124, %112, %.preheader, %.preheader139, %.preheader140, %.preheader141, %30, %22, %9
+  %.0127 = phi ptr [ null, %9 ], [ null, %22 ], [ null, %30 ], [ null, %.preheader141 ], [ null, %.preheader140 ], [ null, %.preheader139 ], [ null, %.preheader ], [ null, %112 ], [ null, %124 ], [ null, %._crit_edge ], [ %., %133 ]
   ret ptr %.0127
 }
 
@@ -431,9 +431,9 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %98 = call zeroext i8 %97(ptr noundef nonnull %0) #4
   %.not152 = icmp eq i8 %98, 0
   %99 = load ptr, ptr %0, align 8
-  br i1 %.not152, label %107, label %.preheader157
+  br i1 %.not152, label %107, label %.preheader158
 
-.preheader157:                                    ; preds = %90
+.preheader158:                                    ; preds = %90
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 160
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr %101(ptr noundef nonnull %0, ptr noundef null) #4
@@ -456,9 +456,9 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %116 = call zeroext i8 %115(ptr noundef nonnull %0) #4
   %.not153 = icmp eq i8 %116, 0
   %117 = load ptr, ptr %0, align 8
-  br i1 %.not153, label %125, label %.preheader156
+  br i1 %.not153, label %125, label %.preheader157
 
-.preheader156:                                    ; preds = %107
+.preheader157:                                    ; preds = %107
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 160
   %119 = load ptr, ptr %118, align 8
   %120 = call ptr %119(ptr noundef nonnull %0, ptr noundef null) #4
@@ -480,9 +480,9 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %133 = load ptr, ptr %132, align 8
   %134 = call zeroext i8 %133(ptr noundef nonnull %0) #4
   %.not154 = icmp eq i8 %134, 0
-  br i1 %.not154, label %143, label %.preheader
+  br i1 %.not154, label %143, label %.preheader156
 
-.preheader:                                       ; preds = %125
+.preheader156:                                    ; preds = %125
   %135 = load ptr, ptr %0, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 160
   %137 = load ptr, ptr %136, align 8
@@ -567,9 +567,9 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %195 = load ptr, ptr %194, align 8
   %196 = call zeroext i8 %195(ptr noundef nonnull %0) #4
   %.not155 = icmp eq i8 %196, 0
-  br i1 %.not155, label %66, label %.critedge
+  br i1 %.not155, label %66, label %.preheader
 
-.critedge:                                        ; preds = %188
+.preheader:                                       ; preds = %188
   %197 = load ptr, ptr %0, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 160
   %199 = load ptr, ptr %198, align 8
@@ -585,8 +585,8 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   call void @free(ptr noundef nonnull %54) #4
   br label %205
 
-205:                                              ; preds = %._crit_edge, %.critedge, %182, %.preheader, %.preheader156, %.preheader157, %82, %56, %46, %39, %30, %10
-  %.0141 = phi ptr [ null, %10 ], [ null, %30 ], [ null, %39 ], [ %50, %46 ], [ null, %56 ], [ null, %82 ], [ null, %.preheader157 ], [ null, %.preheader156 ], [ null, %.preheader ], [ null, %182 ], [ null, %.critedge ], [ %204, %._crit_edge ]
+205:                                              ; preds = %._crit_edge, %.preheader, %182, %.preheader156, %.preheader157, %.preheader158, %82, %56, %46, %39, %30, %10
+  %.0141 = phi ptr [ null, %10 ], [ null, %30 ], [ null, %39 ], [ %50, %46 ], [ null, %56 ], [ null, %82 ], [ null, %.preheader158 ], [ null, %.preheader157 ], [ null, %.preheader156 ], [ null, %182 ], [ null, %.preheader ], [ %204, %._crit_edge ]
   ret ptr %.0141
 }
 

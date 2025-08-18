@@ -20624,7 +20624,7 @@ define internal fastcc { i64, i64 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h8b098c05667a33feE.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2550, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17he0f459a20acb4ce0E.exit.i.i.i, label %15
@@ -20711,9 +20711,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h8b098c05667a33feE.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2571)
   %45 = load ptr, ptr %10, align 8, !alias.scope !2574, !noalias !2577, !nonnull !3, !noundef !3
   %46 = icmp eq ptr %43, %45
-  br i1 %46, label %48, label %.critedge.i.i
+  br i1 %46, label %48, label %.critedge
 
-.critedge.i.i:                                    ; preds = %44
+.critedge:                                        ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %47, ptr %9, align 8, !alias.scope !2574, !noalias !2577
   %.val.i.i.i.i.i = load ptr, ptr %43, align 8, !noalias !2579, !nonnull !3, !align !545, !noundef !3
@@ -20844,7 +20844,7 @@ define internal fastcc { i32, float } @"_ZN112_$LT$polars_arrow..trusted_len..Tr
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2604, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -20914,7 +20914,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha6549f29f3d0fa23E.exit.thread.i.i.i: ; 
   store i64 0, ptr %0, align 8, !alias.scope !2601
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.thread.i.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.thread20.i.i: ; preds = %38, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.thread20.i.i: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38
   %.sroa.3.0.i.ph.i.i = phi float [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %.sroa.0.0.i.ph.i.i = phi i32 [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %44 = insertvalue { i32, float } poison, i32 %.sroa.0.0.i.ph.i.i, 0
@@ -20932,13 +20932,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2625)
   %47 = load ptr, ptr %10, align 8, !alias.scope !2628, !noalias !2631, !nonnull !3, !noundef !3
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %51, label %.critedge.i.i
+  br i1 %48, label %51, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h8b7c656ea8851732E.exit.loopexit.i.i: ; preds = %40
   %49 = extractvalue { i32, float } %41, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9949c246d1648208E.exit"
 
-.critedge.i.i:                                    ; preds = %46
+.critedge:                                        ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %9, align 8, !alias.scope !2628, !noalias !2631
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !2633, !nonnull !3, !align !545, !noundef !3
@@ -21069,7 +21069,7 @@ define internal fastcc { i32, i32 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2658, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -21139,7 +21139,7 @@ _ZN4core3ops8function6FnOnce9call_once17h33219c96a980a5dcE.exit.thread.i.i.i: ; 
   store i64 0, ptr %0, align 8, !alias.scope !2655
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.thread.i.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.thread20.i.i: ; preds = %38, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
+_ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.thread20.i.i: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38
   %.sroa.3.0.i.ph.i.i = phi i32 [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %.sroa.0.0.i.ph.i.i = phi i32 [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %44 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.ph.i.i, 0
@@ -21157,13 +21157,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2679)
   %47 = load ptr, ptr %10, align 8, !alias.scope !2682, !noalias !2685, !nonnull !3, !noundef !3
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %51, label %.critedge.i.i
+  br i1 %48, label %51, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17ha2c25755f0d0afafE.exit.loopexit.i.i: ; preds = %40
   %49 = extractvalue { i32, i32 } %41, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac9527a3a8de9afdE.exit"
 
-.critedge.i.i:                                    ; preds = %46
+.critedge:                                        ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %9, align 8, !alias.scope !2682, !noalias !2685
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !2687, !nonnull !3, !align !545, !noundef !3
@@ -21294,7 +21294,7 @@ define internal fastcc { i32, i32 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2712, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -21364,7 +21364,7 @@ _ZN4core3ops8function6FnOnce9call_once17h560be4bf9fef4bc6E.exit.thread.i.i.i: ; 
   store i64 0, ptr %0, align 8, !alias.scope !2709
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.thread.i.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.thread20.i.i: ; preds = %38, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.thread20.i.i: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38
   %.sroa.3.0.i.ph.i.i = phi i32 [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %.sroa.0.0.i.ph.i.i = phi i32 [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %44 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.ph.i.i, 0
@@ -21382,13 +21382,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2733)
   %47 = load ptr, ptr %10, align 8, !alias.scope !2736, !noalias !2739, !nonnull !3, !noundef !3
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %51, label %.critedge.i.i
+  br i1 %48, label %51, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h51552257cb95487bE.exit.loopexit.i.i: ; preds = %40
   %49 = extractvalue { i32, i32 } %41, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h633ac32b591c25c2E.exit"
 
-.critedge.i.i:                                    ; preds = %46
+.critedge:                                        ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %9, align 8, !alias.scope !2736, !noalias !2739
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !2741, !nonnull !3, !align !545, !noundef !3
@@ -21519,7 +21519,7 @@ define internal fastcc { i8, i8 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustM
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %41
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2766, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %38, label %15
@@ -21594,7 +21594,7 @@ select.unfold.i.i.i:                              ; preds = %38, %"_ZN134_$LT$po
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2787)
   %44 = load ptr, ptr %10, align 8, !alias.scope !2790, !noalias !2793, !nonnull !3, !noundef !3
   %45 = icmp eq ptr %42, %44
-  br i1 %45, label %50, label %.critedge.i.i
+  br i1 %45, label %50, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h6a1367a8722d17b8E.exit.loopexit.split.loop.exit.i.i: ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i.i.i.i"
   %46 = extractvalue { i8, i8 } %36, 1
@@ -21605,7 +21605,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h6a1367a8722d17b8E.exit.loope
   %48 = extractvalue { i1, i8 } %39, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf535280dae1e641eE.exit"
 
-.critedge.i.i:                                    ; preds = %43
+.critedge:                                        ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %49, ptr %9, align 8, !alias.scope !2790, !noalias !2793
   %.val.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !2795, !nonnull !3, !align !545, !noundef !3
@@ -21728,7 +21728,7 @@ define internal fastcc { i64, i64 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdda12e9e00d9a387E.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2820, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hbaa551b81084ea91E.exit.i.i.i, label %15
@@ -21815,9 +21815,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hdda12e9e00d9a387E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2841)
   %45 = load ptr, ptr %10, align 8, !alias.scope !2844, !noalias !2847, !nonnull !3, !noundef !3
   %46 = icmp eq ptr %43, %45
-  br i1 %46, label %48, label %.critedge.i.i
+  br i1 %46, label %48, label %.critedge
 
-.critedge.i.i:                                    ; preds = %44
+.critedge:                                        ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %47, ptr %9, align 8, !alias.scope !2844, !noalias !2847
   %.val.i.i.i.i.i = load ptr, ptr %43, align 8, !noalias !2849, !nonnull !3, !align !545, !noundef !3
@@ -21948,7 +21948,7 @@ define internal fastcc { i8, i8 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustM
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %41
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !2874, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %38, label %15
@@ -22023,7 +22023,7 @@ select.unfold.i.i.i:                              ; preds = %38, %"_ZN134_$LT$po
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2895)
   %44 = load ptr, ptr %10, align 8, !alias.scope !2898, !noalias !2901, !nonnull !3, !noundef !3
   %45 = icmp eq ptr %42, %44
-  br i1 %45, label %50, label %.critedge.i.i
+  br i1 %45, label %50, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd2a3f3730226ee83E.exit.loopexit.split.loop.exit.i.i: ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i.i.i.i"
   %46 = extractvalue { i8, i8 } %36, 1
@@ -22034,7 +22034,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd2a3f3730226ee83E.exit.loope
   %48 = extractvalue { i1, i8 } %39, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haaf5f914a1c57e91E.exit"
 
-.critedge.i.i:                                    ; preds = %43
+.critedge:                                        ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %49, ptr %9, align 8, !alias.scope !2898, !noalias !2901
   %.val.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !2903, !nonnull !3, !align !545, !noundef !3
@@ -22168,7 +22168,7 @@ define internal fastcc void @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLengt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2934)
   br i1 %21, label %22, label %52
 
-22:                                               ; preds = %.critedge.i.i, %2
+22:                                               ; preds = %.critedge, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2935)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2938)
   %23 = load ptr, ptr %10, align 8, !alias.scope !2941, !noalias !2942, !noundef !3
@@ -22252,7 +22252,7 @@ _ZN4core3ops8function6FnOnce9call_once17h147cd4b35360fccbE.exit.thread.i.i.i: ; 
   store i64 0, ptr %1, align 8, !alias.scope !2929, !noalias !2932
   br label %52
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h97475eb47dc8cdecE.exit.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h147cd4b35360fccbE.exit.i.i.i, %45
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h97475eb47dc8cdecE.exit.i.i: ; preds = %45, %_ZN4core3ops8function6FnOnce9call_once17h147cd4b35360fccbE.exit.i.i.i
   %.sroa.5.1.i.i = phi i128 [ %50, %_ZN4core3ops8function6FnOnce9call_once17h147cd4b35360fccbE.exit.i.i.i ], [ %47, %45 ]
   %.sroa.0.0.i.i = phi i128 [ %..i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h147cd4b35360fccbE.exit.i.i.i ], [ 1, %45 ]
   store i128 %.sroa.0.0.i.i, ptr %0, align 16, !alias.scope !2959, !noalias !2960
@@ -22272,9 +22272,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h97475eb47dc8cdecE.exit.i.i: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2971)
   %55 = load ptr, ptr %19, align 8, !alias.scope !2974, !noalias !2977, !nonnull !3, !noundef !3
   %56 = icmp eq ptr %53, %55
-  br i1 %56, label %58, label %.critedge.i.i
+  br i1 %56, label %58, label %.critedge
 
-.critedge.i.i:                                    ; preds = %54
+.critedge:                                        ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %57, ptr %18, align 8, !alias.scope !2974, !noalias !2977
   %.val.i.i.i.i.i = load ptr, ptr %53, align 8, !noalias !2979, !nonnull !3, !align !545, !noundef !3
@@ -22426,7 +22426,7 @@ define internal fastcc { i16, i16 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !3019, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -22496,7 +22496,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb289e6f30a59dbadE.exit.thread.i.i.i: ; 
   store i64 0, ptr %0, align 8, !alias.scope !3016
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.thread.i.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.thread20.i.i: ; preds = %38, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
+_ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.thread20.i.i: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38
   %.sroa.3.0.i.ph.i.i = phi i16 [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %.sroa.0.0.i.ph.i.i = phi i16 [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %44 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i.ph.i.i, 0
@@ -22514,13 +22514,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   %47 = load ptr, ptr %10, align 8, !alias.scope !3043, !noalias !3046, !nonnull !3, !noundef !3
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %51, label %.critedge.i.i
+  br i1 %48, label %51, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hb2efca7b7612964eE.exit.loopexit.i.i: ; preds = %40
   %49 = extractvalue { i16, i16 } %41, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97d9f8ac74b3e93cE.exit"
 
-.critedge.i.i:                                    ; preds = %46
+.critedge:                                        ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %9, align 8, !alias.scope !3043, !noalias !3046
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !3048, !nonnull !3, !align !545, !noundef !3
@@ -22651,7 +22651,7 @@ define internal fastcc { i16, i16 } @"_ZN112_$LT$polars_arrow..trusted_len..Trus
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.thread.i.i
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !3073, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -22721,7 +22721,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1b5d04c10d2cf02cE.exit.thread.i.i.i: ; 
   store i64 0, ptr %0, align 8, !alias.scope !3070
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.thread.i.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.thread20.i.i: ; preds = %38, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.thread20.i.i: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i", %38
   %.sroa.3.0.i.ph.i.i = phi i16 [ %39, %38 ], [ undef, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %.sroa.0.0.i.ph.i.i = phi i16 [ 1, %38 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i" ]
   %44 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i.ph.i.i, 0
@@ -22739,13 +22739,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.threa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3094)
   %47 = load ptr, ptr %10, align 8, !alias.scope !3097, !noalias !3100, !nonnull !3, !noundef !3
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %51, label %.critedge.i.i
+  br i1 %48, label %51, label %.critedge
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h064122a32d0fb762E.exit.loopexit.i.i: ; preds = %40
   %49 = extractvalue { i16, i16 } %41, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e2f84248ef505e6E.exit"
 
-.critedge.i.i:                                    ; preds = %46
+.critedge:                                        ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %9, align 8, !alias.scope !3097, !noalias !3100
   %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !3102, !nonnull !3, !align !545, !noundef !3
@@ -22876,7 +22876,7 @@ define internal fastcc { i64, double } @"_ZN112_$LT$polars_arrow..trusted_len..T
   %12 = trunc nuw i64 %.pre.i.i to i1
   br i1 %12, label %13, label %47
 
-13:                                               ; preds = %.critedge.i.i, %1
+13:                                               ; preds = %.critedge, %1
   %14 = load ptr, ptr %3, align 8, !alias.scope !3127, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %40, label %15
@@ -22962,9 +22962,9 @@ define internal fastcc { i64, double } @"_ZN112_$LT$polars_arrow..trusted_len..T
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3148)
   %50 = load ptr, ptr %10, align 8, !alias.scope !3151, !noalias !3154, !nonnull !3, !noundef !3
   %51 = icmp eq ptr %48, %50
-  br i1 %51, label %53, label %.critedge.i.i
+  br i1 %51, label %53, label %.critedge
 
-.critedge.i.i:                                    ; preds = %49
+.critedge:                                        ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %52, ptr %9, align 8, !alias.scope !3151, !noalias !3154
   %.val.i.i.i.i.i = load ptr, ptr %48, align 8, !noalias !3156, !nonnull !3, !align !545, !noundef !3

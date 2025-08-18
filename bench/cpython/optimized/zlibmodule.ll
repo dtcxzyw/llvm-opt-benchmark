@@ -633,20 +633,20 @@ OutputBuffer_InitAndGrow.exit.thread.i:           ; preds = %57, %54, %52, %40
   %89 = sub i64 %.031.i, %spec.select5.i.i
   %90 = icmp eq i64 %89, 0
   %91 = select i1 %90, i32 4, i32 0
-  br i1 %.pr.i, label %.critedge.i, label %97
+  br i1 %.pr.i, label %.critedge, label %97
 
-.critedge.i:                                      ; preds = %107, %88
+.critedge:                                        ; preds = %107, %88
   %92 = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %6, ptr noundef nonnull %45, i64 noundef 0)
   %93 = trunc i64 %92 to i32
   store i32 %93, ptr %46, align 8, !tbaa !31
   %94 = icmp slt i64 %92, 0
   br i1 %94, label %95, label %97
 
-95:                                               ; preds = %.critedge.i
+95:                                               ; preds = %.critedge
   %96 = call i32 @deflateEnd(ptr noundef nonnull %5) #7
   br label %zlib_error.exit.i
 
-97:                                               ; preds = %.critedge.i, %88
+97:                                               ; preds = %.critedge, %88
   %98 = call ptr @PyEval_SaveThread() #7
   %99 = call i32 @deflate(ptr noundef nonnull %5, i32 noundef %91) #7
   call void @PyEval_RestoreThread(ptr noundef %98) #7
@@ -667,7 +667,7 @@ zlib_error.exit28.i:                              ; preds = %97
 107:                                              ; preds = %97
   %108 = load i32, ptr %46, align 8, !tbaa !44
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.critedge.i, label %110, !llvm.loop !46
+  br i1 %109, label %.critedge, label %110, !llvm.loop !46
 
 110:                                              ; preds = %107
   br i1 %90, label %111, label %88, !llvm.loop !47
@@ -2713,14 +2713,14 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %35
   %50 = sub i64 %.030.i, %spec.select5.i.i
   br label %54
 
-.critedge.i:                                      ; preds = %63
+.critedge:                                        ; preds = %63
   %51 = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef 0)
   %52 = trunc i64 %51 to i32
   store i32 %52, ptr %32, align 4, !tbaa !31
   %53 = icmp slt i64 %51, 0
   br i1 %53, label %.loopexit.i, label %54
 
-54:                                               ; preds = %.critedge.i, %49
+54:                                               ; preds = %49, %.critedge
   %55 = call ptr @PyEval_SaveThread() #7
   %56 = call i32 @deflate(ptr noundef nonnull %28, i32 noundef 0) #7
   call void @PyEval_RestoreThread(ptr noundef %55) #7
@@ -2740,7 +2740,7 @@ zlib_error.exit.i:                                ; preds = %54
 63:                                               ; preds = %54
   %64 = load i32, ptr %32, align 8, !tbaa !70
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.critedge.i, label %66, !llvm.loop !71
+  br i1 %65, label %.critedge, label %66, !llvm.loop !71
 
 66:                                               ; preds = %63
   %.not26.i = icmp eq i64 %50, 0
@@ -2752,7 +2752,7 @@ zlib_error.exit.i:                                ; preds = %54
   %.not27.i = icmp eq ptr %69, null
   br i1 %.not27.i, label %.loopexit.i, label %zlib_Compress_compress_impl.exit
 
-.loopexit.i:                                      ; preds = %.critedge.i, %67, %zlib_error.exit.i, %OutputBuffer_InitAndGrow.exit.thread.i
+.loopexit.i:                                      ; preds = %.critedge, %67, %zlib_error.exit.i, %OutputBuffer_InitAndGrow.exit.thread.i
   %70 = load ptr, ptr %6, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %zlib_Compress_compress_impl.exit, label %71
@@ -2910,7 +2910,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %41
   %57 = icmp slt i64 %55, 0
   br i1 %57, label %zlib_error.exit49.i, label %58
 
-58:                                               ; preds = %54, %OutputBuffer_InitAndGrow.exit.i
+58:                                               ; preds = %OutputBuffer_InitAndGrow.exit.i, %54
   %59 = call ptr @PyEval_SaveThread() #7
   %60 = call i32 @deflate(ptr noundef nonnull %35, i32 noundef %.0) #7
   call void @PyEval_RestoreThread(ptr noundef %59) #7

@@ -7632,7 +7632,7 @@ define noundef zeroext i1 @"_ZN84_$LT$raft_proto..protos..eraftpb..Snapshot$u20$
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !range !806, !noundef !3
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %._crit_edge
+  br i1 %4, label %5, label %"_ZN92_$LT$raft_proto..protos..eraftpb..SnapshotMetadata$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h99d40a01a736119eE.exit._crit_edge"
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7644,13 +7644,13 @@ define noundef zeroext i1 @"_ZN84_$LT$raft_proto..protos..eraftpb..Snapshot$u20$
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i8, ptr %8, align 8, !range !806, !noundef !3
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %._crit_edge
+  br i1 %10, label %11, label %"_ZN92_$LT$raft_proto..protos..eraftpb..SnapshotMetadata$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h99d40a01a736119eE.exit._crit_edge"
 
 11:                                               ; preds = %.lr.ph.split.us
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load ptr, ptr %12, align 8, !align !4, !noundef !3
   %.not.i.us = icmp eq ptr %13, null
-  br i1 %.not.i.us, label %.split.us, label %._crit_edge, !prof !5
+  br i1 %.not.i.us, label %.split.us, label %"_ZN92_$LT$raft_proto..protos..eraftpb..SnapshotMetadata$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h99d40a01a736119eE.exit._crit_edge", !prof !5
 
 14:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
@@ -7660,7 +7660,7 @@ define noundef zeroext i1 @"_ZN84_$LT$raft_proto..protos..eraftpb..Snapshot$u20$
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
   unreachable
 
-._crit_edge:                                      ; preds = %1, %.lr.ph.split.us, %11
+"_ZN92_$LT$raft_proto..protos..eraftpb..SnapshotMetadata$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h99d40a01a736119eE.exit._crit_edge": ; preds = %.lr.ph.split.us, %11, %1
   ret i1 true
 }
 
@@ -9065,7 +9065,7 @@ define noundef zeroext i1 @"_ZN83_$LT$raft_proto..protos..eraftpb..Message$u20$a
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
   unreachable
 
-._crit_edge:                                      ; preds = %1, %.lr.ph.split.us, %.lr.ph.split.us.i.us, %20
+._crit_edge:                                      ; preds = %.lr.ph.split.us.i.us, %20, %1, %.lr.ph.split.us
   ret i1 true
 }
 

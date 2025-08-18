@@ -358,7 +358,7 @@ define dso_local range(i32 0, 2) i32 @benchmark_init() local_unnamed_addr #0 {
   br label %benchmark_static_init.exit
 
 benchmark_static_init.exit:                       ; preds = %0, %1
-  %2 = tail call i32 @wolfCrypt_Init() #16
+  %2 = tail call i32 @wolfCrypt_Init() #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -388,7 +388,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @benchmark_free() local_unnamed_addr #0 {
-  %1 = tail call i32 @wolfCrypt_Cleanup() #16
+  %1 = tail call i32 @wolfCrypt_Cleanup() #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -416,7 +416,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 9:                                                ; preds = %1
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %11 = tail call i32 @wc_InitRng_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #16
+  %11 = tail call i32 @wc_InitRng_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #17
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %.critedge.i, label %13
 
@@ -436,10 +436,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %19 = add nsw i64 %reass.sub.i, %.sext.neg.i
   %.066.i = select i1 %.not.i, i64 %17, i64 %19
   %20 = add nsw i64 %.066.i, 16
-  %21 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #16
+  %21 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #17
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   store ptr %21, ptr %22, align 8, !tbaa !8
-  %23 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #16
+  %23 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #17
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   store ptr %23, ptr %24, align 8, !tbaa !8
   %25 = load ptr, ptr %22, align 8, !tbaa !8
@@ -452,7 +452,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %26, label %30, label %29
 
 29:                                               ; preds = %28
-  tail call void @wolfSSL_Free(ptr noundef nonnull %25) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %25) #17
   %.pre73.i = load ptr, ptr %24, align 8, !tbaa !8
   br label %30
 
@@ -462,7 +462,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not171.i, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @wolfSSL_Free(ptr noundef nonnull %31) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %31) #17
   br label %33
 
 33:                                               ; preds = %32, %30
@@ -507,7 +507,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not120.i, label %53, label %52
 
 52:                                               ; preds = %50
-  tail call void @wolfSSL_Free(ptr noundef nonnull %51) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %51) #17
   br label %53
 
 53:                                               ; preds = %52, %50
@@ -519,7 +519,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %56 = trunc i64 %.2.i to i32
   store i32 %56, ptr @bench_size, align 4, !tbaa !4
   %57 = add i64 %.2.i, 32
-  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef %57) #16
+  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef %57) #17
   store ptr %58, ptr %22, align 8, !tbaa !8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62
@@ -575,7 +575,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not127.i, label %84, label %83
 
 83:                                               ; preds = %81
-  tail call void @wolfSSL_Free(ptr noundef nonnull %82) #16
+  tail call void @wolfSSL_Free(ptr noundef nonnull %82) #17
   br label %84
 
 84:                                               ; preds = %83, %81
@@ -595,7 +595,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 91:                                               ; preds = %90, %84
   %92 = add i64 %.4.i, 32
-  %93 = tail call ptr @wolfSSL_Malloc(i64 noundef %92) #16
+  %93 = tail call ptr @wolfSSL_Malloc(i64 noundef %92) #17
   store ptr %93, ptr %24, align 8, !tbaa !8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %97
@@ -1123,7 +1123,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 238:                                              ; preds = %.preheader, %249
   %.068.i = phi i32 [ %250, %249 ], [ 1, %.preheader ]
-  %239 = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %.068.i) #16
+  %239 = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %.068.i) #17
   %.not167.i = icmp eq i32 %239, -170
   br i1 %.not167.i, label %249, label %240
 
@@ -1206,7 +1206,7 @@ bench_ecc_curve.exit.i:                           ; preds = %247, %.thread.i.i
   br i1 %.not172.i, label %263, label %262
 
 262:                                              ; preds = %.thread.i
-  call void @wolfSSL_Free(ptr noundef nonnull %261) #16
+  call void @wolfSSL_Free(ptr noundef nonnull %261) #17
   br label %263
 
 263:                                              ; preds = %262, %.thread.i
@@ -1215,16 +1215,16 @@ bench_ecc_curve.exit.i:                           ; preds = %247, %.thread.i.i
   br i1 %.not173.i, label %266, label %265
 
 265:                                              ; preds = %263
-  call void @wolfSSL_Free(ptr noundef nonnull %264) #16
+  call void @wolfSSL_Free(ptr noundef nonnull %264) #17
   br label %266
 
 266:                                              ; preds = %265, %263
-  %267 = call i32 @wc_FreeRng(ptr noundef nonnull %10) #16
+  %267 = call i32 @wc_FreeRng(ptr noundef nonnull %10) #17
   br label %benchmarks_do.exit
 
 benchmarks_do.exit:                               ; preds = %13, %266
   %268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @info_prefix)
-  %269 = call i32 @wolfCrypt_Cleanup() #16
+  %269 = call i32 @wolfCrypt_Cleanup() #17
   %.not.i5 = icmp eq i32 %269, 0
   br i1 %.not.i5, label %benchmark_free.exit, label %270
 
@@ -1243,7 +1243,7 @@ define dso_local void @bench_rng() local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.WC_RNG, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @wc_InitRng_ex(ptr noundef nonnull %3, ptr noundef null, i32 noundef -2) #16
+  %4 = call i32 @wc_InitRng_ex(ptr noundef nonnull %3, ptr noundef null, i32 noundef -2) #17
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -1253,17 +1253,17 @@ define dso_local void @bench_rng() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %bench_stats_start.exit
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @__errno_location() #17
+  %12 = tail call ptr @__errno_location() #18
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %13, ptr noundef nonnull @.str.80)
   %15 = load ptr, ptr @stdout, align 8, !tbaa !14
   %16 = call i32 @fflush(ptr noundef %15)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %8
@@ -1275,7 +1275,7 @@ bench_stats_start.exit:                           ; preds = %8
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = zext i32 %25 to i64
@@ -1314,7 +1314,7 @@ bench_stats_start.exit:                           ; preds = %8
   %42 = load ptr, ptr %32, align 8, !tbaa !8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.01635
   %44 = trunc nuw nsw i64 %41 to i32
-  %45 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %3, ptr noundef %43, i32 noundef %44) #16
+  %45 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %3, ptr noundef %43, i32 noundef %44) #17
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %.loopexit, label %47
 
@@ -1339,17 +1339,17 @@ bench_stats_start.exit:                           ; preds = %8
   %.1.lcssa = phi i32 [ %.018, %34 ], [ %.2.lcssa, %._crit_edge ]
   %.017.lcssa = phi i32 [ 0, %34 ], [ %52, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %54 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
+  %54 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %bench_stats_check.exit
 
 56:                                               ; preds = %._crit_edge41
-  %57 = tail call ptr @__errno_location() #17
+  %57 = tail call ptr @__errno_location() #18
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %58, ptr noundef nonnull @.str.80)
   %60 = load ptr, ptr @stdout, align 8, !tbaa !14
   %61 = call i32 @fflush(ptr noundef %60)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge41
@@ -1370,7 +1370,7 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   %.3 = phi i32 [ %45, %.lr.ph ], [ %.1.lcssa, %bench_stats_check.exit ]
   %71 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %.126, i32 noundef %71, double noundef %23, i32 noundef %.3)
-  %72 = call i32 @wc_FreeRng(ptr noundef nonnull %3) #16
+  %72 = call i32 @wc_FreeRng(ptr noundef nonnull %3) #17
   br label %73
 
 73:                                               ; preds = %.loopexit, %6
@@ -1385,6 +1385,38 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @bench_stats_check(double noundef %0) unnamed_addr #4 {
+  %2 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %current_time.exit
+
+5:                                                ; preds = %1
+  %6 = tail call ptr @__errno_location() #18
+  %7 = load i32, ptr %6, align 4, !tbaa !4
+  %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %7, ptr noundef nonnull @.str.80)
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %10 = call i32 @fflush(ptr noundef %9)
+  call void @_exit(i32 noundef 1) #19
+  unreachable
+
+current_time.exit:                                ; preds = %1
+  %11 = load i64, ptr %2, align 8, !tbaa !16
+  %12 = sitofp i64 %11 to double
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = load i64, ptr %13, align 8, !tbaa !19
+  %15 = sitofp i64 %14 to double
+  %16 = fdiv double %15, 1.000000e+09
+  %17 = fadd double %16, %12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %18 = fsub double %17, %0
+  %19 = fcmp olt double %18, 1.000000e+00
+  %20 = zext i1 %19 to i32
+  ret i32 %20
+}
+
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
@@ -1394,7 +1426,7 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %7, i8 0, i64 150, i1 false)
-  %11 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %11 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %12 = extractvalue { i32, i32 } %11, 0
   %13 = extractvalue { i32, i32 } %11, 1
   %14 = zext i32 %12 to i64
@@ -1406,17 +1438,17 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   %20 = add i64 %19, %16
   store i64 %20, ptr %17, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %21 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
+  %21 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #17
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %current_time.exit
 
 23:                                               ; preds = %5
-  %24 = tail call ptr @__errno_location() #17
+  %24 = tail call ptr @__errno_location() #18
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %25, ptr noundef nonnull @.str.80)
   %27 = load ptr, ptr @stdout, align 8, !tbaa !14
   %28 = call i32 @fflush(ptr noundef %27)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 current_time.exit:                                ; preds = %5
@@ -1488,8 +1520,8 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   br i1 %.b, label %57, label %74
 
 57:                                               ; preds = %get_blocktype.exit
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 150, ptr noundef nonnull @.str.110, ptr noundef %0, double noundef %.0) #16
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
+  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 150, ptr noundef nonnull @.str.110, ptr noundef %0, double noundef %.0) #17
+  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 %59
   %61 = sub i64 150, %59
   %62 = icmp eq i32 %1, 0
@@ -1507,15 +1539,15 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
 
 71:                                               ; preds = %57, %63
   %72 = phi double [ %70, %63 ], [ 0.000000e+00, %57 ]
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %61, ptr noundef nonnull @.str.111, i32 noundef 6, double noundef %72) #16
+  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %61, ptr noundef nonnull @.str.111, i32 noundef 6, double noundef %72) #17
   br label %98
 
 74:                                               ; preds = %get_blocktype.exit
   %75 = load ptr, ptr %10, align 16, !tbaa !8
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !8
-  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 150, ptr noundef nonnull @.str.112, ptr noundef %0, ptr noundef nonnull @.str.113, i32 noundef 5, i32 noundef 0, double noundef %.038, ptr noundef nonnull %.023, ptr noundef %75, i32 noundef 5, i32 noundef 3, double noundef %37, ptr noundef %77, i32 noundef 8, i32 noundef 3, double noundef %.0, ptr noundef nonnull %.023) #16
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
+  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 150, ptr noundef nonnull @.str.112, ptr noundef %0, ptr noundef nonnull @.str.113, i32 noundef 5, i32 noundef 0, double noundef %.038, ptr noundef nonnull %.023, ptr noundef %75, i32 noundef 5, i32 noundef 3, double noundef %37, ptr noundef %77, i32 noundef 8, i32 noundef 3, double noundef %.0, ptr noundef nonnull %.023) #17
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 %79
   %81 = sub i64 150, %79
   %82 = load i32, ptr @lng_index, align 4, !tbaa !4
@@ -1537,7 +1569,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
 
 95:                                               ; preds = %74, %87
   %96 = phi double [ %94, %87 ], [ 0.000000e+00, %74 ]
-  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %81, ptr noundef nonnull @.str.114, ptr noundef %85, i32 noundef 6, i32 noundef 2, double noundef %96) #16
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %81, ptr noundef nonnull @.str.114, ptr noundef %85, i32 noundef 6, i32 noundef 2, double noundef %96) #17
   br label %98
 
 98:                                               ; preds = %95, %71
@@ -1580,228 +1612,204 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
-  %8 = alloca %struct.timespec, align 8
-  %9 = alloca [1 x [1 x %struct.Aes]], align 16
-  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
-  %11 = load ptr, ptr %10, align 8, !tbaa !8
-  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %13 = load ptr, ptr %12, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %9, i8 0, i64 848, i1 false)
-  %14 = call i32 @wc_AesInit(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #16
-  %.not41 = icmp eq i32 %14, 0
-  br i1 %.not41, label %17, label %15
-
-15:                                               ; preds = %.critedge
-  %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, i32 noundef 4338, i32 noundef %14)
-  br label %.critedge50
-
-17:                                               ; preds = %.critedge
-  %18 = call i32 @wc_AesSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0) #16
-  %.not42 = icmp eq i32 %18, 0
-  br i1 %.not42, label %21, label %19
-
-19:                                               ; preds = %17
-  %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %18)
-  br label %.critedge50
-
-21:                                               ; preds = %17
+  %8 = alloca [1 x [1 x %struct.Aes]], align 16
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
+  %10 = load ptr, ptr %9, align 8, !tbaa !8
+  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %12 = load ptr, ptr %11, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %bench_stats_start.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %8, i8 0, i64 848, i1 false)
+  %13 = call i32 @wc_AesInit(ptr noundef nonnull %8, ptr noundef null, i32 noundef -2) #17
+  %.not41 = icmp eq i32 %13, 0
+  br i1 %.not41, label %16, label %14
 
-24:                                               ; preds = %21
-  %25 = tail call ptr @__errno_location() #17
-  %26 = load i32, ptr %25, align 4, !tbaa !4
-  %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %26, ptr noundef nonnull @.str.80)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %29 = call i32 @fflush(ptr noundef %28)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
+14:                                               ; preds = %.critedge
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, i32 noundef 4338, i32 noundef %13)
+  br label %111
 
-bench_stats_start.exit:                           ; preds = %21
-  %30 = load i64, ptr %8, align 8, !tbaa !16
-  %31 = sitofp i64 %30 to double
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !19
-  %34 = sitofp i64 %33 to double
-  %35 = fdiv double %34, 1.000000e+09
-  %36 = fadd double %35, %31
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %38 = extractvalue { i32, i32 } %37, 0
-  %39 = extractvalue { i32, i32 } %37, 1
-  %40 = zext i32 %38 to i64
-  %41 = zext i32 %39 to i64
-  %42 = shl nuw i64 %41, 32
-  %43 = or disjoint i64 %42, %40
-  %44 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %43, ptr %44, align 8, !tbaa !21
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %46
+16:                                               ; preds = %.critedge
+  %17 = call i32 @wc_AesSetKey(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0) #17
+  %.not42 = icmp eq i32 %17, 0
+  br i1 %.not42, label %20, label %18, !llvm.loop !25
 
-46:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.077 = phi i32 [ 0, %bench_stats_start.exit ], [ %64, %bench_stats_check.exit ]
-  %.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %.1.lcssa, %bench_stats_check.exit ]
-  %47 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph, label %.critedge44._crit_edge
+18:                                               ; preds = %16
+  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %17)
+  br label %111
 
-.lr.ph:                                           ; preds = %46, %bench_async_handle.exit
-  %.073104 = phi i32 [ %53, %bench_async_handle.exit ], [ 0, %46 ]
-  %49 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %50 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %9, ptr noundef %13, ptr noundef %11, i32 noundef %49) #16
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %bench_async_handle.exit, label %.thread
-
-.thread:                                          ; preds = %.lr.ph
-  %52 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.077, i32 noundef %52, double noundef %36, i32 noundef %50)
-  br label %.critedge50
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %53 = add nuw nsw i32 %.073104, 1
-  %54 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %55 = icmp slt i32 %53, %54
-  br i1 %55, label %.lr.ph, label %.critedge44._crit_edge
-
-.critedge44._crit_edge:                           ; preds = %bench_async_handle.exit, %46
-  %.073.lcssa = phi i32 [ 0, %46 ], [ %53, %bench_async_handle.exit ]
-  %.1.lcssa = phi i32 [ %.0, %46 ], [ %50, %bench_async_handle.exit ]
+20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %56 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %58, label %bench_stats_check.exit
+  %21 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #17
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %bench_stats_start.exit
 
-58:                                               ; preds = %.critedge44._crit_edge
-  %59 = tail call ptr @__errno_location() #17
-  %60 = load i32, ptr %59, align 4, !tbaa !4
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %60, ptr noundef nonnull @.str.80)
-  %62 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %63 = call i32 @fflush(ptr noundef %62)
-  call void @_exit(i32 noundef 1) #18
+23:                                               ; preds = %20
+  %24 = tail call ptr @__errno_location() #18
+  %25 = load i32, ptr %24, align 4, !tbaa !4
+  %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %25, ptr noundef nonnull @.str.80)
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %28 = call i32 @fflush(ptr noundef %27)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit:                           ; preds = %.critedge44._crit_edge
-  %64 = add nuw nsw i32 %.073.lcssa, %.077
-  %65 = load i64, ptr %7, align 8, !tbaa !16
-  %66 = sitofp i64 %65 to double
-  %67 = load i64, ptr %45, align 8, !tbaa !19
-  %68 = sitofp i64 %67 to double
-  %69 = fdiv double %68, 1.000000e+09
-  %70 = fadd double %69, %66
+bench_stats_start.exit:                           ; preds = %20
+  %29 = load i64, ptr %7, align 8, !tbaa !16
+  %30 = sitofp i64 %29 to double
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !19
+  %33 = sitofp i64 %32 to double
+  %34 = fdiv double %33, 1.000000e+09
+  %35 = fadd double %34, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %71 = fsub double %70, %36
-  %72 = fcmp uge double %71, 1.000000e+00
-  br i1 %72, label %73, label %46, !llvm.loop !25
+  %36 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %37 = extractvalue { i32, i32 } %36, 0
+  %38 = extractvalue { i32, i32 } %36, 1
+  %39 = zext i32 %37 to i64
+  %40 = zext i32 %38 to i64
+  %41 = shl nuw i64 %40, 32
+  %42 = or disjoint i64 %41, %39
+  %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %42, ptr %43, align 8, !tbaa !21
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %45
 
-73:                                               ; preds = %bench_stats_check.exit
-  %74 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %64, i32 noundef %74, double noundef %36, i32 noundef %.1.lcssa)
-  %75 = call i32 @wc_AesSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1) #16
-  %.not39 = icmp eq i32 %75, 0
-  br i1 %.not39, label %.critedge46, label %76
+45:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
+  %.070 = phi i32 [ 0, %bench_stats_start.exit ], [ %63, %bench_stats_check.exit ]
+  %.1 = phi i32 [ 0, %bench_stats_start.exit ], [ %.2.lcssa, %bench_stats_check.exit ]
+  %46 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.preheader84, label %._crit_edge
 
-76:                                               ; preds = %73
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %75)
-  br label %.critedge50
+.preheader84:                                     ; preds = %45, %bench_async_handle.exit
+  %.064108 = phi i32 [ %52, %bench_async_handle.exit ], [ 0, %45 ]
+  %48 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %49 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %8, ptr noundef %12, ptr noundef %10, i32 noundef %48) #17
+  %50 = icmp sgt i32 %49, -1
+  br i1 %50, label %bench_async_handle.exit, label %.thread
 
-.critedge46:                                      ; preds = %73
+.thread:                                          ; preds = %.preheader84
+  %51 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.070, i32 noundef %51, double noundef %35, i32 noundef %49)
+  br label %111
+
+bench_async_handle.exit:                          ; preds = %.preheader84
+  %52 = add nuw nsw i32 %.064108, 1
+  %53 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %.preheader84, label %._crit_edge, !llvm.loop !26
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %45
+  %.064.lcssa = phi i32 [ 0, %45 ], [ %52, %bench_async_handle.exit ]
+  %.2.lcssa = phi i32 [ %.1, %45 ], [ %49, %bench_async_handle.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %78 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %80, label %bench_stats_start.exit52
+  %55 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #17
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %bench_stats_check.exit
 
-80:                                               ; preds = %.critedge46
-  %81 = tail call ptr @__errno_location() #17
-  %82 = load i32, ptr %81, align 4, !tbaa !4
-  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %82, ptr noundef nonnull @.str.80)
-  %84 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %85 = call i32 @fflush(ptr noundef %84)
-  call void @_exit(i32 noundef 1) #18
+57:                                               ; preds = %._crit_edge
+  %58 = tail call ptr @__errno_location() #18
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %59, ptr noundef nonnull @.str.80)
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %62 = call i32 @fflush(ptr noundef %61)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit52:                         ; preds = %.critedge46
-  %86 = load i64, ptr %6, align 8, !tbaa !16
-  %87 = sitofp i64 %86 to double
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !19
-  %90 = sitofp i64 %89 to double
-  %91 = fdiv double %90, 1.000000e+09
-  %92 = fadd double %91, %87
+bench_stats_check.exit:                           ; preds = %._crit_edge
+  %63 = add nsw i32 %.064.lcssa, %.070
+  %64 = load i64, ptr %6, align 8, !tbaa !16
+  %65 = sitofp i64 %64 to double
+  %66 = load i64, ptr %44, align 8, !tbaa !19
+  %67 = sitofp i64 %66 to double
+  %68 = fdiv double %67, 1.000000e+09
+  %69 = fadd double %68, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %93 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %94 = extractvalue { i32, i32 } %93, 0
-  %95 = extractvalue { i32, i32 } %93, 1
-  %96 = zext i32 %94 to i64
-  %97 = zext i32 %95 to i64
-  %98 = shl nuw i64 %97, 32
-  %99 = or disjoint i64 %98, %96
-  store i64 %99, ptr %44, align 8, !tbaa !21
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %101
+  %70 = fsub double %69, %35
+  %71 = fcmp uge double %70, 1.000000e+00
+  br i1 %71, label %.preheader83, label %45, !llvm.loop !27
 
-101:                                              ; preds = %bench_stats_check.exit55, %bench_stats_start.exit52
-  %.279 = phi i32 [ 0, %bench_stats_start.exit52 ], [ %118, %bench_stats_check.exit55 ]
-  %.3 = phi i32 [ 0, %bench_stats_start.exit52 ], [ %.4.lcssa, %bench_stats_check.exit55 ]
-  %102 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph107, label %.critedge48._crit_edge
-
-.lr.ph107:                                        ; preds = %101, %bench_async_handle.exit54
-  %.174106 = phi i32 [ %107, %bench_async_handle.exit54 ], [ 0, %101 ]
-  %104 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %105 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %9, ptr noundef %13, ptr noundef %11, i32 noundef %104) #16
-  %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %bench_async_handle.exit54, label %bench_async_handle.exit54.thread
-
-bench_async_handle.exit54:                        ; preds = %.lr.ph107
-  %107 = add nuw nsw i32 %.174106, 1
-  %108 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %109 = icmp slt i32 %107, %108
-  br i1 %109, label %.lr.ph107, label %.critedge48._crit_edge
-
-.critedge48._crit_edge:                           ; preds = %bench_async_handle.exit54, %101
-  %.174.lcssa = phi i32 [ 0, %101 ], [ %107, %bench_async_handle.exit54 ]
-  %.4.lcssa = phi i32 [ %.3, %101 ], [ %105, %bench_async_handle.exit54 ]
+72:                                               ; preds = %.preheader83
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %110 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %bench_stats_check.exit55
+  %73 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %79, label %bench_stats_start.exit44
 
-112:                                              ; preds = %.critedge48._crit_edge
-  %113 = tail call ptr @__errno_location() #17
-  %114 = load i32, ptr %113, align 4, !tbaa !4
-  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %114, ptr noundef nonnull @.str.80)
-  %116 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %117 = call i32 @fflush(ptr noundef %116)
-  call void @_exit(i32 noundef 1) #18
+.preheader83:                                     ; preds = %bench_stats_check.exit
+  %75 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %63, i32 noundef %75, double noundef %35, i32 noundef %.2.lcssa)
+  %76 = call i32 @wc_AesSetKey(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1) #17
+  %.not39 = icmp eq i32 %76, 0
+  br i1 %.not39, label %72, label %77, !llvm.loop !28
+
+77:                                               ; preds = %.preheader83
+  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %76)
+  br label %111
+
+79:                                               ; preds = %72
+  %80 = tail call ptr @__errno_location() #18
+  %81 = load i32, ptr %80, align 4, !tbaa !4
+  %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %81, ptr noundef nonnull @.str.80)
+  %83 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %84 = call i32 @fflush(ptr noundef %83)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit55:                         ; preds = %.critedge48._crit_edge
-  %118 = add nuw nsw i32 %.174.lcssa, %.279
-  %119 = load i64, ptr %5, align 8, !tbaa !16
-  %120 = sitofp i64 %119 to double
-  %121 = load i64, ptr %100, align 8, !tbaa !19
-  %122 = sitofp i64 %121 to double
-  %123 = fdiv double %122, 1.000000e+09
-  %124 = fadd double %123, %120
+bench_stats_start.exit44:                         ; preds = %72
+  %85 = load i64, ptr %5, align 8, !tbaa !16
+  %86 = sitofp i64 %85 to double
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !19
+  %89 = sitofp i64 %88 to double
+  %90 = fdiv double %89, 1.000000e+09
+  %91 = fadd double %90, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = fsub double %124, %92
-  %126 = fcmp uge double %125, 1.000000e+00
-  br i1 %126, label %bench_async_handle.exit54.thread, label %101, !llvm.loop !26
+  %92 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %93 = extractvalue { i32, i32 } %92, 0
+  %94 = extractvalue { i32, i32 } %92, 1
+  %95 = zext i32 %93 to i64
+  %96 = zext i32 %94 to i64
+  %97 = shl nuw i64 %96, 32
+  %98 = or disjoint i64 %97, %95
+  store i64 %98, ptr %43, align 8, !tbaa !21
+  br label %99
 
-bench_async_handle.exit54.thread:                 ; preds = %bench_stats_check.exit55, %.lr.ph107
-  %.380 = phi i32 [ %.279, %.lr.ph107 ], [ %118, %bench_stats_check.exit55 ]
-  %.5 = phi i32 [ %105, %.lr.ph107 ], [ %.4.lcssa, %bench_stats_check.exit55 ]
-  %127 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.380, i32 noundef %127, double noundef %92, i32 noundef %.5)
-  br label %.critedge50
+99:                                               ; preds = %._crit_edge112, %bench_stats_start.exit44
+  %.272 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %108, %._crit_edge112 ]
+  %.6 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %.7.lcssa, %._crit_edge112 ]
+  %100 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %.preheader, label %._crit_edge112
 
-.critedge50:                                      ; preds = %.thread, %bench_async_handle.exit54.thread, %76, %19, %15
-  call void @wc_AesFree(ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+.preheader:                                       ; preds = %99, %bench_async_handle.exit46
+  %.266111 = phi i32 [ %105, %bench_async_handle.exit46 ], [ 0, %99 ]
+  %102 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %103 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %8, ptr noundef %12, ptr noundef %10, i32 noundef %102) #17
+  %104 = icmp sgt i32 %103, -1
+  br i1 %104, label %bench_async_handle.exit46, label %bench_async_handle.exit46.thread
+
+bench_async_handle.exit46:                        ; preds = %.preheader
+  %105 = add nuw nsw i32 %.266111, 1
+  %106 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %.preheader, label %._crit_edge112, !llvm.loop !29
+
+._crit_edge112:                                   ; preds = %bench_async_handle.exit46, %99
+  %.266.lcssa = phi i32 [ 0, %99 ], [ %105, %bench_async_handle.exit46 ]
+  %.7.lcssa = phi i32 [ %.6, %99 ], [ %103, %bench_async_handle.exit46 ]
+  %108 = add nsw i32 %.266.lcssa, %.272
+  %109 = call fastcc i32 @bench_stats_check(double noundef %91)
+  %.not37 = icmp eq i32 %109, 0
+  br i1 %.not37, label %bench_async_handle.exit46.thread, label %99, !llvm.loop !30
+
+bench_async_handle.exit46.thread:                 ; preds = %._crit_edge112, %.preheader
+  %.373 = phi i32 [ %.272, %.preheader ], [ %108, %._crit_edge112 ]
+  %.9 = phi i32 [ %103, %.preheader ], [ %.7.lcssa, %._crit_edge112 ]
+  %110 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.373, i32 noundef %110, double noundef %91, i32 noundef %.9)
+  br label %111
+
+111:                                              ; preds = %14, %18, %77, %bench_async_handle.exit46.thread, %.thread
+  call void @wc_AesFree(ptr noundef nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -1844,8 +1852,6 @@ define dso_local void @bench_aesgcm(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_aesgcm_internal(ptr noundef %0, i32 noundef range(i32 16, 33) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-.critedge:
-  %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -1861,40 +1867,40 @@ define internal fastcc void @bench_aesgcm_internal(ptr noundef %0, i32 noundef r
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %10, i8 0, i64 848, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %11, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = call i32 @wc_AesInit(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #16
+  %13 = call i32 @wc_AesInit(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #17
   %.not58 = icmp eq i32 %13, 0
   br i1 %.not58, label %16, label %14
 
-14:                                               ; preds = %.critedge
+14:                                               ; preds = %5
   %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, i32 noundef 4510, i32 noundef %13)
-  br label %148
+  br label %132
 
-16:                                               ; preds = %.critedge
+16:                                               ; preds = %5
   %.b48 = load i1, ptr @aead_set_key, align 4
   br i1 %.b48, label %21, label %17
 
 17:                                               ; preds = %16
-  %18 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1) #16
+  %18 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1) #17
   %.not59 = icmp eq i32 %18, 0
   br i1 %.not59, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.130, i32 noundef %18)
-  br label %148
+  br label %132
 
 21:                                               ; preds = %17, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
+  %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #17
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %bench_stats_start.exit
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @__errno_location() #17
+  %25 = tail call ptr @__errno_location() #18
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %26, ptr noundef nonnull @.str.80)
   %28 = load ptr, ptr @stdout, align 8, !tbaa !14
   %29 = call i32 @fflush(ptr noundef %28)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %21
@@ -1906,7 +1912,7 @@ bench_stats_start.exit:                           ; preds = %21
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
   %40 = zext i32 %38 to i64
@@ -1921,61 +1927,61 @@ bench_stats_start.exit:                           ; preds = %21
   br label %48
 
 48:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.0110 = phi i32 [ 0, %bench_stats_start.exit ], [ %72, %bench_stats_check.exit ]
-  %.2 = phi i32 [ 0, %bench_stats_start.exit ], [ %.3.lcssa, %bench_stats_check.exit ]
+  %.0101 = phi i32 [ 0, %bench_stats_start.exit ], [ %72, %bench_stats_check.exit ]
+  %.3 = phi i32 [ 0, %bench_stats_start.exit ], [ %.4.lcssa, %bench_stats_check.exit ]
   %49 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph, label %.critedge61._crit_edge
+  br i1 %50, label %.preheader119, label %._crit_edge
 
-.critedge61:                                      ; preds = %bench_async_handle.exit74
-  %51 = add nsw i32 %.1103, 1
+.preheader119:                                    ; preds = %48, %.loopexit120
+  %.091144 = phi i32 [ %51, %.loopexit120 ], [ 0, %48 ]
+  %.b47 = load i1, ptr @aead_set_key, align 4
+  br i1 %.b47, label %54, label %bench_async_handle.exit64
+
+.loopexit120:                                     ; preds = %bench_async_handle.exit64
+  %51 = add nsw i32 %.293, 1
   %52 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph, label %.critedge61._crit_edge
+  br i1 %53, label %.preheader119, label %._crit_edge, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %48, %.critedge61
-  %.0102139 = phi i32 [ %51, %.critedge61 ], [ 0, %48 ]
-  %.b47 = load i1, ptr @aead_set_key, align 4
-  br i1 %.b47, label %54, label %bench_async_handle.exit74
-
-54:                                               ; preds = %.lr.ph
-  %55 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1) #16
+54:                                               ; preds = %.preheader119
+  %55 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %1) #17
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %bench_async_handle.exit, label %.critedge63
+  br i1 %56, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
 
 bench_async_handle.exit:                          ; preds = %54
-  %57 = add nsw i32 %.0102139, 1
-  br label %bench_async_handle.exit74
+  %57 = add nsw i32 %.091144, 1
+  br label %bench_async_handle.exit64
 
-bench_async_handle.exit74:                        ; preds = %bench_async_handle.exit, %.lr.ph
-  %.1103 = phi i32 [ %57, %bench_async_handle.exit ], [ %.0102139, %.lr.ph ]
+bench_async_handle.exit64:                        ; preds = %bench_async_handle.exit, %.preheader119
+  %.293 = phi i32 [ %57, %bench_async_handle.exit ], [ %.091144, %.preheader119 ]
   %58 = load ptr, ptr %45, align 8, !tbaa !8
   %59 = load ptr, ptr %46, align 8, !tbaa !8
   %60 = load i32, ptr @bench_size, align 4, !tbaa !4
   %61 = load i32, ptr @aesAuthAddSz, align 4, !tbaa !4
-  %62 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %9, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef 12, ptr noundef nonnull %12, i32 noundef 16, ptr noundef nonnull %11, i32 noundef %61) #16
+  %62 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %9, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef 12, ptr noundef nonnull %12, i32 noundef 16, ptr noundef nonnull %11, i32 noundef %61) #17
   %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %.critedge61, label %.critedge63
+  br i1 %63, label %.loopexit120, label %bench_async_handle.exit.thread
 
-.critedge61._crit_edge:                           ; preds = %.critedge61, %48
-  %.0102.lcssa = phi i32 [ 0, %48 ], [ %51, %.critedge61 ]
-  %.3.lcssa = phi i32 [ %.2, %48 ], [ %62, %.critedge61 ]
+._crit_edge:                                      ; preds = %.loopexit120, %48
+  %.091.lcssa = phi i32 [ 0, %48 ], [ %51, %.loopexit120 ]
+  %.4.lcssa = phi i32 [ %.3, %48 ], [ %62, %.loopexit120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %64 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
+  %64 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #17
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %bench_stats_check.exit
 
-66:                                               ; preds = %.critedge61._crit_edge
-  %67 = tail call ptr @__errno_location() #17
+66:                                               ; preds = %._crit_edge
+  %67 = tail call ptr @__errno_location() #18
   %68 = load i32, ptr %67, align 4, !tbaa !4
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %68, ptr noundef nonnull @.str.80)
   %70 = load ptr, ptr @stdout, align 8, !tbaa !14
   %71 = call i32 @fflush(ptr noundef %70)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit:                           ; preds = %.critedge61._crit_edge
-  %72 = add nsw i32 %.0102.lcssa, %.0110
+bench_stats_check.exit:                           ; preds = %._crit_edge
+  %72 = add nsw i32 %.091.lcssa, %.0101
   %73 = load i64, ptr %7, align 8, !tbaa !16
   %74 = sitofp i64 %73 to double
   %75 = load i64, ptr %47, align 8, !tbaa !19
@@ -1985,50 +1991,50 @@ bench_stats_check.exit:                           ; preds = %.critedge61._crit_e
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = fsub double %78, %36
   %80 = fcmp uge double %79, 1.000000e+00
-  br i1 %80, label %.critedge63, label %48, !llvm.loop !27
+  br i1 %80, label %bench_async_handle.exit.thread, label %48, !llvm.loop !32
 
-.critedge63:                                      ; preds = %bench_stats_check.exit, %bench_async_handle.exit74, %54
-  %.1111 = phi i32 [ %.0110, %54 ], [ %.0110, %bench_async_handle.exit74 ], [ %72, %bench_stats_check.exit ]
-  %.4 = phi i32 [ %62, %bench_async_handle.exit74 ], [ %55, %54 ], [ %.3.lcssa, %bench_stats_check.exit ]
+bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %bench_async_handle.exit64, %54
+  %.1102 = phi i32 [ %.0101, %54 ], [ %.0101, %bench_async_handle.exit64 ], [ %72, %bench_stats_check.exit ]
+  %.6 = phi i32 [ %62, %bench_async_handle.exit64 ], [ %55, %54 ], [ %.4.lcssa, %bench_stats_check.exit ]
   %81 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.1111, i32 noundef %81, double noundef %36, i32 noundef %.4)
-  %82 = call i32 @wc_AesInit(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #16
+  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.1102, i32 noundef %81, double noundef %36, i32 noundef %.6)
+  %82 = call i32 @wc_AesInit(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #17
   %.not55 = icmp eq i32 %82, 0
   br i1 %.not55, label %85, label %83
 
-83:                                               ; preds = %.critedge63
+83:                                               ; preds = %bench_async_handle.exit.thread
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, i32 noundef 4575, i32 noundef %82)
-  br label %148
+  br label %132
 
-85:                                               ; preds = %.critedge63
+85:                                               ; preds = %bench_async_handle.exit.thread
   %.b46 = load i1, ptr @aead_set_key, align 4
   br i1 %.b46, label %90, label %86
 
 86:                                               ; preds = %85
-  %87 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %10, ptr noundef %0, i32 noundef %1) #16
+  %87 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %10, ptr noundef %0, i32 noundef %1) #17
   %.not56 = icmp eq i32 %87, 0
   br i1 %.not56, label %90, label %88
 
 88:                                               ; preds = %86
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.130, i32 noundef %87)
-  br label %148
+  br label %132
 
 90:                                               ; preds = %86, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %91 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
+  %91 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #17
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %bench_stats_start.exit75
+  br i1 %92, label %93, label %bench_stats_start.exit65
 
 93:                                               ; preds = %90
-  %94 = tail call ptr @__errno_location() #17
+  %94 = tail call ptr @__errno_location() #18
   %95 = load i32, ptr %94, align 4, !tbaa !4
   %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %95, ptr noundef nonnull @.str.80)
   %97 = load ptr, ptr @stdout, align 8, !tbaa !14
   %98 = call i32 @fflush(ptr noundef %97)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit75:                         ; preds = %90
+bench_stats_start.exit65:                         ; preds = %90
   %99 = load i64, ptr %6, align 8, !tbaa !16
   %100 = sitofp i64 %99 to double
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2037,7 +2043,7 @@ bench_stats_start.exit75:                         ; preds = %90
   %104 = fdiv double %103, 1.000000e+09
   %105 = fadd double %104, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %107 = extractvalue { i32, i32 } %106, 0
   %108 = extractvalue { i32, i32 } %106, 1
   %109 = zext i32 %107 to i64
@@ -2045,95 +2051,72 @@ bench_stats_start.exit75:                         ; preds = %90
   %111 = shl nuw i64 %110, 32
   %112 = or disjoint i64 %111, %109
   store i64 %112, ptr %44, align 8, !tbaa !21
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %114
+  br label %113
 
-114:                                              ; preds = %bench_stats_check.exit80, %bench_stats_start.exit75
-  %.2112 = phi i32 [ 0, %bench_stats_start.exit75 ], [ %138, %bench_stats_check.exit80 ]
-  %.6 = phi i32 [ 0, %bench_stats_start.exit75 ], [ %.7.lcssa, %bench_stats_check.exit80 ]
-  %115 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph142, label %.critedge65._crit_edge
+113:                                              ; preds = %._crit_edge148, %bench_stats_start.exit65
+  %.2103 = phi i32 [ 0, %bench_stats_start.exit65 ], [ %129, %._crit_edge148 ]
+  %.9 = phi i32 [ 0, %bench_stats_start.exit65 ], [ %.10.lcssa, %._crit_edge148 ]
+  %114 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %.preheader117, label %._crit_edge148
 
-.critedge65:                                      ; preds = %bench_async_handle.exit79
-  %117 = add nsw i32 %.3105, 1
-  %118 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %119 = icmp slt i32 %117, %118
-  br i1 %119, label %.lr.ph142, label %.critedge65._crit_edge
-
-.lr.ph142:                                        ; preds = %114, %.critedge65
-  %.2104141 = phi i32 [ %117, %.critedge65 ], [ 0, %114 ]
+.preheader117:                                    ; preds = %113, %.loopexit
+  %.394147 = phi i32 [ %116, %.loopexit ], [ 0, %113 ]
   %.b = load i1, ptr @aead_set_key, align 4
-  br i1 %.b, label %120, label %bench_async_handle.exit79
+  br i1 %.b, label %119, label %bench_async_handle.exit69
 
-120:                                              ; preds = %.lr.ph142
-  %121 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %10, ptr noundef %0, i32 noundef %1) #16
-  %122 = icmp sgt i32 %121, -1
-  br i1 %122, label %bench_async_handle.exit77, label %bench_async_handle.exit77.thread
+.loopexit:                                        ; preds = %bench_async_handle.exit69
+  %116 = add nsw i32 %.596, 1
+  %117 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %118 = icmp slt i32 %116, %117
+  br i1 %118, label %.preheader117, label %._crit_edge148, !llvm.loop !33
 
-bench_async_handle.exit77:                        ; preds = %120
-  %123 = add nsw i32 %.2104141, 1
-  br label %bench_async_handle.exit79
+119:                                              ; preds = %.preheader117
+  %120 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %10, ptr noundef %0, i32 noundef %1) #17
+  %121 = icmp sgt i32 %120, -1
+  br i1 %121, label %bench_async_handle.exit67, label %bench_async_handle.exit67.thread
 
-bench_async_handle.exit79:                        ; preds = %bench_async_handle.exit77, %.lr.ph142
-  %.3105 = phi i32 [ %123, %bench_async_handle.exit77 ], [ %.2104141, %.lr.ph142 ]
-  %124 = load ptr, ptr %46, align 8, !tbaa !8
-  %125 = load ptr, ptr %45, align 8, !tbaa !8
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %127 = load i32, ptr @aesAuthAddSz, align 4, !tbaa !4
-  %128 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %10, ptr noundef %124, ptr noundef %125, i32 noundef %126, ptr noundef %2, i32 noundef 12, ptr noundef nonnull %12, i32 noundef 16, ptr noundef nonnull %11, i32 noundef %127) #16
-  %129 = icmp sgt i32 %128, -1
-  br i1 %129, label %.critedge65, label %bench_async_handle.exit77.thread
+bench_async_handle.exit67:                        ; preds = %119
+  %122 = add nsw i32 %.394147, 1
+  br label %bench_async_handle.exit69
 
-.critedge65._crit_edge:                           ; preds = %.critedge65, %114
-  %.2104.lcssa = phi i32 [ 0, %114 ], [ %117, %.critedge65 ]
-  %.7.lcssa = phi i32 [ %.6, %114 ], [ %128, %.critedge65 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %130 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %131 = icmp slt i32 %130, 0
-  br i1 %131, label %132, label %bench_stats_check.exit80
+bench_async_handle.exit69:                        ; preds = %bench_async_handle.exit67, %.preheader117
+  %.596 = phi i32 [ %122, %bench_async_handle.exit67 ], [ %.394147, %.preheader117 ]
+  %123 = load ptr, ptr %46, align 8, !tbaa !8
+  %124 = load ptr, ptr %45, align 8, !tbaa !8
+  %125 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %126 = load i32, ptr @aesAuthAddSz, align 4, !tbaa !4
+  %127 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %10, ptr noundef %123, ptr noundef %124, i32 noundef %125, ptr noundef %2, i32 noundef 12, ptr noundef nonnull %12, i32 noundef 16, ptr noundef nonnull %11, i32 noundef %126) #17
+  %128 = icmp sgt i32 %127, -1
+  br i1 %128, label %.loopexit, label %bench_async_handle.exit67.thread
 
-132:                                              ; preds = %.critedge65._crit_edge
-  %133 = tail call ptr @__errno_location() #17
-  %134 = load i32, ptr %133, align 4, !tbaa !4
-  %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %134, ptr noundef nonnull @.str.80)
-  %136 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %137 = call i32 @fflush(ptr noundef %136)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
+._crit_edge148:                                   ; preds = %.loopexit, %113
+  %.394.lcssa = phi i32 [ 0, %113 ], [ %116, %.loopexit ]
+  %.10.lcssa = phi i32 [ %.9, %113 ], [ %127, %.loopexit ]
+  %129 = add nsw i32 %.394.lcssa, %.2103
+  %130 = call fastcc i32 @bench_stats_check(double noundef %105)
+  %.not51 = icmp eq i32 %130, 0
+  br i1 %.not51, label %bench_async_handle.exit67.thread, label %113, !llvm.loop !34
 
-bench_stats_check.exit80:                         ; preds = %.critedge65._crit_edge
-  %138 = add nsw i32 %.2104.lcssa, %.2112
-  %139 = load i64, ptr %5, align 8, !tbaa !16
-  %140 = sitofp i64 %139 to double
-  %141 = load i64, ptr %113, align 8, !tbaa !19
-  %142 = sitofp i64 %141 to double
-  %143 = fdiv double %142, 1.000000e+09
-  %144 = fadd double %143, %140
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %145 = fsub double %144, %105
-  %146 = fcmp uge double %145, 1.000000e+00
-  br i1 %146, label %bench_async_handle.exit77.thread, label %114, !llvm.loop !28
+bench_async_handle.exit67.thread:                 ; preds = %._crit_edge148, %bench_async_handle.exit69, %119
+  %.3104 = phi i32 [ %.2103, %119 ], [ %.2103, %bench_async_handle.exit69 ], [ %129, %._crit_edge148 ]
+  %.12 = phi i32 [ %127, %bench_async_handle.exit69 ], [ %120, %119 ], [ %.10.lcssa, %._crit_edge148 ]
+  %131 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.3104, i32 noundef %131, double noundef %105, i32 noundef %.12)
+  br label %132
 
-bench_async_handle.exit77.thread:                 ; preds = %bench_stats_check.exit80, %bench_async_handle.exit79, %120
-  %.3113 = phi i32 [ %.2112, %120 ], [ %.2112, %bench_async_handle.exit79 ], [ %138, %bench_stats_check.exit80 ]
-  %.8 = phi i32 [ %128, %bench_async_handle.exit79 ], [ %121, %120 ], [ %.7.lcssa, %bench_stats_check.exit80 ]
-  %147 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.3113, i32 noundef %147, double noundef %105, i32 noundef %.8)
-  br label %148
+132:                                              ; preds = %bench_async_handle.exit67.thread, %88, %83, %19, %14
+  %.1 = phi i32 [ %18, %19 ], [ %13, %14 ], [ %87, %88 ], [ %82, %83 ], [ %.12, %bench_async_handle.exit67.thread ]
+  %133 = icmp slt i32 %.1, 0
+  br i1 %133, label %134, label %.preheader
 
-148:                                              ; preds = %bench_async_handle.exit77.thread, %88, %83, %19, %14
-  %.1 = phi i32 [ %.8, %bench_async_handle.exit77.thread ], [ %87, %88 ], [ %82, %83 ], [ %18, %19 ], [ %13, %14 ]
-  %149 = icmp slt i32 %.1, 0
-  br i1 %149, label %150, label %.critedge67
+134:                                              ; preds = %132
+  %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.131, i32 noundef %.1)
+  br label %.preheader
 
-150:                                              ; preds = %148
-  %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.131, i32 noundef %.1)
-  br label %.critedge67
-
-.critedge67:                                      ; preds = %150, %148
-  call void @wc_AesFree(ptr noundef nonnull %10) #16
-  call void @wc_AesFree(ptr noundef nonnull %9) #16
+.preheader:                                       ; preds = %132, %134
+  call void @wc_AesFree(ptr noundef nonnull %10) #17
+  call void @wc_AesFree(ptr noundef nonnull %9) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2156,22 +2139,22 @@ define dso_local void @bench_gmac(i32 %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %4, i8 0, i64 848, i1 false)
-  %10 = call i32 @wc_AesInit(ptr noundef nonnull %4, ptr noundef null, i32 noundef -2) #16
+  %10 = call i32 @wc_AesInit(ptr noundef nonnull %4, ptr noundef null, i32 noundef -2) #17
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %12 = load ptr, ptr %11, align 8, !tbaa !8
-  %13 = call i32 @wc_GmacSetKey(ptr noundef nonnull %4, ptr noundef %12, i32 noundef 16) #16
+  %13 = call i32 @wc_GmacSetKey(ptr noundef nonnull %4, ptr noundef %12, i32 noundef 16) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
+  %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %bench_stats_start.exit
 
 16:                                               ; preds = %1
-  %17 = tail call ptr @__errno_location() #17
+  %17 = tail call ptr @__errno_location() #18
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %18, ptr noundef nonnull @.str.80)
   %20 = load ptr, ptr @stdout, align 8, !tbaa !14
   %21 = call i32 @fflush(ptr noundef %20)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %1
@@ -2183,7 +2166,7 @@ bench_stats_start.exit:                           ; preds = %1
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
   %32 = zext i32 %30 to i64
@@ -2201,19 +2184,19 @@ bench_stats_start.exit:                           ; preds = %1
   %40 = load ptr, ptr %37, align 8, !tbaa !8
   %41 = load ptr, ptr %6, align 8, !tbaa !8
   %42 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %43 = call i32 @wc_GmacUpdate(ptr noundef nonnull %4, ptr noundef %40, i32 noundef 12, ptr noundef %41, i32 noundef %42, ptr noundef nonnull %5, i32 noundef 16) #16
+  %43 = call i32 @wc_GmacUpdate(ptr noundef nonnull %4, ptr noundef %40, i32 noundef 12, ptr noundef %41, i32 noundef %42, ptr noundef nonnull %5, i32 noundef 16) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %44 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %44 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %bench_stats_check.exit
 
 46:                                               ; preds = %39
-  %47 = tail call ptr @__errno_location() #17
+  %47 = tail call ptr @__errno_location() #18
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %48, ptr noundef nonnull @.str.80)
   %50 = load ptr, ptr @stdout, align 8, !tbaa !14
   %51 = call i32 @fflush(ptr noundef %50)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %39
@@ -2227,10 +2210,10 @@ bench_stats_check.exit:                           ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %59 = fsub double %58, %28
   %60 = fcmp uge double %59, 1.000000e+00
-  br i1 %60, label %61, label %39, !llvm.loop !29
+  br i1 %60, label %61, label %39, !llvm.loop !35
 
 61:                                               ; preds = %bench_stats_check.exit
-  call void @wc_AesFree(ptr noundef nonnull %4) #16
+  call void @wc_AesFree(ptr noundef nonnull %4) #17
   %62 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.31, i32 noundef %52, i32 noundef %62, double noundef %28, i32 noundef %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2239,7 +2222,7 @@ bench_stats_check.exit:                           ; preds = %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2265,7 +2248,7 @@ define dso_local void @bench_poly1305() local_unnamed_addr #0 {
 7:                                                ; preds = %0
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %9 = load ptr, ptr %8, align 8, !tbaa !8
-  %10 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %5, ptr noundef %9, i32 noundef 32) #16
+  %10 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %5, ptr noundef %9, i32 noundef 32) #17
   %.not26 = icmp eq i32 %10, 0
   br i1 %.not26, label %13, label %11
 
@@ -2275,17 +2258,17 @@ define dso_local void @bench_poly1305() local_unnamed_addr #0 {
 
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
+  %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %bench_stats_start.exit
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @__errno_location() #17
+  %17 = tail call ptr @__errno_location() #18
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %18, ptr noundef nonnull @.str.80)
   %20 = load ptr, ptr @stdout, align 8, !tbaa !14
   %21 = call i32 @fflush(ptr noundef %20)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %13
@@ -2297,7 +2280,7 @@ bench_stats_start.exit:                           ; preds = %13
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
   %32 = zext i32 %30 to i64
@@ -2321,7 +2304,7 @@ bench_stats_start.exit:                           ; preds = %13
   %.057 = phi i32 [ %48, %47 ], [ 0, %39 ]
   %42 = load ptr, ptr %37, align 8, !tbaa !8
   %43 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %44 = call i32 @wc_Poly1305Update(ptr noundef nonnull %5, ptr noundef %42, i32 noundef %43) #16
+  %44 = call i32 @wc_Poly1305Update(ptr noundef nonnull %5, ptr noundef %42, i32 noundef %43) #17
   %.not27 = icmp eq i32 %44, 0
   br i1 %.not27, label %47, label %45
 
@@ -2333,24 +2316,24 @@ bench_stats_start.exit:                           ; preds = %13
   %48 = add nuw nsw i32 %.057, 1
   %49 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %.lr.ph, label %.loopexit40, !llvm.loop !30
+  br i1 %50, label %.lr.ph, label %.loopexit40, !llvm.loop !36
 
 .loopexit40:                                      ; preds = %47, %39, %45
   %.052 = phi i32 [ %.057, %45 ], [ 0, %39 ], [ %48, %47 ]
   %.2 = phi i32 [ %44, %45 ], [ %.015, %39 ], [ 0, %47 ]
-  %51 = call i32 @wc_Poly1305Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %51 = call i32 @wc_Poly1305Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %52 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
+  %52 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %bench_stats_check.exit
 
 54:                                               ; preds = %.loopexit40
-  %55 = tail call ptr @__errno_location() #17
+  %55 = tail call ptr @__errno_location() #18
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %56, ptr noundef nonnull @.str.80)
   %58 = load ptr, ptr @stdout, align 8, !tbaa !14
   %59 = call i32 @fflush(ptr noundef %58)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %.loopexit40
@@ -2364,21 +2347,21 @@ bench_stats_check.exit:                           ; preds = %.loopexit40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = fsub double %66, %28
   %68 = fcmp uge double %67, 1.000000e+00
-  br i1 %68, label %.loopexit39, label %39, !llvm.loop !31
+  br i1 %68, label %.loopexit39, label %39, !llvm.loop !37
 
 69:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %bench_stats_start.exit29
 
 72:                                               ; preds = %69
-  %73 = tail call ptr @__errno_location() #17
+  %73 = tail call ptr @__errno_location() #18
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %74, ptr noundef nonnull @.str.80)
   %76 = load ptr, ptr @stdout, align 8, !tbaa !14
   %77 = call i32 @fflush(ptr noundef %76)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit29:                         ; preds = %69
@@ -2390,7 +2373,7 @@ bench_stats_start.exit29:                         ; preds = %69
   %83 = fdiv double %82, 1.000000e+09
   %84 = fadd double %83, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %86 = extractvalue { i32, i32 } %85, 0
   %87 = extractvalue { i32, i32 } %85, 1
   %88 = zext i32 %86 to i64
@@ -2414,7 +2397,7 @@ bench_stats_start.exit29:                         ; preds = %69
 .lr.ph60:                                         ; preds = %96, %109
   %.159 = phi i32 [ %111, %109 ], [ 0, %96 ]
   %99 = load ptr, ptr %93, align 8, !tbaa !8
-  %100 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %5, ptr noundef %99, i32 noundef 32) #16
+  %100 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %5, ptr noundef %99, i32 noundef 32) #17
   %.not = icmp eq i32 %100, 0
   br i1 %.not, label %103, label %101
 
@@ -2425,7 +2408,7 @@ bench_stats_start.exit29:                         ; preds = %69
 103:                                              ; preds = %.lr.ph60
   %104 = load ptr, ptr %94, align 8, !tbaa !8
   %105 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %106 = call i32 @wc_Poly1305Update(ptr noundef nonnull %5, ptr noundef %104, i32 noundef %105) #16
+  %106 = call i32 @wc_Poly1305Update(ptr noundef nonnull %5, ptr noundef %104, i32 noundef %105) #17
   %.not24 = icmp eq i32 %106, 0
   br i1 %.not24, label %109, label %107
 
@@ -2434,27 +2417,27 @@ bench_stats_start.exit29:                         ; preds = %69
   br label %.loopexit
 
 109:                                              ; preds = %103
-  %110 = call i32 @wc_Poly1305Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %110 = call i32 @wc_Poly1305Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %111 = add nuw nsw i32 %.159, 1
   %112 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %113 = icmp slt i32 %111, %112
-  br i1 %113, label %.lr.ph60, label %.loopexit, !llvm.loop !32
+  br i1 %113, label %.lr.ph60, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %109, %96, %107
   %.144 = phi i32 [ %.159, %107 ], [ 0, %96 ], [ %111, %109 ]
   %.6 = phi i32 [ %106, %107 ], [ %.4, %96 ], [ 0, %109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %114 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
+  %114 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %116, label %bench_stats_check.exit30
 
 116:                                              ; preds = %.loopexit
-  %117 = tail call ptr @__errno_location() #17
+  %117 = tail call ptr @__errno_location() #18
   %118 = load i32, ptr %117, align 4, !tbaa !4
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %118, ptr noundef nonnull @.str.80)
   %120 = load ptr, ptr @stdout, align 8, !tbaa !14
   %121 = call i32 @fflush(ptr noundef %120)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit30:                         ; preds = %.loopexit
@@ -2468,7 +2451,7 @@ bench_stats_check.exit30:                         ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %129 = fsub double %128, %84
   %130 = fcmp uge double %129, 1.000000e+00
-  br i1 %130, label %.loopexit39, label %96, !llvm.loop !33
+  br i1 %130, label %.loopexit39, label %96, !llvm.loop !39
 
 .loopexit39:                                      ; preds = %bench_stats_check.exit, %bench_stats_check.exit30
   %.038 = phi double [ %84, %bench_stats_check.exit30 ], [ %28, %bench_stats_check.exit ]
@@ -2501,14 +2484,14 @@ define dso_local void @bench_chacha() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %7 = load ptr, ptr %6, align 8, !tbaa !8
-  %8 = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16) #16
+  %8 = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %5, ptr noundef %7, i32 noundef 16) #17
   %.b = load i1, ptr @encrypt_only, align 4
   br i1 %.b, label %9, label %74
 
 9:                                                ; preds = %0
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %11 = load ptr, ptr %10, align 8, !tbaa !8
-  %12 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %5, ptr noundef %11, i32 noundef 0) #16
+  %12 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %5, ptr noundef %11, i32 noundef 0) #17
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %16
 
@@ -2518,17 +2501,17 @@ define dso_local void @bench_chacha() local_unnamed_addr #0 {
 
 16:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %17 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
+  %17 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %bench_stats_start.exit
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #17
+  %20 = tail call ptr @__errno_location() #18
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %21, ptr noundef nonnull @.str.80)
   %23 = load ptr, ptr @stdout, align 8, !tbaa !14
   %24 = call i32 @fflush(ptr noundef %23)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %16
@@ -2540,7 +2523,7 @@ bench_stats_start.exit:                           ; preds = %16
   %30 = fdiv double %29, 1.000000e+09
   %31 = fadd double %30, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %33 = extractvalue { i32, i32 } %32, 0
   %34 = extractvalue { i32, i32 } %32, 1
   %35 = zext i32 %33 to i64
@@ -2565,7 +2548,7 @@ bench_stats_start.exit:                           ; preds = %16
   %46 = load ptr, ptr %40, align 8, !tbaa !8
   %47 = load ptr, ptr %41, align 8, !tbaa !8
   %48 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %49 = call i32 @wc_Chacha_Process(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %47, i32 noundef %48) #16
+  %49 = call i32 @wc_Chacha_Process(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %47, i32 noundef %48) #17
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -2577,22 +2560,22 @@ bench_stats_start.exit:                           ; preds = %16
   %54 = add nuw nsw i32 %.038, 1
   %55 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph40, label %._crit_edge41, !llvm.loop !34
+  br i1 %56, label %.lr.ph40, label %._crit_edge41, !llvm.loop !40
 
 ._crit_edge41:                                    ; preds = %53, %43
   %.0.lcssa = phi i32 [ 0, %43 ], [ %54, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %57 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
+  %57 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %bench_stats_check.exit
 
 59:                                               ; preds = %._crit_edge41
-  %60 = tail call ptr @__errno_location() #17
+  %60 = tail call ptr @__errno_location() #18
   %61 = load i32, ptr %60, align 4, !tbaa !4
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %61, ptr noundef nonnull @.str.80)
   %63 = load ptr, ptr @stdout, align 8, !tbaa !14
   %64 = call i32 @fflush(ptr noundef %63)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge41
@@ -2606,21 +2589,21 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = fsub double %71, %31
   %73 = fcmp uge double %72, 1.000000e+00
-  br i1 %73, label %.loopexit, label %43, !llvm.loop !35
+  br i1 %73, label %.loopexit, label %43, !llvm.loop !41
 
 74:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %bench_stats_start.exit19
 
 77:                                               ; preds = %74
-  %78 = tail call ptr @__errno_location() #17
+  %78 = tail call ptr @__errno_location() #18
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %79, ptr noundef nonnull @.str.80)
   %81 = load ptr, ptr @stdout, align 8, !tbaa !14
   %82 = call i32 @fflush(ptr noundef %81)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit19:                         ; preds = %74
@@ -2632,7 +2615,7 @@ bench_stats_start.exit19:                         ; preds = %74
   %88 = fdiv double %87, 1.000000e+09
   %89 = fadd double %88, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %91 = extractvalue { i32, i32 } %90, 0
   %92 = extractvalue { i32, i32 } %90, 1
   %93 = zext i32 %91 to i64
@@ -2656,7 +2639,7 @@ bench_stats_start.exit19:                         ; preds = %74
 .lr.ph:                                           ; preds = %102, %118
   %.137 = phi i32 [ %119, %118 ], [ 0, %102 ]
   %105 = load ptr, ptr %98, align 8, !tbaa !8
-  %106 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %5, ptr noundef %105, i32 noundef 0) #16
+  %106 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %5, ptr noundef %105, i32 noundef 0) #17
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %108, label %110
 
@@ -2668,7 +2651,7 @@ bench_stats_start.exit19:                         ; preds = %74
   %111 = load ptr, ptr %99, align 8, !tbaa !8
   %112 = load ptr, ptr %100, align 8, !tbaa !8
   %113 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %114 = call i32 @wc_Chacha_Process(ptr noundef nonnull %5, ptr noundef %111, ptr noundef %112, i32 noundef %113) #16
+  %114 = call i32 @wc_Chacha_Process(ptr noundef nonnull %5, ptr noundef %111, ptr noundef %112, i32 noundef %113) #17
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %116, label %118
 
@@ -2680,22 +2663,22 @@ bench_stats_start.exit19:                         ; preds = %74
   %119 = add nuw nsw i32 %.137, 1
   %120 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %121 = icmp slt i32 %119, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %118, %102
   %.1.lcssa = phi i32 [ 0, %102 ], [ %119, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %122 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
+  %122 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %bench_stats_check.exit20
 
 124:                                              ; preds = %._crit_edge
-  %125 = tail call ptr @__errno_location() #17
+  %125 = tail call ptr @__errno_location() #18
   %126 = load i32, ptr %125, align 4, !tbaa !4
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %126, ptr noundef nonnull @.str.80)
   %128 = load ptr, ptr @stdout, align 8, !tbaa !14
   %129 = call i32 @fflush(ptr noundef %128)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit20:                         ; preds = %._crit_edge
@@ -2709,7 +2692,7 @@ bench_stats_check.exit20:                         ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %137 = fsub double %136, %89
   %138 = fcmp uge double %137, 1.000000e+00
-  br i1 %138, label %.loopexit, label %102, !llvm.loop !37
+  br i1 %138, label %.loopexit, label %102, !llvm.loop !43
 
 .loopexit:                                        ; preds = %bench_stats_check.exit20, %bench_stats_check.exit
   %.027 = phi double [ %31, %bench_stats_check.exit ], [ %89, %bench_stats_check.exit20 ]
@@ -2740,17 +2723,17 @@ define dso_local void @bench_chacha20_poly1305_aead() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %3, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %bench_stats_start.exit
 
 7:                                                ; preds = %0
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #18
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %9, ptr noundef nonnull @.str.80)
   %11 = load ptr, ptr @stdout, align 8, !tbaa !14
   %12 = call i32 @fflush(ptr noundef %11)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %0
@@ -2762,7 +2745,7 @@ bench_stats_start.exit:                           ; preds = %0
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
   %23 = zext i32 %21 to i64
@@ -2793,7 +2776,7 @@ bench_stats_start.exit:                           ; preds = %0
   %39 = load ptr, ptr %30, align 8, !tbaa !8
   %40 = load i32, ptr @bench_size, align 4, !tbaa !4
   %41 = load ptr, ptr %31, align 8, !tbaa !8
-  %42 = call i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %36, ptr noundef %37, ptr noundef nonnull %3, i32 noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef nonnull %4) #16
+  %42 = call i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %36, ptr noundef %37, ptr noundef nonnull %3, i32 noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef nonnull %4) #17
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %46
 
@@ -2805,23 +2788,23 @@ bench_stats_start.exit:                           ; preds = %0
   %47 = add nuw nsw i32 %.017, 1
   %48 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %46, %33
   %.1.lcssa = phi i32 [ %.06, %33 ], [ %42, %46 ]
   %.0.lcssa = phi i32 [ 0, %33 ], [ %47, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %50 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
+  %50 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %bench_stats_check.exit
 
 52:                                               ; preds = %._crit_edge
-  %53 = tail call ptr @__errno_location() #17
+  %53 = tail call ptr @__errno_location() #18
   %54 = load i32, ptr %53, align 4, !tbaa !4
   %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %54, ptr noundef nonnull @.str.80)
   %56 = load ptr, ptr @stdout, align 8, !tbaa !14
   %57 = call i32 @fflush(ptr noundef %56)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge
@@ -2835,7 +2818,7 @@ bench_stats_check.exit:                           ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %65 = fsub double %64, %19
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %67, label %33, !llvm.loop !39
+  br i1 %66, label %67, label %33, !llvm.loop !45
 
 67:                                               ; preds = %bench_stats_check.exit
   %68 = load i32, ptr @bench_size, align 4, !tbaa !4
@@ -2855,222 +2838,198 @@ define dso_local void @bench_md5(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Md5]], align 16
-  %7 = alloca [1 x [16 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not20 = icmp eq i32 %9, 0
-  br i1 %.not20, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %9)
-  br label %127
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Md5]], align 16
+  %6 = alloca [1 x [16 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %5, i8 0, i64 104, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader64
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader64:                                     ; preds = %1
+  %7 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not20 = icmp eq i32 %7, 0
+  br i1 %.not20, label %.critedge, label %8, !llvm.loop !46
+
+8:                                                ; preds = %.preheader64
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader64
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge24
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.04577 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.04577, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge24
-
-.critedge24:                                      ; preds = %bench_async_handle.exit, %37
-  %.045.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.045.lcssa, %.046
-  %48 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge24
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !40
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit23, %bench_stats_start.exit
+  %.041 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit23 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04081 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Md5Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04081, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !47
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.040.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.040.lcssa, %.041
+  %45 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit23, label %bench_async_handle.exit.thread, !llvm.loop !48
+
+bench_async_handle.exit23:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not16 = icmp eq i32 %47, 0
+  br i1 %.not16, label %bench_async_handle.exit.thread, label %34, !llvm.loop !49
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit28
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit24
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit28:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit24:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit29, %bench_stats_start.exit28
-  %.248 = phi i32 [ 0, %bench_stats_start.exit28 ], [ %117, %bench_stats_check.exit29 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph79, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit24
+  %.243 = phi i32 [ 0, %bench_stats_start.exit24 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge85
 
-.lr.ph79:                                         ; preds = %93, %105
-  %storemerge78 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge83 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph79
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Md5Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not15 = icmp eq i32 %104, 0
-  br i1 %.not15, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not15 = icmp eq i32 %85, 0
+  br i1 %.not15, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge78, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph79, label %._crit_edge, !llvm.loop !41
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge83, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge85, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge85:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit29
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge85
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit29:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.248
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge85
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.243
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !42
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !51
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge24, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit29, %.lr.ph79, %98, %103
-  %.049 = phi i32 [ %96, %.lr.ph79 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit29 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge24 ]
-  %.147 = phi i32 [ %.248, %103 ], [ %.248, %98 ], [ %.248, %.lr.ph79 ], [ %117, %bench_stats_check.exit29 ], [ %.046, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge24 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph79 ], [ %82, %bench_stats_check.exit29 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge24 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %.147, i32 noundef %126, double noundef %.0, i32 noundef %.049)
-  br label %127
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit23, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.448 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit23 ]
+  %.142 = phi i32 [ %.243, %84 ], [ %.243, %79 ], [ %.243, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.041, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit23 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit23 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %.142, i32 noundef %107, double noundef %.0, i32 noundef %.448)
+  br label %108
 
-127:                                              ; preds = %bench_async_handle.exit.thread, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %bench_async_handle.exit.thread, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3085,223 +3044,199 @@ define dso_local void @bench_sha(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha]], align 16
-  %7 = alloca [1 x [20 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %6, i8 0, i64 104, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha]], align 16
+  %6 = alloca [1 x [20 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %5, i8 0, i64 104, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !52
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_ShaUpdate(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_ShaFinal(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !43
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !53
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !54
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !55
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_ShaUpdate(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_ShaFinal(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !44
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !56
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !45
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !57
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_ShaFree(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_ShaFree(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3318,223 +3253,199 @@ define dso_local void @bench_sha224(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
-  %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
+  %6 = alloca [1 x [28 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !58
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha224Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha224Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !46
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha224Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !59
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha224Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !60
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !61
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha224Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha224Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha224Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha224Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !47
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !48
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !63
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha224Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha224Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3551,223 +3462,199 @@ define dso_local void @bench_sha256(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
-  %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
+  %6 = alloca [1 x [32 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !64
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha256Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha256Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !49
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha256Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !65
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha256Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !66
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !67
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha256Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha256Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha256Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha256Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !50
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !51
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !69
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha256Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha256Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3784,223 +3671,199 @@ define dso_local void @bench_sha384(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
-  %7 = alloca [1 x [48 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
+  %6 = alloca [1 x [48 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, i8 0, i64 224, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !70
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha384Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha384Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !52
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha384Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !71
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha384Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !72
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !73
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha384Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha384Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha384Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha384Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !53
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !54
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !75
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha384Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha384Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4017,223 +3880,199 @@ define dso_local void @bench_sha512(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
-  %7 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
+  %6 = alloca [1 x [64 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, i8 0, i64 224, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !76
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha512Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha512Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !55
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha512Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !77
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha512Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !78
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !79
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha512Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha512Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha512Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha512Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !56
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !57
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !81
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha512Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha512Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4250,223 +4089,199 @@ define dso_local void @bench_sha512_224(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
-  %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
+  %6 = alloca [1 x [28 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, i8 0, i64 224, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !82
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !58
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !83
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !84
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !85
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !59
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !86
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !60
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !87
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha512_224Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha512_224Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4483,223 +4298,199 @@ define dso_local void @bench_sha512_256(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
-  %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
+  %6 = alloca [1 x [32 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, i8 0, i64 224, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !88
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !61
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !89
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !90
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !91
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !62
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !63
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !93
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha512_256Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha512_256Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4716,223 +4507,199 @@ define dso_local void @bench_sha3_224(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
-  %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha3_224(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
+  %6 = alloca [1 x [28 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %5, i8 0, i64 416, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha3_224(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !94
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !64
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !95
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !96
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !97
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha3_224(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha3_224(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !65
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !66
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !99
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha3_224_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha3_224_Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4949,223 +4716,199 @@ define dso_local void @bench_sha3_256(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
-  %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha3_256(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
+  %6 = alloca [1 x [32 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %5, i8 0, i64 416, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha3_256(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !100
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !67
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !101
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !102
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !103
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha3_256(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha3_256(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !68
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !69
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !105
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha3_256_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha3_256_Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5182,223 +4925,199 @@ define dso_local void @bench_sha3_384(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
-  %7 = alloca [1 x [48 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha3_384(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
+  %6 = alloca [1 x [48 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %5, i8 0, i64 416, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha3_384(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !106
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !70
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !107
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !108
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !109
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha3_384(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha3_384(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !71
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !72
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !111
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha3_384_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha3_384_Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5415,223 +5134,199 @@ define dso_local void @bench_sha3_512(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
-  %7 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
-  %.b = load i1, ptr @digest_stream, align 4
-  br i1 %.b, label %67, label %8
-
-8:                                                ; preds = %1
-  %9 = call i32 @wc_InitSha3_512(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %.critedge, label %10
-
-10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %9)
-  br label %.critedge31
-
-.critedge:                                        ; preds = %8
+  %5 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
+  %6 = alloca [1 x [64 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %bench_stats_start.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %5, i8 0, i64 416, i1 false)
+  %.b = load i1, ptr @digest_stream, align 4
+  br i1 %.b, label %48, label %.preheader69
 
-14:                                               ; preds = %.critedge
-  %15 = tail call ptr @__errno_location() #17
-  %16 = load i32, ptr %15, align 4, !tbaa !4
-  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+.preheader69:                                     ; preds = %1
+  %7 = call i32 @wc_InitSha3_512(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not25 = icmp eq i32 %7, 0
+  br i1 %.not25, label %.critedge, label %8, !llvm.loop !112
+
+8:                                                ; preds = %.preheader69
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %7)
+  br label %108
+
+.critedge:                                        ; preds = %.preheader69
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %10 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %bench_stats_start.exit
+
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #18
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %14, ptr noundef nonnull @.str.80)
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %17 = call i32 @fflush(ptr noundef %16)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
-  %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = sitofp i64 %23 to double
-  %25 = fdiv double %24, 1.000000e+09
-  %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = zext i32 %28 to i64
-  %31 = zext i32 %29 to i64
-  %32 = shl nuw i64 %31, 32
-  %33 = or disjoint i64 %32, %30
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %37
-
-37:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.053 = phi i32 [ 0, %bench_stats_start.exit ], [ %47, %bench_stats_check.exit ]
-  %38 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.critedge29
-
-.lr.ph:                                           ; preds = %37, %bench_async_handle.exit
-  %.05284 = phi i32 [ %44, %bench_async_handle.exit ], [ 0, %37 ]
-  %40 = load ptr, ptr %35, align 8, !tbaa !8
-  %41 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %42 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %6, ptr noundef %40, i32 noundef %41) #16
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.05284, 1
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
-
-.critedge29:                                      ; preds = %bench_async_handle.exit, %37
-  %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
-  %47 = add nuw nsw i32 %.052.lcssa, %.053
-  %48 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %50, label %bench_async_handle.exit.thread
-
-50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %bench_stats_check.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #17
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %58 = call i32 @fflush(ptr noundef %57)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
-  %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
-  %62 = sitofp i64 %61 to double
-  %63 = fdiv double %62, 1.000000e+09
-  %64 = fadd double %63, %60
+  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = sitofp i64 %18 to double
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %22 = sitofp i64 %21 to double
+  %23 = fdiv double %22, 1.000000e+09
+  %24 = fadd double %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = fsub double %64, %26
-  %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !73
+  %25 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = zext i32 %26 to i64
+  %29 = zext i32 %27 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %28
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %31, ptr %32, align 8, !tbaa !21
+  %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %34
 
-67:                                               ; preds = %1
+34:                                               ; preds = %bench_async_handle.exit28, %bench_stats_start.exit
+  %.046 = phi i32 [ 0, %bench_stats_start.exit ], [ %44, %bench_async_handle.exit28 ]
+  %35 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader, label %._crit_edge
+
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.04586 = phi i32 [ %41, %bench_async_handle.exit ], [ 0, %34 ]
+  %37 = load ptr, ptr %33, align 8, !tbaa !8
+  %38 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %39 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader
+  %41 = add nuw nsw i32 %.04586, 1
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !113
+
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %34
+  %.045.lcssa = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %44 = add nsw i32 %.045.lcssa, %.046
+  %45 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %bench_async_handle.exit28, label %bench_async_handle.exit.thread, !llvm.loop !114
+
+bench_async_handle.exit28:                        ; preds = %._crit_edge
+  %47 = call fastcc i32 @bench_stats_check(double noundef %24)
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %bench_async_handle.exit.thread, label %34, !llvm.loop !115
+
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %bench_stats_start.exit35
+  %49 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %bench_stats_start.exit29
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @__errno_location() #17
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %75 = call i32 @fflush(ptr noundef %74)
-  call void @_exit(i32 noundef 1) #18
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #18
+  %53 = load i32, ptr %52, align 4, !tbaa !4
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %53, ptr noundef nonnull @.str.80)
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = call i32 @fflush(ptr noundef %55)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
-  %77 = sitofp i64 %76 to double
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = sitofp i64 %79 to double
-  %81 = fdiv double %80, 1.000000e+09
-  %82 = fadd double %81, %77
+bench_stats_start.exit29:                         ; preds = %48
+  %57 = load i64, ptr %3, align 8, !tbaa !16
+  %58 = sitofp i64 %57 to double
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+09
+  %63 = fadd double %62, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %84 = extractvalue { i32, i32 } %83, 0
-  %85 = extractvalue { i32, i32 } %83, 1
-  %86 = zext i32 %84 to i64
-  %87 = zext i32 %85 to i64
-  %88 = shl nuw i64 %87, 32
-  %89 = or disjoint i64 %88, %86
-  %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %93
+  %64 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %65 = extractvalue { i32, i32 } %64, 0
+  %66 = extractvalue { i32, i32 } %64, 1
+  %67 = zext i32 %65 to i64
+  %68 = zext i32 %66 to i64
+  %69 = shl nuw i64 %68, 32
+  %70 = or disjoint i64 %69, %67
+  %71 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %70, ptr %71, align 8, !tbaa !21
+  %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %74
 
-93:                                               ; preds = %bench_stats_check.exit36, %bench_stats_start.exit35
-  %.255 = phi i32 [ 0, %bench_stats_start.exit35 ], [ %117, %bench_stats_check.exit36 ]
-  %94 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph86, label %._crit_edge
+74:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit29
+  %.248 = phi i32 [ 0, %bench_stats_start.exit29 ], [ %98, %bench_stats_check.exit ]
+  %75 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge90
 
-.lr.ph86:                                         ; preds = %93, %105
-  %storemerge85 = phi i32 [ %106, %105 ], [ 0, %93 ]
-  %96 = call i32 @wc_InitSha3_512(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %bench_async_handle.exit.thread
+.lr.ph:                                           ; preds = %74, %86
+  %storemerge88 = phi i32 [ %87, %86 ], [ 0, %74 ]
+  %77 = call i32 @wc_InitSha3_512(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %bench_async_handle.exit.thread
 
-98:                                               ; preds = %.lr.ph86
-  %99 = load ptr, ptr %91, align 8, !tbaa !8
-  %100 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %101 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %6, ptr noundef %99, i32 noundef %100) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %bench_async_handle.exit.thread
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %72, align 8, !tbaa !8
+  %81 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %82 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %81) #17
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %bench_async_handle.exit.thread
 
-103:                                              ; preds = %98
-  %104 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %.not20 = icmp eq i32 %104, 0
-  br i1 %.not20, label %105, label %bench_async_handle.exit.thread
+84:                                               ; preds = %79
+  %85 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  %.not20 = icmp eq i32 %85, 0
+  br i1 %.not20, label %86, label %bench_async_handle.exit.thread
 
-105:                                              ; preds = %103
-  %106 = add nuw nsw i32 %storemerge85, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !74
+86:                                               ; preds = %84
+  %87 = add nuw nsw i32 %storemerge88, 1
+  %88 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %.lr.ph, label %._crit_edge90, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %105, %93
-  %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
+._crit_edge90:                                    ; preds = %86, %74
+  %storemerge.lcssa = phi i32 [ 0, %74 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %bench_stats_check.exit36
+  %90 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %bench_stats_check.exit
 
-111:                                              ; preds = %._crit_edge
-  %112 = tail call ptr @__errno_location() #17
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %116 = call i32 @fflush(ptr noundef %115)
-  call void @_exit(i32 noundef 1) #18
+92:                                               ; preds = %._crit_edge90
+  %93 = tail call ptr @__errno_location() #18
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %94, ptr noundef nonnull @.str.80)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = call i32 @fflush(ptr noundef %96)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit36:                         ; preds = %._crit_edge
-  %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
-  %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
-  %121 = sitofp i64 %120 to double
-  %122 = fdiv double %121, 1.000000e+09
-  %123 = fadd double %122, %119
+bench_stats_check.exit:                           ; preds = %._crit_edge90
+  %98 = add nuw nsw i32 %storemerge.lcssa, %.248
+  %99 = load i64, ptr %2, align 8, !tbaa !16
+  %100 = sitofp i64 %99 to double
+  %101 = load i64, ptr %73, align 8, !tbaa !19
+  %102 = sitofp i64 %101 to double
+  %103 = fdiv double %102, 1.000000e+09
+  %104 = fadd double %103, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %124 = fsub double %123, %82
-  %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !75
+  %105 = fsub double %104, %63
+  %106 = fcmp uge double %105, 1.000000e+00
+  br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !117
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
-  %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
-  %.154 = phi i32 [ %.255, %103 ], [ %.255, %98 ], [ %.255, %.lr.ph86 ], [ %117, %bench_stats_check.exit36 ], [ %.053, %.lr.ph ], [ %47, %bench_stats_check.exit ], [ %47, %.critedge29 ]
-  %.0 = phi double [ %82, %103 ], [ %82, %98 ], [ %82, %.lr.ph86 ], [ %82, %bench_stats_check.exit36 ], [ %26, %.lr.ph ], [ %26, %bench_stats_check.exit ], [ %26, %.critedge29 ]
-  %126 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.63, i32 noundef %.154, i32 noundef %126, double noundef %.0, i32 noundef %.056)
-  br label %.critedge31
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %107 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.63, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
+  br label %108
 
-.critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
-  call void @wc_Sha3_512_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+108:                                              ; preds = %8, %bench_async_handle.exit.thread
+  call void @wc_Sha3_512_Free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5654,237 +5349,189 @@ define dso_local void @bench_hmac_md5(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %0, ptr noundef nonnull %1, i32 noundef range(i32 16, 65) %2, ptr noundef %3) unnamed_addr #0 {
 .critedge:
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %6 = alloca %struct.timespec, align 8
-  %7 = alloca %struct.timespec, align 8
-  %8 = alloca [1 x [1 x %struct.Hmac]], align 16
-  %9 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %8, i8 0, i64 784, i1 false)
-  %10 = call i32 @wc_HmacInit(ptr noundef nonnull %8, ptr noundef null, i32 noundef -2) #16
-  %.not36 = icmp eq i32 %10, 0
-  br i1 %.not36, label %13, label %11
+  %6 = alloca [1 x [1 x %struct.Hmac]], align 16
+  %7 = alloca [1 x [64 x i8]], align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %6, i8 0, i64 784, i1 false)
+  %8 = call i32 @wc_HmacInit(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #17
+  %.not36 = icmp eq i32 %8, 0
+  br i1 %.not36, label %11, label %9
+
+9:                                                ; preds = %.critedge
+  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.132, ptr noundef %3, i32 noundef %8)
+  br label %96
 
 11:                                               ; preds = %.critedge
-  %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.132, ptr noundef %3, i32 noundef %10)
-  br label %.critedge45
+  %12 = call i32 @wc_HmacSetKey(ptr noundef nonnull %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef %2) #17
+  %.not37 = icmp eq i32 %12, 0
+  br i1 %.not37, label %15, label %13, !llvm.loop !118
 
-13:                                               ; preds = %.critedge
-  %14 = call i32 @wc_HmacSetKey(ptr noundef nonnull %8, i32 noundef %0, ptr noundef nonnull %1, i32 noundef %2) #16
-  %.not37 = icmp eq i32 %14, 0
-  br i1 %.not37, label %17, label %15
+13:                                               ; preds = %11
+  %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.133, ptr noundef %3, i32 noundef %12)
+  br label %96
 
-15:                                               ; preds = %13
-  %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.133, ptr noundef %3, i32 noundef %14)
-  br label %.critedge45
-
-17:                                               ; preds = %13
+15:                                               ; preds = %11
   %.b = load i1, ptr @mac_stream, align 4
-  br i1 %.b, label %74, label %18
+  br i1 %.b, label %55, label %16
 
-18:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %bench_stats_start.exit
-
-21:                                               ; preds = %18
-  %22 = tail call ptr @__errno_location() #17
-  %23 = load i32, ptr %22, align 4, !tbaa !4
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %23, ptr noundef nonnull @.str.80)
-  %25 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %26 = call i32 @fflush(ptr noundef %25)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_start.exit:                           ; preds = %18
-  %27 = load i64, ptr %7, align 8, !tbaa !16
-  %28 = sitofp i64 %27 to double
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !19
-  %31 = sitofp i64 %30 to double
-  %32 = fdiv double %31, 1.000000e+09
-  %33 = fadd double %32, %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %34 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %35 = extractvalue { i32, i32 } %34, 0
-  %36 = extractvalue { i32, i32 } %34, 1
-  %37 = zext i32 %35 to i64
-  %38 = zext i32 %36 to i64
-  %39 = shl nuw i64 %38, 32
-  %40 = or disjoint i64 %39, %37
-  %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %40, ptr %41, align 8, !tbaa !21
-  %42 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %44
-
-44:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.076 = phi i32 [ 0, %bench_stats_start.exit ], [ %54, %bench_stats_check.exit ]
-  %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph, label %.critedge41
-
-.lr.ph:                                           ; preds = %44, %bench_async_handle.exit
-  %.075110 = phi i32 [ %51, %bench_async_handle.exit ], [ 0, %44 ]
-  %47 = load ptr, ptr %42, align 8, !tbaa !8
-  %48 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %49 = call i32 @wc_HmacUpdate(ptr noundef nonnull %8, ptr noundef %47, i32 noundef %48) #16
-  %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %.lr.ph
-  %51 = add nuw nsw i32 %.075110, 1
-  %52 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph, label %.critedge41
-
-.critedge41:                                      ; preds = %bench_async_handle.exit, %44
-  %.075.lcssa = phi i32 [ 0, %44 ], [ %51, %bench_async_handle.exit ]
-  %54 = add nuw nsw i32 %.075.lcssa, %.076
-  %55 = call i32 @wc_HmacFinal(ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %57, label %bench_async_handle.exit.thread
-
-57:                                               ; preds = %.critedge41
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %58 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %bench_stats_check.exit
-
-60:                                               ; preds = %57
-  %61 = tail call ptr @__errno_location() #17
-  %62 = load i32, ptr %61, align 4, !tbaa !4
-  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %62, ptr noundef nonnull @.str.80)
-  %64 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %65 = call i32 @fflush(ptr noundef %64)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %57
-  %66 = load i64, ptr %6, align 8, !tbaa !16
-  %67 = sitofp i64 %66 to double
-  %68 = load i64, ptr %43, align 8, !tbaa !19
-  %69 = sitofp i64 %68 to double
-  %70 = fdiv double %69, 1.000000e+09
-  %71 = fadd double %70, %67
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %72 = fsub double %71, %33
-  %73 = fcmp uge double %72, 1.000000e+00
-  br i1 %73, label %bench_async_handle.exit.thread, label %44, !llvm.loop !76
-
-74:                                               ; preds = %17
+16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %77, label %bench_stats_start.exit51
+  %17 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %bench_stats_start.exit
 
-77:                                               ; preds = %74
-  %78 = tail call ptr @__errno_location() #17
-  %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %79, ptr noundef nonnull @.str.80)
-  %81 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %82 = call i32 @fflush(ptr noundef %81)
-  call void @_exit(i32 noundef 1) #18
+19:                                               ; preds = %16
+  %20 = tail call ptr @__errno_location() #18
+  %21 = load i32, ptr %20, align 4, !tbaa !4
+  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %21, ptr noundef nonnull @.str.80)
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %24 = call i32 @fflush(ptr noundef %23)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit51:                         ; preds = %74
-  %83 = load i64, ptr %5, align 8, !tbaa !16
-  %84 = sitofp i64 %83 to double
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !19
-  %87 = sitofp i64 %86 to double
-  %88 = fdiv double %87, 1.000000e+09
-  %89 = fadd double %88, %84
+bench_stats_start.exit:                           ; preds = %16
+  %25 = load i64, ptr %5, align 8, !tbaa !16
+  %26 = sitofp i64 %25 to double
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !19
+  %29 = sitofp i64 %28 to double
+  %30 = fdiv double %29, 1.000000e+09
+  %31 = fadd double %30, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %91 = extractvalue { i32, i32 } %90, 0
-  %92 = extractvalue { i32, i32 } %90, 1
-  %93 = zext i32 %91 to i64
-  %94 = zext i32 %92 to i64
-  %95 = shl nuw i64 %94, 32
-  %96 = or disjoint i64 %95, %93
-  %97 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %96, ptr %97, align 8, !tbaa !21
-  %98 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %100
+  %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %33 = extractvalue { i32, i32 } %32, 0
+  %34 = extractvalue { i32, i32 } %32, 1
+  %35 = zext i32 %33 to i64
+  %36 = zext i32 %34 to i64
+  %37 = shl nuw i64 %36, 32
+  %38 = or disjoint i64 %37, %35
+  %39 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %38, ptr %39, align 8, !tbaa !21
+  %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %41
 
-100:                                              ; preds = %bench_stats_check.exit56, %bench_stats_start.exit51
-  %.180 = phi i32 [ 0, %bench_stats_start.exit51 ], [ %.281.lcssa, %bench_stats_check.exit56 ]
-  %.278 = phi i32 [ 0, %bench_stats_start.exit51 ], [ %121, %bench_stats_check.exit56 ]
-  %101 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph112, label %.critedge43._crit_edge
+41:                                               ; preds = %bench_async_handle.exit42, %bench_stats_start.exit
+  %.067 = phi i32 [ 0, %bench_stats_start.exit ], [ %51, %bench_async_handle.exit42 ]
+  %42 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.preheader93, label %._crit_edge
 
-.lr.ph112:                                        ; preds = %100, %bench_async_handle.exit55
-  %.2111 = phi i32 [ %110, %bench_async_handle.exit55 ], [ 0, %100 ]
-  %103 = load ptr, ptr %98, align 8, !tbaa !8
-  %104 = load i32, ptr @bench_size, align 4, !tbaa !4
-  %105 = call i32 @wc_HmacUpdate(ptr noundef nonnull %8, ptr noundef %103, i32 noundef %104) #16
-  %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %107, label %bench_async_handle.exit.thread
+.preheader93:                                     ; preds = %41, %bench_async_handle.exit
+  %.066118 = phi i32 [ %48, %bench_async_handle.exit ], [ 0, %41 ]
+  %44 = load ptr, ptr %40, align 8, !tbaa !8
+  %45 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %46 = call i32 @wc_HmacUpdate(ptr noundef nonnull %6, ptr noundef %44, i32 noundef %45) #17
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
 
-107:                                              ; preds = %.lr.ph112
-  %108 = call i32 @wc_HmacFinal(ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  %109 = icmp sgt i32 %108, -1
-  br i1 %109, label %bench_async_handle.exit55, label %bench_async_handle.exit.thread
+bench_async_handle.exit:                          ; preds = %.preheader93
+  %48 = add nuw nsw i32 %.066118, 1
+  %49 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %.preheader93, label %._crit_edge, !llvm.loop !119
 
-bench_async_handle.exit55:                        ; preds = %107
-  %110 = add nuw nsw i32 %.2111, 2
-  %111 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %112 = icmp slt i32 %110, %111
-  br i1 %112, label %.lr.ph112, label %.critedge43._crit_edge
+._crit_edge:                                      ; preds = %bench_async_handle.exit, %41
+  %.066.lcssa = phi i32 [ 0, %41 ], [ %48, %bench_async_handle.exit ]
+  %51 = add nsw i32 %.066.lcssa, %.067
+  %52 = call i32 @wc_HmacFinal(ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %bench_async_handle.exit42, label %bench_async_handle.exit.thread, !llvm.loop !120
 
-.critedge43._crit_edge:                           ; preds = %bench_async_handle.exit55, %100
-  %.281.lcssa = phi i32 [ %.180, %100 ], [ %108, %bench_async_handle.exit55 ]
-  %.2.lcssa = phi i32 [ 0, %100 ], [ %110, %bench_async_handle.exit55 ]
+bench_async_handle.exit42:                        ; preds = %._crit_edge
+  %54 = call fastcc i32 @bench_stats_check(double noundef %31)
+  %.not32 = icmp eq i32 %54, 0
+  br i1 %.not32, label %bench_async_handle.exit.thread, label %41, !llvm.loop !121
+
+55:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %113 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %115, label %bench_stats_check.exit56
+  %56 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %bench_stats_start.exit43
 
-115:                                              ; preds = %.critedge43._crit_edge
-  %116 = tail call ptr @__errno_location() #17
-  %117 = load i32, ptr %116, align 4, !tbaa !4
-  %118 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %117, ptr noundef nonnull @.str.80)
-  %119 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %120 = call i32 @fflush(ptr noundef %119)
-  call void @_exit(i32 noundef 1) #18
+58:                                               ; preds = %55
+  %59 = tail call ptr @__errno_location() #18
+  %60 = load i32, ptr %59, align 4, !tbaa !4
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %60, ptr noundef nonnull @.str.80)
+  %62 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %63 = call i32 @fflush(ptr noundef %62)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit56:                         ; preds = %.critedge43._crit_edge
-  %121 = add nuw nsw i32 %.2.lcssa, %.278
-  %122 = load i64, ptr %4, align 8, !tbaa !16
-  %123 = sitofp i64 %122 to double
-  %124 = load i64, ptr %99, align 8, !tbaa !19
-  %125 = sitofp i64 %124 to double
-  %126 = fdiv double %125, 1.000000e+09
-  %127 = fadd double %126, %123
+bench_stats_start.exit43:                         ; preds = %55
+  %64 = load i64, ptr %4, align 8, !tbaa !16
+  %65 = sitofp i64 %64 to double
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !19
+  %68 = sitofp i64 %67 to double
+  %69 = fdiv double %68, 1.000000e+09
+  %70 = fadd double %69, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %128 = fsub double %127, %89
-  %129 = fcmp uge double %128, 1.000000e+00
-  br i1 %129, label %bench_async_handle.exit.thread, label %100, !llvm.loop !77
+  %71 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %72 = extractvalue { i32, i32 } %71, 0
+  %73 = extractvalue { i32, i32 } %71, 1
+  %74 = zext i32 %72 to i64
+  %75 = zext i32 %73 to i64
+  %76 = shl nuw i64 %75, 32
+  %77 = or disjoint i64 %76, %74
+  %78 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %77, ptr %78, align 8, !tbaa !21
+  %79 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
+  br label %80
 
-bench_async_handle.exit.thread:                   ; preds = %.critedge41, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit56, %107, %.lr.ph112
-  %.079 = phi i32 [ %108, %107 ], [ %105, %.lr.ph112 ], [ %.281.lcssa, %bench_stats_check.exit56 ], [ %49, %.lr.ph ], [ %55, %bench_stats_check.exit ], [ %55, %.critedge41 ]
-  %.177 = phi i32 [ %.278, %.lr.ph112 ], [ %.278, %107 ], [ %121, %bench_stats_check.exit56 ], [ %.076, %.lr.ph ], [ %54, %bench_stats_check.exit ], [ %54, %.critedge41 ]
-  %.0 = phi double [ %89, %.lr.ph112 ], [ %89, %107 ], [ %89, %bench_stats_check.exit56 ], [ %33, %.lr.ph ], [ %33, %bench_stats_check.exit ], [ %33, %.critedge41 ]
-  %130 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.177, i32 noundef %130, double noundef %.0, i32 noundef %.079)
-  br label %.critedge45
+80:                                               ; preds = %._crit_edge122, %bench_stats_start.exit43
+  %.777 = phi i32 [ 0, %bench_stats_start.exit43 ], [ %.878.lcssa, %._crit_edge122 ]
+  %.269 = phi i32 [ 0, %bench_stats_start.exit43 ], [ %93, %._crit_edge122 ]
+  %81 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %.preheader, label %._crit_edge122
 
-.critedge45:                                      ; preds = %bench_async_handle.exit.thread, %15, %11
-  call void @wc_HmacFree(ptr noundef nonnull %8) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+.preheader:                                       ; preds = %80, %bench_async_handle.exit47
+  %.4121 = phi i32 [ %90, %bench_async_handle.exit47 ], [ 0, %80 ]
+  %83 = load ptr, ptr %79, align 8, !tbaa !8
+  %84 = load i32, ptr @bench_size, align 4, !tbaa !4
+  %85 = call i32 @wc_HmacUpdate(ptr noundef nonnull %6, ptr noundef %83, i32 noundef %84) #17
+  %86 = icmp sgt i32 %85, -1
+  br i1 %86, label %87, label %bench_async_handle.exit.thread
+
+87:                                               ; preds = %.preheader
+  %88 = call i32 @wc_HmacFinal(ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  %89 = icmp sgt i32 %88, -1
+  br i1 %89, label %bench_async_handle.exit47, label %bench_async_handle.exit.thread
+
+bench_async_handle.exit47:                        ; preds = %87
+  %90 = add nuw nsw i32 %.4121, 2
+  %91 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %92 = icmp slt i32 %90, %91
+  br i1 %92, label %.preheader, label %._crit_edge122, !llvm.loop !122
+
+._crit_edge122:                                   ; preds = %bench_async_handle.exit47, %80
+  %.878.lcssa = phi i32 [ %.777, %80 ], [ %88, %bench_async_handle.exit47 ]
+  %.4.lcssa = phi i32 [ 0, %80 ], [ %90, %bench_async_handle.exit47 ]
+  %93 = add nsw i32 %.4.lcssa, %.269
+  %94 = call fastcc i32 @bench_stats_check(double noundef %70)
+  %.not = icmp eq i32 %94, 0
+  br i1 %.not, label %bench_async_handle.exit.thread, label %80, !llvm.loop !123
+
+bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit42, %._crit_edge, %.preheader93, %._crit_edge122, %87, %.preheader
+  %.474 = phi i32 [ %88, %87 ], [ %85, %.preheader ], [ %.878.lcssa, %._crit_edge122 ], [ %46, %.preheader93 ], [ %52, %._crit_edge ], [ %52, %bench_async_handle.exit42 ]
+  %.168 = phi i32 [ %.269, %.preheader ], [ %.269, %87 ], [ %93, %._crit_edge122 ], [ %.067, %.preheader93 ], [ %51, %._crit_edge ], [ %51, %bench_async_handle.exit42 ]
+  %.0 = phi double [ %70, %.preheader ], [ %70, %87 ], [ %70, %._crit_edge122 ], [ %31, %.preheader93 ], [ %31, %._crit_edge ], [ %31, %bench_async_handle.exit42 ]
+  %95 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.168, i32 noundef %95, double noundef %.0, i32 noundef %.474)
+  br label %96
+
+96:                                               ; preds = %9, %13, %bench_async_handle.exit.thread
+  call void @wc_HmacFree(ptr noundef nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5948,17 +5595,17 @@ define dso_local void @bench_pbkdf2() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) @__const.bench_pbkdf2.salt32, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %bench_stats_start.exit
 
 7:                                                ; preds = %0
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #18
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %9, ptr noundef nonnull @.str.80)
   %11 = load ptr, ptr @stdout, align 8, !tbaa !14
   %12 = call i32 @fflush(ptr noundef %11)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %0
@@ -5970,7 +5617,7 @@ bench_stats_start.exit:                           ; preds = %0
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
   %23 = zext i32 %21 to i64
@@ -5984,19 +5631,19 @@ bench_stats_start.exit:                           ; preds = %0
 
 29:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %39, %bench_stats_check.exit ]
-  %30 = call i32 @wc_PBKDF2(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, i32 noundef 32, ptr noundef nonnull %3, i32 noundef 32, i32 noundef 1000, i32 noundef 32, i32 noundef 6) #16
+  %30 = call i32 @wc_PBKDF2(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, i32 noundef 32, ptr noundef nonnull %3, i32 noundef 32, i32 noundef 1000, i32 noundef 32, i32 noundef 6) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
+  %31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %bench_stats_check.exit
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @__errno_location() #17
+  %34 = tail call ptr @__errno_location() #18
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %35, ptr noundef nonnull @.str.80)
   %37 = load ptr, ptr @stdout, align 8, !tbaa !14
   %38 = call i32 @fflush(ptr noundef %37)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_check.exit:                           ; preds = %29
@@ -6010,7 +5657,7 @@ bench_stats_check.exit:                           ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %46 = fsub double %45, %19
   %47 = fcmp uge double %46, 1.000000e+00
-  br i1 %47, label %48, label %29, !llvm.loop !78
+  br i1 %47, label %48, label %29, !llvm.loop !124
 
 48:                                               ; preds = %bench_stats_check.exit
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.71, i32 noundef %39, i32 noundef 32, double noundef %19, i32 noundef %30)
@@ -6022,7 +5669,7 @@ bench_stats_check.exit:                           ; preds = %29
 declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
@@ -6033,419 +5680,371 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
-  %7 = alloca %struct.timespec, align 8
-  %8 = alloca %struct.timespec, align 8
-  %9 = alloca [25 x i8], align 16
-  %10 = alloca [1 x [1 x %struct.RsaKey]], align 16
-  %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8368) %10, i8 0, i64 8368, i1 false)
-  %12 = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #16
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.critedge19, label %14
-
-14:                                               ; preds = %.critedge
-  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %16 = call i32 @wc_RsaSetRNG(ptr noundef nonnull %10, ptr noundef nonnull %15) #16
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %.critedge19
-
-17:                                               ; preds = %14
-  store i32 0, ptr %11, align 4, !tbaa !4
-  %18 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef nonnull @rsa_key_der_2048, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 1191) #16
-  %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %21, label %19
-
-19:                                               ; preds = %17
-  %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %18)
-  br label %.critedge19
-
-21:                                               ; preds = %17
-  %22 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %23
+  %7 = alloca [25 x i8], align 16
+  %8 = alloca [1 x [1 x %struct.RsaKey]], align 16
+  %9 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %25 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8368) %8, i8 0, i64 8368, i1 false)
+  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %11 = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %8, ptr noundef null, i32 noundef -2) #17
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %.loopexit, label %13
+
+13:                                               ; preds = %.critedge
+  %14 = call i32 @wc_RsaSetRNG(ptr noundef nonnull %8, ptr noundef nonnull %10) #17
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %.loopexit
+
+15:                                               ; preds = %13
+  store i32 0, ptr %9, align 4, !tbaa !4
+  %16 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef nonnull @rsa_key_der_2048, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 1191) #17
+  %.not17 = icmp eq i32 %16, 0
+  br i1 %.not17, label %19, label %17, !llvm.loop !125
+
+17:                                               ; preds = %15
+  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %16)
+  br label %.loopexit
+
+19:                                               ; preds = %15
+  %20 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %23 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #17
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.thread215.i, label %.preheader228.i, !llvm.loop !126
+
+.preheader228.i:                                  ; preds = %19
+  %25 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #17
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge124.thread.i, label %27, !llvm.loop !79
+  br i1 %26, label %.split269.us.thread.i, label %29, !llvm.loop !127
 
-27:                                               ; preds = %21
-  %28 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread251.i, label %.critedge.i
-
-.critedge124.thread.i:                            ; preds = %21
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8982)
+.thread215.i:                                     ; preds = %19
+  %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8982)
   br label %bench_rsa_helper.exit
 
-.critedge.i:                                      ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %9, ptr noundef nonnull align 1 dereferenceable(25) @.str.134, i64 25, i1 false)
+.split269.us.thread.i:                            ; preds = %.preheader228.i
+  %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8987)
+  call void @wolfSSL_Free(ptr noundef nonnull %23) #17
+  br label %bench_rsa_helper.exit
+
+29:                                               ; preds = %.preheader228.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %7, ptr noundef nonnull align 1 dereferenceable(25) @.str.134, i64 25, i1 false)
   %.b.i = load i1, ptr @rsa_sign_verify, align 4
-  br i1 %.b.i, label %130, label %31
+  br i1 %.b.i, label %111, label %30
 
-31:                                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %32 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %bench_stats_start.exit.i
-
-34:                                               ; preds = %31
-  %35 = tail call ptr @__errno_location() #17
-  %36 = load i32, ptr %35, align 4, !tbaa !4
-  %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %36, ptr noundef nonnull @.str.80)
-  %38 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %39 = call i32 @fflush(ptr noundef %38)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_start.exit.i:                         ; preds = %31
-  %40 = load i64, ptr %8, align 8, !tbaa !16
-  %41 = sitofp i64 %40 to double
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !19
-  %44 = sitofp i64 %43 to double
-  %45 = fdiv double %44, 1.000000e+09
-  %46 = fadd double %45, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %47 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %48 = extractvalue { i32, i32 } %47, 0
-  %49 = extractvalue { i32, i32 } %47, 1
-  %50 = zext i32 %48 to i64
-  %51 = zext i32 %49 to i64
-  %52 = shl nuw i64 %51, 32
-  %53 = or disjoint i64 %52, %50
-  %54 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %53, ptr %54, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %56
-
-56:                                               ; preds = %bench_stats_check.exit.i, %bench_stats_start.exit.i
-  %.0187.i = phi i32 [ 0, %bench_stats_start.exit.i ], [ %71, %bench_stats_check.exit.i ]
-  br label %57
-
-57:                                               ; preds = %bench_async_handle.exit.i, %56
-  %.0195293.i = phi i32 [ 0, %56 ], [ %61, %bench_async_handle.exit.i ]
-  %58 = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %10, ptr noundef nonnull %15) #16
-  %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %bench_async_handle.exit.i, label %.thread.i
-
-.thread.i:                                        ; preds = %57
-  %60 = load ptr, ptr %24, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %60, i32 noundef %.0187.i, double noundef %46, i32 noundef %58)
-  br label %.critedge124.thread235.thread.i
-
-bench_async_handle.exit.i:                        ; preds = %57
-  %61 = add nuw nsw i32 %.0195293.i, 1
-  %exitcond.not.i = icmp eq i32 %61, 100
-  br i1 %exitcond.not.i, label %62, label %57
-
-62:                                               ; preds = %bench_async_handle.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %63 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %bench_stats_check.exit.i
-
-65:                                               ; preds = %62
-  %66 = tail call ptr @__errno_location() #17
-  %67 = load i32, ptr %66, align 4, !tbaa !4
-  %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %67, ptr noundef nonnull @.str.80)
-  %69 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %70 = call i32 @fflush(ptr noundef %69)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit.i:                         ; preds = %62
-  %71 = add nuw nsw i32 %.0187.i, 100
-  %72 = load i64, ptr %7, align 8, !tbaa !16
-  %73 = sitofp i64 %72 to double
-  %74 = load i64, ptr %55, align 8, !tbaa !19
-  %75 = sitofp i64 %74 to double
-  %76 = fdiv double %75, 1.000000e+09
-  %77 = fadd double %76, %73
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %78 = fsub double %77, %46
-  %79 = fcmp uge double %78, 1.000000e+00
-  br i1 %79, label %80, label %56, !llvm.loop !80
-
-80:                                               ; preds = %bench_stats_check.exit.i
-  %81 = load ptr, ptr %24, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %81, i32 noundef %71, double noundef %46, i32 noundef %58)
+30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %82 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %bench_stats_start.exit130.i
+  %31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #17
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %bench_stats_start.exit.i
 
-84:                                               ; preds = %80
-  %85 = tail call ptr @__errno_location() #17
-  %86 = load i32, ptr %85, align 4, !tbaa !4
-  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %86, ptr noundef nonnull @.str.80)
-  %88 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %89 = call i32 @fflush(ptr noundef %88)
-  call void @_exit(i32 noundef 1) #18
+33:                                               ; preds = %30
+  %34 = tail call ptr @__errno_location() #18
+  %35 = load i32, ptr %34, align 4, !tbaa !4
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %35, ptr noundef nonnull @.str.80)
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %38 = call i32 @fflush(ptr noundef %37)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit130.i:                      ; preds = %80
-  %90 = load i64, ptr %6, align 8, !tbaa !16
-  %91 = sitofp i64 %90 to double
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !19
-  %94 = sitofp i64 %93 to double
-  %95 = fdiv double %94, 1.000000e+09
-  %96 = fadd double %95, %91
+bench_stats_start.exit.i:                         ; preds = %30
+  %39 = load i64, ptr %6, align 8, !tbaa !16
+  %40 = sitofp i64 %39 to double
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !19
+  %43 = sitofp i64 %42 to double
+  %44 = fdiv double %43, 1.000000e+09
+  %45 = fadd double %44, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %97 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %98 = extractvalue { i32, i32 } %97, 0
-  %99 = extractvalue { i32, i32 } %97, 1
-  %100 = zext i32 %98 to i64
-  %101 = zext i32 %99 to i64
-  %102 = shl nuw i64 %101, 32
-  %103 = or disjoint i64 %102, %100
-  store i64 %103, ptr %54, align 8, !tbaa !21
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %105
+  %46 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %47 = extractvalue { i32, i32 } %46, 0
+  %48 = extractvalue { i32, i32 } %46, 1
+  %49 = zext i32 %47 to i64
+  %50 = zext i32 %48 to i64
+  %51 = shl nuw i64 %50, 32
+  %52 = or disjoint i64 %51, %49
+  %53 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %52, ptr %53, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %55
 
-105:                                              ; preds = %bench_stats_check.exit133.i, %bench_stats_start.exit130.i
-  %.2189.i = phi i32 [ 0, %bench_stats_start.exit130.i ], [ %119, %bench_stats_check.exit133.i ]
-  br label %106
+55:                                               ; preds = %bench_stats_check.exit18, %bench_stats_start.exit.i
+  %.0172.i = phi i32 [ 0, %bench_stats_start.exit.i ], [ %69, %bench_stats_check.exit18 ]
+  br label %.preheader226.i
 
-106:                                              ; preds = %bench_async_handle.exit132.i, %105
-  %.1196294.i = phi i32 [ 0, %105 ], [ %109, %bench_async_handle.exit132.i ]
-  %107 = call i32 @wc_RsaPrivateDecrypt(ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %28, i32 noundef 256, ptr noundef nonnull %10) #16
-  %108 = icmp sgt i32 %107, -1
-  br i1 %108, label %bench_async_handle.exit132.i, label %bench_async_handle.exit132.thread.i
+.preheader226.i:                                  ; preds = %bench_async_handle.exit.i, %55
+  %.0180261.i = phi i32 [ 0, %55 ], [ %59, %bench_async_handle.exit.i ]
+  %56 = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %8, ptr noundef nonnull %10) #17
+  %57 = icmp sgt i32 %56, -1
+  br i1 %57, label %bench_async_handle.exit.i, label %.thread.i
 
-bench_async_handle.exit132.i:                     ; preds = %106
-  %109 = add nuw nsw i32 %.1196294.i, 1
-  %exitcond326.not.i = icmp eq i32 %109, 100
-  br i1 %exitcond326.not.i, label %110, label %106
+.thread.i:                                        ; preds = %.preheader226.i
+  %58 = load ptr, ptr %22, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %58, i32 noundef %.0172.i, double noundef %45, i32 noundef %56)
+  br label %.split269.us.i
 
-110:                                              ; preds = %bench_async_handle.exit132.i
+bench_async_handle.exit.i:                        ; preds = %.preheader226.i
+  %59 = add nuw nsw i32 %.0180261.i, 1
+  %exitcond.not.i = icmp eq i32 %59, 100
+  br i1 %exitcond.not.i, label %60, label %.preheader226.i, !llvm.loop !128
+
+60:                                               ; preds = %bench_async_handle.exit.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %61 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #17
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %bench_stats_check.exit18
+
+63:                                               ; preds = %60
+  %64 = tail call ptr @__errno_location() #18
+  %65 = load i32, ptr %64, align 4, !tbaa !4
+  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %65, ptr noundef nonnull @.str.80)
+  %67 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %68 = call i32 @fflush(ptr noundef %67)
+  call void @_exit(i32 noundef 1) #19
+  unreachable
+
+bench_stats_check.exit18:                         ; preds = %60
+  %69 = add nuw nsw i32 %.0172.i, 100
+  %70 = load i64, ptr %1, align 8, !tbaa !16
+  %71 = sitofp i64 %70 to double
+  %72 = load i64, ptr %54, align 8, !tbaa !19
+  %73 = sitofp i64 %72 to double
+  %74 = fdiv double %73, 1.000000e+09
+  %75 = fadd double %74, %71
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  %76 = fsub double %75, %45
+  %77 = fcmp uge double %76, 1.000000e+00
+  br i1 %77, label %78, label %55, !llvm.loop !129
+
+78:                                               ; preds = %bench_stats_check.exit18
+  %79 = load ptr, ptr %22, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %79, i32 noundef %69, double noundef %45, i32 noundef %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %111 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %113, label %bench_stats_check.exit133.i
+  %80 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %bench_stats_start.exit118.i
 
-113:                                              ; preds = %110
-  %114 = tail call ptr @__errno_location() #17
-  %115 = load i32, ptr %114, align 4, !tbaa !4
-  %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %115, ptr noundef nonnull @.str.80)
-  %117 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %118 = call i32 @fflush(ptr noundef %117)
-  call void @_exit(i32 noundef 1) #18
+82:                                               ; preds = %78
+  %83 = tail call ptr @__errno_location() #18
+  %84 = load i32, ptr %83, align 4, !tbaa !4
+  %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %84, ptr noundef nonnull @.str.80)
+  %86 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %87 = call i32 @fflush(ptr noundef %86)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit133.i:                      ; preds = %110
-  %119 = add nuw nsw i32 %.2189.i, 100
-  %120 = load i64, ptr %5, align 8, !tbaa !16
-  %121 = sitofp i64 %120 to double
-  %122 = load i64, ptr %104, align 8, !tbaa !19
-  %123 = sitofp i64 %122 to double
-  %124 = fdiv double %123, 1.000000e+09
-  %125 = fadd double %124, %121
+bench_stats_start.exit118.i:                      ; preds = %78
+  %88 = load i64, ptr %5, align 8, !tbaa !16
+  %89 = sitofp i64 %88 to double
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %91 = load i64, ptr %90, align 8, !tbaa !19
+  %92 = sitofp i64 %91 to double
+  %93 = fdiv double %92, 1.000000e+09
+  %94 = fadd double %93, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %126 = fsub double %125, %96
-  %127 = fcmp uge double %126, 1.000000e+00
-  br i1 %127, label %bench_async_handle.exit132.thread.i, label %105, !llvm.loop !81
+  %95 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %96 = extractvalue { i32, i32 } %95, 0
+  %97 = extractvalue { i32, i32 } %95, 1
+  %98 = zext i32 %96 to i64
+  %99 = zext i32 %97 to i64
+  %100 = shl nuw i64 %99, 32
+  %101 = or disjoint i64 %100, %98
+  store i64 %101, ptr %53, align 8, !tbaa !21
+  br label %102
 
-bench_async_handle.exit132.thread.i:              ; preds = %bench_stats_check.exit133.i, %106
-  %.3190.i = phi i32 [ %.2189.i, %106 ], [ %119, %bench_stats_check.exit133.i ]
-  %128 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %129, i32 noundef %.3190.i, double noundef %96, i32 noundef %107)
-  br label %.critedge124.thread235.thread.i
+102:                                              ; preds = %106, %bench_stats_start.exit118.i
+  %.2174.i = phi i32 [ 0, %bench_stats_start.exit118.i ], [ %107, %106 ]
+  br label %.preheader223.i
 
-130:                                              ; preds = %.critedge.i
+.preheader223.i:                                  ; preds = %bench_async_handle.exit120.i, %102
+  %.2182263.i = phi i32 [ 0, %102 ], [ %105, %bench_async_handle.exit120.i ]
+  %103 = call i32 @wc_RsaPrivateDecrypt(ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %8) #17
+  %104 = icmp sgt i32 %103, -1
+  br i1 %104, label %bench_async_handle.exit120.i, label %bench_async_handle.exit120.thread.i
+
+bench_async_handle.exit120.i:                     ; preds = %.preheader223.i
+  %105 = add nuw nsw i32 %.2182263.i, 1
+  %exitcond291.not.i = icmp eq i32 %105, 100
+  br i1 %exitcond291.not.i, label %106, label %.preheader223.i, !llvm.loop !130
+
+106:                                              ; preds = %bench_async_handle.exit120.i
+  %107 = add nuw nsw i32 %.2174.i, 100
+  %108 = call fastcc i32 @bench_stats_check(double noundef %94)
+  %.not105.i = icmp eq i32 %108, 0
+  br i1 %.not105.i, label %bench_async_handle.exit120.thread.i, label %102, !llvm.loop !131
+
+bench_async_handle.exit120.thread.i:              ; preds = %106, %.preheader223.i
+  %.3175.i = phi i32 [ %.2174.i, %.preheader223.i ], [ %107, %106 ]
+  %109 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %110, i32 noundef %.3175.i, double noundef %94, i32 noundef %103)
+  br label %.split269.us.i
+
+111:                                              ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %131 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %132 = icmp slt i32 %131, 0
-  br i1 %132, label %133, label %bench_stats_start.exit134.i
+  %112 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %114, label %bench_stats_start.exit121.i
 
-133:                                              ; preds = %130
-  %134 = tail call ptr @__errno_location() #17
-  %135 = load i32, ptr %134, align 4, !tbaa !4
-  %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %135, ptr noundef nonnull @.str.80)
-  %137 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %138 = call i32 @fflush(ptr noundef %137)
-  call void @_exit(i32 noundef 1) #18
+114:                                              ; preds = %111
+  %115 = tail call ptr @__errno_location() #18
+  %116 = load i32, ptr %115, align 4, !tbaa !4
+  %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %116, ptr noundef nonnull @.str.80)
+  %118 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %119 = call i32 @fflush(ptr noundef %118)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit134.i:                      ; preds = %130
-  %139 = load i64, ptr %4, align 8, !tbaa !16
-  %140 = sitofp i64 %139 to double
-  %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %142 = load i64, ptr %141, align 8, !tbaa !19
-  %143 = sitofp i64 %142 to double
-  %144 = fdiv double %143, 1.000000e+09
-  %145 = fadd double %144, %140
+bench_stats_start.exit121.i:                      ; preds = %111
+  %120 = load i64, ptr %4, align 8, !tbaa !16
+  %121 = sitofp i64 %120 to double
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %123 = load i64, ptr %122, align 8, !tbaa !19
+  %124 = sitofp i64 %123 to double
+  %125 = fdiv double %124, 1.000000e+09
+  %126 = fadd double %125, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %146 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %147 = extractvalue { i32, i32 } %146, 0
-  %148 = extractvalue { i32, i32 } %146, 1
-  %149 = zext i32 %147 to i64
-  %150 = zext i32 %148 to i64
-  %151 = shl nuw i64 %150, 32
-  %152 = or disjoint i64 %151, %149
-  %153 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %152, ptr %153, align 8, !tbaa !21
-  %154 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %155
+  %127 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %128 = extractvalue { i32, i32 } %127, 0
+  %129 = extractvalue { i32, i32 } %127, 1
+  %130 = zext i32 %128 to i64
+  %131 = zext i32 %129 to i64
+  %132 = shl nuw i64 %131, 32
+  %133 = or disjoint i64 %132, %130
+  %134 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %133, ptr %134, align 8, !tbaa !21
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %136
 
-155:                                              ; preds = %bench_stats_check.exit137.i, %bench_stats_start.exit134.i
-  %.4191.i = phi i32 [ 0, %bench_stats_start.exit134.i ], [ %171, %bench_stats_check.exit137.i ]
-  br label %156
+136:                                              ; preds = %bench_stats_check.exit, %bench_stats_start.exit121.i
+  %.4176.i = phi i32 [ 0, %bench_stats_start.exit121.i ], [ %151, %bench_stats_check.exit ]
+  br label %.preheader221.i
 
-156:                                              ; preds = %bench_async_handle.exit136.i, %155
-  %.2197295.i = phi i32 [ 0, %155 ], [ %161, %bench_async_handle.exit136.i ]
-  %157 = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %10, ptr noundef nonnull %15) #16
-  %158 = icmp sgt i32 %157, -1
-  br i1 %158, label %bench_async_handle.exit136.i, label %.thread214.i
+.preheader221.i:                                  ; preds = %bench_async_handle.exit123.i, %136
+  %.4184265.i = phi i32 [ 0, %136 ], [ %141, %bench_async_handle.exit123.i ]
+  %137 = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %8, ptr noundef nonnull %10) #17
+  %138 = icmp sgt i32 %137, -1
+  br i1 %138, label %bench_async_handle.exit123.i, label %.thread203.i
 
-.thread214.i:                                     ; preds = %156
-  %159 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %160 = load ptr, ptr %159, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %160, i32 noundef %.4191.i, double noundef %145, i32 noundef %157)
-  br label %.critedge124.thread235.thread.i
+.thread203.i:                                     ; preds = %.preheader221.i
+  %139 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %140 = load ptr, ptr %139, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %140, i32 noundef %.4176.i, double noundef %126, i32 noundef %137)
+  br label %.split269.us.i
 
-bench_async_handle.exit136.i:                     ; preds = %156
-  %161 = add nuw nsw i32 %.2197295.i, 1
-  %exitcond327.not.i = icmp eq i32 %161, 100
-  br i1 %exitcond327.not.i, label %162, label %156
+bench_async_handle.exit123.i:                     ; preds = %.preheader221.i
+  %141 = add nuw nsw i32 %.4184265.i, 1
+  %exitcond292.not.i = icmp eq i32 %141, 100
+  br i1 %exitcond292.not.i, label %142, label %.preheader221.i, !llvm.loop !132
 
-162:                                              ; preds = %bench_async_handle.exit136.i
+142:                                              ; preds = %bench_async_handle.exit123.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %143 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %144 = icmp slt i32 %143, 0
+  br i1 %144, label %145, label %bench_stats_check.exit
+
+145:                                              ; preds = %142
+  %146 = tail call ptr @__errno_location() #18
+  %147 = load i32, ptr %146, align 4, !tbaa !4
+  %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %147, ptr noundef nonnull @.str.80)
+  %149 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %150 = call i32 @fflush(ptr noundef %149)
+  call void @_exit(i32 noundef 1) #19
+  unreachable
+
+bench_stats_check.exit:                           ; preds = %142
+  %151 = add nuw nsw i32 %.4176.i, 100
+  %152 = load i64, ptr %2, align 8, !tbaa !16
+  %153 = sitofp i64 %152 to double
+  %154 = load i64, ptr %135, align 8, !tbaa !19
+  %155 = sitofp i64 %154 to double
+  %156 = fdiv double %155, 1.000000e+09
+  %157 = fadd double %156, %153
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %158 = fsub double %157, %126
+  %159 = fcmp uge double %158, 1.000000e+00
+  br i1 %159, label %160, label %136, !llvm.loop !133
+
+160:                                              ; preds = %bench_stats_check.exit
+  %161 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %162 = load ptr, ptr %161, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %162, i32 noundef %151, double noundef %126, i32 noundef %137)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %163 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
+  %163 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
   %164 = icmp slt i32 %163, 0
-  br i1 %164, label %165, label %bench_stats_check.exit137.i
+  br i1 %164, label %165, label %bench_stats_start.exit124.i
 
-165:                                              ; preds = %162
-  %166 = tail call ptr @__errno_location() #17
+165:                                              ; preds = %160
+  %166 = tail call ptr @__errno_location() #18
   %167 = load i32, ptr %166, align 4, !tbaa !4
   %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %167, ptr noundef nonnull @.str.80)
   %169 = load ptr, ptr @stdout, align 8, !tbaa !14
   %170 = call i32 @fflush(ptr noundef %169)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit137.i:                      ; preds = %162
-  %171 = add nuw nsw i32 %.4191.i, 100
-  %172 = load i64, ptr %3, align 8, !tbaa !16
-  %173 = sitofp i64 %172 to double
-  %174 = load i64, ptr %154, align 8, !tbaa !19
+bench_stats_start.exit124.i:                      ; preds = %160
+  %171 = load i64, ptr %3, align 8, !tbaa !16
+  %172 = sitofp i64 %171 to double
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %174 = load i64, ptr %173, align 8, !tbaa !19
   %175 = sitofp i64 %174 to double
   %176 = fdiv double %175, 1.000000e+09
-  %177 = fadd double %176, %173
+  %177 = fadd double %176, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %178 = fsub double %177, %145
-  %179 = fcmp uge double %178, 1.000000e+00
-  br i1 %179, label %180, label %155, !llvm.loop !82
+  %178 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %179 = extractvalue { i32, i32 } %178, 0
+  %180 = extractvalue { i32, i32 } %178, 1
+  %181 = zext i32 %179 to i64
+  %182 = zext i32 %180 to i64
+  %183 = shl nuw i64 %182, 32
+  %184 = or disjoint i64 %183, %181
+  store i64 %184, ptr %134, align 8, !tbaa !21
+  br label %185
 
-180:                                              ; preds = %bench_stats_check.exit137.i
-  %181 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %182 = load ptr, ptr %181, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %182, i32 noundef %171, double noundef %145, i32 noundef %157)
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %183 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %184 = icmp slt i32 %183, 0
-  br i1 %184, label %185, label %bench_stats_start.exit138.i
+185:                                              ; preds = %189, %bench_stats_start.exit124.i
+  %.6178.i = phi i32 [ 0, %bench_stats_start.exit124.i ], [ %190, %189 ]
+  br label %.preheader218.i
 
-185:                                              ; preds = %180
-  %186 = tail call ptr @__errno_location() #17
-  %187 = load i32, ptr %186, align 4, !tbaa !4
-  %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %187, ptr noundef nonnull @.str.80)
-  %189 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %190 = call i32 @fflush(ptr noundef %189)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
+.preheader218.i:                                  ; preds = %bench_async_handle.exit126.i, %185
+  %.6186267.i = phi i32 [ 0, %185 ], [ %188, %bench_async_handle.exit126.i ]
+  %186 = call i32 @wc_RsaSSL_Verify(ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %8) #17
+  %187 = icmp sgt i32 %186, -1
+  br i1 %187, label %bench_async_handle.exit126.i, label %bench_async_handle.exit126.thread.i
 
-bench_stats_start.exit138.i:                      ; preds = %180
-  %191 = load i64, ptr %2, align 8, !tbaa !16
-  %192 = sitofp i64 %191 to double
-  %193 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %194 = load i64, ptr %193, align 8, !tbaa !19
-  %195 = sitofp i64 %194 to double
-  %196 = fdiv double %195, 1.000000e+09
-  %197 = fadd double %196, %192
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %198 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %199 = extractvalue { i32, i32 } %198, 0
-  %200 = extractvalue { i32, i32 } %198, 1
-  %201 = zext i32 %199 to i64
-  %202 = zext i32 %200 to i64
-  %203 = shl nuw i64 %202, 32
-  %204 = or disjoint i64 %203, %201
-  store i64 %204, ptr %153, align 8, !tbaa !21
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %206
+bench_async_handle.exit126.i:                     ; preds = %.preheader218.i
+  %188 = add nuw nsw i32 %.6186267.i, 1
+  %exitcond293.not.i = icmp eq i32 %188, 100
+  br i1 %exitcond293.not.i, label %189, label %.preheader218.i, !llvm.loop !134
 
-206:                                              ; preds = %bench_stats_check.exit141.i, %bench_stats_start.exit138.i
-  %.6193.i = phi i32 [ 0, %bench_stats_start.exit138.i ], [ %220, %bench_stats_check.exit141.i ]
-  br label %207
+189:                                              ; preds = %bench_async_handle.exit126.i
+  %190 = add nuw nsw i32 %.6178.i, 100
+  %191 = call fastcc i32 @bench_stats_check(double noundef %177)
+  %.not109.i = icmp eq i32 %191, 0
+  br i1 %.not109.i, label %bench_async_handle.exit126.thread.i, label %185, !llvm.loop !135
 
-207:                                              ; preds = %bench_async_handle.exit140.i, %206
-  %.3198296.i = phi i32 [ 0, %206 ], [ %210, %bench_async_handle.exit140.i ]
-  %208 = call i32 @wc_RsaSSL_Verify(ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %28, i32 noundef 256, ptr noundef nonnull %10) #16
-  %209 = icmp sgt i32 %208, -1
-  br i1 %209, label %bench_async_handle.exit140.i, label %bench_async_handle.exit140.thread.i
+bench_async_handle.exit126.thread.i:              ; preds = %189, %.preheader218.i
+  %.7179.i = phi i32 [ %.6178.i, %.preheader218.i ], [ %190, %189 ]
+  %192 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %193 = load ptr, ptr %192, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %193, i32 noundef %.7179.i, double noundef %177, i32 noundef %186)
+  br label %.split269.us.i
 
-bench_async_handle.exit140.i:                     ; preds = %207
-  %210 = add nuw nsw i32 %.3198296.i, 1
-  %exitcond328.not.i = icmp eq i32 %210, 100
-  br i1 %exitcond328.not.i, label %211, label %207
-
-211:                                              ; preds = %bench_async_handle.exit140.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %212 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
-  %213 = icmp slt i32 %212, 0
-  br i1 %213, label %214, label %bench_stats_check.exit141.i
-
-214:                                              ; preds = %211
-  %215 = tail call ptr @__errno_location() #17
-  %216 = load i32, ptr %215, align 4, !tbaa !4
-  %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %216, ptr noundef nonnull @.str.80)
-  %218 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %219 = call i32 @fflush(ptr noundef %218)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit141.i:                      ; preds = %211
-  %220 = add nuw nsw i32 %.6193.i, 100
-  %221 = load i64, ptr %1, align 8, !tbaa !16
-  %222 = sitofp i64 %221 to double
-  %223 = load i64, ptr %205, align 8, !tbaa !19
-  %224 = sitofp i64 %223 to double
-  %225 = fdiv double %224, 1.000000e+09
-  %226 = fadd double %225, %222
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %227 = fsub double %226, %197
-  %228 = fcmp uge double %227, 1.000000e+00
-  br i1 %228, label %bench_async_handle.exit140.thread.i, label %206, !llvm.loop !83
-
-bench_async_handle.exit140.thread.i:              ; preds = %bench_stats_check.exit141.i, %207
-  %.7194.i = phi i32 [ %.6193.i, %207 ], [ %220, %bench_stats_check.exit141.i ]
-  %229 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %230 = load ptr, ptr %229, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %230, i32 noundef %.7194.i, double noundef %197, i32 noundef %208)
-  br label %.critedge124.thread235.thread.i
-
-.thread251.i:                                     ; preds = %27
-  %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8987)
-  call void @wolfSSL_Free(ptr noundef nonnull %25) #16
+.split269.us.i:                                   ; preds = %bench_async_handle.exit126.thread.i, %.thread203.i, %bench_async_handle.exit120.thread.i, %.thread.i
+  call void @wolfSSL_Free(ptr noundef nonnull %23) #17
+  call void @wolfSSL_Free(ptr noundef nonnull %25) #17
   br label %bench_rsa_helper.exit
 
-.critedge124.thread235.thread.i:                  ; preds = %bench_async_handle.exit140.thread.i, %.thread214.i, %bench_async_handle.exit132.thread.i, %.thread.i
-  call void @wolfSSL_Free(ptr noundef nonnull %25) #16
-  call void @wolfSSL_Free(ptr noundef nonnull %28) #16
-  br label %bench_rsa_helper.exit
+bench_rsa_helper.exit:                            ; preds = %.thread215.i, %.split269.us.thread.i, %.split269.us.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.loopexit
 
-bench_rsa_helper.exit:                            ; preds = %.critedge124.thread.i, %.thread251.i, %.critedge124.thread235.thread.i
+.loopexit:                                        ; preds = %.critedge, %13, %17, %bench_rsa_helper.exit
+  %194 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.critedge19
-
-.critedge19:                                      ; preds = %bench_rsa_helper.exit, %14, %.critedge, %19
-  %232 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -6462,260 +6061,252 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = alloca %struct.timespec, align 8
-  %6 = alloca [1 x [1 x %struct.DhKey]], align 16
-  %7 = alloca i32, align 4
+  %5 = alloca [1 x [1 x %struct.DhKey]], align 16
+  %6 = alloca i32, align 4
+  %7 = alloca [1 x i32], align 4
   %8 = alloca [1 x i32], align 4
-  %9 = alloca [1 x i32], align 4
+  %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca [1 x i32], align 4
-  %13 = alloca [1 x [384 x i8]], align 16
-  %14 = alloca [384 x i8], align 16
-  %15 = alloca [1 x [384 x i8]], align 16
-  %16 = alloca [1 x [48 x i8]], align 16
-  %17 = alloca [48 x i8], align 16
+  %11 = alloca [1 x i32], align 4
+  %12 = alloca [1 x [384 x i8]], align 16
+  %13 = alloca [384 x i8], align 16
+  %14 = alloca [1 x [384 x i8]], align 16
+  %15 = alloca [1 x [48 x i8]], align 16
+  %16 = alloca [48 x i8], align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %17 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  store i32 384, ptr %9, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 384, ptr %10, align 4, !tbaa !4
+  store i32 48, ptr %10, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i32 48, ptr %11, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %13, i8 0, i64 384, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %15, i8 0, i64 384, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3136) %6, i8 0, i64 3136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %12, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %14, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %15, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3136) %5, i8 0, i64 3136, i1 false)
   %.b45 = load i1, ptr @use_ffdhe, align 4
-  br i1 %.b45, label %21, label %.critedge
+  br i1 %.b45, label %20, label %.split.us.preheader
 
-21:                                               ; preds = %1
-  %22 = tail call ptr @wc_Dh_ffdhe2048_Get() #16
-  br label %.critedge
+20:                                               ; preds = %1
+  %21 = tail call ptr @wc_Dh_ffdhe2048_Get() #17
+  %22 = freeze ptr %21
+  %.not51 = icmp eq ptr %22, null
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  br i1 %.not51, label %.split.us.preheader, label %.split
 
-.critedge:                                        ; preds = %1, %21
-  %.040 = phi ptr [ null, %21 ], [ @dh_key_der_2048, %1 ]
-  %.037 = phi i32 [ 0, %21 ], [ 268, %1 ]
-  %.0 = phi ptr [ %22, %21 ], [ null, %1 ]
-  %23 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #16
-  %.not50 = icmp eq i32 %23, 0
-  br i1 %.not50, label %24, label %.critedge58
+.split.us.preheader:                              ; preds = %1, %20
+  %.037151 = phi i32 [ 0, %20 ], [ 268, %1 ]
+  %.040150 = phi ptr [ null, %20 ], [ @dh_key_der_2048, %1 ]
+  %26 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not50.us = icmp eq i32 %26, 0
+  br i1 %.not50.us, label %27, label %bench_async_handle.exit56.thread
 
-24:                                               ; preds = %.critedge
-  %.b = load i1, ptr @use_ffdhe, align 4
-  br i1 %.b, label %27, label %25
-
-25:                                               ; preds = %24
-  store i32 0, ptr %7, align 4, !tbaa !4
-  %26 = call i32 @wc_DhKeyDecode(ptr noundef %.040, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %.037) #16
-  br label %37
-
-27:                                               ; preds = %24
-  %.not51 = icmp eq ptr %.0, null
-  br i1 %.not51, label %.thread, label %28
+27:                                               ; preds = %.split.us.preheader
+  %.b.us = load i1, ptr @use_ffdhe, align 4
+  br i1 %.b.us, label %30, label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %.0, align 8, !tbaa !84
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !86
-  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !87
-  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !88
-  %36 = call i32 @wc_DhSetKey(ptr noundef nonnull %6, ptr noundef %29, i32 noundef %31, ptr noundef %33, i32 noundef %35) #16
-  br label %37
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %29 = call i32 @wc_DhKeyDecode(ptr noundef %.040150, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.037151) #17
+  br label %30
 
-37:                                               ; preds = %28, %25
-  %.1 = phi i32 [ %36, %28 ], [ %26, %25 ]
-  %.not52 = icmp eq i32 %.1, 0
-  br i1 %.not52, label %.thread, label %38
+30:                                               ; preds = %27, %28
+  %.2.us = phi i32 [ %29, %28 ], [ 0, %27 ]
+  %.not52.us = icmp eq i32 %.2.us, 0
+  br i1 %.not52.us, label %.split118.us, label %.split120.us, !llvm.loop !136
 
-38:                                               ; preds = %37
-  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %.1)
-  br label %.critedge58
+.split:                                           ; preds = %20
+  %31 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %.not50 = icmp eq i32 %31, 0
+  br i1 %.not50, label %32, label %bench_async_handle.exit56.thread
 
-.thread:                                          ; preds = %27, %37
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %40 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %bench_stats_start.exit
+32:                                               ; preds = %.split
+  %.b = load i1, ptr @use_ffdhe, align 4
+  br i1 %.b, label %35, label %33
 
-42:                                               ; preds = %.thread
-  %43 = tail call ptr @__errno_location() #17
-  %44 = load i32, ptr %43, align 4, !tbaa !4
-  %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %44, ptr noundef nonnull @.str.80)
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %47 = call i32 @fflush(ptr noundef %46)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
+33:                                               ; preds = %32
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %34 = call i32 @wc_DhKeyDecode(ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0) #17
+  br label %41
 
-bench_stats_start.exit:                           ; preds = %.thread
-  %48 = load i64, ptr %5, align 8, !tbaa !16
-  %49 = sitofp i64 %48 to double
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !19
-  %52 = sitofp i64 %51 to double
-  %53 = fdiv double %52, 1.000000e+09
-  %54 = fadd double %53, %49
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %55 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %56 = extractvalue { i32, i32 } %55, 0
-  %57 = extractvalue { i32, i32 } %55, 1
-  %58 = zext i32 %56 to i64
-  %59 = zext i32 %57 to i64
-  %60 = shl nuw i64 %59, 32
-  %61 = or disjoint i64 %60, %58
-  %62 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %61, ptr %62, align 8, !tbaa !21
-  %63 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %65
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %22, align 8, !tbaa !138
+  %37 = load i32, ptr %23, align 8, !tbaa !140
+  %38 = load ptr, ptr %24, align 8, !tbaa !141
+  %39 = load i32, ptr %25, align 8, !tbaa !142
+  %40 = call i32 @wc_DhSetKey(ptr noundef nonnull %5, ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39) #17
+  br label %41
 
-65:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.189 = phi i32 [ 0, %bench_stats_start.exit ], [ %78, %bench_stats_check.exit ]
-  store i32 48, ptr %9, align 4, !tbaa !4
-  store i32 384, ptr %8, align 4, !tbaa !4
-  %66 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %6, ptr noundef nonnull %63, ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef nonnull %13, ptr noundef nonnull %8) #16
-  %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %.critedge54, label %.thread98
+41:                                               ; preds = %35, %33
+  %.2 = phi i32 [ %40, %35 ], [ %34, %33 ]
+  %.not52 = icmp eq i32 %.2, 0
+  br i1 %.not52, label %.split118.us, label %.split120.us, !llvm.loop !143
 
-.thread98:                                        ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %69, i32 noundef %.189, double noundef %54, i32 noundef %66)
-  br label %.critedge58
+.split120.us:                                     ; preds = %41, %30
+  %.us-phi121 = phi i32 [ %.2.us, %30 ], [ %.2, %41 ]
+  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %.us-phi121)
+  br label %bench_async_handle.exit56.thread
 
-.critedge54:                                      ; preds = %65
+.split118.us:                                     ; preds = %41, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %bench_stats_check.exit
+  %43 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %bench_stats_start.exit
 
-72:                                               ; preds = %.critedge54
-  %73 = tail call ptr @__errno_location() #17
-  %74 = load i32, ptr %73, align 4, !tbaa !4
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %74, ptr noundef nonnull @.str.80)
-  %76 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %77 = call i32 @fflush(ptr noundef %76)
-  call void @_exit(i32 noundef 1) #18
+45:                                               ; preds = %.split118.us
+  %46 = tail call ptr @__errno_location() #18
+  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %47, ptr noundef nonnull @.str.80)
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %50 = call i32 @fflush(ptr noundef %49)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit:                           ; preds = %.critedge54
-  %78 = add nuw nsw i32 %.189, 1
-  %79 = load i64, ptr %4, align 8, !tbaa !16
-  %80 = sitofp i64 %79 to double
-  %81 = load i64, ptr %64, align 8, !tbaa !19
-  %82 = sitofp i64 %81 to double
-  %83 = fdiv double %82, 1.000000e+09
-  %84 = fadd double %83, %80
+bench_stats_start.exit:                           ; preds = %.split118.us
+  %51 = load i64, ptr %4, align 8, !tbaa !16
+  %52 = sitofp i64 %51 to double
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %54 = load i64, ptr %53, align 8, !tbaa !19
+  %55 = sitofp i64 %54 to double
+  %56 = fdiv double %55, 1.000000e+09
+  %57 = fadd double %56, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %85 = fsub double %84, %54
-  %86 = fcmp uge double %85, 1.000000e+00
-  br i1 %86, label %87, label %65, !llvm.loop !89
+  %58 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %59 = extractvalue { i32, i32 } %58, 0
+  %60 = extractvalue { i32, i32 } %58, 1
+  %61 = zext i32 %59 to i64
+  %62 = zext i32 %60 to i64
+  %63 = shl nuw i64 %62, 32
+  %64 = or disjoint i64 %63, %61
+  %65 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %64, ptr %65, align 8, !tbaa !21
+  %66 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %.preheader96
 
-87:                                               ; preds = %bench_stats_check.exit
-  %88 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %89, i32 noundef %78, double noundef %54, i32 noundef %66)
-  %90 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %6, ptr noundef nonnull %63, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %10) #16
+.preheader96:                                     ; preds = %bench_stats_check.exit, %bench_stats_start.exit
+  %.184 = phi i32 [ 0, %bench_stats_start.exit ], [ %80, %bench_stats_check.exit ]
+  store i32 48, ptr %8, align 4, !tbaa !4
+  store i32 384, ptr %7, align 4, !tbaa !4
+  %68 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %5, ptr noundef nonnull %66, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %7) #17
+  %69 = icmp sgt i32 %68, -1
+  br i1 %69, label %bench_async_handle.exit, label %.thread
+
+.thread:                                          ; preds = %.preheader96
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %71, i32 noundef %.184, double noundef %57, i32 noundef %68)
+  br label %bench_async_handle.exit56.thread
+
+bench_async_handle.exit:                          ; preds = %.preheader96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %91 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %bench_stats_start.exit60
+  %72 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %bench_stats_check.exit
 
-93:                                               ; preds = %87
-  %94 = tail call ptr @__errno_location() #17
-  %95 = load i32, ptr %94, align 4, !tbaa !4
-  %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %95, ptr noundef nonnull @.str.80)
-  %97 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %98 = call i32 @fflush(ptr noundef %97)
-  call void @_exit(i32 noundef 1) #18
+74:                                               ; preds = %bench_async_handle.exit
+  %75 = tail call ptr @__errno_location() #18
+  %76 = load i32, ptr %75, align 4, !tbaa !4
+  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %76, ptr noundef nonnull @.str.80)
+  %78 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %79 = call i32 @fflush(ptr noundef %78)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit60:                         ; preds = %87
-  %99 = load i64, ptr %3, align 8, !tbaa !16
-  %100 = sitofp i64 %99 to double
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !19
-  %103 = sitofp i64 %102 to double
-  %104 = fdiv double %103, 1.000000e+09
-  %105 = fadd double %104, %100
+bench_stats_check.exit:                           ; preds = %bench_async_handle.exit
+  %80 = add nuw nsw i32 %.184, 1
+  %81 = load i64, ptr %3, align 8, !tbaa !16
+  %82 = sitofp i64 %81 to double
+  %83 = load i64, ptr %67, align 8, !tbaa !19
+  %84 = sitofp i64 %83 to double
+  %85 = fdiv double %84, 1.000000e+09
+  %86 = fadd double %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %107 = extractvalue { i32, i32 } %106, 0
-  %108 = extractvalue { i32, i32 } %106, 1
-  %109 = zext i32 %107 to i64
-  %110 = zext i32 %108 to i64
-  %111 = shl nuw i64 %110, 32
-  %112 = or disjoint i64 %111, %109
-  store i64 %112, ptr %62, align 8, !tbaa !21
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %114
+  %87 = fsub double %86, %57
+  %88 = fcmp uge double %87, 1.000000e+00
+  br i1 %88, label %89, label %.preheader96, !llvm.loop !144
 
-114:                                              ; preds = %bench_stats_check.exit63, %bench_stats_start.exit60
-  %.391 = phi i32 [ 0, %bench_stats_start.exit60 ], [ %130, %bench_stats_check.exit63 ]
+89:                                               ; preds = %bench_stats_check.exit
+  %90 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %91 = load ptr, ptr %90, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %91, i32 noundef %80, double noundef %57, i32 noundef %68)
+  %92 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %5, ptr noundef nonnull %66, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %93 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %bench_stats_start.exit54
+
+95:                                               ; preds = %89
+  %96 = tail call ptr @__errno_location() #18
+  %97 = load i32, ptr %96, align 4, !tbaa !4
+  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %97, ptr noundef nonnull @.str.80)
+  %99 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %100 = call i32 @fflush(ptr noundef %99)
+  call void @_exit(i32 noundef 1) #19
+  unreachable
+
+bench_stats_start.exit54:                         ; preds = %89
+  %101 = load i64, ptr %2, align 8, !tbaa !16
+  %102 = sitofp i64 %101 to double
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %104 = load i64, ptr %103, align 8, !tbaa !19
+  %105 = sitofp i64 %104 to double
+  %106 = fdiv double %105, 1.000000e+09
+  %107 = fadd double %106, %102
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %108 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %109 = extractvalue { i32, i32 } %108, 0
+  %110 = extractvalue { i32, i32 } %108, 1
+  %111 = zext i32 %109 to i64
+  %112 = zext i32 %110 to i64
+  %113 = shl nuw i64 %112, 32
+  %114 = or disjoint i64 %113, %111
+  store i64 %114, ptr %65, align 8, !tbaa !21
   br label %115
 
-115:                                              ; preds = %114, %bench_async_handle.exit62
-  %.185119 = phi i32 [ 0, %114 ], [ %120, %bench_async_handle.exit62 ]
-  %116 = load i32, ptr %9, align 4, !tbaa !4
-  %117 = load i32, ptr %10, align 4, !tbaa !4
-  %118 = call i32 @wc_DhAgree(ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %12, ptr noundef nonnull %16, i32 noundef %116, ptr noundef nonnull %14, i32 noundef %117) #16
+115:                                              ; preds = %121, %bench_stats_start.exit54
+  %.386 = phi i32 [ 0, %bench_stats_start.exit54 ], [ %122, %121 ]
+  br label %.preheader
+
+.preheader:                                       ; preds = %115, %bench_async_handle.exit56
+  %.279125 = phi i32 [ 0, %115 ], [ %120, %bench_async_handle.exit56 ]
+  %116 = load i32, ptr %8, align 4, !tbaa !4
+  %117 = load i32, ptr %9, align 4, !tbaa !4
+  %118 = call i32 @wc_DhAgree(ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef %116, ptr noundef nonnull %13, i32 noundef %117) #17
   %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %bench_async_handle.exit62, label %.critedge58
+  br i1 %119, label %bench_async_handle.exit56, label %bench_async_handle.exit56.thread
 
-bench_async_handle.exit62:                        ; preds = %115
-  %120 = add nuw nsw i32 %.185119, 1
+bench_async_handle.exit56:                        ; preds = %.preheader
+  %120 = add nuw nsw i32 %.279125, 1
   %exitcond.not = icmp eq i32 %120, 100
-  br i1 %exitcond.not, label %121, label %115
+  br i1 %exitcond.not, label %121, label %.preheader, !llvm.loop !145
 
-121:                                              ; preds = %bench_async_handle.exit62
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %122 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %bench_stats_check.exit63
+121:                                              ; preds = %bench_async_handle.exit56
+  %122 = add nuw nsw i32 %.386, 100
+  %123 = call fastcc i32 @bench_stats_check(double noundef %107)
+  %.not47 = icmp eq i32 %123, 0
+  br i1 %.not47, label %bench_async_handle.exit56.thread, label %115, !llvm.loop !146
 
-124:                                              ; preds = %121
-  %125 = tail call ptr @__errno_location() #17
-  %126 = load i32, ptr %125, align 4, !tbaa !4
-  %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %126, ptr noundef nonnull @.str.80)
-  %128 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %129 = call i32 @fflush(ptr noundef %128)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit63:                         ; preds = %121
-  %130 = add nuw nsw i32 %.391, 100
-  %131 = load i64, ptr %2, align 8, !tbaa !16
-  %132 = sitofp i64 %131 to double
-  %133 = load i64, ptr %113, align 8, !tbaa !19
-  %134 = sitofp i64 %133 to double
-  %135 = fdiv double %134, 1.000000e+09
-  %136 = fadd double %135, %132
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %137 = fsub double %136, %105
-  %138 = fcmp uge double %137, 1.000000e+00
-  br i1 %138, label %.critedge58, label %114, !llvm.loop !90
-
-.critedge58:                                      ; preds = %bench_stats_check.exit63, %115, %.thread98, %.critedge, %38
-  %.088 = phi i32 [ 0, %38 ], [ 0, %.critedge ], [ %.189, %.thread98 ], [ %.391, %115 ], [ %130, %bench_stats_check.exit63 ]
-  %.083 = phi i32 [ %.1, %38 ], [ %23, %.critedge ], [ %66, %.thread98 ], [ %118, %115 ], [ %118, %bench_stats_check.exit63 ]
-  %.082 = phi double [ 0.000000e+00, %38 ], [ 0.000000e+00, %.critedge ], [ %54, %.thread98 ], [ %105, %115 ], [ %105, %bench_stats_check.exit63 ]
-  %139 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %140 = load ptr, ptr %139, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %140, i32 noundef %.088, double noundef %.082, i32 noundef %.083)
-  %141 = call i32 @wc_FreeDhKey(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+bench_async_handle.exit56.thread:                 ; preds = %121, %.preheader, %.split, %.split.us.preheader, %.thread, %.split120.us
+  %.083 = phi i32 [ 0, %.split120.us ], [ %.184, %.thread ], [ 0, %.split.us.preheader ], [ 0, %.split ], [ %.386, %.preheader ], [ %122, %121 ]
+  %.1 = phi i32 [ %.us-phi121, %.split120.us ], [ %68, %.thread ], [ %26, %.split.us.preheader ], [ %31, %.split ], [ %118, %.preheader ], [ %118, %121 ]
+  %.075 = phi double [ 0.000000e+00, %.split120.us ], [ %57, %.thread ], [ 0.000000e+00, %.split.us.preheader ], [ 0.000000e+00, %.split ], [ %107, %.preheader ], [ %107, %121 ]
+  %124 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %125, i32 noundef %.083, double noundef %.075, i32 noundef %.1)
+  %126 = call i32 @wc_FreeDhKey(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6727,6 +6318,7 @@ bench_stats_check.exit63:                         ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6750,17 +6342,17 @@ define internal fastcc void @bench_stats_asym_finish(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
+  %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #17
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %current_time.exit.i
 
 14:                                               ; preds = %6
-  %15 = tail call ptr @__errno_location() #17
+  %15 = tail call ptr @__errno_location() #18
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
   %18 = load ptr, ptr @stdout, align 8, !tbaa !14
   %19 = call i32 @fflush(ptr noundef %18)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 current_time.exit.i:                              ; preds = %6
@@ -6798,7 +6390,7 @@ current_time.exit.i:                              ; preds = %6
   br label %39
 
 39:                                               ; preds = %36, %35
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.161, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, i32 noundef 3, double noundef %.030.i, i32 noundef 3, double noundef %.031.i) #16
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.161, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, i32 noundef 3, double noundef %.030.i, i32 noundef 3, double noundef %.031.i) #17
   br label %50
 
 41:                                               ; preds = %current_time.exit.i
@@ -6809,7 +6401,7 @@ current_time.exit.i:                              ; preds = %6
   %46 = load ptr, ptr %45, align 8, !tbaa !8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !8
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.162, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.113, i32 noundef %.0.i, ptr noundef %42, i32 noundef 5, i32 noundef 3, double noundef %27, ptr noundef %44, ptr noundef %46, i32 noundef 5, i32 noundef 3, double noundef %.030.i, i32 noundef 3, double noundef %.031.i, ptr noundef %48) #16
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.162, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.113, i32 noundef %.0.i, ptr noundef %42, i32 noundef 5, i32 noundef 3, double noundef %27, ptr noundef %44, ptr noundef %46, i32 noundef 5, i32 noundef 3, double noundef %.030.i, i32 noundef 3, double noundef %.031.i, ptr noundef %48) #17
   br label %50
 
 50:                                               ; preds = %41, %39
@@ -6876,19 +6468,19 @@ define dso_local void @bench_eccMakeKey(i32 %0, i32 noundef %1) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @lng_index, align 4, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %5, i8 0, i64 4208, i1 false)
-  %8 = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %1) #16
+  %8 = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
+  %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %bench_stats_start.exit
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @__errno_location() #17
+  %12 = tail call ptr @__errno_location() #18
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %13, ptr noundef nonnull @.str.80)
   %15 = load ptr, ptr @stdout, align 8, !tbaa !14
   %16 = call i32 @fflush(ptr noundef %15)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit:                           ; preds = %2
@@ -6900,7 +6492,7 @@ bench_stats_start.exit:                           ; preds = %2
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = zext i32 %25 to i64
@@ -6914,65 +6506,65 @@ bench_stats_start.exit:                           ; preds = %2
   br label %34
 
 34:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.027 = phi i32 [ 0, %bench_stats_start.exit ], [ %52, %bench_stats_check.exit ]
-  br label %35
+  %.025 = phi i32 [ 0, %bench_stats_start.exit ], [ %51, %bench_stats_check.exit ]
+  br label %.preheader
 
-35:                                               ; preds = %34, %bench_async_handle.exit
-  %.02940 = phi i32 [ 0, %34 ], [ %42, %bench_async_handle.exit ]
-  %36 = call i32 @wc_ecc_free(ptr noundef nonnull %5) #16
-  %37 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #16
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %.critedge19, label %39
+.preheader:                                       ; preds = %34, %bench_async_handle.exit
+  %.02742 = phi i32 [ 0, %34 ], [ %41, %bench_async_handle.exit ]
+  %35 = call i32 @wc_ecc_free(ptr noundef nonnull %5) #17
+  %36 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %bench_async_handle.exit.thread, label %38
 
-39:                                               ; preds = %35
-  %40 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %32, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %1) #16
-  %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %bench_async_handle.exit, label %.critedge19
+38:                                               ; preds = %.preheader
+  %39 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %32, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %1) #17
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
 
-bench_async_handle.exit:                          ; preds = %39
-  %42 = add nuw nsw i32 %.02940, 1
-  %exitcond.not = icmp eq i32 %42, 100
-  br i1 %exitcond.not, label %43, label %35
+bench_async_handle.exit:                          ; preds = %38
+  %41 = add nuw nsw i32 %.02742, 1
+  %exitcond.not = icmp eq i32 %41, 100
+  br i1 %exitcond.not, label %42, label %.preheader, !llvm.loop !147
 
-43:                                               ; preds = %bench_async_handle.exit
+42:                                               ; preds = %bench_async_handle.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %44 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %bench_stats_check.exit
+  %43 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %bench_stats_check.exit
 
-46:                                               ; preds = %43
-  %47 = tail call ptr @__errno_location() #17
-  %48 = load i32, ptr %47, align 4, !tbaa !4
-  %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %48, ptr noundef nonnull @.str.80)
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %51 = call i32 @fflush(ptr noundef %50)
-  call void @_exit(i32 noundef 1) #18
+45:                                               ; preds = %42
+  %46 = tail call ptr @__errno_location() #18
+  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %47, ptr noundef nonnull @.str.80)
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %50 = call i32 @fflush(ptr noundef %49)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit:                           ; preds = %43
-  %52 = add nuw nsw i32 %.027, 100
-  %53 = load i64, ptr %3, align 8, !tbaa !16
-  %54 = sitofp i64 %53 to double
-  %55 = load i64, ptr %33, align 8, !tbaa !19
-  %56 = sitofp i64 %55 to double
-  %57 = fdiv double %56, 1.000000e+09
-  %58 = fadd double %57, %54
+bench_stats_check.exit:                           ; preds = %42
+  %51 = add nuw nsw i32 %.025, 100
+  %52 = load i64, ptr %3, align 8, !tbaa !16
+  %53 = sitofp i64 %52 to double
+  %54 = load i64, ptr %33, align 8, !tbaa !19
+  %55 = sitofp i64 %54 to double
+  %56 = fdiv double %55, 1.000000e+09
+  %57 = fadd double %56, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %59 = fsub double %58, %23
-  %60 = fcmp uge double %59, 1.000000e+00
-  br i1 %60, label %.critedge19, label %34, !llvm.loop !91
+  %58 = fsub double %57, %23
+  %59 = fcmp uge double %58, 1.000000e+00
+  br i1 %59, label %bench_async_handle.exit.thread, label %34, !llvm.loop !148
 
-.critedge19:                                      ; preds = %bench_stats_check.exit, %39, %35
-  %.128 = phi i32 [ %.027, %35 ], [ %.027, %39 ], [ %52, %bench_stats_check.exit ]
-  %.2 = phi i32 [ %40, %39 ], [ %37, %35 ], [ %40, %bench_stats_check.exit ]
-  %61 = sext i32 %7 to i64
-  %62 = call ptr @wc_ecc_get_name(i32 noundef %1) #16
-  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %62) #16
-  %64 = shl nsw i32 %8, 3
-  %65 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %61, i64 2
-  %66 = load ptr, ptr %65, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %64, ptr noundef %66, i32 noundef %.128, double noundef %23, i32 noundef %.2)
-  %67 = call i32 @wc_ecc_free(ptr noundef nonnull %5) #16
+bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %38, %.preheader
+  %.126 = phi i32 [ %.025, %.preheader ], [ %.025, %38 ], [ %51, %bench_stats_check.exit ]
+  %.3 = phi i32 [ %39, %38 ], [ %36, %.preheader ], [ %39, %bench_stats_check.exit ]
+  %60 = sext i32 %7 to i64
+  %61 = call ptr @wc_ecc_get_name(i32 noundef %1) #17
+  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %61) #17
+  %63 = shl nsw i32 %8, 3
+  %64 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %60, i64 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %63, ptr noundef %65, i32 noundef %.126, double noundef %23, i32 noundef %.3)
+  %66 = call i32 @wc_ecc_free(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -6980,373 +6572,300 @@ bench_stats_check.exit:                           ; preds = %43
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
-.critedge:
-  %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %6 = alloca %struct.timespec, align 8
-  %7 = alloca %struct.timespec, align 8
-  %8 = alloca [24 x i8], align 16
-  %9 = alloca [1 x [1 x %struct.ecc_key]], align 16
-  %10 = alloca [1 x [1 x %struct.ecc_key]], align 16
-  %11 = alloca [1 x i32], align 4
-  %12 = alloca [1 x i32], align 4
+  %6 = alloca [24 x i8], align 16
+  %7 = alloca [1 x [1 x %struct.ecc_key]], align 16
+  %8 = alloca [1 x [1 x %struct.ecc_key]], align 16
+  %9 = alloca [1 x i32], align 4
+  %10 = alloca [1 x i32], align 4
+  %11 = alloca [1 x [66 x i8]], align 16
+  %12 = alloca [1 x [141 x i8]], align 16
   %13 = alloca [1 x [66 x i8]], align 16
-  %14 = alloca [1 x [141 x i8]], align 16
-  %15 = alloca [1 x [66 x i8]], align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %14 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %16 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %14, i8 0, i64 141, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %15, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %12, i8 0, i64 141, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %13, i8 0, i64 66, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %9, i8 0, i64 4208, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %10, i8 0, i64 4208, i1 false)
-  %19 = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %1) #16
-  %20 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #16
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %.critedge85, label %22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %11, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %7, i8 0, i64 4208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %8, i8 0, i64 4208, i1 false)
+  %17 = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %1) #17
+  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
+  %19 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %7, ptr noundef null, i32 noundef -2) #17
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %.loopexit146, label %24
 
-22:                                               ; preds = %.critedge
-  %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %24 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %23, i32 noundef %19, ptr noundef nonnull %9, i32 noundef %1) #16
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.critedge85, label %26
-
-26:                                               ; preds = %22
-  %27 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #16
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.critedge85, label %29
-
-29:                                               ; preds = %26
-  %30 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %23, i32 noundef %19, ptr noundef nonnull %10, i32 noundef %1) #16
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.critedge85, label %.critedge75
-
-.critedge75:                                      ; preds = %29
-  %32 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %9, ptr noundef nonnull %23) #16
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %33 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %bench_stats_start.exit
-
-35:                                               ; preds = %.critedge75
-  %36 = tail call ptr @__errno_location() #17
-  %37 = load i32, ptr %36, align 4, !tbaa !4
-  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %37, ptr noundef nonnull @.str.80)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %40 = call i32 @fflush(ptr noundef %39)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_start.exit:                           ; preds = %.critedge75
-  %41 = load i64, ptr %7, align 8, !tbaa !16
-  %42 = sitofp i64 %41 to double
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !19
-  %45 = sitofp i64 %44 to double
-  %46 = fdiv double %45, 1.000000e+09
-  %47 = fadd double %46, %42
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %48 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %49 = extractvalue { i32, i32 } %48, 0
-  %50 = extractvalue { i32, i32 } %48, 1
-  %51 = zext i32 %49 to i64
-  %52 = zext i32 %50 to i64
-  %53 = shl nuw i64 %52, 32
-  %54 = or disjoint i64 %53, %51
-  %55 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %54, ptr %55, align 8, !tbaa !21
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %57
-
-57:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %.0126 = phi i32 [ 0, %bench_stats_start.exit ], [ %71, %bench_stats_check.exit ]
-  br label %58
-
-58:                                               ; preds = %57, %bench_async_handle.exit
-  %.0132170 = phi i32 [ 0, %57 ], [ %61, %bench_async_handle.exit ]
-  store i32 %19, ptr %12, align 4, !tbaa !4
-  %59 = call i32 @wc_ecc_shared_secret(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %12) #16
-  %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
-
-bench_async_handle.exit:                          ; preds = %58
-  %61 = add nuw nsw i32 %.0132170, 1
-  %exitcond.not = icmp eq i32 %61, 100
-  br i1 %exitcond.not, label %62, label %58
-
-62:                                               ; preds = %bench_async_handle.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %63 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %bench_stats_check.exit
-
-65:                                               ; preds = %62
-  %66 = tail call ptr @__errno_location() #17
-  %67 = load i32, ptr %66, align 4, !tbaa !4
-  %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %67, ptr noundef nonnull @.str.80)
-  %69 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %70 = call i32 @fflush(ptr noundef %69)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
-
-bench_stats_check.exit:                           ; preds = %62
-  %71 = add nuw nsw i32 %.0126, 100
-  %72 = load i64, ptr %6, align 8, !tbaa !16
-  %73 = sitofp i64 %72 to double
-  %74 = load i64, ptr %56, align 8, !tbaa !19
-  %75 = sitofp i64 %74 to double
-  %76 = fdiv double %75, 1.000000e+09
-  %77 = fadd double %76, %73
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %78 = fsub double %77, %47
-  %79 = fcmp uge double %78, 1.000000e+00
-  br i1 %79, label %bench_async_handle.exit.thread, label %57, !llvm.loop !92
-
-bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %58
-  %.1127 = phi i32 [ %.0126, %58 ], [ %71, %bench_stats_check.exit ]
-  %80 = call ptr @wc_ecc_get_name(i32 noundef %1) #16
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 24, ptr noundef nonnull @.str.76, ptr noundef %80) #16
-  %82 = shl nsw i32 %19, 3
-  %83 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %8, i32 noundef %82, ptr noundef %84, i32 noundef %.1127, double noundef %47, i32 noundef %59)
-  %85 = icmp slt i32 %59, 0
-  br i1 %85, label %.critedge85, label %.preheader
-
-.preheader:                                       ; preds = %bench_async_handle.exit.thread
-  %86 = icmp sgt i32 %19, 0
-  br i1 %86, label %.lr.ph.preheader, label %.critedge79
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %19 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = trunc i64 %indvars.iv to i8
-  %88 = getelementptr inbounds nuw [66 x i8], ptr %15, i64 0, i64 %indvars.iv
-  store i8 %87, ptr %88, align 1, !tbaa !93
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond198.not, label %.critedge79, label %.lr.ph, !llvm.loop !94
-
-.critedge79:                                      ; preds = %.lr.ph, %.preheader
+.preheader145:                                    ; preds = %30
+  %21 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %7, ptr noundef nonnull %18) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %89 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %bench_stats_start.exit90
+  %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %33, label %bench_stats_start.exit
 
-91:                                               ; preds = %.critedge79
-  %92 = tail call ptr @__errno_location() #17
-  %93 = load i32, ptr %92, align 4, !tbaa !4
-  %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %93, ptr noundef nonnull @.str.80)
-  %95 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %96 = call i32 @fflush(ptr noundef %95)
-  call void @_exit(i32 noundef 1) #18
+24:                                               ; preds = %2
+  %25 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %18, i32 noundef %17, ptr noundef nonnull %7, i32 noundef %1) #17
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.loopexit146, label %27
+
+27:                                               ; preds = %24
+  %28 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %8, ptr noundef null, i32 noundef -2) #17
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %.loopexit146, label %30
+
+30:                                               ; preds = %27
+  %31 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %18, i32 noundef %17, ptr noundef nonnull %8, i32 noundef %1) #17
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.loopexit146, label %.preheader145, !llvm.loop !149
+
+33:                                               ; preds = %.preheader145
+  %34 = tail call ptr @__errno_location() #18
+  %35 = load i32, ptr %34, align 4, !tbaa !4
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %35, ptr noundef nonnull @.str.80)
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %38 = call i32 @fflush(ptr noundef %37)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit90:                         ; preds = %.critedge79
-  %97 = load i64, ptr %5, align 8, !tbaa !16
-  %98 = sitofp i64 %97 to double
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %100 = load i64, ptr %99, align 8, !tbaa !19
-  %101 = sitofp i64 %100 to double
-  %102 = fdiv double %101, 1.000000e+09
-  %103 = fadd double %102, %98
+bench_stats_start.exit:                           ; preds = %.preheader145
+  %39 = load i64, ptr %5, align 8, !tbaa !16
+  %40 = sitofp i64 %39 to double
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !19
+  %43 = sitofp i64 %42 to double
+  %44 = fdiv double %43, 1.000000e+09
+  %45 = fadd double %44, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %104 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %105 = extractvalue { i32, i32 } %104, 0
-  %106 = extractvalue { i32, i32 } %104, 1
-  %107 = zext i32 %105 to i64
-  %108 = zext i32 %106 to i64
-  %109 = shl nuw i64 %108, 32
-  %110 = or disjoint i64 %109, %107
-  store i64 %110, ptr %55, align 8, !tbaa !21
-  %111 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %113
+  %46 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %47 = extractvalue { i32, i32 } %46, 0
+  %48 = extractvalue { i32, i32 } %46, 1
+  %49 = zext i32 %47 to i64
+  %50 = zext i32 %48 to i64
+  %51 = shl nuw i64 %50, 32
+  %52 = or disjoint i64 %51, %49
+  %53 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
+  store i64 %52, ptr %53, align 8, !tbaa !21
+  br label %54
 
-113:                                              ; preds = %bench_stats_check.exit93, %bench_stats_start.exit90
-  %.2128 = phi i32 [ 0, %bench_stats_start.exit90 ], [ %131, %bench_stats_check.exit93 ]
-  br label %114
+54:                                               ; preds = %58, %bench_stats_start.exit
+  %.0110 = phi i32 [ 0, %bench_stats_start.exit ], [ %59, %58 ]
+  br label %.preheader142
 
-114:                                              ; preds = %113, %bench_async_handle.exit92
-  %.1133172 = phi i32 [ 0, %113 ], [ %121, %bench_async_handle.exit92 ]
-  %115 = load i32, ptr %111, align 8, !tbaa !95
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %118
+.preheader142:                                    ; preds = %54, %bench_async_handle.exit
+  %.0116169 = phi i32 [ 0, %54 ], [ %57, %bench_async_handle.exit ]
+  store i32 %17, ptr %10, align 4, !tbaa !4
+  %55 = call i32 @wc_ecc_shared_secret(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %10) #17
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %bench_async_handle.exit, label %bench_async_handle.exit.thread
 
-117:                                              ; preds = %114
-  store i32 141, ptr %12, align 4, !tbaa !4
-  br label %118
+bench_async_handle.exit:                          ; preds = %.preheader142
+  %57 = add nuw nsw i32 %.0116169, 1
+  %exitcond.not = icmp eq i32 %57, 100
+  br i1 %exitcond.not, label %58, label %.preheader142, !llvm.loop !150
 
-118:                                              ; preds = %117, %114
-  %119 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %15, i32 noundef %19, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %23, ptr noundef nonnull %9) #16
-  %120 = icmp sgt i32 %119, -1
-  br i1 %120, label %bench_async_handle.exit92, label %bench_async_handle.exit92.thread
+58:                                               ; preds = %bench_async_handle.exit
+  %59 = add nuw nsw i32 %.0110, 100
+  %60 = call fastcc i32 @bench_stats_check(double noundef %45)
+  %.not = icmp eq i32 %60, 0
+  br i1 %.not, label %bench_async_handle.exit.thread, label %54, !llvm.loop !151
 
-bench_async_handle.exit92:                        ; preds = %118
-  %121 = add nuw nsw i32 %.1133172, 1
-  %exitcond199.not = icmp eq i32 %121, 100
-  br i1 %exitcond199.not, label %122, label %114
+bench_async_handle.exit.thread:                   ; preds = %58, %.preheader142
+  %.1111 = phi i32 [ %.0110, %.preheader142 ], [ %59, %58 ]
+  %61 = call ptr @wc_ecc_get_name(i32 noundef %1) #17
+  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.76, ptr noundef %61) #17
+  %63 = shl nsw i32 %17, 3
+  %64 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %63, ptr noundef %65, i32 noundef %.1111, double noundef %45, i32 noundef %55)
+  %66 = icmp slt i32 %55, 0
+  br i1 %66, label %.loopexit146, label %.preheader141
 
-122:                                              ; preds = %bench_async_handle.exit92
+.preheader141:                                    ; preds = %bench_async_handle.exit.thread
+  %67 = icmp sgt i32 %17, 0
+  br i1 %67, label %.preheader139.us.preheader, label %.split
+
+.preheader139.us.preheader:                       ; preds = %.preheader141
+  %wide.trip.count = zext nneg i32 %17 to i64
+  br label %.preheader139.us
+
+.preheader139.us:                                 ; preds = %.preheader139.us.preheader, %.preheader139.us
+  %indvars.iv = phi i64 [ 0, %.preheader139.us.preheader ], [ %indvars.iv.next, %.preheader139.us ]
+  %68 = trunc i64 %indvars.iv to i8
+  %69 = getelementptr inbounds nuw [66 x i8], ptr %13, i64 0, i64 %indvars.iv
+  store i8 %68, ptr %69, align 1, !tbaa !152
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond193.not, label %.split, label %.preheader139.us, !llvm.loop !153
+
+.split:                                           ; preds = %.preheader139.us, %.preheader141
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %123 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %124 = icmp slt i32 %123, 0
-  br i1 %124, label %125, label %bench_stats_check.exit93
+  %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #17
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %bench_stats_start.exit76
 
-125:                                              ; preds = %122
-  %126 = tail call ptr @__errno_location() #17
-  %127 = load i32, ptr %126, align 4, !tbaa !4
-  %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %127, ptr noundef nonnull @.str.80)
-  %129 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %130 = call i32 @fflush(ptr noundef %129)
-  call void @_exit(i32 noundef 1) #18
+72:                                               ; preds = %.split
+  %73 = tail call ptr @__errno_location() #18
+  %74 = load i32, ptr %73, align 4, !tbaa !4
+  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %74, ptr noundef nonnull @.str.80)
+  %76 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %77 = call i32 @fflush(ptr noundef %76)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_check.exit93:                         ; preds = %122
-  %131 = add nuw nsw i32 %.2128, 100
-  %132 = load i64, ptr %4, align 8, !tbaa !16
-  %133 = sitofp i64 %132 to double
-  %134 = load i64, ptr %112, align 8, !tbaa !19
-  %135 = sitofp i64 %134 to double
-  %136 = fdiv double %135, 1.000000e+09
-  %137 = fadd double %136, %133
+bench_stats_start.exit76:                         ; preds = %.split
+  %78 = load i64, ptr %4, align 8, !tbaa !16
+  %79 = sitofp i64 %78 to double
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %81 = load i64, ptr %80, align 8, !tbaa !19
+  %82 = sitofp i64 %81 to double
+  %83 = fdiv double %82, 1.000000e+09
+  %84 = fadd double %83, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %138 = fsub double %137, %103
-  %139 = fcmp uge double %138, 1.000000e+00
-  br i1 %139, label %bench_async_handle.exit92.thread, label %113, !llvm.loop !100
+  %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %86 = extractvalue { i32, i32 } %85, 0
+  %87 = extractvalue { i32, i32 } %85, 1
+  %88 = zext i32 %86 to i64
+  %89 = zext i32 %87 to i64
+  %90 = shl nuw i64 %89, 32
+  %91 = or disjoint i64 %90, %88
+  store i64 %91, ptr %53, align 8, !tbaa !21
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %93
 
-bench_async_handle.exit92.thread:                 ; preds = %bench_stats_check.exit93, %118
-  %.3129 = phi i32 [ %.2128, %118 ], [ %131, %bench_stats_check.exit93 ]
-  %140 = call ptr @wc_ecc_get_name(i32 noundef %1) #16
-  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 24, ptr noundef nonnull @.str.77, ptr noundef %140) #16
-  %142 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %143 = load ptr, ptr %142, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %8, i32 noundef %82, ptr noundef %143, i32 noundef %.3129, double noundef %103, i32 noundef %119)
-  %144 = icmp slt i32 %119, 0
-  br i1 %144, label %.critedge85, label %145
+93:                                               ; preds = %101, %bench_stats_start.exit76
+  %.2112 = phi i32 [ 0, %bench_stats_start.exit76 ], [ %102, %101 ]
+  br label %.preheader136
 
-145:                                              ; preds = %bench_async_handle.exit92.thread
+.preheader136:                                    ; preds = %93, %bench_async_handle.exit78
+  %.2118172 = phi i32 [ 0, %93 ], [ %100, %bench_async_handle.exit78 ]
+  %94 = load i32, ptr %92, align 8, !tbaa !154
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %.preheader136
+  store i32 141, ptr %10, align 4, !tbaa !4
+  br label %97
+
+97:                                               ; preds = %96, %.preheader136
+  %98 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %13, i32 noundef %17, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %18, ptr noundef nonnull %7) #17
+  %99 = icmp sgt i32 %98, -1
+  br i1 %99, label %bench_async_handle.exit78, label %bench_async_handle.exit78.thread
+
+bench_async_handle.exit78:                        ; preds = %97
+  %100 = add nuw nsw i32 %.2118172, 1
+  %exitcond194.not = icmp eq i32 %100, 100
+  br i1 %exitcond194.not, label %101, label %.preheader136, !llvm.loop !159
+
+101:                                              ; preds = %bench_async_handle.exit78
+  %102 = add nuw nsw i32 %.2112, 100
+  %103 = call fastcc i32 @bench_stats_check(double noundef %84)
+  %.not70 = icmp eq i32 %103, 0
+  br i1 %.not70, label %bench_async_handle.exit78.thread, label %93, !llvm.loop !160
+
+bench_async_handle.exit78.thread:                 ; preds = %101, %97
+  %.3113 = phi i32 [ %.2112, %97 ], [ %102, %101 ]
+  %104 = call ptr @wc_ecc_get_name(i32 noundef %1) #17
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.77, ptr noundef %104) #17
+  %106 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %107 = load ptr, ptr %106, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %63, ptr noundef %107, i32 noundef %.3113, double noundef %84, i32 noundef %98)
+  %108 = icmp slt i32 %98, 0
+  br i1 %108, label %.loopexit146, label %109
+
+109:                                              ; preds = %bench_async_handle.exit78.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %146 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
-  %147 = icmp slt i32 %146, 0
-  br i1 %147, label %148, label %bench_stats_start.exit94
+  %110 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #17
+  %111 = icmp slt i32 %110, 0
+  br i1 %111, label %112, label %bench_stats_start.exit79
 
-148:                                              ; preds = %145
-  %149 = tail call ptr @__errno_location() #17
-  %150 = load i32, ptr %149, align 4, !tbaa !4
-  %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %150, ptr noundef nonnull @.str.80)
-  %152 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %153 = call i32 @fflush(ptr noundef %152)
-  call void @_exit(i32 noundef 1) #18
+112:                                              ; preds = %109
+  %113 = tail call ptr @__errno_location() #18
+  %114 = load i32, ptr %113, align 4, !tbaa !4
+  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %114, ptr noundef nonnull @.str.80)
+  %116 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %117 = call i32 @fflush(ptr noundef %116)
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
-bench_stats_start.exit94:                         ; preds = %145
-  %154 = load i64, ptr %3, align 8, !tbaa !16
-  %155 = sitofp i64 %154 to double
-  %156 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %157 = load i64, ptr %156, align 8, !tbaa !19
-  %158 = sitofp i64 %157 to double
-  %159 = fdiv double %158, 1.000000e+09
-  %160 = fadd double %159, %155
+bench_stats_start.exit79:                         ; preds = %109
+  %118 = load i64, ptr %3, align 8, !tbaa !16
+  %119 = sitofp i64 %118 to double
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %121 = load i64, ptr %120, align 8, !tbaa !19
+  %122 = sitofp i64 %121 to double
+  %123 = fdiv double %122, 1.000000e+09
+  %124 = fadd double %123, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %161 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
-  %162 = extractvalue { i32, i32 } %161, 0
-  %163 = extractvalue { i32, i32 } %161, 1
-  %164 = zext i32 %162 to i64
-  %165 = zext i32 %163 to i64
-  %166 = shl nuw i64 %165, 32
-  %167 = or disjoint i64 %166, %164
-  store i64 %167, ptr %55, align 8, !tbaa !21
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %169
+  %125 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %126 = extractvalue { i32, i32 } %125, 0
+  %127 = extractvalue { i32, i32 } %125, 1
+  %128 = zext i32 %126 to i64
+  %129 = zext i32 %127 to i64
+  %130 = shl nuw i64 %129, 32
+  %131 = or disjoint i64 %130, %128
+  store i64 %131, ptr %53, align 8, !tbaa !21
+  br label %132
 
-169:                                              ; preds = %bench_stats_check.exit97, %bench_stats_start.exit94
-  %.4130 = phi i32 [ 0, %bench_stats_start.exit94 ], [ %188, %bench_stats_check.exit97 ]
-  br label %170
+132:                                              ; preds = %141, %bench_stats_start.exit79
+  %.4114 = phi i32 [ 0, %bench_stats_start.exit79 ], [ %142, %141 ]
+  br label %.preheader134
 
-170:                                              ; preds = %169, %bench_async_handle.exit96
-  %.2134173 = phi i32 [ 0, %169 ], [ %178, %bench_async_handle.exit96 ]
-  %171 = load i32, ptr %111, align 8, !tbaa !95
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %174
+.preheader134:                                    ; preds = %132, %bench_async_handle.exit81
+  %.4120174 = phi i32 [ 0, %132 ], [ %140, %bench_async_handle.exit81 ]
+  %133 = load i32, ptr %92, align 8, !tbaa !154
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %136
 
-173:                                              ; preds = %170
-  store i32 0, ptr %11, align 4, !tbaa !4
-  br label %174
+135:                                              ; preds = %.preheader134
+  store i32 0, ptr %9, align 4, !tbaa !4
+  br label %136
 
-174:                                              ; preds = %173, %170
-  %175 = load i32, ptr %12, align 4, !tbaa !4
-  %176 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %14, i32 noundef %175, ptr noundef nonnull %15, i32 noundef %19, ptr noundef nonnull %11, ptr noundef nonnull %9) #16
-  %177 = icmp sgt i32 %176, -1
-  br i1 %177, label %bench_async_handle.exit96, label %bench_async_handle.exit96.thread
+136:                                              ; preds = %135, %.preheader134
+  %137 = load i32, ptr %10, align 4, !tbaa !4
+  %138 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %12, i32 noundef %137, ptr noundef nonnull %13, i32 noundef %17, ptr noundef nonnull %9, ptr noundef nonnull %7) #17
+  %139 = icmp sgt i32 %138, -1
+  br i1 %139, label %bench_async_handle.exit81, label %bench_async_handle.exit81.thread
 
-bench_async_handle.exit96:                        ; preds = %174
-  %178 = add nuw nsw i32 %.2134173, 1
-  %exitcond200.not = icmp eq i32 %178, 100
-  br i1 %exitcond200.not, label %179, label %170
+bench_async_handle.exit81:                        ; preds = %136
+  %140 = add nuw nsw i32 %.4120174, 1
+  %exitcond195.not = icmp eq i32 %140, 100
+  br i1 %exitcond195.not, label %141, label %.preheader134, !llvm.loop !161
 
-179:                                              ; preds = %bench_async_handle.exit96
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %180 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
-  %181 = icmp slt i32 %180, 0
-  br i1 %181, label %182, label %bench_stats_check.exit97
+141:                                              ; preds = %bench_async_handle.exit81
+  %142 = add nuw nsw i32 %.4114, 100
+  %143 = call fastcc i32 @bench_stats_check(double noundef %124)
+  %.not72 = icmp eq i32 %143, 0
+  br i1 %.not72, label %bench_async_handle.exit81.thread, label %132, !llvm.loop !162
 
-182:                                              ; preds = %179
-  %183 = tail call ptr @__errno_location() #17
-  %184 = load i32, ptr %183, align 4, !tbaa !4
-  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %184, ptr noundef nonnull @.str.80)
-  %186 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %187 = call i32 @fflush(ptr noundef %186)
-  call void @_exit(i32 noundef 1) #18
-  unreachable
+bench_async_handle.exit81.thread:                 ; preds = %141, %136
+  %.5115 = phi i32 [ %.4114, %136 ], [ %142, %141 ]
+  %144 = call ptr @wc_ecc_get_name(i32 noundef %1) #17
+  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.77, ptr noundef %144) #17
+  %146 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %147 = load ptr, ptr %146, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %63, ptr noundef %147, i32 noundef %.5115, double noundef %124, i32 noundef %138)
+  br label %.loopexit146
 
-bench_stats_check.exit97:                         ; preds = %179
-  %188 = add nuw nsw i32 %.4130, 100
-  %189 = load i64, ptr %2, align 8, !tbaa !16
-  %190 = sitofp i64 %189 to double
-  %191 = load i64, ptr %168, align 8, !tbaa !19
-  %192 = sitofp i64 %191 to double
-  %193 = fdiv double %192, 1.000000e+09
-  %194 = fadd double %193, %190
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %195 = fsub double %194, %160
-  %196 = fcmp uge double %195, 1.000000e+00
-  br i1 %196, label %bench_async_handle.exit96.thread, label %169, !llvm.loop !101
-
-bench_async_handle.exit96.thread:                 ; preds = %bench_stats_check.exit97, %174
-  %.5131 = phi i32 [ %.4130, %174 ], [ %188, %bench_stats_check.exit97 ]
-  %197 = call ptr @wc_ecc_get_name(i32 noundef %1) #16
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 24, ptr noundef nonnull @.str.77, ptr noundef %197) #16
-  %199 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %200 = load ptr, ptr %199, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %8, i32 noundef %82, ptr noundef %200, i32 noundef %.5131, double noundef %160, i32 noundef %176)
-  br label %.critedge85
-
-.critedge85:                                      ; preds = %bench_async_handle.exit92.thread, %bench_async_handle.exit.thread, %29, %26, %22, %.critedge, %bench_async_handle.exit96.thread
-  %201 = call i32 @wc_ecc_free(ptr noundef nonnull %9) #16
-  %202 = call i32 @wc_ecc_free(ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+.loopexit146:                                     ; preds = %bench_async_handle.exit81.thread, %bench_async_handle.exit.thread, %bench_async_handle.exit78.thread, %2, %24, %27, %30
+  %148 = call i32 @wc_ecc_free(ptr noundef nonnull %7) #17
+  %149 = call i32 @wc_ecc_free(ptr noundef nonnull %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -7375,17 +6894,17 @@ declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 nound
 define dso_local double @current_time(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
+  %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #17
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__errno_location() #17
+  %6 = tail call ptr @__errno_location() #18
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %7, ptr noundef nonnull @.str.80)
   %9 = load ptr, ptr @stdout, align 8, !tbaa !14
   %10 = call i32 @fflush(ptr noundef %9)
-  call void @_exit(i32 noundef 1) #18
+  call void @_exit(i32 noundef 1) #19
   unreachable
 
 11:                                               ; preds = %1
@@ -7401,19 +6920,19 @@ define dso_local double @current_time(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #9
+declare void @_exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @benchmark_configure(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local void @benchmark_configure(i32 noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %7, label %2
 
@@ -7493,7 +7012,7 @@ sub_1:                                            ; preds = %sub_0
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.0102223, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !8
-  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %20, ptr noundef null, i32 noundef 10) #16
+  %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %20, ptr noundef null, i32 noundef 10) #17
   %22 = trunc i64 %21 to i32
   %or.cond = icmp ugt i32 %22, 1
   %spec.store.select = select i1 %or.cond, i32 0, i32 %22
@@ -7505,7 +7024,7 @@ sub_1:                                            ; preds = %sub_0
   br label %156
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.85) #19
+  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.85) #20
   %.not164 = icmp eq i32 %24, 0
   br i1 %.not164, label %25, label %34
 
@@ -7517,7 +7036,7 @@ sub_1:                                            ; preds = %sub_0
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.0102223, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %30 = tail call i64 @strtol(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #16
+  %30 = tail call i64 @strtol(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #17
   %31 = trunc i64 %30 to i32
   store i32 %31, ptr @lng_index, align 4, !tbaa !4
   %or.cond3 = icmp ugt i32 %31, 1
@@ -7529,7 +7048,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 34:                                               ; preds = %.tail.thread
-  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.87) #19
+  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.87) #20
   %.not165 = icmp eq i32 %35, 0
   br i1 %.not165, label %36, label %37
 
@@ -7538,7 +7057,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.88) #19
+  %38 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.88) #20
   %.not166 = icmp eq i32 %38, 0
   br i1 %.not166, label %39, label %40
 
@@ -7547,7 +7066,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(9) @.str.89) #19
+  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(9) @.str.89) #20
   %.not167 = icmp eq i32 %41, 0
   br i1 %.not167, label %42, label %45
 
@@ -7558,7 +7077,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 45:                                               ; preds = %40
-  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.90) #19
+  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.90) #20
   %.not168 = icmp eq i32 %46, 0
   br i1 %.not168, label %47, label %56
 
@@ -7570,7 +7089,7 @@ sub_1:                                            ; preds = %sub_0
   %49 = add nsw i32 %.0104222, -1
   %50 = getelementptr inbounds nuw i8, ptr %.0102223, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !8
-  %52 = tail call i64 @strtol(ptr noundef nonnull captures(none) %51, ptr noundef null, i32 noundef 10) #16
+  %52 = tail call i64 @strtol(ptr noundef nonnull captures(none) %51, ptr noundef null, i32 noundef 10) #17
   %53 = trunc i64 %52 to i32
   store i32 %53, ptr @aes_aad_size, align 4, !tbaa !4
   %54 = load i32, ptr @aes_aad_options, align 4, !tbaa !4
@@ -7579,7 +7098,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 56:                                               ; preds = %45
-  %57 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.91) #19
+  %57 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.91) #20
   %.not169 = icmp eq i32 %57, 0
   br i1 %.not169, label %58, label %59
 
@@ -7588,7 +7107,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 59:                                               ; preds = %56
-  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.92) #19
+  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.92) #20
   %.not170 = icmp eq i32 %60, 0
   br i1 %.not170, label %61, label %62
 
@@ -7597,7 +7116,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(14) @.str.93) #19
+  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(14) @.str.93) #20
   %.not171 = icmp eq i32 %63, 0
   br i1 %.not171, label %64, label %65
 
@@ -7606,7 +7125,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.94) #19
+  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.94) #20
   %.not172 = icmp eq i32 %66, 0
   br i1 %.not172, label %67, label %68
 
@@ -7615,7 +7134,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 68:                                               ; preds = %65
-  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.95) #19
+  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.95) #20
   %.not173 = icmp eq i32 %69, 0
   br i1 %.not173, label %70, label %71
 
@@ -7624,7 +7143,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 71:                                               ; preds = %68
-  %72 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.96) #19
+  %72 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.96) #20
   %.not174 = icmp eq i32 %72, 0
   br i1 %.not174, label %73, label %74
 
@@ -7633,7 +7152,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(6) @.str.97) #19
+  %75 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(6) @.str.97) #20
   %.not175 = icmp eq i32 %75, 0
   br i1 %.not175, label %76, label %79
 
@@ -7644,7 +7163,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 79:                                               ; preds = %74
-  %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.98) #19
+  %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.98) #20
   %.not176 = icmp eq i32 %80, 0
   br i1 %.not176, label %81, label %82
 
@@ -7653,7 +7172,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 82:                                               ; preds = %79
-  %83 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.99) #19
+  %83 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.99) #20
   %.not177 = icmp eq i32 %83, 0
   br i1 %.not177, label %84, label %91
 
@@ -7665,13 +7184,13 @@ sub_1:                                            ; preds = %sub_0
   %86 = add nsw i32 %.0104222, -1
   %87 = getelementptr inbounds nuw i8, ptr %.0102223, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !8
-  %89 = tail call i64 @strtol(ptr noundef nonnull captures(none) %88, ptr noundef null, i32 noundef 10) #16
+  %89 = tail call i64 @strtol(ptr noundef nonnull captures(none) %88, ptr noundef null, i32 noundef 10) #17
   %90 = trunc i64 %89 to i32
   store i32 %90, ptr @numBlocks, align 4, !tbaa !4
   br label %.critedge163
 
 91:                                               ; preds = %82
-  %92 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(12) @.str.100) #19
+  %92 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(12) @.str.100) #20
   %.not178 = icmp eq i32 %92, 0
   br i1 %.not178, label %93, label %98
 
@@ -7687,7 +7206,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 98:                                               ; preds = %91
-  %99 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(14) @.str.101) #19
+  %99 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(14) @.str.101) #20
   %.not179 = icmp eq i32 %99, 0
   br i1 %.not179, label %100, label %105
 
@@ -7712,19 +7231,19 @@ sub_1:                                            ; preds = %sub_0
 106:                                              ; preds = %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !102
+  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !163
 
 107:                                              ; preds = %.preheader, %106
   %indvars.iv310 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
   %108 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv310
-  %109 = load ptr, ptr %108, align 16, !tbaa !103
-  %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #19
+  %109 = load ptr, ptr %108, align 16, !tbaa !164
+  %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #20
   %.not180.not = icmp eq i32 %110, 0
   br i1 %.not180.not, label %.critedge5.thread, label %106
 
 .critedge5.thread:                                ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !105
+  %112 = load i32, ptr %111, align 8, !tbaa !166
   %113 = or i32 %bench_cipher_algs.promoted, %112
   store i32 %113, ptr @bench_cipher_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7737,19 +7256,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph:                                           ; preds = %114
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233311, 1
   %exitcond236 = icmp eq i64 %indvars.iv.next234, 14
-  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !106
+  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !167
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv233311 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
   %115 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv233311
-  %116 = load ptr, ptr %115, align 16, !tbaa !103
-  %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #19
+  %116 = load ptr, ptr %115, align 16, !tbaa !164
+  %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #20
   %.not181.not = icmp eq i32 %117, 0
   br i1 %.not181.not, label %.critedge5, label %.lr.ph
 
 .critedge5:                                       ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load i32, ptr %118, align 8, !tbaa !105
+  %119 = load i32, ptr %118, align 8, !tbaa !166
   %120 = or i32 %bench_digest_algs.promoted, %119
   store i32 %120, ptr @bench_digest_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7762,26 +7281,26 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph201:                                        ; preds = %121
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237312, 1
   %exitcond240 = icmp eq i64 %indvars.iv.next238, 9
-  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !107
+  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !168
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv237312 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
   %122 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv237312
-  %123 = load ptr, ptr %122, align 16, !tbaa !103
-  %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #19
+  %123 = load ptr, ptr %122, align 16, !tbaa !164
+  %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #20
   %.not182.not = icmp eq i32 %124, 0
   br i1 %.not182.not, label %.critedge7, label %.lr.ph201
 
 .critedge7:                                       ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !105
+  %126 = load i32, ptr %125, align 8, !tbaa !166
   %127 = or i32 %bench_mac_algs.promoted, %126
   store i32 %127, ptr @bench_mac_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
   br label %.critedge163
 
 .lr.ph208.preheader:                              ; preds = %.lr.ph201
-  %128 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.249) #19
+  %128 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.249) #20
   %.not183.not = icmp eq i32 %128, 0
   br i1 %.not183.not, label %.critedge9, label %.lr.ph215.preheader
 
@@ -7797,19 +7316,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph215:                                        ; preds = %129
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245314, 1
   %exitcond248 = icmp eq i64 %indvars.iv.next246, 6
-  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !108
+  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !169
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv245314 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next246, %.lr.ph215 ]
   %130 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv245314
-  %131 = load ptr, ptr %130, align 16, !tbaa !103
-  %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #19
+  %131 = load ptr, ptr %130, align 16, !tbaa !164
+  %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #20
   %.not184.not = icmp eq i32 %132, 0
   br i1 %.not184.not, label %.critedge11, label %.lr.ph215
 
 .critedge11:                                      ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !105
+  %134 = load i32, ptr %133, align 8, !tbaa !166
   %135 = or i32 %bench_asym_algs.promoted, %134
   store i32 %135, ptr @bench_asym_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7822,13 +7341,13 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph221:                                        ; preds = %136
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249315, 1
   %exitcond252 = icmp eq i64 %indvars.iv.next250, 2
-  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !109
+  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !170
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv249315 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next250, %.lr.ph221 ]
   %137 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv249315
-  %138 = load ptr, ptr %137, align 16, !tbaa !103
-  %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #19
+  %138 = load ptr, ptr %137, align 16, !tbaa !164
+  %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #20
   %.not185.not = icmp eq i32 %139, 0
   br i1 %.not185.not, label %.critedge163.loopexit, label %.lr.ph221
 
@@ -7838,7 +7357,7 @@ sub_1:                                            ; preds = %sub_0
   br label %156
 
 141:                                              ; preds = %105
-  %142 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #16
+  %142 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #17
   %143 = trunc i64 %142 to i32
   %.not.i = icmp eq i32 %143, 0
   br i1 %.not.i, label %.critedge163, label %144
@@ -7854,7 +7373,7 @@ sub_1:                                            ; preds = %sub_0
 
 .critedge163.loopexit:                            ; preds = %136
   %149 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !105
+  %150 = load i32, ptr %149, align 8, !tbaa !166
   %151 = or i32 %bench_other_algs.promoted, %150
   store i32 %151, ptr @bench_other_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7866,7 +7385,7 @@ sub_1:                                            ; preds = %sub_0
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2
-  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !110
+  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %100, %93, %84, %47, %25, %.critedge163, %2
   %155 = tail call i32 @benchmark_test(ptr poison)
@@ -7878,7 +7397,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Usage() unnamed_addr #11 {
+define internal fastcc void @Usage() unnamed_addr #12 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
@@ -7946,7 +7465,7 @@ define internal fastcc void @Usage() unnamed_addr #11 {
 51:                                               ; preds = %49, %46
   %.6 = phi i32 [ 13, %49 ], [ %.08090, %46 ]
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %47)
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
+  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %54 = trunc i64 %53 to i32
   %55 = add i32 %.6, 1
   %56 = add i32 %55, %54
@@ -7961,9 +7480,9 @@ print_alg.exit:                                   ; preds = %51, %58
   %.7 = phi i32 [ 0, %58 ], [ %56, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
-  %60 = load ptr, ptr %59, align 16, !tbaa !103
+  %60 = load ptr, ptr %59, align 16, !tbaa !164
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !111
+  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !172
 
 .preheader89:                                     ; preds = %print_alg.exit, %print_alg.exit60
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %print_alg.exit60 ], [ 0, %print_alg.exit ]
@@ -7979,7 +7498,7 @@ print_alg.exit:                                   ; preds = %51, %58
 65:                                               ; preds = %63, %.preheader89
   %.8 = phi i32 [ 13, %63 ], [ %.18192, %.preheader89 ]
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %61)
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #19
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #20
   %68 = trunc i64 %67 to i32
   %69 = add i32 %.8, 1
   %70 = add i32 %69, %68
@@ -7994,9 +7513,9 @@ print_alg.exit60:                                 ; preds = %65, %72
   %.9 = phi i32 [ 0, %72 ], [ %70, %65 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %73 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next110
-  %74 = load ptr, ptr %73, align 16, !tbaa !103
+  %74 = load ptr, ptr %73, align 16, !tbaa !164
   %exitcond112 = icmp eq i64 %indvars.iv.next110, 14
-  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !112
+  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !173
 
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
   %indvars.iv113 = phi i64 [ %indvars.iv113.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
@@ -8012,7 +7531,7 @@ print_alg.exit60:                                 ; preds = %65, %72
 79:                                               ; preds = %77, %.preheader88
   %.10 = phi i32 [ 13, %77 ], [ %.28294, %.preheader88 ]
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %75)
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %82 = trunc i64 %81 to i32
   %83 = add i32 %.10, 1
   %84 = add i32 %83, %82
@@ -8028,8 +7547,8 @@ print_alg.exit62:                                 ; preds = %79
   %indvars.iv113.be = phi i64 [ %indvars.iv.next114, %print_alg.exit62 ], [ %indvars.iv.next114129, %print_alg.exit62.thread ]
   %.28294.be = phi i32 [ %84, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   %.be.in = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv113.be
-  %.be = load ptr, ptr %.be.in, align 16, !tbaa !103
-  br label %.preheader88, !llvm.loop !113
+  %.be = load ptr, ptr %.be.in, align 16, !tbaa !164
+  br label %.preheader88, !llvm.loop !174
 
 print_alg.exit62.thread:                          ; preds = %79
   %putchar.i61 = tail call i32 @putchar(i32 10)
@@ -8074,7 +7593,7 @@ print_alg.exit62.thread:                          ; preds = %79
 98:                                               ; preds = %96, %.preheader86
   %.14 = phi i32 [ 13, %96 ], [ %.48498, %.preheader86 ]
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %94)
-  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #19
+  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #20
   %101 = trunc i64 %100 to i32
   %102 = add i32 %.14, 1
   %103 = add i32 %102, %101
@@ -8089,9 +7608,9 @@ print_alg.exit66:                                 ; preds = %98, %105
   %.15 = phi i32 [ 0, %105 ], [ %103, %98 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %106 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next121
-  %107 = load ptr, ptr %106, align 16, !tbaa !103
+  %107 = load ptr, ptr %106, align 16, !tbaa !164
   %exitcond123 = icmp eq i64 %indvars.iv.next121, 6
-  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !114
+  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !175
 
 .preheader:                                       ; preds = %print_alg.exit66, %print_alg.exit68
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
@@ -8107,7 +7626,7 @@ print_alg.exit66:                                 ; preds = %98, %105
 112:                                              ; preds = %110, %.preheader
   %.16 = phi i32 [ 13, %110 ], [ %.585100, %.preheader ]
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %108)
-  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #19
+  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #20
   %115 = trunc i64 %114 to i32
   %116 = add i32 %.16, 1
   %117 = add i32 %116, %115
@@ -8122,9 +7641,9 @@ print_alg.exit68:                                 ; preds = %112, %119
   %.17 = phi i32 [ 0, %119 ], [ %117, %112 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %120 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next125
-  %121 = load ptr, ptr %120, align 16, !tbaa !103
+  %121 = load ptr, ptr %120, align 16, !tbaa !164
   %exitcond127 = icmp eq i64 %indvars.iv.next125, 2
-  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !115
+  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !176
 
 122:                                              ; preds = %print_alg.exit68
   %putchar = tail call i32 @putchar(i32 10)
@@ -8202,49 +7721,50 @@ declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 declare i32 @wc_RsaSSL_Verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(none) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -8332,28 +7852,28 @@ attributes #19 = { nounwind willreturn memory(read) }
 !81 = distinct !{!81, !12}
 !82 = distinct !{!82, !12}
 !83 = distinct !{!83, !12}
-!84 = !{!85, !9, i64 0}
-!85 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
-!86 = !{!85, !5, i64 8}
-!87 = !{!85, !9, i64 16}
-!88 = !{!85, !5, i64 24}
+!84 = distinct !{!84, !12}
+!85 = distinct !{!85, !12}
+!86 = distinct !{!86, !12}
+!87 = distinct !{!87, !12}
+!88 = distinct !{!88, !12}
 !89 = distinct !{!89, !12}
 !90 = distinct !{!90, !12}
 !91 = distinct !{!91, !12}
 !92 = distinct !{!92, !12}
-!93 = !{!6, !6, i64 0}
+!93 = distinct !{!93, !12}
 !94 = distinct !{!94, !12}
-!95 = !{!96, !5, i64 8}
-!96 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !97, i64 16, !10, i64 24, !98, i64 32, !6, i64 3160, !99, i64 4200}
-!97 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
-!98 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
-!99 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
+!95 = distinct !{!95, !12}
+!96 = distinct !{!96, !12}
+!97 = distinct !{!97, !12}
+!98 = distinct !{!98, !12}
+!99 = distinct !{!99, !12}
 !100 = distinct !{!100, !12}
 !101 = distinct !{!101, !12}
 !102 = distinct !{!102, !12}
-!103 = !{!104, !9, i64 0}
-!104 = !{!"bench_alg", !9, i64 0, !5, i64 8}
-!105 = !{!104, !5, i64 8}
+!103 = distinct !{!103, !12}
+!104 = distinct !{!104, !12}
+!105 = distinct !{!105, !12}
 !106 = distinct !{!106, !12}
 !107 = distinct !{!107, !12}
 !108 = distinct !{!108, !12}
@@ -8364,3 +7884,64 @@ attributes #19 = { nounwind willreturn memory(read) }
 !113 = distinct !{!113, !12}
 !114 = distinct !{!114, !12}
 !115 = distinct !{!115, !12}
+!116 = distinct !{!116, !12}
+!117 = distinct !{!117, !12}
+!118 = distinct !{!118, !12}
+!119 = distinct !{!119, !12}
+!120 = distinct !{!120, !12}
+!121 = distinct !{!121, !12}
+!122 = distinct !{!122, !12}
+!123 = distinct !{!123, !12}
+!124 = distinct !{!124, !12}
+!125 = distinct !{!125, !12}
+!126 = distinct !{!126, !12}
+!127 = distinct !{!127, !12}
+!128 = distinct !{!128, !12}
+!129 = distinct !{!129, !12}
+!130 = distinct !{!130, !12}
+!131 = distinct !{!131, !12}
+!132 = distinct !{!132, !12}
+!133 = distinct !{!133, !12}
+!134 = distinct !{!134, !12}
+!135 = distinct !{!135, !12}
+!136 = distinct !{!136, !12, !137}
+!137 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!138 = !{!139, !9, i64 0}
+!139 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
+!140 = !{!139, !5, i64 8}
+!141 = !{!139, !9, i64 16}
+!142 = !{!139, !5, i64 24}
+!143 = distinct !{!143, !12}
+!144 = distinct !{!144, !12}
+!145 = distinct !{!145, !12}
+!146 = distinct !{!146, !12}
+!147 = distinct !{!147, !12}
+!148 = distinct !{!148, !12}
+!149 = distinct !{!149, !12}
+!150 = distinct !{!150, !12}
+!151 = distinct !{!151, !12}
+!152 = !{!6, !6, i64 0}
+!153 = distinct !{!153, !12}
+!154 = !{!155, !5, i64 8}
+!155 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !156, i64 16, !10, i64 24, !157, i64 32, !6, i64 3160, !158, i64 4200}
+!156 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
+!157 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
+!158 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
+!159 = distinct !{!159, !12}
+!160 = distinct !{!160, !12}
+!161 = distinct !{!161, !12}
+!162 = distinct !{!162, !12}
+!163 = distinct !{!163, !12}
+!164 = !{!165, !9, i64 0}
+!165 = !{!"bench_alg", !9, i64 0, !5, i64 8}
+!166 = !{!165, !5, i64 8}
+!167 = distinct !{!167, !12}
+!168 = distinct !{!168, !12}
+!169 = distinct !{!169, !12}
+!170 = distinct !{!170, !12}
+!171 = distinct !{!171, !12}
+!172 = distinct !{!172, !12}
+!173 = distinct !{!173, !12}
+!174 = distinct !{!174, !12}
+!175 = distinct !{!175, !12}
+!176 = distinct !{!176, !12}

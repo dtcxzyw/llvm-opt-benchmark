@@ -2003,26 +2003,28 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %404
 
 .preheader353.us.preheader.i:                     ; preds = %454
   %459 = trunc nuw nsw i64 %indvars.iv380.i to i32
+  %.sroa.0.promoted146 = load float, ptr %.sroa.0, align 16
+  %.sroa.6.promoted149 = load float, ptr %.sroa.6, align 4
   br label %.preheader353.us.i
 
 .preheader353.us.i:                               ; preds = %.loopexit350.us.i, %.preheader353.us.preheader.i
-  %.lcssa128134 = phi float [ %.lcssa128133, %.loopexit350.us.i ], [ 0.000000e+00, %.preheader353.us.preheader.i ]
-  %.lcssa131 = phi float [ %.lcssa130, %.loopexit350.us.i ], [ 0.000000e+00, %.preheader353.us.preheader.i ]
+  %.lcssa145151 = phi float [ %.lcssa145150, %.loopexit350.us.i ], [ %.sroa.6.promoted149, %.preheader353.us.preheader.i ]
+  %.lcssa148 = phi float [ %.lcssa147, %.loopexit350.us.i ], [ %.sroa.0.promoted146, %.preheader353.us.preheader.i ]
   %.0335358.us.i = phi i32 [ %461, %.loopexit350.us.i ], [ -4, %.preheader353.us.preheader.i ]
   %460 = add nsw i32 %.0335358.us.i, %453
   %or.cond348.us.i = icmp ult i32 %460, %3
   br i1 %or.cond348.us.i, label %.preheader.us.i63, label %.loopexit350.us.i
 
 .loopexit350.us.i:                                ; preds = %.loopexit.us.i64, %.preheader353.us.i
-  %.lcssa128133 = phi float [ %.lcssa128134, %.preheader353.us.i ], [ %481, %.loopexit.us.i64 ]
-  %.lcssa130 = phi float [ %.lcssa131, %.preheader353.us.i ], [ %482, %.loopexit.us.i64 ]
+  %.lcssa145150 = phi float [ %.lcssa145151, %.preheader353.us.i ], [ %481, %.loopexit.us.i64 ]
+  %.lcssa147 = phi float [ %.lcssa148, %.preheader353.us.i ], [ %482, %.loopexit.us.i64 ]
   %461 = add nsw i32 %.0335358.us.i, 1
   %exitcond373.not.i = icmp eq i32 %461, 5
-  br i1 %exitcond373.not.i, label %.loopexit352.us.i, label %.preheader353.us.i
+  br i1 %exitcond373.not.i, label %.loopexit352.us.i.loopexit141, label %.preheader353.us.i
 
 462:                                              ; preds = %.preheader.us.i63, %.loopexit.us.i64
-  %463 = phi float [ %.lcssa128134, %.preheader.us.i63 ], [ %481, %.loopexit.us.i64 ]
-  %464 = phi float [ %.lcssa131, %.preheader.us.i63 ], [ %482, %.loopexit.us.i64 ]
+  %463 = phi float [ %.lcssa145151, %.preheader.us.i63 ], [ %481, %.loopexit.us.i64 ]
+  %464 = phi float [ %.lcssa148, %.preheader.us.i63 ], [ %482, %.loopexit.us.i64 ]
   %.0333357.us.i = phi i32 [ -4, %.preheader.us.i63 ], [ %483, %.loopexit.us.i64 ]
   %465 = add nsw i32 %.0333357.us.i, %459
   %or.cond349.us.i = icmp ult i32 %465, %2
@@ -2054,23 +2056,23 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %404
   %exitcond.not.i65 = icmp eq i32 %483, 5
   br i1 %exitcond.not.i65, label %.loopexit350.us.i, label %462
 
-.loopexit352.us.i.loopexit:                       ; preds = %490
-  %.sroa.0.0..sroa.0.0..pre = load float, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.6.0..sroa.6.0..pre = load float, ptr %.sroa.6, align 4, !tbaa !21
+.loopexit352.us.i.loopexit141:                    ; preds = %.loopexit350.us.i
+  store float %.lcssa147, ptr %.sroa.0, align 16
+  store float %.lcssa145150, ptr %.sroa.6, align 4
   br label %.loopexit352.us.i
 
-.loopexit352.us.i:                                ; preds = %.loopexit350.us.i, %.loopexit352.us.i.loopexit
-  %.sroa.6.0. = phi float [ %.sroa.6.0..sroa.6.0..pre, %.loopexit352.us.i.loopexit ], [ %.lcssa128133, %.loopexit350.us.i ]
-  %.sroa.0.0. = phi float [ %.sroa.0.0..sroa.0.0..pre, %.loopexit352.us.i.loopexit ], [ %.lcssa130, %.loopexit350.us.i ]
+.loopexit352.us.i:                                ; preds = %490, %.loopexit352.us.i.loopexit141
   %484 = getelementptr inbounds nuw float, ptr %.0, i64 %456
-  %485 = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0., %5
-  %.inv.us.i = fcmp reassoc nsz arcp contract afn ole float %.sroa.0.0., %6
-  %..us.i = select reassoc nsz arcp contract afn i1 %.inv.us.i, float %.sroa.0.0., float %6
+  %.sroa.0.0.144 = load float, ptr %.sroa.0, align 16, !tbaa !21
+  %485 = fcmp reassoc nsz arcp contract afn ult float %.sroa.0.0.144, %5
+  %.inv.us.i = fcmp reassoc nsz arcp contract afn ole float %.sroa.0.0.144, %6
+  %..us.i = select reassoc nsz arcp contract afn i1 %.inv.us.i, float %.sroa.0.0.144, float %6
   %486 = select reassoc nsz arcp contract afn i1 %485, float %5, float %..us.i
   store float %486, ptr %484, align 4, !tbaa !21
-  %487 = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0., %5
-  %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ole float %.sroa.6.0., %6
-  %..us.i.c = select reassoc nsz arcp contract afn i1 %.inv.us.i.c, float %.sroa.6.0., float %6
+  %.sroa.6.0.143 = load float, ptr %.sroa.6, align 4, !tbaa !21
+  %487 = fcmp reassoc nsz arcp contract afn ult float %.sroa.6.0.143, %5
+  %.inv.us.i.c = fcmp reassoc nsz arcp contract afn ole float %.sroa.6.0.143, %6
+  %..us.i.c = select reassoc nsz arcp contract afn i1 %.inv.us.i.c, float %.sroa.6.0.143, float %6
   %488 = select reassoc nsz arcp contract afn i1 %487, float %5, float %..us.i.c
   %489 = getelementptr inbounds nuw i8, ptr %484, i64 4
   store float %488, ptr %489, align 4, !tbaa !21
@@ -2304,7 +2306,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %404
   %709 = fmul reassoc nsz arcp contract afn float %708, %444
   %710 = fadd reassoc nsz arcp contract afn float %706, %709
   store float %710, ptr %indvars.iv374.i.sroa.phi, align 4, !tbaa !21
-  br i1 %491, label %490, label %.loopexit352.us.i.loopexit
+  br i1 %491, label %490, label %.loopexit352.us.i
 
 .preheader.us.i63:                                ; preds = %.preheader353.us.i
   %711 = tail call i32 @llvm.abs.i32(i32 %.0335358.us.i, i1 true)

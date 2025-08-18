@@ -654,45 +654,45 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %88 = and i16 %87, 3
   store i16 %88, ptr %54, align 2, !tbaa !132
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %.sroa.0.0..sroa.0.0..i.i.i49.i = load i32, ptr %89, align 1
-  %90 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 6
+  %.sroa.0.0..sroa.0.0..i.i.i52.i = load i32, ptr %89, align 1
+  %90 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i52.i, 6
   %.masked.i = and i32 %90, 192
   %91 = or disjoint i32 %.masked.i, %86
   %92 = trunc nuw nsw i32 %91 to i16
   store i16 %92, ptr %55, align 2, !tbaa !132
-  %93 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 10
-  %94 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i49.i to i16
+  %93 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i52.i, 10
+  %94 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i52.i to i16
   %95 = lshr i16 %94, 2
   %96 = and i16 %95, 255
   store i16 %96, ptr %56, align 2, !tbaa !132
-  %97 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 18
+  %97 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i52.i, 18
   %98 = trunc i32 %93 to i16
   %99 = and i16 %98, 255
   store i16 %99, ptr %57, align 2, !tbaa !132
-  %100 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 20
+  %100 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i52.i, 20
   %101 = trunc nuw nsw i32 %97 to i16
   %102 = and i16 %101, 3
   store i16 %102, ptr %58, align 2, !tbaa !132
-  %103 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 28
+  %103 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i52.i, 28
   %104 = trunc nuw nsw i32 %100 to i16
   %105 = and i16 %104, 255
   store i16 %105, ptr %59, align 2, !tbaa !132
   %106 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %.sroa.0.0..sroa.0.0..i.i.i109.i = load i32, ptr %106, align 1
-  %107 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 4
-  %.masked331.i = and i32 %107, 240
-  %108 = or disjoint i32 %.masked331.i, %103
+  %.sroa.0.0..sroa.0.0..i.i.i117.i = load i32, ptr %106, align 1
+  %107 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i117.i, 4
+  %.masked348.i = and i32 %107, 240
+  %108 = or disjoint i32 %.masked348.i, %103
   %109 = trunc nuw nsw i32 %108 to i16
   store i16 %109, ptr %60, align 2, !tbaa !132
-  %110 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i109.i to i16
+  %110 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i117.i to i16
   %111 = lshr i16 %110, 4
   %112 = and i16 %111, 255
   store i16 %112, ptr %61, align 2, !tbaa !132
-  %113 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 14
+  %113 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i117.i, 14
   %114 = lshr i16 %110, 12
   %115 = and i16 %114, 3
   store i16 %115, ptr %62, align 2, !tbaa !132
-  %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 22
+  %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i117.i, 22
   %117 = trunc i32 %113 to i16
   %118 = and i16 %117, 255
   store i16 %118, ptr %63, align 2, !tbaa !132
@@ -700,19 +700,19 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %120 = and i16 %119, 255
   store i16 %120, ptr %64, align 2, !tbaa !132
   %121 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  %122 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 30
-  %.sroa.0.0..sroa.0.0..i.i.i169.i = load i32, ptr %121, align 1
-  %123 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i169.i, 2
-  %.masked332.i = and i32 %123, 252
-  %124 = or disjoint i32 %.masked332.i, %122
+  %122 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i117.i, 30
+  %.sroa.0.0..sroa.0.0..i.i.i182.i = load i32, ptr %121, align 1
+  %123 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i182.i, 2
+  %.masked349.i = and i32 %123, 252
+  %124 = or disjoint i32 %.masked349.i, %122
   %125 = trunc nuw nsw i32 %124 to i16
   store i16 %125, ptr %65, align 2, !tbaa !132
-  %126 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i169.i, 8
-  %127 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i169.i to i16
+  %126 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i182.i, 8
+  %127 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i182.i to i16
   %128 = lshr i16 %127, 6
   %129 = and i16 %128, 3
   store i16 %129, ptr %66, align 2, !tbaa !132
-  %130 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i169.i, 20
+  %130 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i182.i, 20
   %131 = trunc i32 %126 to i16
   %132 = and i16 %131, 4095
   store i16 %132, ptr %67, align 2, !tbaa !132
@@ -974,36 +974,36 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %81 = and i16 %80, 1023
   store i16 %81, ptr %52, align 2, !tbaa !132
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %.sroa.0.0..sroa.0.0..i.i.i25.i = load i32, ptr %82, align 1
-  %83 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 8
+  %.sroa.0.0..sroa.0.0..i.i.i26.i = load i32, ptr %82, align 1
+  %83 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i26.i, 8
   %.masked.i = and i32 %83, 768
   %84 = or disjoint i32 %.masked.i, %79
   %85 = trunc nuw nsw i32 %84 to i16
   store i16 %85, ptr %53, align 2, !tbaa !132
-  %86 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i25.i to i16
+  %86 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i26.i to i16
   %87 = lshr i16 %86, 2
   %88 = and i16 %87, 3
   store i16 %88, ptr %54, align 2, !tbaa !132
-  %89 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 14
+  %89 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i26.i, 14
   %90 = lshr i16 %86, 4
   %91 = and i16 %90, 1023
   store i16 %91, ptr %55, align 2, !tbaa !132
-  %92 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 24
+  %92 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i26.i, 24
   %93 = trunc i32 %89 to i16
   %94 = and i16 %93, 1023
   store i16 %94, ptr %56, align 2, !tbaa !132
   %95 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %.sroa.0.0..sroa.0.0..i.i.i73.i = load i32, ptr %95, align 1
-  %96 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 8
-  %.masked264.i = and i32 %96, 768
-  %97 = or disjoint i32 %.masked264.i, %92
+  %.sroa.0.0..sroa.0.0..i.i.i78.i = load i32, ptr %95, align 1
+  %96 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i78.i, 8
+  %.masked277.i = and i32 %96, 768
+  %97 = or disjoint i32 %.masked277.i, %92
   %98 = trunc nuw nsw i32 %97 to i16
   store i16 %98, ptr %57, align 2, !tbaa !132
-  %99 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i73.i to i16
+  %99 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i78.i to i16
   %100 = lshr i16 %99, 2
   %101 = and i16 %100, 3
   store i16 %101, ptr %58, align 2, !tbaa !132
-  %102 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 14
+  %102 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i78.i, 14
   %103 = lshr i16 %99, 4
   %104 = and i16 %103, 1023
   store i16 %104, ptr %59, align 2, !tbaa !132
@@ -1011,19 +1011,19 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %106 = and i16 %105, 1023
   store i16 %106, ptr %60, align 2, !tbaa !132
   %107 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  %108 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 24
-  %.sroa.0.0..sroa.0.0..i.i.i121.i = load i32, ptr %107, align 1
-  %109 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i121.i, 8
-  %.masked265.i = and i32 %109, 768
-  %110 = or disjoint i32 %.masked265.i, %108
+  %108 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i78.i, 24
+  %.sroa.0.0..sroa.0.0..i.i.i130.i = load i32, ptr %107, align 1
+  %109 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i130.i, 8
+  %.masked278.i = and i32 %109, 768
+  %110 = or disjoint i32 %.masked278.i, %108
   %111 = trunc nuw nsw i32 %110 to i16
   store i16 %111, ptr %61, align 2, !tbaa !132
-  %112 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i121.i, 4
-  %113 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i121.i to i16
+  %112 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i130.i, 4
+  %113 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i130.i to i16
   %114 = lshr i16 %113, 2
   %115 = and i16 %114, 3
   store i16 %115, ptr %62, align 2, !tbaa !132
-  %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i121.i, 18
+  %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i130.i, 18
   %117 = trunc i32 %112 to i16
   %118 = and i16 %117, 16383
   store i16 %118, ptr %63, align 2, !tbaa !132

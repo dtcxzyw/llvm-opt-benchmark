@@ -7354,21 +7354,21 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   %39 = tail call ptr @list_make1_impl(i32 noundef 471, ptr %38) #14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %.not72 = icmp eq ptr %39, null
-  br i1 %.not72, label %.critedge.thread, label %.lr.ph131
+  br i1 %.not72, label %.critedge.thread, label %.lr.ph129
 
-.lr.ph131:                                        ; preds = %37
+.lr.ph129:                                        ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = icmp ne i32 %.059, 0
   %43 = load i32, ptr %40, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph148, label %.critedge
+  br i1 %44, label %.lr.ph146, label %.critedge
 
-.lr.ph148:                                        ; preds = %.lr.ph131, %146
-  %.0101127147 = phi ptr [ %.3104, %146 ], [ null, %.lr.ph131 ]
-  %.060129146 = phi ptr [ %.3, %146 ], [ %39, %.lr.ph131 ]
-  %indvars.iv138145 = phi i64 [ %indvars.iv.next139, %146 ], [ 0, %.lr.ph131 ]
+.lr.ph146:                                        ; preds = %.lr.ph129, %146
+  %.0100125145 = phi ptr [ %.3103, %146 ], [ null, %.lr.ph129 ]
+  %.060127144 = phi ptr [ %.3, %146 ], [ %39, %.lr.ph129 ]
+  %indvars.iv136143 = phi i64 [ %indvars.iv.next137, %146 ], [ 0, %.lr.ph129 ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv138145
+  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv136143
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
   %49 = call ptr @SearchSysCacheList(i32 noundef 8, i32 noundef 1, i64 noundef %48, i64 noundef 0, i64 noundef 0) #14
@@ -7377,20 +7377,20 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph148
+.lr.ph:                                           ; preds = %.lr.ph146
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 80
   br label %54
 
-.critedge:                                        ; preds = %146, %.lr.ph131
-  %.060129.lcssa = phi ptr [ %39, %.lr.ph131 ], [ %.3, %146 ]
-  %.0101127.lcssa = phi ptr [ null, %.lr.ph131 ], [ %.3104, %146 ]
-  %.not74 = icmp eq ptr %.0101127.lcssa, null
+.critedge:                                        ; preds = %146, %.lr.ph129
+  %.060127.lcssa = phi ptr [ %39, %.lr.ph129 ], [ %.3, %146 ]
+  %.0100125.lcssa = phi ptr [ null, %.lr.ph129 ], [ %.3103, %146 ]
+  %.not74 = icmp eq ptr %.0100125.lcssa, null
   br i1 %.not74, label %.critedge.thread, label %150
 
 54:                                               ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %.1124 = phi ptr [ %.060129146, %.lr.ph ], [ %.2, %111 ]
-  %.1102122 = phi ptr [ %.0101127147, %.lr.ph ], [ %.2103, %111 ]
+  %.1123 = phi ptr [ %.060127144, %.lr.ph ], [ %.2, %111 ]
+  %.1101121 = phi ptr [ %.0100125145, %.lr.ph ], [ %.2102, %111 ]
   %55 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 80
@@ -7441,101 +7441,98 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
 81:                                               ; preds = %73, %72, %77
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %63, ptr %7, align 4
-  %.not.i = icmp eq ptr %.1102122, null
+  %.not.i = icmp eq ptr %.1101121, null
   br i1 %.not.i, label %._crit_edge.i, label %82
 
 82:                                               ; preds = %81
-  %83 = call zeroext i1 @bloom_lacks_element(ptr noundef nonnull %.1102122, ptr noundef nonnull %7, i64 noundef 4) #14
+  %83 = call zeroext i1 @bloom_lacks_element(ptr noundef nonnull %.1101121, ptr noundef nonnull %7, i64 noundef 4) #14
   %84 = load i32, ptr %7, align 4
-  br i1 %83, label %list_length.exit.thread.i.thread109, label %._crit_edge.i
+  br i1 %83, label %list_length.exit.thread.i.thread108, label %._crit_edge.i
 
-list_length.exit.thread.i.thread109:              ; preds = %82
-  %85 = call ptr @lappend_oid(ptr noundef %.1124, i32 noundef %84) #14
+list_length.exit.thread.i.thread108:              ; preds = %82
+  %85 = call ptr @lappend_oid(ptr noundef %.1123, i32 noundef %84) #14
   br label %109
 
 ._crit_edge.i:                                    ; preds = %82, %81
   %86 = phi i32 [ %63, %81 ], [ %84, %82 ]
-  %87 = call zeroext i1 @list_member_oid(ptr noundef %.1124, i32 noundef %86) #14
+  %87 = call zeroext i1 @list_member_oid(ptr noundef %.1123, i32 noundef %86) #14
   br i1 %87, label %roles_list_append.exit, label %88
 
 88:                                               ; preds = %._crit_edge.i
-  %89 = icmp ne ptr %.1102122, null
-  %.not.i.i = icmp eq ptr %.1124, null
+  %89 = icmp ne ptr %.1101121, null
+  %.not.i.i = icmp eq ptr %.1123, null
   %or.cond.i = or i1 %89, %.not.i.i
   br i1 %or.cond.i, label %list_length.exit.thread.i, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %.1124, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.1123, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, 1024
-  br i1 %92, label %.critedge26.i, label %list_length.exit.thread.i.thread
+  br i1 %92, label %95, label %list_length.exit.thread.i.thread
 
 list_length.exit.thread.i.thread:                 ; preds = %list_length.exit.i
   %93 = load i32, ptr %7, align 4
-  %94 = call ptr @lappend_oid(ptr noundef nonnull %.1124, i32 noundef %93) #14
+  %94 = call ptr @lappend_oid(ptr noundef nonnull %.1123, i32 noundef %93) #14
   br label %roles_list_append.exit
 
-.critedge26.i:                                    ; preds = %list_length.exit.i
-  %95 = load i32, ptr @work_mem, align 4
-  %96 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %95, i64 noundef 0) #14
+95:                                               ; preds = %list_length.exit.i
+  %96 = load i32, ptr @work_mem, align 4
+  %97 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %96, i64 noundef 0) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %97 = load i32, ptr %90, align 4
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph.i, label %.critedge.i
+  %98 = getelementptr inbounds nuw i8, ptr %.1123, i64 16
+  %99 = load i32, ptr %90, align 4
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %.lr.ph.i, label %.split27.us.i
 
-.lr.ph.i:                                         ; preds = %.critedge26.i
-  %99 = getelementptr inbounds nuw i8, ptr %.1124, i64 16
-  br label %100
+.split27.us.i:                                    ; preds = %.lr.ph.i, %95
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %list_length.exit.thread.i
 
-100:                                              ; preds = %100, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
-  %101 = load ptr, ptr %99, align 8
+.lr.ph.i:                                         ; preds = %95, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %95 ]
+  %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8
   store i32 %103, ptr %8, align 4
-  call void @bloom_add_element(ptr noundef %96, ptr noundef nonnull %8, i64 noundef 4) #14
+  call void @bloom_add_element(ptr noundef %97, ptr noundef nonnull %8, i64 noundef 4) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %104 = load i32, ptr %90, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
-  br i1 %106, label %100, label %.critedge.i, !llvm.loop !32
+  br i1 %106, label %.lr.ph.i, label %.split27.us.i, !llvm.loop !32
 
-.critedge.i:                                      ; preds = %100, %.critedge26.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %list_length.exit.thread.i
-
-list_length.exit.thread.i:                        ; preds = %.critedge.i, %88
-  %.4 = phi ptr [ %.1102122, %88 ], [ %96, %.critedge.i ]
+list_length.exit.thread.i:                        ; preds = %.split27.us.i, %88
+  %.4 = phi ptr [ %.1101121, %88 ], [ %97, %.split27.us.i ]
   %107 = load i32, ptr %7, align 4
-  %108 = call ptr @lappend_oid(ptr noundef %.1124, i32 noundef %107) #14
+  %108 = call ptr @lappend_oid(ptr noundef %.1123, i32 noundef %107) #14
   %.not23.i = icmp eq ptr %.4, null
   br i1 %.not23.i, label %roles_list_append.exit, label %109
 
-109:                                              ; preds = %list_length.exit.thread.i.thread109, %list_length.exit.thread.i
-  %110 = phi ptr [ %85, %list_length.exit.thread.i.thread109 ], [ %108, %list_length.exit.thread.i ]
-  %.4112 = phi ptr [ %.1102122, %list_length.exit.thread.i.thread109 ], [ %.4, %list_length.exit.thread.i ]
-  call void @bloom_add_element(ptr noundef nonnull %.4112, ptr noundef nonnull %7, i64 noundef 4) #14
+109:                                              ; preds = %list_length.exit.thread.i.thread108, %list_length.exit.thread.i
+  %110 = phi ptr [ %85, %list_length.exit.thread.i.thread108 ], [ %108, %list_length.exit.thread.i ]
+  %.4111 = phi ptr [ %.1101121, %list_length.exit.thread.i.thread108 ], [ %.4, %list_length.exit.thread.i ]
+  call void @bloom_add_element(ptr noundef nonnull %.4111, ptr noundef nonnull %7, i64 noundef 4) #14
   br label %roles_list_append.exit
 
 roles_list_append.exit:                           ; preds = %list_length.exit.thread.i.thread, %._crit_edge.i, %list_length.exit.thread.i, %109
-  %.5 = phi ptr [ %.1102122, %._crit_edge.i ], [ null, %list_length.exit.thread.i ], [ %.4112, %109 ], [ null, %list_length.exit.thread.i.thread ]
-  %.0.i = phi ptr [ %.1124, %._crit_edge.i ], [ %108, %list_length.exit.thread.i ], [ %110, %109 ], [ %94, %list_length.exit.thread.i.thread ]
+  %.5 = phi ptr [ %.1101121, %._crit_edge.i ], [ null, %list_length.exit.thread.i ], [ %.4111, %109 ], [ null, %list_length.exit.thread.i.thread ]
+  %.0.i = phi ptr [ %.1123, %._crit_edge.i ], [ %108, %list_length.exit.thread.i ], [ %110, %109 ], [ %94, %list_length.exit.thread.i.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %111
 
 111:                                              ; preds = %77, %73, %roles_list_append.exit
-  %.2103 = phi ptr [ %.5, %roles_list_append.exit ], [ %.1102122, %77 ], [ %.1102122, %73 ]
-  %.2 = phi ptr [ %.0.i, %roles_list_append.exit ], [ %.1124, %77 ], [ %.1124, %73 ]
+  %.2102 = phi ptr [ %.5, %roles_list_append.exit ], [ %.1101121, %77 ], [ %.1101121, %73 ]
+  %.2 = phi ptr [ %.0.i, %roles_list_append.exit ], [ %.1123, %77 ], [ %.1123, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %50, align 8
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
   br i1 %114, label %54, label %._crit_edge, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %111, %.lr.ph148
-  %.1102.lcssa = phi ptr [ %.0101127147, %.lr.ph148 ], [ %.2103, %111 ]
-  %.1.lcssa = phi ptr [ %.060129146, %.lr.ph148 ], [ %.2, %111 ]
+._crit_edge:                                      ; preds = %111, %.lr.ph146
+  %.1101.lcssa = phi ptr [ %.0100125145, %.lr.ph146 ], [ %.2102, %111 ]
+  %.1.lcssa = phi ptr [ %.060127144, %.lr.ph146 ], [ %.2, %111 ]
   call void @ReleaseCatCacheList(ptr noundef nonnull %49) #14
   %115 = icmp eq i32 %47, %.059
   %or.cond5 = and i1 %42, %115
@@ -7544,25 +7541,25 @@ roles_list_append.exit:                           ; preds = %list_length.exit.th
 116:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 6171, ptr %5, align 4
-  %.not.i78 = icmp eq ptr %.1102.lcssa, null
+  %.not.i78 = icmp eq ptr %.1101.lcssa, null
   br i1 %.not.i78, label %._crit_edge.i79, label %117
 
 117:                                              ; preds = %116
-  %118 = call zeroext i1 @bloom_lacks_element(ptr noundef nonnull %.1102.lcssa, ptr noundef nonnull %5, i64 noundef 4) #14
+  %118 = call zeroext i1 @bloom_lacks_element(ptr noundef nonnull %.1101.lcssa, ptr noundef nonnull %5, i64 noundef 4) #14
   %119 = load i32, ptr %5, align 4
-  br i1 %118, label %list_length.exit.thread.i84.thread118, label %._crit_edge.i79
+  br i1 %118, label %list_length.exit.thread.i84.thread117, label %._crit_edge.i79
 
-list_length.exit.thread.i84.thread118:            ; preds = %117
+list_length.exit.thread.i84.thread117:            ; preds = %117
   %120 = call ptr @lappend_oid(ptr noundef %.1.lcssa, i32 noundef %119) #14
   br label %144
 
 ._crit_edge.i79:                                  ; preds = %117, %116
   %121 = phi i32 [ 6171, %116 ], [ %119, %117 ]
   %122 = call zeroext i1 @list_member_oid(ptr noundef %.1.lcssa, i32 noundef %121) #14
-  br i1 %122, label %roles_list_append.exit92, label %123
+  br i1 %122, label %roles_list_append.exit91, label %123
 
 123:                                              ; preds = %._crit_edge.i79
-  %124 = icmp ne ptr %.1102.lcssa, null
+  %124 = icmp ne ptr %.1101.lcssa, null
   %.not.i.i81 = icmp eq ptr %.1.lcssa, null
   %or.cond.i82 = or i1 %124, %.not.i.i81
   br i1 %or.cond.i82, label %list_length.exit.thread.i84, label %list_length.exit.i83
@@ -7571,83 +7568,80 @@ list_length.exit.i83:                             ; preds = %123
   %125 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp sgt i32 %126, 1024
-  br i1 %127, label %.critedge26.i87, label %list_length.exit.thread.i84.thread
+  br i1 %127, label %130, label %list_length.exit.thread.i84.thread
 
 list_length.exit.thread.i84.thread:               ; preds = %list_length.exit.i83
   %128 = load i32, ptr %5, align 4
   %129 = call ptr @lappend_oid(ptr noundef nonnull %.1.lcssa, i32 noundef %128) #14
-  br label %roles_list_append.exit92
+  br label %roles_list_append.exit91
 
-.critedge26.i87:                                  ; preds = %list_length.exit.i83
-  %130 = load i32, ptr @work_mem, align 4
-  %131 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %130, i64 noundef 0) #14
+130:                                              ; preds = %list_length.exit.i83
+  %131 = load i32, ptr @work_mem, align 4
+  %132 = call ptr @bloom_create(i64 noundef 10240, i32 noundef %131, i64 noundef 0) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %132 = load i32, ptr %125, align 4
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %.lr.ph.i89, label %.critedge.i88
+  %133 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
+  %134 = load i32, ptr %125, align 4
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %.lr.ph.i88, label %.split27.us.i87
 
-.lr.ph.i89:                                       ; preds = %.critedge26.i87
-  %134 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
-  br label %135
-
-135:                                              ; preds = %135, %.lr.ph.i89
-  %indvars.iv.i90 = phi i64 [ 0, %.lr.ph.i89 ], [ %indvars.iv.next.i91, %135 ]
-  %136 = load ptr, ptr %134, align 8
-  %137 = getelementptr inbounds nuw %union.ListCell, ptr %136, i64 %indvars.iv.i90
-  %138 = load i32, ptr %137, align 8
-  store i32 %138, ptr %6, align 4
-  call void @bloom_add_element(ptr noundef %131, ptr noundef nonnull %6, i64 noundef 4) #14
-  %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
-  %139 = load i32, ptr %125, align 4
-  %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next.i91, %140
-  br i1 %141, label %135, label %.critedge.i88, !llvm.loop !32
-
-.critedge.i88:                                    ; preds = %135, %.critedge26.i87
+.split27.us.i87:                                  ; preds = %.lr.ph.i88, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %list_length.exit.thread.i84
 
-list_length.exit.thread.i84:                      ; preds = %.critedge.i88, %123
-  %.6 = phi ptr [ %.1102.lcssa, %123 ], [ %131, %.critedge.i88 ]
+.lr.ph.i88:                                       ; preds = %130, %.lr.ph.i88
+  %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %.lr.ph.i88 ], [ 0, %130 ]
+  %136 = load ptr, ptr %133, align 8
+  %137 = getelementptr inbounds nuw %union.ListCell, ptr %136, i64 %indvars.iv.i89
+  %138 = load i32, ptr %137, align 8
+  store i32 %138, ptr %6, align 4
+  call void @bloom_add_element(ptr noundef %132, ptr noundef nonnull %6, i64 noundef 4) #14
+  %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
+  %139 = load i32, ptr %125, align 4
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %indvars.iv.next.i90, %140
+  br i1 %141, label %.lr.ph.i88, label %.split27.us.i87, !llvm.loop !32
+
+list_length.exit.thread.i84:                      ; preds = %.split27.us.i87, %123
+  %.6 = phi ptr [ %.1101.lcssa, %123 ], [ %132, %.split27.us.i87 ]
   %142 = load i32, ptr %5, align 4
   %143 = call ptr @lappend_oid(ptr noundef %.1.lcssa, i32 noundef %142) #14
   %.not23.i85 = icmp eq ptr %.6, null
-  br i1 %.not23.i85, label %roles_list_append.exit92, label %144
+  br i1 %.not23.i85, label %roles_list_append.exit91, label %144
 
-144:                                              ; preds = %list_length.exit.thread.i84.thread118, %list_length.exit.thread.i84
-  %145 = phi ptr [ %120, %list_length.exit.thread.i84.thread118 ], [ %143, %list_length.exit.thread.i84 ]
-  %.6121 = phi ptr [ %.1102.lcssa, %list_length.exit.thread.i84.thread118 ], [ %.6, %list_length.exit.thread.i84 ]
-  call void @bloom_add_element(ptr noundef nonnull %.6121, ptr noundef nonnull %5, i64 noundef 4) #14
-  br label %roles_list_append.exit92
+144:                                              ; preds = %list_length.exit.thread.i84.thread117, %list_length.exit.thread.i84
+  %145 = phi ptr [ %120, %list_length.exit.thread.i84.thread117 ], [ %143, %list_length.exit.thread.i84 ]
+  %.6120 = phi ptr [ %.1101.lcssa, %list_length.exit.thread.i84.thread117 ], [ %.6, %list_length.exit.thread.i84 ]
+  call void @bloom_add_element(ptr noundef nonnull %.6120, ptr noundef nonnull %5, i64 noundef 4) #14
+  br label %roles_list_append.exit91
 
-roles_list_append.exit92:                         ; preds = %list_length.exit.thread.i84.thread, %._crit_edge.i79, %list_length.exit.thread.i84, %144
-  %.7 = phi ptr [ %.1102.lcssa, %._crit_edge.i79 ], [ null, %list_length.exit.thread.i84 ], [ %.6121, %144 ], [ null, %list_length.exit.thread.i84.thread ]
+roles_list_append.exit91:                         ; preds = %list_length.exit.thread.i84.thread, %._crit_edge.i79, %list_length.exit.thread.i84, %144
+  %.7 = phi ptr [ %.1101.lcssa, %._crit_edge.i79 ], [ null, %list_length.exit.thread.i84 ], [ %.6120, %144 ], [ null, %list_length.exit.thread.i84.thread ]
   %.0.i86 = phi ptr [ %.1.lcssa, %._crit_edge.i79 ], [ %143, %list_length.exit.thread.i84 ], [ %145, %144 ], [ %129, %list_length.exit.thread.i84.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %146
 
-146:                                              ; preds = %roles_list_append.exit92, %._crit_edge
-  %.3104 = phi ptr [ %.7, %roles_list_append.exit92 ], [ %.1102.lcssa, %._crit_edge ]
-  %.3 = phi ptr [ %.0.i86, %roles_list_append.exit92 ], [ %.1.lcssa, %._crit_edge ]
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138145, 1
+146:                                              ; preds = %roles_list_append.exit91, %._crit_edge
+  %.3103 = phi ptr [ %.7, %roles_list_append.exit91 ], [ %.1101.lcssa, %._crit_edge ]
+  %.3 = phi ptr [ %.0.i86, %roles_list_append.exit91 ], [ %.1.lcssa, %._crit_edge ]
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136143, 1
   %147 = load i32, ptr %40, align 4
   %148 = sext i32 %147 to i64
-  %149 = icmp slt i64 %indvars.iv.next139, %148
-  br i1 %149, label %.lr.ph148, label %.critedge
+  %149 = icmp slt i64 %indvars.iv.next137, %148
+  br i1 %149, label %.lr.ph146, label %.critedge
 
 150:                                              ; preds = %.critedge
-  call void @bloom_free(ptr noundef nonnull %.0101127.lcssa) #14
+  call void @bloom_free(ptr noundef nonnull %.0100125.lcssa) #14
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %37, %150, %.critedge
-  %.060.lcssa144 = phi ptr [ %.060129.lcssa, %150 ], [ %.060129.lcssa, %.critedge ], [ null, %37 ]
+  %.060.lcssa142 = phi ptr [ %.060127.lcssa, %150 ], [ %.060127.lcssa, %.critedge ], [ null, %37 ]
   %151 = load ptr, ptr @TopMemoryContext, align 8
   %152 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %151, ptr @CurrentMemoryContext, align 8
-  %153 = call ptr @list_copy(ptr noundef %.060.lcssa144) #14
+  %153 = call ptr @list_copy(ptr noundef %.060.lcssa142) #14
   store ptr %152, ptr @CurrentMemoryContext, align 8
-  call void @list_free(ptr noundef %.060.lcssa144) #14
+  call void @list_free(ptr noundef %.060.lcssa142) #14
   store i32 0, ptr %12, align 4
   %154 = getelementptr inbounds nuw [3 x ptr], ptr @cached_roles, i64 0, i64 %11
   %155 = load ptr, ptr %154, align 8

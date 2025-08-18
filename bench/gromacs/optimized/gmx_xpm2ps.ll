@@ -1676,41 +1676,41 @@ _ZL21write_combined_matrixiPKcN3gmx8ArrayRefI8t_matrixEES4_PKfS6_.exit: ; preds 
   %596 = getelementptr inbounds nuw i8, ptr %585, i64 256
   %597 = getelementptr inbounds nuw i8, ptr %585, i64 240
   %598 = sext i32 %584 to i64
-  %wide.trip.count208.i = zext nneg i32 %590 to i64
-  %wide.trip.count203.i = zext i32 %584 to i64
+  %wide.trip.count209.i = zext nneg i32 %590 to i64
+  %wide.trip.count204.i = zext i32 %584 to i64
   br i1 %181, label %.lr.ph152.split.us.i, label %.lr.ph152.split.i
 
 .lr.ph152.split.us.i:                             ; preds = %.lr.ph152.i, %.loopexit.us.i
-  %indvars.iv205.i = phi i64 [ %indvars.iv.next206.i, %.loopexit.us.i ], [ 0, %.lr.ph152.i ]
-  %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %.loopexit.us.i ], [ 1, %.lr.ph152.i ]
-  %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
-  %599 = icmp slt i64 %indvars.iv.next206.i, %598
+  %indvars.iv206.i = phi i64 [ %indvars.iv.next207.i, %.loopexit.us.i ], [ 0, %.lr.ph152.i ]
+  %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %.loopexit.us.i ], [ 1, %.lr.ph152.i ]
+  %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
+  %599 = icmp slt i64 %indvars.iv.next207.i, %598
   br i1 %599, label %.lr.ph.us.i, label %.loopexit.us.i
 
 600:                                              ; preds = %.lr.ph.us.i, %600
-  %indvars.iv200.i = phi i64 [ %indvars.iv198.i, %.lr.ph.us.i ], [ %indvars.iv.next201.i, %600 ]
+  %indvars.iv201.i = phi i64 [ %indvars.iv199.i, %.lr.ph.us.i ], [ %indvars.iv.next202.i, %600 ]
   %601 = load i64, ptr %595, align 8
-  %602 = mul nsw i64 %601, %indvars.iv200.i
+  %602 = mul nsw i64 %601, %indvars.iv201.i
   %gep.us.i = getelementptr i16, ptr %invariant.gep.us.i, i64 %602
   %603 = load i16, ptr %gep.us.i, align 2, !tbaa !96
   %604 = load i64, ptr %597, align 8
-  %605 = mul nsw i64 %604, %indvars.iv200.i
+  %605 = mul nsw i64 %604, %indvars.iv201.i
   %gep150.us.i = getelementptr i16, ptr %invariant.gep149.us.i, i64 %605
   store i16 %603, ptr %gep150.us.i, align 2, !tbaa !96
-  %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
-  %exitcond204.not.i = icmp eq i64 %indvars.iv.next201.i, %wide.trip.count203.i
-  br i1 %exitcond204.not.i, label %.loopexit.us.i, label %600, !llvm.loop !98
+  %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
+  %exitcond205.not.i = icmp eq i64 %indvars.iv.next202.i, %wide.trip.count204.i
+  br i1 %exitcond205.not.i, label %.loopexit.us.i, label %600, !llvm.loop !98
 
 .loopexit.us.i:                                   ; preds = %600, %.lr.ph152.split.us.i
-  %indvars.iv.next199.i = add nuw nsw i64 %indvars.iv198.i, 1
-  %exitcond209.not.i = icmp eq i64 %indvars.iv.next206.i, %wide.trip.count208.i
-  br i1 %exitcond209.not.i, label %._crit_edge.i80, label %.lr.ph152.split.us.i, !llvm.loop !99
+  %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
+  %exitcond210.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count209.i
+  br i1 %exitcond210.not.i, label %._crit_edge.i80, label %.lr.ph152.split.us.i, !llvm.loop !99
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph152.split.us.i
   %606 = load ptr, ptr %594, align 8, !tbaa !100
-  %invariant.gep.us.i = getelementptr i16, ptr %606, i64 %indvars.iv205.i
+  %invariant.gep.us.i = getelementptr i16, ptr %606, i64 %indvars.iv206.i
   %607 = load ptr, ptr %596, align 8, !tbaa !100
-  %invariant.gep149.us.i = getelementptr i16, ptr %607, i64 %indvars.iv205.i
+  %invariant.gep149.us.i = getelementptr i16, ptr %607, i64 %indvars.iv206.i
   br label %600
 
 608:                                              ; preds = %588, %.lr.ph157.i
@@ -1741,8 +1741,8 @@ _ZL21write_combined_matrixiPKcN3gmx8ArrayRefI8t_matrixEES4_PKfS6_.exit: ; preds 
   br label %.body99
 
 .loopexit.i:                                      ; preds = %624, %.lr.ph152.split.i
-  %exitcond197.not.i = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count208.i
-  br i1 %exitcond197.not.i, label %._crit_edge.i80, label %.lr.ph152.split.i, !llvm.loop !101
+  %exitcond198.not.i = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count209.i
+  br i1 %exitcond198.not.i, label %._crit_edge.i80, label %.lr.ph152.split.i, !llvm.loop !101
 
 ._crit_edge.i80:                                  ; preds = %.loopexit.i, %.loopexit.us.i, %.preheader.i
   %620 = add nuw nsw i64 %.056156.i, 1
@@ -1763,17 +1763,17 @@ _ZL21write_combined_matrixiPKcN3gmx8ArrayRefI8t_matrixEES4_PKfS6_.exit: ; preds 
   br label %624
 
 624:                                              ; preds = %624, %.lr.ph.i95
-  %indvars.iv192.i = phi i64 [ %indvars.iv.i93, %.lr.ph.i95 ], [ %indvars.iv.next193.i, %624 ]
+  %indvars.iv193.i = phi i64 [ %indvars.iv.i93, %.lr.ph.i95 ], [ %indvars.iv.next194.i, %624 ]
   %625 = load i64, ptr %595, align 8
-  %626 = mul nsw i64 %625, %indvars.iv192.i
+  %626 = mul nsw i64 %625, %indvars.iv193.i
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %626
   %627 = load i16, ptr %gep.i, align 2, !tbaa !96
   %628 = load i64, ptr %597, align 8
-  %629 = mul nsw i64 %628, %indvars.iv192.i
+  %629 = mul nsw i64 %628, %indvars.iv193.i
   %gep150.i = getelementptr i16, ptr %invariant.gep149.i, i64 %629
   store i16 %627, ptr %gep150.i, align 2, !tbaa !96
-  %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
-  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count203.i
+  %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next194.i, %wide.trip.count204.i
   br i1 %exitcond.not.i96, label %.loopexit.i, label %624, !llvm.loop !98
 
 .loopexit142.i:                                   ; preds = %._crit_edge.i80, %581

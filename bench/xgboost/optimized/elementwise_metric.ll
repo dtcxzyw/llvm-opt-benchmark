@@ -5522,143 +5522,149 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 define linkonce_odr void @_ZNK7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE(ptr dead_on_unwind noalias writable sret(%"class.xgboost::linalg::TensorView.136") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 %2) local_unnamed_addr #12 comdat align 2 {
   %4 = and i32 %2, 65535
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %33
+  br i1 %5, label %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i.critedge, label %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i13.critedge
 
-6:                                                ; preds = %3
-  %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
-  %10 = load ptr, ptr %7, align 8, !tbaa !88
+_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i.critedge: ; preds = %3
+  %6 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !85
+  %9 = load ptr, ptr %6, align 8, !tbaa !88
+  %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
-  %12 = ptrtoint ptr %10 to i64
-  %13 = sub i64 %11, %12
-  %14 = ashr exact i64 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i8, ptr %16, align 8, !tbaa !295
+  %12 = sub i64 %10, %11
+  %13 = ashr exact i64 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load i8, ptr %15, align 8, !tbaa !295
   %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.ptr13.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %.ptr.i, align 8
-  store i64 %14, ptr %19, align 8, !tbaa !44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i, i8 0, i64 24, i1 false)
+  store i64 %13, ptr %18, align 8, !tbaa !44
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %.sroa.27.0..sroa_idx.i, align 8, !tbaa !89
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %10, ptr %20, align 8, !tbaa !296
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %21, align 8, !tbaa !299
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %2, ptr %22, align 8
-  %23 = load i64, ptr %15, align 8, !tbaa !44
-  store i64 %23, ptr %18, align 8, !tbaa !44
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !44
-  store i64 %25, ptr %.ptr13.i, align 8, !tbaa !44
-  switch i8 %17, label %28 [
+  store ptr %9, ptr %.sroa.27.0..sroa_idx.i, align 8, !tbaa !89
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %9, ptr %19, align 8, !tbaa !296
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %20, align 8, !tbaa !299
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %2, ptr %21, align 8
+  %22 = load i64, ptr %14, align 8, !tbaa !44
+  store i64 %22, ptr %17, align 8, !tbaa !44
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = load i64, ptr %23, align 8, !tbaa !44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %24, ptr %25, align 8, !tbaa !44
+  switch i8 %16, label %30 [
     i8 0, label %26
-    i8 1, label %27
+    i8 1, label %28
   ]
 
-26:                                               ; preds = %6
+26:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i.critedge
+  %.ptr13.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %.ptr.i, align 8, !tbaa !44
-  store i64 %25, ptr %0, align 8, !tbaa !44
-  br label %29
+  %27 = load i64, ptr %.ptr13.i, align 8, !tbaa !44
+  store i64 %27, ptr %0, align 8, !tbaa !44
+  br label %31
 
-27:                                               ; preds = %6
+28:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i.critedge
   store i64 1, ptr %0, align 8, !tbaa !44
-  store i64 %23, ptr %.ptr.i, align 8, !tbaa !44
-  br label %29
+  %29 = load i64, ptr %17, align 8, !tbaa !44
+  store i64 %29, ptr %.ptr.i, align 8, !tbaa !44
+  br label %31
 
-28:                                               ; preds = %6
+30:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i.critedge
   tail call void @_ZSt9terminatev() #39
   unreachable
 
-29:                                               ; preds = %27, %26
-  %30 = icmp eq ptr %9, %10
-  br i1 %30, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit, label %.preheader.i
+31:                                               ; preds = %28, %26
+  %32 = icmp eq ptr %8, %9
+  br i1 %32, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %29, %.preheader.i
-  %.011.i.i.i = phi i64 [ %32, %.preheader.i ], [ 1, %29 ]
-  %.09.idx10.i.i.i = phi i64 [ %.09.add.i.i.i, %.preheader.i ], [ 0, %29 ]
-  %.09.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.09.idx10.i.i.i
-  %31 = load i64, ptr %.09.ptr.i.i.i, align 8, !tbaa !44
-  %32 = mul i64 %31, %.011.i.i.i
+.preheader.i:                                     ; preds = %31, %.preheader.i
+  %.011.i.i.i = phi i64 [ %34, %.preheader.i ], [ 1, %31 ]
+  %.09.idx10.i.i.i = phi i64 [ %.09.add.i.i.i, %.preheader.i ], [ 0, %31 ]
+  %.09.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %.09.idx10.i.i.i
+  %33 = load i64, ptr %.09.ptr.i.i.i, align 8, !tbaa !44
+  %34 = mul i64 %33, %.011.i.i.i
   %.09.add.i.i.i = add nuw nsw i64 %.09.idx10.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.09.add.i.i.i, 16
   br i1 %.not.i.i.i, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit, label %.preheader.i
 
-_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit: ; preds = %.preheader.i, %29
-  %.lcssa.sink.i.i = phi i64 [ 0, %29 ], [ %32, %.preheader.i ]
-  store i64 %.lcssa.sink.i.i, ptr %21, align 8, !tbaa !299
-  br label %55
+_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit: ; preds = %.preheader.i, %31
+  %.lcssa.sink.i.i = phi i64 [ 0, %31 ], [ %34, %.preheader.i ]
+  store i64 %.lcssa.sink.i.i, ptr %20, align 8, !tbaa !299
+  br label %59
 
-33:                                               ; preds = %3
+_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i13.critedge: ; preds = %3
   tail call void @_ZNK7xgboost16HostDeviceVectorIfE9SetDeviceENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2)
-  %34 = tail call { i64, ptr } @_ZNK7xgboost16HostDeviceVectorIfE15ConstDeviceSpanEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %35 = extractvalue { i64, ptr } %34, 0
-  %36 = extractvalue { i64, ptr } %34, 1
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i8, ptr %38, align 8, !tbaa !295
+  %35 = tail call { i64, ptr } @_ZNK7xgboost16HostDeviceVectorIfE15ConstDeviceSpanEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %36 = extractvalue { i64, ptr } %35, 0
+  %37 = extractvalue { i64, ptr } %35, 1
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = load i8, ptr %39, align 8, !tbaa !295
   %.ptr.i9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.ptr13.i10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %.ptr.i9, align 8
-  store i64 %35, ptr %41, align 8, !tbaa !44
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i9, i8 0, i64 24, i1 false)
+  store i64 %36, ptr %42, align 8, !tbaa !44
   %.sroa.27.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %36, ptr %.sroa.27.0..sroa_idx.i11, align 8, !tbaa !89
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %36, ptr %42, align 8, !tbaa !296
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %43, align 8, !tbaa !299
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %2, ptr %44, align 8
-  %45 = load i64, ptr %37, align 8, !tbaa !44
-  store i64 %45, ptr %40, align 8, !tbaa !44
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !44
-  store i64 %47, ptr %.ptr13.i10, align 8, !tbaa !44
-  switch i8 %39, label %50 [
-    i8 0, label %48
-    i8 1, label %49
+  store ptr %37, ptr %.sroa.27.0..sroa_idx.i11, align 8, !tbaa !89
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %37, ptr %43, align 8, !tbaa !296
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %44, align 8, !tbaa !299
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %2, ptr %45, align 8
+  %46 = load i64, ptr %38, align 8, !tbaa !44
+  store i64 %46, ptr %41, align 8, !tbaa !44
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load i64, ptr %47, align 8, !tbaa !44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %48, ptr %49, align 8, !tbaa !44
+  switch i8 %40, label %54 [
+    i8 0, label %50
+    i8 1, label %52
   ]
 
-48:                                               ; preds = %33
+50:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i13.critedge
+  %.ptr13.i10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %.ptr.i9, align 8, !tbaa !44
-  store i64 %47, ptr %0, align 8, !tbaa !44
-  br label %51
+  %51 = load i64, ptr %.ptr13.i10, align 8, !tbaa !44
+  store i64 %51, ptr %0, align 8, !tbaa !44
+  br label %55
 
-49:                                               ; preds = %33
+52:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i13.critedge
   store i64 1, ptr %0, align 8, !tbaa !44
-  store i64 %45, ptr %.ptr.i9, align 8, !tbaa !44
-  br label %51
+  %53 = load i64, ptr %41, align 8, !tbaa !44
+  store i64 %53, ptr %.ptr.i9, align 8, !tbaa !44
+  br label %55
 
-50:                                               ; preds = %33
+54:                                               ; preds = %_ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIKfLi2EEC1ImLi2EEENS_6common4SpanIS4_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderEEUlSA_E_EEDaT0_.exit.i13.critedge
   tail call void @_ZSt9terminatev() #39
   unreachable
 
-51:                                               ; preds = %49, %48
-  %52 = icmp eq i64 %35, 0
-  br i1 %52, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit19, label %.preheader.i12
+55:                                               ; preds = %52, %50
+  %56 = icmp eq i64 %36, 0
+  br i1 %56, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit21, label %.preheader.i14
 
-.preheader.i12:                                   ; preds = %51, %.preheader.i12
-  %.011.i.i.i13 = phi i64 [ %54, %.preheader.i12 ], [ 1, %51 ]
-  %.09.idx10.i.i.i14 = phi i64 [ %.09.add.i.i.i16, %.preheader.i12 ], [ 0, %51 ]
-  %.09.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %40, i64 %.09.idx10.i.i.i14
-  %53 = load i64, ptr %.09.ptr.i.i.i15, align 8, !tbaa !44
-  %54 = mul i64 %53, %.011.i.i.i13
-  %.09.add.i.i.i16 = add nuw nsw i64 %.09.idx10.i.i.i14, 8
-  %.not.i.i.i17 = icmp eq i64 %.09.add.i.i.i16, 16
-  br i1 %.not.i.i.i17, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit19, label %.preheader.i12
+.preheader.i14:                                   ; preds = %55, %.preheader.i14
+  %.011.i.i.i15 = phi i64 [ %58, %.preheader.i14 ], [ 1, %55 ]
+  %.09.idx10.i.i.i16 = phi i64 [ %.09.add.i.i.i18, %.preheader.i14 ], [ 0, %55 ]
+  %.09.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %41, i64 %.09.idx10.i.i.i16
+  %57 = load i64, ptr %.09.ptr.i.i.i17, align 8, !tbaa !44
+  %58 = mul i64 %57, %.011.i.i.i15
+  %.09.add.i.i.i18 = add nuw nsw i64 %.09.idx10.i.i.i16, 8
+  %.not.i.i.i19 = icmp eq i64 %.09.add.i.i.i18, 16
+  br i1 %.not.i.i.i19, label %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit21, label %.preheader.i14
 
-_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit19: ; preds = %.preheader.i12, %51
-  %.lcssa.sink.i.i18 = phi i64 [ 0, %51 ], [ %54, %.preheader.i12 ]
-  store i64 %.lcssa.sink.i.i18, ptr %43, align 8, !tbaa !299
-  br label %55
+_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit21: ; preds = %.preheader.i14, %55
+  %.lcssa.sink.i.i20 = phi i64 [ 0, %55 ], [ %58, %.preheader.i14 ]
+  store i64 %.lcssa.sink.i.i20, ptr %44, align 8, !tbaa !299
+  br label %59
 
-55:                                               ; preds = %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit19, %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit
+59:                                               ; preds = %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit21, %_ZN7xgboost6linalg10TensorViewIKfLi2EEC2ImLi2EEENS_6common4SpanIS2_Lm18446744073709551615EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exit
   ret void
 }
 

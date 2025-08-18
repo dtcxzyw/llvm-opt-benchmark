@@ -6207,7 +6207,7 @@ define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains6PS5CPU11buildLi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains10PS4PS5Base22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(5080) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
   %1 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #16
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -6221,7 +6221,7 @@ declare { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains6PS5CPU22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(5080) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.i.preheader.critedge:
   %1 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(5080) %0) #16
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1

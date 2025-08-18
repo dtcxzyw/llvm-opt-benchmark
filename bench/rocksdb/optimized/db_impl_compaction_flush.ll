@@ -30804,43 +30804,43 @@ define void @_ZN7rocksdb6DBImpl33WaitUntilFlushWouldNotStallWritesEPNS_16ColumnF
   %7 = load ptr, ptr %6, align 8, !tbaa !422
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %9 = load i64, ptr %8, align 8, !tbaa !547
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 61
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2624
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2456
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 2464
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1792
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1608
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1928
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1536
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2160
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2032
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2034
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2168
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2170
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2840
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2160
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2032
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2034
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2168
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2170
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 928
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2840
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 61
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2624
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 2456
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2464
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1792
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1608
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1928
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1536
   br label %61
 
 27:                                               ; preds = %120
-  %28 = load ptr, ptr %19, align 16, !tbaa !646
+  %28 = load ptr, ptr %10, align 16, !tbaa !646
   invoke void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %28)
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %27
-  %29 = load i8, ptr %20, align 16, !tbaa !26
+  %29 = load i8, ptr %11, align 16, !tbaa !26
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %_ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47, label %31
 
 31:                                               ; preds = %.noexc
-  %32 = load i8, ptr %21, align 2, !tbaa !39
+  %32 = load i8, ptr %12, align 2, !tbaa !39
   %33 = icmp ult i8 %32, 2
-  %34 = load i8, ptr %22, align 8, !range !41
+  %34 = load i8, ptr %13, align 8, !range !41
   %35 = trunc nuw i8 %34 to i1
   %or.cond.i = select i1 %33, i1 %35, i1 false
   %or.cond.i.not = xor i1 %or.cond.i, true
-  %36 = load i8, ptr %23, align 2, !range !41
+  %36 = load i8, ptr %14, align 2, !range !41
   %37 = trunc nuw i8 %36 to i1
   %or.cond = select i1 %or.cond.i.not, i1 true, i1 %37
   br i1 %or.cond, label %_ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread, label %_ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47
@@ -30900,16 +30900,16 @@ _ZNK7rocksdb12ErrorHandler10GetBGErrorEv.exit:    ; preds = %_ZN7rocksdb12ErrorH
   br label %.body
 
 _ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47: ; preds = %31, %.noexc
-  %59 = load ptr, ptr %25, align 8, !tbaa !11
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 93), ptr noundef %59)
+  %59 = load ptr, ptr %16, align 8, !tbaa !11
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 93), ptr noundef %59)
           to label %60 unwind label %57
 
 60:                                               ; preds = %_ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47
-  invoke void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %26)
+  invoke void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %17)
           to label %61 unwind label %57
 
 61:                                               ; preds = %.critedge, %60
-  %62 = load atomic i8, ptr %10 monotonic, align 1
+  %62 = load atomic i8, ptr %18 monotonic, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %68
 
@@ -30924,7 +30924,7 @@ _ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47: ; preds = %31, %.noe
   br label %.loopexit
 
 68:                                               ; preds = %61
-  %69 = load atomic i8, ptr %11 acquire, align 64
+  %69 = load atomic i8, ptr %19 acquire, align 64
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %75
 
@@ -30942,7 +30942,7 @@ _ZN7rocksdb12ErrorHandler15IsBGWorkStoppedEv.exit.thread47: ; preds = %31, %.noe
   %76 = load ptr, ptr %6, align 8, !tbaa !422
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 536
   %78 = load i64, ptr %77, align 8, !tbaa !547
-  %79 = load ptr, ptr %13, align 8, !tbaa !543
+  %79 = load ptr, ptr %21, align 8, !tbaa !543
   %80 = load ptr, ptr %79, align 8, !tbaa !544
   %81 = icmp eq ptr %80, %79
   br i1 %81, label %_ZNK7rocksdb12MemTableList21GetEarliestMemTableIDEv.exit, label %82
@@ -30970,19 +30970,19 @@ _ZNK7rocksdb12MemTableList21GetEarliestMemTableIDEv.exit: ; preds = %75, %82
   br label %.loopexit
 
 92:                                               ; preds = %_ZNK7rocksdb12MemTableList21GetEarliestMemTableIDEv.exit
-  %93 = load ptr, ptr %15, align 8, !tbaa !691
-  %94 = invoke noundef i32 @_ZNK7rocksdb12MemTableList13NumNotFlushedEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %93 = load ptr, ptr %23, align 8, !tbaa !691
+  %94 = invoke noundef i32 @_ZNK7rocksdb12MemTableList13NumNotFlushedEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
           to label %95 unwind label %103
 
 95:                                               ; preds = %92
-  %96 = load i32, ptr %16, align 8, !tbaa !1812
+  %96 = load i32, ptr %24, align 8, !tbaa !1812
   %97 = icmp slt i32 %94, %96
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 4016
   %100 = load i32, ptr %99, align 16, !tbaa !1813
-  %101 = load i32, ptr %17, align 8, !tbaa !1814
+  %101 = load i32, ptr %25, align 8, !tbaa !1814
   %102 = icmp slt i32 %100, %101
   br i1 %102, label %.loopexit, label %105
 
@@ -30995,7 +30995,7 @@ _ZNK7rocksdb12MemTableList21GetEarliestMemTableIDEv.exit: ; preds = %75, %82
   %106 = load ptr, ptr %6, align 8, !tbaa !422
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 3264
   %108 = load atomic i64, ptr %107 seq_cst, align 8
-  %109 = invoke noundef i32 @_ZNK7rocksdb12MemTableList13NumNotFlushedEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %109 = invoke noundef i32 @_ZNK7rocksdb12MemTableList13NumNotFlushedEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
           to label %110 unwind label %127
 
 110:                                              ; preds = %105
@@ -31007,7 +31007,7 @@ _ZNK7rocksdb12MemTableList21GetEarliestMemTableIDEv.exit: ; preds = %75, %82
   %116 = add nsw i32 %115, 1
   %117 = getelementptr inbounds nuw i8, ptr %93, i64 4112
   %118 = load i64, ptr %117, align 16, !tbaa !1815
-  %119 = invoke i64 @_ZN7rocksdb16ColumnFamilyData30GetWriteStallConditionAndCauseEiimRKNS_16MutableCFOptionsERKNS_18ImmutableCFOptionsE(i32 noundef %113, i32 noundef %116, i64 noundef %118, ptr noundef nonnull align 8 dereferenceable(608) %14, ptr noundef nonnull align 8 dereferenceable(249) %18)
+  %119 = invoke i64 @_ZN7rocksdb16ColumnFamilyData30GetWriteStallConditionAndCauseEiimRKNS_16MutableCFOptionsERKNS_18ImmutableCFOptionsE(i32 noundef %113, i32 noundef %116, i64 noundef %118, ptr noundef nonnull align 8 dereferenceable(608) %22, ptr noundef nonnull align 8 dereferenceable(249) %26)
           to label %120 unwind label %127
 
 120:                                              ; preds = %110

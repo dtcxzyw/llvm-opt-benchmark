@@ -379,7 +379,7 @@ tablesample_init.exit:                            ; preds = %82, %100
   %123 = trunc nuw i8 %.pre.i to i1
   br i1 %123, label %140, label %124
 
-124:                                              ; preds = %.critedge.i4, %.preheader.i
+124:                                              ; preds = %.critedge, %.preheader.i
   %125 = load i32, ptr @CheckXidAlive, align 4
   %126 = icmp eq i32 %125, 0
   %127 = load i8, ptr @bsysscan, align 1, !range !4
@@ -434,9 +434,9 @@ table_scan_sample_next_tuple.exit.i:              ; preds = %140
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 360
   %152 = load ptr, ptr %151, align 8
   %153 = call zeroext i1 %152(ptr noundef nonnull %112, ptr noundef nonnull %0, ptr noundef %114) #6
-  br i1 %153, label %154, label %.critedge.i4
+  br i1 %153, label %154, label %.critedge
 
-.critedge.i4:                                     ; preds = %table_scan_sample_next_tuple.exit.i
+.critedge:                                        ; preds = %table_scan_sample_next_tuple.exit.i
   store i8 0, ptr %122, align 8
   br label %124
 

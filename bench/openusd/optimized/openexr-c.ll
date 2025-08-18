@@ -26057,9 +26057,9 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %.0623, i64 64
   %13 = add nsw i64 %.0622, -64
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %.preheader731, label %8, !llvm.loop !160
+  br i1 %.not, label %.preheader729, label %8, !llvm.loop !160
 
-.preheader731:                                    ; preds = %8
+.preheader729:                                    ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 %2
   %. = tail call i32 @llvm.umin.i32(i32 %6, i32 258)
   %15 = ptrtoint ptr %14 to i64
@@ -26073,12 +26073,12 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2552
   br label %23
 
-23:                                               ; preds = %.preheader731, %.loopexit729
-  %.0652 = phi i32 [ %.2654, %.loopexit729 ], [ 0, %.preheader731 ]
-  %.0647 = phi ptr [ %.2649, %.loopexit729 ], [ %1, %.preheader731 ]
-  %.0598 = phi ptr [ %.3601, %.loopexit729 ], [ %1, %.preheader731 ]
-  %.0593 = phi i32 [ %.4, %.loopexit729 ], [ 258, %.preheader731 ]
-  %.0592 = phi i32 [ %.3, %.loopexit729 ], [ %., %.preheader731 ]
+23:                                               ; preds = %.preheader729, %.loopexit727
+  %.0652 = phi i32 [ %.2654, %.loopexit727 ], [ 0, %.preheader729 ]
+  %.0647 = phi ptr [ %.2649, %.loopexit727 ], [ %1, %.preheader729 ]
+  %.0598 = phi ptr [ %.3601, %.loopexit727 ], [ %1, %.preheader729 ]
+  %.0593 = phi i32 [ %.4, %.loopexit727 ], [ 258, %.preheader729 ]
+  %.0592 = phi i32 [ %.3, %.loopexit727 ], [ %., %.preheader729 ]
   %24 = ptrtoint ptr %.0598 to i64
   %25 = sub i64 %15, %24
   %26 = icmp ult i64 %25, 70535
@@ -26088,13 +26088,13 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   store i32 0, ptr %.ptr713, align 4
   br label %28
 
-28:                                               ; preds = %310, %23
-  %.1653 = phi i32 [ %.0652, %23 ], [ %.4656, %310 ]
-  %.1648 = phi ptr [ %.0647, %23 ], [ %.6, %310 ]
-  %.0645.idx = phi i64 [ 137152, %23 ], [ %.1646.idx, %310 ]
-  %.1599 = phi ptr [ %.0598, %23 ], [ %.4602, %310 ]
-  %.1594 = phi i32 [ %.0593, %23 ], [ %.2595, %310 ]
-  %.1 = phi i32 [ %.0592, %23 ], [ %.2, %310 ]
+28:                                               ; preds = %311, %23
+  %.1653 = phi i32 [ %.0652, %23 ], [ %.4656, %311 ]
+  %.1648 = phi ptr [ %.0647, %23 ], [ %.6, %311 ]
+  %.0645.idx = phi i64 [ 137152, %23 ], [ %.1646.idx, %311 ]
+  %.1599 = phi ptr [ %.0598, %23 ], [ %.4602, %311 ]
+  %.1594 = phi i32 [ %.0593, %23 ], [ %.2595, %311 ]
+  %.1 = phi i32 [ %.0592, %23 ], [ %.2, %311 ]
   %.0645.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0645.idx
   %29 = ptrtoint ptr %.1599 to i64
   %30 = sub i64 %15, %29
@@ -26104,11 +26104,11 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 32:                                               ; preds = %28
   %33 = trunc nuw nsw i64 %30 to i32
   %34 = icmp samesign ult i64 %30, 5
-  br i1 %34, label %.preheader728, label %44
+  br i1 %34, label %.preheader726, label %44
 
-.preheader728:                                    ; preds = %32, %.preheader728
-  %.2600 = phi ptr [ %40, %.preheader728 ], [ %.1599, %32 ]
-  %.3596 = phi i32 [ %43, %.preheader728 ], [ %33, %32 ]
+.preheader726:                                    ; preds = %32, %.preheader726
+  %.2600 = phi ptr [ %40, %.preheader726 ], [ %.1599, %32 ]
+  %.3596 = phi i32 [ %43, %.preheader726 ], [ %33, %32 ]
   %35 = load i8, ptr %.2600, align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [288 x i32], ptr %16, i64 0, i64 %36
@@ -26121,7 +26121,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   store i32 %42, ptr %.0645.ptr, align 4
   %43 = add i32 %.3596, -1
   %.not714 = icmp eq i32 %43, 0
-  br i1 %.not714, label %.loopexit729, label %.preheader728, !llvm.loop !161
+  br i1 %.not714, label %.loopexit727, label %.preheader726, !llvm.loop !161
 
 44:                                               ; preds = %32
   %45 = tail call i32 @llvm.umin.i32(i32 %.1, i32 %33)
@@ -26135,11 +26135,11 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %49 = trunc i64 %48 to i32
   %50 = and i64 %48, 4294967295
   %51 = icmp eq i64 %50, 32768
-  br i1 %51, label %.preheader727, label %67
+  br i1 %51, label %.preheader725, label %67
 
-.preheader727:                                    ; preds = %46, %.preheader727
-  %.0597 = phi ptr [ %63, %.preheader727 ], [ %7, %46 ]
-  %.0591 = phi i64 [ %64, %.preheader727 ], [ 131072, %46 ]
+.preheader725:                                    ; preds = %46, %.preheader725
+  %.0597 = phi ptr [ %63, %.preheader725 ], [ %7, %46 ]
+  %.0591 = phi i64 [ %64, %.preheader725 ], [ 131072, %46 ]
   %52 = load <8 x i16>, ptr %.0597, align 16
   %53 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> splat (i16 -32768))
   store <8 x i16> %53, ptr %.0597, align 16
@@ -26158,9 +26158,9 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %.0597, i64 64
   %64 = add nsw i64 %.0591, -64
   %.not686 = icmp eq i64 %64, 0
-  br i1 %.not686, label %65, label %.preheader727, !llvm.loop !162
+  br i1 %.not686, label %65, label %.preheader725, !llvm.loop !162
 
-65:                                               ; preds = %.preheader727
+65:                                               ; preds = %.preheader725
   %66 = getelementptr inbounds nuw i8, ptr %.1648, i64 32768
   br label %67
 
@@ -26200,7 +26200,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 86:                                               ; preds = %80
   %87 = add i32 %.2595, -36
   %88 = icmp ult i32 %87, -32
-  br i1 %88, label %89, label %.preheader814
+  br i1 %88, label %89, label %.preheader812
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -26236,26 +26236,26 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.0.copyload516 = load i64, ptr %103, align 1
   %104 = xor i64 %.0.copyload516, %.0.copyload519
   %.not698 = icmp eq i64 %.0.copyload519, %.0.copyload516
-  br i1 %.not698, label %.preheader814, label %122
+  br i1 %.not698, label %.preheader812, label %122
 
-.preheader814:                                    ; preds = %101, %86
+.preheader812:                                    ; preds = %101, %86
   %.2612.ph = phi i32 [ 36, %101 ], [ 4, %86 ]
   br label %105
 
-105:                                              ; preds = %.preheader814, %110
-  %.2612 = phi i32 [ %106, %110 ], [ %.2612.ph, %.preheader814 ]
+105:                                              ; preds = %.preheader812, %110
+  %.2612 = phi i32 [ %106, %110 ], [ %.2612.ph, %.preheader812 ]
   %106 = add i32 %.2612, 8
   %.not699 = icmp ugt i32 %106, %.2595
-  br i1 %.not699, label %.preheader723, label %110
+  br i1 %.not699, label %.preheader721, label %110
 
-.preheader723:                                    ; preds = %105
+.preheader721:                                    ; preds = %105
   %107 = icmp ult i32 %.2612, %.2595
-  br i1 %107, label %.lr.ph749.preheader, label %.critedge
+  br i1 %107, label %.lr.ph747.preheader, label %.critedge
 
-.lr.ph749.preheader:                              ; preds = %.preheader723
+.lr.ph747.preheader:                              ; preds = %.preheader721
   %108 = zext i32 %.2612 to i64
   %109 = zext i32 %.2595 to i64
-  br label %.lr.ph749
+  br label %.lr.ph747
 
 110:                                              ; preds = %105
   %111 = zext i32 %.2612 to i64
@@ -26264,41 +26264,41 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %113 = getelementptr inbounds nuw i8, ptr %.1599, i64 %111
   %.0.copyload540 = load i64, ptr %113, align 1
   %.not700 = icmp eq i64 %.0.copyload543, %.0.copyload540
-  br i1 %.not700, label %105, label %.loopexit724, !llvm.loop !163
+  br i1 %.not700, label %105, label %.loopexit722, !llvm.loop !163
 
-.lr.ph749:                                        ; preds = %.lr.ph749.preheader, %119
-  %indvars.iv774 = phi i64 [ %108, %.lr.ph749.preheader ], [ %indvars.iv.next775, %119 ]
-  %114 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv774
+.lr.ph747:                                        ; preds = %.lr.ph747.preheader, %119
+  %indvars.iv772 = phi i64 [ %108, %.lr.ph747.preheader ], [ %indvars.iv.next773, %119 ]
+  %114 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv772
   %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %.1599, i64 %indvars.iv774
+  %116 = getelementptr inbounds nuw i8, ptr %.1599, i64 %indvars.iv772
   %117 = load i8, ptr %116, align 1
   %118 = icmp eq i8 %115, %117
   br i1 %118, label %119, label %.critedge.loopexit.split.loop.exit
 
-119:                                              ; preds = %.lr.ph749
-  %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
-  %120 = icmp samesign ult i64 %indvars.iv.next775, %109
-  br i1 %120, label %.lr.ph749, label %.critedge, !llvm.loop !164
+119:                                              ; preds = %.lr.ph747
+  %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
+  %120 = icmp samesign ult i64 %indvars.iv.next773, %109
+  br i1 %120, label %.lr.ph747, label %.critedge, !llvm.loop !164
 
-.loopexit724:                                     ; preds = %110
+.loopexit722:                                     ; preds = %110
   %121 = xor i64 %.0.copyload540, %.0.copyload543
   br label %122
 
-122:                                              ; preds = %.loopexit724, %101, %97, %93, %89
-  %.0614 = phi i64 [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %121, %.loopexit724 ]
-  %.1611 = phi i32 [ 4, %89 ], [ 12, %93 ], [ 20, %97 ], [ 28, %101 ], [ %.2612, %.loopexit724 ]
+122:                                              ; preds = %.loopexit722, %101, %97, %93, %89
+  %.0614 = phi i64 [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %121, %.loopexit722 ]
+  %.1611 = phi i32 [ 4, %89 ], [ 12, %93 ], [ 20, %97 ], [ 28, %101 ], [ %.2612, %.loopexit722 ]
   %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0614, i1 true)
   %124 = trunc nuw nsw i64 %123 to i32
   %125 = lshr i32 %124, 3
   %126 = add i32 %125, %.1611
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph749
-  %127 = trunc nuw i64 %indvars.iv774 to i32
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph747
+  %127 = trunc nuw i64 %indvars.iv772 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %119, %.critedge.loopexit.split.loop.exit, %.preheader723, %122
-  %.0609 = phi i32 [ %126, %122 ], [ %.2612, %.preheader723 ], [ %127, %.critedge.loopexit.split.loop.exit ], [ %.2595, %119 ]
+.critedge:                                        ; preds = %119, %.critedge.loopexit.split.loop.exit, %.preheader721, %122
+  %.0609 = phi i32 [ %126, %122 ], [ %.2612, %.preheader721 ], [ %127, %.critedge.loopexit.split.loop.exit ], [ %.2595, %119 ]
   %128 = sext i16 %84 to i32
   %.not701 = icmp slt i32 %79, %128
   %.not702 = icmp ult i32 %.0609, %.2
@@ -26324,7 +26324,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   br i1 %139, label %140, label %.critedge4
 
 140:                                              ; preds = %133
-  br i1 %88, label %141, label %.preheader813
+  br i1 %88, label %141, label %.preheader811
 
 141:                                              ; preds = %140
   %142 = getelementptr inbounds nuw i8, ptr %131, i64 4
@@ -26360,26 +26360,26 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.0.copyload546 = load i64, ptr %155, align 1
   %156 = xor i64 %.0.copyload546, %.0.copyload549
   %.not706 = icmp eq i64 %.0.copyload549, %.0.copyload546
-  br i1 %.not706, label %.preheader813, label %174
+  br i1 %.not706, label %.preheader811, label %174
 
-.preheader813:                                    ; preds = %153, %140
+.preheader811:                                    ; preds = %153, %140
   %.2618.ph = phi i32 [ 36, %153 ], [ 4, %140 ]
   br label %157
 
-157:                                              ; preds = %.preheader813, %162
-  %.2618 = phi i32 [ %158, %162 ], [ %.2618.ph, %.preheader813 ]
+157:                                              ; preds = %.preheader811, %162
+  %.2618 = phi i32 [ %158, %162 ], [ %.2618.ph, %.preheader811 ]
   %158 = add i32 %.2618, 8
   %.not707 = icmp ugt i32 %158, %.2595
-  br i1 %.not707, label %.preheader722, label %162
+  br i1 %.not707, label %.preheader720, label %162
 
-.preheader722:                                    ; preds = %157
+.preheader720:                                    ; preds = %157
   %159 = icmp ult i32 %.2618, %.2595
-  br i1 %159, label %.lr.ph754.preheader, label %.critedge2
+  br i1 %159, label %.lr.ph752.preheader, label %.critedge2
 
-.lr.ph754.preheader:                              ; preds = %.preheader722
+.lr.ph752.preheader:                              ; preds = %.preheader720
   %160 = zext i32 %.2618 to i64
   %161 = zext i32 %.2595 to i64
-  br label %.lr.ph754
+  br label %.lr.ph752
 
 162:                                              ; preds = %157
   %163 = zext i32 %.2618 to i64
@@ -26390,19 +26390,19 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.not708 = icmp eq i64 %.0.copyload573, %.0.copyload570
   br i1 %.not708, label %157, label %.loopexit, !llvm.loop !163
 
-.lr.ph754:                                        ; preds = %.lr.ph754.preheader, %171
-  %indvars.iv779 = phi i64 [ %160, %.lr.ph754.preheader ], [ %indvars.iv.next780, %171 ]
-  %166 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv779
+.lr.ph752:                                        ; preds = %.lr.ph752.preheader, %171
+  %indvars.iv777 = phi i64 [ %160, %.lr.ph752.preheader ], [ %indvars.iv.next778, %171 ]
+  %166 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv777
   %167 = load i8, ptr %166, align 1
-  %168 = getelementptr inbounds nuw i8, ptr %.1599, i64 %indvars.iv779
+  %168 = getelementptr inbounds nuw i8, ptr %.1599, i64 %indvars.iv777
   %169 = load i8, ptr %168, align 1
   %170 = icmp eq i8 %167, %169
   br i1 %170, label %171, label %.critedge2.loopexit.split.loop.exit
 
-171:                                              ; preds = %.lr.ph754
-  %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
-  %172 = icmp samesign ult i64 %indvars.iv.next780, %161
-  br i1 %172, label %.lr.ph754, label %.critedge2, !llvm.loop !164
+171:                                              ; preds = %.lr.ph752
+  %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
+  %172 = icmp samesign ult i64 %indvars.iv.next778, %161
+  br i1 %172, label %.lr.ph752, label %.critedge2, !llvm.loop !164
 
 .loopexit:                                        ; preds = %162
   %173 = xor i64 %.0.copyload570, %.0.copyload573
@@ -26417,12 +26417,12 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %178 = add i32 %177, %.1617
   br label %.critedge2
 
-.critedge2.loopexit.split.loop.exit:              ; preds = %.lr.ph754
-  %179 = trunc nuw i64 %indvars.iv779 to i32
+.critedge2.loopexit.split.loop.exit:              ; preds = %.lr.ph752
+  %179 = trunc nuw i64 %indvars.iv777 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %171, %.critedge2.loopexit.split.loop.exit, %.preheader722, %174
-  %.0615 = phi i32 [ %178, %174 ], [ %.2618, %.preheader722 ], [ %179, %.critedge2.loopexit.split.loop.exit ], [ %.2595, %171 ]
+.critedge2:                                       ; preds = %171, %.critedge2.loopexit.split.loop.exit, %.preheader720, %174
+  %.0615 = phi i32 [ %178, %174 ], [ %.2618, %.preheader720 ], [ %179, %.critedge2.loopexit.split.loop.exit ], [ %.2595, %171 ]
   %180 = icmp ugt i32 %.0615, %.0609
   %spec.select = select i1 %180, ptr %131, ptr %82
   %spec.select716 = tail call i32 @llvm.umax.i32(i32 %.0615, i32 %.0609)
@@ -26443,7 +26443,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 187:                                              ; preds = %183
   %188 = add i32 %.2595, -36
   %189 = icmp ult i32 %188, -32
-  br i1 %189, label %190, label %.preheader815
+  br i1 %189, label %190, label %.preheader813
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 4
@@ -26479,23 +26479,23 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.0.copyload486 = load i64, ptr %204, align 1
   %205 = xor i64 %.0.copyload486, %.0.copyload489
   %.not692 = icmp eq i64 %.0.copyload489, %.0.copyload486
-  br i1 %.not692, label %.preheader815, label %223
+  br i1 %.not692, label %.preheader813, label %223
 
-.preheader815:                                    ; preds = %202, %187
+.preheader813:                                    ; preds = %202, %187
   %.2606.ph = phi i32 [ 36, %202 ], [ 4, %187 ]
   br label %206
 
-206:                                              ; preds = %.preheader815, %211
-  %.2606 = phi i32 [ %207, %211 ], [ %.2606.ph, %.preheader815 ]
+206:                                              ; preds = %.preheader813, %211
+  %.2606 = phi i32 [ %207, %211 ], [ %.2606.ph, %.preheader813 ]
   %207 = add i32 %.2606, 8
   %.not693 = icmp ugt i32 %207, %.2595
-  br i1 %.not693, label %.preheader725, label %211
+  br i1 %.not693, label %.preheader723, label %211
 
-.preheader725:                                    ; preds = %206
+.preheader723:                                    ; preds = %206
   %208 = icmp ult i32 %.2606, %.2595
   br i1 %208, label %.lr.ph.preheader, label %.critedge4
 
-.lr.ph.preheader:                                 ; preds = %.preheader725
+.lr.ph.preheader:                                 ; preds = %.preheader723
   %209 = zext i32 %.2606 to i64
   %210 = zext i32 %.2595 to i64
   br label %.lr.ph
@@ -26507,7 +26507,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %214 = getelementptr inbounds nuw i8, ptr %.1599, i64 %212
   %.0.copyload510 = load i64, ptr %214, align 1
   %.not694 = icmp eq i64 %.0.copyload513, %.0.copyload510
-  br i1 %.not694, label %206, label %.loopexit726, !llvm.loop !163
+  br i1 %.not694, label %206, label %.loopexit724, !llvm.loop !163
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %220
   %indvars.iv = phi i64 [ %209, %.lr.ph.preheader ], [ %indvars.iv.next, %220 ]
@@ -26516,33 +26516,33 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %217 = getelementptr inbounds nuw i8, ptr %.1599, i64 %indvars.iv
   %218 = load i8, ptr %217, align 1
   %219 = icmp eq i8 %216, %218
-  br i1 %219, label %220, label %.critedge4.loopexit.split.loop.exit793
+  br i1 %219, label %220, label %.critedge4.loopexit.split.loop.exit791
 
 220:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %221 = icmp samesign ult i64 %indvars.iv.next, %210
   br i1 %221, label %.lr.ph, label %.critedge4, !llvm.loop !164
 
-.loopexit726:                                     ; preds = %211
+.loopexit724:                                     ; preds = %211
   %222 = xor i64 %.0.copyload510, %.0.copyload513
   br label %223
 
-223:                                              ; preds = %.loopexit726, %202, %198, %194, %190
-  %.0608 = phi i64 [ %193, %190 ], [ %197, %194 ], [ %201, %198 ], [ %205, %202 ], [ %222, %.loopexit726 ]
-  %.1605 = phi i32 [ 4, %190 ], [ 12, %194 ], [ 20, %198 ], [ 28, %202 ], [ %.2606, %.loopexit726 ]
+223:                                              ; preds = %.loopexit724, %202, %198, %194, %190
+  %.0608 = phi i64 [ %193, %190 ], [ %197, %194 ], [ %201, %198 ], [ %205, %202 ], [ %222, %.loopexit724 ]
+  %.1605 = phi i32 [ 4, %190 ], [ 12, %194 ], [ 20, %198 ], [ 28, %202 ], [ %.2606, %.loopexit724 ]
   %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0608, i1 true)
   %225 = trunc nuw nsw i64 %224 to i32
   %226 = lshr i32 %225, 3
   %227 = add i32 %226, %.1605
   br label %.critedge4
 
-.critedge4.loopexit.split.loop.exit793:           ; preds = %.lr.ph
+.critedge4.loopexit.split.loop.exit791:           ; preds = %.lr.ph
   %228 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %220, %.critedge4.loopexit.split.loop.exit793, %.preheader725, %.critedge2, %223, %133, %129, %.critedge
-  %.0631 = phi ptr [ %82, %.critedge ], [ %82, %133 ], [ %82, %129 ], [ %spec.select, %.critedge2 ], [ %185, %223 ], [ %185, %.preheader725 ], [ %185, %.critedge4.loopexit.split.loop.exit793 ], [ %185, %220 ]
-  %.0630 = phi i32 [ %.0609, %.critedge ], [ %.0609, %133 ], [ %.0609, %129 ], [ %spec.select716, %.critedge2 ], [ %227, %223 ], [ %.2606, %.preheader725 ], [ %228, %.critedge4.loopexit.split.loop.exit793 ], [ %.2595, %220 ]
+.critedge4:                                       ; preds = %220, %.critedge4.loopexit.split.loop.exit791, %.preheader723, %.critedge2, %223, %133, %129, %.critedge
+  %.0631 = phi ptr [ %82, %.critedge ], [ %82, %133 ], [ %82, %129 ], [ %spec.select, %.critedge2 ], [ %185, %223 ], [ %185, %.preheader723 ], [ %185, %.critedge4.loopexit.split.loop.exit791 ], [ %185, %220 ]
+  %.0630 = phi i32 [ %.0609, %.critedge ], [ %.0609, %133 ], [ %.0609, %129 ], [ %spec.select716, %.critedge2 ], [ %227, %223 ], [ %.2606, %.preheader723 ], [ %228, %.critedge4.loopexit.split.loop.exit791 ], [ %.2595, %220 ]
   %.not709 = icmp eq i32 %.0630, 0
   br i1 %.not709, label %.critedge4.thread, label %229
 
@@ -26592,7 +26592,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %261 = zext i32 %260 to i64
   %262 = sub i64 %15, %259
   %263 = icmp slt i64 %262, %261
-  br i1 %263, label %301, label %264
+  br i1 %263, label %302, label %264
 
 264:                                              ; preds = %229
   %265 = ptrtoint ptr %.3650 to i64
@@ -26634,82 +26634,82 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 287:                                              ; preds = %284, %264
   %.5 = phi ptr [ %285, %284 ], [ %.3650, %264 ]
   %.0625 = phi i32 [ %286, %284 ], [ %267, %264 ]
-  br label %.critedge718
+  br label %288
 
-.critedge718:                                     ; preds = %.critedge718, %287
-  %.0628 = phi i32 [ %258, %287 ], [ %297, %.critedge718 ]
-  %.0627 = phi i32 [ %70, %287 ], [ %295, %.critedge718 ]
-  %.1626 = phi i32 [ %.0625, %287 ], [ %296, %.critedge718 ]
-  %.0624 = phi ptr [ %68, %287 ], [ %293, %.critedge718 ]
-  %288 = zext nneg i32 %.0627 to i64
-  %289 = getelementptr inbounds nuw [32768 x [2 x i16]], ptr %7, i64 0, i64 %288
-  %290 = load i16, ptr %289, align 2
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 2
-  store i16 %290, ptr %291, align 2
-  %292 = trunc i32 %.1626 to i16
-  store i16 %292, ptr %289, align 4
-  %293 = getelementptr inbounds nuw i8, ptr %.0624, i64 1
-  %.0.copyload242 = load i32, ptr %293, align 1
-  %294 = mul i32 %.0.copyload242, 506832829
-  %295 = lshr i32 %294, 17
-  %296 = add nsw i32 %.1626, 1
-  %297 = add i32 %.0628, -1
-  %.not712 = icmp eq i32 %297, 0
-  br i1 %.not712, label %298, label %.critedge718, !llvm.loop !165
+288:                                              ; preds = %288, %287
+  %.0628 = phi i32 [ %258, %287 ], [ %298, %288 ]
+  %.0627 = phi i32 [ %70, %287 ], [ %296, %288 ]
+  %.1626 = phi i32 [ %.0625, %287 ], [ %297, %288 ]
+  %.0624 = phi ptr [ %68, %287 ], [ %294, %288 ]
+  %289 = zext nneg i32 %.0627 to i64
+  %290 = getelementptr inbounds nuw [32768 x [2 x i16]], ptr %7, i64 0, i64 %289
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 2
+  %292 = load i16, ptr %290, align 2
+  store i16 %292, ptr %291, align 2
+  %293 = trunc i32 %.1626 to i16
+  store i16 %293, ptr %290, align 4
+  %294 = getelementptr inbounds nuw i8, ptr %.0624, i64 1
+  %.0.copyload242 = load i32, ptr %294, align 1
+  %295 = mul i32 %.0.copyload242, 506832829
+  %296 = lshr i32 %295, 17
+  %297 = add nsw i32 %.1626, 1
+  %298 = add i32 %.0628, -1
+  %.not712 = icmp eq i32 %298, 0
+  br i1 %.not712, label %299, label %288, !llvm.loop !165
 
-298:                                              ; preds = %.critedge718
-  %299 = zext nneg i32 %295 to i64
-  %300 = getelementptr inbounds nuw [32768 x [2 x i16]], ptr %7, i64 0, i64 %299
-  tail call void @llvm.prefetch.p0(ptr nonnull %300, i32 1, i32 3, i32 1)
-  br label %301
+299:                                              ; preds = %288
+  %300 = zext nneg i32 %296 to i64
+  %301 = getelementptr inbounds nuw [32768 x [2 x i16]], ptr %7, i64 0, i64 %300
+  tail call void @llvm.prefetch.p0(ptr nonnull %301, i32 1, i32 3, i32 1)
+  br label %302
 
-301:                                              ; preds = %229, %298
-  %.3655 = phi i32 [ %70, %229 ], [ %295, %298 ]
-  %.4651 = phi ptr [ %.3650, %229 ], [ %.5, %298 ]
-  %302 = getelementptr inbounds nuw i8, ptr %.1599, i64 %233
-  br label %310
+302:                                              ; preds = %229, %299
+  %.3655 = phi i32 [ %70, %229 ], [ %296, %299 ]
+  %.4651 = phi ptr [ %.3650, %229 ], [ %.5, %299 ]
+  %303 = getelementptr inbounds nuw i8, ptr %.1599, i64 %233
+  br label %311
 
 .critedge4.thread:                                ; preds = %183, %181, %67, %.critedge4
-  %303 = load i8, ptr %.1599, align 1
-  %304 = zext i8 %303 to i64
-  %305 = getelementptr inbounds nuw [288 x i32], ptr %16, i64 0, i64 %304
-  %306 = load i32, ptr %305, align 4
-  %307 = add i32 %306, 1
-  store i32 %307, ptr %305, align 4
-  %308 = load i32, ptr %.0645.ptr, align 4
-  %309 = add i32 %308, 1
-  store i32 %309, ptr %.0645.ptr, align 4
-  br label %310
+  %304 = load i8, ptr %.1599, align 1
+  %305 = zext i8 %304 to i64
+  %306 = getelementptr inbounds nuw [288 x i32], ptr %16, i64 0, i64 %305
+  %307 = load i32, ptr %306, align 4
+  %308 = add i32 %307, 1
+  store i32 %308, ptr %306, align 4
+  %309 = load i32, ptr %.0645.ptr, align 4
+  %310 = add i32 %309, 1
+  store i32 %310, ptr %.0645.ptr, align 4
+  br label %311
 
-310:                                              ; preds = %301, %.critedge4.thread
-  %.4656 = phi i32 [ %.3655, %301 ], [ %70, %.critedge4.thread ]
-  %.6 = phi ptr [ %.4651, %301 ], [ %.3650, %.critedge4.thread ]
-  %.1646.idx = phi i64 [ %.0645.add, %301 ], [ %.0645.idx, %.critedge4.thread ]
-  %.4602 = phi ptr [ %302, %301 ], [ %68, %.critedge4.thread ]
-  %311 = icmp ult ptr %.4602, %.0620
-  %312 = icmp slt i64 %.1646.idx, 202688
-  %313 = select i1 %311, i1 %312, i1 false
-  br i1 %313, label %28, label %.loopexit729, !llvm.loop !166
+311:                                              ; preds = %302, %.critedge4.thread
+  %.4656 = phi i32 [ %.3655, %302 ], [ %70, %.critedge4.thread ]
+  %.6 = phi ptr [ %.4651, %302 ], [ %.3650, %.critedge4.thread ]
+  %.1646.idx = phi i64 [ %.0645.add, %302 ], [ %.0645.idx, %.critedge4.thread ]
+  %.4602 = phi ptr [ %303, %302 ], [ %68, %.critedge4.thread ]
+  %312 = icmp ult ptr %.4602, %.0620
+  %313 = icmp slt i64 %.1646.idx, 202688
+  %314 = select i1 %312, i1 %313, i1 false
+  br i1 %314, label %28, label %.loopexit727, !llvm.loop !166
 
-.loopexit729:                                     ; preds = %310, %.preheader728
-  %.2654 = phi i32 [ %.1653, %.preheader728 ], [ %.4656, %310 ]
-  %.2649 = phi ptr [ %.1648, %.preheader728 ], [ %.6, %310 ]
-  %.3601 = phi ptr [ %40, %.preheader728 ], [ %.4602, %310 ]
-  %.4 = phi i32 [ 0, %.preheader728 ], [ %.2595, %310 ]
-  %.3 = phi i32 [ %.1, %.preheader728 ], [ %.2, %310 ]
-  %314 = ptrtoint ptr %.3601 to i64
-  %315 = sub i64 %314, %24
-  %316 = trunc i64 %315 to i32
-  %317 = icmp eq ptr %.3601, %14
-  %318 = load i32, ptr %18, align 32
-  %319 = add i32 %318, 1
-  store i32 %319, ptr %18, align 32
+.loopexit727:                                     ; preds = %311, %.preheader726
+  %.2654 = phi i32 [ %.1653, %.preheader726 ], [ %.4656, %311 ]
+  %.2649 = phi ptr [ %.1648, %.preheader726 ], [ %.6, %311 ]
+  %.3601 = phi ptr [ %40, %.preheader726 ], [ %.4602, %311 ]
+  %.4 = phi i32 [ 0, %.preheader726 ], [ %.2595, %311 ]
+  %.3 = phi i32 [ %.1, %.preheader726 ], [ %.2, %311 ]
+  %315 = ptrtoint ptr %.3601 to i64
+  %316 = sub i64 %315, %24
+  %317 = trunc i64 %316 to i32
+  %318 = icmp eq ptr %.3601, %14
+  %319 = load i32, ptr %18, align 32
+  %320 = add i32 %319, 1
+  store i32 %320, ptr %18, align 32
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %16, ptr noundef nonnull %20, ptr noundef nonnull %19)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %17, ptr noundef nonnull %21, ptr noundef nonnull %22)
-  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0598, i32 noundef %316, ptr noundef nonnull readonly %.ptr713, i1 noundef zeroext %317)
-  br i1 %317, label %320, label %23, !llvm.loop !167
+  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0598, i32 noundef %317, ptr noundef nonnull readonly %.ptr713, i1 noundef zeroext %318)
+  br i1 %318, label %321, label %23, !llvm.loop !167
 
-320:                                              ; preds = %.loopexit729
+321:                                              ; preds = %.loopexit727
   ret void
 }
 

@@ -4409,48 +4409,45 @@ _ZN5clang20SanitizerMaskCutoffsD2Ev.exit:         ; preds = %_ZNSt6vectorINSt7__
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7FreeBSD22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(5016) %0) unnamed_addr #0 align 2 {
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
+_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i32, ptr %1, align 8, !tbaa !87
   %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #15
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = or i64 %4, 17592186044423
   switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit38 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge
-    i32 19, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge
-    i32 18, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge
-    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge
+    i32 19, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge
+    i32 18, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge
+    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-  %6 = or i64 %4, 144132780261912583
+_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+  %6 = or i64 %4, 17592186339335
+  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit38 [
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
+    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
+  ]
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge
+  %.sroa.0.1 = phi i64 [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge ], [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge ]
+  %7 = or i64 %.sroa.0.1, 144115188075868160
+  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit38 [
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit34.preheader.critedge
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit34.preheader.critedge
+  ]
+
+_ZN5clang13SanitizerMaskoRERKS0_.exit34.preheader.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
+  %8 = or i64 %.sroa.0.1, 144115188075871240
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit38
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
-  %7 = or i64 %4, 17592186339335
-  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit38 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-    i32 37, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-  ]
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge
-  %8 = or i64 %4, 144132780262207495
-  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit38 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge
-  ]
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-  %9 = or i64 %4, 144132780262210575
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit38
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit38:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-  %.sroa.0.1 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ %7, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge ], [ %8, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge ], [ %9, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread ]
-  %10 = extractvalue { i64, i64 } %3, 1
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %10, 1
+_ZN5clang13SanitizerMaskoRERKS0_.exit38:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit34.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge
+  %.sroa.0.0 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.preheader.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.preheader.critedge ], [ %7, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.preheader.critedge ], [ %8, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.preheader.critedge ]
+  %9 = extractvalue { i64, i64 } %3, 1
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %9, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

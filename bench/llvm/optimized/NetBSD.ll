@@ -4959,24 +4959,26 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains6NetBSD22getSupportedSa
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !87
   %4 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #15
+  %5 = extractvalue { i64, i64 } %4, 0
+  %6 = extractvalue { i64, i64 } %4, 1
   %.off = add i32 %3, -37
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, label %_ZN5clang13SanitizerMaskoRERKS0_.exit33
+  br i1 %switch, label %.preheader50, label %_ZN5clang13SanitizerMaskoRERKS0_.exit33
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:   ; preds = %1
-  %5 = extractvalue { i64, i64 } %4, 1
-  %6 = extractvalue { i64, i64 } %4, 0
+.preheader50:                                     ; preds = %1
   %7 = icmp eq i32 %3, 38
-  %8 = or i64 %5, 512
-  %spec.select.v = select i1 %7, i64 144273517750565951, i64 144132780262162439
-  %spec.select = or i64 %6, %spec.select.v
-  %9 = insertvalue { i64, i64 } poison, i64 %spec.select, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
+  %8 = or i64 %6, 512
+  %9 = or i64 %5, 144132780262162439
+  %10 = or i64 %5, 144273517750565951
+  %spec.select = select i1 %7, i64 %10, i64 %9
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit33
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit33:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %1
-  %.fca.1.insert.merged = phi { i64, i64 } [ %4, %1 ], [ %10, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ]
-  ret { i64, i64 } %.fca.1.insert.merged
+_ZN5clang13SanitizerMaskoRERKS0_.exit33:          ; preds = %.preheader50, %1
+  %.sroa.0.0 = phi i64 [ %5, %1 ], [ %spec.select, %.preheader50 ]
+  %.sroa.18.0 = phi i64 [ %6, %1 ], [ %8, %.preheader50 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.18.0, 1
+  ret { i64, i64 } %.fca.1.insert
 }
 
 declare { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392)) unnamed_addr #1

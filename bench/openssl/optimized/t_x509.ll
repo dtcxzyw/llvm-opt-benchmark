@@ -711,13 +711,13 @@ define noundef i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @X509_trusted(ptr noundef %1) #4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %67, label %9
+  br i1 %8, label %71, label %9
 
 9:                                                ; preds = %3
   %10 = tail call ptr @X509_get0_trust_objects(ptr noundef %1) #4
   %11 = tail call ptr @X509_get0_reject_objects(ptr noundef %1) #4
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %26, label %12
+  br i1 %.not, label %28, label %12
 
 12:                                               ; preds = %9
   %13 = add nsw i32 %2, 2
@@ -727,107 +727,115 @@ define noundef i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef %
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.critedge:                                        ; preds = %.lr.ph
-  %17 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.29) #4
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %12, %20
+  %17 = phi i32 [ %24, %20 ], [ 0, %12 ]
+  %.not5152 = phi i1 [ true, %20 ], [ false, %12 ]
+  br i1 %.not5152, label %18, label %20
 
-.lr.ph:                                           ; preds = %12, %.critedge
-  %18 = phi i32 [ %22, %.critedge ], [ 0, %12 ]
-  %19 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %10, i32 noundef %18) #4
-  %20 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef %19, i32 noundef 0) #4
-  %21 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %4) #4
-  %22 = add nuw nsw i32 %18, 1
-  store i32 %22, ptr %6, align 4, !tbaa !25
-  %23 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %10) #4
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %.critedge, label %._crit_edge, !llvm.loop !29
+18:                                               ; preds = %.lr.ph
+  %19 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.29) #4
+  br label %20
 
-._crit_edge:                                      ; preds = %.lr.ph, %12
-  %25 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
-  br label %28
+20:                                               ; preds = %.lr.ph, %18
+  %21 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %10, i32 noundef %17) #4
+  %22 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef %21, i32 noundef 0) #4
+  %23 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %4) #4
+  %24 = add nuw nsw i32 %17, 1
+  store i32 %24, ptr %6, align 4, !tbaa !25
+  %25 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %10) #4
+  %26 = icmp slt i32 %24, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-26:                                               ; preds = %9
-  %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.4) #4
-  br label %28
+._crit_edge:                                      ; preds = %20, %12
+  %27 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
+  br label %30
 
-28:                                               ; preds = %26, %._crit_edge
+28:                                               ; preds = %9
+  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.4) #4
+  br label %30
+
+30:                                               ; preds = %28, %._crit_edge
   %.not44 = icmp eq ptr %11, null
-  br i1 %.not44, label %43, label %29
+  br i1 %.not44, label %47, label %31
 
-29:                                               ; preds = %28
-  %30 = add nsw i32 %2, 2
-  %31 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %2, ptr noundef nonnull @.str.4, i32 noundef %30, ptr noundef nonnull @.str.4) #4
+31:                                               ; preds = %30
+  %32 = add nsw i32 %2, 2
+  %33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %2, ptr noundef nonnull @.str.4, i32 noundef %32, ptr noundef nonnull @.str.4) #4
   store i32 0, ptr %6, align 4, !tbaa !25
-  %32 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph55, label %._crit_edge56
+  %34 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph55, label %._crit_edge56
 
-.critedge61:                                      ; preds = %.lr.ph55
-  %34 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.29) #4
-  br label %.lr.ph55
+.lr.ph55:                                         ; preds = %31, %39
+  %36 = phi i32 [ %43, %39 ], [ 0, %31 ]
+  %.not5053 = phi i1 [ true, %39 ], [ false, %31 ]
+  br i1 %.not5053, label %37, label %39
 
-.lr.ph55:                                         ; preds = %29, %.critedge61
-  %35 = phi i32 [ %39, %.critedge61 ], [ 0, %29 ]
-  %36 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %35) #4
-  %37 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef %36, i32 noundef 0) #4
-  %38 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %4) #4
-  %39 = add nuw nsw i32 %35, 1
-  store i32 %39, ptr %6, align 4, !tbaa !25
-  %40 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
-  %41 = icmp slt i32 %39, %40
-  br i1 %41, label %.critedge61, label %._crit_edge56, !llvm.loop !30
+37:                                               ; preds = %.lr.ph55
+  %38 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.29) #4
+  br label %39
 
-._crit_edge56:                                    ; preds = %.lr.ph55, %29
-  %42 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
-  br label %45
+39:                                               ; preds = %.lr.ph55, %37
+  %40 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %36) #4
+  %41 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef %40, i32 noundef 0) #4
+  %42 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %4) #4
+  %43 = add nuw nsw i32 %36, 1
+  store i32 %43, ptr %6, align 4, !tbaa !25
+  %44 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
+  %45 = icmp slt i32 %43, %44
+  br i1 %45, label %.lr.ph55, label %._crit_edge56, !llvm.loop !30
 
-43:                                               ; preds = %28
-  %44 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %2, ptr noundef nonnull @.str.4) #4
-  br label %45
+._crit_edge56:                                    ; preds = %39, %31
+  %46 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
+  br label %49
 
-45:                                               ; preds = %43, %._crit_edge56
-  %46 = call ptr @X509_alias_get0(ptr noundef %1, ptr noundef nonnull %6) #4
-  %.not46 = icmp eq ptr %46, null
-  br i1 %.not46, label %50, label %47
+47:                                               ; preds = %30
+  %48 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %2, ptr noundef nonnull @.str.4) #4
+  br label %49
 
-47:                                               ; preds = %45
-  %48 = load i32, ptr %6, align 4, !tbaa !25
-  %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %2, ptr noundef nonnull @.str.4, i32 noundef %48, ptr noundef nonnull %46) #4
-  br label %50
+49:                                               ; preds = %47, %._crit_edge56
+  %50 = call ptr @X509_alias_get0(ptr noundef %1, ptr noundef nonnull %6) #4
+  %.not46 = icmp eq ptr %50, null
+  br i1 %.not46, label %54, label %51
 
-50:                                               ; preds = %47, %45
-  %51 = call ptr @X509_keyid_get0(ptr noundef %1, ptr noundef nonnull %5) #4
-  %.not47 = icmp eq ptr %51, null
-  br i1 %.not47, label %67, label %52
+51:                                               ; preds = %49
+  %52 = load i32, ptr %6, align 4, !tbaa !25
+  %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %2, ptr noundef nonnull @.str.4, i32 noundef %52, ptr noundef nonnull %50) #4
+  br label %54
 
-52:                                               ; preds = %50
-  %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %2, ptr noundef nonnull @.str.4) #4
+54:                                               ; preds = %51, %49
+  %55 = call ptr @X509_keyid_get0(ptr noundef %1, ptr noundef nonnull %5) #4
+  %.not47 = icmp eq ptr %55, null
+  br i1 %.not47, label %71, label %56
+
+56:                                               ; preds = %54
+  %57 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %2, ptr noundef nonnull @.str.4) #4
   store i32 0, ptr %6, align 4, !tbaa !25
-  %54 = load i32, ptr %5, align 4, !tbaa !25
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph59, label %._crit_edge60
+  %58 = load i32, ptr %5, align 4, !tbaa !25
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph59, label %._crit_edge60
 
-.lr.ph59:                                         ; preds = %52, %.lr.ph59
-  %storemerge4857 = phi i32 [ %63, %.lr.ph59 ], [ 0, %52 ]
+.lr.ph59:                                         ; preds = %56, %.lr.ph59
+  %storemerge4857 = phi i32 [ %67, %.lr.ph59 ], [ 0, %56 ]
   %.not49 = icmp eq i32 %storemerge4857, 0
-  %56 = select i1 %.not49, ptr @.str.4, ptr @.str.25
-  %57 = sext i32 %storemerge4857 to i64
-  %58 = getelementptr inbounds i8, ptr %51, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !19
-  %60 = zext i8 %59 to i32
-  %61 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %56, i32 noundef %60) #4
-  %62 = load i32, ptr %6, align 4, !tbaa !25
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %6, align 4, !tbaa !25
-  %64 = load i32, ptr %5, align 4, !tbaa !25
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %.lr.ph59, label %._crit_edge60, !llvm.loop !31
+  %60 = select i1 %.not49, ptr @.str.4, ptr @.str.25
+  %61 = sext i32 %storemerge4857 to i64
+  %62 = getelementptr inbounds i8, ptr %55, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !19
+  %64 = zext i8 %63 to i32
+  %65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %60, i32 noundef %64) #4
+  %66 = load i32, ptr %6, align 4, !tbaa !25
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %6, align 4, !tbaa !25
+  %68 = load i32, ptr %5, align 4, !tbaa !25
+  %69 = icmp slt i32 %67, %68
+  br i1 %69, label %.lr.ph59, label %._crit_edge60, !llvm.loop !31
 
-._crit_edge60:                                    ; preds = %.lr.ph59, %52
-  %66 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef 1) #4
-  br label %67
+._crit_edge60:                                    ; preds = %.lr.ph59, %56
+  %70 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef 1) #4
+  br label %71
 
-67:                                               ; preds = %50, %._crit_edge60, %3
+71:                                               ; preds = %54, %._crit_edge60, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

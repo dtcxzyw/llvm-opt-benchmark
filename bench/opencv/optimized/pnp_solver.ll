@@ -2476,7 +2476,7 @@ _ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit349: ; preds = %_ZN2cvmiI
   %or.cond330 = or i1 %129, %130
   %131 = fcmp olt double %126, %128
   %or.cond331 = or i1 %131, %or.cond330
-  br i1 %or.cond331, label %662, label %132
+  br i1 %or.cond331, label %664, label %132
 
 132:                                              ; preds = %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit349
   %133 = load i32, ptr %46, align 4, !tbaa !48
@@ -2719,7 +2719,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %327 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %336
 
-328:                                              ; preds = %661
+328:                                              ; preds = %663
   %329 = load ptr, ptr %286, align 8, !tbaa !81
   %330 = load ptr, ptr %2, align 8, !tbaa !78
   %331 = ptrtoint ptr %329 to i64
@@ -2732,14 +2732,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %662
+  br label %664
 
-336:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %661
-  %.0318.idx546 = phi i64 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.0318.add, %661 ]
+336:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %663
+  %.0318.idx546 = phi i64 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.0318.add, %663 ]
   %.0318.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.0318.idx546
   %337 = load double, ptr %.0318.ptr, align 8, !tbaa !56
   %338 = fcmp ugt double %337, 0.000000e+00
-  br i1 %338, label %339, label %661
+  br i1 %338, label %339, label %663
 
 339:                                              ; preds = %336
   %340 = fmul double %337, %337
@@ -2767,7 +2767,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %or.cond = or i1 %360, %361
   %362 = fcmp ole double %359, 0.000000e+00
   %or.cond3 = select i1 %or.cond, i1 true, i1 %362
-  br i1 %or.cond3, label %661, label %363
+  br i1 %or.cond3, label %663, label %363
 
 363:                                              ; preds = %339
   %364 = fmul double %358, %358
@@ -2782,7 +2782,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %373 = call double @llvm.fabs.f64(double %372)
   %374 = load double, ptr %127, align 8, !tbaa !111
   %375 = fcmp ogt double %373, %374
-  br i1 %375, label %661, label %376
+  br i1 %375, label %663, label %376
 
 376:                                              ; preds = %363
   %377 = fmul double %359, %359
@@ -2796,7 +2796,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %385 = fdiv double %384, %115
   %386 = call double @llvm.fabs.f64(double %385)
   %387 = fcmp ogt double %386, %374
-  br i1 %387, label %661, label %388
+  br i1 %387, label %663, label %388
 
 388:                                              ; preds = %376
   %389 = fmul double %357, %357
@@ -2810,7 +2810,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %397 = fdiv double %396, %126
   %398 = call double @llvm.fabs.f64(double %397)
   %399 = fcmp ogt double %398, %374
-  br i1 %399, label %661, label %400
+  br i1 %399, label %663, label %400
 
 400:                                              ; preds = %388
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -3363,82 +3363,82 @@ _ZN2cvngIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_.exit: ; preds = %620
 
 _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %626
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !198
-  br label %.preheader.i.i439
+  br label %.preheader19.i.i439
 
-.preheader.i.i439:                                ; preds = %.critedge.i.i, %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit
-  %indvars.iv23.i.i = phi i64 [ 0, %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit ], [ %indvars.iv.next24.i.i, %.critedge.i.i ]
-  %634 = mul nuw nsw i64 %indvars.iv23.i.i, 3
-  br label %636
+.preheader19.i.i439:                              ; preds = %635, %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit
+  %indvars.iv24.i.i = phi i64 [ 0, %_ZNK2cv4MatxIdLi3ELi3EE1tEv.exit ], [ %indvars.iv.next25.i.i, %635 ]
+  %634 = mul nuw nsw i64 %indvars.iv24.i.i, 3
+  br label %637
 
-.critedge.i.i:                                    ; preds = %636
-  %635 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv23.i.i
-  store double %642, ptr %635, align 8, !tbaa !56, !noalias !198
-  %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
-  %exitcond26.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, 3
-  br i1 %exitcond26.not.i.i, label %643, label %.preheader.i.i439, !llvm.loop !201
+635:                                              ; preds = %637
+  %636 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv24.i.i
+  store double %643, ptr %636, align 8, !tbaa !56, !noalias !198
+  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
+  %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 3
+  br i1 %exitcond27.not.i.i, label %644, label %.preheader19.i.i439, !llvm.loop !201
 
-636:                                              ; preds = %636, %.preheader.i.i439
-  %indvars.iv.i.i440 = phi i64 [ 0, %.preheader.i.i439 ], [ %indvars.iv.next.i.i441, %636 ]
-  %.01619.i.i = phi double [ 0.000000e+00, %.preheader.i.i439 ], [ %642, %636 ]
-  %637 = add nuw nsw i64 %indvars.iv.i.i440, %634
-  %638 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %637
-  %639 = load double, ptr %638, align 8, !tbaa !56, !noalias !198
-  %640 = getelementptr inbounds nuw [3 x double], ptr %17, i64 0, i64 %indvars.iv.i.i440
-  %641 = load double, ptr %640, align 8, !tbaa !56, !noalias !198
-  %642 = call double @llvm.fmuladd.f64(double %639, double %641, double %.01619.i.i)
-  %indvars.iv.next.i.i441 = add nuw nsw i64 %indvars.iv.i.i440, 1
-  %exitcond.not.i.i442 = icmp eq i64 %indvars.iv.next.i.i441, 3
-  br i1 %exitcond.not.i.i442, label %.critedge.i.i, label %636, !llvm.loop !202
+637:                                              ; preds = %637, %.preheader19.i.i439
+  %indvars.iv.i.i440 = phi i64 [ 0, %.preheader19.i.i439 ], [ %indvars.iv.next.i.i442, %637 ]
+  %.01620.i.i441 = phi double [ 0.000000e+00, %.preheader19.i.i439 ], [ %643, %637 ]
+  %638 = add nuw nsw i64 %indvars.iv.i.i440, %634
+  %639 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %638
+  %640 = load double, ptr %639, align 8, !tbaa !56, !noalias !198
+  %641 = getelementptr inbounds nuw [3 x double], ptr %17, i64 0, i64 %indvars.iv.i.i440
+  %642 = load double, ptr %641, align 8, !tbaa !56, !noalias !198
+  %643 = call double @llvm.fmuladd.f64(double %640, double %642, double %.01620.i.i441)
+  %indvars.iv.next.i.i442 = add nuw nsw i64 %indvars.iv.i.i440, 1
+  %exitcond.not.i.i443 = icmp eq i64 %indvars.iv.next.i.i442, 3
+  br i1 %exitcond.not.i.i443, label %635, label %637, !llvm.loop !202
 
-643:                                              ; preds = %.critedge.i.i
+644:                                              ; preds = %635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !198
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  br label %644
+  br label %645
 
-644:                                              ; preds = %644, %643
-  %indvars.iv.i.i.i443 = phi i64 [ 0, %643 ], [ %indvars.iv.next.i.i.i444, %644 ]
-  %645 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv.i.i.i443
-  %646 = load double, ptr %645, align 8, !tbaa !56, !noalias !203
-  %647 = getelementptr inbounds nuw [3 x double], ptr %39, i64 0, i64 %indvars.iv.i.i.i443
-  %648 = load double, ptr %647, align 8, !tbaa !56, !noalias !203
-  %649 = fsub double %646, %648
-  %650 = getelementptr inbounds nuw [3 x double], ptr %38, i64 0, i64 %indvars.iv.i.i.i443
-  store double %649, ptr %650, align 8, !tbaa !56, !alias.scope !203
-  %indvars.iv.next.i.i.i444 = add nuw nsw i64 %indvars.iv.i.i.i443, 1
-  %exitcond.not.i.i.i445 = icmp eq i64 %indvars.iv.next.i.i.i444, 3
-  br i1 %exitcond.not.i.i.i445, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit446, label %644, !llvm.loop !126
+645:                                              ; preds = %645, %644
+  %indvars.iv.i.i.i444 = phi i64 [ 0, %644 ], [ %indvars.iv.next.i.i.i445, %645 ]
+  %646 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv.i.i.i444
+  %647 = load double, ptr %646, align 8, !tbaa !56, !noalias !203
+  %648 = getelementptr inbounds nuw [3 x double], ptr %39, i64 0, i64 %indvars.iv.i.i.i444
+  %649 = load double, ptr %648, align 8, !tbaa !56, !noalias !203
+  %650 = fsub double %647, %649
+  %651 = getelementptr inbounds nuw [3 x double], ptr %38, i64 0, i64 %indvars.iv.i.i.i444
+  store double %650, ptr %651, align 8, !tbaa !56, !alias.scope !203
+  %indvars.iv.next.i.i.i445 = add nuw nsw i64 %indvars.iv.i.i.i444, 1
+  %exitcond.not.i.i.i446 = icmp eq i64 %indvars.iv.next.i.i.i445, 3
+  br i1 %exitcond.not.i.i.i446, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit447, label %645, !llvm.loop !126
 
-_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit446: ; preds = %644
+_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit447: ; preds = %645
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !206
-  br label %.preheader.i.i447
+  br label %.preheader19.i.i448
 
-.preheader.i.i447:                                ; preds = %.critedge.i.i453, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit446
-  %indvars.iv23.i.i448 = phi i64 [ 0, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit446 ], [ %indvars.iv.next24.i.i454, %.critedge.i.i453 ]
-  %651 = mul nuw nsw i64 %indvars.iv23.i.i448, 3
-  br label %653
+.preheader19.i.i448:                              ; preds = %653, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit447
+  %indvars.iv24.i.i449 = phi i64 [ 0, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit447 ], [ %indvars.iv.next25.i.i454, %653 ]
+  %652 = mul nuw nsw i64 %indvars.iv24.i.i449, 3
+  br label %655
 
-.critedge.i.i453:                                 ; preds = %653
-  %652 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv23.i.i448
-  store double %659, ptr %652, align 8, !tbaa !56, !noalias !206
-  %indvars.iv.next24.i.i454 = add nuw nsw i64 %indvars.iv23.i.i448, 1
-  %exitcond26.not.i.i455 = icmp eq i64 %indvars.iv.next24.i.i454, 3
-  br i1 %exitcond26.not.i.i455, label %660, label %.preheader.i.i447, !llvm.loop !201
+653:                                              ; preds = %655
+  %654 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv24.i.i449
+  store double %661, ptr %654, align 8, !tbaa !56, !noalias !206
+  %indvars.iv.next25.i.i454 = add nuw nsw i64 %indvars.iv24.i.i449, 1
+  %exitcond27.not.i.i455 = icmp eq i64 %indvars.iv.next25.i.i454, 3
+  br i1 %exitcond27.not.i.i455, label %662, label %.preheader19.i.i448, !llvm.loop !201
 
-653:                                              ; preds = %653, %.preheader.i.i447
-  %indvars.iv.i.i449 = phi i64 [ 0, %.preheader.i.i447 ], [ %indvars.iv.next.i.i451, %653 ]
-  %.01619.i.i450 = phi double [ 0.000000e+00, %.preheader.i.i447 ], [ %659, %653 ]
-  %654 = add nuw nsw i64 %indvars.iv.i.i449, %651
-  %655 = getelementptr inbounds nuw [9 x double], ptr %37, i64 0, i64 %654
-  %656 = load double, ptr %655, align 8, !tbaa !56, !noalias !206
-  %657 = getelementptr inbounds nuw [3 x double], ptr %38, i64 0, i64 %indvars.iv.i.i449
+655:                                              ; preds = %655, %.preheader19.i.i448
+  %indvars.iv.i.i450 = phi i64 [ 0, %.preheader19.i.i448 ], [ %indvars.iv.next.i.i452, %655 ]
+  %.01620.i.i451 = phi double [ 0.000000e+00, %.preheader19.i.i448 ], [ %661, %655 ]
+  %656 = add nuw nsw i64 %indvars.iv.i.i450, %652
+  %657 = getelementptr inbounds nuw [9 x double], ptr %37, i64 0, i64 %656
   %658 = load double, ptr %657, align 8, !tbaa !56, !noalias !206
-  %659 = call double @llvm.fmuladd.f64(double %656, double %658, double %.01619.i.i450)
-  %indvars.iv.next.i.i451 = add nuw nsw i64 %indvars.iv.i.i449, 1
-  %exitcond.not.i.i452 = icmp eq i64 %indvars.iv.next.i.i451, 3
-  br i1 %exitcond.not.i.i452, label %.critedge.i.i453, label %653, !llvm.loop !202
+  %659 = getelementptr inbounds nuw [3 x double], ptr %38, i64 0, i64 %indvars.iv.i.i450
+  %660 = load double, ptr %659, align 8, !tbaa !56, !noalias !206
+  %661 = call double @llvm.fmuladd.f64(double %658, double %660, double %.01620.i.i451)
+  %indvars.iv.next.i.i452 = add nuw nsw i64 %indvars.iv.i.i450, 1
+  %exitcond.not.i.i453 = icmp eq i64 %indvars.iv.next.i.i452, 3
+  br i1 %exitcond.not.i.i453, label %653, label %655, !llvm.loop !202
 
-660:                                              ; preds = %.critedge.i.i453
+662:                                              ; preds = %653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !206
   store i32 -1056833530, ptr %35, align 8, !tbaa !91
@@ -3468,14 +3468,14 @@ _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit446: ; preds = %644
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %661
+  br label %663
 
-661:                                              ; preds = %660, %339, %388, %376, %363, %336
+663:                                              ; preds = %662, %339, %388, %376, %363, %336
   %.0318.add = add nuw nsw i64 %.0318.idx546, 8
   %.not = icmp eq i64 %.0318.add, 32
   br i1 %.not, label %328, label %336
 
-662:                                              ; preds = %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit349, %328
+664:                                              ; preds = %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit349, %328
   %.0316 = phi i32 [ %335, %328 ], [ 0, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

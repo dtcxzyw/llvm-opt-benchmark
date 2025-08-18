@@ -2125,10 +2125,10 @@ define internal fastcc void @CopyOneRowTo(ptr noundef captures(none) %0, ptr nou
 list_length.exit:                                 ; preds = %15, %18
   %23 = phi i16 [ %22, %18 ], [ 0, %15 ]
   %24 = getelementptr i8, ptr %0, i64 16
-  %.val74 = load ptr, ptr %24, align 8
+  %.val70 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %23, ptr %5, align 2
-  call void @appendBinaryStringInfo(ptr noundef %.val74, ptr noundef nonnull %5, i32 noundef 2) #18
+  call void @appendBinaryStringInfo(ptr noundef %.val70, ptr noundef nonnull %5, i32 noundef 2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
@@ -2150,177 +2150,180 @@ slot_getallattrs.exit:                            ; preds = %25, %33
   %34 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.not66 = icmp eq ptr %37, null
-  br i1 %35, label %102, label %39
+  br i1 %35, label %.preheader, label %.preheader72
 
-39:                                               ; preds = %slot_getallattrs.exit
-  br i1 %.not66, label %.critedge, label %.lr.ph
+.preheader72:                                     ; preds = %slot_getallattrs.exit
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %40 = getelementptr i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %44 = load ptr, ptr %36, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %39
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = getelementptr i8, ptr %0, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %48 = load i32, ptr %38, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph93, label %.critedge
+.preheader:                                       ; preds = %slot_getallattrs.exit
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %48 = getelementptr i8, ptr %0, i64 16
+  %49 = load ptr, ptr %36, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.loopexit, label %.lr.ph80
 
-.lr.ph93:                                         ; preds = %.lr.ph, %98
-  %.17892 = phi i1 [ true, %98 ], [ false, %.lr.ph ]
-  %indvars.iv91 = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph ]
-  %50 = load ptr, ptr %40, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv91
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %41, align 8
-  %54 = add i32 %52, -1
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i64, ptr %53, i64 %55
-  %57 = load i64, ptr %56, align 8
-  %58 = load ptr, ptr %42, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 %55
-  %60 = load i8, ptr %59, align 1, !range !6, !noundef !7
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %.17892, label %62, label %CopySendChar.exit
+.lr.ph:                                           ; preds = %.preheader72
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %53 = load i32, ptr %51, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph92, label %.loopexit
 
-62:                                               ; preds = %.lr.ph93
-  %63 = load ptr, ptr %43, align 8
-  %64 = load i8, ptr %63, align 1
-  %65 = load ptr, ptr %44, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, 1
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %70 = load i32, ptr %69, align 4
-  %.not.i75 = icmp slt i32 %68, %70
-  br i1 %.not.i75, label %72, label %71
+.lr.ph92:                                         ; preds = %.lr.ph, %103
+  %.17591 = phi i1 [ true, %103 ], [ false, %.lr.ph ]
+  %indvars.iv90 = phi i64 [ %indvars.iv.next, %103 ], [ 0, %.lr.ph ]
+  %55 = load ptr, ptr %52, align 8
+  %56 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv90
+  %57 = load i32, ptr %56, align 8
+  %58 = load ptr, ptr %37, align 8
+  %59 = add i32 %57, -1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i64, ptr %58, i64 %60
+  %62 = load i64, ptr %61, align 8
+  %63 = load ptr, ptr %38, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 %60
+  %65 = load i8, ptr %64, align 1, !range !6, !noundef !7
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %.17591, label %67, label %CopySendChar.exit
 
-71:                                               ; preds = %62
-  call void @appendStringInfoChar(ptr noundef nonnull %65, i8 noundef signext %64) #18
+67:                                               ; preds = %.lr.ph92
+  %68 = load ptr, ptr %39, align 8
+  %69 = load i8, ptr %68, align 1
+  %70 = load ptr, ptr %40, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  %73 = add i32 %72, 1
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %75 = load i32, ptr %74, align 4
+  %.not.i71 = icmp slt i32 %73, %75
+  br i1 %.not.i71, label %77, label %76
+
+76:                                               ; preds = %67
+  call void @appendStringInfoChar(ptr noundef nonnull %70, i8 noundef signext %69) #18
   br label %CopySendChar.exit
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %65, align 8
-  %74 = sext i32 %67 to i64
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  store i8 %64, ptr %75, align 1
-  %76 = load ptr, ptr %44, align 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load i32, ptr %78, align 8
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %78, align 8
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %77, i64 %81
-  store i8 0, ptr %82, align 1
+77:                                               ; preds = %67
+  %78 = load ptr, ptr %70, align 8
+  %79 = sext i32 %72 to i64
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  store i8 %69, ptr %80, align 1
+  %81 = load ptr, ptr %40, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 8
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i8, ptr %82, i64 %86
+  store i8 0, ptr %87, align 1
   br label %CopySendChar.exit
 
-CopySendChar.exit:                                ; preds = %72, %71, %.lr.ph93
-  br i1 %61, label %83, label %87
+CopySendChar.exit:                                ; preds = %77, %76, %.lr.ph92
+  br i1 %66, label %88, label %92
 
-83:                                               ; preds = %CopySendChar.exit
-  %84 = load ptr, ptr %47, align 8
-  %.val73 = load ptr, ptr %44, align 8
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #22
-  %86 = trunc i64 %85 to i32
-  call void @appendBinaryStringInfo(ptr noundef %.val73, ptr noundef nonnull %84, i32 noundef %86) #18
-  br label %98
+88:                                               ; preds = %CopySendChar.exit
+  %89 = load ptr, ptr %43, align 8
+  %.val69 = load ptr, ptr %40, align 8
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #22
+  %91 = trunc i64 %90 to i32
+  call void @appendBinaryStringInfo(ptr noundef %.val69, ptr noundef nonnull %89, i32 noundef %91) #18
+  br label %103
 
-87:                                               ; preds = %CopySendChar.exit
-  %88 = getelementptr inbounds %struct.FmgrInfo, ptr %7, i64 %55
-  %89 = call ptr @OutputFunctionCall(ptr noundef %88, i64 noundef %57) #18
-  %90 = load i8, ptr %45, align 2, !range !6, !noundef !7
-  %91 = trunc nuw i8 %90 to i1
-  br i1 %91, label %92, label %97
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %46, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 %55
-  %95 = load i8, ptr %94, align 1, !range !6, !noundef !7
+92:                                               ; preds = %CopySendChar.exit
+  %93 = getelementptr inbounds %struct.FmgrInfo, ptr %7, i64 %60
+  %94 = call ptr @OutputFunctionCall(ptr noundef %93, i64 noundef %62) #18
+  %95 = load i8, ptr %41, align 2, !range !6, !noundef !7
   %96 = trunc nuw i8 %95 to i1
-  call fastcc void @CopyAttributeOutCSV(ptr noundef nonnull %0, ptr noundef %89, i1 noundef zeroext %96)
-  br label %98
+  br i1 %96, label %97, label %102
 
-97:                                               ; preds = %87
-  call fastcc void @CopyAttributeOutText(ptr noundef nonnull %0, ptr noundef %89)
-  br label %98
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %42, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 %60
+  %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
+  %101 = trunc nuw i8 %100 to i1
+  call fastcc void @CopyAttributeOutCSV(ptr noundef nonnull %0, ptr noundef %94, i1 noundef zeroext %101)
+  br label %103
 
-98:                                               ; preds = %92, %97, %83
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv91, 1
-  %99 = load i32, ptr %38, align 4
-  %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %.lr.ph93, label %.critedge
+102:                                              ; preds = %92
+  call fastcc void @CopyAttributeOutText(ptr noundef nonnull %0, ptr noundef %94)
+  br label %103
 
-102:                                              ; preds = %slot_getallattrs.exit
-  br i1 %.not66, label %.critedge, label %.lr.ph81
+103:                                              ; preds = %97, %102, %88
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv90, 1
+  %104 = load i32, ptr %51, align 4
+  %105 = sext i32 %104 to i64
+  %106 = icmp slt i64 %indvars.iv.next, %105
+  br i1 %106, label %.lr.ph92, label %.loopexit
 
-.lr.ph81:                                         ; preds = %102
-  %103 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %106 = getelementptr i8, ptr %0, i64 16
-  %107 = load i32, ptr %38, align 4
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph84, label %.critedge
+.lr.ph80:                                         ; preds = %.preheader
+  %107 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %109 = load i32, ptr %107, align 4
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %.lr.ph83, label %.loopexit
 
-.lr.ph84:                                         ; preds = %.lr.ph81, %133
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %133 ], [ 0, %.lr.ph81 ]
-  %109 = load ptr, ptr %103, align 8
-  %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv86
-  %111 = load i32, ptr %110, align 8
-  %112 = add i32 %111, -1
-  %113 = sext i32 %112 to i64
-  %114 = load ptr, ptr %104, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 %113
-  %116 = load i8, ptr %115, align 1, !range !6, !noundef !7
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %119
+.lr.ph83:                                         ; preds = %.lr.ph80, %135
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %135 ], [ 0, %.lr.ph80 ]
+  %111 = load ptr, ptr %108, align 8
+  %112 = getelementptr inbounds nuw %union.ListCell, ptr %111, i64 %indvars.iv85
+  %113 = load i32, ptr %112, align 8
+  %114 = add i32 %113, -1
+  %115 = sext i32 %114 to i64
+  %116 = load ptr, ptr %46, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 %115
+  %118 = load i8, ptr %117, align 1, !range !6, !noundef !7
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %120, label %121
 
-118:                                              ; preds = %.lr.ph84
-  %.val72 = load ptr, ptr %106, align 8
+120:                                              ; preds = %.lr.ph83
+  %.val68 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
-  call void @appendBinaryStringInfo(ptr noundef %.val72, ptr noundef nonnull %4, i32 noundef 4) #18
+  call void @appendBinaryStringInfo(ptr noundef %.val68, ptr noundef nonnull %4, i32 noundef 4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %133
+  br label %135
 
-119:                                              ; preds = %.lr.ph84
-  %120 = load ptr, ptr %105, align 8
-  %121 = getelementptr inbounds i64, ptr %120, i64 %113
-  %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.FmgrInfo, ptr %7, i64 %113
-  %124 = call ptr @SendFunctionCall(ptr noundef %123, i64 noundef %122) #18
-  %125 = load i32, ptr %124, align 4
-  %126 = lshr i32 %125, 2
-  %127 = add nsw i32 %126, -4
-  %.val71 = load ptr, ptr %106, align 8
+121:                                              ; preds = %.lr.ph83
+  %122 = load ptr, ptr %47, align 8
+  %123 = getelementptr inbounds i64, ptr %122, i64 %115
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds %struct.FmgrInfo, ptr %7, i64 %115
+  %126 = call ptr @SendFunctionCall(ptr noundef %125, i64 noundef %124) #18
+  %127 = load i32, ptr %126, align 4
+  %128 = lshr i32 %127, 2
+  %129 = add nsw i32 %128, -4
+  %.val67 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %128 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %127)
-  store i32 %128, ptr %3, align 4
-  call void @appendBinaryStringInfo(ptr noundef %.val71, ptr noundef nonnull %3, i32 noundef 4) #18
+  %130 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %129)
+  store i32 %130, ptr %3, align 4
+  call void @appendBinaryStringInfo(ptr noundef %.val67, ptr noundef nonnull %3, i32 noundef 4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %130 = load i32, ptr %124, align 4
-  %131 = lshr i32 %130, 2
-  %132 = add nsw i32 %131, -4
-  %.val = load ptr, ptr %106, align 8
-  call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef nonnull %129, i32 noundef %132) #18
-  br label %133
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  %132 = load i32, ptr %126, align 4
+  %133 = lshr i32 %132, 2
+  %134 = add nsw i32 %133, -4
+  %.val = load ptr, ptr %48, align 8
+  call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef nonnull %131, i32 noundef %134) #18
+  br label %135
 
-133:                                              ; preds = %119, %118
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %134 = load i32, ptr %38, align 4
-  %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next87, %135
-  br i1 %136, label %.lr.ph84, label %.critedge
+135:                                              ; preds = %121, %120
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %136 = load i32, ptr %107, align 4
+  %137 = sext i32 %136 to i64
+  %138 = icmp slt i64 %indvars.iv.next86, %137
+  br i1 %138, label %.lr.ph83, label %.loopexit
 
-.critedge:                                        ; preds = %98, %133, %.lr.ph, %39, %102, %.lr.ph81
+.loopexit:                                        ; preds = %103, %135, %.lr.ph, %.preheader72, %.preheader, %.lr.ph80
   call fastcc void @CopySendEndOfRow(ptr noundef nonnull %0)
   store ptr %11, ptr @CurrentMemoryContext, align 8
   ret void

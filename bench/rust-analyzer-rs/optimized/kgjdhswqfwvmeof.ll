@@ -1039,7 +1039,7 @@ define internal fastcc { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$
 7:                                                ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h799a1fa94fd73e4eE.exit.i.i", %1
   %8 = tail call fastcc ptr @"_ZN115_$LT$core..iter..sources..successors..Successors$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h441dfa5ec07ca04aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %9, label %43
+  br i1 %.not.i.i.i, label %9, label %.loopexit
 
 9:                                                ; preds = %7
   %.val.i.i.i = load ptr, ptr %3, align 8, !alias.scope !596, !noundef !4
@@ -1107,7 +1107,7 @@ common.resume.i.i:                                ; preds = %41, %18
 29:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h12b971228915a8d7E.exit.thread.i.i"
   %30 = tail call fastcc ptr @"_ZN115_$LT$core..iter..sources..successors..Successors$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h441dfa5ec07ca04aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26)
   %.not.i2.i.i = icmp eq ptr %30, null
-  br i1 %.not.i2.i.i, label %31, label %43
+  br i1 %.not.i2.i.i, label %31, label %.loopexit
 
 31:                                               ; preds = %29
   %.val.i4.i.i = load ptr, ptr %26, align 8, !alias.scope !640, !noundef !4
@@ -1148,21 +1148,21 @@ common.resume.i.i:                                ; preds = %41, %18
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h12b971228915a8d7E.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h799a1fa94fd73e4eE.exit.i7.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
-  br label %46
+  br label %45
 
-43:                                               ; preds = %29, %7
-  %.0.i.i = phi ptr [ %8, %7 ], [ %30, %29 ]
+.loopexit:                                        ; preds = %7, %29
+  %.0.i.i = phi ptr [ %30, %29 ], [ %8, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %45 = tail call noundef i32 @"_ZN3hir9semantics13SemanticsImpl22descend_node_at_offset28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h09afed84754bcdc6E.llvm.17050508828239973313"(ptr noalias noundef nonnull align 1 %44, ptr noundef nonnull %.0.i.i)
-  br label %46
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %44 = tail call noundef i32 @"_ZN3hir9semantics13SemanticsImpl22descend_node_at_offset28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h09afed84754bcdc6E.llvm.17050508828239973313"(ptr noalias noundef nonnull align 1 %43, ptr noundef nonnull %.0.i.i)
+  br label %45
 
-46:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread", %43
-  %.sroa.3.0 = phi i32 [ %45, %43 ], [ undef, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread" ]
-  %.sroa.0.0 = phi i32 [ 1, %43 ], [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread" ]
-  %47 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %48 = insertvalue { i32, i32 } %47, i32 %.sroa.3.0, 1
-  ret { i32, i32 } %48
+45:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread", %.loopexit
+  %.sroa.3.0 = phi i32 [ %44, %.loopexit ], [ undef, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread" ]
+  %.sroa.0.0 = phi i32 [ 1, %.loopexit ], [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9f83fc54fbceba4E.exit.thread" ]
+  %46 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %47 = insertvalue { i32, i32 } %46, i32 %.sroa.3.0, 1
+  ret { i32, i32 } %47
 }
 
 ; Function Attrs: nonlazybind uwtable

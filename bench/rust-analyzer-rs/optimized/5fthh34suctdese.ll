@@ -762,21 +762,20 @@ define internal noundef zeroext i1 @"_ZN48_$LT$tt..Spacing$u20$as$u20$core..fmt.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr115drop_in_place$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u3b$$u20$1$u5d$$GT$17h6f088235341bf119E.llvm.1974601743608636377"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %2 = load i8, ptr %1, align 8, !range !6, !alias.scope !116, !noundef !5
-  %3 = icmp eq i8 %2, 4
-  br i1 %3, label %4, label %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load i8, ptr %2, align 8, !range !6, !alias.scope !116, !noundef !5
+  %4 = icmp eq i8 %3, 4
+  br i1 %4, label %5, label %6
 
-4:                                                ; preds = %.critedge
+5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr89drop_in_place$LT$tt..Leaf$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h6aab71d049e453cfE.llvm.1974601743608636377"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.1974601743608636377.exit"
 
-5:                                                ; preds = %.critedge
+6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr92drop_in_place$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb6e7889be7415cefE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.1974601743608636377.exit"
 
-"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.1974601743608636377.exit": ; preds = %4, %5
+"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.1974601743608636377.exit": ; preds = %6, %5
   ret void
 }
 

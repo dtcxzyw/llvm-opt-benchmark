@@ -877,121 +877,117 @@ declare i32 @slurm_free_msg_data(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @slurm_job_step_layout_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.slurm_step_id_msg, align 8
+.critedge:
+  %1 = alloca %struct.slurm_step_id_msg, align 8
+  %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
-  %4 = alloca %struct.slurm_msg, align 8
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %4, align 8
+  call void @slurm_msg_t_init(ptr noundef nonnull %2) #11
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #11
-  call void @slurm_msg_t_init(ptr noundef nonnull %4) #11
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 212
-  store i16 5021, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store ptr %2, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %9 = load ptr, ptr @working_cluster_rec, align 8
-  %10 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9) #11
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %.loopexit, label %.preheader
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 212
+  store i16 5021, ptr %6, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  store ptr %1, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 212
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %11 = load ptr, ptr @working_cluster_rec, align 8
+  %12 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %11) #11
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 212
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  br label %36
+.critedge10:                                      ; preds = %36
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
+  call void @slurm_msg_set_r_uid(ptr noundef nonnull %2, i32 noundef %14) #11
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i16, ptr %8, align 8
+  %17 = call i32 @slurm_conf_get_addr(ptr noundef %15, ptr noundef nonnull %2, i16 noundef zeroext %16) #11
+  %.not6 = icmp eq i32 %17, 0
+  br i1 %.not6, label %33, label %18
 
-.critedge10:                                      ; preds = %38
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
-  call void @slurm_msg_set_r_uid(ptr noundef nonnull %3, i32 noundef %15) #11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i16, ptr %14, align 8
-  %18 = call i32 @slurm_conf_get_addr(ptr noundef %16, ptr noundef nonnull %3, i16 noundef zeroext %17) #11
-  %.not6 = icmp eq i32 %18, 0
-  br i1 %.not6, label %34, label %19
+18:                                               ; preds = %.critedge10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %19 = load ptr, ptr %4, align 8
+  %20 = call i32 @slurm_get_node_alias_addrs(ptr noundef %19, ptr noundef nonnull %5) #11
+  %.not7 = icmp eq i32 %20, 0
+  br i1 %.not7, label %21, label %28
 
-19:                                               ; preds = %.critedge10
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @slurm_get_node_alias_addrs(ptr noundef %20, ptr noundef nonnull %6) #11
-  %.not7 = icmp eq i32 %21, 0
-  br i1 %.not7, label %22, label %29
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @add_remote_nodes_to_conf_tbls(ptr noundef %24, ptr noundef %26) #11
+  br label %28
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @add_remote_nodes_to_conf_tbls(ptr noundef %25, ptr noundef %27) #11
-  br label %29
+28:                                               ; preds = %21, %18
+  %29 = load ptr, ptr %5, align 8
+  call void @slurm_free_node_alias_addrs(ptr noundef %29) #11
+  %30 = load ptr, ptr %4, align 8
+  %31 = load i16, ptr %8, align 8
+  %32 = call i32 @slurm_conf_get_addr(ptr noundef %30, ptr noundef nonnull %2, i16 noundef zeroext %31) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %33
 
-29:                                               ; preds = %22, %19
-  %30 = load ptr, ptr %6, align 8
-  call void @slurm_free_node_alias_addrs(ptr noundef %30) #11
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i16, ptr %14, align 8
-  %33 = call i32 @slurm_conf_get_addr(ptr noundef %31, ptr noundef nonnull %3, i16 noundef zeroext %32) #11
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %34
+33:                                               ; preds = %28, %.critedge10
+  call void @slurm_xfree(ptr noundef nonnull %4) #11
+  %34 = call i32 @slurm_send_recv_node_msg(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #11
+  %.not8 = icmp eq i32 %34, 0
+  br i1 %.not8, label %.preheader, label %.loopexit
 
-34:                                               ; preds = %29, %.critedge10
-  call void @slurm_xfree(ptr noundef nonnull %5) #11
-  %35 = call i32 @slurm_send_recv_node_msg(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0) #11
-  %.not8 = icmp eq i32 %35, 0
-  br i1 %.not8, label %36, label %.loopexit
-
-36:                                               ; preds = %.preheader, %34
-  %37 = load i16, ptr %12, align 4
-  switch i16 %37, label %52 [
-    i16 8003, label %38
-    i16 5022, label %44
-    i16 8001, label %47
+.preheader:                                       ; preds = %.critedge, %33
+  %35 = load i16, ptr %9, align 4
+  switch i16 %35, label %48 [
+    i16 8003, label %36
+    i16 5022, label %42
+    i16 8001, label %44
   ]
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %13, align 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %5, align 8
-  store ptr null, ptr %39, align 8
-  %41 = load ptr, ptr %5, align 8
-  %.not9.not = icmp eq ptr %41, null
-  br i1 %.not9.not, label %42, label %.critedge10
+36:                                               ; preds = %.preheader
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %4, align 8
+  store ptr null, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %.not9.not = icmp eq ptr %39, null
+  br i1 %.not9.not, label %40, label %.critedge10
 
-42:                                               ; preds = %38
-  %43 = tail call ptr @__errno_location() #12
-  store i32 -1, ptr %43, align 4
+40:                                               ; preds = %36
+  %41 = tail call ptr @__errno_location() #12
+  store i32 -1, ptr %41, align 4
   br label %.loopexit
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %46 = load ptr, ptr %45, align 8
+42:                                               ; preds = %.preheader
+  %43 = load ptr, ptr %10, align 8
   br label %.loopexit
 
-47:                                               ; preds = %36
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr %49, align 4
-  call void @slurm_free_return_code_msg(ptr noundef nonnull %49) #11
-  %51 = tail call ptr @__errno_location() #12
-  store i32 %50, ptr %51, align 4
+44:                                               ; preds = %.preheader
+  %45 = load ptr, ptr %10, align 8
+  %46 = load i32, ptr %45, align 4
+  call void @slurm_free_return_code_msg(ptr noundef nonnull %45) #11
+  %47 = tail call ptr @__errno_location() #12
+  store i32 %46, ptr %47, align 4
   br label %.loopexit
 
-52:                                               ; preds = %36
-  %53 = tail call ptr @__errno_location() #12
-  store i32 1000, ptr %53, align 4
+48:                                               ; preds = %.preheader
+  %49 = tail call ptr @__errno_location() #12
+  store i32 1000, ptr %49, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %42, %1, %52, %47, %44
-  %.1 = phi ptr [ null, %52 ], [ null, %42 ], [ %46, %44 ], [ null, %47 ], [ null, %1 ], [ null, %34 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+.loopexit:                                        ; preds = %33, %.critedge, %40, %48, %44, %42
+  %.1 = phi ptr [ null, %48 ], [ null, %40 ], [ %43, %42 ], [ null, %44 ], [ null, %.critedge ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.1
 }
 

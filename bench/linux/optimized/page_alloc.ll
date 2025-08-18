@@ -1950,9 +1950,9 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   %31 = getelementptr [4 x %struct.list_head], ptr %0, i64 0, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %.critedge.preheader, label %._crit_edge
+  br i1 %33, label %.backedge.preheader, label %._crit_edge
 
-.critedge.preheader:                              ; preds = %.split6
+.backedge.preheader:                              ; preds = %.split6
   %34 = getelementptr i8, ptr %.split, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -1961,8 +1961,8 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   %39 = icmp eq ptr %38, %37
   br i1 %39, label %.loopexit, label %._crit_edge, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %.critedge.preheader, %.split6
-  %.lcssa = phi i32 [ %29, %.split6 ], [ %35, %.critedge.preheader ]
+._crit_edge:                                      ; preds = %.backedge.preheader, %.split6
+  %.lcssa = phi i32 [ %29, %.split6 ], [ %35, %.backedge.preheader ]
   br i1 %11, label %.loopexit.sink.split, label %40
 
 40:                                               ; preds = %._crit_edge
@@ -1976,8 +1976,8 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   store i8 1, ptr %4, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %27, %.loopexit.sink.split, %.critedge.preheader, %40, %5
-  %44 = phi i32 [ -1, %5 ], [ %.lcssa, %40 ], [ -1, %.critedge.preheader ], [ %.ph, %.loopexit.sink.split ], [ -1, %27 ], [ -1, %28 ]
+.loopexit:                                        ; preds = %28, %27, %.backedge.preheader, %.loopexit.sink.split, %40, %5
+  %44 = phi i32 [ -1, %5 ], [ %.lcssa, %40 ], [ %.ph, %.loopexit.sink.split ], [ -1, %.backedge.preheader ], [ -1, %27 ], [ -1, %28 ]
   ret i32 %44
 }
 
@@ -5659,7 +5659,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef r
   br label %.split
 
 .split:                                           ; preds = %.split.preheader, %.loopexit78
-  %28 = phi ptr [ %.pre201, %.loopexit78 ], [ %24, %.split.preheader ]
+  %28 = phi ptr [ %.pre203, %.loopexit78 ], [ %24, %.split.preheader ]
   %29 = phi ptr [ %.pre, %.loopexit78 ], [ %23, %.split.preheader ]
   %30 = phi i32 [ %27, %.loopexit78 ], [ %2, %.split.preheader ]
   %31 = phi ptr [ %560, %.loopexit78 ], [ null, %.split.preheader ]
@@ -5941,14 +5941,14 @@ __zone_watermark_ok.exit37:                       ; preds = %168
 213:                                              ; preds = %.thread.i36
   %214 = icmp ne i64 %172, 0
   %215 = and i1 %62, %214
-  %or.cond259 = select i1 %61, i1 %215, i1 false
-  br i1 %or.cond259, label %216, label %.thread48, !prof !144
+  %or.cond262 = select i1 %61, i1 %215, i1 false
+  br i1 %or.cond262, label %216, label %.thread48, !prof !144
 
 216:                                              ; preds = %213
   %217 = load i64, ptr %74, align 64
   %218 = tail call zeroext i1 @__zone_watermark_ok(ptr noundef nonnull %74, i32 noundef 0, i64 noundef %217, i32 noundef %174, i32 noundef %30, i64 noundef %177)
-  %brmerge262 = or i1 %218, %64
-  br i1 %brmerge262, label %__zone_watermark_ok.exit.thread, label %219
+  %brmerge265 = or i1 %218, %64
+  br i1 %brmerge265, label %__zone_watermark_ok.exit.thread, label %219
 
 .thread48:                                        ; preds = %213
   br i1 %64, label %__zone_watermark_ok.exit.thread, label %219
@@ -6116,7 +6116,7 @@ zone_statistics.exit.thread:                      ; preds = %255, %259, %279, %2
   %319 = getelementptr i8, ptr %.split.i, i64 4
   br label %320
 
-320:                                              ; preds = %.loopexit266, %zone_statistics.exit.thread
+320:                                              ; preds = %.loopexit269, %zone_statistics.exit.thread
   %321 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %309) #22
   br i1 %66, label %.loopexit74.preheader, label %.preheader73
 
@@ -6228,9 +6228,9 @@ zone_statistics.exit.thread:                      ; preds = %255, %259, %279, %2
   %378 = getelementptr [4 x %struct.list_head], ptr %317, i64 0, i64 %377
   %379 = load volatile ptr, ptr %378, align 8
   %380 = icmp eq ptr %379, %378
-  br i1 %380, label %.critedge.preheader.i, label %find_suitable_fallback.exit
+  br i1 %380, label %.backedge.i, label %find_suitable_fallback.exit
 
-.critedge.preheader.i:                            ; preds = %375
+.backedge.i:                                      ; preds = %375
   %381 = load i32, ptr %319, align 4
   %382 = sext i32 %381 to i64
   %383 = getelementptr [4 x %struct.list_head], ptr %317, i64 0, i64 %382
@@ -6238,13 +6238,13 @@ zone_statistics.exit.thread:                      ; preds = %255, %259, %279, %2
   %385 = icmp eq ptr %384, %383
   br i1 %385, label %.preheader.preheader, label %find_suitable_fallback.exit, !llvm.loop !51
 
-find_suitable_fallback.exit:                      ; preds = %375, %.critedge.preheader.i
-  %.lcssa.i = phi i32 [ %376, %375 ], [ %381, %.critedge.preheader.i ]
+find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
+  %.lcssa.i = phi i32 [ %376, %375 ], [ %381, %.backedge.i ]
   store i8 1, ptr %5, align 1
   %386 = icmp eq i32 %.lcssa.i, -1
   br i1 %386, label %.preheader.preheader, label %.loopexit.thread
 
-.preheader.preheader:                             ; preds = %.critedge.preheader.i, %372, %find_suitable_fallback.exit
+.preheader.preheader:                             ; preds = %.backedge.i, %372, %find_suitable_fallback.exit
   br label %.preheader
 
 387:                                              ; preds = %.preheader
@@ -6256,8 +6256,8 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   br i1 %391, label %.preheader, label %.loopexit, !llvm.loop !124
 
 .loopexit:                                        ; preds = %387
-  %.pre202 = load i8, ptr %5, align 1, !range !142
-  %392 = icmp eq i8 %.pre202, 0
+  %.pre204 = load i8, ptr %5, align 1, !range !142
+  %392 = icmp eq i8 %.pre204, 0
   %393 = and i1 %316, %392
   %394 = icmp slt i32 %1, %389
   %395 = and i1 %394, %393
@@ -6320,7 +6320,7 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   br i1 %428, label %399, label %.loopexit.thread, !llvm.loop !125
 
 .loopexit.thread:                                 ; preds = %419, %424, %find_suitable_fallback.exit, %.loopexit
-  %429 = phi i8 [ %.pre202, %.loopexit ], [ 1, %find_suitable_fallback.exit ], [ %426, %424 ], [ %421, %419 ]
+  %429 = phi i8 [ %.pre204, %.loopexit ], [ 1, %find_suitable_fallback.exit ], [ %426, %424 ], [ %421, %419 ]
   %430 = phi ptr [ %388, %.loopexit ], [ %317, %find_suitable_fallback.exit ], [ %402, %424 ], [ %402, %419 ]
   %431 = phi i32 [ %389, %.loopexit ], [ 10, %find_suitable_fallback.exit ], [ 11, %424 ], [ %423, %419 ]
   %432 = phi i32 [ %390, %.loopexit ], [ %.lcssa.i, %find_suitable_fallback.exit ], [ -1, %424 ], [ %412, %419 ]
@@ -6399,7 +6399,7 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 48
   %471 = load volatile i32, ptr %470, align 4
   %472 = icmp eq i32 %471, -1
-  br i1 %472, label %.preheader69, label %.loopexit266, !prof !131
+  br i1 %472, label %.preheader69, label %.loopexit269, !prof !131
 
 473:                                              ; preds = %.preheader69
   %474 = add nuw nsw i64 %483, 1
@@ -6413,7 +6413,7 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 48
   %481 = load volatile i32, ptr %480, align 4
   %482 = icmp eq i32 %481, -1
-  br i1 %482, label %.preheader69, label %.loopexit266, !prof !133, !llvm.loop !132
+  br i1 %482, label %.preheader69, label %.loopexit269, !prof !133, !llvm.loop !132
 
 .preheader69:                                     ; preds = %469, %478
   %483 = phi i64 [ %474, %478 ], [ 0, %469 ]
@@ -6429,11 +6429,11 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
   %493 = and i64 %492, 8388607
   %494 = or i64 %491, %493
   %495 = icmp eq i64 %494, 0
-  br i1 %495, label %473, label %.loopexit266, !prof !7
+  br i1 %495, label %473, label %.loopexit269, !prof !7
 
-.loopexit266:                                     ; preds = %.preheader69, %478, %469
-  %.lcssa237.sink = phi ptr [ %468, %469 ], [ %479, %478 ], [ %484, %.preheader69 ]
-  tail call fastcc void @check_new_page_bad(ptr noundef %.lcssa237.sink)
+.loopexit269:                                     ; preds = %.preheader69, %478, %469
+  %.lcssa240.sink = phi ptr [ %468, %469 ], [ %479, %478 ], [ %484, %.preheader69 ]
+  tail call fastcc void @check_new_page_bad(ptr noundef %.lcssa240.sink)
   br label %320
 
 .loopexit70:                                      ; preds = %467, %473
@@ -6550,7 +6550,7 @@ zone_statistics.exit:                             ; preds = %519, %.loopexit70, 
   %560 = phi ptr [ %558, %.loopexit79 ], [ %97, %106 ]
   %561 = phi i8 [ %559, %.loopexit79 ], [ %98, %106 ]
   %.pre = load ptr, ptr %6, align 8
-  %.pre201 = load ptr, ptr %.pre, align 8
+  %.pre203 = load ptr, ptr %.pre, align 8
   br label %.split, !llvm.loop !156
 
 .thread67:                                        ; preds = %.loopexit79, %4, %538, %541

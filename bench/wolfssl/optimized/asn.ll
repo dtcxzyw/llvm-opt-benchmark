@@ -15345,7 +15345,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
 .thread100:                                       ; preds = %56, %SetCurve.exit
   %.1103 = phi i32 [ %.fr, %SetCurve.exit ], [ 0, %56 ]
   %58 = phi i1 [ true, %SetCurve.exit ], [ false, %56 ]
-  br i1 %.not, label %.critedge, label %59
+  br i1 %.not, label %.loopexit, label %59
 
 59:                                               ; preds = %.thread100
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 232
@@ -15355,14 +15355,14 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   store i32 %61, ptr %62, align 16, !tbaa !3
   br label %65
 
-.critedge:                                        ; preds = %.thread100
+.loopexit:                                        ; preds = %.thread100
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 217
   store i8 1, ptr %63, align 1, !tbaa !9
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 249
   store i8 1, ptr %64, align 1, !tbaa !9
   br label %65
 
-65:                                               ; preds = %59, %.critedge
+65:                                               ; preds = %59, %.loopexit
   %66 = call i32 @SizeASN_Items(ptr noundef nonnull @eccKeyASN, ptr noundef nonnull %6, i32 noundef 8, ptr noundef nonnull %9)
   br i1 %12, label %67, label %.thread
 

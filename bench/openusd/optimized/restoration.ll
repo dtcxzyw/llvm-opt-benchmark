@@ -2171,12 +2171,12 @@ define hidden void @av1_loop_restoration_save_boundary_lines(ptr noundef readonl
   %17 = getelementptr i8, ptr %1, i64 456
   %18 = getelementptr i8, ptr %1, i64 472
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count77 = select i1 %.not.i, i64 3, i64 1
+  %wide.trip.count75 = select i1 %.not.i, i64 3, i64 1
   br i1 %.not70.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %save_tile_row_boundary_lines.exit.us
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %save_tile_row_boundary_lines.exit.us ], [ 0, %3 ]
-  %20 = icmp ne i64 %indvars.iv74, 0
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %save_tile_row_boundary_lines.exit.us ], [ 0, %3 ]
+  %20 = icmp ne i64 %indvars.iv72, 0
   br i1 %20, label %21, label %av1_whole_frame_rect.exit.i.us
 
 21:                                               ; preds = %.split.us
@@ -2194,24 +2194,24 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %21, %.split.us
   %30 = lshr i32 %29, 1
   %31 = add nsw i32 %30, %28
   %32 = ashr i32 %31, %27
-  %.idx.i.us = shl nuw nsw i64 %indvars.iv74, 6
+  %.idx.i.us = shl nuw nsw i64 %indvars.iv72, 6
   %33 = getelementptr i8, ptr %9, i64 %.idx.i.us
   %34 = sub nuw nsw i32 6, %27
   %.not73.i.us = icmp sgt i32 %32, 0
   br i1 %.not73.i.us, label %.lr.ph.i.us, label %save_tile_row_boundary_lines.exit.us
 
 .lr.ph.i.us:                                      ; preds = %av1_whole_frame_rect.exit.i.us
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv74
+  %35 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv72
   %36 = zext i1 %20 to i64
   %37 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = getelementptr inbounds nuw [2 x i32], ptr %19, i64 0, i64 %36
   %40 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %36
   %.in.i23.us = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %41 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %42 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %43 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %44 = trunc nuw nsw i64 %indvars.iv74 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv72 to i32
   br label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %save_deblock_boundary_lines.exit.us
@@ -2364,9 +2364,9 @@ save_deblock_boundary_lines.exit54.us:            ; preds = %.split.i.i44.us, %.
   br i1 %49, label %128, label %save_tile_row_boundary_lines.exit.us
 
 save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_boundary_lines.exit54.us, %av1_whole_frame_rect.exit.i.us
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %.split67.us, label %.split.us, !llvm.loop !46
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %.split65.us, label %.split.us, !llvm.loop !46
 
 128:                                              ; preds = %save_deblock_boundary_lines.exit54.us
   %129 = load ptr, ptr %35, align 8
@@ -2644,15 +2644,15 @@ save_cdef_boundary_lines.exit21:                  ; preds = %.split.i.i17, %.spl
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds i8, ptr %289, i64 %294
   %296 = load i32, ptr %224, align 4
-  br i1 %205, label %297, label %.critedge58
+  br i1 %205, label %297, label %.critedge88
 
 297:                                              ; preds = %276
   %298 = load i32, ptr %16, align 16
   %299 = icmp ne i32 %298, 0
   %300 = zext i1 %299 to i32
-  br label %.critedge58
+  br label %.critedge88
 
-.critedge58:                                      ; preds = %297, %276
+.critedge88:                                      ; preds = %297, %276
   %301 = phi i32 [ 0, %276 ], [ %300, %297 ]
   %.val.i = load i32, ptr %17, align 8
   %.val45.i = load i32, ptr %18, align 8
@@ -2669,9 +2669,9 @@ save_cdef_boundary_lines.exit21:                  ; preds = %.split.i.i17, %.spl
   %309 = sext i32 %304 to i64
   br i1 %.not.i11, label %.split.us.i.i, label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %.critedge58, %.split.us.i.i
-  %.026.us.i.i = phi ptr [ %316, %.split.us.i.i ], [ %295, %.critedge58 ]
-  %310 = phi i1 [ false, %.split.us.i.i ], [ true, %.critedge58 ]
+.split.us.i.i:                                    ; preds = %.critedge88, %.split.us.i.i
+  %.026.us.i.i = phi ptr [ %316, %.split.us.i.i ], [ %295, %.critedge88 ]
+  %310 = phi i1 [ false, %.split.us.i.i ], [ true, %.critedge88 ]
   %311 = getelementptr inbounds i8, ptr %.026.us.i.i, i64 -4
   %312 = load i8, ptr %.026.us.i.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %311, i8 %312, i64 4, i1 false)
@@ -2682,9 +2682,9 @@ save_cdef_boundary_lines.exit21:                  ; preds = %.split.i.i17, %.spl
   %316 = getelementptr inbounds i8, ptr %.026.us.i.i, i64 %307
   br i1 %310, label %.split.us.i.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !45
 
-.split.i.i:                                       ; preds = %.critedge58, %.split.i.i
-  %.026.i.i = phi ptr [ %327, %.split.i.i ], [ %295, %.critedge58 ]
-  %317 = phi i1 [ false, %.split.i.i ], [ true, %.critedge58 ]
+.split.i.i:                                       ; preds = %.critedge88, %.split.i.i
+  %.026.i.i = phi ptr [ %327, %.split.i.i ], [ %295, %.critedge88 ]
+  %317 = phi i1 [ false, %.split.i.i ], [ true, %.critedge88 ]
   %318 = getelementptr inbounds i8, ptr %.026.i.i, i64 -8
   %319 = load i16, ptr %.026.i.i, align 2
   %320 = zext i16 %319 to i32
@@ -2703,10 +2703,10 @@ save_cdef_boundary_lines.exit:                    ; preds = %save_cdef_boundary_
 
 save_tile_row_boundary_lines.exit:                ; preds = %.split.i.i, %.split.us.i.i, %av1_whole_frame_rect.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
-  br i1 %exitcond.not, label %.split67.us, label %.split, !llvm.loop !47
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
+  br i1 %exitcond.not, label %.split65.us, label %.split, !llvm.loop !47
 
-.split67.us:                                      ; preds = %save_tile_row_boundary_lines.exit, %save_tile_row_boundary_lines.exit.us
+.split65.us:                                      ; preds = %save_tile_row_boundary_lines.exit, %save_tile_row_boundary_lines.exit.us
   ret void
 }
 

@@ -295,41 +295,42 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = load ptr, ptr %1, align 8, !tbaa !33
   br label %.preheader29
 
-.preheader29:                                     ; preds = %.preheader29.lr.ph, %.preheader29
-  %.sroa.6.1 = phi i32 [ 0, %.preheader29.lr.ph ], [ %.sroa.6.0, %.preheader29 ]
-  %indvars.iv35 = phi i64 [ 0, %.preheader29.lr.ph ], [ %indvars.iv.next36, %.preheader29 ]
-  %13 = phi i32 [ 0, %.preheader29.lr.ph ], [ %16, %.preheader29 ]
-  %14 = phi i32 [ 0, %.preheader29.lr.ph ], [ %34, %.preheader29 ]
+.preheader29:                                     ; preds = %.preheader29.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit
+  %.sroa.6.1 = phi i32 [ 0, %.preheader29.lr.ph ], [ %.sroa.6.0, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit ]
+  %indvars.iv35 = phi i64 [ 0, %.preheader29.lr.ph ], [ %indvars.iv.next36, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit ]
+  %13 = phi i32 [ 0, %.preheader29.lr.ph ], [ %16, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit ]
+  %14 = phi i32 [ 0, %.preheader29.lr.ph ], [ %19, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit ]
   %.not = icmp slt i32 %14, %11
   %15 = add nsw i32 %13, 1
   %.sroa.6.0 = select i1 %.not, i32 %.sroa.6.1, i32 %15
   %16 = select i1 %.not, i32 %13, i32 %15
   %17 = select i1 %.not, i32 %14, i32 0
   %18 = getelementptr double, ptr %12, i64 %indvars.iv35
-  %19 = sitofp i32 %17 to double
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 0
-  %21 = load i32, ptr %20, align 4, !tbaa !4
-  %22 = add nsw i32 %21, -1
-  %23 = sitofp i32 %22 to double
-  %24 = fdiv double %19, %23
-  %25 = mul nuw nsw i64 %9, 0
-  %26 = getelementptr double, ptr %18, i64 %25
-  store double %24, ptr %26, align 8, !tbaa !17
-  %27 = sitofp i32 %.sroa.6.0 to double
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 1
-  %29 = load i32, ptr %28, align 4, !tbaa !4
-  %30 = add nsw i32 %29, -1
-  %31 = sitofp i32 %30 to double
-  %32 = fdiv double %27, %31
-  %33 = getelementptr double, ptr %18, i64 %9
-  store double %32, ptr %33, align 8, !tbaa !17
-  %34 = add nsw i32 %17, 1
+  br label %20
+
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+  ret void
+
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit: ; preds = %20
+  %19 = add nsw i32 %17, 1
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next36, %9
   br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !34
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit._crit_edge: ; preds = %.preheader29, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  ret void
+20:                                               ; preds = %.preheader29, %20
+  %21 = phi i1 [ true, %.preheader29 ], [ false, %20 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi i32 [ %17, %.preheader29 ], [ %.sroa.6.0, %20 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %20 ]
+  %22 = sitofp i32 %indvars.iv.sroa.phi.sroa.speculated to double
+  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %25 = add nsw i32 %24, -1
+  %26 = sitofp i32 %25 to double
+  %27 = fdiv double %22, %26
+  %28 = mul nuw nsw i64 %9, %indvars.iv
+  %29 = getelementptr double, ptr %18, i64 %28
+  store double %27, ptr %29, align 8, !tbaa !17
+  br i1 %21, label %20, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi2ELi1ELi0ELi2ELi1EEEE11setConstantERKi.exit, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -389,7 +390,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._c
   br label %26
 
 26:                                               ; preds = %17, %22
-  br i1 %18, label %17, label %.preheader, !llvm.loop !35
+  br i1 %18, label %17, label %.preheader, !llvm.loop !36
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %29
   %27 = load i32, ptr %2, align 4, !tbaa !4
@@ -397,7 +398,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ;
   store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
-  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !36
+  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !37
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
@@ -414,7 +415,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ;
   store float %37, ptr %39, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !37
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -433,13 +434,13 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.pr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false), !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = icmp sgt i64 %12, 0
   %indvars.iv.sroa.gep41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %13, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.preheader
-  %14 = load ptr, ptr %1, align 8, !tbaa !40
+  %14 = load ptr, ptr %1, align 8, !tbaa !41
   br label %.preheader29
 
 .preheader29:                                     ; preds = %.preheader29.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit
@@ -473,7 +474,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   br label %25
 
 25:                                               ; preds = %16, %21
-  br i1 %17, label %16, label %.preheader, !llvm.loop !41
+  br i1 %17, label %16, label %.preheader, !llvm.loop !42
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
   %26 = load i32, ptr %2, align 4, !tbaa !4
@@ -481,7 +482,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store i32 %27, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %12
-  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !42
+  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !43
 
 28:                                               ; preds = %.preheader, %28
   %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
@@ -498,7 +499,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store float %36, ptr %38, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !43
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !44
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -522,13 +523,13 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1E
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; preds = %3, %6
   %11 = mul nsw i64 %2, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !38
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = mul nsw i64 %13, 3
   %.not.i = icmp eq i64 %11, %14
   br i1 %.not.i, label %_ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EE6resizeElll.exit, label %15
 
 15:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit
-  %16 = load ptr, ptr %0, align 8, !tbaa !40
+  %16 = load ptr, ptr %0, align 8, !tbaa !41
   tail call void @free(ptr noundef %16) #8
   %17 = icmp sgt i64 %11, 0
   br i1 %17, label %18, label %.sink.split.i
@@ -557,11 +558,11 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i: ; preds = %18
 
 .sink.split.i:                                    ; preds = %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i, %15
   %.sink.i = phi ptr [ %23, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i ], [ null, %15 ]
-  store ptr %.sink.i, ptr %0, align 8, !tbaa !40
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !41
   br label %_ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EE6resizeElll.exit
 
 _ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EE6resizeElll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit, %.sink.split.i
-  store i64 %1, ptr %12, align 8, !tbaa !38
+  store i64 %1, ptr %12, align 8, !tbaa !39
   ret void
 }
 
@@ -581,13 +582,13 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.pr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false), !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !44
+  %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = icmp sgt i64 %12, 0
   %indvars.iv.sroa.gep41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %13, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.preheader
-  %14 = load ptr, ptr %1, align 8, !tbaa !46
+  %14 = load ptr, ptr %1, align 8, !tbaa !47
   br label %.preheader29
 
 .preheader29:                                     ; preds = %.preheader29.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit
@@ -622,7 +623,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   br label %25
 
 25:                                               ; preds = %16, %21
-  br i1 %17, label %16, label %.preheader, !llvm.loop !47
+  br i1 %17, label %16, label %.preheader, !llvm.loop !48
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
   %26 = load i32, ptr %2, align 4, !tbaa !4
@@ -630,7 +631,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store i32 %27, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %12
-  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !48
+  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !49
 
 28:                                               ; preds = %.preheader, %28
   %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
@@ -646,7 +647,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store float %36, ptr %37, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !49
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !50
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -670,13 +671,13 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1E
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; preds = %3, %6
   %11 = mul nsw i64 %2, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !44
+  %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = mul nsw i64 %13, 3
   %.not.i = icmp eq i64 %11, %14
   br i1 %.not.i, label %_ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi1EE6resizeElll.exit, label %15
 
 15:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit
-  %16 = load ptr, ptr %0, align 8, !tbaa !46
+  %16 = load ptr, ptr %0, align 8, !tbaa !47
   tail call void @free(ptr noundef %16) #8
   %17 = icmp sgt i64 %11, 0
   br i1 %17, label %18, label %.sink.split.i
@@ -705,11 +706,11 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i: ; preds = %18
 
 .sink.split.i:                                    ; preds = %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i, %15
   %.sink.i = phi ptr [ %23, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i ], [ null, %15 ]
-  store ptr %.sink.i, ptr %0, align 8, !tbaa !46
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !47
   br label %_ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi1EE6resizeElll.exit
 
 _ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi1EE6resizeElll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit, %.sink.split.i
-  store i64 %1, ptr %12, align 8, !tbaa !44
+  store i64 %1, ptr %12, align 8, !tbaa !45
   ret void
 }
 
@@ -770,7 +771,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   br label %26
 
 26:                                               ; preds = %17, %22
-  br i1 %18, label %17, label %.preheader, !llvm.loop !50
+  br i1 %18, label %17, label %.preheader, !llvm.loop !51
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %29
   %27 = load i32, ptr %2, align 4, !tbaa !4
@@ -778,7 +779,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
-  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !51
+  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !52
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
@@ -795,7 +796,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ;
   store double %37, ptr %39, align 8, !tbaa !17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %29, !llvm.loop !52
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %29, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -855,7 +856,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._c
   br label %26
 
 26:                                               ; preds = %17, %22
-  br i1 %18, label %17, label %.preheader, !llvm.loop !53
+  br i1 %18, label %17, label %.preheader, !llvm.loop !54
 
 _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %29
   %27 = load i32, ptr %2, align 4, !tbaa !4
@@ -863,7 +864,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ;
   store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
-  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !54
+  br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !55
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
@@ -880,7 +881,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ;
   store double %37, ptr %39, align 8, !tbaa !17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !55
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !56
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -904,7 +905,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !56
+  %8 = load i64, ptr %7, align 8, !tbaa !57
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -944,7 +945,7 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !22
-  store i64 %3, ptr %7, align 8, !tbaa !56
+  store i64 %3, ptr %7, align 8, !tbaa !57
   ret void
 }
 
@@ -953,7 +954,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !57
+  %8 = load i64, ptr %7, align 8, !tbaa !58
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -993,7 +994,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !31
-  store i64 %3, ptr %7, align 8, !tbaa !57
+  store i64 %3, ptr %7, align 8, !tbaa !58
   ret void
 }
 
@@ -1058,16 +1059,16 @@ attributes #10 = { nounwind allocsize(0) }
 !35 = distinct !{!35, !15}
 !36 = distinct !{!36, !15}
 !37 = distinct !{!37, !15}
-!38 = !{!39, !12, i64 8}
-!39 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EEE", !24, i64 0, !12, i64 8}
-!40 = !{!39, !24, i64 0}
-!41 = distinct !{!41, !15}
+!38 = distinct !{!38, !15}
+!39 = !{!40, !12, i64 8}
+!40 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EEE", !24, i64 0, !12, i64 8}
+!41 = !{!40, !24, i64 0}
 !42 = distinct !{!42, !15}
 !43 = distinct !{!43, !15}
-!44 = !{!45, !12, i64 8}
-!45 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi1EEE", !24, i64 0, !12, i64 8}
-!46 = !{!45, !24, i64 0}
-!47 = distinct !{!47, !15}
+!44 = distinct !{!44, !15}
+!45 = !{!46, !12, i64 8}
+!46 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi1EEE", !24, i64 0, !12, i64 8}
+!47 = !{!46, !24, i64 0}
 !48 = distinct !{!48, !15}
 !49 = distinct !{!49, !15}
 !50 = distinct !{!50, !15}
@@ -1076,5 +1077,6 @@ attributes #10 = { nounwind allocsize(0) }
 !53 = distinct !{!53, !15}
 !54 = distinct !{!54, !15}
 !55 = distinct !{!55, !15}
-!56 = !{!23, !12, i64 16}
-!57 = !{!32, !12, i64 16}
+!56 = distinct !{!56, !15}
+!57 = !{!23, !12, i64 16}
+!58 = !{!32, !12, i64 16}

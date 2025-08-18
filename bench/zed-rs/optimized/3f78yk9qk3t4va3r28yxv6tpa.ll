@@ -1369,45 +1369,44 @@ common.ret:                                       ; preds = %"_ZN4core3ptr90drop
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$u3b$$u20$1$u5d$$GT$17ha46daadfe27fcf28E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  %3 = load i64, ptr %2, align 8, !range !305, !alias.scope !306, !noundef !7
-  %4 = icmp eq i64 %3, -9223372036854775804
-  br i1 %4, label %"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE.exit", label %5
+  %2 = alloca [24 x i8], align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = load i64, ptr %3, align 8, !range !299, !alias.scope !300, !noundef !7
+  %7 = icmp eq i64 %6, -9223372036854775804
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
+  br i1 %7, label %.split8, label %8
 
-5:                                                ; preds = %.critedge
-  %6 = icmp sgt i64 %3, -9223372036854775805
-  %cond1.i.i.i.i = icmp eq i64 %3, -9223372036854775806
-  %cond.i.i.i.i = or i1 %6, %cond1.i.i.i.i
-  br i1 %cond.i.i.i.i, label %7, label %"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE.exit"
+8:                                                ; preds = %1
+  %9 = icmp sgt i64 %6, -9223372036854775805
+  %cond1.i.i.i.i = icmp eq i64 %6, -9223372036854775806
+  %cond.i.i.i.i = or i1 %9, %cond1.i.i.i.i
+  br i1 %cond.i.i.i.i, label %10, label %.split8
 
-7:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !307
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfd1b06550163f0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !range !320, !noalias !307, !noundef !7
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i", label %11
+10:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !307
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfd1b06550163f0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %3)
+  %11 = load i64, ptr %4, align 8, !range !320, !noalias !307, !noundef !7
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i", label %13
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !307, !noundef !7
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i", label %15
+13:                                               ; preds = %10
+  %14 = load i64, ptr %5, align 8, !noalias !307, !noundef !7
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i", label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %1, align 8, !noalias !307, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #31
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %2, align 8, !noalias !307, !nonnull !7, !noundef !7
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %14, i64 noundef %11) #31
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i": ; preds = %15, %11, %7
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !307
-  br label %"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE.exit"
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i": ; preds = %16, %13, %10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !307
+  br label %.split8
 
-"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE.exit": ; preds = %.critedge, %5, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i"
+.split8:                                          ; preds = %1, %8, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30fa7777d73a663eE.exit.i.i.i.i"
   ret void
 }
 
@@ -5030,7 +5029,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 97:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %98 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %98 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %.not = icmp eq i64 %98, -9223372036854775804
   br i1 %.not, label %72, label %225
 
@@ -5117,7 +5116,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br i1 %136, label %140, label %thread-pre-split
 
 137:                                              ; preds = %110, %120
-  %138 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %138 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %139 = icmp ne i64 %138, -9223372036854775804
   %brmerge.not = and i1 %2, %139
   br i1 %brmerge.not, label %200, label %197
@@ -5127,7 +5126,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %140
-  %142 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %142 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %143 = icmp eq i64 %142, -9223372036854775804
   br i1 %143, label %147, label %144
 
@@ -5701,7 +5700,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 98:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %99 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %99 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %.not = icmp eq i64 %99, -9223372036854775804
   br i1 %.not, label %76, label %226
 
@@ -5788,7 +5787,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br i1 %137, label %141, label %thread-pre-split
 
 138:                                              ; preds = %111, %121
-  %139 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %139 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %140 = icmp ne i64 %139, -9223372036854775804
   %brmerge.not = and i1 %2, %140
   br i1 %brmerge.not, label %201, label %198
@@ -5798,7 +5797,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
           to label %142 unwind label %.loopexit
 
 142:                                              ; preds = %141
-  %143 = load i64, ptr %17, align 8, !range !305, !noundef !7
+  %143 = load i64, ptr %17, align 8, !range !299, !noundef !7
   %144 = icmp eq i64 %143, -9223372036854775804
   br i1 %144, label %148, label %145
 
@@ -6837,15 +6836,15 @@ attributes #34 = { cold noreturn nounwind }
 !296 = distinct !{!296, !"_ZN4core3ptr46drop_in_place$LT$proto..UpdateNotification$GT$17h6f4e1e6ba64f1472E.llvm.3163802790851490697"}
 !297 = distinct !{!297, !298, !"_ZN4core3ptr90drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..UpdateNotification$GT$$GT$17h6ee68bfaea1b2700E: argument 0"}
 !298 = distinct !{!298, !"_ZN4core3ptr90drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..UpdateNotification$GT$$GT$17h6ee68bfaea1b2700E"}
-!299 = !{!300}
-!300 = distinct !{!300, !301, !"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE: argument 0"}
-!301 = distinct !{!301, !"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE"}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$notifications..NotificationEntry$GT$$GT$17h95e30d827fcaacfeE: argument 0"}
-!304 = distinct !{!304, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$notifications..NotificationEntry$GT$$GT$17h95e30d827fcaacfeE"}
-!305 = !{i64 0, i64 -9223372036854775803}
-!306 = !{!303, !300}
-!307 = !{!308, !310, !312, !314, !316, !318, !303, !300}
+!299 = !{i64 0, i64 -9223372036854775803}
+!300 = !{!301, !303}
+!301 = distinct !{!301, !302, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$notifications..NotificationEntry$GT$$GT$17h95e30d827fcaacfeE: argument 0"}
+!302 = distinct !{!302, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$notifications..NotificationEntry$GT$$GT$17h95e30d827fcaacfeE"}
+!303 = distinct !{!303, !304, !"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE: argument 0"}
+!304 = distinct !{!304, !"_ZN4core3ptr95drop_in_place$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$GT$17h972d2c0245ee185dE"}
+!305 = !{!303}
+!306 = !{!301}
+!307 = !{!308, !310, !312, !314, !316, !318, !301, !303}
 !308 = distinct !{!308, !309, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44480804369dc23aE.llvm.3163802790851490697: argument 0"}
 !309 = distinct !{!309, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44480804369dc23aE.llvm.3163802790851490697"}
 !310 = distinct !{!310, !311, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17hb1ab10a3ad9afd1cE.llvm.3163802790851490697: argument 0"}

@@ -52,122 +52,121 @@ define hidden void @x25519_ge_tobytes(ptr noundef captures(none) initializes((0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @fe_invert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-.critedge:
-  %2 = alloca [10 x i32], align 16
   %3 = alloca [10 x i32], align 16
   %4 = alloca [10 x i32], align 16
   %5 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %6 = alloca [10 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call fastcc void @fe_sq(ptr noundef nonnull %2, ptr noundef %1)
-  call fastcc void @fe_sq(ptr noundef nonnull %3, ptr noundef nonnull %2)
-  call fastcc void @fe_sq(ptr noundef nonnull %3, ptr noundef nonnull %3)
-  call fastcc void @fe_mul(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %3)
-  call fastcc void @fe_mul(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call fastcc void @fe_sq(ptr noundef nonnull %3, ptr noundef %1)
+  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %3)
+  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %4)
   call fastcc void @fe_mul(ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %3)
-  br label %6
-
-6:                                                ; preds = %.critedge, %6
-  %.324 = phi i32 [ 1, %.critedge ], [ %7, %6 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %7 = add nuw nsw i32 %.324, 1
-  %exitcond.not = icmp eq i32 %7, 5
-  br i1 %exitcond.not, label %8, label %6, !llvm.loop !9
-
-8:                                                ; preds = %6
-  call fastcc void @fe_mul(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %3)
-  br label %9
-
-9:                                                ; preds = %8, %9
-  %.425 = phi i32 [ 1, %8 ], [ %10, %9 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %10 = add nuw nsw i32 %.425, 1
-  %exitcond32.not = icmp eq i32 %10, 10
-  br i1 %exitcond32.not, label %11, label %9, !llvm.loop !11
-
-11:                                               ; preds = %9
-  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %3)
+  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull %5)
   call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %4)
-  br label %12
+  br label %7
 
-12:                                               ; preds = %11, %12
-  %.526 = phi i32 [ 1, %11 ], [ %13, %12 ]
+7:                                                ; preds = %2, %7
+  %.324 = phi i32 [ 1, %2 ], [ %8, %7 ]
   call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
-  %13 = add nuw nsw i32 %.526, 1
-  %exitcond33.not = icmp eq i32 %13, 20
-  br i1 %exitcond33.not, label %14, label %12, !llvm.loop !12
+  %8 = add nuw nsw i32 %.324, 1
+  %exitcond.not = icmp eq i32 %8, 5
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !9
 
-14:                                               ; preds = %12
+9:                                                ; preds = %7
+  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %4)
+  br label %10
+
+10:                                               ; preds = %9, %10
+  %.425 = phi i32 [ 1, %9 ], [ %11, %10 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %11 = add nuw nsw i32 %.425, 1
+  %exitcond32.not = icmp eq i32 %11, 10
+  br i1 %exitcond32.not, label %12, label %10, !llvm.loop !11
+
+12:                                               ; preds = %10
+  call fastcc void @fe_mul(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @fe_sq(ptr noundef nonnull %6, ptr noundef nonnull %5)
+  br label %13
+
+13:                                               ; preds = %12, %13
+  %.526 = phi i32 [ 1, %12 ], [ %14, %13 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %6, ptr noundef nonnull %6)
+  %14 = add nuw nsw i32 %.526, 1
+  %exitcond33.not = icmp eq i32 %14, 20
+  br i1 %exitcond33.not, label %15, label %13, !llvm.loop !12
+
+15:                                               ; preds = %13
+  call fastcc void @fe_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  br label %16
+
+16:                                               ; preds = %15, %16
+  %.627 = phi i32 [ 1, %15 ], [ %17, %16 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %17 = add nuw nsw i32 %.627, 1
+  %exitcond34.not = icmp eq i32 %17, 10
+  br i1 %exitcond34.not, label %18, label %16, !llvm.loop !13
+
+18:                                               ; preds = %16
+  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %4)
+  br label %19
+
+19:                                               ; preds = %18, %19
+  %.728 = phi i32 [ 1, %18 ], [ %20, %19 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %20 = add nuw nsw i32 %.728, 1
+  %exitcond35.not = icmp eq i32 %20, 50
+  br i1 %exitcond35.not, label %21, label %19, !llvm.loop !14
+
+21:                                               ; preds = %19
+  call fastcc void @fe_mul(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @fe_sq(ptr noundef nonnull %6, ptr noundef nonnull %5)
+  br label %22
+
+22:                                               ; preds = %21, %22
+  %.829 = phi i32 [ 1, %21 ], [ %23, %22 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %6, ptr noundef nonnull %6)
+  %23 = add nuw nsw i32 %.829, 1
+  %exitcond36.not = icmp eq i32 %23, 100
+  br i1 %exitcond36.not, label %24, label %22, !llvm.loop !15
+
+24:                                               ; preds = %22
+  call fastcc void @fe_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  br label %25
+
+25:                                               ; preds = %24, %25
+  %.930 = phi i32 [ 1, %24 ], [ %26, %25 ]
+  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %26 = add nuw nsw i32 %.930, 1
+  %exitcond37.not = icmp eq i32 %26, 50
+  br i1 %exitcond37.not, label %27, label %25, !llvm.loop !16
+
+27:                                               ; preds = %25
   call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
   call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  br label %15
+  br label %28
 
-15:                                               ; preds = %14, %15
-  %.627 = phi i32 [ 1, %14 ], [ %16, %15 ]
+28:                                               ; preds = %27, %28
+  %.1031 = phi i32 [ 1, %27 ], [ %29, %28 ]
   call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %16 = add nuw nsw i32 %.627, 1
-  %exitcond34.not = icmp eq i32 %16, 10
-  br i1 %exitcond34.not, label %17, label %15, !llvm.loop !13
+  %29 = add nuw nsw i32 %.1031, 1
+  %exitcond38.not = icmp eq i32 %29, 5
+  br i1 %exitcond38.not, label %30, label %28, !llvm.loop !17
 
-17:                                               ; preds = %15
-  call fastcc void @fe_mul(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %3)
-  br label %18
-
-18:                                               ; preds = %17, %18
-  %.728 = phi i32 [ 1, %17 ], [ %19, %18 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %19 = add nuw nsw i32 %.728, 1
-  %exitcond35.not = icmp eq i32 %19, 50
-  br i1 %exitcond35.not, label %20, label %18, !llvm.loop !14
-
-20:                                               ; preds = %18
-  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %4)
-  br label %21
-
-21:                                               ; preds = %20, %21
-  %.829 = phi i32 [ 1, %20 ], [ %22, %21 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %5, ptr noundef nonnull %5)
-  %22 = add nuw nsw i32 %.829, 1
-  %exitcond36.not = icmp eq i32 %22, 100
-  br i1 %exitcond36.not, label %23, label %21, !llvm.loop !15
-
-23:                                               ; preds = %21
-  call fastcc void @fe_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  br label %24
-
-24:                                               ; preds = %23, %24
-  %.930 = phi i32 [ 1, %23 ], [ %25, %24 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %25 = add nuw nsw i32 %.930, 1
-  %exitcond37.not = icmp eq i32 %25, 50
-  br i1 %exitcond37.not, label %26, label %24, !llvm.loop !16
-
-26:                                               ; preds = %24
-  call fastcc void @fe_mul(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call fastcc void @fe_sq(ptr noundef nonnull %3, ptr noundef nonnull %3)
-  br label %27
-
-27:                                               ; preds = %26, %27
-  %.1031 = phi i32 [ 1, %26 ], [ %28, %27 ]
-  call fastcc void @fe_sq(ptr noundef nonnull %3, ptr noundef nonnull %3)
-  %28 = add nuw nsw i32 %.1031, 1
-  %exitcond38.not = icmp eq i32 %28, 5
-  br i1 %exitcond38.not, label %29, label %27, !llvm.loop !17
-
-29:                                               ; preds = %27
-  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
+30:                                               ; preds = %28
+  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -803,9 +802,9 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %28
 
 28:                                               ; preds = %28, %fe_add.exit
-  %.327.i = phi i32 [ 1, %fe_add.exit ], [ %29, %28 ]
+  %.325.i = phi i32 [ 1, %fe_add.exit ], [ %29, %28 ]
   call fastcc void @fe_sq(ptr noundef nonnull %7, ptr noundef nonnull %7)
-  %29 = add nuw nsw i32 %.327.i, 1
+  %29 = add nuw nsw i32 %.325.i, 1
   %exitcond.not.i32 = icmp eq i32 %29, 5
   br i1 %exitcond.not.i32, label %30, label %28, !llvm.loop !22
 
@@ -815,11 +814,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %31
 
 31:                                               ; preds = %31, %30
-  %.428.i = phi i32 [ 1, %30 ], [ %32, %31 ]
+  %.426.i = phi i32 [ 1, %30 ], [ %32, %31 ]
   call fastcc void @fe_sq(ptr noundef nonnull %7, ptr noundef nonnull %7)
-  %32 = add nuw nsw i32 %.428.i, 1
-  %exitcond34.not.i = icmp eq i32 %32, 10
-  br i1 %exitcond34.not.i, label %33, label %31, !llvm.loop !23
+  %32 = add nuw nsw i32 %.426.i, 1
+  %exitcond32.not.i = icmp eq i32 %32, 10
+  br i1 %exitcond32.not.i, label %33, label %31, !llvm.loop !23
 
 33:                                               ; preds = %31
   call fastcc void @fe_mul(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %6)
@@ -827,11 +826,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %34
 
 34:                                               ; preds = %34, %33
-  %.529.i = phi i32 [ 1, %33 ], [ %35, %34 ]
+  %.527.i = phi i32 [ 1, %33 ], [ %35, %34 ]
   call fastcc void @fe_sq(ptr noundef nonnull %8, ptr noundef nonnull %8)
-  %35 = add nuw nsw i32 %.529.i, 1
-  %exitcond35.not.i = icmp eq i32 %35, 20
-  br i1 %exitcond35.not.i, label %36, label %34, !llvm.loop !24
+  %35 = add nuw nsw i32 %.527.i, 1
+  %exitcond33.not.i = icmp eq i32 %35, 20
+  br i1 %exitcond33.not.i, label %36, label %34, !llvm.loop !24
 
 36:                                               ; preds = %34
   call fastcc void @fe_mul(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7)
@@ -839,11 +838,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %37
 
 37:                                               ; preds = %37, %36
-  %.630.i = phi i32 [ 1, %36 ], [ %38, %37 ]
+  %.628.i = phi i32 [ 1, %36 ], [ %38, %37 ]
   call fastcc void @fe_sq(ptr noundef nonnull %7, ptr noundef nonnull %7)
-  %38 = add nuw nsw i32 %.630.i, 1
-  %exitcond36.not.i = icmp eq i32 %38, 10
-  br i1 %exitcond36.not.i, label %39, label %37, !llvm.loop !25
+  %38 = add nuw nsw i32 %.628.i, 1
+  %exitcond34.not.i = icmp eq i32 %38, 10
+  br i1 %exitcond34.not.i, label %39, label %37, !llvm.loop !25
 
 39:                                               ; preds = %37
   call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6)
@@ -851,11 +850,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %40
 
 40:                                               ; preds = %40, %39
-  %.731.i = phi i32 [ 1, %39 ], [ %41, %40 ]
+  %.729.i = phi i32 [ 1, %39 ], [ %41, %40 ]
   call fastcc void @fe_sq(ptr noundef nonnull %7, ptr noundef nonnull %7)
-  %41 = add nuw nsw i32 %.731.i, 1
-  %exitcond37.not.i = icmp eq i32 %41, 50
-  br i1 %exitcond37.not.i, label %42, label %40, !llvm.loop !26
+  %41 = add nuw nsw i32 %.729.i, 1
+  %exitcond35.not.i = icmp eq i32 %41, 50
+  br i1 %exitcond35.not.i, label %42, label %40, !llvm.loop !26
 
 42:                                               ; preds = %40
   call fastcc void @fe_mul(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %6)
@@ -863,11 +862,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %43
 
 43:                                               ; preds = %43, %42
-  %.832.i = phi i32 [ 1, %42 ], [ %44, %43 ]
+  %.830.i = phi i32 [ 1, %42 ], [ %44, %43 ]
   call fastcc void @fe_sq(ptr noundef nonnull %8, ptr noundef nonnull %8)
-  %44 = add nuw nsw i32 %.832.i, 1
-  %exitcond38.not.i = icmp eq i32 %44, 100
-  br i1 %exitcond38.not.i, label %45, label %43, !llvm.loop !27
+  %44 = add nuw nsw i32 %.830.i, 1
+  %exitcond36.not.i = icmp eq i32 %44, 100
+  br i1 %exitcond36.not.i, label %45, label %43, !llvm.loop !27
 
 45:                                               ; preds = %43
   call fastcc void @fe_mul(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7)
@@ -875,11 +874,11 @@ fe_add.exit:                                      ; preds = %fe_sub.exit
   br label %46
 
 46:                                               ; preds = %46, %45
-  %.933.i = phi i32 [ 1, %45 ], [ %47, %46 ]
+  %.931.i = phi i32 [ 1, %45 ], [ %47, %46 ]
   call fastcc void @fe_sq(ptr noundef nonnull %7, ptr noundef nonnull %7)
-  %47 = add nuw nsw i32 %.933.i, 1
-  %exitcond39.not.i = icmp eq i32 %47, 50
-  br i1 %exitcond39.not.i, label %fe_pow22523.exit, label %46, !llvm.loop !28
+  %47 = add nuw nsw i32 %.931.i, 1
+  %exitcond37.not.i = icmp eq i32 %47, 50
+  br i1 %exitcond37.not.i, label %fe_pow22523.exit, label %46, !llvm.loop !28
 
 fe_pow22523.exit:                                 ; preds = %46
   call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6)

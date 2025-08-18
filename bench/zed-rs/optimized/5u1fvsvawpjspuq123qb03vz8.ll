@@ -10941,9 +10941,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc
 
 9:                                                ; preds = %3
   %.not.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h514a4b6eb582e3f9E.exit, label %.critedge.i.i
+  br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h514a4b6eb582e3f9E.exit, label %.lr.ph.i.i
 
-.critedge.i.i:                                    ; preds = %.thread, %9
+.lr.ph.i.i:                                       ; preds = %.thread, %9
   %10 = phi i64 [ %14, %.thread ], [ %5, %9 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %.in, align 8, !nonnull !11, !noundef !11
@@ -10952,15 +10952,15 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc
   %13 = add i64 %10, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17h514a4b6eb582e3f9E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17h514a4b6eb582e3f9E.exit: ; preds = %9, %.critedge.i.i
-  %.val4.i.i = phi i64 [ %13, %.critedge.i.i ], [ %5, %9 ]
+_ZN4core4iter6traits8iterator8Iterator8for_each17h514a4b6eb582e3f9E.exit: ; preds = %9, %.lr.ph.i.i
+  %.val4.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %5, %9 ]
   store i64 %.val4.i.i, ptr %4, align 8, !noalias !2623
   ret void
 
 .thread:                                          ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17heaf3d47d425514daE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %1)
   %14 = load i64, ptr %4, align 8, !noundef !11
-  br label %.critedge.i.i
+  br label %.lr.ph.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -17227,9 +17227,9 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 
 9:                                                ; preds = %3
   %.not.i.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc322a971E.llvm.14553352395880121525.exit", label %.critedge.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc322a971E.llvm.14553352395880121525.exit", label %.lr.ph.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.thread.i, %9
+.lr.ph.i.i.i:                                     ; preds = %.thread.i, %9
   %10 = phi i64 [ %14, %.thread.i ], [ %5, %9 ]
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %.in.i, align 8, !alias.scope !4073, !nonnull !11, !noundef !11
@@ -17241,10 +17241,10 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 .thread.i:                                        ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17heaf3d47d425514daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %1)
   %14 = load i64, ptr %4, align 8, !alias.scope !4073, !noundef !11
-  br label %.critedge.i.i.i
+  br label %.lr.ph.i.i.i
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc322a971E.llvm.14553352395880121525.exit": ; preds = %9, %.critedge.i.i.i
-  %.val4.i.i.i = phi i64 [ %13, %.critedge.i.i.i ], [ %5, %9 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb508d6bfc322a971E.llvm.14553352395880121525.exit": ; preds = %9, %.lr.ph.i.i.i
+  %.val4.i.i.i = phi i64 [ %13, %.lr.ph.i.i.i ], [ %5, %9 ]
   store i64 %.val4.i.i.i, ptr %4, align 8, !alias.scope !4073, !noalias !4085
   ret void
 }

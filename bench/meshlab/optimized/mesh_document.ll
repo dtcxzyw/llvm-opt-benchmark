@@ -1818,8 +1818,8 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit:      ; preds = %.lr.ph.i, %tailrecu
   %21 = trunc i8 %20 to i1
   br i1 %21, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %tailrecurse
 
-_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread: ; preds = %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us, %12, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit, %18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us, %.split.us
-  %.0 = phi ptr [ null, %.split.us ], [ %spec.select, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us ], [ null, %18 ], [ %.0.i, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit ], [ null, %12 ], [ %.0.i.us18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us ]
+_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread: ; preds = %_ZN12MeshDocument8nextMeshEP9MeshModel.exit, %18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us, %12, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us, %.split.us
+  %.0 = phi ptr [ null, %.split.us ], [ %spec.select, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us ], [ null, %12 ], [ %.0.i.us18, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us ], [ null, %18 ], [ %.0.i, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit ]
   ret ptr %.0
 }
 

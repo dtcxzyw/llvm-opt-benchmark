@@ -6252,9 +6252,9 @@ define hidden void @_ZN17asserted_formulas15flatten_clausesEv(ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %8 = load i32, ptr %7, align 8, !tbaa !304
   %.not178 = icmp eq i32 %8, 0
-  br i1 %.not178, label %.critedge180, label %447
+  br i1 %.not178, label %.critedge199, label %447
 
-.critedge180:                                     ; preds = %1
+.critedge199:                                     ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -6270,7 +6270,7 @@ define hidden void @_ZN17asserted_formulas15flatten_clausesEv(ptr noundef nonnul
 17:                                               ; preds = %._crit_edge
   br i1 %.1.lcssa, label %18, label %443
 
-18:                                               ; preds = %.critedge180, %17
+18:                                               ; preds = %.critedge199, %17
   %19 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_ZN6vectorI14justified_exprLb1EjE5resetEv.exit, label %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit.i.i
@@ -6359,12 +6359,12 @@ _ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit:   ; preds = %_ZN6vectorI14justif
   %50 = load i32, ptr %49, align 4, !tbaa !385
   %51 = load i32, ptr %10, align 8, !tbaa !28
   %52 = icmp ult i32 %51, %50
-  br i1 %52, label %.lr.ph195.preheader, label %._crit_edge
+  br i1 %52, label %.lr.ph193.preheader, label %._crit_edge
 
-.lr.ph195.preheader:                              ; preds = %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit
+.lr.ph193.preheader:                              ; preds = %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit
   %53 = zext i32 %51 to i64
   %wide.trip.count = zext i32 %50 to i64
-  br label %.lr.ph195
+  br label %.lr.ph193
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN6vectorI14justified_exprLb1EjE5resetEv.exit, %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit
   %.1.lcssa = phi i1 [ false, %_ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit ], [ false, %_ZN6vectorI14justified_exprLb1EjE5resetEv.exit ], [ %.2, %.loopexit ]
@@ -6376,9 +6376,9 @@ _ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit:   ; preds = %_ZN6vectorI14justif
           cleanup
   br label %448
 
-.lr.ph195:                                        ; preds = %.lr.ph195.preheader, %.loopexit
-  %indvars.iv = phi i64 [ %53, %.lr.ph195.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %.1194 = phi i1 [ false, %.lr.ph195.preheader ], [ %.2, %.loopexit ]
+.lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.loopexit
+  %indvars.iv = phi i64 [ %53, %.lr.ph193.preheader ], [ %indvars.iv.next, %.loopexit ]
+  %.1192 = phi i1 [ false, %.lr.ph193.preheader ], [ %.2, %.loopexit ]
   %56 = load ptr, ptr %9, align 8, !tbaa !25
   %57 = getelementptr inbounds nuw %class.justified_expr, ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -6389,7 +6389,7 @@ _ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit:   ; preds = %_ZN6vectorI14justif
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread163
 
-64:                                               ; preds = %.lr.ph195
+64:                                               ; preds = %.lr.ph193
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !448
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
@@ -6673,12 +6673,12 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i58:   ; preds = %232, %228, %_ZNK11a
   %244 = zext i32 %243 to i64
   %.idx = shl nuw nsw i64 %244, 3
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 %.idx
-  %.not191 = icmp eq i32 %243, 0
-  br i1 %.not191, label %.loopexit, label %.lr.ph
+  %.not189 = icmp eq i32 %243, 0
+  br i1 %.not189, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %_ZN14justified_exprD2Ev.exit
-  %.023192 = phi ptr [ %312, %_ZN14justified_exprD2Ev.exit ], [ %241, %.critedge ]
-  %246 = load ptr, ptr %.023192, align 8, !tbaa !415
+  %.023190 = phi ptr [ %312, %_ZN14justified_exprD2Ev.exit ], [ %241, %.critedge ]
+  %246 = load ptr, ptr %.023190, align 8, !tbaa !415
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %247 = load ptr, ptr %0, align 8, !tbaa !352
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 4
@@ -6809,7 +6809,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.thread:   ; preds = %287
 
 _ZN14justified_exprD2Ev.exit:                     ; preds = %297, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.thread, %308
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %312 = getelementptr inbounds nuw i8, ptr %.023192, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.023190, i64 8
   %.not = icmp eq ptr %312, %245
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -7031,7 +7031,7 @@ _ZN14justified_exprD2Ev.exit106:                  ; preds = %.noexc99, %387
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %448
 
-.thread163:                                       ; preds = %64, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %.lr.ph195
+.thread163:                                       ; preds = %64, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %.lr.ph193
   %412 = load ptr, ptr %2, align 8, !tbaa !25
   %413 = icmp eq ptr %412, null
   br i1 %413, label %420, label %414
@@ -7098,10 +7098,10 @@ _ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit114: ; preds = %_ZN11ast_m
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN14justified_exprD2Ev.exit, %.critedge, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit114, %_ZN14justified_exprD2Ev.exit106
-  %.2 = phi i1 [ true, %_ZN14justified_exprD2Ev.exit106 ], [ %.1194, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit114 ], [ true, %.critedge ], [ true, %_ZN14justified_exprD2Ev.exit ]
+  %.2 = phi i1 [ true, %_ZN14justified_exprD2Ev.exit106 ], [ %.1192, %_ZN6vectorI14justified_exprLb1EjE9push_backERKS0_.exit114 ], [ true, %.critedge ], [ true, %_ZN14justified_exprD2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph195, !llvm.loop !492
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph193, !llvm.loop !492
 
 443:                                              ; preds = %17
   invoke void @_ZN6vectorI14justified_exprLb1EjE7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %2)

@@ -47102,8 +47102,8 @@ define void @_ZN11polars_plan3dsl11builder_dsl10DslBuilder9drop_nans17he9f67dba8
           cleanup
   br label %.body11
 
-.body11:                                          ; preds = %.body.i, %74, %77, %82
-  %eh.lpad-body12 = phi { ptr, i32 } [ %83, %82 ], [ %75, %77 ], [ %75, %74 ], [ %eh.lpad-body.i, %.body.i ]
+.body11:                                          ; preds = %74, %77, %.body.i, %82
+  %eh.lpad-body12 = phi { ptr, i32 } [ %83, %82 ], [ %eh.lpad-body.i, %.body.i ], [ %75, %77 ], [ %75, %74 ]
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %38, i64 noundef 192, i64 noundef 16) #43
   br label %32
 

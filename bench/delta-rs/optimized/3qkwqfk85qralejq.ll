@@ -38582,37 +38582,36 @@ define internal void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$dataf
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$$u5b$deltalake_core..kernel..models..actions..ReaderFeatures$u3b$$u20$1$u5d$$GT$17h2cb11b25330c0878E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load i64, ptr %0, align 8, !range !1303, !alias.scope !5967, !noundef !16
+  %5 = icmp slt i64 %4, -9223372036854775804
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5967)
-  %2 = load i64, ptr %0, align 8, !range !1303, !alias.scope !5967, !noundef !16
-  %switch.i = icmp slt i64 %2, -9223372036854775804
-  br i1 %switch.i, label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..models..actions..ReaderFeatures$GT$17h1f3542f121537bb7E.exit", label %3
+  br i1 %5, label %.split7, label %6
 
-3:                                                ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5970
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h85643c094abb9b36E.llvm.4057250340930679409"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !range !27, !noalias !5970, !noundef !16
-  %.not.i.i.i.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i", label %6
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5970
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h85643c094abb9b36E.llvm.4057250340930679409"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  %8 = load i64, ptr %7, align 8, !range !27, !noalias !5970, !noundef !16
+  %.not.i.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i", label %9
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noalias !5970, !noundef !16
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i", label %10
+9:                                                ; preds = %6
+  %10 = load i64, ptr %3, align 8, !noalias !5970, !noundef !16
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i", label %12
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %1, align 8, !noalias !5970, !nonnull !16, !noundef !16
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef %5) #42
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %2, align 8, !noalias !5970, !nonnull !16, !noundef !16
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %10, i64 noundef %8) #42
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i": ; preds = %10, %6, %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !5970
-  br label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..models..actions..ReaderFeatures$GT$17h1f3542f121537bb7E.exit"
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i": ; preds = %12, %9, %6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5970
+  br label %.split7
 
-"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..models..actions..ReaderFeatures$GT$17h1f3542f121537bb7E.exit": ; preds = %.critedge, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i"
+.split7:                                          ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i"
   ret void
 }
 

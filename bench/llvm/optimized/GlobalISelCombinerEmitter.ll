@@ -32039,135 +32039,131 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_6RecordEjLj1ENS_12
   %19 = load i32, ptr %1, align 8
   %20 = and i32 %19, 1
   %.not64 = icmp eq i32 %20, 0
-  br i1 %.not, label %48, label %21
+  br i1 %.not, label %43, label %21
 
 21:                                               ; preds = %2
-  br i1 %.not64, label %.critedge69, label %22
+  br i1 %.not64, label %53, label %.preheader
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %23, align 8, !tbaa !85
+.preheader:                                       ; preds = %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load ptr, ptr %22, align 8, !tbaa !85
   %26 = icmp eq ptr %25, inttoptr (i64 -4096 to ptr)
-  br i1 %26, label %.thread74, label %27
+  br i1 %26, label %.thread72, label %27
 
-27:                                               ; preds = %22
+27:                                               ; preds = %.preheader
   %28 = icmp ne ptr %25, inttoptr (i64 -8192 to ptr)
-  %29 = load ptr, ptr %24, align 8, !tbaa !85
+  %29 = load ptr, ptr %23, align 8, !tbaa !85
   %30 = icmp eq ptr %29, inttoptr (i64 -4096 to ptr)
-  br i1 %30, label %.thread71, label %33
+  br i1 %30, label %.thread69, label %33
 
-.thread74:                                        ; preds = %22
-  %31 = load ptr, ptr %24, align 8, !tbaa !85
+.thread72:                                        ; preds = %.preheader
+  %31 = load ptr, ptr %23, align 8, !tbaa !85
   %32 = icmp eq ptr %31, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %.thread71.thread, label %.thread77
+  br i1 %32, label %.thread69.thread, label %.thread75
 
-.thread77:                                        ; preds = %.thread74
-  %.not78 = icmp eq ptr %31, inttoptr (i64 -8192 to ptr)
-  store ptr %31, ptr %23, align 8, !tbaa !85
-  store ptr %25, ptr %24, align 8, !tbaa !85
-  br i1 %.not78, label %.critedge, label %44
+.thread75:                                        ; preds = %.thread72
+  %.not76 = icmp eq ptr %31, inttoptr (i64 -8192 to ptr)
+  store ptr %31, ptr %22, align 8, !tbaa !85
+  store ptr %25, ptr %23, align 8, !tbaa !85
+  br i1 %.not76, label %.loopexit, label %41
 
-.thread71.thread:                                 ; preds = %.thread74
-  store ptr %31, ptr %23, align 8, !tbaa !85
-  store ptr %25, ptr %24, align 8, !tbaa !85
-  br label %.critedge
+.thread69.thread:                                 ; preds = %.thread72
+  store ptr %31, ptr %22, align 8, !tbaa !85
+  store ptr %25, ptr %23, align 8, !tbaa !85
+  br label %.loopexit
 
 33:                                               ; preds = %27
   %34 = icmp ne ptr %29, inttoptr (i64 -8192 to ptr)
   %or.cond = and i1 %28, %34
-  br i1 %or.cond, label %35, label %38
+  br i1 %or.cond, label %35, label %37
 
 35:                                               ; preds = %33
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr %29, ptr %23, align 8, !tbaa !1235
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !134
-  store i32 %37, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1237
-  store ptr %25, ptr %24, align 8, !tbaa !1235
-  store i32 %.sroa.4.0.copyload.i, ptr %36, align 8, !tbaa !1237
-  br label %.critedge
+  store ptr %29, ptr %22, align 8, !tbaa !1235
+  %36 = load i32, ptr %24, align 8, !tbaa !134
+  store i32 %36, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1237
+  store ptr %25, ptr %23, align 8, !tbaa !1235
+  store i32 %.sroa.4.0.copyload.i, ptr %24, align 8, !tbaa !1237
+  br label %.loopexit
 
-38:                                               ; preds = %33
-  store ptr %29, ptr %23, align 8, !tbaa !85
-  store ptr %25, ptr %24, align 8, !tbaa !85
-  br i1 %28, label %39, label %43
+37:                                               ; preds = %33
+  store ptr %29, ptr %22, align 8, !tbaa !85
+  store ptr %25, ptr %23, align 8, !tbaa !85
+  br i1 %28, label %38, label %40
 
-.thread71:                                        ; preds = %27
-  store ptr inttoptr (i64 -4096 to ptr), ptr %23, align 8, !tbaa !85
-  store ptr %25, ptr %24, align 8, !tbaa !85
-  br i1 %28, label %39, label %.critedge
+.thread69:                                        ; preds = %27
+  store ptr inttoptr (i64 -4096 to ptr), ptr %22, align 8, !tbaa !85
+  store ptr %25, ptr %23, align 8, !tbaa !85
+  br i1 %28, label %38, label %.loopexit
 
-39:                                               ; preds = %.thread71, %38
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !134
-  store i32 %42, ptr %40, align 8, !tbaa !134
-  br label %.critedge
+38:                                               ; preds = %.thread69, %37
+  %39 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !134
+  store i32 %39, ptr %24, align 8, !tbaa !134
+  br label %.loopexit
 
-43:                                               ; preds = %38
-  br i1 %34, label %44, label %.critedge
+40:                                               ; preds = %37
+  br i1 %34, label %41, label %.loopexit
 
-44:                                               ; preds = %.thread77, %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !134
-  store i32 %47, ptr %45, align 8, !tbaa !134
-  br label %.critedge
+41:                                               ; preds = %.thread75, %40
+  %42 = load i32, ptr %24, align 8, !tbaa !134
+  store i32 %42, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !134
+  br label %.loopexit
 
-48:                                               ; preds = %2
-  br i1 %.not64, label %49, label %.critedge69
+43:                                               ; preds = %2
+  br i1 %.not64, label %44, label %53
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load ptr, ptr %50, align 8, !tbaa !1238
-  %53 = load ptr, ptr %51, align 8, !tbaa !1238
-  store ptr %53, ptr %50, align 8, !tbaa !1238
-  store ptr %52, ptr %51, align 8, !tbaa !1238
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load i32, ptr %54, align 8, !tbaa !134
-  %57 = load i32, ptr %55, align 8, !tbaa !134
-  store i32 %57, ptr %54, align 8, !tbaa !134
-  store i32 %56, ptr %55, align 8, !tbaa !134
-  br label %.critedge
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %47 = load ptr, ptr %45, align 8, !tbaa !1238
+  %48 = load ptr, ptr %46, align 8, !tbaa !1238
+  store ptr %48, ptr %45, align 8, !tbaa !1238
+  store ptr %47, ptr %46, align 8, !tbaa !1238
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %51 = load i32, ptr %49, align 8, !tbaa !134
+  %52 = load i32, ptr %50, align 8, !tbaa !134
+  store i32 %52, ptr %49, align 8, !tbaa !134
+  store i32 %51, ptr %50, align 8, !tbaa !134
+  br label %.loopexit
 
-.critedge69:                                      ; preds = %21, %48
-  %58 = phi i32 [ %19, %21 ], [ %17, %48 ]
-  %59 = phi ptr [ %1, %21 ], [ %0, %48 ]
-  %60 = phi ptr [ %0, %21 ], [ %1, %48 ]
+53:                                               ; preds = %21, %43
+  %54 = phi i32 [ %19, %21 ], [ %17, %43 ]
+  %55 = phi ptr [ %1, %21 ], [ %0, %43 ]
+  %56 = phi ptr [ %0, %21 ], [ %1, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !1240
-  %62 = or i32 %58, 1
-  store i32 %62, ptr %59, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !85
-  store ptr %64, ptr %61, align 8, !tbaa !85
-  %magicptr = ptrtoint ptr %64 to i64
-  switch i64 %magicptr, label %65 [
-    i64 -4096, label %69
-    i64 -8192, label %69
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !1240
+  %58 = or i32 %54, 1
+  store i32 %58, ptr %55, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !85
+  store ptr %60, ptr %57, align 8, !tbaa !85
+  %magicptr = ptrtoint ptr %60 to i64
+  switch i64 %magicptr, label %61 [
+    i64 -4096, label %65
+    i64 -8192, label %65
   ]
 
-65:                                               ; preds = %.critedge69
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !134
-  store i32 %68, ptr %66, align 8, !tbaa !134
-  br label %69
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %64 = load i32, ptr %62, align 8, !tbaa !134
+  store i32 %64, ptr %63, align 8, !tbaa !134
+  br label %65
 
-69:                                               ; preds = %.critedge69, %.critedge69, %65
-  %70 = load i32, ptr %60, align 8
-  %71 = and i32 %70, -2
-  store i32 %71, ptr %60, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !1240
+65:                                               ; preds = %53, %53, %61
+  %66 = load i32, ptr %56, align 8
+  %67 = and i32 %66, -2
+  store i32 %67, ptr %56, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !1240
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge
+  br label %.loopexit
 
-.critedge:                                        ; preds = %.thread77, %.thread71, %.thread71.thread, %35, %43, %44, %39, %69, %49
+.loopexit:                                        ; preds = %.thread75, %.thread69, %.thread69.thread, %38, %41, %40, %35, %65, %44
   ret void
 }
 

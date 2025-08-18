@@ -54420,7 +54420,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$extensions_ui..ExtensionsPag
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
   unreachable
 
-.body21:                                          ; preds = %79, %76, %.body19
+.body21:                                          ; preds = %76, %79, %.body19
   %.pn12 = phi { ptr, i32 } [ %.pn10, %.body19 ], [ %77, %79 ], [ %77, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %84 = load i8, ptr %83, align 8, !range !1244, !alias.scope !17608, !noundef !4
@@ -63010,7 +63010,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$workspace..modal_layer..Acti
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
   unreachable
 
-.body4:                                           ; preds = %31, %28, %.body
+.body4:                                           ; preds = %28, %31, %.body
   %.pn = phi { ptr, i32 } [ %14, %.body ], [ %29, %31 ], [ %29, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$gpui..window..FocusHandle$GT$$GT$17h1b84ae2ef9cc7403E.llvm.3586677198336180132"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35) #34

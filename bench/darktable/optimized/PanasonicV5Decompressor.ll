@@ -1025,7 +1025,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
 
 92:                                               ; preds = %.loopexit.i, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ %85, %84 ]
-  %.lcssa5354.i = phi i64 [ %118, %.loopexit.i ], [ %.sroa.036.145, %84 ]
+  %.sroa.036.2 = phi i64 [ %118, %.loopexit.i ], [ %.sroa.036.145, %84 ]
   %.047.i = phi i32 [ %90, %.loopexit.i ], [ 0, %84 ]
   %.01146.i = phi i32 [ %86, %.loopexit.i ], [ %.147, %84 ]
   %.lcssa404245.i = phi i32 [ %119, %.loopexit.i ], [ 0, %84 ]
@@ -1072,7 +1072,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %107 = or disjoint i32 %.lcssa404245.i, 32
   %108 = zext nneg i32 %.lcssa404245.i to i64
   %109 = shl nuw nsw i64 %106, %108
-  %110 = or i64 %109, %.lcssa5354.i
+  %110 = or i64 %109, %.sroa.036.2
   call void @llvm.assume(i1 %76)
   call void @llvm.assume(i1 %77)
   call void @llvm.assume(i1 %80)
@@ -1586,7 +1586,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
 
 92:                                               ; preds = %.loopexit.i, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ %85, %84 ]
-  %.lcssa5354.i = phi i64 [ %118, %.loopexit.i ], [ %.sroa.036.145, %84 ]
+  %.sroa.036.2 = phi i64 [ %118, %.loopexit.i ], [ %.sroa.036.145, %84 ]
   %.047.i = phi i32 [ %90, %.loopexit.i ], [ 0, %84 ]
   %.01146.i = phi i32 [ %86, %.loopexit.i ], [ %.147, %84 ]
   %.lcssa404245.i = phi i32 [ %119, %.loopexit.i ], [ 0, %84 ]
@@ -1633,7 +1633,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %107 = or disjoint i32 %.lcssa404245.i, 32
   %108 = zext nneg i32 %.lcssa404245.i to i64
   %109 = shl nuw nsw i64 %106, %108
-  %110 = or i64 %109, %.lcssa5354.i
+  %110 = or i64 %109, %.sroa.036.2
   call void @llvm.assume(i1 %76)
   call void @llvm.assume(i1 %77)
   call void @llvm.assume(i1 %80)

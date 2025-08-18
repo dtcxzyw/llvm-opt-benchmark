@@ -164,7 +164,6 @@ define internal void @_db_res_op() #0 {
 define internal fastcc i32 @_connect_dbd_conn(ptr noundef initializes((72, 76)) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 32
@@ -174,102 +173,95 @@ define internal fastcc i32 @_connect_dbd_conn(ptr noundef initializes((72, 76)) 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 24), align 8
   %8 = tail call ptr @slurm_xstrdup(ptr noundef %7) #7
-  store ptr %8, ptr %2, align 8
-  %.pre26.pre = load i16, ptr %3, align 8
   br label %9
 
 9:                                                ; preds = %6, %1
-  %.pre26 = phi i16 [ %.pre26.pre, %6 ], [ %4, %1 ]
   %.pr = phi ptr [ %8, %6 ], [ null, %1 ]
   %10 = icmp eq ptr %.pr, null
-  br i1 %10, label %13, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = select i1 %10, i16 0, i16 16
+  %13 = load i16, ptr %3, align 8
+  %14 = and i16 %13, -17
+  %storemerge30 = or disjoint i16 %14, %12
+  store i16 %storemerge30, ptr %3, align 8
+  store i32 -1, ptr %11, align 8
+  %15 = tail call i32 @slurm_persist_conn_open(ptr noundef nonnull %0) #7
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp ne ptr %.pr, null
+  %or.cond31 = select i1 %16, i1 %17, i1 false
+  br i1 %or.cond31, label %.lr.ph, label %23
 
-11:                                               ; preds = %9
-  %12 = or i16 %.pre26, 16
-  br label %16
+.lr.ph:                                           ; preds = %9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @slurm_xfree(ptr noundef nonnull %19) #7
+  store i64 0, ptr %18, align 8
+  store ptr %.pr, ptr %19, align 8
+  %20 = load i16, ptr %3, align 8
+  %21 = and i16 %20, -17
+  store i16 %21, ptr %3, align 8
+  store i32 -1, ptr %11, align 8
+  %22 = tail call i32 @slurm_persist_conn_open(ptr noundef nonnull %0) #7
+  br label %23
 
-13:                                               ; preds = %.critedge, %9
-  %14 = phi i16 [ %.pre, %.critedge ], [ %.pre26, %9 ]
-  %15 = and i16 %14, -17
-  br label %16
-
-16:                                               ; preds = %13, %11
-  %17 = phi ptr [ null, %13 ], [ %.pr, %11 ]
-  %storemerge = phi i16 [ %15, %13 ], [ %12, %11 ]
-  store i16 %storemerge, ptr %3, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 -1, ptr %18, align 8
-  %19 = tail call i32 @slurm_persist_conn_open(ptr noundef nonnull %0) #7
-  %20 = icmp ne i32 %19, 0
-  %21 = icmp ne ptr %17, null
-  %or.cond = and i1 %20, %21
-  br i1 %or.cond, label %.critedge, label %24
-
-.critedge:                                        ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @slurm_xfree(ptr noundef nonnull %22) #7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %23, align 8
-  store ptr %17, ptr %22, align 8
-  store ptr null, ptr %2, align 8
-  %.pre = load i16, ptr %3, align 8
-  br label %13
-
-24:                                               ; preds = %16
+23:                                               ; preds = %.lr.ph, %9
+  %.lcssa29 = phi ptr [ null, %.lr.ph ], [ %.pr, %9 ]
+  %.lcssa = phi i32 [ %22, %.lr.ph ], [ %15, %9 ]
+  store ptr %.lcssa29, ptr %2, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #7
-  switch i32 %19, label %39 [
-    i32 0, label %25
+  switch i32 %.lcssa, label %38 [
+    i32 0, label %24
     i32 7000, label %.thread
   ]
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %27 = load i32, ptr %26, align 8
-  %spec.select = call i32 @llvm.smax.i32(i32 %27, i32 900000)
-  store i32 %spec.select, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %29 = load ptr, ptr %28, align 8
-  call void (...) %29() #7
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %31 = load ptr, ptr %30, align 8
-  call void (...) %31() #7
-  %32 = call i32 @slurm_get_log_level() #7
-  %33 = icmp sgt i32 %32, 4
-  br i1 %33, label %34, label %35
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %26 = load i32, ptr %25, align 8
+  %spec.select = call i32 @llvm.smax.i32(i32 %26, i32 900000)
+  store i32 %spec.select, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %28 = load ptr, ptr %27, align 8
+  call void (...) %28() #7
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %30 = load ptr, ptr %29, align 8
+  call void (...) %30() #7
+  %31 = call i32 @slurm_get_log_level() #7
+  %32 = icmp sgt i32 %31, 4
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %25
+33:                                               ; preds = %24
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._connect_dbd_conn) #7
-  br label %35
+  br label %34
 
-35:                                               ; preds = %34, %25
-  %36 = tail call ptr @__errno_location() #8
-  store i32 0, ptr %36, align 4
-  br label %44
+34:                                               ; preds = %33, %24
+  %35 = tail call ptr @__errno_location() #8
+  store i32 0, ptr %35, align 4
+  br label %43
 
-.thread:                                          ; preds = %24
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %38 = load ptr, ptr %37, align 8
-  call void (...) %38() #7
+.thread:                                          ; preds = %23
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %37 = load ptr, ptr %36, align 8
+  call void (...) %37() #7
   call void @slurm_persist_conn_close(ptr noundef nonnull %0) #7
-  br label %40
+  br label %39
 
-39:                                               ; preds = %24
+38:                                               ; preds = %23
   call void @slurm_persist_conn_close(ptr noundef nonnull %0) #7
-  %.not23 = icmp eq i32 %19, -1
-  br i1 %.not23, label %42, label %40
+  %.not23 = icmp eq i32 %.lcssa, -1
+  br i1 %.not23, label %41, label %39
 
-40:                                               ; preds = %.thread, %39
-  %41 = tail call ptr @__errno_location() #8
-  store i32 %19, ptr %41, align 4
-  br label %42
+39:                                               ; preds = %.thread, %38
+  %40 = tail call ptr @__errno_location() #8
+  store i32 %.lcssa, ptr %40, align 4
+  br label %41
 
-42:                                               ; preds = %40, %39
-  %43 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #7
-  br label %44
+41:                                               ; preds = %39, %38
+  %42 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #7
+  br label %43
 
-44:                                               ; preds = %42, %35
+43:                                               ; preds = %41, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %19
+  ret i32 %.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

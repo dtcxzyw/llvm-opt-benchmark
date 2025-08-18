@@ -13289,17 +13289,17 @@ define hidden void @"_ZN4core3ptr1202drop_in_place$LT$rayon_core..job..StackJob$
 define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..ArcInner$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$$GT$17h66859f7b099b5a39E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1918)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1921)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1924)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1927)
-  %3 = load ptr, ptr %2, align 8, !alias.scope !1930, !nonnull !9, !noundef !9
-  %4 = load i64, ptr %3, align 8, !range !52, !noalias !1930, !noundef !9
+  %3 = load ptr, ptr %2, align 8, !alias.scope !1921, !nonnull !9, !noundef !9
+  %4 = load i64, ptr %3, align 8, !range !52, !noalias !1921, !noundef !9
   %5 = icmp eq i64 %4, 3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1928)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1929)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1930)
   br i1 %5, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17habf9de0e46cf9a9aE.exit", label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !1930
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !1921
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17habf9de0e46cf9a9aE.exit", !prof !97
 
@@ -67109,16 +67109,16 @@ attributes #35 = { "function-inline-cost-multiplier"="2" }
 !1918 = !{!1919}
 !1919 = distinct !{!1919, !1920, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17habf9de0e46cf9a9aE: argument 0"}
 !1920 = distinct !{!1920, !"_ZN4core3ptr91drop_in_place$LT$$u5b$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$u3b$$u20$1$u5d$$GT$17habf9de0e46cf9a9aE"}
-!1921 = !{!1922}
-!1922 = distinct !{!1922, !1923, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E: argument 0"}
-!1923 = distinct !{!1923, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E"}
-!1924 = !{!1925}
-!1925 = distinct !{!1925, !1926, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h0ca265d15f8c81d4E: argument 0"}
-!1926 = distinct !{!1926, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h0ca265d15f8c81d4E"}
-!1927 = !{!1928}
-!1928 = distinct !{!1928, !1929, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b34e4fcf877537E: argument 0"}
-!1929 = distinct !{!1929, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b34e4fcf877537E"}
-!1930 = !{!1928, !1925, !1922, !1919}
+!1921 = !{!1922, !1924, !1926, !1919}
+!1922 = distinct !{!1922, !1923, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b34e4fcf877537E: argument 0"}
+!1923 = distinct !{!1923, !"_ZN87_$LT$polars_arrow..storage..SharedStorage$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5b34e4fcf877537E"}
+!1924 = distinct !{!1924, !1925, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h0ca265d15f8c81d4E: argument 0"}
+!1925 = distinct !{!1925, !"_ZN4core3ptr67drop_in_place$LT$polars_arrow..storage..SharedStorage$LT$u8$GT$$GT$17h0ca265d15f8c81d4E"}
+!1926 = distinct !{!1926, !1927, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E: argument 0"}
+!1927 = distinct !{!1927, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E"}
+!1928 = !{!1926}
+!1929 = !{!1924}
+!1930 = !{!1922}
 !1931 = !{!1932}
 !1932 = distinct !{!1932, !1933, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E: argument 0"}
 !1933 = distinct !{!1933, !"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17heb136be1d8bcb689E"}

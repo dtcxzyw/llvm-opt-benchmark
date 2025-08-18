@@ -5148,12 +5148,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5163,8 +5163,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5253,12 +5253,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val13 = load i64, ptr %11, align 8
-  switch i32 %10, label %.critedge.i [
+  switch i32 %10, label %.lr.ph.i [
     i32 2, label %18
     i32 0, label %16
   ]
 
-.critedge.i:                                      ; preds = %8
+.lr.ph.i:                                         ; preds = %8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -5268,8 +5268,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %15 = add i64 %.val13, 1
   br label %16
 
-16:                                               ; preds = %8, %.critedge.i
-  %.val4.i = phi i64 [ %15, %.critedge.i ], [ %.val13, %8 ]
+16:                                               ; preds = %8, %.lr.ph.i
+  %.val4.i = phi i64 [ %15, %.lr.ph.i ], [ %.val13, %8 ]
   %17 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %17)
   br label %18
@@ -5308,12 +5308,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val13 = load i64, ptr %11, align 8
-  switch i64 %10, label %.critedge.i [
+  switch i64 %10, label %.lr.ph.i [
     i64 2, label %18
     i64 0, label %16
   ]
 
-.critedge.i:                                      ; preds = %8
+.lr.ph.i:                                         ; preds = %8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5323,8 +5323,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %15 = add i64 %.val13, 1
   br label %16
 
-16:                                               ; preds = %8, %.critedge.i
-  %.val4.i = phi i64 [ %15, %.critedge.i ], [ %.val13, %8 ]
+16:                                               ; preds = %8, %.lr.ph.i
+  %.val4.i = phi i64 [ %15, %.lr.ph.i ], [ %.val13, %8 ]
   %17 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %17)
   br label %18
@@ -5412,12 +5412,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5427,8 +5427,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5466,12 +5466,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5481,8 +5481,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5520,12 +5520,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5535,8 +5535,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5726,12 +5726,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5741,8 +5741,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5780,12 +5780,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5795,8 +5795,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5886,12 +5886,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5901,8 +5901,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -5990,12 +5990,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6005,8 +6005,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -6094,12 +6094,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6109,8 +6109,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -6148,12 +6148,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6163,8 +6163,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16
@@ -6202,12 +6202,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val14 = load i64, ptr %9, align 8
-  switch i64 %8, label %.critedge.i [
+  switch i64 %8, label %.lr.ph.i [
     i64 2, label %16
     i64 0, label %14
   ]
 
-.critedge.i:                                      ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6217,8 +6217,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = add i64 %.val14, 1
   br label %14
 
-14:                                               ; preds = %7, %.critedge.i
-  %.val4.i = phi i64 [ %13, %.critedge.i ], [ %.val14, %7 ]
+14:                                               ; preds = %7, %.lr.ph.i
+  %.val4.i = phi i64 [ %13, %.lr.ph.i ], [ %.val14, %7 ]
   %15 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %15)
   br label %16

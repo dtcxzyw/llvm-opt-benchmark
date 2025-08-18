@@ -114,14 +114,14 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4Lo
 define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = load ptr, ptr %0, align 8, !tbaa !25
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i64 noundef 4)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !27, !range !15, !noundef !16
+  %6 = load ptr, ptr %0, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %4, i64 noundef 4)
+  %11 = load i8, ptr %5, align 8, !tbaa !27, !range !15, !noundef !16
   %12 = trunc nuw i8 %11 to i1
   %13 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %13)
@@ -175,7 +175,7 @@ _ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EE
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %3, i64 noundef 4)
-  %38 = load i8, ptr %10, align 8, !tbaa !27, !range !15, !noundef !16
+  %38 = load i8, ptr %5, align 8, !tbaa !27, !range !15, !noundef !16
   %39 = trunc nuw i8 %38 to i1
   %40 = load i32, ptr %3, align 4
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %40)
@@ -231,9 +231,9 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
   %23 = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %3, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit, label %.critedge
+  br i1 %.not.i.i, label %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline11RawSkeleton5JointEEEEEvRKT_.exit
 
-.critedge:                                        ; preds = %.split
+_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline11RawSkeleton5JointEEEEEvRKT_.exit: ; preds = %.split
   %24 = load ptr, ptr %6, align 8, !tbaa !10
   %25 = and i64 %15, 4294967295
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -250,7 +250,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
   call void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeleton5JointEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %24, i64 noundef %25)
   br label %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit
 
-_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit: ; preds = %.critedge, %.split
+_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline11RawSkeleton5JointEEEEEvRKT_.exit, %.split
   %33 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %33, %2
   br i1 %exitcond.not, label %._crit_edge, label %.split, !llvm.loop !29
@@ -621,9 +621,9 @@ _ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_
 
 _ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit: ; preds = %30, %32, %34, %_ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i.i
   %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit, label %.critedge
+  br i1 %.not.i.i, label %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline11RawSkeleton5JointEEEEEvRT_.exit
 
-.critedge:                                        ; preds = %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
+_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline11RawSkeleton5JointEEEEEvRT_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
   %37 = load ptr, ptr %9, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = load ptr, ptr %0, align 8, !tbaa !25
@@ -640,7 +640,7 @@ _ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EE
   call void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeleton5JointEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %37, i64 noundef %21, i32 noundef %46)
   br label %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit
 
-_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit, %.critedge
+_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline11RawSkeleton5JointEEEEEvRT_.exit
   %47 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %47, %2
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !44

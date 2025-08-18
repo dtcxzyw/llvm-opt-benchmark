@@ -232,9 +232,9 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %43
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(56) %54, i32 noundef %51) #20
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %.not57 = icmp eq ptr %55, null
-  br i1 %.not57, label %.critedge.preheader, label %.critedge27
+  br i1 %.not57, label %_ZN4llvm5ErrorD2Ev.exit34.preheader, label %.critedge27
 
-.critedge.preheader:                              ; preds = %_ZN4llvm5ErrorD2Ev.exit33
+_ZN4llvm5ErrorD2Ev.exit34.preheader:              ; preds = %_ZN4llvm5ErrorD2Ev.exit33
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -245,7 +245,7 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %43
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 88
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
+.critedge:                                        ; preds = %.critedge.backedge, %_ZN4llvm5ErrorD2Ev.exit34.preheader
   %64 = load i8, ptr %56, align 8, !tbaa !8, !range !91, !noundef !92
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %68
@@ -318,10 +318,10 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %79
   br label %91
 
 91:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit38, %88, %90, %89
-  %.sink60 = phi i32 [ 2, %90 ], [ 4, %89 ], [ 1, %88 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit38 ]
+  %.sink59 = phi i32 [ 2, %90 ], [ 4, %89 ], [ 1, %88 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit38 ]
   %.3 = phi i1 [ false, %90 ], [ false, %89 ], [ true, %88 ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ]
   %92 = load i32, ptr %60, align 8, !tbaa !102
-  %93 = or i32 %92, %.sink60
+  %93 = or i32 %92, %.sink59
   store i32 %93, ptr %60, align 8, !tbaa !102
   %94 = load ptr, ptr %62, align 8, !tbaa !103
   %95 = load ptr, ptr %63, align 8, !tbaa !104

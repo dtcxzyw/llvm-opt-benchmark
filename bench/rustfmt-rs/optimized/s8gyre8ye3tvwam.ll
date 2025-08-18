@@ -6848,11 +6848,11 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   %33 = trunc nuw i64 %.pre.i.i.i to i1
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %.critedge.i.i.i, %32
+34:                                               ; preds = %.critedge, %32
   %35 = call { ptr, ptr } @"_ZN78_$LT$core..error..Source$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26c7246def22be92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23)
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, ptr } %35, 0
   %.not.i.i.i.i = icmp eq ptr %.fca.0.extract.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %36, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i"
+  br i1 %.not.i.i.i.i, label %36, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i"
 
 36:                                               ; preds = %34
   store i64 0, ptr %.sroa.03.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !1186, !noalias !1176
@@ -6868,7 +6868,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   %41 = load ptr, ptr %24, align 8, !alias.scope !1196, !noalias !1201
   store ptr null, ptr %.sroa.03.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !1196, !noalias !1201
   %42 = icmp eq ptr %40, null
-  br i1 %42, label %43, label %.critedge.i.i.i
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %39, %37
   %44 = load i64, ptr %.sroa.03.sroa.4.0..sroa_idx.i.i, align 8, !range !156, !alias.scope !1203, !noalias !1176, !noundef !9
@@ -6879,9 +6879,9 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   %46 = call { ptr, ptr } @"_ZN78_$LT$core..error..Source$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26c7246def22be92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
   %.fca.0.extract.i10.i.i.i = extractvalue { ptr, ptr } %46, 0
   %.not.i12.i.i.i = icmp eq ptr %.fca.0.extract.i10.i.i.i, null
-  br i1 %.not.i12.i.i.i, label %.sink.split.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i"
+  br i1 %.not.i12.i.i.i, label %.sink.split.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i"
 
-.critedge.i.i.i:                                  ; preds = %39
+.critedge:                                        ; preds = %39
   %47 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %47)
   store i64 1, ptr %.sroa.03.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !1206, !noalias !1176
@@ -6889,15 +6889,15 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   store ptr %41, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !1206, !noalias !1176
   br label %34
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i": ; preds = %45, %34
-  %.merged.i.i5.i = phi { ptr, ptr } [ %35, %34 ], [ %46, %45 ]
-  %.fca.0.extract.i.pre-phi4.i = phi ptr [ %.fca.0.extract.i.i.i.i, %34 ], [ %.fca.0.extract.i10.i.i.i, %45 ]
-  %.fca.1.extract.i.i = extractvalue { ptr, ptr } %.merged.i.i5.i, 1
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i": ; preds = %34, %45
+  %.fca.0.extract.i.pre-phi.ph.i = phi ptr [ %.fca.0.extract.i10.i.i.i, %45 ], [ %.fca.0.extract.i.i.i.i, %34 ]
+  %.pn.i = phi { ptr, ptr } [ %46, %45 ], [ %35, %34 ]
+  %.merged.i.i.ph.i = extractvalue { ptr, ptr } %.pn.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1176
-  %48 = icmp ne ptr %.fca.1.extract.i.i, null
+  %48 = icmp ne ptr %.merged.i.i.ph.i, null
   call void @llvm.assume(i1 %48)
-  store ptr %.fca.0.extract.i.pre-phi4.i, ptr %8, align 8, !noalias !1176
-  store ptr %.fca.1.extract.i.i, ptr %26, align 8, !noalias !1176
+  store ptr %.fca.0.extract.i.pre-phi.ph.i, ptr %8, align 8, !noalias !1176
+  store ptr %.merged.i.i.ph.i, ptr %26, align 8, !noalias !1176
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1176
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1176
   store ptr %8, ptr %6, align 8, !noalias !1176
@@ -6913,12 +6913,12 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1176
   br i1 %49, label %.sink.split.i.i, label %50
 
-.sink.split.i.i:                                  ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i", %45, %43
-  %.not.not6.i = phi i1 [ false, %45 ], [ false, %43 ], [ true, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i" ]
+.sink.split.i.i:                                  ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i", %45, %43
+  %.not.not7.i = phi i1 [ false, %45 ], [ false, %43 ], [ true, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1176
   br label %"_ZN66_$LT$std..error..Report$LT$E$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h855919a6bbffc457E.exit"
 
-50:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.thread.i"
+50:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e138fa5b04014a3E.exit.i.loopexit.i"
   %.pre.i.pre.i.i = load i64, ptr %.sroa.03.sroa.2.0..sroa_idx.i.i, align 8, !range !156, !alias.scope !1186, !noalias !1176
   br label %32
 
@@ -6946,7 +6946,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$std..error..Report$LT$E$GT$$u20$as$
   br label %"_ZN66_$LT$std..error..Report$LT$E$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h855919a6bbffc457E.exit"
 
 "_ZN66_$LT$std..error..Report$LT$E$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h855919a6bbffc457E.exit": ; preds = %15, %.sink.split.i.i, %51
-  %.0.in.i = phi i1 [ %57, %51 ], [ true, %15 ], [ %.not.not6.i, %.sink.split.i.i ]
+  %.0.in.i = phi i1 [ %57, %51 ], [ true, %15 ], [ %.not.not7.i, %.sink.split.i.i ]
   ret i1 %.0.in.i
 }
 

@@ -73214,97 +73214,97 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   br label %_ZN4absl13MockingBitGenclEv.exit.i.i
 
 _ZN4absl13MockingBitGenclEv.exit.i.i:             ; preds = %21, %20, %4
-  %22 = load i64, ptr %11, align 8, !tbaa !31
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %11, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw i64, ptr %10, i64 %22
-  %25 = load i64, ptr %24, align 8, !tbaa !10
-  %26 = icmp ugt i64 %23, 31
-  br i1 %26, label %27, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
+  %.pn15.i.i = load i64, ptr %11, align 8, !tbaa !31
+  %storemerge16.i.i = add i64 %.pn15.i.i, 1
+  store i64 %storemerge16.i.i, ptr %11, align 8, !tbaa !31
+  %.sroa.012.0.in17.i.i = getelementptr inbounds nuw i64, ptr %10, i64 %.pn15.i.i
+  %.sroa.012.018.i.i = load i64, ptr %.sroa.012.0.in17.i.i, align 8, !tbaa !10
+  %22 = icmp ugt i64 %storemerge16.i.i, 31
+  br i1 %22, label %23, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
 
-27:                                               ; preds = %_ZN4absl13MockingBitGenclEv.exit.i.i
+23:                                               ; preds = %_ZN4absl13MockingBitGenclEv.exit.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 2, ptr %11, align 8, !tbaa !31
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %30 = load i8, ptr %29, align 8, !tbaa !373, !range !45, !noundef !46
-  %31 = trunc nuw i8 %30 to i1
-  %32 = load ptr, ptr %28, align 8, !tbaa !395
-  br i1 %31, label %33, label %34
+  %26 = load i8, ptr %24, align 8, !tbaa !373, !range !45, !noundef !46
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load ptr, ptr %25, align 8, !tbaa !395
+  br i1 %27, label %29, label %30
 
-33:                                               ; preds = %27
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %32, ptr noundef nonnull %10)
+29:                                               ; preds = %23
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull %10)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
 
-34:                                               ; preds = %27
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %32, ptr noundef nonnull %10)
+30:                                               ; preds = %23
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull %10)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
 
-_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit: ; preds = %_ZN4absl13MockingBitGenclEv.exit.i.i, %33, %34
-  %35 = load i64, ptr %11, align 8, !tbaa !31
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %11, align 8, !tbaa !31
-  %37 = getelementptr inbounds nuw i64, ptr %10, i64 %35
-  %38 = load i64, ptr %37, align 8, !tbaa !10
+_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit: ; preds = %_ZN4absl13MockingBitGenclEv.exit.i.i, %29, %30
+  %.pn.i.i = load i64, ptr %11, align 8, !tbaa !31
+  %storemerge.i.i = add i64 %.pn.i.i, 1
+  store i64 %storemerge.i.i, ptr %11, align 8, !tbaa !31
+  %.sroa.012.0.in.i.i = getelementptr inbounds nuw i64, ptr %10, i64 %.pn.i.i
+  %.sroa.012.0.i.i = load i64, ptr %.sroa.012.0.in.i.i, align 8, !tbaa !10
   %.sroa.24.0.insert.ext.i = zext i64 %3 to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
   %.sroa.03.0.insert.ext.i = zext i64 %2 to i128
   %.sroa.01.0.insert.insert.i = or disjoint i128 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
   %.sroa.03.0.insert.insert.i = add i128 %.sroa.01.0.insert.insert.i, 1
   %.sroa.0.0.extract.trunc.i = trunc i128 %.sroa.03.0.insert.insert.i to i64
-  %39 = lshr i128 %.sroa.03.0.insert.insert.i, 64
-  %.tr.i = trunc nuw i128 %39 to i64
+  %31 = lshr i128 %.sroa.03.0.insert.insert.i, 64
+  %.tr.i = trunc nuw i128 %31 to i64
   %.sroa.0.0.extract.trunc.i71 = and i64 %2, %.sroa.0.0.extract.trunc.i
   %.sroa.2.0.extract.shift.i = and i128 %.sroa.03.0.insert.insert.i, %.sroa.24.0.insert.shift.i
   %.sroa.01.0.insert.ext.i76 = zext i64 %.sroa.0.0.extract.trunc.i71 to i128
   %.sroa.01.0.insert.insert.i77 = or disjoint i128 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.ext.i76
-  %40 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
-  %.sroa.03.0.insert.ext.i80 = zext i64 %38 to i128
-  br i1 %40, label %41, label %43
+  %32 = icmp eq i128 %.sroa.01.0.insert.insert.i77, 0
+  %.sroa.03.0.insert.ext.i80 = zext i64 %.sroa.012.0.i.i to i128
+  br i1 %32, label %33, label %35
 
-41:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
-  %.sroa.24.0.insert.ext.i78 = zext i64 %25 to i128
+33:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
+  %.sroa.24.0.insert.ext.i78 = zext i64 %.sroa.012.018.i.i to i128
   %.sroa.24.0.insert.shift.i79 = shl nuw i128 %.sroa.24.0.insert.ext.i78, 64
   %.sroa.03.0.insert.insert.i81 = or disjoint i128 %.sroa.24.0.insert.shift.i79, %.sroa.03.0.insert.ext.i80
-  %42 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
-  %.sroa.0.0.extract.trunc.i86 = trunc i128 %42 to i64
-  %.sroa.2.0.extract.shift.i87 = lshr i128 %42, 64
+  %34 = and i128 %.sroa.03.0.insert.insert.i81, %.sroa.01.0.insert.insert.i
+  %.sroa.0.0.extract.trunc.i86 = trunc i128 %34 to i64
+  %.sroa.2.0.extract.shift.i87 = lshr i128 %34, 64
   %.sroa.2.0.extract.trunc.i88 = trunc nuw i128 %.sroa.2.0.extract.shift.i87 to i64
   br label %.loopexit
 
-43:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
+35:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_.exit
   %.sroa.01.0.insert.ext.i69 = and i128 %.sroa.03.0.insert.insert.i, 18446744073709551615
-  %.sroa.22.0.insert.ext.i.i.i = zext i64 %25 to i128
-  %44 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %44, 64
-  %45 = mul nuw i128 %39, %.sroa.03.0.insert.ext.i80
-  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %45, 64
-  %46 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %46, 64
-  %47 = mul nuw i128 %39, %.sroa.22.0.insert.ext.i.i.i
-  %.sroa.01.0.insert.ext.i132.i.i = and i128 %45, 18446744073709551615
-  %.sroa.01.0.insert.ext.i141.i.i = and i128 %46, 18446744073709551615
+  %.sroa.22.0.insert.ext.i.i.i = zext i64 %.sroa.012.018.i.i to i128
+  %36 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i77.i.i = lshr i128 %36, 64
+  %37 = mul nuw i128 %31, %.sroa.03.0.insert.ext.i80
+  %.sroa.2.0.extract.shift.i90.i.i = lshr i128 %37, 64
+  %38 = mul nuw i128 %.sroa.01.0.insert.ext.i69, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.2.0.extract.shift.i103.i.i = lshr i128 %38, 64
+  %39 = mul nuw i128 %31, %.sroa.22.0.insert.ext.i.i.i
+  %.sroa.01.0.insert.ext.i132.i.i = and i128 %37, 18446744073709551615
+  %.sroa.01.0.insert.ext.i141.i.i = and i128 %38, 18446744073709551615
   %.sroa.03.0.insert.insert.i134.i.i = add nuw nsw i128 %.sroa.2.0.extract.shift.i77.i.i, %.sroa.01.0.insert.ext.i141.i.i
   %.sroa.03.0.insert.insert.i143.i.i = add nuw nsw i128 %.sroa.03.0.insert.insert.i134.i.i, %.sroa.01.0.insert.ext.i132.i.i
-  %48 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
-  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %47
+  %40 = lshr i128 %.sroa.03.0.insert.insert.i143.i.i, 64
+  %.sroa.03.0.insert.insert.i172.i.i = add nuw i128 %.sroa.2.0.extract.shift.i103.i.i, %39
   %.sroa.03.0.insert.insert.i192.i.i = add nuw i128 %.sroa.03.0.insert.insert.i172.i.i, %.sroa.2.0.extract.shift.i90.i.i
-  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %48
+  %.sroa.03.0.insert.insert.i203.i.i = add nuw i128 %.sroa.03.0.insert.insert.i192.i.i, %40
   %.sroa.0.0.extract.trunc.i204.i.i = trunc i128 %.sroa.03.0.insert.insert.i203.i.i to i64
-  %49 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
-  %.tr.i205.i.i = trunc nuw i128 %49 to i64
-  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %45 to i64
+  %41 = lshr i128 %.sroa.03.0.insert.insert.i203.i.i, 64
+  %.tr.i205.i.i = trunc nuw i128 %41 to i64
+  %.sroa.2.0.extract.trunc.i215.i.i = trunc i128 %37 to i64
   %.tr.i225.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i77.i.i to i64
-  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %46 to i64
+  %.sroa.2.0.extract.trunc.i235.i.i = trunc i128 %38 to i64
   %.narrow.i226.i.i = add i64 %.sroa.2.0.extract.trunc.i215.i.i, %.sroa.2.0.extract.trunc.i235.i.i
   %.narrow.i246.i.i = add i64 %.narrow.i226.i.i, %.tr.i225.i.i
   %.sroa.22.0.insert.ext.i93 = zext i64 %.narrow.i246.i.i to i128
   %.sroa.22.0.insert.shift.i94 = shl nuw i128 %.sroa.22.0.insert.ext.i93, 64
-  %.sroa.01.0.insert.ext.i95 = and i128 %44, 18446744073709551615
+  %.sroa.01.0.insert.ext.i95 = and i128 %36, 18446744073709551615
   %.sroa.01.0.insert.insert.i96 = or disjoint i128 %.sroa.22.0.insert.shift.i94, %.sroa.01.0.insert.ext.i95
-  %50 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
-  br i1 %50, label %51, label %.loopexit, !prof !63
+  %42 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %.sroa.03.0.insert.insert.i
+  br i1 %42, label %43, label %.loopexit, !prof !63
 
-51:                                               ; preds = %43
+43:                                               ; preds = %35
   %.sroa.03.0.insert.insert.i105 = sub i64 -2, %2
   %.narrow.i108 = xor i64 %.tr.i, -1
   %.sroa.24.0.insert.ext.i111 = zext i64 %.narrow.i108 to i128
@@ -73312,22 +73312,22 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEE
   %.sroa.03.0.insert.ext.i113 = zext i64 %.sroa.03.0.insert.insert.i105 to i128
   %.sroa.01.0.insert.insert.i115 = add nuw nsw i128 %.sroa.03.0.insert.ext.i113, 1
   %.sroa.03.0.insert.insert.i116 = add i128 %.sroa.01.0.insert.insert.i115, %.sroa.24.0.insert.shift.i112
-  %52 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
-  %53 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %52
-  br i1 %53, label %.lr.ph, label %.loopexit
+  %44 = urem i128 %.sroa.03.0.insert.insert.i116, %.sroa.03.0.insert.insert.i
+  %45 = icmp ult i128 %.sroa.01.0.insert.insert.i96, %44
+  br i1 %45, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %51
+.lr.ph:                                           ; preds = %43
   %.sroa.7.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.9.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  br label %54
+  br label %46
 
-54:                                               ; preds = %.lr.ph, %54
-  %55 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(320) %1)
-  %56 = extractvalue { i64, i64 } %55, 0
-  %57 = extractvalue { i64, i64 } %55, 1
+46:                                               ; preds = %.lr.ph, %46
+  %47 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(320) %1)
+  %48 = extractvalue { i64, i64 } %47, 0
+  %49 = extractvalue { i64, i64 } %47, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %56, i64 %57, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
+  call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %48, i64 %49, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !10
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !10
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !10
@@ -73337,12 +73337,12 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS_13MockingBitGenEEE
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
   %.sroa.01.0.insert.insert.i143 = or disjoint i128 %.sroa.22.0.insert.shift.i141, %.sroa.01.0.insert.ext.i142
-  %58 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %52
-  br i1 %58, label %54, label %.loopexit, !llvm.loop !1603
+  %50 = icmp ult i128 %.sroa.01.0.insert.insert.i143, %44
+  br i1 %50, label %46, label %.loopexit, !llvm.loop !1603
 
-.loopexit:                                        ; preds = %54, %51, %43, %41
-  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %41 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %43 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %51 ], [ %.sroa.0153.0.copyload155, %54 ]
-  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %41 ], [ %.tr.i205.i.i, %43 ], [ %.tr.i205.i.i, %51 ], [ %.sroa.7.0.copyload160, %54 ]
+.loopexit:                                        ; preds = %46, %43, %35, %33
+  %.sroa.0.0.extract.trunc.i86.pn = phi i64 [ %.sroa.0.0.extract.trunc.i86, %33 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %35 ], [ %.sroa.0.0.extract.trunc.i204.i.i, %43 ], [ %.sroa.0153.0.copyload155, %46 ]
+  %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %33 ], [ %.tr.i205.i.i, %35 ], [ %.tr.i205.i.i, %43 ], [ %.sroa.7.0.copyload160, %46 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -73378,40 +73378,40 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUnifo
   br label %_ZN4absl13MockingBitGenclEv.exit.i
 
 _ZN4absl13MockingBitGenclEv.exit.i:               ; preds = %17, %16, %2
-  %18 = load i64, ptr %7, align 8, !tbaa !31
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %7, align 8, !tbaa !31
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
-  %21 = load i64, ptr %20, align 8, !tbaa !10
-  %22 = icmp ugt i64 %19, 31
-  br i1 %22, label %23, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit
+  %.pn15.i = load i64, ptr %7, align 8, !tbaa !31
+  %storemerge16.i = add i64 %.pn15.i, 1
+  store i64 %storemerge16.i, ptr %7, align 8, !tbaa !31
+  %.sroa.012.0.in17.i = getelementptr inbounds nuw i64, ptr %6, i64 %.pn15.i
+  %.sroa.012.018.i = load i64, ptr %.sroa.012.0.in17.i, align 8, !tbaa !10
+  %18 = icmp ugt i64 %storemerge16.i, 31
+  br i1 %18, label %19, label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-23:                                               ; preds = %_ZN4absl13MockingBitGenclEv.exit.i
+19:                                               ; preds = %_ZN4absl13MockingBitGenclEv.exit.i
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 2, ptr %7, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %26 = load i8, ptr %25, align 8, !tbaa !373, !range !45, !noundef !46
-  %27 = trunc nuw i8 %26 to i1
-  %28 = load ptr, ptr %24, align 8, !tbaa !395
-  br i1 %27, label %29, label %30
+  %22 = load i8, ptr %20, align 8, !tbaa !373, !range !45, !noundef !46
+  %23 = trunc nuw i8 %22 to i1
+  %24 = load ptr, ptr %21, align 8, !tbaa !395
+  br i1 %23, label %25, label %26
 
-29:                                               ; preds = %23
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull %6)
+25:                                               ; preds = %19
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %24, ptr noundef nonnull %6)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-30:                                               ; preds = %23
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %28, ptr noundef nonnull %6)
+26:                                               ; preds = %19
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %24, ptr noundef nonnull %6)
   br label %_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit
 
-_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit: ; preds = %_ZN4absl13MockingBitGenclEv.exit.i, %29, %30
-  %31 = load i64, ptr %7, align 8, !tbaa !31
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %7, align 8, !tbaa !31
-  %33 = getelementptr inbounds nuw i64, ptr %6, i64 %31
-  %34 = load i64, ptr %33, align 8, !tbaa !10
-  %.fca.0.insert.i10.i = insertvalue { i64, i64 } poison, i64 %34, 0
-  %.fca.1.insert.i11.i = insertvalue { i64, i64 } %.fca.0.insert.i10.i, i64 %21, 1
-  ret { i64, i64 } %.fca.1.insert.i11.i
+_ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS_13MockingBitGenEEES2_RT_NS0_17SimplifiedLoopTagE.exit: ; preds = %_ZN4absl13MockingBitGenclEv.exit.i, %25, %26
+  %.pn.i = load i64, ptr %7, align 8, !tbaa !31
+  %storemerge.i = add i64 %.pn.i, 1
+  store i64 %storemerge.i, ptr %7, align 8, !tbaa !31
+  %.sroa.012.0.in.i = getelementptr inbounds nuw i64, ptr %6, i64 %.pn.i
+  %.sroa.012.0.i = load i64, ptr %.sroa.012.0.in.i, align 8, !tbaa !10
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.012.0.i, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.012.018.i, 1
+  ret { i64, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress uwtable

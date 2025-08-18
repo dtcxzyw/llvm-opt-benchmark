@@ -45557,7 +45557,7 @@ _ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit99.thread: ; preds = %342, %.pre
   br i1 %.not.i106, label %_ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit107, label %.lr.ph.i104
 
 .lr.ph125:                                        ; preds = %359, %._crit_edge121
-  %.077123 = phi ptr [ %420, %._crit_edge121 ], [ %362, %359 ]
+  %.077123 = phi ptr [ %419, %._crit_edge121 ], [ %362, %359 ]
   %378 = load ptr, ptr %.077123, align 8, !tbaa !440
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 144
   %380 = load ptr, ptr %379, align 8, !tbaa !1198
@@ -45570,67 +45570,67 @@ _ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit99.thread: ; preds = %342, %.pre
   %386 = load ptr, ptr %382, align 8, !tbaa !1198
   %387 = load i32, ptr %386, align 8, !tbaa !1210
   %388 = icmp eq i32 %387, 0
-  br i1 %388, label %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit, label %389
+  br i1 %388, label %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit, label %.split.i
 
-389:                                              ; preds = %.lr.ph125
-  %390 = load ptr, ptr %379, align 8, !tbaa !1198
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
-  %392 = load ptr, ptr %391, align 8, !tbaa !1211
-  %393 = sext i32 %381 to i64
-  %394 = getelementptr inbounds ptr, ptr %392, i64 %393
-  %395 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  %396 = load ptr, ptr %395, align 8, !tbaa !1211
-  %397 = sext i32 %387 to i64
-  %398 = shl nsw i64 %397, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %394, ptr align 8 %396, i64 %398, i1 false)
+.split.i:                                         ; preds = %.lr.ph125
+  %389 = load ptr, ptr %379, align 8, !tbaa !1198
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
+  %391 = load ptr, ptr %390, align 8, !tbaa !1211
+  %392 = sext i32 %381 to i64
+  %393 = getelementptr inbounds ptr, ptr %391, i64 %392
+  %394 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %395 = load ptr, ptr %394, align 8, !tbaa !1211
+  %396 = sext i32 %387 to i64
+  %397 = shl nsw i64 %396, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %393, ptr align 8 %395, i64 %397, i1 false)
   call void @_ZN8ImVectorIP10ImDrawListE6resizeEi(ptr noundef nonnull align 8 dereferenceable(16) %386, i32 noundef 0)
   br label %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit
 
-_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit: ; preds = %.lr.ph125, %389
-  %399 = getelementptr inbounds nuw i8, ptr %378, i64 72
-  %400 = load ptr, ptr %399, align 8, !tbaa !812
-  %.not90 = icmp eq ptr %400, null
-  br i1 %.not90, label %405, label %401
+_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit: ; preds = %.lr.ph125, %.split.i
+  %398 = getelementptr inbounds nuw i8, ptr %378, i64 72
+  %399 = load ptr, ptr %398, align 8, !tbaa !812
+  %.not90 = icmp eq ptr %399, null
+  br i1 %.not90, label %404, label %400
 
-401:                                              ; preds = %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit
-  %402 = getelementptr inbounds nuw i8, ptr %378, i64 80
-  %403 = load ptr, ptr %379, align 8, !tbaa !1198
-  %404 = call fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewportPmPKc(ptr noundef nonnull %378, i64 noundef 1, ptr noundef nonnull @.str.80)
-  call void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef nonnull %402, ptr noundef %403, ptr noundef %404)
-  br label %405
+400:                                              ; preds = %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit
+  %401 = getelementptr inbounds nuw i8, ptr %378, i64 80
+  %402 = load ptr, ptr %379, align 8, !tbaa !1198
+  %403 = call fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewportPmPKc(ptr noundef nonnull %378, i64 noundef 1, ptr noundef nonnull @.str.80)
+  call void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef nonnull %401, ptr noundef %402, ptr noundef %403)
+  br label %404
 
-405:                                              ; preds = %401, %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit
-  %406 = getelementptr inbounds nuw i8, ptr %378, i64 96
-  %407 = getelementptr inbounds nuw i8, ptr %378, i64 104
-  %408 = load ptr, ptr %407, align 8, !tbaa !1211
-  %409 = load i32, ptr %406, align 8, !tbaa !1210
-  %410 = sext i32 %409 to i64
-  %.idx129 = shl nsw i64 %410, 3
-  %411 = getelementptr inbounds i8, ptr %408, i64 %.idx129
-  %.not91117 = icmp eq i32 %409, 0
+404:                                              ; preds = %400, %_ZL30FlattenDrawDataIntoSingleLayerP17ImDrawDataBuilder.exit
+  %405 = getelementptr inbounds nuw i8, ptr %378, i64 96
+  %406 = getelementptr inbounds nuw i8, ptr %378, i64 104
+  %407 = load ptr, ptr %406, align 8, !tbaa !1211
+  %408 = load i32, ptr %405, align 8, !tbaa !1210
+  %409 = sext i32 %408 to i64
+  %.idx129 = shl nsw i64 %409, 3
+  %410 = getelementptr inbounds i8, ptr %407, i64 %.idx129
+  %.not91117 = icmp eq i32 %408, 0
   br i1 %.not91117, label %._crit_edge121, label %.lr.ph120
 
-._crit_edge121:                                   ; preds = %.lr.ph120, %405
-  %412 = getelementptr inbounds nuw i8, ptr %378, i64 92
-  %413 = load i32, ptr %412, align 4, !tbaa !1203
-  %414 = load i32, ptr %361, align 4, !tbaa !1209
-  %415 = add nsw i32 %414, %413
-  store i32 %415, ptr %361, align 4, !tbaa !1209
-  %416 = getelementptr inbounds nuw i8, ptr %378, i64 88
-  %417 = load i32, ptr %416, align 8, !tbaa !1202
-  %418 = load i32, ptr %360, align 8, !tbaa !1208
-  %419 = add nsw i32 %418, %417
-  store i32 %419, ptr %360, align 8, !tbaa !1208
-  %420 = getelementptr inbounds nuw i8, ptr %.077123, i64 8
-  %.not89 = icmp eq ptr %420, %365
+._crit_edge121:                                   ; preds = %.lr.ph120, %404
+  %411 = getelementptr inbounds nuw i8, ptr %378, i64 92
+  %412 = load i32, ptr %411, align 4, !tbaa !1203
+  %413 = load i32, ptr %361, align 4, !tbaa !1209
+  %414 = add nsw i32 %413, %412
+  store i32 %414, ptr %361, align 4, !tbaa !1209
+  %415 = getelementptr inbounds nuw i8, ptr %378, i64 88
+  %416 = load i32, ptr %415, align 8, !tbaa !1202
+  %417 = load i32, ptr %360, align 8, !tbaa !1208
+  %418 = add nsw i32 %417, %416
+  store i32 %418, ptr %360, align 8, !tbaa !1208
+  %419 = getelementptr inbounds nuw i8, ptr %.077123, i64 8
+  %.not89 = icmp eq ptr %419, %365
   br i1 %.not89, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph120:                                        ; preds = %405, %.lr.ph120
-  %.074118 = phi ptr [ %422, %.lr.ph120 ], [ %408, %405 ]
-  %421 = load ptr, ptr %.074118, align 8, !tbaa !812
-  call void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull align 8 dereferenceable(200) %421)
-  %422 = getelementptr inbounds nuw i8, ptr %.074118, i64 8
-  %.not91 = icmp eq ptr %422, %411
+.lr.ph120:                                        ; preds = %404, %.lr.ph120
+  %.074118 = phi ptr [ %421, %.lr.ph120 ], [ %407, %404 ]
+  %420 = load ptr, ptr %.074118, align 8, !tbaa !812
+  call void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull align 8 dereferenceable(200) %420)
+  %421 = getelementptr inbounds nuw i8, ptr %.074118, i64 8
+  %.not91 = icmp eq ptr %421, %410
   br i1 %.not91, label %._crit_edge121, label %.lr.ph120
 
 _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit107: ; preds = %._crit_edge126, %376, %9

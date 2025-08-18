@@ -587,28 +587,27 @@ define internal fastcc void @"_ZN4core3ptr518drop_in_place$LT$gpui..app..async_c
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$$u5b$std..path..PathBuf$u3b$$u20$1$u5d$$GT$17h704e5a49c67c056eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-.critedge:
-  %1 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !157
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6af7661b754644f4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i64, ptr %2, align 8, !range !65, !noalias !157, !noundef !4
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit", label %5
+  %2 = alloca [24 x i8], align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !157
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6af7661b754644f4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  %4 = load i64, ptr %3, align 8, !range !65, !noalias !157, !noundef !4
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit", label %6
 
-5:                                                ; preds = %.critedge
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !noalias !157, !noundef !4
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit", label %9
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = load i64, ptr %7, align 8, !noalias !157, !noundef !4
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit", label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !noalias !157, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %7, i64 noundef %3) #29
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8, !noalias !157, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef %4) #29
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit"
 
-"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit": ; preds = %.critedge, %5, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !157
+"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h69012e935c3341d3E.exit": ; preds = %1, %6, %10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !157
   ret void
 }
 

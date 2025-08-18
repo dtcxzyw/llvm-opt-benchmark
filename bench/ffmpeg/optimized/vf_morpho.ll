@@ -2155,81 +2155,81 @@ line_erode.exit:                                  ; preds = %31, %.loopexit
   %65 = load i32, ptr %12, align 4, !tbaa !141
   %66 = load i32, ptr %10, align 8, !tbaa !137
   %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %68, label %update_min_lut.exit
-
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %3, align 8, !tbaa !143
-  %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !144
   %wide.trip.count.i.i = sext i32 %65 to i64
-  br label %75
+  br i1 %67, label %.split.us.i, label %update_min_lut.exit
 
-73:                                               ; preds = %75
-  %74 = getelementptr inbounds ptr, ptr %69, i64 %wide.trip.count.i.i
-  store ptr %72, ptr %74, align 8, !tbaa !144
+.split.us.i:                                      ; preds = %64
+  %68 = sext i32 %66 to i64
+  %69 = load ptr, ptr %3, align 8, !tbaa !143
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %68
+  %71 = load ptr, ptr %70, align 8, !tbaa !144
+  br label %72
+
+72:                                               ; preds = %72, %.split.us.i
+  %indvars.iv.i.us.i = phi i64 [ %68, %.split.us.i ], [ %indvars.iv.next.i.us.i, %72 ]
+  %indvars.iv.next.i.us.i = add nsw i64 %indvars.iv.i.us.i, 1
+  %73 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.next.i.us.i
+  %74 = load ptr, ptr %73, align 8, !tbaa !144
+  %75 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i.us.i
+  store ptr %74, ptr %75, align 8, !tbaa !144
+  %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.us.i, label %circular_swap.exit.us.i, label %72, !llvm.loop !147
+
+circular_swap.exit.us.i:                          ; preds = %72
+  %76 = getelementptr inbounds ptr, ptr %69, i64 %wide.trip.count.i.i
+  store ptr %71, ptr %76, align 8, !tbaa !144
   br label %update_min_lut.exit
 
-75:                                               ; preds = %75, %68
-  %indvars.iv.i.i = phi i64 [ %70, %68 ], [ %indvars.iv.next.i.i, %75 ]
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %76 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.next.i.i
-  %77 = load ptr, ptr %76, align 8, !tbaa !144
-  %78 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i.i
-  store ptr %77, ptr %78, align 8, !tbaa !144
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %73, label %75, !llvm.loop !147
-
-update_min_lut.exit:                              ; preds = %64, %73
-  %79 = trunc nsw i64 %indvars.iv to i32
-  tail call fastcc void @compute_min_row(ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %2, i32 noundef %65, i32 noundef range(i32 -2147483647, -2147483648) %79)
-  %80 = load ptr, ptr %0, align 8, !tbaa !70
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv
-  %82 = load ptr, ptr %81, align 8, !tbaa !68
-  %83 = load i32, ptr %20, align 8, !tbaa !73
-  %84 = load i32, ptr %22, align 8, !tbaa !77
-  %85 = mul nsw i32 %84, %83
-  %86 = sext i32 %85 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %82, i8 -1, i64 %86, i1 false)
-  %87 = load i32, ptr %26, align 8, !tbaa !20
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph.i25, label %line_erode.exit30
+update_min_lut.exit:                              ; preds = %64, %circular_swap.exit.us.i
+  %77 = trunc nsw i64 %indvars.iv to i32
+  tail call fastcc void @compute_min_row(ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %2, i32 noundef %65, i32 noundef range(i32 -2147483647, -2147483648) %77)
+  %78 = load ptr, ptr %0, align 8, !tbaa !70
+  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv
+  %80 = load ptr, ptr %79, align 8, !tbaa !68
+  %81 = load i32, ptr %20, align 8, !tbaa !73
+  %82 = load i32, ptr %22, align 8, !tbaa !77
+  %83 = mul nsw i32 %82, %81
+  %84 = sext i32 %83 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %80, i8 -1, i64 %84, i1 false)
+  %85 = load i32, ptr %26, align 8, !tbaa !20
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph.i25, label %line_erode.exit30
 
 .lr.ph.i25:                                       ; preds = %update_min_lut.exit, %.lr.ph.i25
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i29, %.lr.ph.i25 ], [ 0, %update_min_lut.exit ]
-  %89 = load ptr, ptr %61, align 8, !tbaa !82
-  %90 = load ptr, ptr %0, align 8, !tbaa !70
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv
-  %92 = load ptr, ptr %91, align 8, !tbaa !68
-  %93 = load ptr, ptr %3, align 8, !tbaa !143
-  %94 = load ptr, ptr %2, align 8, !tbaa !86
-  %95 = getelementptr inbounds nuw %struct.chord, ptr %94, i64 %indvars.iv.i26
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !96
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %93, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !144
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %102 = load i32, ptr %101, align 4, !tbaa !105
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %100, i64 %103
-  %105 = load ptr, ptr %104, align 8, !tbaa !68
-  %106 = load i32, ptr %95, align 4, !tbaa !94
-  %107 = load i32, ptr %62, align 4, !tbaa !145
-  %108 = mul nsw i32 %107, %106
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %105, i64 %109
-  %111 = load i32, ptr %20, align 8, !tbaa !73
-  %112 = sub nsw i32 %111, %106
-  %113 = icmp slt i32 %112, 0
-  %..i.i27 = tail call i32 @llvm.smin.i32(i32 %112, i32 %111)
-  %.0.i.i28 = select i1 %113, i32 0, i32 %..i.i27
-  tail call void %89(ptr noundef %92, ptr noundef %110, i32 noundef %.0.i.i28) #14
+  %87 = load ptr, ptr %61, align 8, !tbaa !82
+  %88 = load ptr, ptr %0, align 8, !tbaa !70
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
+  %90 = load ptr, ptr %89, align 8, !tbaa !68
+  %91 = load ptr, ptr %3, align 8, !tbaa !143
+  %92 = load ptr, ptr %2, align 8, !tbaa !86
+  %93 = getelementptr inbounds nuw %struct.chord, ptr %92, i64 %indvars.iv.i26
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !96
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds ptr, ptr %91, i64 %96
+  %98 = load ptr, ptr %97, align 8, !tbaa !144
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 12
+  %100 = load i32, ptr %99, align 4, !tbaa !105
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
+  %103 = load ptr, ptr %102, align 8, !tbaa !68
+  %104 = load i32, ptr %93, align 4, !tbaa !94
+  %105 = load i32, ptr %62, align 4, !tbaa !145
+  %106 = mul nsw i32 %105, %104
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %103, i64 %107
+  %109 = load i32, ptr %20, align 8, !tbaa !73
+  %110 = sub nsw i32 %109, %104
+  %111 = icmp slt i32 %110, 0
+  %..i.i27 = tail call i32 @llvm.smin.i32(i32 %110, i32 %109)
+  %.0.i.i28 = select i1 %111, i32 0, i32 %..i.i27
+  tail call void %87(ptr noundef %90, ptr noundef %108, i32 noundef %.0.i.i28) #14
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
-  %114 = load i32, ptr %26, align 8, !tbaa !20
-  %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv.next.i29, %115
-  br i1 %116, label %.lr.ph.i25, label %line_erode.exit30, !llvm.loop !146
+  %112 = load i32, ptr %26, align 8, !tbaa !20
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next.i29, %113
+  br i1 %114, label %.lr.ph.i25, label %line_erode.exit30, !llvm.loop !146
 
 line_erode.exit30:                                ; preds = %.lr.ph.i25, %update_min_lut.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2338,81 +2338,81 @@ line_dilate.exit:                                 ; preds = %31, %.loopexit
   %65 = load i32, ptr %12, align 4, !tbaa !141
   %66 = load i32, ptr %10, align 8, !tbaa !137
   %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %68, label %update_max_lut.exit
-
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %3, align 8, !tbaa !143
-  %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !144
   %wide.trip.count.i.i = sext i32 %65 to i64
-  br label %75
+  br i1 %67, label %.split.us.i, label %update_max_lut.exit
 
-73:                                               ; preds = %75
-  %74 = getelementptr inbounds ptr, ptr %69, i64 %wide.trip.count.i.i
-  store ptr %72, ptr %74, align 8, !tbaa !144
+.split.us.i:                                      ; preds = %64
+  %68 = sext i32 %66 to i64
+  %69 = load ptr, ptr %3, align 8, !tbaa !143
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %68
+  %71 = load ptr, ptr %70, align 8, !tbaa !144
+  br label %72
+
+72:                                               ; preds = %72, %.split.us.i
+  %indvars.iv.i.us.i = phi i64 [ %68, %.split.us.i ], [ %indvars.iv.next.i.us.i, %72 ]
+  %indvars.iv.next.i.us.i = add nsw i64 %indvars.iv.i.us.i, 1
+  %73 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.next.i.us.i
+  %74 = load ptr, ptr %73, align 8, !tbaa !144
+  %75 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i.us.i
+  store ptr %74, ptr %75, align 8, !tbaa !144
+  %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.us.i, label %circular_swap.exit.us.i, label %72, !llvm.loop !147
+
+circular_swap.exit.us.i:                          ; preds = %72
+  %76 = getelementptr inbounds ptr, ptr %69, i64 %wide.trip.count.i.i
+  store ptr %71, ptr %76, align 8, !tbaa !144
   br label %update_max_lut.exit
 
-75:                                               ; preds = %75, %68
-  %indvars.iv.i.i = phi i64 [ %70, %68 ], [ %indvars.iv.next.i.i, %75 ]
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %76 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.next.i.i
-  %77 = load ptr, ptr %76, align 8, !tbaa !144
-  %78 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i.i
-  store ptr %77, ptr %78, align 8, !tbaa !144
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %73, label %75, !llvm.loop !147
-
-update_max_lut.exit:                              ; preds = %64, %73
-  %79 = trunc nsw i64 %indvars.iv to i32
-  tail call fastcc void @compute_max_row(ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %2, i32 noundef %65, i32 noundef range(i32 -2147483647, -2147483648) %79)
-  %80 = load ptr, ptr %0, align 8, !tbaa !70
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv
-  %82 = load ptr, ptr %81, align 8, !tbaa !68
-  %83 = load i32, ptr %20, align 8, !tbaa !73
-  %84 = load i32, ptr %22, align 8, !tbaa !77
-  %85 = mul nsw i32 %84, %83
-  %86 = sext i32 %85 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %82, i8 0, i64 %86, i1 false)
-  %87 = load i32, ptr %26, align 8, !tbaa !20
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph.i25, label %line_dilate.exit30
+update_max_lut.exit:                              ; preds = %64, %circular_swap.exit.us.i
+  %77 = trunc nsw i64 %indvars.iv to i32
+  tail call fastcc void @compute_max_row(ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %2, i32 noundef %65, i32 noundef range(i32 -2147483647, -2147483648) %77)
+  %78 = load ptr, ptr %0, align 8, !tbaa !70
+  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv
+  %80 = load ptr, ptr %79, align 8, !tbaa !68
+  %81 = load i32, ptr %20, align 8, !tbaa !73
+  %82 = load i32, ptr %22, align 8, !tbaa !77
+  %83 = mul nsw i32 %82, %81
+  %84 = sext i32 %83 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %80, i8 0, i64 %84, i1 false)
+  %85 = load i32, ptr %26, align 8, !tbaa !20
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph.i25, label %line_dilate.exit30
 
 .lr.ph.i25:                                       ; preds = %update_max_lut.exit, %.lr.ph.i25
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i29, %.lr.ph.i25 ], [ 0, %update_max_lut.exit ]
-  %89 = load ptr, ptr %61, align 8, !tbaa !81
-  %90 = load ptr, ptr %0, align 8, !tbaa !70
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv
-  %92 = load ptr, ptr %91, align 8, !tbaa !68
-  %93 = load ptr, ptr %3, align 8, !tbaa !143
-  %94 = load ptr, ptr %2, align 8, !tbaa !86
-  %95 = getelementptr inbounds nuw %struct.chord, ptr %94, i64 %indvars.iv.i26
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !96
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %93, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !144
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %102 = load i32, ptr %101, align 4, !tbaa !105
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %100, i64 %103
-  %105 = load ptr, ptr %104, align 8, !tbaa !68
-  %106 = load i32, ptr %95, align 4, !tbaa !94
-  %107 = load i32, ptr %62, align 4, !tbaa !145
-  %108 = mul nsw i32 %107, %106
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %105, i64 %109
-  %111 = load i32, ptr %20, align 8, !tbaa !73
-  %112 = sub nsw i32 %111, %106
-  %113 = icmp slt i32 %112, 0
-  %..i.i27 = tail call i32 @llvm.smin.i32(i32 %112, i32 %111)
-  %.0.i.i28 = select i1 %113, i32 0, i32 %..i.i27
-  tail call void %89(ptr noundef %92, ptr noundef %110, i32 noundef %.0.i.i28) #14
+  %87 = load ptr, ptr %61, align 8, !tbaa !81
+  %88 = load ptr, ptr %0, align 8, !tbaa !70
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
+  %90 = load ptr, ptr %89, align 8, !tbaa !68
+  %91 = load ptr, ptr %3, align 8, !tbaa !143
+  %92 = load ptr, ptr %2, align 8, !tbaa !86
+  %93 = getelementptr inbounds nuw %struct.chord, ptr %92, i64 %indvars.iv.i26
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !96
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds ptr, ptr %91, i64 %96
+  %98 = load ptr, ptr %97, align 8, !tbaa !144
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 12
+  %100 = load i32, ptr %99, align 4, !tbaa !105
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
+  %103 = load ptr, ptr %102, align 8, !tbaa !68
+  %104 = load i32, ptr %93, align 4, !tbaa !94
+  %105 = load i32, ptr %62, align 4, !tbaa !145
+  %106 = mul nsw i32 %105, %104
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %103, i64 %107
+  %109 = load i32, ptr %20, align 8, !tbaa !73
+  %110 = sub nsw i32 %109, %104
+  %111 = icmp slt i32 %110, 0
+  %..i.i27 = tail call i32 @llvm.smin.i32(i32 %110, i32 %109)
+  %.0.i.i28 = select i1 %111, i32 0, i32 %..i.i27
+  tail call void %87(ptr noundef %90, ptr noundef %108, i32 noundef %.0.i.i28) #14
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
-  %114 = load i32, ptr %26, align 8, !tbaa !20
-  %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv.next.i29, %115
-  br i1 %116, label %.lr.ph.i25, label %line_dilate.exit30, !llvm.loop !150
+  %112 = load i32, ptr %26, align 8, !tbaa !20
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next.i29, %113
+  br i1 %114, label %.lr.ph.i25, label %line_dilate.exit30, !llvm.loop !150
 
 line_dilate.exit30:                               ; preds = %.lr.ph.i25, %update_max_lut.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

@@ -1530,31 +1530,31 @@ define internal void @rv10_init_static() #2 {
   store ptr @rv10_init_static.table, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
   store i32 1472, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 20), align 4, !tbaa !122
   tail call fastcc void @rv10_build_vlc(ptr noundef nonnull @rv_dc_lum, ptr noundef nonnull @rv_lum_len_count, i32 noundef 19) #11
-  br label %4
+  br label %5
 
-.critedge:                                        ; preds = %4
+1:                                                ; preds = %5
   store ptr getelementptr inbounds nuw (i8, ptr @rv10_init_static.table, i64 5888), ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
   store i32 992, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 20), align 4, !tbaa !122
   tail call fastcc void @rv10_build_vlc(ptr noundef nonnull @rv_dc_chrom, ptr noundef nonnull @rv_chrom_len_count, i32 noundef 17) #11
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2040
-  store i16 255, ptr %2, align 2, !tbaa !13
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2042
-  store i16 18, ptr %3, align 2, !tbaa !13
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2040
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2042
+  store i16 255, ptr %3, align 2, !tbaa !13
+  store i16 18, ptr %4, align 2, !tbaa !13
   ret void
 
-4:                                                ; preds = %0, %4
-  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  %6 = or disjoint i64 %indvars.iv, 508
-  %7 = getelementptr inbounds nuw %struct.VLCElem, ptr %5, i64 %6
-  store i16 255, ptr %7, align 2, !tbaa !13
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw %struct.VLCElem, ptr %8, i64 %6, i32 0, i32 0, i32 1
-  store i16 18, ptr %9, align 2, !tbaa !13
+5:                                                ; preds = %0, %5
+  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
+  %7 = or disjoint i64 %indvars.iv, 508
+  %8 = getelementptr inbounds nuw %struct.VLCElem, ptr %6, i64 %7
+  store i16 255, ptr %8, align 2, !tbaa !13
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw %struct.VLCElem, ptr %9, i64 %7, i32 0, i32 0, i32 1
+  store i16 18, ptr %10, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !123
+  br i1 %exitcond.not, label %1, label %5, !llvm.loop !123
 }
 
 ; Function Attrs: cold nounwind optsize uwtable

@@ -2759,7 +2759,7 @@ define hidden noundef zeroext i1 @_ZNK3ue217RoseDedupeAuxImpl21requiresDedupeSup
 
 ._crit_edge577:                                   ; preds = %_ZN3ue26insertISt3setIPKNS_8raw_puffESt4lessIS4_ESaIS4_EES8_EEvPT_RKT0_.exit
   %.pre = load i64, ptr %62, align 8
-  %.pre694 = load ptr, ptr %60, align 8
+  %.pre697 = load ptr, ptr %60, align 8
   %89 = freeze i64 %.pre
   %90 = icmp ne i64 %89, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2773,7 +2773,7 @@ define hidden noundef zeroext i1 @_ZNK3ue217RoseDedupeAuxImpl21requiresDedupeSup
   store ptr %91, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %95, align 8
-  %.not476592 = icmp eq ptr %.pre694, %58
+  %.not476592 = icmp eq ptr %.pre697, %58
   br i1 %.not476592, label %.critedge195, label %.lr.ph595
 
 96:                                               ; preds = %.lr.ph576, %_ZN3ue26insertISt3setIPKNS_8raw_puffESt4lessIS4_ESaIS4_EES8_EEvPT_RKT0_.exit
@@ -3191,12 +3191,12 @@ _ZN3ue26insertISt3setIPKNS_8raw_puffESt4lessIS4_ESaIS4_EES8_EEvPT_RKT0_.exit: ; 
   br i1 %.not475, label %._crit_edge577, label %96
 
 ._crit_edge596:                                   ; preds = %.loopexit497
-  %.pre695 = load ptr, ptr %93, align 8
-  %.not477597 = icmp eq ptr %.pre695, %91
+  %.pre698 = load ptr, ptr %93, align 8
+  %.not477597 = icmp eq ptr %.pre698, %91
   br i1 %.not477597, label %.critedge195, label %.lr.ph600
 
 .lr.ph595:                                        ; preds = %._crit_edge577, %.loopexit497
-  %.sroa.0414.0593 = phi ptr [ %345, %.loopexit497 ], [ %.pre694, %._crit_edge577 ]
+  %.sroa.0414.0593 = phi ptr [ %345, %.loopexit497 ], [ %.pre697, %._crit_edge577 ]
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0414.0593, i64 32
   %.sroa.0411.0.copyload = load ptr, ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.0411.0.copyload, i64 24
@@ -3440,7 +3440,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_Auto_nodeD2E
   br label %352
 
 .lr.ph600:                                        ; preds = %._crit_edge596, %350
-  %.sroa.0395.0598 = phi ptr [ %351, %350 ], [ %.pre695, %._crit_edge596 ]
+  %.sroa.0395.0598 = phi ptr [ %351, %350 ], [ %.pre698, %._crit_edge596 ]
   %347 = getelementptr inbounds nuw i8, ptr %.sroa.0395.0598, i64 36
   %348 = load i32, ptr %347, align 4
   %349 = icmp ult i32 %348, 2
@@ -3452,7 +3452,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_Auto_nodeD2E
   br i1 %.not477, label %.lr.ph606, label %.lr.ph600
 
 352:                                              ; preds = %.lr.ph606, %.critedge193
-  %.sroa.0391.0605 = phi ptr [ %.pre695, %.lr.ph606 ], [ %582, %.critedge193 ]
+  %.sroa.0391.0605 = phi ptr [ %.pre698, %.lr.ph606 ], [ %582, %.critedge193 ]
   %353 = load ptr, ptr %24, align 8
   %354 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0605, i64 32
   %355 = load i32, ptr %354, align 4
@@ -4044,13 +4044,13 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
   %588 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %588, align 8
   %589 = load ptr, ptr %65, align 8
-  %.not479607710.not = icmp eq ptr %589, %63
-  br i1 %.not479607710.not, label %._crit_edge611, label %.lr.ph610.split
+  %.not479607713.not = icmp eq ptr %589, %63
+  br i1 %.not479607713.not, label %._crit_edge611, label %.lr.ph610.split.preheader
 
 .lr.ph610:                                        ; preds = %.critedge195
-  br i1 %90, label %.thread464, label %.lr.ph610.split
+  br i1 %90, label %.thread464, label %.lr.ph610.split.preheader
 
-.lr.ph610.split:                                  ; preds = %.critedge195.thread, %.lr.ph610
+.lr.ph610.split.preheader:                        ; preds = %.critedge195.thread, %.lr.ph610
   %590 = phi ptr [ %92, %.lr.ph610 ], [ %585, %.critedge195.thread ]
   %591 = phi ptr [ %583, %.lr.ph610 ], [ %589, %.critedge195.thread ]
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 56
@@ -4063,7 +4063,7 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
           cleanup
   br label %.body
 
-596:                                              ; preds = %.lr.ph610.split
+596:                                              ; preds = %.lr.ph610.split.preheader
   %597 = getelementptr inbounds nuw i8, ptr %591, i64 32
   %598 = load ptr, ptr %597, align 8
   %.not162 = icmp eq ptr %598, null
@@ -4101,16 +4101,16 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
   %.not479 = icmp eq ptr %613, %63
   br i1 %.not479, label %._crit_edge611, label %.thread464
 
-._crit_edge611:                                   ; preds = %.critedge195.thread, %612, %.critedge195
-  %.not479607713 = phi i1 [ false, %.critedge195.thread ], [ true, %612 ], [ false, %.critedge195 ]
-  %.fr630698703707712 = phi i1 [ false, %.critedge195.thread ], [ false, %612 ], [ %90, %.critedge195 ]
-  %614 = phi ptr [ %585, %.critedge195.thread ], [ %590, %612 ], [ %92, %.critedge195 ]
+._crit_edge611:                                   ; preds = %612, %.critedge195.thread, %.critedge195
+  %.not479607716 = phi i1 [ false, %.critedge195.thread ], [ false, %.critedge195 ], [ true, %612 ]
+  %.fr630701706710715 = phi i1 [ false, %.critedge195.thread ], [ %90, %.critedge195 ], [ false, %612 ]
+  %614 = phi ptr [ %585, %.critedge195.thread ], [ %92, %.critedge195 ], [ %590, %612 ]
   %615 = load ptr, ptr %70, align 8
   %.not480612 = icmp ne ptr %615, %68
   br i1 %.not480612, label %.lr.ph616, label %._crit_edge617
 
 .lr.ph616:                                        ; preds = %._crit_edge611
-  %invariant.op = or i1 %.fr630698703707712, %.not479607713
+  %invariant.op = or i1 %.fr630701706710715, %.not479607716
   br i1 %invariant.op, label %.thread464, label %.lr.ph616.split
 
 .lr.ph616.split:                                  ; preds = %.lr.ph616
@@ -4161,7 +4161,7 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
   br i1 %.not481620, label %._crit_edge625, label %.lr.ph624
 
 .lr.ph624:                                        ; preds = %._crit_edge617
-  %invariant.op619 = or i1 %.fr630698703707712, %.not479607713
+  %invariant.op619 = or i1 %.fr630701706710715, %.not479607716
   %brmerge = or i1 %invariant.op619, %.not480612
   br i1 %brmerge, label %.thread464, label %634
 
@@ -4218,14 +4218,14 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
 
 _ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit: ; preds = %655, %.lr.ph.i, %._crit_edge625
   %.0.i = phi i1 [ false, %._crit_edge625 ], [ %648, %.lr.ph.i ], [ %648, %655 ]
-  %or.cond24 = or i1 %.fr630698703707712, %.3146.lcssa
-  %or.cond26 = or i1 %.not479607713, %or.cond24
+  %or.cond24 = or i1 %.fr630701706710715, %.3146.lcssa
+  %or.cond26 = or i1 %.not479607716, %or.cond24
   %or.cond197 = and i1 %.0.i, %or.cond26
   br label %.thread464
 
-.thread464:                                       ; preds = %.lr.ph600, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit, %612, %.lr.ph624, %.lr.ph610, %611, %605, %.lr.ph610.split, %.lr.ph616, %631, %630, %.lr.ph616.split, %634, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit
-  %656 = phi ptr [ %614, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit ], [ %614, %634 ], [ %614, %.lr.ph624 ], [ %614, %.lr.ph616.split ], [ %614, %630 ], [ %614, %631 ], [ %614, %.lr.ph616 ], [ %590, %.lr.ph610.split ], [ %590, %605 ], [ %590, %611 ], [ %92, %.lr.ph610 ], [ %590, %612 ], [ %92, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit ], [ %92, %.lr.ph600 ]
-  %.4 = phi i1 [ %or.cond197, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit ], [ true, %634 ], [ true, %.lr.ph624 ], [ true, %.lr.ph616.split ], [ true, %630 ], [ true, %631 ], [ true, %.lr.ph616 ], [ true, %.lr.ph610.split ], [ true, %605 ], [ true, %611 ], [ true, %.lr.ph610 ], [ true, %612 ], [ true, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit ], [ true, %.lr.ph600 ]
+.thread464:                                       ; preds = %.lr.ph600, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit, %612, %.lr.ph624, %611, %605, %.lr.ph610.split.preheader, %630, %.lr.ph616.split, %631, %634, %.lr.ph610, %.lr.ph616, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit
+  %656 = phi ptr [ %614, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit ], [ %614, %.lr.ph624 ], [ %614, %.lr.ph616 ], [ %92, %.lr.ph610 ], [ %614, %634 ], [ %614, %631 ], [ %614, %.lr.ph616.split ], [ %614, %630 ], [ %590, %.lr.ph610.split.preheader ], [ %590, %605 ], [ %590, %611 ], [ %590, %612 ], [ %92, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit ], [ %92, %.lr.ph600 ]
+  %.4 = phi i1 [ %or.cond197, %_ZN3ue216has_intersectionISt3setIjSt4lessIjESaIjEENS_8flat_setIjS3_S4_EEEEbRKT_RKT0_.exit ], [ true, %.lr.ph624 ], [ true, %.lr.ph616 ], [ true, %.lr.ph610 ], [ true, %634 ], [ true, %631 ], [ true, %.lr.ph616.split ], [ true, %630 ], [ true, %.lr.ph610.split.preheader ], [ true, %605 ], [ true, %611 ], [ true, %612 ], [ true, %_ZN3ue2L17literalsCouldRaceERKNS_15rose_literal_idES2_.exit ], [ true, %.lr.ph600 ]
   %657 = load ptr, ptr %656, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %657)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit unwind label %658

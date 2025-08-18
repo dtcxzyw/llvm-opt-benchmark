@@ -16029,8 +16029,8 @@ common.ret:                                       ; preds = %254, %153, %99, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.body269
 
-.body269:                                         ; preds = %.body269.sink.split, %595, %592, %603, %182
-  %.pn134.pn.pn = phi { ptr, i32 } [ %.pn134.pn, %603 ], [ %.pn134.pn, %182 ], [ %593, %595 ], [ %593, %592 ], [ %.pn134.pn.pn.ph, %.body269.sink.split ]
+.body269:                                         ; preds = %595, %592, %.body269.sink.split, %603, %182
+  %.pn134.pn.pn = phi { ptr, i32 } [ %.pn134.pn, %603 ], [ %.pn134.pn, %182 ], [ %.pn134.pn.pn.ph, %.body269.sink.split ], [ %593, %592 ], [ %593, %595 ]
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 229
   store i8 0, ptr %233, align 1
   br label %.body

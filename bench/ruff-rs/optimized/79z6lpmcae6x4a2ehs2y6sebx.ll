@@ -57119,7 +57119,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
           cleanup
   br label %.body.thread65
 
-.loopexit.split-lp:                               ; preds = %104, %106, %.critedge145
+.loopexit.split-lp:                               ; preds = %104, %106, %.critedge202
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread65
@@ -57163,7 +57163,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   %114 = load i8, ptr %108, align 8, !range !539, !noalias !2498, !noundef !4
   %115 = trunc nuw i8 %114 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2498
-  br i1 %115, label %.critedge145, label %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57", !prof !2501
+  br i1 %115, label %.critedge202, label %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57", !prof !2501
 
 "_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57": ; preds = %113, %.lr.ph.i
   %.sroa.06.064.i.lcssa = phi i64 [ 2, %.lr.ph.i ], [ %117, %113 ]
@@ -57174,7 +57174,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %130
 
-.critedge145:                                     ; preds = %113
+.critedge202:                                     ; preds = %113
   invoke void @_ZN5serde2de5Error15duplicate_field17h4feef098595411afE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %43, ptr noalias noundef nonnull readonly align 1 @anon.44f6943fcf50b5f68777337a9e39ef59.164, i64 noundef 17)
           to label %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit" unwind label %.loopexit.split-lp
 
@@ -57218,7 +57218,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   br label %122
 
-"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit": ; preds = %.critedge145
+"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit": ; preds = %.critedge202
   %.pr = load i64, ptr %43, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
@@ -57228,8 +57228,8 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
 "_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit._crit_edge": ; preds = %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit"
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !21
-  %.phi.trans.insert122 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.pre123 = load i64, ptr %.phi.trans.insert122, align 8
+  %.phi.trans.insert140 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.pre141 = load i64, ptr %.phi.trans.insert140, align 8
   br label %130
 
 122:                                              ; preds = %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread", %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit"
@@ -57264,7 +57264,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   unreachable
 
 130:                                              ; preds = %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit._crit_edge", %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57"
-  %131 = phi i64 [ %.pre123, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit._crit_edge" ], [ %..sroa.5.0.i21, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57" ]
+  %131 = phi i64 [ %.pre141, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit._crit_edge" ], [ %..sroa.5.0.i21, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57" ]
   %132 = phi i64 [ %.pre, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit._crit_edge" ], [ %..sroa.06.0.i20, %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.thread57" ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %132, ptr %133, align 8
@@ -57487,7 +57487,7 @@ _ZN5serde2de7Visitor12visit_string17hc5dd4de73986436bE.exit.i: ; preds = %182
           cleanup
   br label %.body21.i
 
-.loopexit.split-lp.i40:                           ; preds = %.critedge.i, %194, %168
+.loopexit.split-lp.i40:                           ; preds = %.critedge203, %194, %168
   %lpad.loopexit.split-lp.i41 = landingpad { ptr, i32 }
           cleanup
   br label %.body21.i
@@ -57531,7 +57531,7 @@ _ZN5serde2de7Visitor12visit_string17hc5dd4de73986436bE.exit.i: ; preds = %182
   %202 = load i8, ptr %196, align 8, !range !539, !noalias !2528, !noundef !4
   %203 = trunc nuw i8 %202 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2528
-  br i1 %203, label %.critedge.i, label %._crit_edge.i42, !prof !2501
+  br i1 %203, label %.critedge203, label %._crit_edge.i42, !prof !2501
 
 ._crit_edge.i42:                                  ; preds = %201, %.lr.ph.i.i
   %.sroa.06.064.i.lcssa.i = phi i64 [ 2, %.lr.ph.i.i ], [ %207, %201 ]
@@ -57546,7 +57546,7 @@ _ZN5serde2de7Visitor12visit_string17hc5dd4de73986436bE.exit.i: ; preds = %182
   store i64 2, ptr %27, align 8, !alias.scope !2525, !noalias !2530
   br label %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.i"
 
-.critedge.i:                                      ; preds = %201
+.critedge203:                                     ; preds = %201
   invoke void @_ZN5serde2de5Error15duplicate_field17h4feef098595411afE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %27, ptr noalias noundef nonnull readonly align 1 @anon.44f6943fcf50b5f68777337a9e39ef59.164, i64 noundef 17)
           to label %"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.i" unwind label %.loopexit.split-lp.i40, !noalias !2512
 
@@ -57585,7 +57585,7 @@ _ZN5serde2de7Visitor12visit_string17hc5dd4de73986436bE.exit.i: ; preds = %182
   %.not.i.i = icmp eq i64 %211, 2
   br i1 %.not.i.i, label %201, label %._crit_edge.i.i
 
-"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.i": ; preds = %209, %.critedge.i, %._crit_edge.i42, %._crit_edge.i.i
+"_ZN187_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ErrMsgOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h98085c61adc671d3E.exit.i": ; preds = %209, %.critedge203, %._crit_edge.i42, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2517
   br label %155
 
@@ -65261,7 +65261,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
           cleanup
   br label %.body.thread65
 
-.loopexit.split-lp:                               ; preds = %104, %106, %.critedge145
+.loopexit.split-lp:                               ; preds = %104, %106, %.critedge202
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread65
@@ -65305,7 +65305,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   %114 = load i8, ptr %108, align 8, !range !539, !noalias !2779, !noundef !4
   %115 = trunc nuw i8 %114 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2779
-  br i1 %115, label %.critedge145, label %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57", !prof !2501
+  br i1 %115, label %.critedge202, label %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57", !prof !2501
 
 "_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57": ; preds = %113, %.lr.ph.i
   %.sroa.06.064.i.lcssa = phi i64 [ 2, %.lr.ph.i ], [ %117, %113 ]
@@ -65316,7 +65316,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %130
 
-.critedge145:                                     ; preds = %113
+.critedge202:                                     ; preds = %113
   invoke void @_ZN5serde2de5Error15duplicate_field17h4feef098595411afE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %43, ptr noalias noundef nonnull readonly align 1 @anon.44f6943fcf50b5f68777337a9e39ef59.80, i64 noundef 14)
           to label %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit" unwind label %.loopexit.split-lp
 
@@ -65360,7 +65360,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   br label %122
 
-"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit": ; preds = %.critedge145
+"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit": ; preds = %.critedge202
   %.pr = load i64, ptr %43, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
@@ -65370,8 +65370,8 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
 "_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit._crit_edge": ; preds = %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit"
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !21
-  %.phi.trans.insert122 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.pre123 = load i64, ptr %.phi.trans.insert122, align 8
+  %.phi.trans.insert140 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.pre141 = load i64, ptr %.phi.trans.insert140, align 8
   br label %130
 
 122:                                              ; preds = %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread", %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit"
@@ -65406,7 +65406,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb6b4d43c1a71a0E.exit.i: ; preds = %80
   unreachable
 
 130:                                              ; preds = %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit._crit_edge", %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57"
-  %131 = phi i64 [ %.pre123, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit._crit_edge" ], [ %..sroa.5.0.i21, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57" ]
+  %131 = phi i64 [ %.pre141, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit._crit_edge" ], [ %..sroa.5.0.i21, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57" ]
   %132 = phi i64 [ %.pre, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit._crit_edge" ], [ %..sroa.06.0.i20, %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.thread57" ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %132, ptr %133, align 8
@@ -65629,7 +65629,7 @@ _ZN5serde2de7Visitor12visit_string17hb7f74ac08293341dE.exit.i: ; preds = %182
           cleanup
   br label %.body21.i
 
-.loopexit.split-lp.i40:                           ; preds = %.critedge.i, %194, %168
+.loopexit.split-lp.i40:                           ; preds = %.critedge203, %194, %168
   %lpad.loopexit.split-lp.i41 = landingpad { ptr, i32 }
           cleanup
   br label %.body21.i
@@ -65673,7 +65673,7 @@ _ZN5serde2de7Visitor12visit_string17hb7f74ac08293341dE.exit.i: ; preds = %182
   %202 = load i8, ptr %196, align 8, !range !539, !noalias !2808, !noundef !4
   %203 = trunc nuw i8 %202 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2808
-  br i1 %203, label %.critedge.i, label %._crit_edge.i42, !prof !2501
+  br i1 %203, label %.critedge203, label %._crit_edge.i42, !prof !2501
 
 ._crit_edge.i42:                                  ; preds = %201, %.lr.ph.i.i
   %.sroa.06.064.i.lcssa.i = phi i64 [ 2, %.lr.ph.i.i ], [ %207, %201 ]
@@ -65688,7 +65688,7 @@ _ZN5serde2de7Visitor12visit_string17hb7f74ac08293341dE.exit.i: ; preds = %182
   store i64 2, ptr %27, align 8, !alias.scope !2805, !noalias !2810
   br label %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.i"
 
-.critedge.i:                                      ; preds = %201
+.critedge203:                                     ; preds = %201
   invoke void @_ZN5serde2de5Error15duplicate_field17h4feef098595411afE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %27, ptr noalias noundef nonnull readonly align 1 @anon.44f6943fcf50b5f68777337a9e39ef59.80, i64 noundef 14)
           to label %"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.i" unwind label %.loopexit.split-lp.i40, !noalias !2792
 
@@ -65727,7 +65727,7 @@ _ZN5serde2de7Visitor12visit_string17hb7f74ac08293341dE.exit.i: ; preds = %182
   %.not.i.i = icmp eq i64 %211, 2
   br i1 %.not.i.i, label %201, label %._crit_edge.i.i
 
-"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.i": ; preds = %209, %.critedge.i, %._crit_edge.i42, %._crit_edge.i.i
+"_ZN181_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..McCabeOptions$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cb10dbec300cbaE.exit.i": ; preds = %209, %.critedge203, %._crit_edge.i42, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2797
   br label %155
 

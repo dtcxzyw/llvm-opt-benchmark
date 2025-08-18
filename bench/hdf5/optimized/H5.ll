@@ -418,18 +418,18 @@ define internal fastcc void @H5_check_version(i32 noundef %0, i32 noundef %1, i3
   br label %26
 
 thread-pre-split:                                 ; preds = %13, %15
-  %.pr.pre37.pre39.pr = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
+  %.pre36.pre37.pr = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
   br label %26
 
 26:                                               ; preds = %thread-pre-split, %23
-  %.pr.pre37.pre39 = phi i32 [ %.pr.pre37.pre39.pr, %thread-pre-split ], [ %25, %23 ]
+  %.pre36.pre37 = phi i32 [ %.pre36.pre37.pr, %thread-pre-split ], [ %25, %23 ]
   %27 = icmp ne i32 %0, 2
   %28 = icmp ne i32 %1, 0
   %or.cond = or i1 %27, %28
   br i1 %or.cond, label %29, label %44
 
 29:                                               ; preds = %26
-  switch i32 %.pr.pre37.pre39, label %44 [
+  switch i32 %.pre36.pre37, label %44 [
     i32 0, label %30
     i32 1, label %38
   ]
@@ -453,49 +453,49 @@ thread-pre-split:                                 ; preds = %13, %15
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
   %43 = load ptr, ptr @stderr, align 8, !tbaa !25
   %fputs = tail call i32 @fputs(ptr nonnull @H5build_settings, ptr %43) #24
-  %.pr.pre37.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
+  %.pre36.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
   br label %44
 
 44:                                               ; preds = %38, %29, %26
-  %.pr.pre37 = phi i32 [ %.pr.pre37.pre, %38 ], [ %.pr.pre37.pre39, %29 ], [ %.pr.pre37.pre39, %26 ]
+  %.pre36 = phi i32 [ %.pre36.pre, %38 ], [ %.pre36.pre37, %29 ], [ %.pre36.pre37, %26 ]
   %.not32 = icmp eq i32 %2, 0
-  br i1 %.not32, label %.critedge, label %45
+  br i1 %.not32, label %.loopexit, label %.preheader
 
-45:                                               ; preds = %44
-  switch i32 %.pr.pre37, label %.critedge.thread [
-    i32 0, label %46
-    i32 1, label %53
+.preheader:                                       ; preds = %44
+  switch i32 %.pre36, label %.loopexit.thread [
+    i32 0, label %45
+    i32 1, label %52
   ]
 
-.critedge.thread:                                 ; preds = %45
+.loopexit.thread:                                 ; preds = %.preheader
   store i1 true, ptr @H5_check_version.checked, align 1
   br label %66
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.86) #23
-  %49 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
-  %51 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 7, i64 1, ptr %51) #24
+45:                                               ; preds = %.preheader
+  %46 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.86) #23
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 7, i64 1, ptr %50) #24
   tail call void @abort() #25
   unreachable
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.84, i32 noundef 1) #23
-  %56 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
-  %.pr.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
-  br label %.critedge
+52:                                               ; preds = %.preheader
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.84, i32 noundef 1) #23
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
+  %.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
+  br label %.loopexit
 
-.critedge:                                        ; preds = %53, %44
-  %.pr = phi i32 [ %.pr.pre, %53 ], [ %.pr.pre37, %44 ]
+.loopexit:                                        ; preds = %52, %44
+  %57 = phi i32 [ %.pre, %52 ], [ %.pre36, %44 ]
   store i1 true, ptr @H5_check_version.checked, align 1
-  %.not33 = icmp eq i32 %.pr, 0
+  %.not33 = icmp eq i32 %57, 0
   br i1 %.not33, label %58, label %66
 
-58:                                               ; preds = %.critedge
+58:                                               ; preds = %.loopexit
   %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #21
   %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @H5_lib_vers_info_g) #26
   %.not35 = icmp eq i32 %60, 0
@@ -508,7 +508,7 @@ thread-pre-split:                                 ; preds = %13, %15
   %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.94, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.95) #23
   br label %66
 
-66:                                               ; preds = %.critedge.thread, %12, %58, %61, %.critedge, %3
+66:                                               ; preds = %.loopexit.thread, %12, %58, %61, %.loopexit, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

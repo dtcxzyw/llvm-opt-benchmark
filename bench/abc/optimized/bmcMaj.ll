@@ -4428,8 +4428,8 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %20, %Abc
   %33 = load i32, ptr %32, align 4, !tbaa !88
   %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %31, i32 noundef %33)
   %.pr51 = load i32, ptr %7, align 4, !tbaa !31
-  %.not3265 = icmp eq i32 %.pr51, -1
-  br i1 %.not3265, label %.thread50, label %.lr.ph
+  %.not3266 = icmp eq i32 %.pr51, -1
+  br i1 %.not3266, label %.thread50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_TtNot.exit
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4446,7 +4446,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %20, %Abc
   br label %46
 
 46:                                               ; preds = %.lr.ph, %.loopexit
-  %.02966 = phi i32 [ 0, %.lr.ph ], [ %220, %.loopexit ]
+  %.02967 = phi i32 [ 0, %.lr.ph ], [ %220, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #41
   %48 = icmp slt i32 %47, 0
@@ -4466,7 +4466,7 @@ Abc_Clock.exit37:                                 ; preds = %46, %49
   %52 = load i32, ptr %7, align 4, !tbaa !31
   %53 = call i32 @Exa_ManAddCnf(ptr noundef %17, i32 noundef %52)
   %.not33 = icmp eq i32 %53, 0
-  br i1 %.not33, label %.loopexit60, label %54
+  br i1 %.not33, label %.loopexit61, label %54
 
 54:                                               ; preds = %Abc_Clock.exit37
   %55 = load i32, ptr %36, align 4, !tbaa !123
@@ -4510,7 +4510,7 @@ Exa_ManSolverSolve.exit:                          ; preds = %thread-pre-split.i,
   br i1 %.not35, label %89, label %67
 
 67:                                               ; preds = %65
-  %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.02966)
+  %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.02967)
   %69 = load ptr, ptr @stdout, align 8, !tbaa !72
   %70 = load i32, ptr %30, align 8, !tbaa !86
   call void @Extra_PrintBinary(ptr noundef %69, ptr noundef nonnull %7, i32 noundef %70) #41
@@ -4552,13 +4552,13 @@ Abc_Clock.exit39:                                 ; preds = %67, %80
 
 90:                                               ; preds = %89
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %.loopexit60
+  br label %.loopexit61
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i32, ptr %92, align 8, !tbaa !102
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %93)
-  br label %.loopexit60
+  br label %.loopexit61
 
 95:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
@@ -4781,8 +4781,8 @@ Abc_TtOr.exit.i:                                  ; preds = %.lr.ph.i67.i, %.pre
 
 177:                                              ; preds = %Abc_TtOr.exit.i
   %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next105.i, %102
-  br i1 %exitcond74.not, label %._crit_edge.i, label %103, !llvm.loop !151
+  %exitcond76.not = icmp eq i64 %indvars.iv.next105.i, %102
+  br i1 %exitcond76.not, label %._crit_edge.i, label %103, !llvm.loop !151
 
 ._crit_edge.i:                                    ; preds = %177, %.._crit_edge.i_crit_edge
   %.val47.i = phi ptr [ %.val47.i.pre, %.._crit_edge.i_crit_edge ], [ %.val55.i, %177 ]
@@ -4866,21 +4866,21 @@ Abc_TtOr.exit.i:                                  ; preds = %.lr.ph.i67.i, %.pre
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   store i32 %219, ptr %7, align 4, !tbaa !31
-  %220 = add nuw nsw i32 %.02966, 1
+  %220 = add nuw nsw i32 %.02967, 1
   %.not32 = icmp eq i32 %219, -1
   br i1 %.not32, label %.thread50, label %46, !llvm.loop !153
 
-.loopexit60:                                      ; preds = %Abc_Clock.exit37, %90, %91
+.loopexit61:                                      ; preds = %Abc_Clock.exit37, %90, %91
   %.pr = load i32, ptr %7, align 4, !tbaa !31
   %221 = icmp eq i32 %.pr, -1
   br i1 %221, label %.thread50, label %222
 
-.thread50:                                        ; preds = %.loopexit, %.loopexit.thread, %Abc_TtNot.exit, %.loopexit60
+.thread50:                                        ; preds = %.loopexit, %.loopexit.thread, %Abc_TtNot.exit, %.loopexit61
   call void @Exa_ManPrintSolution(ptr noundef %17, i32 noundef %.030)
   call void @Exa_ManDumpBlif(ptr noundef %17, i32 noundef %.030)
   br label %222
 
-222:                                              ; preds = %.thread50, %.loopexit60
+222:                                              ; preds = %.thread50, %.loopexit61
   call void @Exa_ManFree(ptr noundef %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %223 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #41

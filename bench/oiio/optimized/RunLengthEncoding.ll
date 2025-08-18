@@ -144,8 +144,8 @@ switch.early.test:                                ; preds = %_ZNK3dpx13GenericHe
   %or.cond7 = and i1 %29, %27
   %30 = add i32 %6, -3
   %or.cond9 = icmp ult i32 %30, 2
-  %or.cond78 = or i1 %or.cond9, %or.cond7
-  br i1 %or.cond78, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %or.cond76 = or i1 %or.cond9, %or.cond7
+  br i1 %or.cond76, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
 _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %26
   %31 = sext i32 %15 to i64

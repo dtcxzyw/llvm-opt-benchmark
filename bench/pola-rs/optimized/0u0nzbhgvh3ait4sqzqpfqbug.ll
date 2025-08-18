@@ -22221,29 +22221,28 @@ _ZN4core3ops8function6FnOnce9call_once17h6c8fe1fc5945d8ddE.exit: ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$$u5b$$LP$polars_utils..pl_str..PlSmallStr$C$polars_utils..pl_str..PlSmallStr$RP$$u3b$$u20$1$u5d$$GT$17hf1252a7cd89e2272E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-.critedge:
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hd5800b2fe7beb603E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$polars_utils..pl_str..PlSmallStr$C$polars_utils..pl_str..PlSmallStr$RP$$GT$17h8334eacd6a01f6bdE.exit" unwind label %1
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$polars_utils..pl_str..PlSmallStr$C$polars_utils..pl_str..PlSmallStr$RP$$GT$17h8334eacd6a01f6bdE.exit" unwind label %2
 
-1:                                                ; preds = %.critedge
-  %2 = landingpad { ptr, i32 }
+2:                                                ; preds = %1
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hd5800b2fe7beb603E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #38
-          to label %6 unwind label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hd5800b2fe7beb603E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #38
+          to label %7 unwind label %5
 
-4:                                                ; preds = %1
-  %5 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #39
   unreachable
 
-6:                                                ; preds = %1
-  resume { ptr, i32 } %2
+7:                                                ; preds = %2
+  resume { ptr, i32 } %3
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$polars_utils..pl_str..PlSmallStr$C$polars_utils..pl_str..PlSmallStr$RP$$GT$17h8334eacd6a01f6bdE.exit": ; preds = %.critedge
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hd5800b2fe7beb603E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+"_ZN4core3ptr96drop_in_place$LT$$LP$polars_utils..pl_str..PlSmallStr$C$polars_utils..pl_str..PlSmallStr$RP$$GT$17h8334eacd6a01f6bdE.exit": ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hd5800b2fe7beb603E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
 

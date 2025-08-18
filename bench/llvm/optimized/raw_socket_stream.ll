@@ -743,7 +743,7 @@ _ZNKSt8functionIFivEEclEv.exit:                   ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i8, ptr %14, align 4, !tbaa !102, !range !129, !noundef !130
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %_ZNKRSt8optionalIiE5valueEv.exit, label %.critedge.critedge
+  br i1 %16, label %_ZNKRSt8optionalIiE5valueEv.exit, label %20
 
 _ZNKRSt8optionalIiE5valueEv.exit:                 ; preds = %_ZNKSt8functionIFivEEclEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -751,147 +751,158 @@ _ZNKRSt8optionalIiE5valueEv.exit:                 ; preds = %_ZNKSt8functionIFiv
   store i16 1, ptr %18, align 4, !tbaa !126
   %19 = load i32, ptr %2, align 4, !tbaa !18
   store i32 %19, ptr %17, align 8, !tbaa !128
-  br label %.critedge.critedge
+  br label %20
 
-.critedge.critedge:                               ; preds = %_ZNKRSt8optionalIiE5valueEv.exit, %_ZNKSt8functionIFivEEclEv.exit
+20:                                               ; preds = %_ZNKRSt8optionalIiE5valueEv.exit, %_ZNKSt8functionIFivEEclEv.exit
   %.0 = phi i64 [ 2, %_ZNKRSt8optionalIiE5valueEv.exit ], [ 1, %_ZNKSt8functionIFivEEclEv.exit ]
-  %20 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  %21 = load i64, ptr %0, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %22 = load i64, ptr %0, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %.outer
+  br label %24
 
-23:                                               ; preds = %_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread, %_ZSteqRKSt10error_codeRKSt15error_condition.exit
-  %24 = load i64, ptr %0, align 8, !tbaa !12
-  %.not = icmp eq i64 %24, -1
-  br i1 %.not, label %32, label %25
+24:                                               ; preds = %.backedge, %20
+  %25 = phi i64 [ %22, %20 ], [ %.pre, %.backedge ]
+  %.sroa.033.0 = phi i64 [ %22, %20 ], [ %.sroa.033.1, %.backedge ]
+  %.not.not = phi i1 [ false, %20 ], [ true, %.backedge ]
+  %26 = icmp ne i64 %25, -1
+  %or.cond = select i1 %.not.not, i1 %26, i1 false
+  br i1 %or.cond, label %27, label %.critedge
 
-25:                                               ; preds = %23
-  %26 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  %27 = sub nsw i64 %26, %20
-  %28 = sdiv i64 %27, 1000000
-  %29 = load i64, ptr %0, align 8, !tbaa !12
-  %.not40 = icmp slt i64 %28, %29
-  %30 = sub nsw i64 %29, %28
-  br i1 %.not40, label %.outer, label %.thread
+27:                                               ; preds = %24
+  %28 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %29 = sub nsw i64 %28, %21
+  %30 = sdiv i64 %29, 1000000
+  %31 = load i64, ptr %0, align 8, !tbaa !12
+  %.not = icmp slt i64 %30, %31
+  br i1 %.not, label %33, label %.thread
 
-.outer:                                           ; preds = %25, %.critedge.critedge
-  %.sroa.034.0.ph = phi i64 [ %30, %25 ], [ %21, %.critedge.critedge ]
-  %31 = trunc i64 %.sroa.034.0.ph to i32
-  br label %32
+.thread:                                          ; preds = %27
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  br label %85
 
-32:                                               ; preds = %.outer, %23
-  %33 = call i32 @poll(ptr noundef nonnull %4, i64 noundef %.0, i32 noundef %31) #20
-  %34 = icmp eq i32 %33, -1
+33:                                               ; preds = %27
+  %34 = sub nsw i64 %31, %30
+  br label %.critedge
+
+.critedge:                                        ; preds = %24, %33
+  %.sroa.033.1 = phi i64 [ %34, %33 ], [ %.sroa.033.0, %24 ]
+  %35 = trunc i64 %.sroa.033.1 to i32
+  %36 = call i32 @poll(ptr noundef nonnull %4, i64 noundef %.0, i32 noundef %35) #20
+  %37 = icmp eq i32 %36, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %34, label %35, label %.critedge2
+  br i1 %37, label %38, label %.critedge2
 
-35:                                               ; preds = %32
-  %36 = tail call ptr @__errno_location() #21
-  %37 = load i32, ptr %36, align 4, !tbaa !18
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
-  store i32 %37, ptr %5, align 8
-  store ptr %38, ptr %22, align 8
+38:                                               ; preds = %.critedge
+  %39 = tail call ptr @__errno_location() #21
+  %40 = load i32, ptr %39, align 4, !tbaa !18
+  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  store i32 %40, ptr %5, align 8
+  store ptr %41, ptr %23, align 8
   store i32 4, ptr %6, align 8, !tbaa !18
-  store ptr %38, ptr %.sroa.41.0..sroa_idx.i, align 8, !tbaa !131
-  %39 = load ptr, ptr %38, align 8, !tbaa !30
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
-  br i1 %42, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit
+  store ptr %41, ptr %.sroa.41.0..sroa_idx.i, align 8, !tbaa !131
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %44 = load ptr, ptr %43, align 8
+  %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  br i1 %45, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit, label %46
 
-_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread: ; preds = %35
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %.sroa.41.0..sroa_idx.i, align 8, !tbaa !133
+  %48 = load i32, ptr %6, align 8, !tbaa !135
+  %49 = load ptr, ptr %47, align 8, !tbaa !30
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %48) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %23
+  br i1 %52, label %.backedge, label %.loopexit
 
-_ZSteqRKSt10error_codeRKSt15error_condition.exit: ; preds = %35
-  %43 = load ptr, ptr %.sroa.41.0..sroa_idx.i, align 8, !tbaa !133
-  %44 = load i32, ptr %6, align 8, !tbaa !135
-  %45 = load ptr, ptr %43, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %44) #20
+.backedge:                                        ; preds = %46, %_ZSteqRKSt10error_codeRKSt15error_condition.exit
+  %.pre = load i64, ptr %0, align 8
+  br label %24, !llvm.loop !136
+
+_ZSteqRKSt10error_codeRKSt15error_condition.exit: ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %48, label %23, label %.loopexit, !llvm.loop !136
+  br label %.backedge
 
-.critedge2:                                       ; preds = %32
+.critedge2:                                       ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %49 = icmp eq i32 %33, 0
+  %53 = icmp eq i32 %36, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZSteqRKSt10error_codeRKSt15error_condition.exit, %.critedge2
-  %50 = phi i1 [ %49, %.critedge2 ], [ false, %_ZSteqRKSt10error_codeRKSt15error_condition.exit ]
-  %51 = load ptr, ptr %8, align 8, !tbaa !101
-  %.not.i.i23 = icmp eq ptr %51, null
-  br i1 %.not.i.i23, label %52, label %_ZNKSt8functionIFivEEclEv.exit24
+.loopexit:                                        ; preds = %46, %.critedge2
+  %54 = phi i1 [ %53, %.critedge2 ], [ false, %46 ]
+  %55 = load ptr, ptr %8, align 8, !tbaa !101
+  %.not.i.i22 = icmp eq ptr %55, null
+  br i1 %.not.i.i22, label %56, label %_ZNKSt8functionIFivEEclEv.exit23
 
-52:                                               ; preds = %.loopexit
+56:                                               ; preds = %.loopexit
   call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
-_ZNKSt8functionIFivEEclEv.exit24:                 ; preds = %.loopexit
-  %53 = load ptr, ptr %11, align 8, !tbaa !98
-  %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %63, label %56
+_ZNKSt8functionIFivEEclEv.exit23:                 ; preds = %.loopexit
+  %57 = load ptr, ptr %11, align 8, !tbaa !98
+  %58 = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %67, label %60
 
-56:                                               ; preds = %_ZNKSt8functionIFivEEclEv.exit24
-  %57 = load i8, ptr %14, align 4, !tbaa !102, !range !129, !noundef !130
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %65
+60:                                               ; preds = %_ZNKSt8functionIFivEEclEv.exit23
+  %61 = load i8, ptr %14, align 4, !tbaa !102, !range !129, !noundef !130
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %69
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %61 = load i16, ptr %60, align 2, !tbaa !138
-  %62 = and i16 %61, 1
-  %.not20 = icmp eq i16 %62, 0
-  br i1 %.not20, label %65, label %63
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %65 = load i16, ptr %64, align 2, !tbaa !138
+  %66 = and i16 %65, 1
+  %.not20 = icmp eq i16 %66, 0
+  br i1 %.not20, label %69, label %67
 
-63:                                               ; preds = %59, %_ZNKSt8functionIFivEEclEv.exit24
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
-  br label %.thread
+67:                                               ; preds = %63, %_ZNKSt8functionIFivEEclEv.exit23
+  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  br label %85
 
-65:                                               ; preds = %59, %56
-  br i1 %34, label %66, label %70
+69:                                               ; preds = %63, %60
+  br i1 %37, label %70, label %74
 
-66:                                               ; preds = %65
-  %67 = tail call ptr @__errno_location() #21
-  %68 = load i32, ptr %67, align 4, !tbaa !18
-  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
-  br label %.thread
+70:                                               ; preds = %69
+  %71 = tail call ptr @__errno_location() #21
+  %72 = load i32, ptr %71, align 4, !tbaa !18
+  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  br label %85
 
-70:                                               ; preds = %65
-  br i1 %50, label %71, label %73
+74:                                               ; preds = %69
+  br i1 %54, label %75, label %77
 
-71:                                               ; preds = %70
-  %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
-  br label %.thread
+75:                                               ; preds = %74
+  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  br label %85
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %75 = load i16, ptr %74, align 2, !tbaa !138
-  %76 = and i16 %75, 32
-  %.not21 = icmp eq i16 %76, 0
-  br i1 %.not21, label %79, label %77
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %79 = load i16, ptr %78, align 2, !tbaa !138
+  %80 = and i16 %79, 32
+  %.not21 = icmp eq i16 %80, 0
+  br i1 %.not21, label %83, label %81
 
-77:                                               ; preds = %73
-  %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
-  br label %.thread
+81:                                               ; preds = %77
+  %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
+  br label %85
 
-79:                                               ; preds = %73
-  %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #21
-  br label %.thread
+83:                                               ; preds = %77
+  %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #21
+  br label %85
 
-.thread:                                          ; preds = %25, %79, %77, %71, %66, %63
-  %.sroa.036.2 = phi i32 [ 125, %63 ], [ %68, %66 ], [ 110, %71 ], [ 0, %79 ], [ 9, %77 ], [ 11, %25 ]
-  %.sroa.7.2 = phi ptr [ %64, %63 ], [ %69, %66 ], [ %72, %71 ], [ %80, %79 ], [ %78, %77 ], [ %38, %25 ]
+85:                                               ; preds = %.thread, %83, %81, %75, %70, %67
+  %.sroa.035.3 = phi i32 [ 125, %67 ], [ %72, %70 ], [ 110, %75 ], [ 0, %83 ], [ 9, %81 ], [ 11, %.thread ]
+  %.sroa.7.3 = phi ptr [ %68, %67 ], [ %73, %70 ], [ %76, %75 ], [ %84, %83 ], [ %82, %81 ], [ %32, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.036.2, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.7.2, 1
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.035.3, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.7.3, 1
   ret { i32, ptr } %.fca.1.insert
 }
 

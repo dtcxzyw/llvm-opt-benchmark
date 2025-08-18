@@ -485,7 +485,7 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
   %24 = icmp slt i32 %3, 6
   %indvars.iv.i48.sroa.gep73 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %indvars.iv.i.sroa.gep74 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  br i1 %24, label %154, label %25
+  br i1 %24, label %158, label %25
 
 25:                                               ; preds = %5
   %26 = icmp samesign ult i32 %3, 8
@@ -494,19 +494,19 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
 27:                                               ; preds = %25
   %28 = tail call i32 @If_CutPerformCheck16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @.str) #6
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %29, label %154
+  br i1 %.not, label %29, label %158
 
 29:                                               ; preds = %27, %25
   %30 = call i32 @Dau_DsdDecompose(ptr noundef %1, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %18) #6
-  switch i32 %3, label %154 [
+  switch i32 %3, label %158 [
     i32 8, label %31
     i32 7, label %41
-    i32 6, label %140
+    i32 6, label %144
   ]
 
 31:                                               ; preds = %29
   %32 = icmp sgt i32 %30, 4
-  br i1 %32, label %154, label %33
+  br i1 %32, label %158, label %33
 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -529,7 +529,7 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %33, %37
   %.0.i = phi i32 [ %.lobit, %37 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %154
+  br label %158
 
 41:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -592,14 +592,16 @@ Dau_DsdCheckDecAndExist.exit46:                   ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %58
 
-58:                                               ; preds = %55, %139
-  %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %139 ]
+58:                                               ; preds = %55, %143
+  %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %143 ]
   %59 = load i64, ptr %1, align 8, !tbaa !25
+  store i64 %59, ptr %20, align 16, !tbaa !25
   store i64 %59, ptr %19, align 16, !tbaa !25
   %60 = load i64, ptr %56, align 8, !tbaa !25
   store i64 %60, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !25
-  %.not86 = icmp eq i64 %indvars.iv, 6
-  br i1 %.not86, label %Abc_TtCofactor1.exit, label %.critedge
+  store i64 %60, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !25
+  %.not85 = icmp eq i64 %indvars.iv, 6
+  br i1 %.not85, label %.preheader.i47, label %.critedge
 
 .critedge:                                        ; preds = %58
   %61 = trunc nuw nsw i64 %indvars.iv to i32
@@ -607,245 +609,253 @@ Dau_DsdCheckDecAndExist.exit46:                   ; preds = %50
   %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !25
   %65 = zext nneg i32 %62 to i64
-  %66 = and i64 %59, %64
-  %67 = shl i64 %66, %65
-  %68 = or i64 %67, %66
-  store i64 %68, ptr %19, align 16, !tbaa !25
-  %69 = and i64 %60, %64
-  %70 = shl i64 %69, %65
-  %71 = or i64 %70, %69
-  %72 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
-  %73 = load i64, ptr %72, align 8, !tbaa !25
-  %74 = and i64 %59, %73
-  %75 = lshr i64 %74, %65
-  %76 = or i64 %75, %74
-  %77 = and i64 %60, %73
+  %66 = load i64, ptr %19, align 16, !tbaa !25
+  %67 = and i64 %66, %64
+  %68 = shl i64 %67, %65
+  %69 = or i64 %68, %67
+  store i64 %69, ptr %19, align 16, !tbaa !25
+  %70 = load i64, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !25
+  %71 = and i64 %70, %64
+  %72 = shl i64 %71, %65
+  %73 = or i64 %72, %71
+  store i64 %73, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !25
+  %74 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %75 = load i64, ptr %74, align 8, !tbaa !25
+  %76 = load i64, ptr %20, align 16, !tbaa !25
+  %77 = and i64 %76, %75
   %78 = lshr i64 %77, %65
   %79 = or i64 %78, %77
-  store i64 %79, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !25
+  store i64 %79, ptr %20, align 16, !tbaa !25
+  %80 = load i64, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !25
+  %81 = and i64 %80, %75
+  %82 = lshr i64 %81, %65
+  %83 = or i64 %82, %81
+  store i64 %83, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !25
   br label %Abc_TtCofactor1.exit
 
-Abc_TtCofactor1.exit:                             ; preds = %58, %.critedge
-  %80 = phi i64 [ %79, %.critedge ], [ %60, %58 ]
-  %81 = phi i64 [ %71, %.critedge ], [ %59, %58 ]
-  %.sink = phi i64 [ %76, %.critedge ], [ %60, %58 ]
-  store i64 %81, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !25
-  store i64 %.sink, ptr %20, align 16, !tbaa !25
-  %82 = load i64, ptr %19, align 16
-  %.not.us.i.i = icmp eq i64 %82, %81
-  br label %83
+.preheader.i47:                                   ; preds = %58
+  store i64 %59, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !25
+  store i64 %60, ptr %20, align 16, !tbaa !25
+  br label %Abc_TtCofactor1.exit
 
-83:                                               ; preds = %.loopexit.i, %Abc_TtCofactor1.exit
+Abc_TtCofactor1.exit:                             ; preds = %.critedge, %.preheader.i47
+  %84 = load i64, ptr %19, align 16
+  %85 = load i64, ptr %indvars.iv.i.sroa.gep74, align 8
+  %.not.us.i.i = icmp eq i64 %84, %85
+  br label %86
+
+86:                                               ; preds = %.loopexit.i, %Abc_TtCofactor1.exit
   %indvars.iv.i49 = phi i64 [ 0, %Abc_TtCofactor1.exit ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.015.i = phi i32 [ 0, %Abc_TtCofactor1.exit ], [ %98, %.loopexit.i ]
+  %.015.i = phi i32 [ 0, %Abc_TtCofactor1.exit ], [ %101, %.loopexit.i ]
   %.not.i = icmp eq i64 %indvars.iv.i49, 6
-  br i1 %.not.i, label %.preheader.us.i.i.preheader, label %84
+  br i1 %.not.i, label %.preheader.us.i.i.preheader, label %87
 
-.preheader.us.i.i.preheader:                      ; preds = %83
+.preheader.us.i.i.preheader:                      ; preds = %86
   br i1 %.not.us.i.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.i
 
-84:                                               ; preds = %83
-  %85 = trunc nuw nsw i64 %indvars.iv.i49 to i32
-  %86 = shl nuw nsw i32 1, %85
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i49
-  %89 = load i64, ptr %88, align 8, !tbaa !25
-  br label %91
+87:                                               ; preds = %86
+  %88 = trunc nuw nsw i64 %indvars.iv.i49 to i32
+  %89 = shl nuw nsw i32 1, %88
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i49
+  %92 = load i64, ptr %91, align 8, !tbaa !25
+  br label %94
 
-90:                                               ; preds = %91
+93:                                               ; preds = %94
   %indvars.iv.next54.i.i = add nuw nsw i64 %indvars.iv53.i.i, 1
   %exitcond58.not.i.i = icmp eq i64 %indvars.iv.next54.i.i, 2
-  br i1 %exitcond58.not.i.i, label %.loopexit.i, label %91, !llvm.loop !27
+  br i1 %exitcond58.not.i.i, label %.loopexit.i, label %94, !llvm.loop !27
 
-91:                                               ; preds = %90, %84
-  %indvars.iv53.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next54.i.i, %90 ]
-  %92 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv53.i.i
-  %93 = load i64, ptr %92, align 8, !tbaa !25
-  %94 = lshr i64 %93, %87
-  %95 = xor i64 %94, %93
-  %96 = and i64 %95, %89
-  %.not39.i.i = icmp eq i64 %96, 0
-  br i1 %.not39.i.i, label %90, label %Abc_TtHasVar.exit.i
+94:                                               ; preds = %93, %87
+  %indvars.iv53.i.i = phi i64 [ 0, %87 ], [ %indvars.iv.next54.i.i, %93 ]
+  %95 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv53.i.i
+  %96 = load i64, ptr %95, align 8, !tbaa !25
+  %97 = lshr i64 %96, %90
+  %98 = xor i64 %97, %96
+  %99 = and i64 %98, %92
+  %.not39.i.i = icmp eq i64 %99, 0
+  br i1 %.not39.i.i, label %93, label %Abc_TtHasVar.exit.i
 
-Abc_TtHasVar.exit.i:                              ; preds = %91, %.preheader.us.i.i.preheader
-  %97 = add nsw i32 %.015.i, 1
+Abc_TtHasVar.exit.i:                              ; preds = %94, %.preheader.us.i.i.preheader
+  %100 = add nsw i32 %.015.i, 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %90, %Abc_TtHasVar.exit.i
-  %98 = phi i32 [ %97, %Abc_TtHasVar.exit.i ], [ %.015.i, %90 ]
+.loopexit.i:                                      ; preds = %93, %Abc_TtHasVar.exit.i
+  %101 = phi i32 [ %100, %Abc_TtHasVar.exit.i ], [ %.015.i, %93 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %83, !llvm.loop !28
+  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %86, !llvm.loop !28
 
 Abc_TtSupportSize.exit:                           ; preds = %.preheader.us.i.i.preheader, %.loopexit.i
-  %99 = phi i32 [ %98, %.loopexit.i ], [ %.015.i, %.preheader.us.i.i.preheader ]
-  %100 = icmp slt i32 %99, 4
-  br i1 %100, label %102, label %.preheader.preheader
+  %102 = phi i32 [ %101, %.loopexit.i ], [ %.015.i, %.preheader.us.i.i.preheader ]
+  %103 = icmp slt i32 %102, 4
+  br i1 %103, label %106, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %Abc_TtSupportSize.exit
-  %101 = load i64, ptr %20, align 16
-  %.not.us.i.i66 = icmp eq i64 %101, %80
+  %104 = load i64, ptr %20, align 16
+  %105 = load i64, ptr %indvars.iv.i48.sroa.gep73, align 8
+  %.not.us.i.i66 = icmp eq i64 %104, %105
   br label %.preheader
 
-102:                                              ; preds = %Abc_TtSupportSize.exit
+106:                                              ; preds = %Abc_TtSupportSize.exit
   call void @If_Dec7MinimumBase(ptr noundef nonnull %20, ptr noundef null, i32 noundef 7, ptr noundef nonnull %21) #6
-  %103 = load i32, ptr %21, align 4, !tbaa !11
-  %104 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %20, i32 noundef %103, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %18) #6
-  %105 = icmp sgt i32 %104, 4
-  br i1 %105, label %139, label %106
+  %107 = load i32, ptr %21, align 4, !tbaa !11
+  %108 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %20, i32 noundef %107, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %18) #6
+  %109 = icmp sgt i32 %108, 4
+  br i1 %109, label %143, label %110
 
-106:                                              ; preds = %102
+110:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %18, ptr %10, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !11
-  %107 = load i8, ptr %57, align 1, !tbaa !8
-  %108 = icmp eq i8 %107, 0
-  br i1 %108, label %Dau_DsdCheckDecExist.exit51.thread, label %Dau_DsdCheckDecExist.exit51
+  %111 = load i8, ptr %57, align 1, !tbaa !8
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %Dau_DsdCheckDecExist.exit51.thread, label %Dau_DsdCheckDecExist.exit51
 
-Dau_DsdCheckDecExist.exit51.thread:               ; preds = %106
+Dau_DsdCheckDecExist.exit51.thread:               ; preds = %110
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %139
+  br label %143
 
-Dau_DsdCheckDecExist.exit51:                      ; preds = %106
-  %109 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
-  %110 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef %109, ptr noundef nonnull %11)
+Dau_DsdCheckDecExist.exit51:                      ; preds = %110
+  %113 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
+  %114 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef %113, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %111 = and i32 %110, 24
-  %.not42 = icmp eq i32 %111, 0
-  br i1 %.not42, label %139, label %.loopexit
+  %115 = and i32 %114, 24
+  %.not42 = icmp eq i32 %115, 0
+  br i1 %.not42, label %143, label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit.i58
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i59, %.loopexit.i58 ], [ 0, %.preheader.preheader ]
-  %.015.i53 = phi i32 [ %126, %.loopexit.i58 ], [ 0, %.preheader.preheader ]
+  %.015.i53 = phi i32 [ %130, %.loopexit.i58 ], [ 0, %.preheader.preheader ]
   %.not.i54 = icmp eq i64 %indvars.iv.i52, 6
-  br i1 %.not.i54, label %.preheader.us.i.i63.preheader, label %112
+  br i1 %.not.i54, label %.preheader.us.i.i63.preheader, label %116
 
 .preheader.us.i.i63.preheader:                    ; preds = %.preheader
   br i1 %.not.us.i.i66, label %Abc_TtSupportSize.exit68, label %Abc_TtHasVar.exit.i57
 
-112:                                              ; preds = %.preheader
-  %113 = trunc nuw nsw i64 %indvars.iv.i52 to i32
-  %114 = shl nuw nsw i32 1, %113
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i52
-  %117 = load i64, ptr %116, align 8, !tbaa !25
-  br label %119
+116:                                              ; preds = %.preheader
+  %117 = trunc nuw nsw i64 %indvars.iv.i52 to i32
+  %118 = shl nuw nsw i32 1, %117
+  %119 = zext nneg i32 %118 to i64
+  %120 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i52
+  %121 = load i64, ptr %120, align 8, !tbaa !25
+  br label %123
 
-118:                                              ; preds = %119
+122:                                              ; preds = %123
   %indvars.iv.next54.i.i61 = add nuw nsw i64 %indvars.iv53.i.i55, 1
   %exitcond58.not.i.i62 = icmp eq i64 %indvars.iv.next54.i.i61, 2
-  br i1 %exitcond58.not.i.i62, label %.loopexit.i58, label %119, !llvm.loop !27
+  br i1 %exitcond58.not.i.i62, label %.loopexit.i58, label %123, !llvm.loop !27
 
-119:                                              ; preds = %118, %112
-  %indvars.iv53.i.i55 = phi i64 [ 0, %112 ], [ %indvars.iv.next54.i.i61, %118 ]
-  %120 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv53.i.i55
-  %121 = load i64, ptr %120, align 8, !tbaa !25
-  %122 = lshr i64 %121, %115
-  %123 = xor i64 %122, %121
-  %124 = and i64 %123, %117
-  %.not39.i.i56 = icmp eq i64 %124, 0
-  br i1 %.not39.i.i56, label %118, label %Abc_TtHasVar.exit.i57
+123:                                              ; preds = %122, %116
+  %indvars.iv53.i.i55 = phi i64 [ 0, %116 ], [ %indvars.iv.next54.i.i61, %122 ]
+  %124 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv53.i.i55
+  %125 = load i64, ptr %124, align 8, !tbaa !25
+  %126 = lshr i64 %125, %119
+  %127 = xor i64 %126, %125
+  %128 = and i64 %127, %121
+  %.not39.i.i56 = icmp eq i64 %128, 0
+  br i1 %.not39.i.i56, label %122, label %Abc_TtHasVar.exit.i57
 
-Abc_TtHasVar.exit.i57:                            ; preds = %119, %.preheader.us.i.i63.preheader
-  %125 = add nsw i32 %.015.i53, 1
+Abc_TtHasVar.exit.i57:                            ; preds = %123, %.preheader.us.i.i63.preheader
+  %129 = add nsw i32 %.015.i53, 1
   br label %.loopexit.i58
 
-.loopexit.i58:                                    ; preds = %118, %Abc_TtHasVar.exit.i57
-  %126 = phi i32 [ %125, %Abc_TtHasVar.exit.i57 ], [ %.015.i53, %118 ]
+.loopexit.i58:                                    ; preds = %122, %Abc_TtHasVar.exit.i57
+  %130 = phi i32 [ %129, %Abc_TtHasVar.exit.i57 ], [ %.015.i53, %122 ]
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 7
   br i1 %exitcond.not.i60, label %Abc_TtSupportSize.exit68, label %.preheader, !llvm.loop !28
 
 Abc_TtSupportSize.exit68:                         ; preds = %.preheader.us.i.i63.preheader, %.loopexit.i58
-  %127 = phi i32 [ %126, %.loopexit.i58 ], [ %.015.i53, %.preheader.us.i.i63.preheader ]
-  %128 = icmp slt i32 %127, 4
-  br i1 %128, label %129, label %139
+  %131 = phi i32 [ %130, %.loopexit.i58 ], [ %.015.i53, %.preheader.us.i.i63.preheader ]
+  %132 = icmp slt i32 %131, 4
+  br i1 %132, label %133, label %143
 
-129:                                              ; preds = %Abc_TtSupportSize.exit68
+133:                                              ; preds = %Abc_TtSupportSize.exit68
   call void @If_Dec7MinimumBase(ptr noundef nonnull %19, ptr noundef null, i32 noundef 7, ptr noundef nonnull %21) #6
-  %130 = load i32, ptr %21, align 4, !tbaa !11
-  %131 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %19, i32 noundef %130, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %18) #6
-  %132 = icmp sgt i32 %131, 4
-  br i1 %132, label %139, label %133
+  %134 = load i32, ptr %21, align 4, !tbaa !11
+  %135 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %19, i32 noundef %134, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %18) #6
+  %136 = icmp sgt i32 %135, 4
+  br i1 %136, label %143, label %137
 
-133:                                              ; preds = %129
+137:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %18, ptr %8, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !11
-  %134 = load i8, ptr %57, align 1, !tbaa !8
-  %135 = icmp eq i8 %134, 0
-  br i1 %135, label %Dau_DsdCheckDecExist.exit70.thread, label %Dau_DsdCheckDecExist.exit70
+  %138 = load i8, ptr %57, align 1, !tbaa !8
+  %139 = icmp eq i8 %138, 0
+  br i1 %139, label %Dau_DsdCheckDecExist.exit70.thread, label %Dau_DsdCheckDecExist.exit70
 
-Dau_DsdCheckDecExist.exit70.thread:               ; preds = %133
+Dau_DsdCheckDecExist.exit70.thread:               ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %139
+  br label %143
 
-Dau_DsdCheckDecExist.exit70:                      ; preds = %133
-  %136 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
-  %137 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %136, ptr noundef nonnull %9)
+Dau_DsdCheckDecExist.exit70:                      ; preds = %137
+  %140 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
+  %141 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %140, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %138 = and i32 %137, 24
-  %.not41 = icmp eq i32 %138, 0
-  br i1 %.not41, label %139, label %.loopexit
+  %142 = and i32 %141, 24
+  %.not41 = icmp eq i32 %142, 0
+  br i1 %.not41, label %143, label %.loopexit
 
-139:                                              ; preds = %Dau_DsdCheckDecExist.exit70.thread, %Dau_DsdCheckDecExist.exit51.thread, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecExist.exit70, %Abc_TtSupportSize.exit68, %129, %102
+143:                                              ; preds = %Dau_DsdCheckDecExist.exit70.thread, %Dau_DsdCheckDecExist.exit51.thread, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecExist.exit70, %Abc_TtSupportSize.exit68, %133, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !29
 
-.loopexit:                                        ; preds = %139, %Dau_DsdCheckDecExist.exit70, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecAndExist.exit46, %Dau_DsdCheckDecExist.exit
-  %.1 = phi i32 [ 1, %Dau_DsdCheckDecExist.exit ], [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 0, %139 ], [ 1, %Dau_DsdCheckDecExist.exit70 ], [ 1, %Dau_DsdCheckDecExist.exit51 ]
+.loopexit:                                        ; preds = %143, %Dau_DsdCheckDecExist.exit70, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecAndExist.exit46, %Dau_DsdCheckDecExist.exit
+  %.1 = phi i32 [ 1, %Dau_DsdCheckDecExist.exit ], [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 0, %143 ], [ 1, %Dau_DsdCheckDecExist.exit70 ], [ 1, %Dau_DsdCheckDecExist.exit51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %154
+  br label %158
 
-140:                                              ; preds = %29
-  %141 = icmp slt i32 %30, 5
-  br i1 %141, label %142, label %152
+144:                                              ; preds = %29
+  %145 = icmp slt i32 %30, 5
+  br i1 %145, label %146, label %156
 
-142:                                              ; preds = %140
+146:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %18, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !11
-  %143 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %144 = load i8, ptr %143, align 1, !tbaa !8
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %Dau_DsdCheckDecExist.exit72.thread, label %Dau_DsdCheckDecExist.exit72
+  %147 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %148 = load i8, ptr %147, align 1, !tbaa !8
+  %149 = icmp eq i8 %148, 0
+  br i1 %149, label %Dau_DsdCheckDecExist.exit72.thread, label %Dau_DsdCheckDecExist.exit72
 
-Dau_DsdCheckDecExist.exit72.thread:               ; preds = %142
+Dau_DsdCheckDecExist.exit72.thread:               ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %149
+  br label %153
 
-Dau_DsdCheckDecExist.exit72:                      ; preds = %142
-  %146 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
-  %147 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef %146, ptr noundef nonnull %7)
+Dau_DsdCheckDecExist.exit72:                      ; preds = %146
+  %150 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
+  %151 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef %150, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %148 = and i32 %147, 24
-  %.not37 = icmp eq i32 %148, 0
-  br i1 %.not37, label %149, label %154
+  %152 = and i32 %151, 24
+  %.not37 = icmp eq i32 %152, 0
+  br i1 %.not37, label %153, label %158
 
-149:                                              ; preds = %Dau_DsdCheckDecExist.exit72.thread, %Dau_DsdCheckDecExist.exit72
-  %150 = call i32 @Dau_DsdCheckDecAndExist(ptr noundef nonnull %18)
-  %151 = and i32 %150, 28
-  %.not38 = icmp eq i32 %151, 0
-  br i1 %.not38, label %152, label %154
+153:                                              ; preds = %Dau_DsdCheckDecExist.exit72.thread, %Dau_DsdCheckDecExist.exit72
+  %154 = call i32 @Dau_DsdCheckDecAndExist(ptr noundef nonnull %18)
+  %155 = and i32 %154, 28
+  %.not38 = icmp eq i32 %155, 0
+  br i1 %.not38, label %156, label %158
 
-152:                                              ; preds = %149, %140
-  %153 = call i32 @If_CutPerformCheck07(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 6, ptr noundef %4) #6
-  br label %154
+156:                                              ; preds = %153, %144
+  %157 = call i32 @If_CutPerformCheck07(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 6, ptr noundef %4) #6
+  br label %158
 
-154:                                              ; preds = %29, %149, %Dau_DsdCheckDecExist.exit72, %Dau_DsdCheckDecAndExist.exit, %31, %27, %5, %152, %.loopexit
-  %.035 = phi i32 [ %.1, %.loopexit ], [ %153, %152 ], [ 1, %5 ], [ 1, %27 ], [ 0, %31 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %Dau_DsdCheckDecExist.exit72 ], [ 1, %149 ], [ 0, %29 ]
+158:                                              ; preds = %29, %153, %Dau_DsdCheckDecExist.exit72, %Dau_DsdCheckDecAndExist.exit, %31, %27, %5, %156, %.loopexit
+  %.035 = phi i32 [ %.1, %.loopexit ], [ %157, %156 ], [ 1, %5 ], [ 1, %27 ], [ 0, %31 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %Dau_DsdCheckDecExist.exit72 ], [ 1, %153 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.035
 }

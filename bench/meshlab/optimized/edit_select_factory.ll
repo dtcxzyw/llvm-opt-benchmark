@@ -843,15 +843,15 @@ _ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17
   store ptr %14, ptr %129, align 8, !alias.scope !10
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %130, align 8
-  %.not102 = icmp eq ptr %.pre.i.i, %14
-  br i1 %.not102, label %.critedge, label %.lr.ph.preheader
+  %.not100 = icmp eq ptr %.pre.i.i, %14
+  br i1 %.not100, label %.critedge, label %.lr.ph
 
 .critedge.loopexit:                               ; preds = %188
-  %.pre105 = load ptr, ptr %14, align 8
+  %.pre104 = load ptr, ptr %14, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit
-  %131 = phi ptr [ %.pre105, %.critedge.loopexit ], [ %.pre.i.i, %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit ]
+  %131 = phi ptr [ %.pre104, %.critedge.loopexit ], [ %.pre.i.i, %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit ]
   %.not8.i.i.i.i = icmp eq ptr %131, %14
   br i1 %.not8.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit, label %.lr.ph.i.i.i.i92
 
@@ -1019,14 +1019,14 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
   call void @_ZdlPv(ptr noundef nonnull %73) #17
   br label %.body
 
-.lr.ph.preheader:                                 ; preds = %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit, %188
+.lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit, %188
   %181 = phi ptr [ %189, %188 ], [ %.pre.i.i, %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit ]
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8
   invoke void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %183, i1 noundef zeroext true)
           to label %188 unwind label %184
 
-184:                                              ; preds = %.lr.ph.preheader
+184:                                              ; preds = %.lr.ph
   %185 = landingpad { ptr, i32 }
           cleanup
   %186 = load ptr, ptr %14, align 8
@@ -1040,15 +1040,15 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
   %.not.i.i.i.i97 = icmp eq ptr %187, %14
   br i1 %.not.i.i.i.i97, label %.body, label %.lr.ph.i.i.i.i95, !llvm.loop !14
 
-188:                                              ; preds = %.lr.ph.preheader
+188:                                              ; preds = %.lr.ph
   store i32 0, ptr %130, align 8
-  %.pre104 = load ptr, ptr %129, align 8
+  %.pre103 = load ptr, ptr %129, align 8
   %.pre = load ptr, ptr %128, align 8
   %189 = load ptr, ptr %.pre, align 8
   store ptr %189, ptr %128, align 8
   store i32 1, ptr %130, align 8
-  %.not = icmp eq ptr %189, %.pre104
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !15
+  %.not = icmp eq ptr %189, %.pre103
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !15
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i95, %184, %135, %124, %180, %169, %158, %147
   %.pn37 = phi { ptr, i32 } [ %.pn32.pn.pn, %180 ], [ %.pn28.pn.pn, %169 ], [ %.pn24.pn.pn, %158 ], [ %.pn.pn.pn, %147 ], [ %136, %135 ], [ %125, %124 ], [ %185, %184 ], [ %185, %.lr.ph.i.i.i.i95 ], [ %125, %.lr.ph.i.i.i.i.i ]

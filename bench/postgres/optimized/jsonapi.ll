@@ -2469,23 +2469,23 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %.not370 = icmp ult ptr %18, %6
-  br i1 %.not370, label %.lr.ph374, label %._crit_edge375
+  %.not372 = icmp ult ptr %18, %6
+  br i1 %.not372, label %.lr.ph376, label %._crit_edge377
 
-.lr.ph374:                                        ; preds = %15
+.lr.ph376:                                        ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds i8, ptr %6, i64 -16
   br label %39
 
-._crit_edge375:                                   ; preds = %.backedge, %15
-  %.lcssa312 = phi ptr [ %18, %15 ], [ %252, %.backedge ]
+._crit_edge377:                                   ; preds = %.backedge, %15
+  %.lcssa319 = phi ptr [ %18, %15 ], [ %252, %.backedge ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i8, ptr %22, align 8, !range !3, !noundef !4
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %37
 
-25:                                               ; preds = %._crit_edge375
+25:                                               ; preds = %._crit_edge377
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
@@ -2502,15 +2502,15 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   call void @appendBinaryPQExpBuffer(ptr noundef nonnull %32, ptr noundef %33, i64 noundef %36) #16
   br label %.thread272
 
-37:                                               ; preds = %25, %._crit_edge375
+37:                                               ; preds = %25, %._crit_edge377
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.lcssa312, ptr %38, align 8
+  store ptr %.lcssa319, ptr %38, align 8
   br label %.thread272
 
-39:                                               ; preds = %.lr.ph374, %.backedge
-  %40 = phi ptr [ %18, %.lr.ph374 ], [ %252, %.backedge ]
-  %.0204372 = phi ptr [ %17, %.lr.ph374 ], [ %.0204.be, %.backedge ]
-  %.0209371 = phi i32 [ -1, %.lr.ph374 ], [ %.0209.be, %.backedge ]
+39:                                               ; preds = %.lr.ph376, %.backedge
+  %40 = phi ptr [ %18, %.lr.ph376 ], [ %252, %.backedge ]
+  %.0204374 = phi ptr [ %17, %.lr.ph376 ], [ %.0204.be, %.backedge ]
+  %.0209373 = phi i32 [ -1, %.lr.ph376 ], [ %.0209.be, %.backedge ]
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %217 [
     i8 34, label %253
@@ -2518,7 +2518,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   ]
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %.0204372, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.0204374, i64 2
   %.not239 = icmp ult ptr %43, %6
   br i1 %.not239, label %62, label %44
 
@@ -2554,21 +2554,21 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   %63 = load i8, ptr %43, align 1
   %64 = sext i8 %63 to i32
   %65 = icmp eq i8 %63, 117
-  br i1 %65, label %.preheader289.preheader, label %177
+  br i1 %65, label %.preheader292.preheader, label %177
 
-.preheader289.preheader:                          ; preds = %62
-  %scevgep = getelementptr i8, ptr %.0204372, i64 6
-  br label %.preheader289
+.preheader292.preheader:                          ; preds = %62
+  %scevgep = getelementptr i8, ptr %.0204374, i64 6
+  br label %.preheader292
 
-.preheader289:                                    ; preds = %.preheader289.preheader, %113
-  %.2206357 = phi ptr [ %66, %113 ], [ %43, %.preheader289.preheader ]
-  %.0216356 = phi i32 [ %114, %113 ], [ 1, %.preheader289.preheader ]
-  %.0217355 = phi i32 [ %.1218, %113 ], [ 0, %.preheader289.preheader ]
-  %66 = getelementptr inbounds nuw i8, ptr %.2206357, i64 1
+.preheader292:                                    ; preds = %.preheader292.preheader, %113
+  %.2206364 = phi ptr [ %66, %113 ], [ %43, %.preheader292.preheader ]
+  %.0216363 = phi i32 [ %114, %113 ], [ 1, %.preheader292.preheader ]
+  %.0217362 = phi i32 [ %.1218, %113 ], [ 0, %.preheader292.preheader ]
+  %66 = getelementptr inbounds nuw i8, ptr %.2206364, i64 1
   %.not251 = icmp ult ptr %66, %6
   br i1 %.not251, label %85, label %67
 
-67:                                               ; preds = %.preheader289
+67:                                               ; preds = %.preheader292
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %69 = load i8, ptr %68, align 8, !range !3, !noundef !4
   %70 = trunc nuw i8 %69 to i1
@@ -2596,14 +2596,14 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   store ptr %66, ptr %84, align 8
   br label %.thread272
 
-85:                                               ; preds = %.preheader289
+85:                                               ; preds = %.preheader292
   %86 = load i8, ptr %66, align 1
   %87 = add i8 %86, -48
   %or.cond = icmp ult i8 %87, 10
   br i1 %or.cond, label %88, label %92
 
 88:                                               ; preds = %85
-  %89 = shl i32 %.0217355, 4
+  %89 = shl i32 %.0217362, 4
   %90 = zext nneg i8 %87 to i32
   %91 = or disjoint i32 %89, %90
   br label %113
@@ -2614,7 +2614,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br i1 %or.cond256, label %94, label %99
 
 94:                                               ; preds = %92
-  %95 = shl i32 %.0217355, 4
+  %95 = shl i32 %.0217362, 4
   %96 = zext nneg i8 %93 to i32
   %97 = or disjoint i32 %95, 10
   %98 = add nuw i32 %97, %96
@@ -2626,7 +2626,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br i1 %or.cond257, label %101, label %106
 
 101:                                              ; preds = %99
-  %102 = shl i32 %.0217355, 4
+  %102 = shl i32 %.0217362, 4
   %103 = zext nneg i8 %100 to i32
   %104 = or disjoint i32 %102, 10
   %105 = add nuw i32 %104, %103
@@ -2645,9 +2645,9 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
 
 113:                                              ; preds = %94, %101, %88
   %.1218 = phi i32 [ %91, %88 ], [ %98, %94 ], [ %105, %101 ]
-  %114 = add nuw nsw i32 %.0216356, 1
+  %114 = add nuw nsw i32 %.0216363, 1
   %exitcond.not = icmp eq i32 %114, 5
-  br i1 %exitcond.not, label %115, label %.preheader289, !llvm.loop !20
+  br i1 %exitcond.not, label %115, label %.preheader292, !llvm.loop !20
 
 115:                                              ; preds = %113
   %116 = load i8, ptr %7, align 8, !range !3, !noundef !4
@@ -2656,7 +2656,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
 
 118:                                              ; preds = %115
   %119 = and i32 %.1218, -1024
-  %.not244 = icmp eq i32 %.0209371, -1
+  %.not244 = icmp eq i32 %.0209373, -1
   switch i32 %119, label %141 [
     i32 55296, label %120
     i32 56320, label %128
@@ -2691,7 +2691,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br label %.thread272
 
 .thread269:                                       ; preds = %128
-  %136 = shl i32 %.0209371, 10
+  %136 = shl i32 %.0209373, 10
   %137 = and i32 %136, 1047552
   %138 = add nuw nsw i32 %137, 65536
   %139 = and i32 %.1218, 1023
@@ -2769,7 +2769,7 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br i1 %179, label %180, label %208
 
 180:                                              ; preds = %177
-  %.not241 = icmp eq i32 %.0209371, -1
+  %.not241 = icmp eq i32 %.0209373, -1
   br i1 %.not241, label %188, label %181
 
 181:                                              ; preds = %180
@@ -2855,12 +2855,12 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   br label %.thread272
 
 217:                                              ; preds = %39
-  %.not237 = icmp eq i32 %.0209371, -1
-  br i1 %.not237, label %.preheader, label %219
+  %.not237 = icmp eq i32 %.0209373, -1
+  br i1 %.not237, label %.preheader290, label %219
 
-.preheader:                                       ; preds = %217
+.preheader290:                                    ; preds = %217
   %218 = icmp ult ptr %40, %21
-  br i1 %218, label %.lr.ph, label %.critedge
+  br i1 %218, label %.preheader, label %.critedge
 
 219:                                              ; preds = %217
   %220 = load i32, ptr %20, align 8
@@ -2873,69 +2873,62 @@ define internal fastcc range(i32 0, 23) i32 @json_lex_string(ptr noundef capture
   store ptr %224, ptr %225, align 8
   br label %.thread272
 
-.lr.ph:                                           ; preds = %.preheader, %pg_lfind8_le.exit
-  %.0202358 = phi ptr [ %232, %pg_lfind8_le.exit ], [ %40, %.preheader ]
-  %.val14.i = load <16 x i8>, ptr %.0202358, align 1
+.preheader:                                       ; preds = %.preheader290, %pg_lfind8_le.exit
+  %.0202365 = phi ptr [ %232, %pg_lfind8_le.exit ], [ %40, %.preheader290 ]
+  %.val14.i = load <16 x i8>, ptr %.0202365, align 1
   %226 = icmp eq <16 x i8> %.val14.i, splat (i8 92)
   %227 = bitcast <16 x i1> %226 to i16
   %.not.i = icmp eq i16 %227, 0
-  br i1 %.not.i, label %pg_lfind8.exit, label %..critedge_crit_edge, !llvm.loop !21
+  br i1 %.not.i, label %pg_lfind8.exit.preheader.critedge, label %.critedge, !llvm.loop !21
 
-pg_lfind8.exit:                                   ; preds = %.lr.ph
-  %228 = icmp eq <16 x i8> %.val14.i, splat (i8 34)
+pg_lfind8.exit.preheader.critedge:                ; preds = %.preheader
+  %.val14.i259 = load <16 x i8>, ptr %.0202365, align 1
+  %228 = icmp eq <16 x i8> %.val14.i259, splat (i8 34)
   %229 = bitcast <16 x i1> %228 to i16
   %.not.i260 = icmp eq i16 %229, 0
-  br i1 %.not.i260, label %pg_lfind8.exit261, label %pg_lfind8.exit..critedge_crit_edge, !llvm.loop !21
+  br i1 %.not.i260, label %pg_lfind8.exit261.preheader.critedge, label %.critedge, !llvm.loop !21
 
-pg_lfind8.exit261:                                ; preds = %pg_lfind8.exit
-  %230 = icmp ult <16 x i8> %.val14.i, splat (i8 32)
+pg_lfind8.exit261.preheader.critedge:             ; preds = %pg_lfind8.exit.preheader.critedge
+  %.val14.i263 = load <16 x i8>, ptr %.0202365, align 1
+  %230 = icmp ult <16 x i8> %.val14.i263, splat (i8 32)
   %231 = bitcast <16 x i1> %230 to i16
   %.not.i264 = icmp eq i16 %231, 0
-  br i1 %.not.i264, label %pg_lfind8_le.exit, label %pg_lfind8.exit261..critedge_crit_edge, !llvm.loop !22
+  br i1 %.not.i264, label %pg_lfind8_le.exit, label %.critedge, !llvm.loop !22
 
-pg_lfind8_le.exit:                                ; preds = %pg_lfind8.exit261
-  %232 = getelementptr inbounds nuw i8, ptr %.0202358, i64 16
+pg_lfind8_le.exit:                                ; preds = %pg_lfind8.exit261.preheader.critedge
+  %232 = getelementptr inbounds nuw i8, ptr %.0202365, i64 16
   %233 = icmp ult ptr %232, %21
-  br i1 %233, label %.lr.ph, label %.critedge, !llvm.loop !23
+  br i1 %233, label %.preheader, label %.critedge, !llvm.loop !23
 
-pg_lfind8.exit261..critedge_crit_edge:            ; preds = %pg_lfind8.exit261
-  br label %.critedge, !llvm.loop !22
+.critedge:                                        ; preds = %pg_lfind8_le.exit, %.preheader, %pg_lfind8.exit.preheader.critedge, %pg_lfind8.exit261.preheader.critedge, %.preheader290
+  %.0202305 = phi ptr [ %40, %.preheader290 ], [ %232, %pg_lfind8_le.exit ], [ %.0202365, %.preheader ], [ %.0202365, %pg_lfind8.exit.preheader.critedge ], [ %.0202365, %pg_lfind8.exit261.preheader.critedge ]
+  %234 = icmp ult ptr %.0202305, %6
+  br i1 %234, label %.lr.ph, label %._crit_edge
 
-pg_lfind8.exit..critedge_crit_edge:               ; preds = %pg_lfind8.exit
-  br label %.critedge, !llvm.loop !21
-
-..critedge_crit_edge:                             ; preds = %.lr.ph
-  br label %.critedge, !llvm.loop !21
-
-.critedge:                                        ; preds = %pg_lfind8_le.exit, %..critedge_crit_edge, %pg_lfind8.exit..critedge_crit_edge, %pg_lfind8.exit261..critedge_crit_edge, %.preheader
-  %.0202.lcssa = phi ptr [ %.0202358, %pg_lfind8.exit261..critedge_crit_edge ], [ %.0202358, %pg_lfind8.exit..critedge_crit_edge ], [ %.0202358, %..critedge_crit_edge ], [ %40, %.preheader ], [ %232, %pg_lfind8_le.exit ]
-  %234 = icmp ult ptr %.0202.lcssa, %6
-  br i1 %234, label %.lr.ph364, label %._crit_edge
-
-.lr.ph364:                                        ; preds = %.critedge, %240
-  %.1203363 = phi ptr [ %241, %240 ], [ %.0202.lcssa, %.critedge ]
-  %235 = load i8, ptr %.1203363, align 1
+.lr.ph:                                           ; preds = %.critedge, %240
+  %.1203366 = phi ptr [ %241, %240 ], [ %.0202305, %.critedge ]
+  %235 = load i8, ptr %.1203366, align 1
   switch i8 %235, label %236 [
     i8 92, label %._crit_edge
     i8 34, label %._crit_edge
   ]
 
-236:                                              ; preds = %.lr.ph364
+236:                                              ; preds = %.lr.ph
   %237 = icmp ult i8 %235, 32
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %236
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1203363, ptr %239, align 8
+  store ptr %.1203366, ptr %239, align 8
   br label %.thread272
 
 240:                                              ; preds = %236
-  %241 = getelementptr inbounds nuw i8, ptr %.1203363, i64 1
+  %241 = getelementptr inbounds nuw i8, ptr %.1203366, i64 1
   %242 = icmp ult ptr %241, %6
-  br i1 %242, label %.lr.ph364, label %._crit_edge, !llvm.loop !24
+  br i1 %242, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %240, %.lr.ph364, %.lr.ph364, %.critedge
-  %.1203.lcssa = phi ptr [ %.0202.lcssa, %.critedge ], [ %.1203363, %.lr.ph364 ], [ %.1203363, %.lr.ph364 ], [ %241, %240 ]
+._crit_edge:                                      ; preds = %240, %.lr.ph, %.lr.ph, %.critedge
+  %.1203.lcssa = phi ptr [ %.0202305, %.critedge ], [ %.1203366, %.lr.ph ], [ %.1203366, %.lr.ph ], [ %241, %240 ]
   %243 = load i8, ptr %7, align 8, !range !3, !noundef !4
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %245, label %250
@@ -2953,18 +2946,18 @@ pg_lfind8.exit..critedge_crit_edge:               ; preds = %pg_lfind8.exit
   br label %.backedge
 
 .backedge:                                        ; preds = %208, %189, %191, %193, %195, %197, %199, %250, %161, %168, %115, %120
-  %.0209.be = phi i32 [ %.1218, %120 ], [ -1, %189 ], [ -1, %191 ], [ -1, %193 ], [ -1, %195 ], [ -1, %197 ], [ -1, %199 ], [ %.0209371, %208 ], [ -1, %250 ], [ %.0209371, %115 ], [ -1, %168 ], [ -1, %161 ]
+  %.0209.be = phi i32 [ %.1218, %120 ], [ -1, %189 ], [ -1, %191 ], [ -1, %193 ], [ -1, %195 ], [ -1, %197 ], [ -1, %199 ], [ %.0209373, %208 ], [ -1, %250 ], [ %.0209373, %115 ], [ -1, %168 ], [ -1, %161 ]
   %.0204.be = phi ptr [ %scevgep, %120 ], [ %43, %189 ], [ %43, %191 ], [ %43, %193 ], [ %43, %195 ], [ %43, %197 ], [ %43, %199 ], [ %43, %208 ], [ %251, %250 ], [ %scevgep, %115 ], [ %scevgep, %168 ], [ %scevgep, %161 ]
   %252 = getelementptr inbounds nuw i8, ptr %.0204.be, i64 1
   %.not = icmp ult ptr %252, %6
-  br i1 %.not, label %39, label %._crit_edge375
+  br i1 %.not, label %39, label %._crit_edge377
 
 253:                                              ; preds = %39
-  %.not255 = icmp eq i32 %.0209371, -1
+  %.not255 = icmp eq i32 %.0209373, -1
   br i1 %.not255, label %257, label %254
 
 254:                                              ; preds = %253
-  %255 = getelementptr inbounds nuw i8, ptr %.0204372, i64 2
+  %255 = getelementptr inbounds nuw i8, ptr %.0204374, i64 2
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %255, ptr %256, align 8
   br label %.thread272
@@ -2990,7 +2983,7 @@ pg_lfind8.exit..critedge_crit_edge:               ; preds = %pg_lfind8.exit
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %269, ptr %270, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %.0204372, i64 2
+  %271 = getelementptr inbounds nuw i8, ptr %.0204374, i64 2
   store ptr %271, ptr %268, align 8
   br label %.thread272
 

@@ -232,39 +232,39 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   %24 = load i32, ptr %23, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %24, i32 3)
   %25 = icmp sgt i32 %24, 8
-  br i1 %25, label %26, label %.preheader114.preheader
+  br i1 %25, label %26, label %.preheader115.preheader
 
 26:                                               ; preds = %3
   %27 = zext nneg i32 %spec.store.select to i64
   %28 = shl nuw nsw i64 %27, 3
   %29 = tail call ptr @uv__malloc(i64 noundef %28) #12
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %.preheader114.preheader
+  br i1 %30, label %.thread, label %.preheader115.preheader
 
-.preheader114.preheader:                          ; preds = %3, %26
-  %.079147 = phi ptr [ %29, %26 ], [ %10, %3 ]
+.preheader115.preheader:                          ; preds = %3, %26
+  %.079148 = phi ptr [ %29, %26 ], [ %10, %3 ]
   %31 = zext nneg i32 %spec.store.select to i64
   %32 = shl nuw nsw i64 %31, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.079147, i8 -1, i64 %32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.079148, i8 -1, i64 %32, i1 false)
   %33 = load i32, ptr %23, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader114.preheader
+.lr.ph:                                           ; preds = %.preheader115.preheader
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %36
 
-36:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
+36:                                               ; preds = %.lr.ph, %.loopexit113
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit113 ]
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %37, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %.079147, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 65536, ptr %9, align 4
   %40 = load i32, ptr %38, align 8
   %41 = and i32 %40, 7
   switch i32 %41, label %uv__process_init_stdio.exit.thread [
-    i32 0, label %69
+    i32 0, label %.loopexit113
     i32 1, label %42
     i32 2, label %59
     i32 4, label %59
@@ -293,7 +293,7 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   %56 = call i32 @setsockopt(i32 noundef %55, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %9, i32 noundef 4) #12
   %57 = load i32, ptr %54, align 4
   %58 = call i32 @setsockopt(i32 noundef %57, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %9, i32 noundef 4) #12
-  br label %69
+  br label %.loopexit113
 
 59:                                               ; preds = %36, %36
   %60 = and i32 %40, 2
@@ -315,354 +315,354 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %.019.i, ptr %68, align 4
-  br label %69
+  br label %.loopexit113
 
 uv__process_init_stdio.exit.thread:               ; preds = %42, %47, %65, %36
   %.018.i.ph = phi i32 [ -22, %65 ], [ %48, %47 ], [ -22, %42 ], [ -22, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-69:                                               ; preds = %.preheader.i, %67, %36
+.loopexit113:                                     ; preds = %.preheader.i, %67, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %23, align 4
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %36, label %._crit_edge
+  %69 = load i32, ptr %23, align 4
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %36, label %._crit_edge
 
-._crit_edge:                                      ; preds = %69, %.preheader114.preheader
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %74 = call i32 @uv_signal_start(ptr noundef nonnull %73, ptr noundef nonnull @uv__chld, i32 noundef 17) #12
+._crit_edge:                                      ; preds = %.loopexit113, %.preheader115.preheader
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %73 = call i32 @uv_signal_start(ptr noundef nonnull %72, ptr noundef nonnull @uv__chld, i32 noundef 17) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %75 = call i32 @uv__make_pipe(ptr noundef nonnull %6, i32 noundef 0) #12
-  %.not.i92 = icmp eq i32 %75, 0
-  br i1 %.not.i92, label %76, label %uv__spawn_and_init_child.exit.thread
+  %74 = call i32 @uv__make_pipe(ptr noundef nonnull %6, i32 noundef 0) #12
+  %.not.i92 = icmp eq i32 %74, 0
+  br i1 %.not.i92, label %75, label %uv__spawn_and_init_child.exit.thread
 
 uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %148
+  br label %147
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  call void @uv_rwlock_wrlock(ptr noundef nonnull %77) #12
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %79 = load i32, ptr %78, align 4
+75:                                               ; preds = %._crit_edge
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  call void @uv_rwlock_wrlock(ptr noundef nonnull %76) #12
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %78 = load i32, ptr %77, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %80 = call i32 @sigfillset(ptr noundef nonnull %4) #12
-  %81 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 9) #12
-  %82 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 19) #12
-  %83 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 5) #12
-  %84 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 11) #12
-  %85 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 7) #12
-  %86 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 4) #12
-  %87 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 31) #12
-  %88 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 6) #12
-  %89 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
-  %.not.i.i = icmp eq i32 %89, 0
-  br i1 %.not.i.i, label %91, label %90
+  %79 = call i32 @sigfillset(ptr noundef nonnull %4) #12
+  %80 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 9) #12
+  %81 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 19) #12
+  %82 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 5) #12
+  %83 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 11) #12
+  %84 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 7) #12
+  %85 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 4) #12
+  %86 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 31) #12
+  %87 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 6) #12
+  %88 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  %.not.i.i = icmp eq i32 %88, 0
+  br i1 %.not.i.i, label %90, label %89
 
-90:                                               ; preds = %76
+89:                                               ; preds = %75
   call void @abort() #14
   unreachable
 
-91:                                               ; preds = %76
-  %92 = call i32 @fork() #12
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %95
+90:                                               ; preds = %75
+  %91 = call i32 @fork() #12
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %94
 
-94:                                               ; preds = %91
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.079147, i32 noundef %79)
+93:                                               ; preds = %90
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.079148, i32 noundef %78)
   unreachable
 
-95:                                               ; preds = %91
-  %96 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #12
-  %.not7.i.i = icmp eq i32 %96, 0
-  br i1 %.not7.i.i, label %98, label %97
+94:                                               ; preds = %90
+  %95 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #12
+  %.not7.i.i = icmp eq i32 %95, 0
+  br i1 %.not7.i.i, label %97, label %96
 
-97:                                               ; preds = %95
+96:                                               ; preds = %94
   call void @abort() #14
   unreachable
 
-98:                                               ; preds = %95
-  %99 = icmp eq i32 %92, -1
-  br i1 %99, label %100, label %uv__spawn_and_init_child_fork.exit.i
+97:                                               ; preds = %94
+  %98 = icmp eq i32 %91, -1
+  br i1 %98, label %99, label %uv__spawn_and_init_child_fork.exit.i
 
-100:                                              ; preds = %98
-  %101 = tail call ptr @__errno_location() #13
-  %102 = load i32, ptr %101, align 4
-  %103 = sub nsw i32 0, %102
+99:                                               ; preds = %97
+  %100 = tail call ptr @__errno_location() #13
+  %101 = load i32, ptr %100, align 4
+  %102 = sub nsw i32 0, %101
   br label %uv__spawn_and_init_child_fork.exit.i
 
-uv__spawn_and_init_child_fork.exit.i:             ; preds = %100, %98
-  %.0.i.i = phi i32 [ %103, %100 ], [ 0, %98 ]
+uv__spawn_and_init_child_fork.exit.i:             ; preds = %99, %97
+  %.0.i.i = phi i32 [ %102, %99 ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @uv_rwlock_wrunlock(ptr noundef nonnull %77) #12
-  %104 = load i32, ptr %78, align 4
-  %105 = call i32 @uv__close(i32 noundef %104) #12
-  %106 = icmp eq i32 %.0.i.i, 0
-  br i1 %106, label %.preheader27.i, label %uv__spawn_and_init_child.exit
+  call void @uv_rwlock_wrunlock(ptr noundef nonnull %76) #12
+  %103 = load i32, ptr %77, align 4
+  %104 = call i32 @uv__close(i32 noundef %103) #12
+  %105 = icmp eq i32 %.0.i.i, 0
+  br i1 %105, label %.preheader27.i, label %uv__spawn_and_init_child.exit
 
-.preheader27.i:                                   ; preds = %uv__spawn_and_init_child_fork.exit.i, %111
-  %107 = load i32, ptr %6, align 8
-  %108 = call i64 @read(i32 noundef %107, ptr noundef nonnull %8, i64 noundef 4) #12
-  switch i64 %108, label %.loopexit.i [
-    i64 -1, label %111
+.preheader27.i:                                   ; preds = %uv__spawn_and_init_child_fork.exit.i, %110
+  %106 = load i32, ptr %6, align 8
+  %107 = call i64 @read(i32 noundef %106, ptr noundef nonnull %8, i64 noundef 4) #12
+  switch i64 %107, label %.loopexit.i [
+    i64 -1, label %110
     i64 0, label %uv__spawn_and_init_child.exit.thread108
     i64 4, label %.preheader26.i
   ]
 
 uv__spawn_and_init_child.exit.thread108:          ; preds = %.preheader27.i
-  %109 = load i32, ptr %6, align 8
-  %110 = call i32 @uv__close_nocheckstdio(i32 noundef %109) #12
+  %108 = load i32, ptr %6, align 8
+  %109 = call i32 @uv__close_nocheckstdio(i32 noundef %108) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %131
+  br label %130
 
-111:                                              ; preds = %.preheader27.i
-  %112 = tail call ptr @__errno_location() #13
-  %113 = load i32, ptr %112, align 4
-  switch i32 %113, label %.loopexit.i [
+110:                                              ; preds = %.preheader27.i
+  %111 = tail call ptr @__errno_location() #13
+  %112 = load i32, ptr %111, align 4
+  switch i32 %112, label %.loopexit.i [
     i32 4, label %.preheader27.i
     i32 32, label %.preheader.i93
   ]
 
-.preheader26.i:                                   ; preds = %.preheader27.i, %116
-  %114 = call i32 @waitpid(i32 noundef %92, ptr noundef nonnull %7, i32 noundef 0) #12
-  %115 = icmp eq i32 %114, -1
-  br i1 %115, label %116, label %.critedge2.i
+.preheader26.i:                                   ; preds = %.preheader27.i, %115
+  %113 = call i32 @waitpid(i32 noundef %91, ptr noundef nonnull %7, i32 noundef 0) #12
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %.critedge2.i
 
-116:                                              ; preds = %.preheader26.i
-  %117 = tail call ptr @__errno_location() #13
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %118, 4
-  br i1 %119, label %.preheader26.i, label %.critedge2.i
+115:                                              ; preds = %.preheader26.i
+  %116 = tail call ptr @__errno_location() #13
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp eq i32 %117, 4
+  br i1 %118, label %.preheader26.i, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %116, %.preheader26.i
-  %120 = load i32, ptr %8, align 4
+.critedge2.i:                                     ; preds = %115, %.preheader26.i
+  %119 = load i32, ptr %8, align 4
   br label %uv__spawn_and_init_child.exit
 
-.preheader.i93:                                   ; preds = %111, %123
-  %121 = call i32 @waitpid(i32 noundef %92, ptr noundef nonnull %7, i32 noundef 0) #12
-  %122 = icmp eq i32 %121, -1
-  br i1 %122, label %123, label %uv__spawn_and_init_child.exit.thread106
+.preheader.i93:                                   ; preds = %110, %122
+  %120 = call i32 @waitpid(i32 noundef %91, ptr noundef nonnull %7, i32 noundef 0) #12
+  %121 = icmp eq i32 %120, -1
+  br i1 %121, label %122, label %uv__spawn_and_init_child.exit.thread106
 
-123:                                              ; preds = %.preheader.i93
-  %124 = load i32, ptr %112, align 4
-  %125 = icmp eq i32 %124, 4
-  br i1 %125, label %.preheader.i93, label %uv__spawn_and_init_child.exit.thread106
+122:                                              ; preds = %.preheader.i93
+  %123 = load i32, ptr %111, align 4
+  %124 = icmp eq i32 %123, 4
+  br i1 %124, label %.preheader.i93, label %uv__spawn_and_init_child.exit.thread106
 
-.loopexit.i:                                      ; preds = %111, %.preheader27.i
+.loopexit.i:                                      ; preds = %110, %.preheader27.i
   call void @abort() #14
   unreachable
 
-uv__spawn_and_init_child.exit.thread106:          ; preds = %.preheader.i93, %123
-  %126 = load i32, ptr %6, align 8
-  %127 = call i32 @uv__close_nocheckstdio(i32 noundef %126) #12
+uv__spawn_and_init_child.exit.thread106:          ; preds = %.preheader.i93, %122
+  %125 = load i32, ptr %6, align 8
+  %126 = call i32 @uv__close_nocheckstdio(i32 noundef %125) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %148
+  br label %147
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %.critedge2.i
-  %.022.i = phi i32 [ %120, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
-  %128 = load i32, ptr %6, align 8
-  %129 = call i32 @uv__close_nocheckstdio(i32 noundef %128) #12
+  %.022.i = phi i32 [ %119, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %127 = load i32, ptr %6, align 8
+  %128 = call i32 @uv__close_nocheckstdio(i32 noundef %127) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %130 = icmp eq i32 %.022.i, 0
-  br i1 %130, label %131, label %148
+  %129 = icmp eq i32 %.022.i, 0
+  br i1 %129, label %130, label %147
 
-131:                                              ; preds = %uv__spawn_and_init_child.exit.thread108, %uv__spawn_and_init_child.exit
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 %92, ptr %132, align 8
-  %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %133, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store ptr %135, ptr %20, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr %21, align 8
-  store ptr %20, ptr %137, align 8
+130:                                              ; preds = %uv__spawn_and_init_child.exit.thread108, %uv__spawn_and_init_child.exit
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store i32 %91, ptr %131, align 8
+  %132 = load ptr, ptr %2, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr %132, ptr %133, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store ptr %134, ptr %20, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %136 = load ptr, ptr %135, align 8
+  store ptr %136, ptr %21, align 8
   store ptr %20, ptr %136, align 8
-  %138 = load i32, ptr %13, align 8
-  %139 = and i32 %138, 4
-  %.not = icmp eq i32 %139, 0
-  br i1 %.not, label %140, label %148
+  store ptr %20, ptr %135, align 8
+  %137 = load i32, ptr %13, align 8
+  %138 = and i32 %137, 4
+  %.not = icmp eq i32 %138, 0
+  br i1 %.not, label %139, label %147
 
-140:                                              ; preds = %131
-  %141 = or disjoint i32 %138, 4
-  store i32 %141, ptr %13, align 8
-  %142 = and i32 %138, 8
-  %.not83 = icmp eq i32 %142, 0
-  br i1 %.not83, label %148, label %143
+139:                                              ; preds = %130
+  %140 = or disjoint i32 %137, 4
+  store i32 %140, ptr %13, align 8
+  %141 = and i32 %137, 8
+  %.not83 = icmp eq i32 %141, 0
+  br i1 %.not83, label %147, label %142
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %11, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %145, align 8
-  br label %148
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %11, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load i32, ptr %144, align 8
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %144, align 8
+  br label %147
 
-148:                                              ; preds = %uv__spawn_and_init_child.exit.thread106, %uv__spawn_and_init_child.exit.thread, %131, %140, %143, %uv__spawn_and_init_child.exit
-  %.0.i105 = phi i32 [ %75, %uv__spawn_and_init_child.exit.thread ], [ 0, %131 ], [ 0, %140 ], [ 0, %143 ], [ %.022.i, %uv__spawn_and_init_child.exit ], [ -32, %uv__spawn_and_init_child.exit.thread106 ]
-  %149 = load i32, ptr %23, align 4
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.lr.ph123, label %._crit_edge124
+147:                                              ; preds = %uv__spawn_and_init_child.exit.thread106, %uv__spawn_and_init_child.exit.thread, %130, %139, %142, %uv__spawn_and_init_child.exit
+  %.0.i105 = phi i32 [ %74, %uv__spawn_and_init_child.exit.thread ], [ 0, %130 ], [ 0, %139 ], [ 0, %142 ], [ %.022.i, %uv__spawn_and_init_child.exit ], [ -32, %uv__spawn_and_init_child.exit.thread106 ]
+  %148 = load i32, ptr %23, align 4
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %.lr.ph124, label %._crit_edge125
 
-.lr.ph123:                                        ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  br label %152
+.lr.ph124:                                        ; preds = %147
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  br label %151
 
-152:                                              ; preds = %.lr.ph123, %uv__process_open_stream.exit.thread
-  %153 = phi i32 [ %149, %.lr.ph123 ], [ %186, %uv__process_open_stream.exit.thread ]
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next135, %uv__process_open_stream.exit.thread ]
-  %154 = load ptr, ptr %151, align 8
-  %155 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %154, i64 %indvars.iv134
-  %156 = getelementptr inbounds nuw [2 x i32], ptr %.079147, i64 %indvars.iv134
-  %157 = load i32, ptr %155, align 8
-  %158 = and i32 %157, 1
-  %.not.i94 = icmp eq i32 %158, 0
-  br i1 %.not.i94, label %uv__process_open_stream.exit.thread, label %159
+151:                                              ; preds = %.lr.ph124, %uv__process_open_stream.exit.thread
+  %152 = phi i32 [ %148, %.lr.ph124 ], [ %185, %uv__process_open_stream.exit.thread ]
+  %indvars.iv135 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next136, %uv__process_open_stream.exit.thread ]
+  %153 = load ptr, ptr %150, align 8
+  %154 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %153, i64 %indvars.iv135
+  %155 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv135
+  %156 = load i32, ptr %154, align 8
+  %157 = and i32 %156, 1
+  %.not.i94 = icmp eq i32 %157, 0
+  br i1 %.not.i94, label %uv__process_open_stream.exit.thread, label %158
 
-159:                                              ; preds = %152
-  %160 = load i32, ptr %156, align 4
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %uv__process_open_stream.exit.thread, label %162
+158:                                              ; preds = %151
+  %159 = load i32, ptr %155, align 4
+  %160 = icmp slt i32 %159, 0
+  br i1 %160, label %uv__process_open_stream.exit.thread, label %161
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  %164 = load i32, ptr %163, align 4
-  %165 = call i32 @uv__close(i32 noundef %164) #12
-  %.not14.i = icmp eq i32 %165, 0
-  br i1 %.not14.i, label %uv__process_open_stream.exit, label %166
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  %163 = load i32, ptr %162, align 4
+  %164 = call i32 @uv__close(i32 noundef %163) #12
+  %.not14.i = icmp eq i32 %164, 0
+  br i1 %.not14.i, label %uv__process_open_stream.exit, label %165
 
-166:                                              ; preds = %162
+165:                                              ; preds = %161
   call void @abort() #14
   unreachable
 
-uv__process_open_stream.exit:                     ; preds = %162
-  store i32 -1, ptr %163, align 4
-  %167 = load i32, ptr %156, align 4
-  %168 = call i32 @uv__nonblock_ioctl(i32 noundef %167, i32 noundef 1) #12
-  %169 = load i32, ptr %155, align 8
-  %170 = shl i32 %169, 9
-  %spec.select.i = and i32 %170, 16384
-  %171 = shl i32 %169, 11
-  %172 = and i32 %171, 32768
-  %.1.i = or disjoint i32 %spec.select.i, %172
-  %173 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr %156, align 4
-  %176 = call i32 @uv__stream_open(ptr noundef %174, i32 noundef %175, i32 noundef %.1.i) #12
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge, label %.preheader
+uv__process_open_stream.exit:                     ; preds = %161
+  store i32 -1, ptr %162, align 4
+  %166 = load i32, ptr %155, align 4
+  %167 = call i32 @uv__nonblock_ioctl(i32 noundef %166, i32 noundef 1) #12
+  %168 = load i32, ptr %154, align 8
+  %169 = shl i32 %168, 9
+  %spec.select.i = and i32 %169, 16384
+  %170 = shl i32 %168, 11
+  %171 = and i32 %170, 32768
+  %.1.i = or disjoint i32 %spec.select.i, %171
+  %172 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = load i32, ptr %155, align 4
+  %175 = call i32 @uv__stream_open(ptr noundef %173, i32 noundef %174, i32 noundef %.1.i) #12
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge, label %.preheader
 
 uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge: ; preds = %uv__process_open_stream.exit
   %.pre = load i32, ptr %23, align 4
   br label %uv__process_open_stream.exit.thread
 
 .preheader:                                       ; preds = %uv__process_open_stream.exit
-  %.not85125 = icmp eq i64 %indvars.iv134, 0
-  br i1 %.not85125, label %.loopexit, label %.lr.ph127
+  %.not85126 = icmp eq i64 %indvars.iv135, 0
+  br i1 %.not85126, label %.loopexit, label %.lr.ph128
 
-.lr.ph127:                                        ; preds = %.preheader, %uv__process_close_stream.exit
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %uv__process_close_stream.exit ], [ %indvars.iv134, %.preheader ]
-  %indvars.iv.next140 = add nsw i64 %indvars.iv139, -1
-  %178 = load ptr, ptr %151, align 8
-  %179 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %178, i64 %indvars.iv.next140
-  %180 = load i32, ptr %179, align 8
-  %181 = and i32 %180, 1
-  %.not.i96 = icmp eq i32 %181, 0
-  br i1 %.not.i96, label %uv__process_close_stream.exit, label %182
+.lr.ph128:                                        ; preds = %.preheader, %uv__process_close_stream.exit
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %uv__process_close_stream.exit ], [ %indvars.iv135, %.preheader ]
+  %indvars.iv.next141 = add nsw i64 %indvars.iv140, -1
+  %177 = load ptr, ptr %150, align 8
+  %178 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %177, i64 %indvars.iv.next141
+  %179 = load i32, ptr %178, align 8
+  %180 = and i32 %179, 1
+  %.not.i96 = icmp eq i32 %180, 0
+  br i1 %.not.i96, label %uv__process_close_stream.exit, label %181
 
-182:                                              ; preds = %.lr.ph127
-  %183 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %184 = load ptr, ptr %183, align 8
-  call void @uv__stream_close(ptr noundef %184) #12
+181:                                              ; preds = %.lr.ph128
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %183 = load ptr, ptr %182, align 8
+  call void @uv__stream_close(ptr noundef %183) #12
   br label %uv__process_close_stream.exit
 
-uv__process_close_stream.exit:                    ; preds = %.lr.ph127, %182
-  %185 = icmp eq i64 %indvars.iv.next140, 0
-  br i1 %185, label %.loopexit, label %.lr.ph127
+uv__process_close_stream.exit:                    ; preds = %.lr.ph128, %181
+  %184 = icmp eq i64 %indvars.iv.next141, 0
+  br i1 %184, label %.loopexit, label %.lr.ph128
 
-uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge, %152, %159
-  %186 = phi i32 [ %.pre, %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge ], [ %153, %152 ], [ %153, %159 ]
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next135, %187
-  br i1 %188, label %152, label %._crit_edge124
+uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge, %151, %158
+  %185 = phi i32 [ %.pre, %uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge ], [ %152, %151 ], [ %152, %158 ]
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %186 = sext i32 %185 to i64
+  %187 = icmp slt i64 %indvars.iv.next136, %186
+  br i1 %187, label %151, label %._crit_edge125
 
-._crit_edge124:                                   ; preds = %uv__process_open_stream.exit.thread, %148
-  %.not84 = icmp eq ptr %.079147, %10
+._crit_edge125:                                   ; preds = %uv__process_open_stream.exit.thread, %147
+  %.not84 = icmp eq ptr %.079148, %10
   br i1 %.not84, label %.thread, label %.thread.sink.split
 
 .loopexit:                                        ; preds = %uv__process_close_stream.exit, %.preheader, %uv__process_init_stdio.exit.thread
-  %.078 = phi i32 [ %.018.i.ph, %uv__process_init_stdio.exit.thread ], [ %176, %.preheader ], [ %176, %uv__process_close_stream.exit ]
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  br label %190
+  %.078 = phi i32 [ %.018.i.ph, %uv__process_init_stdio.exit.thread ], [ %175, %.preheader ], [ %175, %uv__process_close_stream.exit ]
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  br label %189
 
-190:                                              ; preds = %.loopexit, %209
-  %indvars.iv142 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next143, %209 ]
-  %191 = load i32, ptr %23, align 4
-  %192 = sext i32 %191 to i64
-  %193 = icmp slt i64 %indvars.iv142, %192
-  br i1 %193, label %194, label %199
+189:                                              ; preds = %.loopexit, %208
+  %indvars.iv143 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next144, %208 ]
+  %190 = load i32, ptr %23, align 4
+  %191 = sext i32 %190 to i64
+  %192 = icmp slt i64 %indvars.iv143, %191
+  br i1 %192, label %193, label %198
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %189, align 8
-  %196 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %195, i64 %indvars.iv142
-  %197 = load i32, ptr %196, align 8
-  %198 = and i32 %197, 6
-  %.not89 = icmp eq i32 %198, 0
-  br i1 %.not89, label %199, label %209
+193:                                              ; preds = %189
+  %194 = load ptr, ptr %188, align 8
+  %195 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %194, i64 %indvars.iv143
+  %196 = load i32, ptr %195, align 8
+  %197 = and i32 %196, 6
+  %.not89 = icmp eq i32 %197, 0
+  br i1 %.not89, label %198, label %208
 
-199:                                              ; preds = %194, %190
-  %200 = getelementptr inbounds nuw [2 x i32], ptr %.079147, i64 %indvars.iv142
-  %201 = load i32, ptr %200, align 4
-  %.not90 = icmp eq i32 %201, -1
-  br i1 %.not90, label %204, label %202
+198:                                              ; preds = %193, %189
+  %199 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv143
+  %200 = load i32, ptr %199, align 4
+  %.not90 = icmp eq i32 %200, -1
+  br i1 %.not90, label %203, label %201
 
-202:                                              ; preds = %199
-  %203 = call i32 @uv__close_nocheckstdio(i32 noundef %201) #12
-  br label %204
+201:                                              ; preds = %198
+  %202 = call i32 @uv__close_nocheckstdio(i32 noundef %200) #12
+  br label %203
 
-204:                                              ; preds = %202, %199
-  %205 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  %206 = load i32, ptr %205, align 4
-  %.not91 = icmp eq i32 %206, -1
-  br i1 %.not91, label %209, label %207
+203:                                              ; preds = %201, %198
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  %205 = load i32, ptr %204, align 4
+  %.not91 = icmp eq i32 %205, -1
+  br i1 %.not91, label %208, label %206
 
-207:                                              ; preds = %204
-  %208 = call i32 @uv__close_nocheckstdio(i32 noundef %206) #12
-  br label %209
+206:                                              ; preds = %203
+  %207 = call i32 @uv__close_nocheckstdio(i32 noundef %205) #12
+  br label %208
 
-209:                                              ; preds = %204, %207, %194
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next143, %31
-  br i1 %exitcond.not, label %210, label %190
+208:                                              ; preds = %203, %206, %193
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next144, %31
+  br i1 %exitcond.not, label %209, label %189
 
-210:                                              ; preds = %209
-  %.not88 = icmp eq ptr %.079147, %10
+209:                                              ; preds = %208
+  %.not88 = icmp eq ptr %.079148, %10
   br i1 %.not88, label %.thread, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %210, %._crit_edge124
-  %.077.ph = phi i32 [ %.0.i105, %._crit_edge124 ], [ %.078, %210 ]
-  call void @uv__free(ptr noundef nonnull %.079147) #12
+.thread.sink.split:                               ; preds = %209, %._crit_edge125
+  %.077.ph = phi i32 [ %.0.i105, %._crit_edge125 ], [ %.078, %209 ]
+  call void @uv__free(ptr noundef nonnull %.079148) #12
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %26, %210, %._crit_edge124
-  %.077 = phi i32 [ %.0.i105, %._crit_edge124 ], [ %.078, %210 ], [ -12, %26 ], [ %.077.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %26, %209, %._crit_edge125
+  %.077 = phi i32 [ %.0.i105, %._crit_edge125 ], [ %.078, %209 ], [ -12, %26 ], [ %.077.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.077
 }

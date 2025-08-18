@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [55 x i8] c"Interlaced error concealment is not fully implemented\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ff_mpeg_er_frame_start(ptr noundef initializes((4528, 4744), (4776, 4788)) %0) local_unnamed_addr #0 {
+define void @ff_mpeg_er_frame_start(ptr noundef initializes((4528, 4600)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4528
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %4 = load ptr, ptr %3, align 8, !tbaa !4

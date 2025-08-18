@@ -6510,7 +6510,7 @@ _ZN2rc3GenISt5tupleIJhEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJhEEclERKNS_6RandomEi(ptr dead_on_unwind noalias writable sret(%"class.rc::Shrinkable.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+.preheader:
   %4 = alloca %"class.rc::Random", align 8
   %5 = alloca [1 x %"class.rc::Random"], align 16
   %6 = alloca %"class.rc::Random", align 8
@@ -6524,7 +6524,7 @@ define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJ
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZN2rc10ShrinkableIhED2Ev.exit unwind label %12
 
-_ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %.critedge
+_ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %.preheader
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableISt5tupleIJhEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJhEEEEE, i64 16), ptr %8, align 8, !noalias !176
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %7, align 8, !noalias !176
@@ -6534,7 +6534,7 @@ _ZN2rc10ShrinkableIhED2Ev.exit:                   ; preds = %.critedge
   store ptr %8, ptr %0, align 8, !alias.scope !176
   ret void
 
-12:                                               ; preds = %.critedge
+12:                                               ; preds = %.preheader
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = load ptr, ptr %7, align 8
@@ -14779,7 +14779,7 @@ _ZN2rc3GenISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7Gen
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKNS_6RandomEi(ptr dead_on_unwind noalias writable sret(%"class.rc::Shrinkable.187") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+.preheader:
   %4 = alloca %"class.rc::Random", align 8
   %5 = alloca [1 x %"class.rc::Random"], align 16
   %6 = alloca %"class.rc::Random", align 8
@@ -14793,7 +14793,7 @@ define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJ
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %12
 
-_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.critedge
+_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.preheader
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS7_EEEEE, i64 16), ptr %8, align 8, !noalias !560
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %7, align 8, !noalias !560
@@ -14803,7 +14803,7 @@ _ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   store ptr %8, ptr %0, align 8, !alias.scope !560
   ret void
 
-12:                                               ; preds = %.critedge
+12:                                               ; preds = %.preheader
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = load ptr, ptr %7, align 8
@@ -16879,7 +16879,7 @@ _ZN2rc3GenISt5tupleIJN3nix13StorePathNameEEEE7GenImplINS_3gen6detail8TupleGenINS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix13StorePathNameEEEclERKNS_6RandomEi(ptr dead_on_unwind noalias writable sret(%"class.rc::Shrinkable.241") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+.preheader:
   %4 = alloca %"class.rc::Random", align 8
   %5 = alloca [1 x %"class.rc::Random"], align 16
   %6 = alloca %"class.rc::Random", align 8
@@ -16893,7 +16893,7 @@ define linkonce_odr void @_ZNK2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJ
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %_ZN2rc10ShrinkableIN3nix13StorePathNameEED2Ev.exit unwind label %12
 
-_ZN2rc10ShrinkableIN3nix13StorePathNameEED2Ev.exit: ; preds = %.critedge
+_ZN2rc10ShrinkableIN3nix13StorePathNameEED2Ev.exit: ; preds = %.preheader
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix13StorePathNameEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i64 16), ptr %8, align 8, !noalias !677
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %7, align 8, !noalias !677
@@ -16903,7 +16903,7 @@ _ZN2rc10ShrinkableIN3nix13StorePathNameEED2Ev.exit: ; preds = %.critedge
   store ptr %8, ptr %0, align 8, !alias.scope !677
   ret void
 
-12:                                               ; preds = %.critedge
+12:                                               ; preds = %.preheader
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = load ptr, ptr %7, align 8

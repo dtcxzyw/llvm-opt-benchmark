@@ -902,93 +902,91 @@ define hidden i32 @opj_thread_pool_get_thread_count(ptr noundef readonly capture
 
 ; Function Attrs: nounwind uwtable
 define internal void @opj_worker_thread_function(ptr noundef %0) #1 {
-.preheader.i.critedge:
-  %1 = load ptr, ptr %0, align 8, !tbaa !34
-  %2 = tail call ptr @opj_calloc(i64 noundef 1, i64 noundef 16) #8
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %3, align 8, !tbaa !30
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef %14) #8
-  %16 = load volatile i32, ptr %5, align 8, !tbaa !22
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %opj_thread_pool_get_next_job.exit.thread.sink.split, label %.lr.ph
+  %2 = load ptr, ptr %0, align 8, !tbaa !34
+  %3 = tail call ptr @opj_calloc(i64 noundef 1, i64 noundef 16) #8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %.critedge
 
-18:                                               ; preds = %59
-  %19 = load ptr, ptr %4, align 8, !tbaa !31
-  %20 = tail call i32 @pthread_cond_signal(ptr noundef %19) #8
-  br label %.preheader.i.backedge
+15:                                               ; preds = %59
+  %16 = load ptr, ptr %7, align 8, !tbaa !31
+  %17 = tail call i32 @pthread_cond_signal(ptr noundef %16) #8
+  br label %.backedge
 
-.lr.ph:                                           ; preds = %.preheader.i.critedge, %.lr.ph.backedge
-  %21 = load ptr, ptr %6, align 8, !tbaa !60
-  %.not43.i = icmp eq ptr %21, null
-  br i1 %.not43.i, label %22, label %opj_thread_pool_get_next_job.exit
+.critedge:                                        ; preds = %1, %36
+  %18 = load ptr, ptr %4, align 8, !tbaa !30
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef %18) #8
+  br label %20
 
-22:                                               ; preds = %.lr.ph
-  %23 = load i32, ptr %7, align 8, !tbaa !40
-  %.not44.i = icmp eq i32 %23, 0
-  br i1 %.not44.i, label %24, label %.critedge.i
+20:                                               ; preds = %.backedge, %.critedge
+  %21 = load volatile i32, ptr %8, align 8, !tbaa !22
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %opj_thread_pool_get_next_job.exit.thread.sink.split, label %23
 
-24:                                               ; preds = %22
-  store i32 1, ptr %7, align 8, !tbaa !40
-  %25 = load i32, ptr %8, align 8, !tbaa !43
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %8, align 8, !tbaa !43
-  %27 = tail call ptr @opj_malloc(i64 noundef 16) #8
-  %.not45.i = icmp eq ptr %27, null
-  br i1 %.not45.i, label %.thread.i, label %30
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %9, align 8, !tbaa !60
+  %.not43.i = icmp eq ptr %24, null
+  br i1 %.not43.i, label %25, label %opj_thread_pool_get_next_job.exit
 
-.thread.i:                                        ; preds = %24
-  store volatile i32 2, ptr %5, align 8, !tbaa !22
-  %28 = load ptr, ptr %4, align 8, !tbaa !31
-  %29 = tail call i32 @pthread_cond_signal(ptr noundef %28) #8
+25:                                               ; preds = %23
+  %26 = load i32, ptr %10, align 8, !tbaa !40
+  %.not44.i = icmp eq i32 %26, 0
+  br i1 %.not44.i, label %27, label %36
+
+27:                                               ; preds = %25
+  store i32 1, ptr %10, align 8, !tbaa !40
+  %28 = load i32, ptr %11, align 8, !tbaa !43
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %11, align 8, !tbaa !43
+  %30 = tail call ptr @opj_malloc(i64 noundef 16) #8
+  %.not45.i = icmp eq ptr %30, null
+  br i1 %.not45.i, label %.thread.i, label %33
+
+.thread.i:                                        ; preds = %27
+  store volatile i32 2, ptr %8, align 8, !tbaa !22
+  %31 = load ptr, ptr %7, align 8, !tbaa !31
+  %32 = tail call i32 @pthread_cond_signal(ptr noundef %31) #8
   br label %opj_thread_pool_get_next_job.exit.thread.sink.split
 
-30:                                               ; preds = %24
-  store ptr %0, ptr %27, align 8, !tbaa !62
-  %31 = load ptr, ptr %9, align 8, !tbaa !49
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !50
-  store ptr %27, ptr %9, align 8, !tbaa !49
-  br label %.critedge.i
+33:                                               ; preds = %27
+  store ptr %0, ptr %30, align 8, !tbaa !62
+  %34 = load ptr, ptr %12, align 8, !tbaa !49
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %34, ptr %35, align 8, !tbaa !50
+  store ptr %30, ptr %12, align 8, !tbaa !49
+  br label %36
 
-.critedge.i:                                      ; preds = %30, %22
-  %33 = load ptr, ptr %4, align 8, !tbaa !31
-  %34 = tail call i32 @pthread_cond_signal(ptr noundef %33) #8
-  %35 = load ptr, ptr %10, align 8, !tbaa !38
-  %36 = tail call i32 @pthread_mutex_lock(ptr noundef %35) #8
-  %37 = load ptr, ptr %3, align 8, !tbaa !30
-  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef %37) #8
-  %39 = load ptr, ptr %11, align 8, !tbaa !39
-  %40 = load ptr, ptr %10, align 8, !tbaa !38
-  %41 = tail call i32 @pthread_cond_wait(ptr noundef %39, ptr noundef %40) #8
-  %42 = load ptr, ptr %10, align 8, !tbaa !38
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef %42) #8
-  %44 = load ptr, ptr %3, align 8, !tbaa !30
-  %45 = tail call i32 @pthread_mutex_lock(ptr noundef %44) #8
-  %46 = load volatile i32, ptr %5, align 8, !tbaa !22
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %opj_thread_pool_get_next_job.exit.thread.sink.split, label %.lr.ph.backedge
+36:                                               ; preds = %33, %25
+  %37 = load ptr, ptr %7, align 8, !tbaa !31
+  %38 = tail call i32 @pthread_cond_signal(ptr noundef %37) #8
+  %39 = load ptr, ptr %13, align 8, !tbaa !38
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef %39) #8
+  %41 = load ptr, ptr %4, align 8, !tbaa !30
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef %41) #8
+  %43 = load ptr, ptr %14, align 8, !tbaa !39
+  %44 = load ptr, ptr %13, align 8, !tbaa !38
+  %45 = tail call i32 @pthread_cond_wait(ptr noundef %43, ptr noundef %44) #8
+  %46 = load ptr, ptr %13, align 8, !tbaa !38
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef %46) #8
+  br label %.critedge
 
-.lr.ph.backedge:                                  ; preds = %.critedge.i, %.preheader.i.backedge
-  br label %.lr.ph
-
-opj_thread_pool_get_next_job.exit:                ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
+opj_thread_pool_get_next_job.exit:                ; preds = %23
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !61
-  store ptr %49, ptr %6, align 8, !tbaa !60
-  %50 = load ptr, ptr %21, align 8, !tbaa !57
-  %51 = load ptr, ptr %3, align 8, !tbaa !30
+  store ptr %49, ptr %9, align 8, !tbaa !60
+  %50 = load ptr, ptr %24, align 8, !tbaa !57
+  %51 = load ptr, ptr %4, align 8, !tbaa !30
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef %51) #8
-  tail call void @opj_free(ptr noundef nonnull %21) #8
+  tail call void @opj_free(ptr noundef nonnull %24) #8
   %53 = icmp eq ptr %50, null
   br i1 %53, label %opj_thread_pool_get_next_job.exit.thread, label %54
 
@@ -1000,69 +998,67 @@ opj_thread_pool_get_next_job.exit:                ; preds = %.lr.ph
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !56
-  tail call void %55(ptr noundef %58, ptr noundef %2) #8
+  tail call void %55(ptr noundef %58, ptr noundef %3) #8
   br label %59
 
 59:                                               ; preds = %54, %56
   tail call void @opj_free(ptr noundef nonnull %50) #8
-  %60 = load ptr, ptr %3, align 8, !tbaa !30
+  %60 = load ptr, ptr %4, align 8, !tbaa !30
   %61 = tail call i32 @pthread_mutex_lock(ptr noundef %60) #8
-  %62 = load volatile i32, ptr %13, align 8, !tbaa !46
+  %62 = load volatile i32, ptr %5, align 8, !tbaa !46
   %63 = add nsw i32 %62, -1
-  store volatile i32 %63, ptr %13, align 8, !tbaa !46
-  %64 = load volatile i32, ptr %13, align 8, !tbaa !46
-  %65 = load i32, ptr %12, align 8, !tbaa !45
+  store volatile i32 %63, ptr %5, align 8, !tbaa !46
+  %64 = load volatile i32, ptr %5, align 8, !tbaa !46
+  %65 = load i32, ptr %6, align 8, !tbaa !45
   %.not.i = icmp sgt i32 %64, %65
-  br i1 %.not.i, label %.preheader.i.backedge, label %18
+  br i1 %.not.i, label %.backedge, label %15
 
-.preheader.i.backedge:                            ; preds = %59, %18
-  %66 = load volatile i32, ptr %5, align 8, !tbaa !22
-  %67 = icmp eq i32 %66, 1
-  br i1 %67, label %opj_thread_pool_get_next_job.exit.thread.sink.split, label %.lr.ph.backedge
+.backedge:                                        ; preds = %59, %15
+  br label %20
 
-opj_thread_pool_get_next_job.exit.thread.sink.split: ; preds = %.preheader.i.backedge, %.critedge.i, %.preheader.i.critedge, %.thread.i
-  %68 = load ptr, ptr %3, align 8, !tbaa !30
-  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef %68) #8
+opj_thread_pool_get_next_job.exit.thread.sink.split: ; preds = %20, %.thread.i
+  %66 = load ptr, ptr %4, align 8, !tbaa !30
+  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef %66) #8
   br label %opj_thread_pool_get_next_job.exit.thread
 
 opj_thread_pool_get_next_job.exit.thread:         ; preds = %opj_thread_pool_get_next_job.exit, %opj_thread_pool_get_next_job.exit.thread.sink.split
-  %.not.i15 = icmp eq ptr %2, null
-  br i1 %.not.i15, label %opj_tls_destroy.exit, label %.preheader.i16
+  %.not.i15 = icmp eq ptr %3, null
+  br i1 %.not.i15, label %opj_tls_destroy.exit, label %.preheader.i
 
-.preheader.i16:                                   ; preds = %opj_thread_pool_get_next_job.exit.thread
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !11
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %opj_thread_pool_get_next_job.exit.thread
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %69 = load i32, ptr %68, align 8, !tbaa !11
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i16, %81
-  %73 = phi i32 [ %82, %81 ], [ %71, %.preheader.i16 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %.preheader.i16 ]
-  %74 = load ptr, ptr %2, align 8, !tbaa !14
-  %75 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %74, i64 %indvars.iv.i
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !21
-  %.not13.i = icmp eq ptr %77, null
-  br i1 %.not13.i, label %81, label %78
+.lr.ph.i:                                         ; preds = %.preheader.i, %79
+  %71 = phi i32 [ %80, %79 ], [ %69, %.preheader.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %.preheader.i ]
+  %72 = load ptr, ptr %3, align 8, !tbaa !14
+  %73 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %72, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !21
+  %.not13.i = icmp eq ptr %75, null
+  br i1 %.not13.i, label %79, label %76
 
-78:                                               ; preds = %.lr.ph.i
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !19
-  tail call void %77(ptr noundef %80) #8
-  %.pre.i = load i32, ptr %70, align 8, !tbaa !11
-  br label %81
+76:                                               ; preds = %.lr.ph.i
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !19
+  tail call void %75(ptr noundef %78) #8
+  %.pre.i = load i32, ptr %68, align 8, !tbaa !11
+  br label %79
 
-81:                                               ; preds = %78, %.lr.ph.i
-  %82 = phi i32 [ %73, %.lr.ph.i ], [ %.pre.i, %78 ]
+79:                                               ; preds = %76, %.lr.ph.i
+  %80 = phi i32 [ %71, %.lr.ph.i ], [ %.pre.i, %76 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next.i, %83
-  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !53
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next.i, %81
+  br i1 %82, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !53
 
-._crit_edge.i:                                    ; preds = %81, %.preheader.i16
-  %85 = load ptr, ptr %2, align 8, !tbaa !14
-  tail call void @opj_free(ptr noundef %85) #8
-  tail call void @opj_free(ptr noundef nonnull %2) #8
+._crit_edge.i:                                    ; preds = %79, %.preheader.i
+  %83 = load ptr, ptr %3, align 8, !tbaa !14
+  tail call void @opj_free(ptr noundef %83) #8
+  tail call void @opj_free(ptr noundef nonnull %3) #8
   br label %opj_tls_destroy.exit
 
 opj_tls_destroy.exit:                             ; preds = %opj_thread_pool_get_next_job.exit.thread, %._crit_edge.i

@@ -30340,6 +30340,8 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hed98
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = inttoptr i64 %0 to ptr
+  %17 = icmp ne i64 %0, 0
+  tail call void @llvm.assume(i1 %17)
   tail call void @Py_DecRef(ptr noundef nonnull %16) #28
   br label %13
 }

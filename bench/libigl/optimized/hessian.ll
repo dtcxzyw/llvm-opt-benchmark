@@ -3569,21 +3569,21 @@ thread-pre-split:                                 ; preds = %45
   %47 = phi i64 [ %.pr, %thread-pre-split ], [ %40, %_ZN5Eigen8internal9evaluatorINS_9ReplicateINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEESB_EELin1ELin1EEEEC2ERKSF_.exit ]
   %48 = load ptr, ptr %0, align 8, !tbaa !69
   %49 = icmp sgt i64 %47, 0
-  br i1 %49, label %.lr.ph.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEENS3_INS_9ReplicateINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESE_EELin1ELin1EEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit
+  br i1 %49, label %.split.us.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEENS3_INS_9ReplicateINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESE_EELin1ELin1EEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit
 
-.lr.ph.i:                                         ; preds = %46
+.split.us.i:                                      ; preds = %46
   %50 = load i64, ptr %34, align 8, !tbaa !45
   %51 = load ptr, ptr %32, align 8, !tbaa !148
   br label %52
 
-52:                                               ; preds = %52, %.lr.ph.i
-  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %57, %52 ]
-  %53 = getelementptr double, ptr %48, i64 %.09.i
-  %54 = srem i64 %.09.i, %50
+52:                                               ; preds = %52, %.split.us.i
+  %.09.us.i = phi i64 [ 0, %.split.us.i ], [ %57, %52 ]
+  %53 = getelementptr double, ptr %48, i64 %.09.us.i
+  %54 = srem i64 %.09.us.i, %50
   %55 = getelementptr double, ptr %51, i64 %54
   %56 = load double, ptr %55, align 8, !tbaa !131
   store double %56, ptr %53, align 8, !tbaa !131
-  %57 = add nuw nsw i64 %.09.i, 1
+  %57 = add nuw nsw i64 %.09.us.i, 1
   %exitcond.not.i = icmp eq i64 %57, %47
   br i1 %exitcond.not.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEENS3_INS_9ReplicateINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESE_EELin1ELin1EEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit, label %52, !llvm.loop !150
 

@@ -536,7 +536,7 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 8, ptr elementtype(i8) %3) #7, !srcloc !21
   tail call void @folio_unlock(ptr noundef %3) #7
-  br label %311
+  br label %307
 
 240:                                              ; preds = %197
   %241 = icmp eq i32 %123, 0
@@ -558,142 +558,137 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
   %251 = phi i64 [ %242, %.thread24 ], [ %118, %240 ], [ %118, %237 ]
   %252 = load ptr, ptr %0, align 8
   %253 = icmp eq ptr %252, null
-  br i1 %253, label %266, label %254
+  br i1 %253, label %261, label %254
 
 254:                                              ; preds = %246
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %256 = load i64, ptr %255, align 8
   %257 = add i64 %250, -1
   %258 = icmp eq i64 %256, %257
-  br i1 %258, label %.thread, label %264
+  br i1 %258, label %261, label %259
 
-.thread:                                          ; preds = %254
-  %259 = add nsw i32 %9, -9
-  %260 = zext nneg i32 %259 to i64
-  %261 = shl i64 %250, %260
-  %262 = shl i32 %249, %9
-  %263 = sext i32 %262 to i64
-  br label %282
-
-264:                                              ; preds = %254
-  %265 = getelementptr inbounds nuw i8, ptr %252, i64 56
-  store ptr @mpage_read_end_io, ptr %265, align 8
+259:                                              ; preds = %254
+  %260 = getelementptr inbounds nuw i8, ptr %252, i64 56
+  store ptr @mpage_read_end_io, ptr %260, align 8
   tail call void @guard_bio_eod(ptr noundef nonnull %252) #7
   tail call void @submit_bio(ptr noundef nonnull %252) #7
   store ptr null, ptr %0, align 8
-  br label %266
+  br label %261
 
-266:                                              ; preds = %264, %246
-  %267 = add nsw i32 %9, -9
-  %268 = zext nneg i32 %267 to i64
-  %269 = shl i64 %250, %268
-  %270 = shl i32 %249, %9
-  %271 = sext i32 %270 to i64
-  br label %272
+261:                                              ; preds = %259, %254, %246
+  %.pr = phi ptr [ null, %259 ], [ %252, %254 ], [ null, %246 ]
+  %262 = add nsw i32 %9, -9
+  %263 = zext nneg i32 %262 to i64
+  %264 = shl i64 %250, %263
+  %265 = shl i32 %249, %9
+  %266 = sext i32 %265 to i64
+  %267 = icmp eq ptr %.pr, null
+  br label %268
 
-272:                                              ; preds = %266, %.critedge
-  %273 = phi i64 [ %283, %.critedge ], [ %271, %266 ]
-  %274 = phi i64 [ %284, %.critedge ], [ %269, %266 ]
-  %275 = load i32, ptr %33, align 8
-  %276 = tail call noundef i32 @llvm.umin.i32(i32 %275, i32 256)
-  %277 = trunc nuw nsw i32 %276 to i16
-  %278 = tail call ptr @bio_alloc_bioset(ptr noundef %248, i16 noundef zeroext %277, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @fs_bio_set) #7
-  store ptr %278, ptr %0, align 8
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %.thread26, label %280
+268:                                              ; preds = %282, %261
+  %269 = phi ptr [ null, %282 ], [ %.pr, %261 ]
+  %270 = phi i1 [ true, %282 ], [ %267, %261 ]
+  br i1 %270, label %271, label %279
 
-280:                                              ; preds = %272
-  %281 = getelementptr inbounds nuw i8, ptr %278, i64 32
-  store i64 %274, ptr %281, align 8
+271:                                              ; preds = %268
+  %272 = load i32, ptr %33, align 8
+  %273 = tail call noundef i32 @llvm.umin.i32(i32 %272, i32 256)
+  %274 = trunc nuw nsw i32 %273 to i16
+  %275 = tail call ptr @bio_alloc_bioset(ptr noundef %248, i16 noundef zeroext %274, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @fs_bio_set) #7
+  store ptr %275, ptr %0, align 8
+  %276 = icmp eq ptr %275, null
+  br i1 %276, label %.thread26, label %277
+
+277:                                              ; preds = %271
+  %278 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  store i64 %264, ptr %278, align 8
   %.pre77 = load ptr, ptr %0, align 8
-  br label %282
+  br label %279
 
-282:                                              ; preds = %.thread, %280
-  %283 = phi i64 [ %273, %280 ], [ %263, %.thread ]
-  %284 = phi i64 [ %274, %280 ], [ %261, %.thread ]
-  %285 = phi ptr [ %.pre77, %280 ], [ %252, %.thread ]
-  %286 = tail call zeroext i1 @bio_add_folio(ptr noundef %285, ptr noundef %3, i64 noundef %283, i64 noundef 0) #7
-  br i1 %286, label %289, label %.critedge
+279:                                              ; preds = %277, %268
+  %280 = phi ptr [ %.pre77, %277 ], [ %269, %268 ]
+  %281 = tail call zeroext i1 @bio_add_folio(ptr noundef %280, ptr noundef %3, i64 noundef %266, i64 noundef 0) #7
+  br i1 %281, label %285, label %282
 
-.critedge:                                        ; preds = %282
-  %287 = load ptr, ptr %0, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 56
-  store ptr @mpage_read_end_io, ptr %288, align 8
-  tail call void @guard_bio_eod(ptr noundef %287) #7
-  tail call void @submit_bio(ptr noundef %287) #7
+282:                                              ; preds = %279
+  %283 = load ptr, ptr %0, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 56
+  store ptr @mpage_read_end_io, ptr %284, align 8
+  tail call void @guard_bio_eod(ptr noundef %283) #7
+  tail call void @submit_bio(ptr noundef %283) #7
   store ptr null, ptr %0, align 8
-  br label %272
+  br label %268
 
-289:                                              ; preds = %282
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %291 = load i64, ptr %290, align 8
-  %292 = load i64, ptr %45, align 8
-  %293 = load volatile i64, ptr %13, align 8
-  %294 = and i64 %293, 512
-  %295 = icmp eq i64 %294, 0
-  br i1 %295, label %303, label %296
+285:                                              ; preds = %279
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %287 = load i64, ptr %286, align 8
+  %288 = load i64, ptr %45, align 8
+  %289 = load volatile i64, ptr %13, align 8
+  %290 = and i64 %289, 512
+  %291 = icmp eq i64 %290, 0
+  br i1 %291, label %299, label %292
 
-296:                                              ; preds = %289
-  %297 = lshr i64 %292, %10
-  %298 = trunc i64 %297 to i32
-  %299 = sub i64 %251, %291
-  %300 = trunc i64 %299 to i32
-  %301 = icmp eq i32 %300, %298
-  %302 = or i1 %247, %301
-  br i1 %302, label %304, label %307
+292:                                              ; preds = %285
+  %293 = lshr i64 %288, %10
+  %294 = trunc i64 %293 to i32
+  %295 = sub i64 %251, %287
+  %296 = trunc i64 %295 to i32
+  %297 = icmp eq i32 %296, %294
+  %298 = or i1 %247, %297
+  br i1 %298, label %300, label %303
 
-303:                                              ; preds = %289
-  br i1 %247, label %304, label %307
+299:                                              ; preds = %285
+  br i1 %247, label %300, label %303
 
-304:                                              ; preds = %303, %296
-  %305 = load ptr, ptr %0, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 56
-  store ptr @mpage_read_end_io, ptr %306, align 8
-  tail call void @guard_bio_eod(ptr noundef %305) #7
-  tail call void @submit_bio(ptr noundef %305) #7
+300:                                              ; preds = %299, %292
+  %301 = load ptr, ptr %0, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 56
+  store ptr @mpage_read_end_io, ptr %302, align 8
+  tail call void @guard_bio_eod(ptr noundef %301) #7
+  tail call void @submit_bio(ptr noundef %301) #7
   store ptr null, ptr %0, align 8
-  br label %311
+  br label %307
 
-307:                                              ; preds = %303, %296
-  %308 = add nsw i64 %11, -1
-  %309 = add i64 %308, %250
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %309, ptr %310, align 8
-  br label %311
+303:                                              ; preds = %299, %292
+  %304 = add nsw i64 %11, -1
+  %305 = add i64 %304, %250
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %305, ptr %306, align 8
+  br label %307
 
-311:                                              ; preds = %320, %319, %307, %304, %239
-  %312 = load ptr, ptr %0, align 8
-  ret ptr %312
+307:                                              ; preds = %316, %315, %303, %300, %239
+  %308 = load ptr, ptr %0, align 8
+  ret ptr %308
 
 .loopexit:                                        ; preds = %172, %166, %101, %161, %155, %142, %1
   %.pr25 = load ptr, ptr %0, align 8
-  %313 = icmp eq ptr %.pr25, null
-  br i1 %313, label %.thread26, label %314
+  %309 = icmp eq ptr %.pr25, null
+  br i1 %309, label %.thread26, label %310
 
-314:                                              ; preds = %.loopexit
-  %315 = getelementptr inbounds nuw i8, ptr %.pr25, i64 56
-  store ptr @mpage_read_end_io, ptr %315, align 8
+310:                                              ; preds = %.loopexit
+  %311 = getelementptr inbounds nuw i8, ptr %.pr25, i64 56
+  store ptr @mpage_read_end_io, ptr %311, align 8
   tail call void @guard_bio_eod(ptr noundef nonnull %.pr25) #7
   tail call void @submit_bio(ptr noundef nonnull %.pr25) #7
   store ptr null, ptr %0, align 8
   br label %.thread26
 
-.thread26:                                        ; preds = %272, %314, %.loopexit
-  %316 = load volatile i64, ptr %3, align 8
-  %317 = and i64 %316, 8
-  %318 = icmp eq i64 %317, 0
-  br i1 %318, label %320, label %319
+.thread26:                                        ; preds = %271, %310, %.loopexit
+  %312 = load volatile i64, ptr %3, align 8
+  %313 = and i64 %312, 8
+  %314 = icmp eq i64 %313, 0
+  br i1 %314, label %316, label %315
 
-319:                                              ; preds = %.thread26
+315:                                              ; preds = %.thread26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
   tail call void @folio_unlock(ptr noundef %3) #7
-  br label %311
+  br label %307
 
-320:                                              ; preds = %.thread26
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %322 = load ptr, ptr %321, align 8
-  %323 = tail call i32 @block_read_full_folio(ptr noundef %3, ptr noundef %322) #7
-  br label %311
+316:                                              ; preds = %.thread26
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %318 = load ptr, ptr %317, align 8
+  %319 = tail call i32 @block_read_full_folio(ptr noundef %3, ptr noundef %318) #7
+  br label %307
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

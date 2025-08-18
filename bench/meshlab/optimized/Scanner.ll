@@ -1610,7 +1610,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((32, 33), (36, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-.critedge:
+.preheader67:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 10, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1619,766 +1619,766 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store i32 85, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 85, ptr %4, align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 33, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 33, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 1, ptr %7, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %7, align 8
-  store ptr %5, ptr %10, align 8
+  store ptr %11, ptr %8, align 8
+  store ptr %6, ptr %10, align 8
   br label %12
 
-12:                                               ; preds = %.critedge, %12
-  %indvars.iv = phi i64 [ 36, %.critedge ], [ %indvars.iv.next, %12 ]
+12:                                               ; preds = %.preheader67, %12
+  %indvars.iv = phi i64 [ 36, %.preheader67 ], [ %indvars.iv.next, %12 ]
   %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
   store ptr %13, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond.not, label %.preheader70, label %12, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader66, label %12, !llvm.loop !13
 
-.preheader70:                                     ; preds = %12, %.preheader70
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader70 ], [ 40, %12 ]
+.preheader65:                                     ; preds = %.preheader66
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %21 = trunc nuw nsw i64 %indvars.iv79 to i32
-  store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv79
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %23, align 8
-  store ptr %20, ptr %25, align 8
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next80, 43
-  br i1 %exitcond82.not, label %.critedge45, label %.preheader70, !llvm.loop !14
-
-.critedge45:                                      ; preds = %.preheader70
-  %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 47, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 1, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 376
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %29, align 8
-  store ptr %27, ptr %31, align 8
+  store i32 47, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 376
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %22, align 8
+  store ptr %20, ptr %24, align 8
   br label %33
 
-33:                                               ; preds = %.critedge45, %33
-  %indvars.iv83 = phi i64 [ 58, %.critedge45 ], [ %indvars.iv.next84, %33 ]
+.preheader66:                                     ; preds = %12, %.preheader66
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.preheader66 ], [ 40, %12 ]
+  %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %27 = trunc nuw nsw i64 %indvars.iv76 to i32
+  store i32 %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 1, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv76
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %29, align 8
+  store ptr %26, ptr %31, align 8
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 43
+  br i1 %exitcond79.not, label %.preheader65, label %.preheader66, !llvm.loop !14
+
+33:                                               ; preds = %.preheader65, %33
+  %indvars.iv80 = phi i64 [ 58, %.preheader65 ], [ %indvars.iv.next81, %33 ]
   %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %35 = trunc nuw nsw i64 %indvars.iv83 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv80 to i32
   store i32 %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv83
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv80
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %37, align 8
   store ptr %34, ptr %39, align 8
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, 86
-  br i1 %exitcond86.not, label %.preheader69, label %33, !llvm.loop !15
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 86
+  br i1 %exitcond83.not, label %.preheader63, label %33, !llvm.loop !15
 
-.preheader69:                                     ; preds = %33, %.preheader69
-  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader69 ], [ 87, %33 ]
+.preheader63:                                     ; preds = %33, %.preheader63
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.preheader63 ], [ 87, %33 ]
   %41 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %42 = trunc nuw nsw i64 %indvars.iv87 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv84 to i32
   store i32 %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 1, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv87
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv84
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %44, align 8
   store ptr %41, ptr %46, align 8
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next88, 91
-  br i1 %exitcond90.not, label %.preheader68, label %.preheader69, !llvm.loop !16
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next85, 91
+  br i1 %exitcond87.not, label %.preheader62, label %.preheader63, !llvm.loop !16
 
-.preheader68:                                     ; preds = %.preheader69, %.preheader68
-  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader68 ], [ 94, %.preheader69 ]
+.preheader61:                                     ; preds = %.preheader62
   %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %49 = trunc nuw nsw i64 %indvars.iv91 to i32
-  store i32 %49, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv91
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %51, align 8
-  store ptr %48, ptr %53, align 8
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next92, 123
-  br i1 %exitcond94.not, label %.critedge47, label %.preheader68, !llvm.loop !17
-
-.critedge47:                                      ; preds = %.preheader68
-  %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 124, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 992
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %57, align 8
-  store ptr %55, ptr %59, align 8
-  %61 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 126, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1008
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %61, ptr %65, align 8
+  store i32 124, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 992
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %50, align 8
+  store ptr %48, ptr %52, align 8
+  %54 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 126, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 1, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1008
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %56, align 8
+  store ptr %54, ptr %58, align 8
   br label %67
 
-67:                                               ; preds = %.critedge47, %67
-  %.976 = phi i32 [ 128, %.critedge47 ], [ %76, %67 ]
+.preheader62:                                     ; preds = %.preheader63, %.preheader62
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader62 ], [ 94, %.preheader63 ]
+  %60 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  %61 = trunc nuw nsw i64 %indvars.iv88 to i32
+  store i32 %61, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 1, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv88
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %63, align 8
+  store ptr %60, ptr %65, align 8
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next89, 123
+  br i1 %exitcond91.not, label %.preheader61, label %.preheader62, !llvm.loop !17
+
+67:                                               ; preds = %.preheader61, %67
+  %.973 = phi i32 [ 128, %.preheader61 ], [ %76, %67 ]
   %68 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 %.976, ptr %68, align 8
+  store i32 %.973, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 1, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %71 = and i32 %.976, 127
-  %72 = load ptr, ptr %8, align 8
+  %71 = and i32 %.973, 127
+  %72 = load ptr, ptr %5, align 8
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %70, align 8
   store ptr %68, ptr %74, align 8
-  %76 = add nuw nsw i32 %.976, 1
-  %exitcond95.not = icmp eq i32 %76, 65536
-  br i1 %exitcond95.not, label %.preheader, label %67, !llvm.loop !18
+  %76 = add nuw nsw i32 %.973, 1
+  %exitcond92.not = icmp eq i32 %76, 65536
+  br i1 %exitcond92.not, label %.preheader58, label %67, !llvm.loop !18
 
-.preheader:                                       ; preds = %67, %.preheader
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.preheader ], [ 49, %67 ]
+.preheader58:                                     ; preds = %67, %.preheader58
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.preheader58 ], [ 49, %67 ]
   %77 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %78 = trunc nuw nsw i64 %indvars.iv96 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv93 to i32
   store i32 %78, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 35, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv96
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv93
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %80, align 8
   store ptr %77, ptr %82, align 8
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 58
-  br i1 %exitcond99.not, label %84, label %.preheader, !llvm.loop !19
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 58
+  br i1 %exitcond96.not, label %.preheader, label %.preheader58, !llvm.loop !19
 
-84:                                               ; preds = %.preheader
-  %85 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 48, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 36, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 384
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %87, align 8
-  store ptr %85, ptr %89, align 8
-  %91 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 43, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  store i32 37, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 344
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %93, align 8
-  store ptr %91, ptr %95, align 8
-  %97 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 45, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i32 37, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 360
-  %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr %99, align 8
-  store ptr %97, ptr %101, align 8
-  %103 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 46, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  store i32 51, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 368
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %105, align 8
-  store ptr %103, ptr %107, align 8
-  %109 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 34, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 16, ptr %110, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 272
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %111, align 8
-  store ptr %109, ptr %113, align 8
-  %115 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 86, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store i32 38, ptr %116, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 688
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %117, align 8
-  store ptr %115, ptr %119, align 8
-  %121 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 35, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  store i32 45, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 280
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %123, align 8
-  store ptr %121, ptr %125, align 8
-  %127 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 91, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  store i32 46, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %130 = load ptr, ptr %8, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 728
-  %132 = load ptr, ptr %131, align 8
-  store ptr %132, ptr %129, align 8
-  store ptr %127, ptr %131, align 8
-  %133 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 93, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  store i32 47, ptr %134, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 744
-  %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr %135, align 8
-  store ptr %133, ptr %137, align 8
-  %139 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 123, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  store i32 48, ptr %140, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 984
-  %144 = load ptr, ptr %143, align 8
-  store ptr %144, ptr %141, align 8
-  store ptr %139, ptr %143, align 8
-  %145 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 125, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  store i32 49, ptr %146, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1000
-  %150 = load ptr, ptr %149, align 8
-  store ptr %150, ptr %147, align 8
-  store ptr %145, ptr %149, align 8
-  %151 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 44, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  store i32 50, ptr %152, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 352
-  %156 = load ptr, ptr %155, align 8
-  store ptr %156, ptr %153, align 8
-  store ptr %151, ptr %155, align 8
-  %157 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store i32 65536, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  store i32 -1, ptr %158, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %160 = load ptr, ptr %8, align 8
-  %161 = load ptr, ptr %160, align 8
-  store ptr %161, ptr %159, align 8
-  store ptr %157, ptr %160, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.3, i32 noundef 8)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.4, i32 noundef 9)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.5, i32 noundef 10)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.6, i32 noundef 11)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.7, i32 noundef 12)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.8, i32 noundef 13)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.9, i32 noundef 14)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.10, i32 noundef 15)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.11, i32 noundef 16)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.12, i32 noundef 18)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.13, i32 noundef 19)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.14, i32 noundef 20)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.15, i32 noundef 21)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.16, i32 noundef 26)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.17, i32 noundef 27)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.18, i32 noundef 28)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.19, i32 noundef 29)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.20, i32 noundef 30)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.21, i32 noundef 31)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.22, i32 noundef 32)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.23, i32 noundef 33)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.24, i32 noundef 34)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.25, i32 noundef 35)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.26, i32 noundef 36)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.27, i32 noundef 38)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.28, i32 noundef 39)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.29, i32 noundef 40)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.30, i32 noundef 41)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.31, i32 noundef 42)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.32, i32 noundef 43)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.33, i32 noundef 44)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.34, i32 noundef 45)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.35, i32 noundef 46)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.36, i32 noundef 47)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.37, i32 noundef 48)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.38, i32 noundef 49)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.39, i32 noundef 50)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.40, i32 noundef 51)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.41, i32 noundef 52)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.42, i32 noundef 53)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.43, i32 noundef 54)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.44, i32 noundef 55)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.45, i32 noundef 56)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.46, i32 noundef 57)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.47, i32 noundef 58)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.48, i32 noundef 59)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.49, i32 noundef 60)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.50, i32 noundef 61)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.51, i32 noundef 62)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.52, i32 noundef 63)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.53, i32 noundef 64)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.54, i32 noundef 65)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.55, i32 noundef 66)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.56, i32 noundef 67)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.57, i32 noundef 68)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.58, i32 noundef 69)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.59, i32 noundef 70)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.60, i32 noundef 71)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.61, i32 noundef 72)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.62, i32 noundef 73)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.63, i32 noundef 74)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.64, i32 noundef 75)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.65, i32 noundef 76)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.66, i32 noundef 77)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.67, i32 noundef 78)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.68, i32 noundef 79)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.69, i32 noundef 80)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.70, i32 noundef 81)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.71, i32 noundef 82)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.72, i32 noundef 83)
-  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.73, i32 noundef 84)
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 128, ptr %163, align 8
-  %164 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znam(i64 noundef 512) #21
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %164, ptr %165, align 8
-  %166 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %166, ptr %167, align 8
-  store ptr %166, ptr %0, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 65536
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %168, ptr %169, align 8
-  store ptr null, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %166, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 -1, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 1, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 0, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 0, ptr %174, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 152
+.preheader:                                       ; preds = %.preheader58
+  %84 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 48, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 36, ptr %85, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 384
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %86, align 8
+  store ptr %84, ptr %88, align 8
+  %90 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 43, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  store i32 37, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 344
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %92, align 8
+  store ptr %90, ptr %94, align 8
+  %96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 45, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  store i32 37, ptr %97, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 360
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %98, align 8
+  store ptr %96, ptr %100, align 8
+  %102 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 46, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  store i32 51, ptr %103, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 368
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %104, align 8
+  store ptr %102, ptr %106, align 8
+  %108 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 34, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  store i32 16, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 272
+  %113 = load ptr, ptr %112, align 8
+  store ptr %113, ptr %110, align 8
+  store ptr %108, ptr %112, align 8
+  %114 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 86, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  store i32 38, ptr %115, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 688
+  %119 = load ptr, ptr %118, align 8
+  store ptr %119, ptr %116, align 8
+  store ptr %114, ptr %118, align 8
+  %120 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 35, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  store i32 45, ptr %121, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 280
+  %125 = load ptr, ptr %124, align 8
+  store ptr %125, ptr %122, align 8
+  store ptr %120, ptr %124, align 8
+  %126 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 91, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  store i32 46, ptr %127, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 728
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %128, align 8
+  store ptr %126, ptr %130, align 8
+  %132 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 93, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  store i32 47, ptr %133, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %135 = load ptr, ptr %5, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 744
+  %137 = load ptr, ptr %136, align 8
+  store ptr %137, ptr %134, align 8
+  store ptr %132, ptr %136, align 8
+  %138 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 123, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  store i32 48, ptr %139, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %141 = load ptr, ptr %5, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 984
+  %143 = load ptr, ptr %142, align 8
+  store ptr %143, ptr %140, align 8
+  store ptr %138, ptr %142, align 8
+  %144 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 125, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  store i32 49, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %147 = load ptr, ptr %5, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1000
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %146, align 8
+  store ptr %144, ptr %148, align 8
+  %150 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 44, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
+  store i32 50, ptr %151, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %153 = load ptr, ptr %5, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 352
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %152, align 8
+  store ptr %150, ptr %154, align 8
+  %156 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
+  store i32 65536, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
+  store i32 -1, ptr %157, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %159 = load ptr, ptr %5, align 8
+  %160 = load ptr, ptr %159, align 8
+  store ptr %160, ptr %158, align 8
+  store ptr %156, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.3, i32 noundef 8)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.4, i32 noundef 9)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.5, i32 noundef 10)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.6, i32 noundef 11)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.7, i32 noundef 12)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.8, i32 noundef 13)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.9, i32 noundef 14)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.10, i32 noundef 15)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.11, i32 noundef 16)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.12, i32 noundef 18)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.13, i32 noundef 19)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.14, i32 noundef 20)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.15, i32 noundef 21)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.16, i32 noundef 26)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.17, i32 noundef 27)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.18, i32 noundef 28)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.19, i32 noundef 29)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.20, i32 noundef 30)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.21, i32 noundef 31)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.22, i32 noundef 32)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.23, i32 noundef 33)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.24, i32 noundef 34)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.25, i32 noundef 35)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.26, i32 noundef 36)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.27, i32 noundef 38)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.28, i32 noundef 39)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.29, i32 noundef 40)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.30, i32 noundef 41)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.31, i32 noundef 42)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.32, i32 noundef 43)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.33, i32 noundef 44)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.34, i32 noundef 45)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.35, i32 noundef 46)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.36, i32 noundef 47)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.37, i32 noundef 48)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.38, i32 noundef 49)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.39, i32 noundef 50)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.40, i32 noundef 51)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.41, i32 noundef 52)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.42, i32 noundef 53)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.43, i32 noundef 54)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.44, i32 noundef 55)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.45, i32 noundef 56)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.46, i32 noundef 57)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.47, i32 noundef 58)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.48, i32 noundef 59)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.49, i32 noundef 60)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.50, i32 noundef 61)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.51, i32 noundef 62)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.52, i32 noundef 63)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.53, i32 noundef 64)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.54, i32 noundef 65)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.55, i32 noundef 66)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.56, i32 noundef 67)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.57, i32 noundef 68)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.58, i32 noundef 69)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.59, i32 noundef 70)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.60, i32 noundef 71)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.61, i32 noundef 72)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.62, i32 noundef 73)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.63, i32 noundef 74)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.64, i32 noundef 75)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.65, i32 noundef 76)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.66, i32 noundef 77)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.67, i32 noundef 78)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.68, i32 noundef 79)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.69, i32 noundef 80)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.70, i32 noundef 81)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.71, i32 noundef 82)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.72, i32 noundef 83)
+  tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull @.str.73, i32 noundef 84)
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 128, ptr %162, align 8
+  %163 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znam(i64 noundef 512) #21
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %163, ptr %164, align 8
+  %165 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %165, ptr %166, align 8
+  store ptr %165, ptr %0, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 65536
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %167, ptr %168, align 8
+  store ptr null, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %165, ptr %169, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i32 -1, ptr %170, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 1, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 0, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 0, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 48
-  %179 = load ptr, ptr %178, align 8
-  %180 = tail call noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(49) %176)
-  store i32 %180, ptr %171, align 4
-  %181 = load ptr, ptr %175, align 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %184 = load ptr, ptr %183, align 8
-  %185 = tail call noundef i32 %184(ptr noundef nonnull align 8 dereferenceable(49) %181)
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %185, ptr %186, align 8
-  %187 = load i32, ptr %173, align 4
-  %188 = add nsw i32 %187, 1
-  store i32 %188, ptr %173, align 4
-  %189 = icmp eq i32 %185, 13
-  br i1 %189, label %190, label %199
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 48
+  %178 = load ptr, ptr %177, align 8
+  %179 = tail call noundef i32 %178(ptr noundef nonnull align 8 dereferenceable(49) %175)
+  store i32 %179, ptr %170, align 4
+  %180 = load ptr, ptr %174, align 8
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
+  %183 = load ptr, ptr %182, align 8
+  %184 = tail call noundef i32 %183(ptr noundef nonnull align 8 dereferenceable(49) %180)
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %184, ptr %185, align 8
+  %186 = load i32, ptr %172, align 4
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %172, align 4
+  %188 = icmp eq i32 %184, 13
+  br i1 %188, label %189, label %198
 
-190:                                              ; preds = %84
-  %191 = load ptr, ptr %175, align 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call noundef i32 %194(ptr noundef nonnull align 8 dereferenceable(49) %191)
-  %.not.i = icmp eq i32 %195, 10
-  br i1 %.not.i, label %._crit_edge.i, label %196
+189:                                              ; preds = %.preheader
+  %190 = load ptr, ptr %174, align 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %193 = load ptr, ptr %192, align 8
+  %194 = tail call noundef i32 %193(ptr noundef nonnull align 8 dereferenceable(49) %190)
+  %.not.i = icmp eq i32 %194, 10
+  br i1 %.not.i, label %._crit_edge.i, label %195
 
-._crit_edge.i:                                    ; preds = %190
-  %.pre.i = load i32, ptr %186, align 8
-  br label %199
+._crit_edge.i:                                    ; preds = %189
+  %.pre.i = load i32, ptr %185, align 8
+  br label %198
 
-196:                                              ; preds = %190
-  %197 = load i8, ptr %1, align 8
-  %198 = zext i8 %197 to i32
-  store i32 %198, ptr %186, align 8
-  br label %199
+195:                                              ; preds = %189
+  %196 = load i8, ptr %1, align 8
+  %197 = zext i8 %196 to i32
+  store i32 %197, ptr %185, align 8
+  br label %198
 
-199:                                              ; preds = %196, %._crit_edge.i, %84
-  %200 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %198, %196 ], [ %185, %84 ]
-  %201 = load i8, ptr %1, align 8
-  %202 = zext i8 %201 to i32
-  %203 = icmp eq i32 %200, %202
-  br i1 %203, label %204, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
+198:                                              ; preds = %195, %._crit_edge.i, %.preheader
+  %199 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %197, %195 ], [ %184, %.preheader ]
+  %200 = load i8, ptr %1, align 8
+  %201 = zext i8 %200 to i32
+  %202 = icmp eq i32 %199, %201
+  br i1 %202, label %203, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
-204:                                              ; preds = %199
-  %205 = load i32, ptr %172, align 8
-  %206 = add nsw i32 %205, 1
-  store i32 %206, ptr %172, align 8
-  store i32 0, ptr %173, align 4
+203:                                              ; preds = %198
+  %204 = load i32, ptr %171, align 8
+  %205 = add nsw i32 %204, 1
+  store i32 %205, ptr %171, align 8
+  store i32 0, ptr %172, align 4
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
-_ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %199, %204
-  %207 = icmp eq i32 %200, 239
-  br i1 %207, label %208, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
+_ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %198, %203
+  %206 = icmp eq i32 %199, 239
+  br i1 %206, label %207, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit55
 
-208:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit
-  %209 = load i32, ptr %174, align 8
-  %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %211, label %213
+207:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit
+  %208 = load i32, ptr %173, align 8
+  %209 = icmp sgt i32 %208, 0
+  br i1 %209, label %210, label %212
 
-211:                                              ; preds = %208
-  store i32 %202, ptr %186, align 8
-  %212 = add nsw i32 %209, -1
-  store i32 %212, ptr %174, align 8
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit57
+210:                                              ; preds = %207
+  store i32 %201, ptr %185, align 8
+  %211 = add nsw i32 %208, -1
+  store i32 %211, ptr %173, align 8
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit47
 
-213:                                              ; preds = %208
-  %214 = load ptr, ptr %175, align 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 48
-  %217 = load ptr, ptr %216, align 8
-  %218 = tail call noundef i32 %217(ptr noundef nonnull align 8 dereferenceable(49) %214)
-  store i32 %218, ptr %171, align 4
-  %219 = load ptr, ptr %175, align 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  %222 = load ptr, ptr %221, align 8
-  %223 = tail call noundef i32 %222(ptr noundef nonnull align 8 dereferenceable(49) %219)
-  store i32 %223, ptr %186, align 8
-  %224 = load i32, ptr %173, align 4
-  %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %173, align 4
-  %226 = icmp eq i32 %223, 13
-  br i1 %226, label %227, label %236
+212:                                              ; preds = %207
+  %213 = load ptr, ptr %174, align 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 48
+  %216 = load ptr, ptr %215, align 8
+  %217 = tail call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(49) %213)
+  store i32 %217, ptr %170, align 4
+  %218 = load ptr, ptr %174, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %221 = load ptr, ptr %220, align 8
+  %222 = tail call noundef i32 %221(ptr noundef nonnull align 8 dereferenceable(49) %218)
+  store i32 %222, ptr %185, align 8
+  %223 = load i32, ptr %172, align 4
+  %224 = add nsw i32 %223, 1
+  store i32 %224, ptr %172, align 4
+  %225 = icmp eq i32 %222, 13
+  br i1 %225, label %226, label %235
 
-227:                                              ; preds = %213
-  %228 = load ptr, ptr %175, align 8
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
-  %231 = load ptr, ptr %230, align 8
-  %232 = tail call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(49) %228)
-  %.not.i54 = icmp eq i32 %232, 10
-  br i1 %.not.i54, label %._crit_edge.i55, label %233
+226:                                              ; preds = %212
+  %227 = load ptr, ptr %174, align 8
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  %230 = load ptr, ptr %229, align 8
+  %231 = tail call noundef i32 %230(ptr noundef nonnull align 8 dereferenceable(49) %227)
+  %.not.i44 = icmp eq i32 %231, 10
+  br i1 %.not.i44, label %._crit_edge.i45, label %232
 
-._crit_edge.i55:                                  ; preds = %227
-  %.pre.i56 = load i32, ptr %186, align 8
-  br label %236
+._crit_edge.i45:                                  ; preds = %226
+  %.pre.i46 = load i32, ptr %185, align 8
+  br label %235
 
-233:                                              ; preds = %227
-  %234 = load i8, ptr %1, align 8
-  %235 = zext i8 %234 to i32
-  store i32 %235, ptr %186, align 8
-  br label %236
+232:                                              ; preds = %226
+  %233 = load i8, ptr %1, align 8
+  %234 = zext i8 %233 to i32
+  store i32 %234, ptr %185, align 8
+  br label %235
 
-236:                                              ; preds = %233, %._crit_edge.i55, %213
-  %237 = phi i32 [ %.pre.i56, %._crit_edge.i55 ], [ %235, %233 ], [ %223, %213 ]
-  %238 = load i8, ptr %1, align 8
-  %239 = zext i8 %238 to i32
-  %240 = icmp eq i32 %237, %239
-  br i1 %240, label %241, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split
+235:                                              ; preds = %232, %._crit_edge.i45, %212
+  %236 = phi i32 [ %.pre.i46, %._crit_edge.i45 ], [ %234, %232 ], [ %222, %212 ]
+  %237 = load i8, ptr %1, align 8
+  %238 = zext i8 %237 to i32
+  %239 = icmp eq i32 %236, %238
+  br i1 %239, label %240, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split
 
-241:                                              ; preds = %236
-  %242 = load i32, ptr %172, align 8
-  %243 = add nsw i32 %242, 1
-  store i32 %243, ptr %172, align 8
-  store i32 0, ptr %173, align 4
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split
+240:                                              ; preds = %235
+  %241 = load i32, ptr %171, align 8
+  %242 = add nsw i32 %241, 1
+  store i32 %242, ptr %171, align 8
+  store i32 0, ptr %172, align 4
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split
 
-_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split: ; preds = %241, %236
-  %.pr = load i32, ptr %174, align 8
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit57
+_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split: ; preds = %240, %235
+  %.pr = load i32, ptr %173, align 8
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit47
 
-_ZN14VrmlTranslator7Scanner6NextChEv.exit57:      ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split, %211
-  %244 = phi i8 [ %238, %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split ], [ %201, %211 ]
-  %245 = phi i32 [ %237, %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split ], [ %202, %211 ]
-  %246 = phi i32 [ %.pr, %_ZN14VrmlTranslator7Scanner6NextChEv.exit57thread-pre-split ], [ %212, %211 ]
-  %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %248, label %251
+_ZN14VrmlTranslator7Scanner6NextChEv.exit47:      ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split, %210
+  %243 = phi i8 [ %237, %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split ], [ %200, %210 ]
+  %244 = phi i32 [ %236, %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split ], [ %201, %210 ]
+  %245 = phi i32 [ %.pr, %_ZN14VrmlTranslator7Scanner6NextChEv.exit47thread-pre-split ], [ %211, %210 ]
+  %246 = icmp sgt i32 %245, 0
+  br i1 %246, label %247, label %250
 
-248:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit57
-  %249 = zext i8 %244 to i32
-  store i32 %249, ptr %186, align 8
-  %250 = add nsw i32 %246, -1
-  store i32 %250, ptr %174, align 8
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
+247:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit47
+  %248 = zext i8 %243 to i32
+  store i32 %248, ptr %185, align 8
+  %249 = add nsw i32 %245, -1
+  store i32 %249, ptr %173, align 8
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
 
-251:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit57
-  %252 = load ptr, ptr %175, align 8
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 48
-  %255 = load ptr, ptr %254, align 8
-  %256 = tail call noundef i32 %255(ptr noundef nonnull align 8 dereferenceable(49) %252)
-  store i32 %256, ptr %171, align 4
-  %257 = load ptr, ptr %175, align 8
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = tail call noundef i32 %260(ptr noundef nonnull align 8 dereferenceable(49) %257)
-  store i32 %261, ptr %186, align 8
-  %262 = load i32, ptr %173, align 4
-  %263 = add nsw i32 %262, 1
-  store i32 %263, ptr %173, align 4
-  %264 = icmp eq i32 %261, 13
-  br i1 %264, label %265, label %274
+250:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit47
+  %251 = load ptr, ptr %174, align 8
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 48
+  %254 = load ptr, ptr %253, align 8
+  %255 = tail call noundef i32 %254(ptr noundef nonnull align 8 dereferenceable(49) %251)
+  store i32 %255, ptr %170, align 4
+  %256 = load ptr, ptr %174, align 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %259 = load ptr, ptr %258, align 8
+  %260 = tail call noundef i32 %259(ptr noundef nonnull align 8 dereferenceable(49) %256)
+  store i32 %260, ptr %185, align 8
+  %261 = load i32, ptr %172, align 4
+  %262 = add nsw i32 %261, 1
+  store i32 %262, ptr %172, align 4
+  %263 = icmp eq i32 %260, 13
+  br i1 %263, label %264, label %273
 
-265:                                              ; preds = %251
-  %266 = load ptr, ptr %175, align 8
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
-  %269 = load ptr, ptr %268, align 8
-  %270 = tail call noundef i32 %269(ptr noundef nonnull align 8 dereferenceable(49) %266)
-  %.not.i58 = icmp eq i32 %270, 10
-  br i1 %.not.i58, label %._crit_edge.i59, label %271
+264:                                              ; preds = %250
+  %265 = load ptr, ptr %174, align 8
+  %266 = load ptr, ptr %265, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 32
+  %268 = load ptr, ptr %267, align 8
+  %269 = tail call noundef i32 %268(ptr noundef nonnull align 8 dereferenceable(49) %265)
+  %.not.i48 = icmp eq i32 %269, 10
+  br i1 %.not.i48, label %._crit_edge.i49, label %270
 
-._crit_edge.i59:                                  ; preds = %265
-  %.pre.i60 = load i32, ptr %186, align 8
-  br label %274
+._crit_edge.i49:                                  ; preds = %264
+  %.pre.i50 = load i32, ptr %185, align 8
+  br label %273
 
-271:                                              ; preds = %265
-  %272 = load i8, ptr %1, align 8
-  %273 = zext i8 %272 to i32
-  store i32 %273, ptr %186, align 8
-  br label %274
+270:                                              ; preds = %264
+  %271 = load i8, ptr %1, align 8
+  %272 = zext i8 %271 to i32
+  store i32 %272, ptr %185, align 8
+  br label %273
 
-274:                                              ; preds = %271, %._crit_edge.i59, %251
-  %275 = phi i32 [ %.pre.i60, %._crit_edge.i59 ], [ %273, %271 ], [ %261, %251 ]
-  %276 = load i8, ptr %1, align 8
-  %277 = zext i8 %276 to i32
-  %278 = icmp eq i32 %275, %277
-  br i1 %278, label %279, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
+273:                                              ; preds = %270, %._crit_edge.i49, %250
+  %274 = phi i32 [ %.pre.i50, %._crit_edge.i49 ], [ %272, %270 ], [ %260, %250 ]
+  %275 = load i8, ptr %1, align 8
+  %276 = zext i8 %275 to i32
+  %277 = icmp eq i32 %274, %276
+  br i1 %277, label %278, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
 
-279:                                              ; preds = %274
-  %280 = load i32, ptr %172, align 8
-  %281 = add nsw i32 %280, 1
-  store i32 %281, ptr %172, align 8
-  store i32 0, ptr %173, align 4
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
+278:                                              ; preds = %273
+  %279 = load i32, ptr %171, align 8
+  %280 = add nsw i32 %279, 1
+  store i32 %280, ptr %171, align 8
+  store i32 0, ptr %172, align 4
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
 
-_ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
-  %282 = phi i32 [ %249, %248 ], [ %275, %274 ], [ %275, %279 ]
-  %283 = icmp ne i32 %245, 187
-  %284 = icmp ne i32 %282, 191
-  %or.cond = or i1 %283, %284
-  br i1 %or.cond, label %285, label %287
+_ZN14VrmlTranslator7Scanner6NextChEv.exit51:      ; preds = %247, %273, %278
+  %281 = phi i32 [ %248, %247 ], [ %274, %273 ], [ %274, %278 ]
+  %282 = icmp ne i32 %244, 187
+  %283 = icmp ne i32 %281, 191
+  %or.cond = or i1 %282, %283
+  br i1 %or.cond, label %284, label %286
 
-285:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
-  %286 = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr @.str.74, ptr %286, align 16
-  tail call void @__cxa_throw(ptr nonnull %286, ptr nonnull @_ZTIPKc, ptr null) #23
+284:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
+  %285 = tail call ptr @__cxa_allocate_exception(i64 8) #22
+  store ptr @.str.74, ptr %285, align 16
+  tail call void @__cxa_throw(ptr nonnull %285, ptr nonnull @_ZTIPKc, ptr null) #23
   unreachable
 
-287:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
-  %288 = load ptr, ptr %175, align 8
-  %289 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-  %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  store ptr %291, ptr %292, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %288, i64 16
-  %294 = load i32, ptr %293, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  store i32 %294, ptr %295, align 8
-  store ptr null, ptr %290, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %288, i64 20
-  %297 = load i32, ptr %296, align 4
-  %298 = getelementptr inbounds nuw i8, ptr %289, i64 20
-  store i32 %297, ptr %298, align 4
-  %299 = getelementptr inbounds nuw i8, ptr %288, i64 24
-  %300 = load i32, ptr %299, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %289, i64 24
-  store i32 %300, ptr %301, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %288, i64 28
-  %303 = load i32, ptr %302, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %289, i64 28
-  store i32 %303, ptr %304, align 4
-  %305 = getelementptr inbounds nuw i8, ptr %288, i64 32
-  %306 = load i32, ptr %305, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %289, i64 32
-  store i32 %306, ptr %307, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %288, i64 40
-  %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %289, i64 40
-  store ptr %309, ptr %310, align 8
-  store ptr null, ptr %308, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %288, i64 48
-  %312 = load i8, ptr %311, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %289, i64 48
-  %314 = and i8 %312, 1
-  store i8 %314, ptr %313, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 16), ptr %289, align 8
-  store ptr %289, ptr %175, align 8
-  store i32 0, ptr %173, align 4
-  %315 = load ptr, ptr %288, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  %317 = load ptr, ptr %316, align 8
-  tail call void %317(ptr noundef nonnull align 8 dereferenceable(49) %288) #22
-  %318 = load i32, ptr %174, align 8
-  %319 = icmp sgt i32 %318, 0
-  br i1 %319, label %320, label %324
+286:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit51
+  %287 = load ptr, ptr %174, align 8
+  %288 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  store ptr %290, ptr %291, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %287, i64 16
+  %293 = load i32, ptr %292, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  store i32 %293, ptr %294, align 8
+  store ptr null, ptr %289, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %287, i64 20
+  %296 = load i32, ptr %295, align 4
+  %297 = getelementptr inbounds nuw i8, ptr %288, i64 20
+  store i32 %296, ptr %297, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %287, i64 24
+  %299 = load i32, ptr %298, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %288, i64 24
+  store i32 %299, ptr %300, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %287, i64 28
+  %302 = load i32, ptr %301, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %288, i64 28
+  store i32 %302, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %287, i64 32
+  %305 = load i32, ptr %304, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %288, i64 32
+  store i32 %305, ptr %306, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %287, i64 40
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %288, i64 40
+  store ptr %308, ptr %309, align 8
+  store ptr null, ptr %307, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %287, i64 48
+  %311 = load i8, ptr %310, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %288, i64 48
+  %313 = and i8 %311, 1
+  store i8 %313, ptr %312, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 16), ptr %288, align 8
+  store ptr %288, ptr %174, align 8
+  store i32 0, ptr %172, align 4
+  %314 = load ptr, ptr %287, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %316 = load ptr, ptr %315, align 8
+  tail call void %316(ptr noundef nonnull align 8 dereferenceable(49) %287) #22
+  %317 = load i32, ptr %173, align 8
+  %318 = icmp sgt i32 %317, 0
+  br i1 %318, label %319, label %323
 
-320:                                              ; preds = %287
-  %321 = load i8, ptr %1, align 8
-  %322 = zext i8 %321 to i32
-  store i32 %322, ptr %186, align 8
-  %323 = add nsw i32 %318, -1
-  store i32 %323, ptr %174, align 8
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
+319:                                              ; preds = %286
+  %320 = load i8, ptr %1, align 8
+  %321 = zext i8 %320 to i32
+  store i32 %321, ptr %185, align 8
+  %322 = add nsw i32 %317, -1
+  store i32 %322, ptr %173, align 8
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit55
 
-324:                                              ; preds = %287
-  %325 = load ptr, ptr %175, align 8
-  %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 48
-  %328 = load ptr, ptr %327, align 8
-  %329 = tail call noundef i32 %328(ptr noundef nonnull align 8 dereferenceable(49) %325)
-  store i32 %329, ptr %171, align 4
-  %330 = load ptr, ptr %175, align 8
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %333 = load ptr, ptr %332, align 8
-  %334 = tail call noundef i32 %333(ptr noundef nonnull align 8 dereferenceable(49) %330)
-  store i32 %334, ptr %186, align 8
-  %335 = load i32, ptr %173, align 4
-  %336 = add nsw i32 %335, 1
-  store i32 %336, ptr %173, align 4
-  %337 = icmp eq i32 %334, 13
-  br i1 %337, label %338, label %347
+323:                                              ; preds = %286
+  %324 = load ptr, ptr %174, align 8
+  %325 = load ptr, ptr %324, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 48
+  %327 = load ptr, ptr %326, align 8
+  %328 = tail call noundef i32 %327(ptr noundef nonnull align 8 dereferenceable(49) %324)
+  store i32 %328, ptr %170, align 4
+  %329 = load ptr, ptr %174, align 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 24
+  %332 = load ptr, ptr %331, align 8
+  %333 = tail call noundef i32 %332(ptr noundef nonnull align 8 dereferenceable(49) %329)
+  store i32 %333, ptr %185, align 8
+  %334 = load i32, ptr %172, align 4
+  %335 = add nsw i32 %334, 1
+  store i32 %335, ptr %172, align 4
+  %336 = icmp eq i32 %333, 13
+  br i1 %336, label %337, label %346
 
-338:                                              ; preds = %324
-  %339 = load ptr, ptr %175, align 8
-  %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 32
-  %342 = load ptr, ptr %341, align 8
-  %343 = tail call noundef i32 %342(ptr noundef nonnull align 8 dereferenceable(49) %339)
-  %.not.i62 = icmp eq i32 %343, 10
-  br i1 %.not.i62, label %._crit_edge.i63, label %344
+337:                                              ; preds = %323
+  %338 = load ptr, ptr %174, align 8
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 32
+  %341 = load ptr, ptr %340, align 8
+  %342 = tail call noundef i32 %341(ptr noundef nonnull align 8 dereferenceable(49) %338)
+  %.not.i52 = icmp eq i32 %342, 10
+  br i1 %.not.i52, label %._crit_edge.i53, label %343
 
-._crit_edge.i63:                                  ; preds = %338
-  %.pre.i64 = load i32, ptr %186, align 8
-  br label %347
+._crit_edge.i53:                                  ; preds = %337
+  %.pre.i54 = load i32, ptr %185, align 8
+  br label %346
 
-344:                                              ; preds = %338
-  %345 = load i8, ptr %1, align 8
-  %346 = zext i8 %345 to i32
-  store i32 %346, ptr %186, align 8
-  br label %347
+343:                                              ; preds = %337
+  %344 = load i8, ptr %1, align 8
+  %345 = zext i8 %344 to i32
+  store i32 %345, ptr %185, align 8
+  br label %346
 
-347:                                              ; preds = %344, %._crit_edge.i63, %324
-  %348 = phi i32 [ %.pre.i64, %._crit_edge.i63 ], [ %346, %344 ], [ %334, %324 ]
-  %349 = load i8, ptr %1, align 8
-  %350 = zext i8 %349 to i32
-  %351 = icmp eq i32 %348, %350
-  br i1 %351, label %352, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
+346:                                              ; preds = %343, %._crit_edge.i53, %323
+  %347 = phi i32 [ %.pre.i54, %._crit_edge.i53 ], [ %345, %343 ], [ %333, %323 ]
+  %348 = load i8, ptr %1, align 8
+  %349 = zext i8 %348 to i32
+  %350 = icmp eq i32 %347, %349
+  br i1 %350, label %351, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit55
 
-352:                                              ; preds = %347
-  %353 = load i32, ptr %172, align 8
-  %354 = add nsw i32 %353, 1
-  store i32 %354, ptr %172, align 8
-  store i32 0, ptr %173, align 4
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
+351:                                              ; preds = %346
+  %352 = load i32, ptr %171, align 8
+  %353 = add nsw i32 %352, 1
+  store i32 %353, ptr %171, align 8
+  store i32 0, ptr %172, align 4
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit55
 
-_ZN14VrmlTranslator7Scanner6NextChEv.exit65:      ; preds = %352, %347, %320, %_ZN14VrmlTranslator7Scanner6NextChEv.exit
-  %355 = load ptr, ptr %170, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 32
-  %357 = load ptr, ptr %169, align 8
-  %.not.i66 = icmp ult ptr %356, %357
-  br i1 %.not.i66, label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit, label %358
+_ZN14VrmlTranslator7Scanner6NextChEv.exit55:      ; preds = %351, %346, %319, %_ZN14VrmlTranslator7Scanner6NextChEv.exit
+  %354 = load ptr, ptr %169, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 32
+  %356 = load ptr, ptr %168, align 8
+  %.not.i56 = icmp ult ptr %355, %356
+  br i1 %.not.i56, label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit, label %357
 
-358:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
-  %359 = load ptr, ptr %0, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %361 = load ptr, ptr %360, align 8
-  %362 = icmp ult ptr %361, %359
-  %363 = getelementptr inbounds nuw i8, ptr %359, i64 65536
-  %364 = icmp ugt ptr %361, %363
-  %or.cond10.i.i = select i1 %362, i1 true, i1 %364
+357:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit55
+  %358 = load ptr, ptr %0, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %360 = load ptr, ptr %359, align 8
+  %361 = icmp ult ptr %360, %358
+  %362 = getelementptr inbounds nuw i8, ptr %358, i64 65536
+  %363 = icmp ugt ptr %360, %362
+  %or.cond10.i.i = select i1 %361, i1 true, i1 %363
   br i1 %or.cond10.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
 
-.critedge.i.i:                                    ; preds = %358, %.critedge.i.i
-  %365 = phi ptr [ %367, %.critedge.i.i ], [ %359, %358 ]
-  %366 = phi ptr [ %370, %.critedge.i.i ], [ %363, %358 ]
-  %367 = load ptr, ptr %366, align 8
-  tail call void @free(ptr noundef %365) #22
-  store ptr %367, ptr %0, align 8
-  %368 = load ptr, ptr %360, align 8
-  %369 = icmp ult ptr %368, %367
-  %370 = getelementptr inbounds nuw i8, ptr %367, i64 65536
-  %371 = icmp ugt ptr %368, %370
-  %or.cond.i.i = select i1 %369, i1 true, i1 %371
+.critedge.i.i:                                    ; preds = %357, %.critedge.i.i
+  %364 = phi ptr [ %366, %.critedge.i.i ], [ %358, %357 ]
+  %365 = phi ptr [ %369, %.critedge.i.i ], [ %362, %357 ]
+  %366 = load ptr, ptr %365, align 8
+  tail call void @free(ptr noundef %364) #22
+  store ptr %366, ptr %0, align 8
+  %367 = load ptr, ptr %359, align 8
+  %368 = icmp ult ptr %367, %366
+  %369 = getelementptr inbounds nuw i8, ptr %366, i64 65536
+  %370 = icmp ugt ptr %367, %369
+  %or.cond.i.i = select i1 %368, i1 true, i1 %370
   br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.critedge.i.i
-  %.pre.i67 = load ptr, ptr %169, align 8
+  %.pre.i57 = load ptr, ptr %168, align 8
   br label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
 
-_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, %358
-  %372 = phi ptr [ %.pre.i67, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %357, %358 ]
-  %373 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
-  store ptr %373, ptr %372, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 65536
-  store ptr %374, ptr %169, align 8
-  store ptr null, ptr %374, align 8
-  store ptr %373, ptr %167, align 8
+_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, %357
+  %371 = phi ptr [ %.pre.i57, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %356, %357 ]
+  %372 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
+  store ptr %372, ptr %371, align 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 65536
+  store ptr %373, ptr %168, align 8
+  store ptr null, ptr %373, align 8
+  store ptr %372, ptr %166, align 8
   br label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit
 
-_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit65, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
-  %375 = phi ptr [ %373, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i ], [ %355, %_ZN14VrmlTranslator7Scanner6NextChEv.exit65 ]
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 32
-  store ptr %376, ptr %170, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, i8 0, i64 16, i1 false)
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %375, ptr %378, align 8
-  %379 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %375, ptr %379, align 8
+_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit55, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
+  %374 = phi ptr [ %372, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i ], [ %354, %_ZN14VrmlTranslator7Scanner6NextChEv.exit55 ]
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
+  store ptr %375, ptr %169, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %374, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %374, ptr %377, align 8
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %374, ptr %378, align 8
   ret void
 }
 

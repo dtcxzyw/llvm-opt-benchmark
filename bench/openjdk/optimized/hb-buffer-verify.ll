@@ -413,36 +413,36 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 ._crit_edge.i26:                                  ; preds = %185, %146
   %190 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %131, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not99.i = icmp eq i32 %190, 0
-  br i1 %.not99.i, label %.critedge85, label %191
+  br i1 %.not99.i, label %.critedge84, label %191
 
 191:                                              ; preds = %._crit_edge.i26
   %192 = getelementptr inbounds nuw i8, ptr %131, i64 80
   %193 = load i8, ptr %192, align 8
   %194 = trunc i8 %193 to i1
-  br i1 %194, label %195, label %.critedge85
+  br i1 %194, label %195, label %.critedge84
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %131, i64 81
   %197 = load i8, ptr %196, align 1
   %198 = trunc i8 %197 to i1
-  br i1 %198, label %.critedge85, label %199
+  br i1 %198, label %.critedge84, label %199
 
 199:                                              ; preds = %195
   %200 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %132, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not100.i = icmp eq i32 %200, 0
-  br i1 %.not100.i, label %.critedge85, label %201
+  br i1 %.not100.i, label %.critedge84, label %201
 
 201:                                              ; preds = %199
   %202 = getelementptr inbounds nuw i8, ptr %132, i64 80
   %203 = load i8, ptr %202, align 8
   %204 = trunc i8 %203 to i1
-  br i1 %204, label %205, label %.critedge85
+  br i1 %204, label %205, label %.critedge84
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %132, i64 81
   %207 = load i8, ptr %206, align 1
   %208 = trunc i8 %207 to i1
-  br i1 %208, label %.critedge85, label %209
+  br i1 %208, label %.critedge84, label %209
 
 209:                                              ; preds = %205
   br i1 %144, label %.preheader.i.critedge, label %210
@@ -454,9 +454,9 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 
 .preheader.i.critedge:                            ; preds = %210, %209
   store i64 0, ptr %11, align 8
-  %211 = call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %131, ptr noundef nonnull %12)
+  %211 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %131, ptr noundef nonnull %12)
   store ptr %211, ptr %13, align 16
-  %212 = call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %132, ptr noundef nonnull %indvars.iv129.i.sroa.gep62)
+  %212 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %132, ptr noundef nonnull %indvars.iv129.i.sroa.gep62)
   store ptr %212, ptr %indvars.iv129.i.sroa.gep59, align 8
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %214 = load i32, ptr %12, align 4
@@ -542,21 +542,21 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %253 = getelementptr inbounds nuw i8, ptr %137, i64 80
   %254 = load i8, ptr %253, align 8
   %255 = trunc i8 %254 to i1
-  br i1 %255, label %256, label %.critedge85
+  br i1 %255, label %256, label %.critedge84
 
 256:                                              ; preds = %252
   %257 = call i32 @hb_buffer_diff(ptr noundef nonnull %137, ptr noundef nonnull %0, i32 noundef -1, i32 noundef 0)
   %258 = and i32 %257, -65
   %.not101.i = icmp eq i32 %258, 0
-  br i1 %.not101.i, label %.critedge85, label %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
+  br i1 %.not101.i, label %.critedge84, label %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
 
 _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit: ; preds = %256
   call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.3)
   %259 = call i32 @hb_buffer_set_length(ptr noundef nonnull %0, i32 noundef 0)
   call void @hb_buffer_append(ptr noundef nonnull %0, ptr noundef nonnull %137, i32 noundef 0, i32 noundef -1)
   call void @hb_buffer_destroy(ptr noundef nonnull %137)
-  call void @hb_buffer_destroy(ptr noundef nonnull %131)
-  call void @hb_buffer_destroy(ptr noundef nonnull %132)
+  call void @hb_buffer_destroy(ptr noundef %131)
+  call void @hb_buffer_destroy(ptr noundef %132)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -566,13 +566,13 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
-.critedge85:                                      ; preds = %._crit_edge.i26, %191, %199, %201, %252, %256, %205, %195
+.critedge84:                                      ; preds = %._crit_edge.i26, %191, %199, %201, %252, %256, %205, %195
   call void @hb_buffer_destroy(ptr noundef %137)
   call void @hb_buffer_destroy(ptr noundef %131)
   call void @hb_buffer_destroy(ptr noundef %132)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %128, %.critedge85
+.sink.split:                                      ; preds = %128, %.critedge84
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -615,12 +615,12 @@ _ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_c
   br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
 
 _ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %.thread, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
-  %.sroa.14.096 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
-  %272 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %262, ptr noundef %.sroa.14.096, i32 noundef %265, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
+  %.sroa.14.095 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
+  %272 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %262, ptr noundef %.sroa.14.095, i32 noundef %265, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
           to label %273 unwind label %274
 
 273:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.096)
+  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.095)
           to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %274
 
 274:                                              ; preds = %273, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
@@ -629,7 +629,7 @@ _ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %.thread, %_ZN1
   br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %276
 
 276:                                              ; preds = %274
-  call void @free(ptr noundef %.sroa.14.096) #10
+  call void @free(ptr noundef %.sroa.14.095) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit
 
 _ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %274, %276
@@ -639,7 +639,7 @@ _ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %273
   br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit39, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
 
 _ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79: ; preds = %.thread39.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
-  %.sroa.14.17883 = phi ptr [ %.sroa.14.096, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
+  %.sroa.14.17883 = phi ptr [ %.sroa.14.095, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
   call void @free(ptr noundef %.sroa.14.17883) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit39
 

@@ -730,7 +730,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9fa6a98
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !234
   br i1 %16, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hefe41de548988e59E.exit.thread.i.i, label %17
 
-17:                                               ; preds = %.critedge.i.i, %15
+17:                                               ; preds = %.critedge, %15
   call void @"_ZN87_$LT$uu_fmt..parasplit..WordSplit$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c8ad289cce33153E"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5), !noalias !229
   %18 = load i64, ptr %4, align 8, !range !219, !noalias !234, !noundef !4
   %.not.i.i.i = icmp eq i64 %18, 2
@@ -799,13 +799,13 @@ select.unfold.i.i.i.i:                            ; preds = %26, %23
   %40 = tail call { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.llvm.2379230569744416459"(i64 noundef %35, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39), !noalias !277
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %.critedge.i.i
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %select.unfold.i.i.i.i
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39, i64 noundef %35, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9624f3a670a8e394de72335671d9932.44.llvm.2379230569744416459) #14, !noalias !278
   unreachable
 
-.loopexit.i.i:                                    ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heeed092ce413ce78E.exit.i.i.i.i", %23, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hefe41de548988e59E.exit.thread.i.i
+.loopexit.i.i:                                    ; preds = %23, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hefe41de548988e59E.exit.thread.i.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heeed092ce413ce78E.exit.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !282
   %44 = load i8, ptr %11, align 8, !range !177, !alias.scope !284, !noalias !285, !noundef !4
@@ -822,7 +822,7 @@ select.unfold.i.i.i.i:                            ; preds = %26, %23
   store i8 2, ptr %11, align 8, !alias.scope !284, !noalias !285
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7c0607eb715e47eE.exit.thread13"
 
-.critedge.i.i:                                    ; preds = %select.unfold.i.i.i.i
+.critedge:                                        ; preds = %select.unfold.i.i.i.i
   %48 = extractvalue { ptr, i64 } %40, 1
   %49 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h10c35a6e8ed9c844E"(ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %48), !noalias !286
   %50 = extractvalue { ptr, i64 } %49, 0

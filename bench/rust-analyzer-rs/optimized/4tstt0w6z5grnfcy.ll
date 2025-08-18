@@ -989,7 +989,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
     i64 3, label %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i.i.i
     i64 0, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i"
     i64 1, label %12
-    i64 2, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit42"
+    i64 2, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit50"
   ]
 
 default.unreachable.i.i.i.i.i.i.i.i.i.i:          ; preds = %.preheader.i.i.i
@@ -1110,7 +1110,7 @@ common.resume.i.i:                                ; preds = %81, %70, %40, %34, 
   %55 = extractvalue { i64, ptr } %53, 1
   switch i64 %54, label %default.unreachable.i.i.i.i.i.i.i.i24.i.i [
     i64 3, label %_ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i19.i.i
-    i64 0, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit38"
+    i64 0, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit46"
     i64 1, label %56
     i64 2, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i"
   ]
@@ -1203,15 +1203,15 @@ _ZN4core3ops8function6FnOnce9call_once17hb078381462a97e9cE.exit.i19.i.i: ; preds
   store i8 4, ptr %84, align 8
   br label %86
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit38": ; preds = %.preheader.i16.i.i
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit46": ; preds = %.preheader.i16.i.i
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit42": ; preds = %.preheader.i.i.i
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit50": ; preds = %.preheader.i.i.i
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i": ; preds = %.preheader.i.i.i, %.preheader.i16.i.i, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit42", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit38"
-  %.sroa.0.0.i.pn.i.i.ph = phi i64 [ 1, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit38" ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit42" ], [ 0, %.preheader.i16.i.i ], [ 1, %.preheader.i.i.i ]
-  %.pn33.i.i.ph = phi ptr [ %55, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit38" ], [ %11, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit42" ], [ %55, %.preheader.i16.i.i ], [ %11, %.preheader.i.i.i ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i": ; preds = %.preheader.i.i.i, %.preheader.i16.i.i, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit50", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit46"
+  %.sroa.0.0.i.pn.i.i.ph = phi i64 [ 1, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit46" ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit50" ], [ 0, %.preheader.i16.i.i ], [ 1, %.preheader.i.i.i ]
+  %.pn33.i.i.ph = phi ptr [ %55, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit46" ], [ %11, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a594989a321c7a9E.exit.loopexit.i.loopexit50" ], [ %55, %.preheader.i16.i.i ], [ %11, %.preheader.i.i.i ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10hir_expand20builtin_derive_macro9parse_adt28_$u7b$$u7b$closure$u7d$$u7d$17hdfef03e678a2ab89E.llvm.16134450960987240000"(ptr noalias noundef nonnull sret({ { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { [56 x i8], i8, [7 x i8] }, { [56 x i8], i8, [7 x i8] } }) align 8 captures(none) dereferenceable(192) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %85, i64 noundef %.sroa.0.0.i.pn.i.i.ph, ptr noundef %.pn33.i.i.ph)
@@ -8699,27 +8699,22 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load i64, ptr %1, align 8, !range !284, !alias.scope !2569, !noalias !2572
   %11 = trunc nuw i64 %.pre.i to i1
-  br i1 %11, label %._crit_edge, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..attrs..Attr$GT$$GT$17h90a3f0cc5962c70aE.exit.i"
+  br i1 %11, label %12, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..attrs..Attr$GT$$GT$17h90a3f0cc5962c70aE.exit.i"
 
-._crit_edge:                                      ; preds = %2
-  %.pre = load i64, ptr %5, align 8, !alias.scope !2574, !noalias !2579
-  %.pre1 = load i64, ptr %6, align 8, !alias.scope !2574, !noalias !2579
-  br label %12
-
-12:                                               ; preds = %._crit_edge, %.critedge.i
-  %13 = phi i64 [ %.pre1, %._crit_edge ], [ %.sink4.i.i.i, %.critedge.i ]
-  %14 = phi i64 [ %.pre, %._crit_edge ], [ 0, %.critedge.i ]
-  %15 = icmp eq i64 %14, %13
+12:                                               ; preds = %.critedge, %2
+  %13 = load i64, ptr %5, align 8, !alias.scope !2574, !noalias !2579, !noundef !16
+  %14 = load i64, ptr %6, align 8, !alias.scope !2574, !noalias !2579, !noundef !16
+  %15 = icmp eq i64 %13, %14
   br i1 %15, label %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.thread.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.i.i: ; preds = %12
-  %16 = add i64 %14, 1
+  %16 = add i64 %13, 1
   store i64 %16, ptr %5, align 8, !alias.scope !2574, !noalias !2579
   %17 = load i64, ptr %4, align 8, !alias.scope !2582, !noalias !2585, !noundef !16
   %18 = icmp ugt i64 %17, 1
   %19 = load ptr, ptr %7, align 8, !alias.scope !2582, !noalias !2585, !nonnull !16
   %.sink5.i.i.i.i.i = select i1 %18, ptr %19, ptr %7
-  %20 = getelementptr inbounds { ptr, ptr, i32, i32 }, ptr %.sink5.i.i.i.i.i, i64 %14
+  %20 = getelementptr inbounds { ptr, ptr, i32, i32 }, ptr %.sink5.i.i.i.i.i, i64 %13
   %.sroa.032.0.copyload.i = load ptr, ptr %20, align 8, !noalias !2572
   %.not.i.i = icmp eq ptr %.sroa.032.0.copyload.i, null
   br i1 %.not.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.thread.i.i, label %22
@@ -8838,7 +8833,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h76d83c8fd3086ddcE.exit11.i: 
   %spec.select.i = select i1 %49, i64 %.sroa.512.sroa.0.0.copyload.i, i64 0
   %spec.select52.i = select i1 %49, i64 0, i64 %.sroa.512.sroa.6.0.copyload.i
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$smallvec..IntoIter$LT$$u5b$hir_expand..attrs..Attr$u3b$$u20$1$u5d$$GT$$GT$$GT$17h8a238aa62a8c1130E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1)
-          to label %.critedge.i unwind label %50, !noalias !2564
+          to label %.critedge unwind label %50, !noalias !2564
 
 50:                                               ; preds = %.cont.i
   %51 = landingpad { ptr, i32 }
@@ -8852,7 +8847,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h76d83c8fd3086ddcE.exit11.i: 
   store i64 %.sink4.i.i.i, ptr %6, align 8, !alias.scope !2567, !noalias !2564
   br label %common.resume.i
 
-.critedge.i:                                      ; preds = %.cont.i
+.critedge:                                        ; preds = %.cont.i
   store i64 1, ptr %1, align 8, !alias.scope !2567, !noalias !2564
   store i64 %spec.select.i, ptr %4, align 8, !alias.scope !2567, !noalias !2564
   store i64 %.sroa.512.sroa.5.0.copyload.i, ptr %7, align 8, !alias.scope !2567, !noalias !2564

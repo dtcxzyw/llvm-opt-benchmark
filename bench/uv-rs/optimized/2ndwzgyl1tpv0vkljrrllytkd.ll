@@ -28005,13 +28005,13 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17hcc7f5aa4ff522b5f
   %6 = ptrtoint ptr %1 to i64
   %7 = sub nuw i64 %5, %6
   %8 = icmp ugt i64 %7, 80
-  br i1 %8, label %_ZN4core5array11try_from_fn17h4c728f1c563c5972E.exit.critedge, label %9, !prof !2354
+  br i1 %8, label %_ZN4core5array11try_from_fn17h4c728f1c563c5972E.exit, label %9, !prof !2354
 
 9:                                                ; preds = %3
   tail call void @_ZN4core9panicking5panic17had768957450a0f86E(ptr noalias noundef nonnull readonly align 1 @anon.aa72e5c9b2d0820b266865d9b86a3ece.102, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa72e5c9b2d0820b266865d9b86a3ece.104) #48
   unreachable
 
-_ZN4core5array11try_from_fn17h4c728f1c563c5972E.exit.critedge: ; preds = %3
+_ZN4core5array11try_from_fn17h4c728f1c563c5972E.exit: ; preds = %3
   tail call fastcc void @_ZN4core5array18try_from_fn_erased17hc3feeaf8d1f9fb43E(ptr noalias noundef nonnull align 8 %0, i64 noundef 2, ptr noundef nonnull %1)
   ret void
 }

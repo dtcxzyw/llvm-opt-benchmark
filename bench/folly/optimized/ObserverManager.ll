@@ -9826,110 +9826,111 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  br label %8
+.preheader.preheader:
+  br label %.preheader
 
-6:                                                ; preds = %13
-  %7 = add nuw nsw i32 %.039, 1
-  %exitcond = icmp eq i32 %7, 3
-  br i1 %exitcond, label %.critedge, label %8, !llvm.loop !443
+5:                                                ; preds = %11
+  %6 = add nuw nsw i32 %.041, 1
+  %exitcond = icmp eq i32 %6, 3
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !443
 
-8:                                                ; preds = %5, %6
-  %.039 = phi i32 [ 0, %5 ], [ %7, %6 ]
-  %.not = icmp eq i32 %.039, 2
-  br i1 %.not, label %11, label %9
+.preheader:                                       ; preds = %.preheader.preheader, %5
+  %.041 = phi i32 [ %6, %5 ], [ 0, %.preheader.preheader ]
+  %.not = icmp eq i32 %.041, 2
+  br i1 %.not, label %9, label %7
 
-9:                                                ; preds = %8
-  %10 = tail call noundef i32 @sched_yield() #29
-  br label %13
+7:                                                ; preds = %.preheader
+  %8 = tail call noundef i32 @sched_yield() #29
+  br label %11
 
-11:                                               ; preds = %8
-  %12 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
-  br label %13
+9:                                                ; preds = %.preheader
+  %10 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
+  br label %11
 
-13:                                               ; preds = %11, %9
-  %14 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %14, ptr %1, align 4, !tbaa !23
-  %15 = and i32 %14, %2
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %6
+11:                                               ; preds = %9, %7
+  %12 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %12, ptr %1, align 4, !tbaa !23
+  %13 = and i32 %12, %2
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %5
 
-.critedge:                                        ; preds = %6
-  %17 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %17, ptr %1, align 4, !tbaa !23
-  %18 = and i32 %17, %2
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
+.critedge:                                        ; preds = %5
+  %15 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %15, ptr %1, align 4, !tbaa !23
+  %16 = and i32 %15, %2
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %20 = icmp eq i32 %3, 12
-  br i1 %20, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %31
-  %21 = phi i32 [ %32, %31 ], [ %17, %.lr.ph.i ]
-  %22 = and i32 %21, 4
-  %.not.us.i = icmp eq i32 %22, 0
-  br i1 %.not.us.i, label %.thread.us.i, label %23
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %29
+  %19 = phi i32 [ %30, %29 ], [ %15, %.lr.ph.i ]
+  %20 = and i32 %19, 4
+  %.not.us.i = icmp eq i32 %20, 0
+  br i1 %.not.us.i, label %.thread.us.i, label %21
 
-23:                                               ; preds = %.lr.ph.split.us.i
-  %24 = or i32 %21, 8
-  %.not22.us.i = icmp eq i32 %24, %21
-  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %26
+21:                                               ; preds = %.lr.ph.split.us.i
+  %22 = or i32 %19, 8
+  %.not22.us.i = icmp eq i32 %22, %19
+  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %24
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i
-  %25 = or disjoint i32 %21, 4
-  br label %26
+  %23 = or disjoint i32 %19, 4
+  br label %24
 
-26:                                               ; preds = %.thread.us.i, %23
-  %.01925.us.i = phi i32 [ %25, %.thread.us.i ], [ %24, %23 ]
-  %27 = cmpxchg ptr %0, i32 %21, i32 %.01925.us.i seq_cst seq_cst, align 4
-  %28 = extractvalue { i32, i1 } %27, 1
-  br i1 %28, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+24:                                               ; preds = %.thread.us.i, %21
+  %.01925.us.i = phi i32 [ %23, %.thread.us.i ], [ %22, %21 ]
+  %25 = cmpxchg ptr %0, i32 %19, i32 %.01925.us.i seq_cst seq_cst, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %26
-  %29 = extractvalue { i32, i1 } %27, 0
-  store i32 %29, ptr %1, align 4
-  br label %31, !llvm.loop !444
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %24
+  %27 = extractvalue { i32, i1 } %25, 0
+  store i32 %27, ptr %1, align 4
+  br label %29, !llvm.loop !444
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %26, %23
-  %.01926.us.i = phi i32 [ %21, %23 ], [ %.01925.us.i, %26 ]
-  %30 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
-  br label %31
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %24, %21
+  %.01926.us.i = phi i32 [ %19, %21 ], [ %.01925.us.i, %24 ]
+  %28 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
+  br label %29
 
-31:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
-  %32 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %32, ptr %1, align 4, !tbaa !23
-  %33 = and i32 %32, %2
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !445
+29:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+  %30 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %30, ptr %1, align 4, !tbaa !23
+  %31 = and i32 %30, %2
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !445
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %42
-  %35 = phi i32 [ %43, %42 ], [ %17, %.lr.ph.i ]
-  %36 = or i32 %35, %3
-  %.not22.i = icmp eq i32 %36, %35
-  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %37
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
+  %33 = phi i32 [ %41, %40 ], [ %15, %.lr.ph.i ]
+  %34 = or i32 %33, %3
+  %.not22.i = icmp eq i32 %34, %33
+  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %35
 
-37:                                               ; preds = %.lr.ph.split.i
-  %38 = cmpxchg ptr %0, i32 %35, i32 %36 seq_cst seq_cst, align 4
-  %39 = extractvalue { i32, i1 } %38, 1
-  br i1 %39, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+35:                                               ; preds = %.lr.ph.split.i
+  %36 = cmpxchg ptr %0, i32 %33, i32 %34 seq_cst seq_cst, align 4
+  %37 = extractvalue { i32, i1 } %36, 1
+  br i1 %37, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %37
-  %40 = extractvalue { i32, i1 } %38, 0
-  store i32 %40, ptr %1, align 4
-  br label %42, !llvm.loop !444
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %35
+  %38 = extractvalue { i32, i1 } %36, 0
+  store i32 %38, ptr %1, align 4
+  br label %40, !llvm.loop !444
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %37, %.lr.ph.split.i
-  %41 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %36, ptr noundef null, ptr noundef null, i32 noundef %3)
-  br label %42
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %35, %.lr.ph.split.i
+  %39 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %34, ptr noundef null, ptr noundef null, i32 noundef %3)
+  br label %40
 
-42:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
-  %43 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %43, ptr %1, align 4, !tbaa !23
-  %44 = and i32 %43, %2
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
+40:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+  %41 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %41, ptr %1, align 4, !tbaa !23
+  %42 = and i32 %41, %2
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
 
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %13, %42, %31, %.critedge
+_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %11, %40, %29, %.critedge
   ret i1 true
 }
 
@@ -12370,33 +12371,33 @@ define linkonce_odr void @_ZN5folly10hazptr_objISt6atomicE8push_objERNS_13hazptr
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = ptrtoint ptr %0 to i64
-  br label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i
+  br label %.critedge.i.i
 
-_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i: ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.backedge, %11
+.critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %11
   %15 = load atomic i64, ptr %12 acquire, align 8
   %.not.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i, label %21, label %16
 
-16:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i
+16:                                               ; preds = %.critedge.i.i
   %17 = load atomic i64, ptr %6 acquire, align 8
   %.not.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.backedge, label %18
+  br i1 %.not.i.i.i, label %.critedge.i.i.backedge, label %18
 
 18:                                               ; preds = %16
   %.0.i.i.i.i.i.i = inttoptr i64 %17 to ptr
   store ptr %.0.i.i.i.i.i.i, ptr %13, align 8, !tbaa !45
   %19 = cmpxchg weak ptr %6, i64 %17, i64 %14 acq_rel monotonic, align 8
   %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.backedge
+  br i1 %20, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i, label %.critedge.i.i.backedge
 
-21:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i
+21:                                               ; preds = %.critedge.i.i
   store ptr null, ptr %13, align 8, !tbaa !45
   %22 = cmpxchg weak ptr %12, i64 0, i64 %14 acq_rel monotonic, align 8
   %23 = extractvalue { i64, i1 } %22, 1
-  br i1 %23, label %24, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.backedge
+  br i1 %23, label %24, label %.critedge.i.i.backedge
 
-_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.backedge: ; preds = %21, %18, %16
-  br label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i
+.critedge.i.i.backedge:                           ; preds = %21, %18, %16
+  br label %.critedge.i.i
 
 24:                                               ; preds = %21
   store atomic i64 %14, ptr %6 release, align 8
@@ -15049,33 +15050,33 @@ _ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit.i.i.i: ; preds = %358,
 
 367:                                              ; preds = %363
   %368 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  br label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i
+  br label %.critedge.i.i.i
 
-_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i: ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i.backedge, %367
+.critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.backedge, %367
   %369 = load atomic i64, ptr %368 acquire, align 8
   %.not.i.i.i117 = icmp eq i64 %369, 0
   br i1 %.not.i.i.i117, label %375, label %370
 
-370:                                              ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i
+370:                                              ; preds = %.critedge.i.i.i
   %371 = load atomic i64, ptr %362 acquire, align 8
   %.not.i.i.i.i118 = icmp eq i64 %371, 0
-  br i1 %.not.i.i.i.i118, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i.backedge, label %372
+  br i1 %.not.i.i.i.i118, label %.critedge.i.i.i.backedge, label %372
 
 372:                                              ; preds = %370
   %.0.i.i.i.i.i.i.i = inttoptr i64 %371 to ptr
   store ptr %.0.i.i.i.i.i.i.i, ptr %356, align 8, !tbaa !45
   %373 = cmpxchg weak ptr %362, i64 %371, i64 %353 acq_rel monotonic, align 8
   %374 = extractvalue { i64, i1 } %373, 1
-  br i1 %374, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i.i, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i.backedge
+  br i1 %374, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i.i, label %.critedge.i.i.i.backedge
 
-375:                                              ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i
+375:                                              ; preds = %.critedge.i.i.i
   store ptr null, ptr %356, align 8, !tbaa !45
   %376 = cmpxchg weak ptr %368, i64 0, i64 %353 acq_rel monotonic, align 8
   %377 = extractvalue { i64, i1 } %376, 1
-  br i1 %377, label %378, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i.backedge
+  br i1 %377, label %378, label %.critedge.i.i.i.backedge
 
-_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i.backedge: ; preds = %375, %372, %370
-  br label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E22push_in_non_empty_listEPS4_.exit.i.i.i
+.critedge.i.i.i.backedge:                         ; preds = %375, %372, %370
+  br label %.critedge.i.i.i
 
 378:                                              ; preds = %375
   store atomic i64 %353, ptr %362 release, align 8
@@ -17949,110 +17950,111 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20yieldWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  br label %8
+.preheader.preheader:
+  br label %.preheader
 
-6:                                                ; preds = %13
-  %7 = add nuw nsw i32 %.039, 1
-  %exitcond = icmp eq i32 %7, 3
-  br i1 %exitcond, label %.critedge, label %8, !llvm.loop !724
+5:                                                ; preds = %11
+  %6 = add nuw nsw i32 %.041, 1
+  %exitcond = icmp eq i32 %6, 3
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !724
 
-8:                                                ; preds = %5, %6
-  %.039 = phi i32 [ 0, %5 ], [ %7, %6 ]
-  %.not = icmp eq i32 %.039, 2
-  br i1 %.not, label %11, label %9
+.preheader:                                       ; preds = %.preheader.preheader, %5
+  %.041 = phi i32 [ %6, %5 ], [ 0, %.preheader.preheader ]
+  %.not = icmp eq i32 %.041, 2
+  br i1 %.not, label %9, label %7
 
-9:                                                ; preds = %8
-  %10 = tail call noundef i32 @sched_yield() #29
-  br label %13
+7:                                                ; preds = %.preheader
+  %8 = tail call noundef i32 @sched_yield() #29
+  br label %11
 
-11:                                               ; preds = %8
-  %12 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
-  br label %13
+9:                                                ; preds = %.preheader
+  %10 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
+  br label %11
 
-13:                                               ; preds = %11, %9
-  %14 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %14, ptr %1, align 4, !tbaa !23
-  %15 = and i32 %14, %2
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %6
+11:                                               ; preds = %9, %7
+  %12 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %12, ptr %1, align 4, !tbaa !23
+  %13 = and i32 %12, %2
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %5
 
-.critedge:                                        ; preds = %6
-  %17 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %17, ptr %1, align 4, !tbaa !23
-  %18 = and i32 %17, %2
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
+.critedge:                                        ; preds = %5
+  %15 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %15, ptr %1, align 4, !tbaa !23
+  %16 = and i32 %15, %2
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %20 = icmp eq i32 %3, 12
-  br i1 %20, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %31
-  %21 = phi i32 [ %32, %31 ], [ %17, %.lr.ph.i ]
-  %22 = and i32 %21, 4
-  %.not.us.i = icmp eq i32 %22, 0
-  br i1 %.not.us.i, label %.thread.us.i, label %23
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %29
+  %19 = phi i32 [ %30, %29 ], [ %15, %.lr.ph.i ]
+  %20 = and i32 %19, 4
+  %.not.us.i = icmp eq i32 %20, 0
+  br i1 %.not.us.i, label %.thread.us.i, label %21
 
-23:                                               ; preds = %.lr.ph.split.us.i
-  %24 = or i32 %21, 8
-  %.not22.us.i = icmp eq i32 %24, %21
-  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %26
+21:                                               ; preds = %.lr.ph.split.us.i
+  %22 = or i32 %19, 8
+  %.not22.us.i = icmp eq i32 %22, %19
+  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %24
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i
-  %25 = or disjoint i32 %21, 4
-  br label %26
+  %23 = or disjoint i32 %19, 4
+  br label %24
 
-26:                                               ; preds = %.thread.us.i, %23
-  %.01925.us.i = phi i32 [ %25, %.thread.us.i ], [ %24, %23 ]
-  %27 = cmpxchg ptr %0, i32 %21, i32 %.01925.us.i seq_cst seq_cst, align 4
-  %28 = extractvalue { i32, i1 } %27, 1
-  br i1 %28, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+24:                                               ; preds = %.thread.us.i, %21
+  %.01925.us.i = phi i32 [ %23, %.thread.us.i ], [ %22, %21 ]
+  %25 = cmpxchg ptr %0, i32 %19, i32 %.01925.us.i seq_cst seq_cst, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %26
-  %29 = extractvalue { i32, i1 } %27, 0
-  store i32 %29, ptr %1, align 4
-  br label %31, !llvm.loop !725
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %24
+  %27 = extractvalue { i32, i1 } %25, 0
+  store i32 %27, ptr %1, align 4
+  br label %29, !llvm.loop !725
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %26, %23
-  %.01926.us.i = phi i32 [ %21, %23 ], [ %.01925.us.i, %26 ]
-  %30 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
-  br label %31
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %24, %21
+  %.01926.us.i = phi i32 [ %19, %21 ], [ %.01925.us.i, %24 ]
+  %28 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
+  br label %29
 
-31:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
-  %32 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %32, ptr %1, align 4, !tbaa !23
-  %33 = and i32 %32, %2
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !726
+29:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+  %30 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %30, ptr %1, align 4, !tbaa !23
+  %31 = and i32 %30, %2
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !726
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %42
-  %35 = phi i32 [ %43, %42 ], [ %17, %.lr.ph.i ]
-  %36 = or i32 %35, %3
-  %.not22.i = icmp eq i32 %36, %35
-  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %37
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
+  %33 = phi i32 [ %41, %40 ], [ %15, %.lr.ph.i ]
+  %34 = or i32 %33, %3
+  %.not22.i = icmp eq i32 %34, %33
+  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %35
 
-37:                                               ; preds = %.lr.ph.split.i
-  %38 = cmpxchg ptr %0, i32 %35, i32 %36 seq_cst seq_cst, align 4
-  %39 = extractvalue { i32, i1 } %38, 1
-  br i1 %39, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+35:                                               ; preds = %.lr.ph.split.i
+  %36 = cmpxchg ptr %0, i32 %33, i32 %34 seq_cst seq_cst, align 4
+  %37 = extractvalue { i32, i1 } %36, 1
+  br i1 %37, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %37
-  %40 = extractvalue { i32, i1 } %38, 0
-  store i32 %40, ptr %1, align 4
-  br label %42, !llvm.loop !725
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %35
+  %38 = extractvalue { i32, i1 } %36, 0
+  store i32 %38, ptr %1, align 4
+  br label %40, !llvm.loop !725
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %37, %.lr.ph.split.i
-  %41 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %36, ptr noundef null, ptr noundef null, i32 noundef %3)
-  br label %42
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %35, %.lr.ph.split.i
+  %39 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %34, ptr noundef null, ptr noundef null, i32 noundef %3)
+  br label %40
 
-42:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
-  %43 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %43, ptr %1, align 4, !tbaa !23
-  %44 = and i32 %43, %2
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
+40:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+  %41 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %41, ptr %1, align 4, !tbaa !23
+  %42 = and i32 %41, %2
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
 
-_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %13, %42, %31, %.critedge
+_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit: ; preds = %11, %40, %29, %.critedge
   ret i1 true
 }
 
@@ -31325,110 +31327,111 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  br label %8
+.preheader.preheader:
+  br label %.preheader
 
-6:                                                ; preds = %13
-  %7 = add nuw nsw i32 %.039, 1
-  %exitcond = icmp eq i32 %7, 3
-  br i1 %exitcond, label %.critedge, label %8, !llvm.loop !1100
+5:                                                ; preds = %11
+  %6 = add nuw nsw i32 %.041, 1
+  %exitcond = icmp eq i32 %6, 3
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !1100
 
-8:                                                ; preds = %5, %6
-  %.039 = phi i32 [ 0, %5 ], [ %7, %6 ]
-  %.not = icmp eq i32 %.039, 2
-  br i1 %.not, label %11, label %9
+.preheader:                                       ; preds = %.preheader.preheader, %5
+  %.041 = phi i32 [ %6, %5 ], [ 0, %.preheader.preheader ]
+  %.not = icmp eq i32 %.041, 2
+  br i1 %.not, label %9, label %7
 
-9:                                                ; preds = %8
-  %10 = tail call noundef i32 @sched_yield() #29
-  br label %13
+7:                                                ; preds = %.preheader
+  %8 = tail call noundef i32 @sched_yield() #29
+  br label %11
 
-11:                                               ; preds = %8
-  %12 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
-  br label %13
+9:                                                ; preds = %.preheader
+  %10 = tail call noundef i64 @_ZN5folly19shared_mutex_detail45getCurrentThreadInvoluntaryContextSwitchCountEv()
+  br label %11
 
-13:                                               ; preds = %11, %9
-  %14 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %14, ptr %1, align 4, !tbaa !23
-  %15 = and i32 %14, %2
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %6
+11:                                               ; preds = %9, %7
+  %12 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %12, ptr %1, align 4, !tbaa !23
+  %13 = and i32 %12, %2
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %5
 
-.critedge:                                        ; preds = %6
-  %17 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %17, ptr %1, align 4, !tbaa !23
-  %18 = and i32 %17, %2
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
+.critedge:                                        ; preds = %5
+  %15 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %15, ptr %1, align 4, !tbaa !23
+  %16 = and i32 %15, %2
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %20 = icmp eq i32 %3, 12
-  br i1 %20, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %31
-  %21 = phi i32 [ %32, %31 ], [ %17, %.lr.ph.i ]
-  %22 = and i32 %21, 4
-  %.not.us.i = icmp eq i32 %22, 0
-  br i1 %.not.us.i, label %.thread.us.i, label %23
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %29
+  %19 = phi i32 [ %30, %29 ], [ %15, %.lr.ph.i ]
+  %20 = and i32 %19, 4
+  %.not.us.i = icmp eq i32 %20, 0
+  br i1 %.not.us.i, label %.thread.us.i, label %21
 
-23:                                               ; preds = %.lr.ph.split.us.i
-  %24 = or i32 %21, 8
-  %.not22.us.i = icmp eq i32 %24, %21
-  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %26
+21:                                               ; preds = %.lr.ph.split.us.i
+  %22 = or i32 %19, 8
+  %.not22.us.i = icmp eq i32 %22, %19
+  br i1 %.not22.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %24
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i
-  %25 = or disjoint i32 %21, 4
-  br label %26
+  %23 = or disjoint i32 %19, 4
+  br label %24
 
-26:                                               ; preds = %.thread.us.i, %23
-  %.01925.us.i = phi i32 [ %25, %.thread.us.i ], [ %24, %23 ]
-  %27 = cmpxchg ptr %0, i32 %21, i32 %.01925.us.i seq_cst seq_cst, align 4
-  %28 = extractvalue { i32, i1 } %27, 1
-  br i1 %28, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+24:                                               ; preds = %.thread.us.i, %21
+  %.01925.us.i = phi i32 [ %23, %.thread.us.i ], [ %22, %21 ]
+  %25 = cmpxchg ptr %0, i32 %19, i32 %.01925.us.i seq_cst seq_cst, align 4
+  %26 = extractvalue { i32, i1 } %25, 1
+  br i1 %26, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %26
-  %29 = extractvalue { i32, i1 } %27, 0
-  store i32 %29, ptr %1, align 4
-  br label %31, !llvm.loop !1101
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i: ; preds = %24
+  %27 = extractvalue { i32, i1 } %25, 0
+  store i32 %27, ptr %1, align 4
+  br label %29, !llvm.loop !1101
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %26, %23
-  %.01926.us.i = phi i32 [ %21, %23 ], [ %.01925.us.i, %26 ]
-  %30 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
-  br label %31
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i: ; preds = %24, %21
+  %.01926.us.i = phi i32 [ %19, %21 ], [ %.01925.us.i, %24 ]
+  %28 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %.01926.us.i, ptr noundef null, ptr noundef null, i32 noundef 12)
+  br label %29
 
-31:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
-  %32 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %32, ptr %1, align 4, !tbaa !23
-  %33 = and i32 %32, %2
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !1102
+29:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us.i
+  %30 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %30, ptr %1, align 4, !tbaa !23
+  %31 = and i32 %30, %2
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !1102
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %42
-  %35 = phi i32 [ %43, %42 ], [ %17, %.lr.ph.i ]
-  %36 = or i32 %35, %3
-  %.not22.i = icmp eq i32 %36, %35
-  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %37
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
+  %33 = phi i32 [ %41, %40 ], [ %15, %.lr.ph.i ]
+  %34 = or i32 %33, %3
+  %.not22.i = icmp eq i32 %34, %33
+  br i1 %.not22.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %35
 
-37:                                               ; preds = %.lr.ph.split.i
-  %38 = cmpxchg ptr %0, i32 %35, i32 %36 seq_cst seq_cst, align 4
-  %39 = extractvalue { i32, i1 } %38, 1
-  br i1 %39, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+35:                                               ; preds = %.lr.ph.split.i
+  %36 = cmpxchg ptr %0, i32 %33, i32 %34 seq_cst seq_cst, align 4
+  %37 = extractvalue { i32, i1 } %36, 1
+  br i1 %37, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %37
-  %40 = extractvalue { i32, i1 } %38, 0
-  store i32 %40, ptr %1, align 4
-  br label %42, !llvm.loop !1101
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: ; preds = %35
+  %38 = extractvalue { i32, i1 } %36, 0
+  store i32 %38, ptr %1, align 4
+  br label %40, !llvm.loop !1101
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %37, %.lr.ph.split.i
-  %41 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %36, ptr noundef null, ptr noundef null, i32 noundef %3)
-  br label %42
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i: ; preds = %35, %.lr.ph.split.i
+  %39 = tail call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %34, ptr noundef null, ptr noundef null, i32 noundef %3)
+  br label %40
 
-42:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
-  %43 = load atomic i32, ptr %0 acquire, align 4
-  store i32 %43, ptr %1, align 4, !tbaa !23
-  %44 = and i32 %43, %2
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
+40:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
+  %41 = load atomic i32, ptr %0 acquire, align 4
+  store i32 %41, ptr %1, align 4, !tbaa !23
+  %42 = and i32 %41, %2
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.i
 
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit: ; preds = %13, %42, %31, %.critedge
+_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20futexWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit: ; preds = %11, %40, %29, %.critedge
   ret i1 true
 }
 

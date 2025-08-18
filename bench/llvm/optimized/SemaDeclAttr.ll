@@ -82288,7 +82288,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %109, 
   %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %153, 56
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %156, label %.critedge29
 
-.critedge29:                                      ; preds = %.lr.ph.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.lr.ph
+.critedge29:                                      ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.lr.ph
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i.i38 = load i32, ptr %155, align 8, !tbaa !3
@@ -82311,7 +82311,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %109, 
   %162 = and i32 %161, 127
   %163 = add nsw i32 %162, -47
   %164 = icmp ult i32 %163, 3
-  br i1 %164, label %.critedge29, label %165
+  br i1 %164, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %165
 
 165:                                              ; preds = %.lr.ph.i.i
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.044.1, i64 8
@@ -82321,8 +82321,8 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %109, 
   %.not.i.i39 = icmp eq i64 %167, 0
   br i1 %.not.i.i39, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %.lr.ph.i.i, !llvm.loop !96
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %165, %156
-  %.sroa.044.2 = phi ptr [ %159, %156 ], [ %168, %165 ]
+_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %165, %156
+  %.sroa.044.2 = phi ptr [ %159, %156 ], [ %168, %165 ], [ %.sroa.044.1, %.lr.ph.i.i ]
   %.not55 = icmp eq ptr %.sroa.044.2, null
   br i1 %.not55, label %.critedge31, label %.critedge29
 

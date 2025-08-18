@@ -2260,42 +2260,42 @@ define { ptr, i64 } @"_ZN141_$LT$uv_pep440..version_specifier..VersionSpecifiers
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %10 = load i8, ptr %9, align 1, !alias.scope !308, !noundef !3
-  %.not.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i, label %11, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit"
+  %10 = load i8, ptr %9, align 1, !alias.scope !299, !noundef !3
+  %11 = icmp eq i8 %10, 0
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
+  br i1 %11, label %12, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit"
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
-  %12 = load ptr, ptr %2, align 8, !alias.scope !315, !nonnull !3, !noundef !3
-  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !315
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit"
+  %13 = load ptr, ptr %2, align 8, !alias.scope !315, !nonnull !3, !noundef !3
+  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !315
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %16, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit"
 
-15:                                               ; preds = %11
+16:                                               ; preds = %12
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit" unwind label %16
+          to label %"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit" unwind label %17
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #28
   unreachable
 
-"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit": ; preds = %11, %7, %15
+"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE.exit": ; preds = %12, %7, %16
   resume { ptr, i32 } %8
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h12ad503a1aced0e3E.exit": ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %18 = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 1, 1
-  ret { ptr, i64 } %19
+  %19 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 1, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8558,23 +8558,23 @@ attributes #29 = { nounwind }
 !296 = !{!297}
 !297 = distinct !{!297, !298, !"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE: argument 0"}
 !298 = distinct !{!298, !"_ZN4core3ptr88drop_in_place$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u3b$$u20$1$u5d$$GT$17haf24ccff2a7a475fE"}
-!299 = !{!300}
-!300 = distinct !{!300, !301, !"_ZN4core3ptr67drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifier$GT$17hd6e0be53379d0002E: argument 0"}
-!301 = distinct !{!301, !"_ZN4core3ptr67drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifier$GT$17hd6e0be53379d0002E"}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E: argument 0"}
-!304 = distinct !{!304, !"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E"}
-!305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..VersionInner$GT$17h52e52ed1ebc0ad1dE.llvm.1469025303238208998: argument 0"}
-!307 = distinct !{!307, !"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..VersionInner$GT$17h52e52ed1ebc0ad1dE.llvm.1469025303238208998"}
-!308 = !{!306, !303, !300, !297}
+!299 = !{!300, !302, !304, !297}
+!300 = distinct !{!300, !301, !"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..VersionInner$GT$17h52e52ed1ebc0ad1dE.llvm.1469025303238208998: argument 0"}
+!301 = distinct !{!301, !"_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..VersionInner$GT$17h52e52ed1ebc0ad1dE.llvm.1469025303238208998"}
+!302 = distinct !{!302, !303, !"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E: argument 0"}
+!303 = distinct !{!303, !"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E"}
+!304 = distinct !{!304, !305, !"_ZN4core3ptr67drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifier$GT$17hd6e0be53379d0002E: argument 0"}
+!305 = distinct !{!305, !"_ZN4core3ptr67drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifier$GT$17hd6e0be53379d0002E"}
+!306 = !{!304}
+!307 = !{!302}
+!308 = !{!300}
 !309 = !{!310}
 !310 = distinct !{!310, !311, !"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$uv_pep440..version..VersionFull$GT$$GT$17hbf1c03823a1dccc2E.llvm.1469025303238208998: argument 0"}
 !311 = distinct !{!311, !"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$uv_pep440..version..VersionFull$GT$$GT$17hbf1c03823a1dccc2E.llvm.1469025303238208998"}
 !312 = !{!313}
 !313 = distinct !{!313, !314, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87a23519a4162ff0E.llvm.1469025303238208998: argument 0"}
 !314 = distinct !{!314, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87a23519a4162ff0E.llvm.1469025303238208998"}
-!315 = !{!313, !310, !306, !303, !300, !297}
+!315 = !{!313, !310, !300, !302, !304, !297}
 !316 = !{!317}
 !317 = distinct !{!317, !318, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E: argument 0"}
 !318 = distinct !{!318, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E"}

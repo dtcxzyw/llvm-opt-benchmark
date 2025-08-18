@@ -5860,22 +5860,22 @@ define dso_local void @ata_pci_bmdma_init(ptr noundef captures(none) %0) #1 alig
   %5 = getelementptr i8, ptr %3, i64 992
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.critedge, label %8
+  br i1 %7, label %.loopexit.loopexit.critedge, label %8
 
-.critedge:                                        ; preds = %1
+.loopexit.loopexit.critedge:                      ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.17) #14
   br label %.loopexit.sink.split
 
 8:                                                ; preds = %1
   %9 = tail call i32 @dma_set_mask(ptr noundef %3, i64 noundef 4294967295) #13
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.critedge2
+  br i1 %10, label %11, label %.loopexit3.loopexit.critedge
 
 11:                                               ; preds = %8
   %12 = tail call i32 @dma_set_coherent_mask(ptr noundef %3, i64 noundef 4294967295) #13
-  br label %24
+  br label %.loopexit3
 
-.critedge2:                                       ; preds = %8
+.loopexit3.loopexit.critedge:                     ; preds = %8
   %13 = load ptr, ptr %2, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %13, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.18) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5892,91 +5892,91 @@ define dso_local void @ata_pci_bmdma_init(ptr noundef captures(none) %0) #1 alig
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 296
   store i32 0, ptr %23, align 8
-  br label %24
+  br label %.loopexit3
 
-24:                                               ; preds = %.critedge2, %11
-  %25 = tail call ptr @dev_driver_string(ptr noundef %3) #13
-  %26 = tail call i32 @pcim_iomap_regions(ptr noundef %4, i32 noundef 16, ptr noundef %25) #13
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %29, label %.critedge4
+.loopexit3:                                       ; preds = %.loopexit3.loopexit.critedge, %11
+  %24 = tail call ptr @dev_driver_string(ptr noundef %3) #13
+  %25 = tail call i32 @pcim_iomap_regions(ptr noundef %4, i32 noundef 16, ptr noundef %24) #13
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %28, label %.loopexit.loopexit9.critedge
 
-.critedge4:                                       ; preds = %24
-  %28 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.19) #14
+.loopexit.loopexit9.critedge:                     ; preds = %.loopexit3
+  %27 = load ptr, ptr %2, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.19) #14
   br label %.loopexit.sink.split
 
-29:                                               ; preds = %24
-  %30 = tail call ptr @pcim_iomap_table(ptr noundef %4) #13
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %34
+28:                                               ; preds = %.loopexit3
+  %29 = tail call ptr @pcim_iomap_table(ptr noundef %4) #13
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %33
 
-34:                                               ; preds = %64, %29
-  %35 = phi i1 [ true, %29 ], [ false, %64 ]
-  %36 = phi i64 [ 0, %29 ], [ 1, %64 ]
-  %37 = getelementptr [0 x ptr], ptr %32, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %31, align 8
-  %40 = getelementptr i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = shl nuw nsw i64 %36, 3
-  %43 = getelementptr i8, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, @ata_dummy_port_ops
-  br i1 %46, label %64, label %47
+33:                                               ; preds = %63, %28
+  %34 = phi i1 [ true, %28 ], [ false, %63 ]
+  %35 = phi i64 [ 0, %28 ], [ 1, %63 ]
+  %36 = getelementptr [0 x ptr], ptr %31, i64 0, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = shl nuw nsw i64 %35, 3
+  %42 = getelementptr i8, ptr %40, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, @ata_dummy_port_ops
+  br i1 %45, label %63, label %46
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  store ptr %43, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 32768
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %61
+46:                                               ; preds = %33
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 152
+  store ptr %42, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 32768
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %60
 
-53:                                               ; preds = %47
-  %54 = getelementptr i8, ptr %43, i64 2
-  %55 = tail call i32 @ioread8(ptr noundef %54) #13
-  %56 = and i32 %55, 128
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+52:                                               ; preds = %46
+  %53 = getelementptr i8, ptr %42, i64 2
+  %54 = tail call i32 @ioread8(ptr noundef %53) #13
+  %55 = and i32 %54, 128
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %60, label %57
 
-58:                                               ; preds = %53
-  %59 = load i64, ptr %33, align 8
-  %60 = or i64 %59, 1
-  store i64 %60, ptr %33, align 8
-  br label %61
+57:                                               ; preds = %52
+  %58 = load i64, ptr %32, align 8
+  %59 = or i64 %58, 1
+  store i64 %59, ptr %32, align 8
+  br label %60
 
-61:                                               ; preds = %58, %53, %47
-  %62 = load i64, ptr %5, align 8
-  %63 = add i64 %62, %42
-  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %38, ptr noundef nonnull @.str.20, i64 noundef %63) #13
-  br label %64
+60:                                               ; preds = %57, %52, %46
+  %61 = load i64, ptr %5, align 8
+  %62 = add i64 %61, %41
+  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %37, ptr noundef nonnull @.str.20, i64 noundef %62) #13
+  br label %63
 
-64:                                               ; preds = %61, %34
-  br i1 %35, label %34, label %.loopexit, !llvm.loop !140
+63:                                               ; preds = %60, %33
+  br i1 %34, label %33, label %.loopexit, !llvm.loop !140
 
-.loopexit.sink.split:                             ; preds = %.critedge, %.critedge4
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 292
-  store i32 0, ptr %67, align 4
-  %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 296
-  store i32 0, ptr %69, align 8
-  %70 = getelementptr i8, ptr %0, i64 120
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 292
-  store i32 0, ptr %72, align 4
-  %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 296
-  store i32 0, ptr %74, align 8
+.loopexit.sink.split:                             ; preds = %.loopexit.loopexit.critedge, %.loopexit.loopexit9.critedge
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 292
+  store i32 0, ptr %66, align 4
+  %67 = load ptr, ptr %64, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 296
+  store i32 0, ptr %68, align 8
+  %69 = getelementptr i8, ptr %0, i64 120
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 292
+  store i32 0, ptr %71, align 4
+  %72 = load ptr, ptr %69, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 296
+  store i32 0, ptr %73, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %.loopexit.sink.split
+.loopexit:                                        ; preds = %63, %.loopexit.sink.split
   ret void
 }
 

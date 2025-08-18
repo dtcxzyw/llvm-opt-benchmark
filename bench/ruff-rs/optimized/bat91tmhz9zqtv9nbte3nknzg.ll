@@ -539,17 +539,17 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h92a
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split"
   tail call void @llvm.assume(i1 %19)
   %117 = trunc i64 %.sroa.644.0.copyload to i1
-  br label %.critedge.i.us
+  br label %.preheader.i.us
 
-.critedge.i.us:                                   ; preds = %181, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us"
+.preheader.i.us:                                  ; preds = %181, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us"
   %.sroa.48.0.us146 = phi i64 [ %.sroa.442.0.copyload, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us" ], [ %.sroa.48.1.us204, %181 ]
   %.sroa.810.sroa.0.0.us147 = phi i1 [ %117, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us" ], [ false, %181 ]
   %.sroa.07.0.us148 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split.split.us" ], [ %.sroa.48.1.us204, %181 ]
   br label %118
 
-118:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us", %.critedge.i.us
-  %.sroa.48.1.us = phi i64 [ %.sroa.48.0.us146, %.critedge.i.us ], [ %177, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us" ]
-  %119 = phi i1 [ %.sroa.810.sroa.0.0.us147, %.critedge.i.us ], [ true, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us" ]
+118:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us", %.preheader.i.us
+  %.sroa.48.1.us = phi i64 [ %.sroa.48.0.us146, %.preheader.i.us ], [ %177, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us" ]
+  %119 = phi i1 [ %.sroa.810.sroa.0.0.us147, %.preheader.i.us ], [ true, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h934bd5cedbd0d186E.exit.i.us" ]
   %120 = icmp eq i64 %.sroa.48.1.us, 0
   br i1 %120, label %128, label %121
 
@@ -662,7 +662,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h92a
 
 181:                                              ; preds = %.loopexit.i.us149
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.150, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.150, i64 5), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
-          to label %.critedge.i.us unwind label %.loopexit.split.split.us, !llvm.loop !50
+          to label %.preheader.i.us unwind label %.loopexit.split.split.us, !llvm.loop !50
 
 .loopexit.split.split.us:                         ; preds = %181, %.loopexit.i.us149
   %lpad.loopexit.us157 = landingpad { ptr, i32 }

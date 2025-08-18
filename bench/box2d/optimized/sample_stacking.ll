@@ -1471,7 +1471,7 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
   store float 5.000000e-01, ptr %29, align 8, !tbaa !73
   %.sroa.02.0.copyload = load i32, ptr %16, align 4
   %30 = invoke i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %8)
-          to label %47 unwind label %49
+          to label %47 unwind label %50
 
 31:                                               ; preds = %14
   %32 = landingpad { ptr, i32 }
@@ -1502,66 +1502,66 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
 40:                                               ; preds = %33, %39, %31
   %.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %39 ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %53
+  br label %54
 
 41:                                               ; preds = %22, %21
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %54
 
 43:                                               ; preds = %23
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %53
 
 45:                                               ; preds = %25
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
 47:                                               ; preds = %28
   store ptr inttoptr (i64 1 to ptr), ptr %7, align 8, !tbaa !70
   %48 = invoke i64 @b2CreateCircleShape(i64 %30, ptr noundef nonnull %7, ptr noundef nonnull %6)
-          to label %.critedge unwind label %49
+          to label %49 unwind label %50
 
-.critedge:                                        ; preds = %47
+49:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-49:                                               ; preds = %47, %28
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %47, %28
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %51
-
-51:                                               ; preds = %49, %45
-  %.pn36 = phi { ptr, i32 } [ %50, %49 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %52
 
-52:                                               ; preds = %51, %43
-  %.pn36.pn = phi { ptr, i32 } [ %.pn36, %51 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+52:                                               ; preds = %50, %45
+  %.pn36 = phi { ptr, i32 } [ %51, %50 ], [ %46, %45 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
-53:                                               ; preds = %52, %41, %40
-  %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %52 ], [ %42, %41 ], [ %.pn.pn.pn, %40 ]
-  %54 = load ptr, ptr %9, align 8, !tbaa !74
-  %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit, label %55
+53:                                               ; preds = %52, %43
+  %.pn36.pn = phi { ptr, i32 } [ %.pn36, %52 ], [ %44, %43 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %54
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %57 = load ptr, ptr %56, align 8, !tbaa !77
-  %58 = ptrtoint ptr %57 to i64
-  %59 = ptrtoint ptr %54 to i64
-  %60 = sub i64 %58, %59
-  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #16
+54:                                               ; preds = %53, %41, %40
+  %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %53 ], [ %42, %41 ], [ %.pn.pn.pn, %40 ]
+  %55 = load ptr, ptr %9, align 8, !tbaa !74
+  %.not.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit, label %56
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %58 = load ptr, ptr %57, align 8, !tbaa !77
+  %59 = ptrtoint ptr %58 to i64
+  %60 = ptrtoint ptr %55 to i64
+  %61 = sub i64 %59, %60
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
   br label %_ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit: ; preds = %53, %55
+_ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit: ; preds = %54, %56
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   resume { ptr, i32 } %.pn36.pn.pn
 }

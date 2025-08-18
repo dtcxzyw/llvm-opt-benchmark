@@ -166,11 +166,11 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   %.not.i28 = icmp eq i64 %22, 0
   br i1 %.not.i28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.critedge116:                                     ; preds = %27
+.critedge126:                                     ; preds = %27
   invoke void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
           to label %.lr.ph.split.split.us unwind label %.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge116
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge126
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.fr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -196,9 +196,9 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 27:                                               ; preds = %.noexc31.us
   %28 = load i32, ptr %11, align 4, !tbaa !9
   %.not82 = icmp eq i32 %28, 0
-  br i1 %.not82, label %.critedge116, label %._crit_edge, !llvm.loop !13
+  br i1 %.not82, label %.critedge126, label %._crit_edge, !llvm.loop !13
 
-.split.split.us:                                  ; preds = %.critedge116
+.split.split.us:                                  ; preds = %.critedge126
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.split
@@ -208,16 +208,16 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
           cleanup
   br label %.split
 
-.critedge117:                                     ; preds = %43
+.critedge127:                                     ; preds = %43
   invoke void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
           to label %.lr.ph.split.split unwind label %.split.split
 
-.split.split:                                     ; preds = %.critedge117
+.split.split:                                     ; preds = %.critedge127
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge117
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge127
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.fr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -273,7 +273,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 43:                                               ; preds = %.noexc29
   %44 = load i32, ptr %11, align 4, !tbaa !9
   %.not81 = icmp eq i32 %44, 0
-  br i1 %.not81, label %.critedge117, label %._crit_edge, !llvm.loop !14
+  br i1 %.not81, label %.critedge127, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %43, %27, %18, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]

@@ -28,8 +28,8 @@ $_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16NbnxnPairlistCpuERKNS_1
 define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16NbnxnPairlistCpuERKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr %2, ptr %3, float noundef %4) local_unnamed_addr #0 comdat {
   %6 = alloca %"struct.std::array", align 32
   %7 = alloca %"struct.std::array", align 32
-  %.sroa.0201 = alloca <8 x float>, align 32
-  %.sroa.4202 = alloca <8 x float>, align 32
+  %.sroa.0202 = alloca <8 x float>, align 32
+  %.sroa.4203 = alloca <8 x float>, align 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -66,35 +66,35 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %39 = lshr exact i64 %38, 4
   %40 = trunc i64 %39 to i32
   %41 = icmp sgt i32 %40, 0
-  %indvars.iv183.sroa.gep203 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %indvars.iv186.sroa.gep205 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %indvars.iv.sroa.gep206 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %indvars.iv183.sroa.gep209 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  br i1 %41, label %.lr.ph178, label %._crit_edge179
+  %indvars.iv184.sroa.gep204 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %indvars.iv187.sroa.gep206 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %indvars.iv.sroa.gep207 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %indvars.iv184.sroa.gep210 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  br i1 %41, label %.lr.ph179, label %._crit_edge180
 
-.lr.ph178:                                        ; preds = %5
+.lr.ph179:                                        ; preds = %5
   %wide.trip.count = and i64 %39, 2147483647
   br label %44
 
-._crit_edge179.loopexit:                          ; preds = %._crit_edge.thread
+._crit_edge180.loopexit:                          ; preds = %._crit_edge.thread
   %42 = sext i32 %.1 to i64
-  %43 = sext i32 %.1139.lcssa199 to i64
-  br label %._crit_edge179
+  %43 = sext i32 %.1139.lcssa200 to i64
+  br label %._crit_edge180
 
-._crit_edge179:                                   ; preds = %._crit_edge179.loopexit, %5
-  %.0138.lcssa = phi i64 [ 0, %5 ], [ %43, %._crit_edge179.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %5 ], [ %42, %._crit_edge179.loopexit ]
+._crit_edge180:                                   ; preds = %._crit_edge180.loopexit, %5
+  %.0138.lcssa = phi i64 [ 0, %5 ], [ %43, %._crit_edge180.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %42, %._crit_edge180.loopexit ]
   tail call void @_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %.0.lcssa)
   tail call void @_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %.0138.lcssa)
   ret void
 
-44:                                               ; preds = %.lr.ph178, %._crit_edge.thread
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next196, %._crit_edge.thread ]
-  %.0176 = phi i32 [ 0, %.lr.ph178 ], [ %.1, %._crit_edge.thread ]
-  %.0138175 = phi i32 [ 0, %.lr.ph178 ], [ %.1139.lcssa199, %._crit_edge.thread ]
-  %45 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %26, i64 %indvars.iv195
+44:                                               ; preds = %.lr.ph179, %._crit_edge.thread
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next197, %._crit_edge.thread ]
+  %.0177 = phi i32 [ 0, %.lr.ph179 ], [ %.1, %._crit_edge.thread ]
+  %.0138176 = phi i32 [ 0, %.lr.ph179 ], [ %.1139.lcssa200, %._crit_edge.thread ]
+  %45 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %26, i64 %indvars.iv196
   %46 = load i32, ptr %45, align 4, !tbaa !18
-  %47 = sext i32 %.0176 to i64
+  %47 = sext i32 %.0177 to i64
   %48 = getelementptr inbounds %"struct.gmx::nbnxn_ci_t", ptr %27, i64 %47
   store i32 %46, ptr %48, align 4, !tbaa !18
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -102,7 +102,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %50, ptr %51, align 4, !tbaa !21
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %.0138175, ptr %52, align 4, !tbaa !22
+  store i32 %.0138176, ptr %52, align 4, !tbaa !22
   %53 = and i32 %50, 127
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %54
@@ -139,7 +139,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
 
 79:                                               ; preds = %44, %79
   %80 = phi i1 [ true, %44 ], [ false, %79 ]
-  %indvars.iv.sroa.phi = phi ptr [ %6, %44 ], [ %indvars.iv.sroa.gep206, %79 ]
+  %indvars.iv.sroa.phi = phi ptr [ %6, %44 ], [ %indvars.iv.sroa.gep207, %79 ]
   %indvars.iv = phi i64 [ 0, %44 ], [ 2, %79 ]
   %81 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
   %.val151 = load float, ptr %81, align 1, !tbaa !26
@@ -172,15 +172,15 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   store <8 x float> %99, ptr %100, align 32, !tbaa !26
   br i1 %80, label %79, label %72, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.critedge.critedge.critedge
+._crit_edge:                                      ; preds = %.loopexit.critedge
   %.pre = load i32, ptr %52, align 4, !tbaa !22
   %101 = icmp sgt i32 %spec.select, %.pre
   br i1 %101, label %142, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge.critedge.critedge
-  %indvars.iv192 = phi i64 [ %78, %.lr.ph.preheader ], [ %indvars.iv.next193, %.critedge.critedge.critedge ]
-  %.1139173 = phi i32 [ %.0138175, %.lr.ph.preheader ], [ %spec.select, %.critedge.critedge.critedge ]
-  %102 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %indvars.iv192
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit.critedge
+  %indvars.iv193 = phi i64 [ %78, %.lr.ph.preheader ], [ %indvars.iv.next194, %.loopexit.critedge ]
+  %.1139174 = phi i32 [ %.0138176, %.lr.ph.preheader ], [ %spec.select, %.loopexit.critedge ]
+  %102 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %indvars.iv193
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = mul nsw i32 %103, 12
   %105 = sext i32 %104 to i64
@@ -197,82 +197,82 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   br label %113
 
 112:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0201)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4203)
   br label %133
 
 113:                                              ; preds = %.lr.ph, %113
   %114 = phi i1 [ true, %.lr.ph ], [ false, %113 ]
-  %indvars.iv183.sroa.phi = phi ptr [ %7, %.lr.ph ], [ %indvars.iv183.sroa.gep203, %113 ]
-  %indvars.iv183.sroa.phi207 = phi ptr [ %6, %.lr.ph ], [ %indvars.iv183.sroa.gep209, %113 ]
-  %.sroa.037.0.copyload = load <8 x float>, ptr %indvars.iv183.sroa.phi207, align 32, !tbaa !26
+  %indvars.iv184.sroa.phi = phi ptr [ %7, %.lr.ph ], [ %indvars.iv184.sroa.gep204, %113 ]
+  %indvars.iv184.sroa.phi208 = phi ptr [ %6, %.lr.ph ], [ %indvars.iv184.sroa.gep210, %113 ]
+  %.sroa.037.0.copyload = load <8 x float>, ptr %indvars.iv184.sroa.phi208, align 32, !tbaa !26
   %115 = fsub <8 x float> %.sroa.037.0.copyload, %107
-  store <8 x float> %115, ptr %indvars.iv183.sroa.phi, align 32, !tbaa !26
-  %116 = getelementptr inbounds nuw i8, ptr %indvars.iv183.sroa.phi207, i64 32
+  store <8 x float> %115, ptr %indvars.iv184.sroa.phi, align 32, !tbaa !26
+  %116 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi208, i64 32
   %.sroa.034.0.copyload = load <8 x float>, ptr %116, align 32, !tbaa !26
   %117 = fsub <8 x float> %.sroa.034.0.copyload, %109
-  %118 = getelementptr inbounds nuw i8, ptr %indvars.iv183.sroa.phi, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi, i64 32
   store <8 x float> %117, ptr %118, align 32, !tbaa !26
-  %119 = getelementptr inbounds nuw i8, ptr %indvars.iv183.sroa.phi207, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi208, i64 64
   %.sroa.031.0.copyload = load <8 x float>, ptr %119, align 32, !tbaa !26
   %120 = fsub <8 x float> %.sroa.031.0.copyload, %111
-  %121 = getelementptr inbounds nuw i8, ptr %indvars.iv183.sroa.phi, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi, i64 64
   store <8 x float> %120, ptr %121, align 32, !tbaa !26
   br i1 %114, label %113, label %112, !llvm.loop !31
 
-.critedge.critedge.critedge:                      ; preds = %133
-  %.sroa.0201.0..sroa.0201.0..sroa.014.0.copyload = load <8 x float>, ptr %.sroa.0201, align 32, !tbaa !26
-  %122 = fcmp olt <8 x float> %.sroa.0201.0..sroa.0201.0..sroa.014.0.copyload, %34
-  %.sroa.4202.0..sroa.4202.32..sroa.014.0.copyload.c = load <8 x float>, ptr %.sroa.4202, align 32, !tbaa !26
-  %123 = fcmp olt <8 x float> %.sroa.4202.0..sroa.4202.32..sroa.014.0.copyload.c, %34
+.loopexit.critedge:                               ; preds = %133
+  %.sroa.0202.0..sroa.0202.0..sroa.014.0.copyload = load <8 x float>, ptr %.sroa.0202, align 32, !tbaa !26
+  %122 = fcmp olt <8 x float> %.sroa.0202.0..sroa.0202.0..sroa.014.0.copyload, %34
+  %.sroa.4203.0..sroa.4203.32..sroa.014.0.copyload.c = load <8 x float>, ptr %.sroa.4203, align 32, !tbaa !26
+  %123 = fcmp olt <8 x float> %.sroa.4203.0..sroa.4203.32..sroa.014.0.copyload.c, %34
   %124 = or <8 x i1> %122, %123
-  %125 = sext i32 %.1139173 to i64
+  %125 = sext i32 %.1139174 to i64
   %126 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %29, i64 %125
   %127 = load i64, ptr %102, align 4
   store i64 %127, ptr %126, align 4
   %128 = bitcast <8 x i1> %124 to i8
   %.not = icmp ne i8 %128, 0
   %129 = zext i1 %.not to i32
-  %spec.select = add nsw i32 %.1139173, %129
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0201)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4202)
+  %spec.select = add nsw i32 %.1139174, %129
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4203)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
+  %indvars.iv.next194 = add nsw i64 %indvars.iv193, 1
   %130 = load i32, ptr %75, align 4, !tbaa !25
   %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next193, %131
+  %132 = icmp slt i64 %indvars.iv.next194, %131
   br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 133:                                              ; preds = %112, %133
   %134 = phi i1 [ true, %112 ], [ false, %133 ]
-  %indvars.iv186.sroa.phi = phi ptr [ %.sroa.0201, %112 ], [ %.sroa.4202, %133 ]
-  %indvars.iv186.sroa.phi204 = phi ptr [ %7, %112 ], [ %indvars.iv186.sroa.gep205, %133 ]
-  %.sroa.022.0.copyload = load <8 x float>, ptr %indvars.iv186.sroa.phi204, align 32, !tbaa !26
-  %135 = getelementptr inbounds nuw i8, ptr %indvars.iv186.sroa.phi204, i64 32
+  %indvars.iv187.sroa.phi = phi ptr [ %.sroa.0202, %112 ], [ %.sroa.4203, %133 ]
+  %indvars.iv187.sroa.phi205 = phi ptr [ %7, %112 ], [ %indvars.iv187.sroa.gep206, %133 ]
+  %.sroa.022.0.copyload = load <8 x float>, ptr %indvars.iv187.sroa.phi205, align 32, !tbaa !26
+  %135 = getelementptr inbounds nuw i8, ptr %indvars.iv187.sroa.phi205, i64 32
   %.sroa.021.0.copyload = load <8 x float>, ptr %135, align 32, !tbaa !26
-  %136 = getelementptr inbounds nuw i8, ptr %indvars.iv186.sroa.phi204, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %indvars.iv187.sroa.phi205, i64 64
   %.sroa.020.0.copyload = load <8 x float>, ptr %136, align 32, !tbaa !26
   %137 = fmul <8 x float> %.sroa.022.0.copyload, %.sroa.022.0.copyload
   %138 = fmul <8 x float> %.sroa.021.0.copyload, %.sroa.021.0.copyload
   %139 = fadd <8 x float> %137, %138
   %140 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
   %141 = fadd <8 x float> %140, %139
-  store <8 x float> %141, ptr %indvars.iv186.sroa.phi, align 32, !tbaa !26
-  br i1 %134, label %133, label %.critedge.critedge.critedge, !llvm.loop !33
+  store <8 x float> %141, ptr %indvars.iv187.sroa.phi, align 32, !tbaa !26
+  br i1 %134, label %133, label %.loopexit.critedge, !llvm.loop !33
 
 142:                                              ; preds = %._crit_edge
   %143 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 %spec.select, ptr %143, align 4, !tbaa !25
-  %144 = add nsw i32 %.0176, 1
+  %144 = add nsw i32 %.0177, 1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %72, %142, %._crit_edge
-  %.1139.lcssa199 = phi i32 [ %spec.select, %142 ], [ %spec.select, %._crit_edge ], [ %.0138175, %72 ]
-  %.1 = phi i32 [ %144, %142 ], [ %.0176, %._crit_edge ], [ %.0176, %72 ]
+  %.1139.lcssa200 = phi i32 [ %spec.select, %142 ], [ %spec.select, %._crit_edge ], [ %.0138176, %72 ]
+  %.1 = phi i32 [ %144, %142 ], [ %.0177, %._crit_edge ], [ %.0177, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge179.loopexit, label %44, !llvm.loop !34
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge180.loopexit, label %44, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress uwtable

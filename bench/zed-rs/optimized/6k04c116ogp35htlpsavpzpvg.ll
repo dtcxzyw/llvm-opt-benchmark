@@ -65690,7 +65690,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$workspace..modal_layer..Acti
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
   unreachable
 
-.body4:                                           ; preds = %31, %28, %.body
+.body4:                                           ; preds = %28, %31, %.body
   %.pn = phi { ptr, i32 } [ %14, %.body ], [ %29, %31 ], [ %29, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$gpui..window..FocusHandle$GT$$GT$17hf1072cced267c75cE.llvm.4688597536446920865"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35) #33
